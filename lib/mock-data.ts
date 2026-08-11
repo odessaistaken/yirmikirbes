@@ -434,25 +434,96 @@ export const PRODUCTS: Product[] = RAW_PRODUCTS.map((p, i) => ({
   ...p,
 }));
 
+/* ─── LocalStorage Persistence Helpers ───────────────────────────────────── */
+export function getStoredProducts(): Product[] {
+  if (typeof window !== "undefined") {
+    try {
+      const stored = localStorage.getItem("ykb_custom_products");
+      if (stored) {
+        const parsed = JSON.parse(stored) as Product[];
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          // Merge with PRODUCTS array
+          parsed.forEach((p) => {
+            const idx = PRODUCTS.findIndex((x) => x.id === p.id);
+            if (idx >= 0) PRODUCTS[idx] = p;
+            else PRODUCTS.unshift(p);
+          });
+          return PRODUCTS;
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }
+  return PRODUCTS;
+}
+
+export function saveProducts(productsList: Product[]) {
+  if (typeof window !== "undefined") {
+    try {
+      localStorage.setItem("ykb_custom_products", JSON.stringify(productsList));
+    } catch {
+      // ignore
+    }
+  }
+}
+
+export function getStoredCategories(): Category[] {
+  if (typeof window !== "undefined") {
+    try {
+      const stored = localStorage.getItem("ykb_custom_categories");
+      if (stored) {
+        const parsed = JSON.parse(stored) as Category[];
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          parsed.forEach((c) => {
+            const idx = CATEGORIES.findIndex((x) => x.id === c.id || x.slug === c.slug);
+            if (idx >= 0) CATEGORIES[idx] = c;
+            else CATEGORIES.push(c);
+          });
+          return CATEGORIES;
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }
+  return CATEGORIES;
+}
+
+export function saveCategories(catList: Category[]) {
+  if (typeof window !== "undefined") {
+    try {
+      localStorage.setItem("ykb_custom_categories", JSON.stringify(catList));
+    } catch {
+      // ignore
+    }
+  }
+}
+
 /* ─── Helper functions ───────────────────────────────────────────────────── */
 export function getProductsByCategory(slug: string): Product[] {
-  return PRODUCTS.filter((p) => p.categorySlug === slug && p.isActive);
+  const prods = getStoredProducts();
+  return prods.filter((p) => p.categorySlug === slug && p.isActive);
 }
 
 export function getFeaturedProducts(): Product[] {
-  return PRODUCTS.filter((p) => p.isFeatured && p.isActive);
+  const prods = getStoredProducts();
+  return prods.filter((p) => p.isFeatured && p.isActive);
 }
 
 export function getCategoryBySlug(slug: string): Category | undefined {
-  return CATEGORIES.find((c) => c.slug === slug);
+  const cats = getStoredCategories();
+  return cats.find((c) => c.slug === slug);
 }
 
 export function getProductById(id: string): Product | undefined {
-  return PRODUCTS.find((p) => p.id === id);
+  const prods = getStoredProducts();
+  return prods.find((p) => p.id === id);
 }
 
 export function getRelatedProducts(product: Product, limit = 4): Product[] {
-  return PRODUCTS.filter(
+  const prods = getStoredProducts();
+  return prods.filter(
     (p) => p.categoryId === product.categoryId && p.id !== product.id && p.isActive
   ).slice(0, limit);
 }
@@ -474,6 +545,7 @@ export function registerCategory(cat: Category) {
       isActive: cat.isActive ?? true,
     });
   }
+  saveCategories(CATEGORIES);
 }
 
 export function registerProduct(product: Product) {
@@ -491,5 +563,14 @@ export function registerProduct(product: Product) {
       isActive: product.isActive ?? true,
     });
   }
+  saveProducts(PRODUCTS);
+}
+
+export function unregisterProduct(id: string) {
+  const idx = PRODUCTS.findIndex((p) => p.id === id);
+  if (idx >= 0) {
+    PRODUCTS.splice(idx, 1);
+  }
+  saveProducts(PRODUCTS);
 }
 

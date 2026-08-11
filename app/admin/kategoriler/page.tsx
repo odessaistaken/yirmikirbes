@@ -14,7 +14,7 @@ import {
   getCategories, addCategory, updateCategory, deleteCategory,
   uploadImage, slugify,
 } from "@/lib/firestore-collections";
-import { CATEGORIES as MOCK_CATEGORIES, registerCategory } from "@/lib/mock-data";
+import { CATEGORIES as MOCK_CATEGORIES, registerCategory, getStoredCategories } from "@/lib/mock-data";
 import type { Category } from "@/lib/types";
 
 export default function AdminKategoriler() {
@@ -62,40 +62,18 @@ export default function AdminKategoriler() {
     description: "",
   });
 
-  /* Load from Firestore on mount (falls back to mock) */
+  /* Load from Firestore on mount (falls back to persistent local storage) */
   useEffect(() => {
     async function load() {
       try {
         const data = await getCategories();
         if (data.length > 0) {
-          setCategories(
-            data.map((cat) => {
-              const mc = MOCK_CATEGORIES.find(m => m.slug === cat.slug || m.name.toLowerCase() === cat.name.toLowerCase());
-              return {
-                ...cat,
-                imageUrl: cat.imageUrl || mc?.imageUrl || "",
-              };
-            })
-          );
+          setCategories(data);
         } else {
-          setCategories(
-            MOCK_CATEGORIES.map((c, i) => ({
-              ...c,
-              imageUrl: c.imageUrl || "",
-              order: i + 1,
-              isActive: true,
-            }))
-          );
+          setCategories(getStoredCategories());
         }
       } catch {
-        setCategories(
-          MOCK_CATEGORIES.map((c, i) => ({
-            ...c,
-            imageUrl: c.imageUrl || "",
-            order: i + 1,
-            isActive: true,
-          }))
-        );
+        setCategories(getStoredCategories());
       } finally {
         setLoading(false);
       }

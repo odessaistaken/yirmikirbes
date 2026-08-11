@@ -15,7 +15,10 @@ import {
   addProduct, updateProduct, deleteProduct, cloneProduct,
   uploadImage,
 } from "@/lib/firestore-collections";
-import { PRODUCTS, CATEGORIES as MOCK_CATEGORIES, registerProduct } from "@/lib/mock-data";
+import {
+  PRODUCTS, CATEGORIES as MOCK_CATEGORIES,
+  registerProduct, unregisterProduct, getStoredProducts, getStoredCategories,
+} from "@/lib/mock-data";
 import type { Product, Category } from "@/lib/types";
 
 export default function AdminUrunler() {
@@ -68,7 +71,7 @@ export default function AdminUrunler() {
   };
   const [form, setForm] = useState(emptyForm);
 
-  /* Load data from Firestore, fallback to mock */
+  /* Load data from Firestore or persistent local storage */
   useEffect(() => {
     async function load() {
       try {
@@ -79,48 +82,16 @@ export default function AdminUrunler() {
         if (firestoreProducts.length > 0) {
           setProducts(firestoreProducts);
         } else {
-          // Fallback: map mock products to new Product shape
-          setProducts(
-            PRODUCTS.map((p, i) => ({
-              ...p,
-              codeGroup: "",
-              price: 0,
-              vatRate: 20,
-              order: i + 1,
-            }))
-          );
+          setProducts(getStoredProducts());
         }
         if (firestoreCategories.length > 0) {
           setCategories(firestoreCategories);
         } else {
-          setCategories(
-            MOCK_CATEGORIES.map((c, i) => ({
-              ...c,
-              imageUrl: "",
-              order: i + 1,
-              isActive: true,
-            }))
-          );
+          setCategories(getStoredCategories());
         }
       } catch {
-        // Fallback to mock
-        setProducts(
-          PRODUCTS.map((p, i) => ({
-            ...p,
-            codeGroup: "",
-            price: 0,
-            vatRate: 20,
-            order: i + 1,
-          }))
-        );
-        setCategories(
-          MOCK_CATEGORIES.map((c, i) => ({
-            ...c,
-            imageUrl: "",
-            order: i + 1,
-            isActive: true,
-          }))
-        );
+        setProducts(getStoredProducts());
+        setCategories(getStoredCategories());
       }
     }
     load();
@@ -236,14 +207,11 @@ export default function AdminUrunler() {
   async function handleDelete(p: Product) {
     try {
       await deleteProduct(p);
-      setProducts((prev) => prev.filter((x) => x.id !== p.id));
-      toast.success("Ürün silindi.");
-    } catch (err) {
-      console.error(err);
-      toast.error("Silinemedi.");
-    } finally {
-      setDeleteTarget(null);
-    }
+    } catch { /* fallback */ }
+    setProducts((prev) => prev.filter((x) => x.id !== p.id));
+    unregisterProduct(p.id);
+    toast.success("Ürün silindi.");
+    setDeleteTarget(null);
   }
 
   return (
