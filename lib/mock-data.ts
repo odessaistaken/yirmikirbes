@@ -434,21 +434,30 @@ export const PRODUCTS: Product[] = RAW_PRODUCTS.map((p, i) => ({
   ...p,
 }));
 
-/* ─── LocalStorage Persistence Helpers ───────────────────────────────────── */
+import { setDbItem, getDbItem } from "@/lib/db-store";
+
+/* ─── Persistent Storage Helpers (IndexedDB + localStorage fallback) ────── */
 export function getStoredProducts(): Product[] {
   if (typeof window !== "undefined") {
     try {
-      const stored = localStorage.getItem("ykb_custom_products");
-      if (stored) {
-        const parsed = JSON.parse(stored) as Product[];
+      getDbItem<Product[]>("ykb_custom_products").then((stored) => {
+        if (stored && Array.isArray(stored) && stored.length > 0) {
+          stored.forEach((p) => {
+            const idx = PRODUCTS.findIndex((x) => x.id === p.id);
+            if (idx >= 0) PRODUCTS[idx] = p;
+            else PRODUCTS.unshift(p);
+          });
+        }
+      });
+      const storedLS = localStorage.getItem("ykb_custom_products");
+      if (storedLS) {
+        const parsed = JSON.parse(storedLS) as Product[];
         if (Array.isArray(parsed) && parsed.length > 0) {
-          // Merge with PRODUCTS array
           parsed.forEach((p) => {
             const idx = PRODUCTS.findIndex((x) => x.id === p.id);
             if (idx >= 0) PRODUCTS[idx] = p;
             else PRODUCTS.unshift(p);
           });
-          return PRODUCTS;
         }
       }
     } catch {
@@ -460,10 +469,11 @@ export function getStoredProducts(): Product[] {
 
 export function saveProducts(productsList: Product[]) {
   if (typeof window !== "undefined") {
+    setDbItem("ykb_custom_products", productsList);
     try {
       localStorage.setItem("ykb_custom_products", JSON.stringify(productsList));
     } catch {
-      // ignore
+      // ignore localStorage quota exceeded
     }
   }
 }
@@ -471,16 +481,24 @@ export function saveProducts(productsList: Product[]) {
 export function getStoredCategories(): Category[] {
   if (typeof window !== "undefined") {
     try {
-      const stored = localStorage.getItem("ykb_custom_categories");
-      if (stored) {
-        const parsed = JSON.parse(stored) as Category[];
+      getDbItem<Category[]>("ykb_custom_categories").then((stored) => {
+        if (stored && Array.isArray(stored) && stored.length > 0) {
+          stored.forEach((c) => {
+            const idx = CATEGORIES.findIndex((x) => x.id === c.id || x.slug === c.slug);
+            if (idx >= 0) CATEGORIES[idx] = c;
+            else CATEGORIES.push(c);
+          });
+        }
+      });
+      const storedLS = localStorage.getItem("ykb_custom_categories");
+      if (storedLS) {
+        const parsed = JSON.parse(storedLS) as Category[];
         if (Array.isArray(parsed) && parsed.length > 0) {
           parsed.forEach((c) => {
             const idx = CATEGORIES.findIndex((x) => x.id === c.id || x.slug === c.slug);
             if (idx >= 0) CATEGORIES[idx] = c;
             else CATEGORIES.push(c);
           });
-          return CATEGORIES;
         }
       }
     } catch {
@@ -492,6 +510,7 @@ export function getStoredCategories(): Category[] {
 
 export function saveCategories(catList: Category[]) {
   if (typeof window !== "undefined") {
+    setDbItem("ykb_custom_categories", catList);
     try {
       localStorage.setItem("ykb_custom_categories", JSON.stringify(catList));
     } catch {

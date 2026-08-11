@@ -19,6 +19,7 @@ import {
   PRODUCTS, CATEGORIES as MOCK_CATEGORIES,
   registerProduct, unregisterProduct, getStoredProducts, getStoredCategories,
 } from "@/lib/mock-data";
+import { getDbItem } from "@/lib/db-store";
 import type { Product, Category } from "@/lib/types";
 
 export default function AdminUrunler() {
@@ -71,7 +72,7 @@ export default function AdminUrunler() {
   };
   const [form, setForm] = useState(emptyForm);
 
-  /* Load data from Firestore or persistent local storage */
+  /* Load data from Firestore or persistent local IndexedDB storage */
   useEffect(() => {
     async function load() {
       try {
@@ -82,16 +83,20 @@ export default function AdminUrunler() {
         if (firestoreProducts.length > 0) {
           setProducts(firestoreProducts);
         } else {
-          setProducts(getStoredProducts());
+          const dbProducts = await getDbItem<Product[]>("ykb_custom_products");
+          setProducts(dbProducts && dbProducts.length > 0 ? dbProducts : getStoredProducts());
         }
         if (firestoreCategories.length > 0) {
           setCategories(firestoreCategories);
         } else {
-          setCategories(getStoredCategories());
+          const dbCats = await getDbItem<Category[]>("ykb_custom_categories");
+          setCategories(dbCats && dbCats.length > 0 ? dbCats : getStoredCategories());
         }
       } catch {
-        setProducts(getStoredProducts());
-        setCategories(getStoredCategories());
+        const dbProducts = await getDbItem<Product[]>("ykb_custom_products");
+        const dbCats = await getDbItem<Category[]>("ykb_custom_categories");
+        setProducts(dbProducts && dbProducts.length > 0 ? dbProducts : getStoredProducts());
+        setCategories(dbCats && dbCats.length > 0 ? dbCats : getStoredCategories());
       }
     }
     load();
