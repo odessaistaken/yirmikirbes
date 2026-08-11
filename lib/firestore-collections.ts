@@ -1,8 +1,3 @@
-/**
- * Firestore CRUD service layer for 20:45 Pastacılık CMS.
- * Provides typed functions for all collections: sliders, categories, products, brands.
- * All functions use lazy Firebase initialization to avoid SSG/build errors.
- */
 import {
   collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc,
   doc, serverTimestamp, query, orderBy, where,
@@ -15,48 +10,9 @@ import {
   deleteObject,
 } from "firebase/storage";
 import { requireDb, requireStorage } from "@/lib/firebase";
-import {
-  registerProduct, unregisterProduct, registerCategory, unregisterCategory,
-  getStoredProducts, getStoredCategories,
-} from "@/lib/mock-data";
 import { getDbItem } from "@/lib/db-store";
 import type { SliderItem, Category, Product, Brand, Inquiry } from "@/lib/types";
 
-async function mergeLocalCategories(list: Category[]): Promise<Category[]> {
-  try {
-    const dbCats = await getDbItem<Category[]>("ykb_custom_categories");
-    const stored = getStoredCategories();
-    const map = new Map<string, Category>();
-
-    list.forEach((c) => map.set(c.id, c));
-    if (dbCats && Array.isArray(dbCats)) {
-      dbCats.forEach((c) => map.set(c.id, c));
-    }
-    stored.forEach((c) => map.set(c.id, c));
-
-    return Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
-  } catch {
-    return list;
-  }
-}
-
-async function mergeLocalProducts(list: Product[]): Promise<Product[]> {
-  try {
-    const dbProds = await getDbItem<Product[]>("ykb_custom_products");
-    const stored = getStoredProducts();
-    const map = new Map<string, Product>();
-
-    list.forEach((p) => map.set(p.id, p));
-    if (dbProds && Array.isArray(dbProds)) {
-      dbProds.forEach((p) => map.set(p.id, p));
-    }
-    stored.forEach((p) => map.set(p.id, p));
-
-    return Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
-  } catch {
-    return list;
-  }
-}
 
 /* ═══════════════════════════════════════════════════════════════════════════
    SLIDERS
@@ -122,9 +78,8 @@ export async function getCategories(): Promise<Category[]> {
       query(collection(requireDb(), "categories"), orderBy("order", "asc"))
     );
     firestoreCats = snap.docs.map((d) => ({ id: d.id, ...d.data() } as Category));
-  } catch { /* fallback */ }
-
-  return mergeLocalCategories(firestoreCats);
+  } catch { /* Firestore unavailable */ }
+  return firestoreCats;
 }
 
 /** Fetch only active categories (for frontend) */
@@ -150,9 +105,6 @@ export async function addCategory(data: Omit<Category, "id">): Promise<string> {
     });
     id = ref.id;
   } catch { /* fallback */ }
-
-  const catObj: Category = { id, ...data } as Category;
-  registerCategory(catObj);
   return id;
 }
 
@@ -164,8 +116,6 @@ export async function updateCategory(id: string, data: Partial<Category>): Promi
       updatedAt: serverTimestamp(),
     });
   } catch { /* fallback */ }
-
-  registerCategory({ id, ...data } as Category);
 }
 
 /** Delete a category and its Storage image */
@@ -178,8 +128,6 @@ export async function deleteCategory(category: Category): Promise<void> {
     }
     await deleteDoc(doc(requireDb(), "categories", category.id));
   } catch { /* fallback */ }
-
-  unregisterCategory(category.id);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -194,9 +142,8 @@ export async function getProducts(): Promise<Product[]> {
       query(collection(requireDb(), "products"), orderBy("order", "asc"))
     );
     firestoreProds = snap.docs.map((d) => ({ id: d.id, ...d.data() } as Product));
-  } catch { /* fallback */ }
-
-  return mergeLocalProducts(firestoreProds);
+  } catch { /* Firestore unavailable */ }
+  return firestoreProds;
 }
 
 /** Fetch active products by category slug */
@@ -241,9 +188,6 @@ export async function addProduct(data: Omit<Product, "id">): Promise<string> {
     });
     id = ref.id;
   } catch { /* fallback */ }
-
-  const prodObj: Product = { id, ...data } as Product;
-  registerProduct(prodObj);
   return id;
 }
 
@@ -255,8 +199,6 @@ export async function updateProduct(id: string, data: Partial<Product>): Promise
       updatedAt: serverTimestamp(),
     });
   } catch { /* fallback */ }
-
-  registerProduct({ id, ...data } as Product);
 }
 
 /** Clone a product (duplicate with "(Kopya)" suffix) */
@@ -280,8 +222,6 @@ export async function deleteProduct(product: Product): Promise<void> {
     }
     await deleteDoc(doc(requireDb(), "products", product.id));
   } catch { /* fallback */ }
-
-  unregisterProduct(product.id);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
