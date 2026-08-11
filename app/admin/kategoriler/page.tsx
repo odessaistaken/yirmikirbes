@@ -162,21 +162,17 @@ export default function AdminKategoriler() {
       if (editTarget) {
         try { await updateCategory(editTarget.id, payload); } catch { /* fallback */ }
         const catObj = { id: editTarget.id, ...payload } as Category;
-        setCategories((prev) => {
-          const updated = prev.map((c) => (c.id === editTarget!.id ? catObj : c));
-          persistCategories(updated);
-          return updated;
-        });
+        const updated = categories.map((c) => (c.id === editTarget.id ? catObj : c));
+        setCategories(updated);
+        await persistCategories(updated);
         toast.success("Kategori güncellendi.");
       } else {
         let id = `cat-${Date.now()}`;
         try { id = await addCategory(payload); } catch { /* fallback */ }
         const catObj = { id, ...payload } as Category;
-        setCategories((prev) => {
-          const updated = [...prev, catObj];
-          persistCategories(updated);
-          return updated;
-        });
+        const updated = [...categories, catObj];
+        setCategories(updated);
+        await persistCategories(updated);
         toast.success("Yeni kategori eklendi.");
       }
       setModalOpen(false);
@@ -192,11 +188,9 @@ export default function AdminKategoriler() {
     const cat = categories.find((c) => c.id === id);
     if (!cat) return;
     try { await deleteCategory(cat); } catch { /* fallback */ }
-    setCategories((prev) => {
-      const updated = prev.filter((c) => c.id !== id);
-      persistCategories(updated);
-      return updated;
-    });
+    const updated = categories.filter((c) => c.id !== id);
+    setCategories(updated);
+    await persistCategories(updated);
     toast.success("Kategori silindi.");
     setDeleteTarget(null);
   }

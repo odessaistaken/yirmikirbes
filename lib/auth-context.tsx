@@ -2,10 +2,7 @@
 
 /**
  * Authentication Context for 20:45 Pastacılık.
- * Provides: currentUser, userProfile (Firestore doc), userRole, loading state,
- * and helper functions: loginUser, registerUser, logoutUser.
- *
- * Uses lazy Firebase initialization to avoid SSG/build errors.
+ * Session is fully persisted in localStorage so F5 never logs the user out.
  */
 import {
   createContext,
@@ -14,9 +11,9 @@ import {
   useState,
   ReactNode,
 } from "react";
-import type {
-  User,
-} from "firebase/auth";
+import type { User } from "firebase/auth";
+
+const SESSION_KEY = "ykb_user_profile";
 
 /* ─── Types ──────────────────────────────────────────────────────────────── */
 export interface UserProfile {
@@ -45,172 +42,176 @@ interface AuthContextValue {
   logoutUser: () => Promise<void>;
 }
 
+/* ─── Helpers ────────────────────────────────────────────────────────────── */
+function isAdmin(email?: string | null): boolean {
+  return !!(
+    email?.toLowerCase().includes("ykbgida") ||
+    email?.toLowerCase().includes("admin")
+  );
+}
+
+function loadSession(): UserProfile | null {
+  try {
+    const raw = localStorage.getItem(SESSION_KEY);
+    if (!raw) return null;
+    const p = JSON.parse(raw) as UserProfile;
+    if (isAdmin(p.email)) p.role = "admin";
+    return p;
+  } catch {
+    return null;
+  }
+}
+
+function saveSession(p: UserProfile | null) {
+  try {
+    if (p) {
+      localStorage.setItem(SESSION_KEY, JSON.stringify(p));
+    } else {
+      localStorage.removeItem(SESSION_KEY);
+    }
+  } catch { /* ignore */ }
+}
+
+function fakeUser(p: UserProfile): User {
+  return { uid: p.uid, email: p.email, displayName: p.name } as unknown as User;
+}
+
 /* ─── Context ────────────────────────────────────────────────────────────── */
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
 /* ─── Provider ───────────────────────────────────────────────────────────── */
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
-  const [loading, setLoading] = useState(true);
+  // Initialise directly from localStorage so there is NEVER a "logged out" flash
+  const [currentUser, setCurrentUser] = useState<User | null>(() => {
+    if (typeof window === "undefined") return null;
+    const p = loadSession();
+    return p ? fakeUser(p) : null;
+  });
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(() => {
+    if (typeof window === "undefined") return null;
+    return loadSession();
+  });
+  // Start as NOT loading if we already have a session
+  const [loading, setLoading] = useState(() => {
+    if (typeof window === "undefined") return true;
+    return loadSession() === null; // false if session exists
+  });
 
-  /* Helper to update profile + sync to localStorage */
-  function updateProfileState(profile: UserProfile | null, userObj?: User | null) {
-    setUserProfile(profile);
-    if (userObj !== undefined) {
-      setCurrentUser(userObj);
-    }
-    if (profile) {
-      try {
-        localStorage.setItem("ykb_user_profile", JSON.stringify(profile));
-      } catch {
-        // ignore
-      }
-    } else {
-      try {
-        localStorage.removeItem("ykb_user_profile");
-      } catch {
-        // ignore
-      }
-    }
+  function setProfile(p: UserProfile | null, user?: User | null) {
+    if (p && isAdmin(p.email)) p.role = "admin";
+    setUserProfile(p);
+    setCurrentUser(user !== undefined ? user : (p ? fakeUser(p) : null));
+    saveSession(p);
   }
 
-  /* Restore cached user from localStorage immediately on mount */
+  /* Single auth effect — Firebase sync, never wipes local session */
   useEffect(() => {
-    try {
-      const cached = localStorage.getItem("ykb_user_profile");
-      if (cached) {
-        const parsed = JSON.parse(cached) as UserProfile;
-        // Auto grant admin role if email/name contains admin or ykbgida
-        if (parsed.email?.toLowerCase().includes("ykbgida") || parsed.email?.toLowerCase().includes("admin")) {
-          parsed.role = "admin";
-        }
-        setUserProfile(parsed);
-        setCurrentUser({ uid: parsed.uid, email: parsed.email, displayName: parsed.name } as unknown as User);
-        setLoading(false);
-      }
-    } catch {
-      // ignore
-    }
-  }, []);
+    let unsub: (() => void) | undefined;
 
-  /* Fetch Firestore user profile */
-  async function fetchUserProfile(user: User) {
-    try {
-      const { getFirebaseDb } = await import("@/lib/firebase");
-      const firestoreDb = getFirebaseDb();
-      if (!firestoreDb) return;
-      const { doc, getDoc } = await import("firebase/firestore");
-      const docRef = doc(firestoreDb, "users", user.uid);
-      const snap = await getDoc(docRef);
-      if (snap.exists()) {
-        const data = snap.data() as UserProfile;
-        if (data.email?.toLowerCase().includes("ykbgida") || data.email?.toLowerCase().includes("admin")) {
-          data.role = "admin";
-        }
-        updateProfileState(data, user);
-      } else {
-        // Fallback profile if Firestore doc doesn't exist yet
-        const fallback: UserProfile = {
-          uid: user.uid,
-          name: user.displayName || user.email?.split("@")[0] || "Kullanıcı",
-          company: "20:45 Pastacılık Müşterisi",
-          email: user.email || "",
-          role: (user.email?.toLowerCase().includes("ykbgida") || user.email?.toLowerCase().includes("admin")) ? "admin" : "user",
-          createdAt: new Date(),
-        };
-        updateProfileState(fallback, user);
-      }
-    } catch (err) {
-      console.error("Error fetching user profile:", err);
-      if (user) {
-        const fallback: UserProfile = {
-          uid: user.uid,
-          name: user.displayName || user.email?.split("@")[0] || "Kullanıcı",
-          company: "20:45 Pastacılık Müşterisi",
-          email: user.email || "",
-          role: (user.email?.toLowerCase().includes("ykbgida") || user.email?.toLowerCase().includes("admin")) ? "admin" : "user",
-          createdAt: new Date(),
-        };
-        updateProfileState(fallback, user);
-      }
-    }
-  }
-
-  /* Auth state listener — syncs with Firebase Auth safely without losing session */
-  useEffect(() => {
-    let unsubscribe: (() => void) | undefined;
-
-    async function setupAuth() {
-      // 1. Immediately restore session from localStorage if present
+    async function init() {
       try {
-        const cached = localStorage.getItem("ykb_user_profile");
-        if (cached) {
-          const parsed = JSON.parse(cached) as UserProfile;
-          if (parsed.email?.toLowerCase().includes("ykbgida") || parsed.email?.toLowerCase().includes("admin")) {
-            parsed.role = "admin";
-          }
-          setUserProfile(parsed);
-          setCurrentUser({ uid: parsed.uid, email: parsed.email, displayName: parsed.name } as unknown as User);
-        }
-      } catch {
-        // ignore
-      }
+        const { getFirebaseAuth } = await import("@/lib/firebase");
+        const auth = getFirebaseAuth();
+        if (!auth) { setLoading(false); return; }
 
-      // 2. Sync with Firebase Auth if available
-      const { getFirebaseAuth } = await import("@/lib/firebase");
-      const firebaseAuth = getFirebaseAuth();
-      if (!firebaseAuth) {
-        setLoading(false);
-        return;
-      }
-      const { onAuthStateChanged } = await import("firebase/auth");
-      unsubscribe = onAuthStateChanged(firebaseAuth, async (user) => {
-        if (user) {
-          setCurrentUser(user);
-          await fetchUserProfile(user);
-        } else {
-          // Do not wipe user if a valid session exists in localStorage
-          const cached = localStorage.getItem("ykb_user_profile");
-          if (!cached) {
-            setCurrentUser(null);
-            setUserProfile(null);
+        const { onAuthStateChanged } = await import("firebase/auth");
+        unsub = onAuthStateChanged(auth, async (firebaseUser) => {
+          if (firebaseUser) {
+            // Signed in via Firebase — fetch Firestore profile
+            try {
+              const { getFirebaseDb } = await import("@/lib/firebase");
+              const db = getFirebaseDb();
+              if (db) {
+                const { doc, getDoc } = await import("firebase/firestore");
+                const snap = await getDoc(doc(db, "users", firebaseUser.uid));
+                if (snap.exists()) {
+                  const p = snap.data() as UserProfile;
+                  if (isAdmin(p.email)) p.role = "admin";
+                  setProfile(p, firebaseUser);
+                  setLoading(false);
+                  return;
+                }
+              }
+            } catch { /* Firestore unavailable */ }
+
+            // Fallback: build profile from Firebase Auth data
+            const p: UserProfile = {
+              uid: firebaseUser.uid,
+              name: firebaseUser.displayName || firebaseUser.email?.split("@")[0] || "Kullanıcı",
+              company: "20:45 Pastacılık Müşterisi",
+              email: firebaseUser.email || "",
+              role: isAdmin(firebaseUser.email) ? "admin" : "user",
+              createdAt: new Date(),
+            };
+            setProfile(p, firebaseUser);
+          } else {
+            // Firebase says not logged in — only clear if localStorage is also empty
+            const stored = loadSession();
+            if (!stored) {
+              setCurrentUser(null);
+              setUserProfile(null);
+            }
+            // If localStorage has a session, keep it (offline / Firebase unavailable)
           }
-        }
+          setLoading(false);
+        });
+      } catch {
         setLoading(false);
-      });
+      }
     }
 
-    setupAuth();
-    return () => { if (unsubscribe) unsubscribe(); };
+    init();
+    return () => { unsub?.(); };
   }, []);
 
-  /* Login */
+  /* ── Login ──────────────────────────────────────────────────────────────── */
   async function loginUser(email: string, password: string) {
     try {
       const { getFirebaseAuth } = await import("@/lib/firebase");
-      const firebaseAuth = getFirebaseAuth();
-      if (!firebaseAuth) throw new Error("Firebase not configured");
+      const auth = getFirebaseAuth();
+      if (!auth) throw new Error("Firebase not configured");
       const { signInWithEmailAndPassword } = await import("firebase/auth");
-      const cred = await signInWithEmailAndPassword(firebaseAuth, email, password);
-      await fetchUserProfile(cred.user);
-    } catch (err: unknown) {
-      // Fallback session if Firebase auth fails (e.g. offline/demo)
-      const role: "admin" | "user" = (email.toLowerCase().includes("ykbgida") || email.toLowerCase().includes("admin")) ? "admin" : "user";
-      const fallback: UserProfile = {
+      const { user } = await signInWithEmailAndPassword(auth, email, password);
+
+      // Try to fetch Firestore profile
+      try {
+        const { getFirebaseDb } = await import("@/lib/firebase");
+        const db = getFirebaseDb();
+        if (db) {
+          const { doc, getDoc } = await import("firebase/firestore");
+          const snap = await getDoc(doc(db, "users", user.uid));
+          if (snap.exists()) {
+            const p = snap.data() as UserProfile;
+            setProfile(p, user);
+            return;
+          }
+        }
+      } catch { /* ignore */ }
+
+      const p: UserProfile = {
+        uid: user.uid,
+        name: user.displayName || email.split("@")[0] || "Kullanıcı",
+        company: "20:45 Pastacılık Müşterisi",
+        email,
+        role: isAdmin(email) ? "admin" : "user",
+        createdAt: new Date(),
+      };
+      setProfile(p, user);
+    } catch {
+      // Offline / demo fallback
+      const p: UserProfile = {
         uid: "user-" + Date.now(),
         name: email.split("@")[0] || "Kullanıcı",
         company: "20:45 Pastacılık Müşterisi",
         email,
-        role,
+        role: isAdmin(email) ? "admin" : "user",
         createdAt: new Date(),
       };
-      const mockUser = { uid: fallback.uid, email, displayName: fallback.name } as unknown as User;
-      updateProfileState(fallback, mockUser);
+      setProfile(p, fakeUser(p));
     }
   }
 
-  /* Register */
+  /* ── Register ───────────────────────────────────────────────────────────── */
   async function registerUser(
     name: string,
     company: string,
@@ -218,69 +219,53 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     phone: string,
     password: string
   ) {
-    const role: "admin" | "user" = (email.toLowerCase().includes("ykbgida") || email.toLowerCase().includes("admin")) ? "admin" : "user";
+    const role: "admin" | "user" = isAdmin(email) ? "admin" : "user";
     try {
       const { getFirebaseAuth, getFirebaseDb } = await import("@/lib/firebase");
-      const firebaseAuth = getFirebaseAuth();
-      const firestoreDb = getFirebaseDb();
-      if (!firebaseAuth || !firestoreDb) throw new Error("Firebase not configured");
+      const auth = getFirebaseAuth();
+      const db = getFirebaseDb();
+      if (!auth || !db) throw new Error("Firebase not configured");
 
       const { createUserWithEmailAndPassword, updateProfile } = await import("firebase/auth");
       const { doc, setDoc } = await import("firebase/firestore");
 
-      const cred = await createUserWithEmailAndPassword(firebaseAuth, email, password);
-      await updateProfile(cred.user, { displayName: name });
+      const { user } = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(user, { displayName: name });
 
-      const profile: UserProfile = {
-        uid: cred.user.uid,
-        name,
-        company,
-        email,
-        phone,
-        role,
-        createdAt: new Date(),
-      };
-      await setDoc(doc(firestoreDb, "users", cred.user.uid), profile);
-      updateProfileState(profile, cred.user);
-    } catch (err) {
-      console.error("Register Error:", err);
-      const fallback: UserProfile = {
+      const p: UserProfile = { uid: user.uid, name, company, email, phone, role, createdAt: new Date() };
+      await setDoc(doc(db, "users", user.uid), p);
+      setProfile(p, user);
+    } catch {
+      const p: UserProfile = {
         uid: "user-" + Date.now(),
-        name,
-        company,
-        email,
-        phone,
-        role,
-        createdAt: new Date(),
+        name, company, email, phone, role, createdAt: new Date(),
       };
-      const mockUser = { uid: fallback.uid, email, displayName: name } as unknown as User;
-      updateProfileState(fallback, mockUser);
+      setProfile(p, fakeUser(p));
     }
   }
 
-  /* Logout */
+  /* ── Logout ─────────────────────────────────────────────────────────────── */
   async function logoutUser() {
     try {
       const { getFirebaseAuth } = await import("@/lib/firebase");
-      const firebaseAuth = getFirebaseAuth();
-      if (firebaseAuth) {
+      const auth = getFirebaseAuth();
+      if (auth) {
         const { signOut } = await import("firebase/auth");
-        await signOut(firebaseAuth);
+        await signOut(auth);
       }
-    } catch {
-      // ignore
-    }
-    updateProfileState(null, null);
+    } catch { /* ignore */ }
+    setProfile(null, null);
   }
 
-  const role = (userProfile?.role === "admin" || userProfile?.email?.toLowerCase().includes("ykbgida") || userProfile?.email?.toLowerCase().includes("admin"))
-    ? "admin"
-    : (userProfile?.role ?? "user");
+  const resolvedRole: "admin" | "user" =
+    userProfile?.role === "admin" || isAdmin(userProfile?.email)
+      ? "admin"
+      : "user";
 
   const value: AuthContextValue = {
     currentUser,
     userProfile,
-    userRole: role,
+    userRole: userProfile ? resolvedRole : null,
     loading,
     loginUser,
     registerUser,

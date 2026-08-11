@@ -192,17 +192,10 @@ export default function AdminUrunler() {
   async function handleClone(p: Product) {
     try {
       const newId = await cloneProduct(p);
-      const cloned: Product = {
-        ...p,
-        id: newId,
-        name: `${p.name} (Kopya)`,
-        code: `${p.code}-COPY`,
-      };
-      setProducts((prev) => {
-        const updated = [...prev, cloned];
-        persistProducts(updated);
-        return updated;
-      });
+      const cloned: Product = { ...p, id: newId, name: `${p.name} (Kopya)`, code: `${p.code}-COPY` };
+      const updated = [...products, cloned];
+      setProducts(updated);
+      await persistProducts(updated);
       toast.success(`"${p.name}" klonlandı.`);
     } catch (err) {
       console.error(err);
@@ -240,21 +233,17 @@ export default function AdminUrunler() {
       if (editTarget) {
         try { await updateProduct(editTarget.id, payload); } catch { /* fallback */ }
         const prodObj = { id: editTarget.id, ...payload } as Product;
-        setProducts((prev) => {
-          const updated = prev.map((p) => (p.id === editTarget!.id ? prodObj : p));
-          persistProducts(updated);
-          return updated;
-        });
+        const updated = products.map((p) => (p.id === editTarget.id ? prodObj : p));
+        setProducts(updated);
+        await persistProducts(updated);
         toast.success("Ürün güncellendi.");
       } else {
         let id = `prod-${Date.now()}`;
         try { id = await addProduct(payload); } catch { /* fallback */ }
         const prodObj = { id, ...payload } as Product;
-        setProducts((prev) => {
-          const updated = [...prev, prodObj];
-          persistProducts(updated);
-          return updated;
-        });
+        const updated = [...products, prodObj];
+        setProducts(updated);
+        await persistProducts(updated);
         toast.success("Yeni ürün eklendi.");
       }
       setModalOpen(false);
@@ -268,11 +257,9 @@ export default function AdminUrunler() {
 
   async function handleDelete(p: Product) {
     try { await deleteProduct(p); } catch { /* fallback */ }
-    setProducts((prev) => {
-      const updated = prev.filter((x) => x.id !== p.id);
-      persistProducts(updated);
-      return updated;
-    });
+    const updated = products.filter((x) => x.id !== p.id);
+    setProducts(updated);
+    await persistProducts(updated);
     toast.success("Ürün silindi.");
     setDeleteTarget(null);
   }
