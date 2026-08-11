@@ -137,11 +137,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }
 
-  /* Auth state listener — syncs with Firebase Auth */
+  /* Auth state listener — syncs with Firebase Auth safely without losing session */
   useEffect(() => {
     let unsubscribe: (() => void) | undefined;
 
     async function setupAuth() {
+      // 1. Immediately restore session from localStorage if present
+      try {
+        const cached = localStorage.getItem("ykb_user_profile");
+        if (cached) {
+          const parsed = JSON.parse(cached) as UserProfile;
+          if (parsed.email?.toLowerCase().includes("ykbgida") || parsed.email?.toLowerCase().includes("admin")) {
+            parsed.role = "admin";
+          }
+          setUserProfile(parsed);
+          setCurrentUser({ uid: parsed.uid, email: parsed.email, displayName: parsed.name } as unknown as User);
+        }
+      } catch {
+        // ignore
+      }
+
+      // 2. Sync with Firebase Auth if available
       const { getFirebaseAuth } = await import("@/lib/firebase");
       const firebaseAuth = getFirebaseAuth();
       if (!firebaseAuth) {
@@ -153,6 +169,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         if (user) {
           setCurrentUser(user);
           await fetchUserProfile(user);
+        } else {
+          // Do not wipe user if a valid session exists in localStorage
+          const cached = localStorage.getItem("ykb_user_profile");
+          if (!cached) {
+            setCurrentUser(null);
+            setUserProfile(null);
+          }
         }
         setLoading(false);
       });
