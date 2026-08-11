@@ -79,7 +79,20 @@ export async function getCategories(): Promise<Category[]> {
     );
     firestoreCats = snap.docs.map((d) => ({ id: d.id, ...d.data() } as Category));
   } catch { /* Firestore unavailable */ }
-  return firestoreCats;
+
+  let localCats: Category[] = [];
+  try {
+    const cached = await getDbItem<Category[]>("ykb_custom_categories");
+    if (cached && Array.isArray(cached) && cached.length > 0) {
+      localCats = cached;
+    }
+  } catch { /* ignore */ }
+
+  const map = new Map<string, Category>();
+  firestoreCats.forEach((c) => map.set(c.id, c));
+  localCats.forEach((c) => map.set(c.id, c)); // local edits take priority
+
+  return Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 }
 
 /** Fetch only active categories (for frontend) */
@@ -143,7 +156,20 @@ export async function getProducts(): Promise<Product[]> {
     );
     firestoreProds = snap.docs.map((d) => ({ id: d.id, ...d.data() } as Product));
   } catch { /* Firestore unavailable */ }
-  return firestoreProds;
+
+  let localProds: Product[] = [];
+  try {
+    const cached = await getDbItem<Product[]>("ykb_custom_products");
+    if (cached && Array.isArray(cached) && cached.length > 0) {
+      localProds = cached;
+    }
+  } catch { /* ignore */ }
+
+  const map = new Map<string, Product>();
+  firestoreProds.forEach((p) => map.set(p.id, p));
+  localProds.forEach((p) => map.set(p.id, p)); // local additions/edits take priority
+
+  return Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 }
 
 /** Fetch active products by category slug */

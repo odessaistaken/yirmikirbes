@@ -12,7 +12,7 @@ import {
 import toast from "react-hot-toast";
 import {
   getCategories, addCategory, updateCategory, deleteCategory,
-  uploadImage, slugify,
+  uploadImage, compressImage, slugify,
 } from "@/lib/firestore-collections";
 import { getDbItem, setDbItem } from "@/lib/db-store";
 import { CATEGORIES as MOCK_CATEGORIES } from "@/lib/mock-data";
@@ -65,17 +65,21 @@ export default function AdminKategoriler() {
     try {
       const { url, path } = await uploadImage(file, "categories", setUploadProgress);
       setFormData((prev) => ({ ...prev, imageUrl: url, imageStoragePath: path }));
-      toast.success("Görsel yüklendi!");
+      toast.success("Kategori görseli yüklendi!");
     } catch {
-      // Fallback for local preview if Storage is offline
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (typeof reader.result === "string") {
-          setFormData((prev) => ({ ...prev, imageUrl: reader.result as string }));
-          toast.success("Görsel yüklendi!");
-        }
-      };
-      reader.readAsDataURL(file);
+      try {
+        const compressed = await compressImage(file, 800, 0.75);
+        const reader = new FileReader();
+        reader.onload = () => {
+          if (typeof reader.result === "string") {
+            setFormData((prev) => ({ ...prev, imageUrl: reader.result as string }));
+            toast.success("Görsel yüklendi!");
+          }
+        };
+        reader.readAsDataURL(compressed);
+      } catch {
+        toast.error("Görsel okunamadı.");
+      }
     } finally {
       setUploadProgress(null);
     }

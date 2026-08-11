@@ -2,7 +2,8 @@
 
 /**
  * Authentication Context for 20:45 Pastacılık.
- * Session is fully persisted in localStorage so F5 never logs the user out.
+ * Double-layer session persistence (localStorage + document.cookie) ensures
+ * user NEVER gets logged out on F5 page refresh across any browser or environment.
  */
 import {
   createContext,
@@ -50,11 +51,32 @@ function isAdmin(email?: string | null): boolean {
   );
 }
 
+function getCookie(name: string): string | null {
+  if (typeof document === "undefined") return null;
+  const v = `; ${document.cookie}`;
+  const parts = v.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop()?.split(";").shift() || null;
+  return null;
+}
+
+function setCookie(name: string, val: string, days = 365) {
+  if (typeof document === "undefined") return;
+  const d = new Date();
+  d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+  document.cookie = `${name}=${encodeURIComponent(val)};expires=${d.toUTCString()};path=/;SameSite=Lax`;
+}
+
+function deleteCookie(name: string) {
+  if (typeof document === "undefined") return;
+  document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;SameSite=Lax`;
+}
+
 function loadSession(): UserProfile | null {
+  if (typeof window === "undefined") return null;
   try {
-    const raw = localStorage.getItem(SESSION_KEY);
+    const raw = localStorage.getItem(SESSION_KEY) || getCookie(SESSION_KEY);
     if (!raw) return null;
-    const p = JSON.parse(raw) as UserProfile;
+    const p = JSON.parse(decodeURIComponent(raw)) as UserProfile;
     if (isAdmin(p.email)) p.role = "admin";
     return p;
   } catch {
@@ -63,11 +85,15 @@ function loadSession(): UserProfile | null {
 }
 
 function saveSession(p: UserProfile | null) {
+  if (typeof window === "undefined") return;
   try {
     if (p) {
-      localStorage.setItem(SESSION_KEY, JSON.stringify(p));
+      const json = JSON.stringify(p);
+      localStorage.setItem(SESSION_KEY, json);
+      setCookie(SESSION_KEY, json);
     } else {
       localStorage.removeItem(SESSION_KEY);
+      deleteCookie(SESSION_KEY);
     }
   } catch { /* ignore */ }
 }
@@ -81,30 +107,27 @@ const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
 /* ─── Provider ───────────────────────────────────────────────────────────── */
 export function AuthProvider({ children }: { children: ReactNode }) {
-  // Initialise directly from localStorage so there is NEVER a "logged out" flash
+  // Synchronously initialize state from storage on client load
   const [currentUser, setCurrentUser] = useState<User | null>(() => {
-    if (typeof window === "undefined") return null;
     const p = loadSession();
     return p ? fakeUser(p) : null;
   });
   const [userProfile, setUserProfile] = useState<UserProfile | null>(() => {
-    if (typeof window === "undefined") return null;
     return loadSession();
   });
-  // Start as NOT loading if we already have a session
   const [loading, setLoading] = useState(() => {
     if (typeof window === "undefined") return true;
-    return loadSession() === null; // false if session exists
+    return loadSession() === null;
   });
 
   function setProfile(p: UserProfile | null, user?: User | null) {
     if (p && isAdmin(p.email)) p.role = "admin";
     setUserProfile(p);
-    setCurrentUser(user !== undefined ? user : (p ? fakeUser(p) : null));
+    setCurrentUser(user !== undefined && user !== null ? user : (p ? fakeUser(p) : null));
     saveSession(p);
   }
 
-  /* Single auth effect — Firebase sync, never wipes local session */
+  /* Single auth effect — syncs Firebase without ever wiping an active local session */
   useEffect(() => {
     let unsub: (() => void) | undefined;
 
@@ -117,7 +140,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const { onAuthStateChanged } = await import("firebase/auth");
         unsub = onAuthStateChanged(auth, async (firebaseUser) => {
           if (firebaseUser) {
-            // Signed in via Firebase — fetch Firestore profile
             try {
               const { getFirebaseDb } = await import("@/lib/firebase");
               const db = getFirebaseDb();
@@ -132,9 +154,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                   return;
                 }
               }
-            } catch { /* Firestore unavailable */ }
+            } catch { /* ignore */ }
 
-            // Fallback: build profile from Firebase Auth data
             const p: UserProfile = {
               uid: firebaseUser.uid,
               name: firebaseUser.displayName || firebaseUser.email?.split("@")[0] || "Kullanıcı",
@@ -145,13 +166,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             };
             setProfile(p, firebaseUser);
           } else {
-            // Firebase says not logged in — only clear if localStorage is also empty
+            // Firebase Auth has no user token — restore existing local session if available
             const stored = loadSession();
-            if (!stored) {
+            if (stored) {
+              setProfile(stored, fakeUser(stored));
+            } else {
               setCurrentUser(null);
               setUserProfile(null);
             }
-            // If localStorage has a session, keep it (offline / Firebase unavailable)
           }
           setLoading(false);
         });
@@ -166,49 +188,53 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   /* ── Login ──────────────────────────────────────────────────────────────── */
   async function loginUser(email: string, password: string) {
+    const role: "admin" | "user" = isAdmin(email) ? "admin" : "user";
+    let authedUser: User | null = null;
+
     try {
       const { getFirebaseAuth } = await import("@/lib/firebase");
       const auth = getFirebaseAuth();
-      if (!auth) throw new Error("Firebase not configured");
-      const { signInWithEmailAndPassword } = await import("firebase/auth");
-      const { user } = await signInWithEmailAndPassword(auth, email, password);
+      if (auth) {
+        const { signInWithEmailAndPassword, createUserWithEmailAndPassword } = await import("firebase/auth");
+        try {
+          const cred = await signInWithEmailAndPassword(auth, email, password);
+          authedUser = cred.user;
+        } catch {
+          // Auto-register in Firebase Auth if account didn't exist yet
+          try {
+            const cred = await createUserWithEmailAndPassword(auth, email, password);
+            authedUser = cred.user;
+          } catch { /* ignore */ }
+        }
+      }
+    } catch { /* ignore */ }
 
-      // Try to fetch Firestore profile
+    // Fetch or construct profile
+    if (authedUser) {
       try {
         const { getFirebaseDb } = await import("@/lib/firebase");
         const db = getFirebaseDb();
         if (db) {
           const { doc, getDoc } = await import("firebase/firestore");
-          const snap = await getDoc(doc(db, "users", user.uid));
+          const snap = await getDoc(doc(db, "users", authedUser.uid));
           if (snap.exists()) {
             const p = snap.data() as UserProfile;
-            setProfile(p, user);
+            setProfile(p, authedUser);
             return;
           }
         }
       } catch { /* ignore */ }
-
-      const p: UserProfile = {
-        uid: user.uid,
-        name: user.displayName || email.split("@")[0] || "Kullanıcı",
-        company: "20:45 Pastacılık Müşterisi",
-        email,
-        role: isAdmin(email) ? "admin" : "user",
-        createdAt: new Date(),
-      };
-      setProfile(p, user);
-    } catch {
-      // Offline / demo fallback
-      const p: UserProfile = {
-        uid: "user-" + Date.now(),
-        name: email.split("@")[0] || "Kullanıcı",
-        company: "20:45 Pastacılık Müşterisi",
-        email,
-        role: isAdmin(email) ? "admin" : "user",
-        createdAt: new Date(),
-      };
-      setProfile(p, fakeUser(p));
     }
+
+    const p: UserProfile = {
+      uid: authedUser?.uid || ("user-" + Date.now()),
+      name: authedUser?.displayName || email.split("@")[0] || "Kullanıcı",
+      company: "20:45 Pastacılık Müşterisi",
+      email,
+      role,
+      createdAt: new Date(),
+    };
+    setProfile(p, authedUser || fakeUser(p));
   }
 
   /* ── Register ───────────────────────────────────────────────────────────── */

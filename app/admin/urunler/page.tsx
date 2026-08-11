@@ -13,7 +13,7 @@ import toast from "react-hot-toast";
 import {
   getProducts, getCategories as fetchCategories,
   addProduct, updateProduct, deleteProduct, cloneProduct,
-  uploadImage,
+  uploadImage, compressImage,
 } from "@/lib/firestore-collections";
 import { getDbItem, setDbItem } from "@/lib/db-store";
 import { PRODUCTS as MOCK_PRODUCTS, CATEGORIES as MOCK_CATEGORIES } from "@/lib/mock-data";
@@ -87,14 +87,19 @@ export default function AdminUrunler() {
       setForm((prev) => ({ ...prev, imageUrl: url, imageStoragePath: path }));
       toast.success("Ürün görseli yüklendi!");
     } catch {
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (typeof reader.result === "string") {
-          setForm((prev) => ({ ...prev, imageUrl: reader.result as string }));
-          toast.success("Görsel yüklendi!");
-        }
-      };
-      reader.readAsDataURL(file);
+      try {
+        const compressed = await compressImage(file, 800, 0.75);
+        const reader = new FileReader();
+        reader.onload = () => {
+          if (typeof reader.result === "string") {
+            setForm((prev) => ({ ...prev, imageUrl: reader.result as string }));
+            toast.success("Görsel yüklendi!");
+          }
+        };
+        reader.readAsDataURL(compressed);
+      } catch {
+        toast.error("Görsel okunamadı.");
+      }
     } finally {
       setUploadProgress(null);
     }
