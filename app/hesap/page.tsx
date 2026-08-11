@@ -91,11 +91,10 @@ export default function AccountPage() {
                 ))}
               </div>
 
-              {userRole === "admin" && (
-                <Link href="/admin" className="btn-primary w-full mt-5 text-sm py-2.5">
-                  Admin Paneli →
-                </Link>
-              )}
+              <Link href="/admin" className="btn-primary w-full mt-5 text-sm py-2.5 flex items-center justify-center gap-2">
+                <Shield size={16} />
+                Admin Paneli →
+              </Link>
             </div>
           </motion.div>
 

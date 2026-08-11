@@ -18,6 +18,8 @@ export interface SliderItem {
   imageAlt: string;
   /** Firebase Storage path for deletion */
   imageStoragePath?: string;
+  /** Subtitle / description text for slide */
+  description?: string;
   /** Whether this slide is visible on the frontend */
   isActive: boolean;
 }

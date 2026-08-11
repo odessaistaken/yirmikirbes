@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView, AnimatePresence, type Variants } from "framer-motion";
 import {
   ArrowRight,
   Truck,
@@ -242,7 +242,7 @@ export default function HomePage() {
   const hasSliders = sliders.length > 0;
 
   /* Sinematik Ken Burns & Soft Crossfade Animasyonu */
-  const slideVariants = {
+  const slideVariants: Variants = {
     initial: {
       opacity: 0,
       scale: 1.08,
@@ -253,8 +253,8 @@ export default function HomePage() {
       scale: 1,
       filter: "blur(0px)",
       transition: {
-        opacity: { duration: 0.8, ease: [0.25, 1, 0.5, 1] },
-        scale: { duration: 1.2, ease: [0.25, 1, 0.5, 1] },
+        opacity: { duration: 0.8, ease: "easeInOut" },
+        scale: { duration: 1.2, ease: "easeInOut" },
         filter: { duration: 0.5 },
       },
     },
@@ -263,7 +263,7 @@ export default function HomePage() {
       scale: 1.02,
       filter: "blur(2px)",
       transition: {
-        opacity: { duration: 0.6, ease: [0.25, 1, 0.5, 1] },
+        opacity: { duration: 0.6, ease: "easeInOut" },
         filter: { duration: 0.4 },
       },
     },
