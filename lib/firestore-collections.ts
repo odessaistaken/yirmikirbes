@@ -277,17 +277,77 @@ export async function deleteBrand(brand: Brand): Promise<void> {
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /**
- * Upload an image to Firebase Storage.
- * @param file — File to upload
+ * Compress and resize image before upload.
+ * Automatically reduces 10MB raw camera photos to lightweight ~80-120KB web-optimized JPEG images.
+ */
+export async function compressImage(file: File, maxWidth = 1200, quality = 0.82): Promise<File> {
+  return new Promise((resolve) => {
+    if (!file.type.startsWith("image/") || file.type.includes("svg")) {
+      resolve(file);
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        let width = img.width;
+        let height = img.height;
+
+        if (width > maxWidth) {
+          height = Math.round((height * maxWidth) / width);
+          width = maxWidth;
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx = canvas.getContext("2d");
+        if (!ctx) {
+          resolve(file);
+          return;
+        }
+
+        ctx.drawImage(img, 0, 0, width, height);
+        canvas.toBlob(
+          (blob) => {
+            if (!blob) {
+              resolve(file);
+              return;
+            }
+            const compressedFile = new File([blob], file.name.replace(/\.[^/.]+$/, ".jpg"), {
+              type: "image/jpeg",
+              lastModified: Date.now(),
+            });
+            resolve(compressedFile);
+          },
+          "image/jpeg",
+          quality
+        );
+      };
+      img.onerror = () => resolve(file);
+      img.src = e.target?.result as string;
+    };
+    reader.onerror = () => resolve(file);
+    reader.readAsDataURL(file);
+  });
+}
+
+/**
+ * Upload an image to Firebase Storage with automatic client-side compression.
+ * @param rawFile — File to upload
  * @param folder — Storage folder (e.g. "products", "categories", "sliders", "brands")
  * @param onProgress — Optional progress callback (0-100)
  * @returns { url, path } — The download URL and storage path
  */
 export async function uploadImage(
-  file: File,
+  rawFile: File,
   folder: string,
   onProgress?: (percent: number) => void
 ): Promise<{ url: string; path: string }> {
+  // Compress image before upload (converts 10MB photo to ~100KB web image)
+  const file = await compressImage(rawFile);
+
   const convertToDataUrl = (): Promise<string> =>
     new Promise((resolve, reject) => {
       const reader = new FileReader();
