@@ -15,12 +15,54 @@ import {
   addProduct, updateProduct, deleteProduct, cloneProduct,
   uploadImage,
 } from "@/lib/firestore-collections";
-import {
-  PRODUCTS, CATEGORIES as MOCK_CATEGORIES,
-  registerProduct, unregisterProduct, getStoredProducts, getStoredCategories,
-} from "@/lib/mock-data";
-import { getDbItem } from "@/lib/db-store";
+import { getDbItem, setDbItem } from "@/lib/db-store";
 import type { Product, Category } from "@/lib/types";
+
+/** Immediately persist the full product list to IndexedDB + localStorage */
+async function persistProducts(list: Product[]) {
+  await setDbItem("ykb_custom_products", list);
+  try {
+    // Strip base64 images before writing to localStorage (avoids quota errors)
+    const slim = list.map((p) => ({
+      ...p,
+      imageUrl: p.imageUrl?.startsWith("data:") ? "" : p.imageUrl,
+    }));
+    localStorage.setItem("ykb_custom_products", JSON.stringify(slim));
+  } catch { /* ignore quota */ }
+}
+
+/** Load products: IndexedDB → localStorage → empty */
+async function loadPersistedProducts(): Promise<Product[]> {
+  try {
+    const db = await getDbItem<Product[]>("ykb_custom_products");
+    if (db && db.length > 0) return db;
+  } catch { /* ignore */ }
+  try {
+    const ls = localStorage.getItem("ykb_custom_products");
+    if (ls) {
+      const parsed = JSON.parse(ls) as Product[];
+      if (parsed.length > 0) return parsed;
+    }
+  } catch { /* ignore */ }
+  return [];
+}
+
+/** Load categories: IndexedDB → localStorage → empty */
+async function loadPersistedCategories(): Promise<Category[]> {
+  try {
+    const db = await getDbItem<Category[]>("ykb_custom_categories");
+    if (db && db.length > 0) return db;
+  } catch { /* ignore */ }
+  try {
+    const ls = localStorage.getItem("ykb_custom_categories");
+    if (ls) {
+      const parsed = JSON.parse(ls) as Category[];
+      if (parsed.length > 0) return parsed;
+    }
+  } catch { /* ignore */ }
+  return [];
+}
+
 
 export default function AdminUrunler() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -72,32 +114,43 @@ export default function AdminUrunler() {
   };
   const [form, setForm] = useState(emptyForm);
 
-  /* Load data from Firestore or persistent local IndexedDB storage */
+  /* Load from Firestore first; then merge any locally-persisted data on top */
   useEffect(() => {
     async function load() {
+      // Always load locally-persisted data first (instant, no network needed)
+      const [localProds, localCats] = await Promise.all([
+        loadPersistedProducts(),
+        loadPersistedCategories(),
+      ]);
+
+      if (localProds.length > 0) setProducts(localProds);
+      if (localCats.length > 0) setCategories(localCats);
+
+      // Then try Firestore and merge
       try {
         const [firestoreProducts, firestoreCategories] = await Promise.all([
           getProducts(),
           fetchCategories(),
         ]);
         if (firestoreProducts.length > 0) {
-          setProducts(firestoreProducts);
-        } else {
-          const dbProducts = await getDbItem<Product[]>("ykb_custom_products");
-          setProducts(dbProducts && dbProducts.length > 0 ? dbProducts : getStoredProducts());
+          // Firestore is source-of-truth: merge local on top for any offline adds
+          const map = new Map<string, Product>();
+          firestoreProducts.forEach((p) => map.set(p.id, p));
+          localProds.forEach((p) => { if (!map.has(p.id)) map.set(p.id, p); });
+          const merged = Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+          setProducts(merged);
+          await persistProducts(merged);
         }
         if (firestoreCategories.length > 0) {
-          setCategories(firestoreCategories);
-        } else {
-          const dbCats = await getDbItem<Category[]>("ykb_custom_categories");
-          setCategories(dbCats && dbCats.length > 0 ? dbCats : getStoredCategories());
+          const map = new Map<string, Category>();
+          firestoreCategories.forEach((c) => map.set(c.id, c));
+          localCats.forEach((c) => { if (!map.has(c.id)) map.set(c.id, c); });
+          const merged = Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+          setCategories(merged);
+          await setDbItem("ykb_custom_categories", merged);
+          try { localStorage.setItem("ykb_custom_categories", JSON.stringify(merged)); } catch { /* ignore */ }
         }
-      } catch {
-        const dbProducts = await getDbItem<Product[]>("ykb_custom_products");
-        const dbCats = await getDbItem<Category[]>("ykb_custom_categories");
-        setProducts(dbProducts && dbProducts.length > 0 ? dbProducts : getStoredProducts());
-        setCategories(dbCats && dbCats.length > 0 ? dbCats : getStoredCategories());
-      }
+      } catch { /* Firestore unavailable — local data is already shown */ }
     }
     load();
   }, []);
@@ -145,7 +198,11 @@ export default function AdminUrunler() {
         name: `${p.name} (Kopya)`,
         code: `${p.code}-COPY`,
       };
-      setProducts((prev) => [...prev, cloned]);
+      setProducts((prev) => {
+        const updated = [...prev, cloned];
+        persistProducts(updated);
+        return updated;
+      });
       toast.success(`"${p.name}" klonlandı.`);
     } catch (err) {
       console.error(err);
@@ -181,23 +238,23 @@ export default function AdminUrunler() {
       }
 
       if (editTarget) {
-        try {
-          await updateProduct(editTarget.id, payload);
-        } catch { /* fallback */ }
-        const prodObj = { id: editTarget.id, ...payload };
-        setProducts((prev) =>
-          prev.map((p) => (p.id === editTarget.id ? prodObj : p))
-        );
-        registerProduct(prodObj);
+        try { await updateProduct(editTarget.id, payload); } catch { /* fallback */ }
+        const prodObj = { id: editTarget.id, ...payload } as Product;
+        setProducts((prev) => {
+          const updated = prev.map((p) => (p.id === editTarget!.id ? prodObj : p));
+          persistProducts(updated);
+          return updated;
+        });
         toast.success("Ürün güncellendi.");
       } else {
         let id = `prod-${Date.now()}`;
-        try {
-          id = await addProduct(payload);
-        } catch { /* fallback */ }
-        const prodObj = { id, ...payload };
-        setProducts((prev) => [...prev, prodObj]);
-        registerProduct(prodObj);
+        try { id = await addProduct(payload); } catch { /* fallback */ }
+        const prodObj = { id, ...payload } as Product;
+        setProducts((prev) => {
+          const updated = [...prev, prodObj];
+          persistProducts(updated);
+          return updated;
+        });
         toast.success("Yeni ürün eklendi.");
       }
       setModalOpen(false);
@@ -210,11 +267,12 @@ export default function AdminUrunler() {
   }
 
   async function handleDelete(p: Product) {
-    try {
-      await deleteProduct(p);
-    } catch { /* fallback */ }
-    setProducts((prev) => prev.filter((x) => x.id !== p.id));
-    unregisterProduct(p.id);
+    try { await deleteProduct(p); } catch { /* fallback */ }
+    setProducts((prev) => {
+      const updated = prev.filter((x) => x.id !== p.id);
+      persistProducts(updated);
+      return updated;
+    });
     toast.success("Ürün silindi.");
     setDeleteTarget(null);
   }

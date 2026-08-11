@@ -14,8 +14,36 @@ import {
   getCategories, addCategory, updateCategory, deleteCategory,
   uploadImage, slugify,
 } from "@/lib/firestore-collections";
-import { CATEGORIES as MOCK_CATEGORIES, registerCategory, getStoredCategories } from "@/lib/mock-data";
+import { getDbItem, setDbItem } from "@/lib/db-store";
 import type { Category } from "@/lib/types";
+
+/** Persist full category list to IndexedDB + localStorage */
+async function persistCategories(list: Category[]) {
+  await setDbItem("ykb_custom_categories", list);
+  try {
+    const slim = list.map((c) => ({
+      ...c,
+      imageUrl: c.imageUrl?.startsWith("data:") ? "" : c.imageUrl,
+    }));
+    localStorage.setItem("ykb_custom_categories", JSON.stringify(slim));
+  } catch { /* ignore quota */ }
+}
+
+/** Load categories: IndexedDB → localStorage → empty */
+async function loadPersistedCategories(): Promise<Category[]> {
+  try {
+    const db = await getDbItem<Category[]>("ykb_custom_categories");
+    if (db && db.length > 0) return db;
+  } catch { /* ignore */ }
+  try {
+    const ls = localStorage.getItem("ykb_custom_categories");
+    if (ls) {
+      const parsed = JSON.parse(ls) as Category[];
+      if (parsed.length > 0) return parsed;
+    }
+  } catch { /* ignore */ }
+  return [];
+}
 
 export default function AdminKategoriler() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -62,19 +90,23 @@ export default function AdminKategoriler() {
     description: "",
   });
 
-  /* Load from Firestore on mount (falls back to persistent local storage) */
+  /* Load locally-persisted data first, then merge with Firestore */
   useEffect(() => {
     async function load() {
+      const localCats = await loadPersistedCategories();
+      if (localCats.length > 0) setCategories(localCats);
+
       try {
         const data = await getCategories();
         if (data.length > 0) {
-          setCategories(data);
-        } else {
-          setCategories(getStoredCategories());
+          const map = new Map<string, Category>();
+          data.forEach((c) => map.set(c.id, c));
+          localCats.forEach((c) => { if (!map.has(c.id)) map.set(c.id, c); });
+          const merged = Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+          setCategories(merged);
+          await persistCategories(merged);
         }
-      } catch {
-        setCategories(getStoredCategories());
-      } finally {
+      } catch { /* Firestore unavailable — local data shown */ } finally {
         setLoading(false);
       }
     }
@@ -128,23 +160,23 @@ export default function AdminKategoriler() {
       };
 
       if (editTarget) {
-        try {
-          await updateCategory(editTarget.id, payload);
-        } catch { /* fallback */ }
-        const catObj = { id: editTarget.id, ...payload };
-        setCategories((prev) =>
-          prev.map((c) => (c.id === editTarget.id ? catObj : c))
-        );
-        registerCategory(catObj);
+        try { await updateCategory(editTarget.id, payload); } catch { /* fallback */ }
+        const catObj = { id: editTarget.id, ...payload } as Category;
+        setCategories((prev) => {
+          const updated = prev.map((c) => (c.id === editTarget!.id ? catObj : c));
+          persistCategories(updated);
+          return updated;
+        });
         toast.success("Kategori güncellendi.");
       } else {
         let id = `cat-${Date.now()}`;
-        try {
-          id = await addCategory(payload);
-        } catch { /* fallback */ }
-        const catObj = { id, ...payload };
-        setCategories((prev) => [...prev, catObj]);
-        registerCategory(catObj);
+        try { id = await addCategory(payload); } catch { /* fallback */ }
+        const catObj = { id, ...payload } as Category;
+        setCategories((prev) => {
+          const updated = [...prev, catObj];
+          persistCategories(updated);
+          return updated;
+        });
         toast.success("Yeni kategori eklendi.");
       }
       setModalOpen(false);
@@ -159,16 +191,14 @@ export default function AdminKategoriler() {
   async function handleDelete(id: string) {
     const cat = categories.find((c) => c.id === id);
     if (!cat) return;
-    try {
-      await deleteCategory(cat);
-      setCategories((prev) => prev.filter((c) => c.id !== id));
-      toast.success("Kategori silindi.");
-    } catch (err) {
-      console.error(err);
-      toast.error("Silinemedi.");
-    } finally {
-      setDeleteTarget(null);
-    }
+    try { await deleteCategory(cat); } catch { /* fallback */ }
+    setCategories((prev) => {
+      const updated = prev.filter((c) => c.id !== id);
+      persistCategories(updated);
+      return updated;
+    });
+    toast.success("Kategori silindi.");
+    setDeleteTarget(null);
   }
 
   return (
