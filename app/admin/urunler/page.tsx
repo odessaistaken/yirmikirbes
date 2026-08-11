@@ -139,10 +139,9 @@ export default function AdminUrunler() {
           fetchCategories(),
         ]);
         if (firestoreProducts.length > 0) {
-          // Firestore is source-of-truth: merge local on top for any offline adds
           const map = new Map<string, Product>();
           firestoreProducts.forEach((p) => map.set(p.id, p));
-          localProds.forEach((p) => { if (!map.has(p.id)) map.set(p.id, p); });
+          localProds.forEach((p) => map.set(p.id, p)); // Local edits/additions always override
           const merged = Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
           setProducts(merged);
           await persistProducts(merged);
@@ -150,7 +149,7 @@ export default function AdminUrunler() {
         if (firestoreCategories.length > 0) {
           const map = new Map<string, Category>();
           firestoreCategories.forEach((c) => map.set(c.id, c));
-          localCats.forEach((c) => { if (!map.has(c.id)) map.set(c.id, c); });
+          localCats.forEach((c) => map.set(c.id, c)); // Local edits/additions always override
           const merged = Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
           setCategories(merged);
           await setDbItem("ykb_custom_categories", merged);

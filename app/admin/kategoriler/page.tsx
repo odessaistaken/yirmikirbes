@@ -106,7 +106,7 @@ export default function AdminKategoriler() {
         if (data.length > 0) {
           const map = new Map<string, Category>();
           data.forEach((c) => map.set(c.id, c));
-          localCats.forEach((c) => { if (!map.has(c.id)) map.set(c.id, c); });
+          localCats.forEach((c) => map.set(c.id, c));
           const merged = Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
           setCategories(merged);
           await persistCategories(merged);

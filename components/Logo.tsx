@@ -6,9 +6,15 @@ interface LogoProps {
   className?: string;
   variant?: "dark" | "light" | "gold";
   size?: number; // base height in px
+  showText?: boolean;
 }
 
-export default function Logo({ className = "", variant = "dark", size = 36 }: LogoProps) {
+export default function Logo({
+  className = "",
+  variant = "dark",
+  size = 38,
+  showText = true,
+}: LogoProps) {
   const glyphColor = variant === "light" ? "#FFFFFF" : variant === "gold" ? "#F59E0B" : "#1C1917";
   const accentColor = variant === "gold" ? "#FCD34D" : "#C8232B";
 
@@ -16,7 +22,7 @@ export default function Logo({ className = "", variant = "dark", size = 36 }: Lo
   const width = Math.round((size * 500) / 560);
 
   return (
-    <div className={`inline-flex items-center gap-2.5 ${className}`}>
+    <div className={`inline-flex items-center gap-3 ${className}`}>
       <svg
         width={width}
         height={size}
@@ -54,14 +60,16 @@ export default function Logo({ className = "", variant = "dark", size = 36 }: Lo
           <path d="M 395 100 H 480 V 145 H 435 V 175 H 480 V 250 H 395 V 205 H 442 V 205 V 175 H 395 Z" />
         </g>
       </svg>
-      <div className="flex flex-col justify-center leading-none">
-        <span className={`font-heading font-black tracking-tight text-sm ${variant === "light" ? "text-white" : "text-charcoal-900"}`}>
-          PASTACILIK
-        </span>
-        <span className="text-2xs font-semibold tracking-widest text-gold uppercase">
-          YKB GIDA
-        </span>
-      </div>
+      {showText && (
+        <div className="flex flex-col justify-center leading-none">
+          <span className={`font-heading font-black tracking-tight text-sm sm:text-base ${variant === "light" ? "text-white" : "text-charcoal-900"}`}>
+            PASTACILIK
+          </span>
+          <span className="text-2xs font-semibold tracking-widest text-gold uppercase mt-0.5">
+            YKB GIDA
+          </span>
+        </div>
+      )}
     </div>
   );
 }
