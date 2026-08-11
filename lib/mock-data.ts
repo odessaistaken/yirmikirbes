@@ -593,3 +593,11 @@ export function unregisterProduct(id: string) {
   saveProducts(PRODUCTS);
 }
 
+export function unregisterCategory(id: string) {
+  const idx = CATEGORIES.findIndex((c) => c.id === id || c.slug === id);
+  if (idx >= 0) {
+    CATEGORIES.splice(idx, 1);
+  }
+  saveCategories(CATEGORIES);
+}
+
