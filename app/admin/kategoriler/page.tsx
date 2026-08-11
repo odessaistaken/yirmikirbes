@@ -15,6 +15,7 @@ import {
   uploadImage, slugify,
 } from "@/lib/firestore-collections";
 import { getDbItem, setDbItem } from "@/lib/db-store";
+import { CATEGORIES as MOCK_CATEGORIES } from "@/lib/mock-data";
 import type { Category } from "@/lib/types";
 
 /** Persist full category list to IndexedDB + localStorage */
@@ -29,7 +30,7 @@ async function persistCategories(list: Category[]) {
   } catch { /* ignore quota */ }
 }
 
-/** Load categories: IndexedDB → localStorage → empty */
+/** Load categories: IndexedDB → localStorage → mock data */
 async function loadPersistedCategories(): Promise<Category[]> {
   try {
     const db = await getDbItem<Category[]>("ykb_custom_categories");
@@ -42,7 +43,7 @@ async function loadPersistedCategories(): Promise<Category[]> {
       if (parsed.length > 0) return parsed;
     }
   } catch { /* ignore */ }
-  return [];
+  return MOCK_CATEGORIES;
 }
 
 export default function AdminKategoriler() {

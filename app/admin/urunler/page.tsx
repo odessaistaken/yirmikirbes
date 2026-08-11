@@ -16,6 +16,7 @@ import {
   uploadImage,
 } from "@/lib/firestore-collections";
 import { getDbItem, setDbItem } from "@/lib/db-store";
+import { PRODUCTS as MOCK_PRODUCTS, CATEGORIES as MOCK_CATEGORIES } from "@/lib/mock-data";
 import type { Product, Category } from "@/lib/types";
 
 /** Immediately persist the full product list to IndexedDB + localStorage */
@@ -31,7 +32,7 @@ async function persistProducts(list: Product[]) {
   } catch { /* ignore quota */ }
 }
 
-/** Load products: IndexedDB → localStorage → empty */
+/** Load products: IndexedDB → localStorage → mock data */
 async function loadPersistedProducts(): Promise<Product[]> {
   try {
     const db = await getDbItem<Product[]>("ykb_custom_products");
@@ -44,10 +45,10 @@ async function loadPersistedProducts(): Promise<Product[]> {
       if (parsed.length > 0) return parsed;
     }
   } catch { /* ignore */ }
-  return [];
+  return MOCK_PRODUCTS;
 }
 
-/** Load categories: IndexedDB → localStorage → empty */
+/** Load categories: IndexedDB → localStorage → mock data */
 async function loadPersistedCategories(): Promise<Category[]> {
   try {
     const db = await getDbItem<Category[]>("ykb_custom_categories");
@@ -60,7 +61,7 @@ async function loadPersistedCategories(): Promise<Category[]> {
       if (parsed.length > 0) return parsed;
     }
   } catch { /* ignore */ }
-  return [];
+  return MOCK_CATEGORIES;
 }
 
 
