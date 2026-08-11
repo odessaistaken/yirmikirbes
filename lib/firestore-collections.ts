@@ -363,99 +363,52 @@ export async function compressImage(file: File, maxWidth = 1200, quality = 0.82)
 }
 
 /**
- * Upload an image to Firebase Storage with automatic client-side compression.
+ * Upload an image to ImgBB free CDN hosting with client-side compression.
  * @param rawFile — File to upload
- * @param folder — Storage folder (e.g. "products", "categories", "sliders", "brands")
- * @param onProgress — Optional progress callback (0-100)
- * @returns { url, path } — The download URL and storage path
+ * @param folder — Storage folder (used for tracking path)
+ * @param onProgress — Progress callback (0-100)
+ * @returns { url, path } — Permanent https://i.ibb.co URL and path
  */
 export async function uploadImage(
   rawFile: File,
   folder: string,
   onProgress?: (percent: number) => void
 ): Promise<{ url: string; path: string }> {
-  // Compress image before upload (converts 10MB photo to ~100KB web image)
-  const file = await compressImage(rawFile);
+  // 1. Compress image to ~40KB web JPEG
+  onProgress?.(20);
+  const file = await compressImage(rawFile, 1000, 0.82);
+  onProgress?.(50);
 
-  const convertToDataUrl = (): Promise<string> =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
+  const path = `${folder}/${Date.now()}_${file.name}`;
+
+  // 2. Try ImgBB API upload
+  try {
+    const formData = new FormData();
+    formData.append("image", file);
+
+    const res = await fetch("https://api.imgbb.com/1/upload?key=6d257f6977e3292f5b356a1175329544", {
+      method: "POST",
+      body: formData,
     });
 
-  return new Promise(async (resolve, reject) => {
-    let completed = false;
-    const path = `${folder}/${Date.now()}_${file.name}`;
-
-    // Smooth progress simulation so UI never stays at 0%
-    onProgress?.(15);
-    let simPct = 15;
-    const interval = setInterval(() => {
-      if (completed) {
-        clearInterval(interval);
-        return;
-      }
-      simPct = Math.min(simPct + 25, 90);
-      onProgress?.(simPct);
-    }, 120);
-
-    const finishWithDataUrl = async () => {
-      if (completed) return;
-      completed = true;
-      clearInterval(interval);
-      try {
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.data && data.data.url) {
         onProgress?.(100);
-        const dataUrl = await convertToDataUrl();
-        resolve({ url: dataUrl, path });
-      } catch (err) {
-        reject(err);
+        return { url: data.data.url, path };
       }
-    };
-
-    try {
-      const storage = requireStorage();
-      const sRef = storageRef(storage, path);
-      const uploadTask = uploadBytesResumable(sRef, file);
-
-      // Fallback timer if Firebase Storage hangs or takes > 1.2s
-      const timer = setTimeout(() => {
-        if (!completed) {
-          finishWithDataUrl();
-        }
-      }, 1200);
-
-      uploadTask.on(
-        "state_changed",
-        (snap) => {
-          if (completed) return;
-          const total = snap.totalBytes || 1;
-          const pct = Math.round((snap.bytesTransferred / total) * 100);
-          onProgress?.(Math.max(pct, simPct));
-        },
-        async () => {
-          clearTimeout(timer);
-          finishWithDataUrl();
-        },
-        async () => {
-          clearTimeout(timer);
-          if (completed) return;
-          completed = true;
-          clearInterval(interval);
-          try {
-            onProgress?.(100);
-            const url = await getDownloadURL(uploadTask.snapshot.ref);
-            resolve({ url, path });
-          } catch {
-            const dataUrl = await convertToDataUrl();
-            resolve({ url: dataUrl, path });
-          }
-        }
-      );
-    } catch {
-      finishWithDataUrl();
     }
+  } catch { /* ignore and fallback */ }
+
+  // 3. Fallback to compressed base64 data URL
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      onProgress?.(100);
+      resolve({ url: reader.result as string, path });
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
   });
 }
 
