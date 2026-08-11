@@ -8,6 +8,7 @@ import {
   Award, Truck, Users, ShieldCheck,
   ArrowRight, CheckCircle, Globe, Thermometer,
 } from "lucide-react";
+import Logo from "@/components/Logo";
 
 /* ─── Fade-in helper ──────────────────────────────────────────────────────── */
 function FadeIn({
@@ -176,15 +177,7 @@ export default function HakkimizdaPage() {
                   className="object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-charcoal-900/80 to-transparent">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-gold flex items-center justify-center shrink-0">
-                      <span className="text-charcoal-900 font-heading font-black text-xs">20:45</span>
-                    </div>
-                    <div>
-                      <p className="text-white font-semibold text-sm">20:45 Pastacılık</p>
-                      <p className="text-charcoal-300 text-xs">İstanbul, Türkiye · Est. 2009</p>
-                    </div>
-                  </div>
+                  <Logo variant="light" size={32} />
                 </div>
               </div>
             </FadeIn>

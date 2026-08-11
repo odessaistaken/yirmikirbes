@@ -1,14 +1,12 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
-  Globe,
-  ExternalLink,
   Mail,
   Phone,
   MapPin,
   ArrowRight,
   MessageCircle,
 } from "lucide-react";
+import Logo from "@/components/Logo";
 import { CATEGORIES as MOCK_CATEGORIES } from "@/lib/mock-data";
 import { getActiveCategories } from "@/lib/firestore-collections";
 
@@ -62,15 +60,7 @@ export default async function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1 space-y-5">
             <Link href="/" className="inline-block group">
-              <div className="bg-white/95 px-3 py-2 rounded-xl border border-white/20 shadow-md inline-block">
-                <Image
-                  src="/logo.png"
-                  alt="20:45 Pastacılık - YKB Gıda"
-                  width={150}
-                  height={50}
-                  className="h-10 w-auto object-contain"
-                />
-              </div>
+              <Logo variant="light" size={38} />
             </Link>
             <p className="text-charcoal-400 text-sm leading-relaxed">
               YKB Gıda güvencesiyle 20:45 Pastacılık, profesyonel pastacılık ve fırıncılık endüstrisine yönelik premium hammadde, 

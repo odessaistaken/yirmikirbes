@@ -18,6 +18,7 @@ import {
   Phone,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
+import Logo from "@/components/Logo";
 import { CATEGORIES as MOCK_CATEGORIES, PRODUCTS as MOCK_PRODUCTS } from "@/lib/mock-data";
 import { getActiveCategories, getProducts } from "@/lib/firestore-collections";
 import type { Category, Product } from "@/lib/types";
@@ -159,17 +160,8 @@ export default function Header() {
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-18">
             {/* ── Logo ─────────────────────────────────────────────── */}
-            <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-              <div className="relative h-10 w-32 sm:w-40 flex items-center">
-                <Image
-                  src="/logo.png"
-                  alt="20:45 Pastacılık Logo"
-                  width={160}
-                  height={50}
-                  className="h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
-                  priority
-                />
-              </div>
+            <Link href="/" className="flex items-center group shrink-0">
+              <Logo size={34} />
             </Link>
 
             {/* ── Desktop Nav ───────────────────────────────────────── */}
@@ -416,15 +408,9 @@ export default function Header() {
             <div className="absolute right-0 top-0 bottom-0 w-80 bg-white flex flex-col overflow-y-auto">
               {/* Header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-border">
-                <div className="flex items-center gap-2">
-                  <Image
-                    src="/logo.png"
-                    alt="20:45 Pastacılık"
-                    width={130}
-                    height={40}
-                    className="h-9 w-auto object-contain"
-                  />
-                </div>
+                <Link href="/" onClick={() => setMobileOpen(false)}>
+                  <Logo size={32} />
+                </Link>
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="p-2 rounded-lg hover:bg-charcoal-100 text-charcoal-700"

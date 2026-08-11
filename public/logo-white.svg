@@ -1,0 +1,30 @@
+<svg viewBox="0 0 500 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top vertical red line accent above 0 -->
+  <rect x="127" y="15" width="10" height="60" rx="3" fill="#E11D48"/>
+
+  <!-- Bottom double vertical red line accent below 0 -->
+  <rect x="120" y="475" width="9" height="75" rx="3" fill="#E11D48"/>
+  <rect x="135" y="475" width="9" height="75" rx="3" fill="#E11D48"/>
+
+  <!-- Underline horizontal red line accent below colon/4 -->
+  <rect x="260" y="275" width="105" height="11" rx="3" fill="#E11D48"/>
+
+  <!-- Main 20:45 Glyphs (White for dark backgrounds) -->
+  <g fill="#FFFFFF">
+    <!-- Number "2" -->
+    <path d="M 20 80 H 125 V 230 H 60 V 330 H 125 V 440 H 20 V 375 H 85 V 390 H 85 V 330 H 20 Z" />
+    
+    <!-- Number "0" -->
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M 145 80 H 250 V 440 H 145 Z M 180 135 H 215 V 385 H 180 Z" />
+
+    <!-- Colon ":" -->
+    <circle cx="268" cy="155" r="9" />
+    <circle cx="268" cy="205" r="9" />
+
+    <!-- Number "4" -->
+    <path d="M 280 100 H 318 V 190 H 350 V 100 H 388 V 250 H 350 V 225 H 280 V 100 Z M 318 132 V 190 H 350 V 132 Z" />
+
+    <!-- Number "5" -->
+    <path d="M 395 100 H 480 V 145 H 435 V 175 H 480 V 250 H 395 V 205 H 442 V 205 V 175 H 395 Z" />
+  </g>
+</svg>

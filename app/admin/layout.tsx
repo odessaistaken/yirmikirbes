@@ -16,6 +16,7 @@ import {
   Award,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
+import Logo from "@/components/Logo";
 
 const adminNavItems = [
   { label: "Dashboard", href: "/admin", icon: <LayoutDashboard size={18} />, exact: true },
@@ -58,13 +59,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Brand */}
         <div className="px-5 py-5 border-b border-charcoal-700">
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-gold flex items-center justify-center shrink-0">
-              <span className="text-charcoal-900 font-heading font-black text-xs">20:45</span>
-            </div>
-            <div>
-              <p className="font-heading font-bold text-white text-sm">20:45 Pastacılık</p>
-              <p className="text-charcoal-400 text-2xs">Admin Paneli</p>
-            </div>
+            <Logo variant="light" size={32} />
           </Link>
         </div>
 

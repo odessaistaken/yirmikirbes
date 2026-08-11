@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { LogIn, Eye, EyeOff, AlertCircle } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
+import Logo from "@/components/Logo";
 
 const schema = z.object({
   email: z.string().email("Geçerli bir e-posta girin"),
@@ -55,8 +56,8 @@ export default function LoginPage() {
         />
         <div className="absolute inset-0 bg-charcoal-900/70" />
         <div className="absolute inset-0 flex flex-col justify-end p-12">
-          <div className="w-10 h-10 rounded-xl bg-gradient-gold flex items-center justify-center mb-4 shadow-gold">
-            <span className="text-charcoal-900 font-heading font-black text-sm">20:45</span>
+          <div className="mb-4">
+            <Logo variant="light" size={42} />
           </div>
           <h2 className="font-heading font-bold text-white text-3xl mb-3">
             Premium B2B<br />Tedarik Portalı
@@ -75,12 +76,8 @@ export default function LoginPage() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="w-full max-w-md"
         >
-          {/* Logo (mobile) */}
-          <div className="lg:hidden flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 rounded-xl bg-gradient-gold flex items-center justify-center">
-              <span className="text-charcoal-900 font-heading font-black text-sm">20:45</span>
-            </div>
-            <p className="font-heading font-bold text-charcoal-800 text-base">20:45 Pastacılık</p>
+          <div className="lg:hidden flex items-center mb-8">
+            <Logo size={36} />
           </div>
 
           <div className="mb-8">
