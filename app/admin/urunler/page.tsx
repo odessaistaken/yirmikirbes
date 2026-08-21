@@ -15,54 +15,7 @@ import {
   addProduct, updateProduct, deleteProduct, cloneProduct,
   uploadImage, compressImage,
 } from "@/lib/firestore-collections";
-import { getDbItem, setDbItem } from "@/lib/db-store";
-import { PRODUCTS as MOCK_PRODUCTS, CATEGORIES as MOCK_CATEGORIES } from "@/lib/mock-data";
 import type { Product, Category } from "@/lib/types";
-
-/** Immediately persist the full product list to IndexedDB + localStorage */
-async function persistProducts(list: Product[]) {
-  await setDbItem("ykb_custom_products", list);
-  try {
-    // Strip base64 images before writing to localStorage (avoids quota errors)
-    const slim = list.map((p) => ({
-      ...p,
-      imageUrl: p.imageUrl?.startsWith("data:") ? "" : p.imageUrl,
-    }));
-    localStorage.setItem("ykb_custom_products", JSON.stringify(slim));
-  } catch { /* ignore quota */ }
-}
-
-/** Load products: IndexedDB → localStorage → mock data */
-async function loadPersistedProducts(): Promise<Product[]> {
-  try {
-    const db = await getDbItem<Product[]>("ykb_custom_products");
-    if (db && db.length > 0) return db;
-  } catch { /* ignore */ }
-  try {
-    const ls = localStorage.getItem("ykb_custom_products");
-    if (ls) {
-      const parsed = JSON.parse(ls) as Product[];
-      if (parsed.length > 0) return parsed;
-    }
-  } catch { /* ignore */ }
-  return MOCK_PRODUCTS;
-}
-
-/** Load categories: IndexedDB → localStorage → mock data */
-async function loadPersistedCategories(): Promise<Category[]> {
-  try {
-    const db = await getDbItem<Category[]>("ykb_custom_categories");
-    if (db && db.length > 0) return db;
-  } catch { /* ignore */ }
-  try {
-    const ls = localStorage.getItem("ykb_custom_categories");
-    if (ls) {
-      const parsed = JSON.parse(ls) as Category[];
-      if (parsed.length > 0) return parsed;
-    }
-  } catch { /* ignore */ }
-  return MOCK_CATEGORIES;
-}
 
 
 export default function AdminUrunler() {
@@ -86,20 +39,9 @@ export default function AdminUrunler() {
       const { url, path } = await uploadImage(file, "products", setUploadProgress);
       setForm((prev) => ({ ...prev, imageUrl: url, imageStoragePath: path }));
       toast.success("Ürün görseli yüklendi!");
-    } catch {
-      try {
-        const compressed = await compressImage(file, 800, 0.75);
-        const reader = new FileReader();
-        reader.onload = () => {
-          if (typeof reader.result === "string") {
-            setForm((prev) => ({ ...prev, imageUrl: reader.result as string }));
-            toast.success("Görsel yüklendi!");
-          }
-        };
-        reader.readAsDataURL(compressed);
-      } catch {
-        toast.error("Görsel okunamadı.");
-      }
+    } catch (err: any) {
+      console.error("Resim yükleme hatası:", err);
+      toast.error(err?.message || "Görsel yüklenemedi. Lütfen bir resim URL'si girin.");
     } finally {
       setUploadProgress(null);
     }
@@ -120,42 +62,20 @@ export default function AdminUrunler() {
   };
   const [form, setForm] = useState(emptyForm);
 
-  /* Load from Firestore first; then merge any locally-persisted data on top */
+  /* Load data from Firestore — single source of truth */
   useEffect(() => {
     async function load() {
-      // Always load locally-persisted data first (instant, no network needed)
-      const [localProds, localCats] = await Promise.all([
-        loadPersistedProducts(),
-        loadPersistedCategories(),
-      ]);
-
-      if (localProds.length > 0) setProducts(localProds);
-      if (localCats.length > 0) setCategories(localCats);
-
-      // Then try Firestore and merge
       try {
         const [firestoreProducts, firestoreCategories] = await Promise.all([
           getProducts(),
           fetchCategories(),
         ]);
-        if (firestoreProducts.length > 0) {
-          const map = new Map<string, Product>();
-          firestoreProducts.forEach((p) => map.set(p.id, p));
-          localProds.forEach((p) => map.set(p.id, p)); // Local edits/additions always override
-          const merged = Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
-          setProducts(merged);
-          await persistProducts(merged);
-        }
-        if (firestoreCategories.length > 0) {
-          const map = new Map<string, Category>();
-          firestoreCategories.forEach((c) => map.set(c.id, c));
-          localCats.forEach((c) => map.set(c.id, c)); // Local edits/additions always override
-          const merged = Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
-          setCategories(merged);
-          await setDbItem("ykb_custom_categories", merged);
-          try { localStorage.setItem("ykb_custom_categories", JSON.stringify(merged)); } catch { /* ignore */ }
-        }
-      } catch { /* Firestore unavailable — local data is already shown */ }
+        setProducts(firestoreProducts);
+        setCategories(firestoreCategories);
+      } catch (err) {
+        console.error("Firestore veri yükleme hatası:", err);
+        toast.error("Veriler yüklenirken hata oluştu. Lütfen sayfayı yenileyin.");
+      }
     }
     load();
   }, []);
@@ -198,13 +118,11 @@ export default function AdminUrunler() {
     try {
       const newId = await cloneProduct(p);
       const cloned: Product = { ...p, id: newId, name: `${p.name} (Kopya)`, code: `${p.code}-COPY` };
-      const updated = [...products, cloned];
-      setProducts(updated);
-      await persistProducts(updated);
+      setProducts((prev) => [...prev, cloned]);
       toast.success(`"${p.name}" klonlandı.`);
     } catch (err) {
       console.error(err);
-      toast.error("Klonlama başarısız.");
+      toast.error("Klonlama başarısız. Firestore bağlantısını kontrol edin.");
     }
   }
 
@@ -216,6 +134,16 @@ export default function AdminUrunler() {
     setSaving(true);
     try {
       const cat = categories.find((c) => c.id === form.categoryId || c.slug === form.categoryId);
+
+      // Base64 resimlerin sadece 200KB'tan büyük olanları engellenir
+      let safeImageUrl = form.imageUrl;
+      if (safeImageUrl?.startsWith("data:") && safeImageUrl.length > 200000) {
+        console.warn("Base64 resim çok büyük.");
+        toast.error("Resim boyutu çok yüksek! Lütfen daha küçük bir resim seçin veya URL girin.");
+        setSaving(false);
+        return;
+      }
+
       const payload: any = {
         name: form.name,
         code: form.code,
@@ -227,8 +155,9 @@ export default function AdminUrunler() {
         vatRate: form.vatRate,
         order: form.order,
         description: form.description,
-        imageUrl: form.imageUrl,
+        imageUrl: safeImageUrl || "",
         isActive: form.isActive,
+        tags: [],
       };
       
       if (form.imageStoragePath) {
@@ -236,37 +165,36 @@ export default function AdminUrunler() {
       }
 
       if (editTarget) {
-        try { await updateProduct(editTarget.id, payload); } catch { /* fallback */ }
-        const prodObj = { id: editTarget.id, ...payload } as Product;
-        const updated = products.map((p) => (p.id === editTarget.id ? prodObj : p));
-        setProducts(updated);
-        await persistProducts(updated);
+        await updateProduct(editTarget.id, payload);
+        const prodObj = { id: editTarget.id, ...payload, tags: editTarget.tags || [] } as Product;
+        setProducts((prev) => prev.map((p) => (p.id === editTarget.id ? prodObj : p)));
         toast.success("Ürün güncellendi.");
       } else {
-        let id = `prod-${Date.now()}`;
-        try { id = await addProduct(payload); } catch { /* fallback */ }
+        const id = await addProduct(payload);
         const prodObj = { id, ...payload } as Product;
-        const updated = [...products, prodObj];
-        setProducts(updated);
-        await persistProducts(updated);
+        setProducts((prev) => [...prev, prodObj]);
         toast.success("Yeni ürün eklendi.");
       }
       setModalOpen(false);
-    } catch (err) {
-      console.error(err);
-      toast.error("Kaydedilemedi. Lütfen tekrar deneyin.");
+    } catch (err: any) {
+      console.error("Firestore kaydetme hatası:", err);
+      const msg = err?.message || err?.code || "Bilinmeyen hata";
+      toast.error(`Kaydedilemedi: ${msg}`);
     } finally {
       setSaving(false);
     }
   }
 
   async function handleDelete(p: Product) {
-    try { await deleteProduct(p); } catch { /* fallback */ }
-    const updated = products.filter((x) => x.id !== p.id);
-    setProducts(updated);
-    await persistProducts(updated);
-    toast.success("Ürün silindi.");
-    setDeleteTarget(null);
+    try {
+      await deleteProduct(p);
+      setProducts((prev) => prev.filter((x) => x.id !== p.id));
+      toast.success("Ürün silindi.");
+      setDeleteTarget(null);
+    } catch (err) {
+      console.error("Firestore silme hatası:", err);
+      toast.error("Ürün silinemedi. Firestore bağlantısını kontrol edin.");
+    }
   }
 
   return (

@@ -24,22 +24,17 @@ export default function KatalogPage() {
           getProducts(),
         ]);
 
-        const mergedCats = [...cats];
-        for (const mc of MOCK_CATEGORIES) {
-          if (!mergedCats.some((c) => c.slug === mc.slug || c.id === mc.id || c.name.toLowerCase() === mc.name.toLowerCase())) {
-            mergedCats.push(mc);
-          }
-        }
-
-        const mergedProds = [...prods];
-        for (const mp of MOCK_PRODUCTS) {
-          if (!mergedProds.some((p) => p.id === mp.id || p.code === mp.code)) {
-            mergedProds.push(mp);
-          }
-        }
-
-        setCategories(mergedCats.filter((c) => c.isActive !== false).sort((a, b) => a.order - b.order));
-        setProducts(mergedProds.filter((p) => p.isActive !== false));
+        // Use Firestore data; fallback to mock only if Firestore is completely empty
+        setCategories(
+          cats.length > 0
+            ? cats.filter((c) => c.isActive !== false).sort((a, b) => a.order - b.order)
+            : MOCK_CATEGORIES
+        );
+        setProducts(
+          prods.length > 0
+            ? prods.filter((p) => p.isActive !== false)
+            : MOCK_PRODUCTS
+        );
       } catch {
         setCategories(MOCK_CATEGORIES);
         setProducts(MOCK_PRODUCTS);

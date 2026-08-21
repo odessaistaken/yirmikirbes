@@ -434,170 +434,26 @@ export const PRODUCTS: Product[] = RAW_PRODUCTS.map((p, i) => ({
   ...p,
 }));
 
-import { setDbItem, getDbItem } from "@/lib/db-store";
-
-/* ─── Persistent Storage Helpers (IndexedDB + localStorage fallback) ────── */
-export function getStoredProducts(): Product[] {
-  if (typeof window !== "undefined") {
-    try {
-      getDbItem<Product[]>("ykb_custom_products").then((stored) => {
-        if (stored && Array.isArray(stored) && stored.length > 0) {
-          stored.forEach((p) => {
-            const idx = PRODUCTS.findIndex((x) => x.id === p.id);
-            if (idx >= 0) PRODUCTS[idx] = p;
-            else PRODUCTS.unshift(p);
-          });
-        }
-      });
-      const storedLS = localStorage.getItem("ykb_custom_products");
-      if (storedLS) {
-        const parsed = JSON.parse(storedLS) as Product[];
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          parsed.forEach((p) => {
-            const idx = PRODUCTS.findIndex((x) => x.id === p.id);
-            if (idx >= 0) PRODUCTS[idx] = p;
-            else PRODUCTS.unshift(p);
-          });
-        }
-      }
-    } catch {
-      // ignore
-    }
-  }
-  return PRODUCTS;
-}
-
-export function saveProducts(productsList: Product[]) {
-  if (typeof window !== "undefined") {
-    setDbItem("ykb_custom_products", productsList);
-    try {
-      localStorage.setItem("ykb_custom_products", JSON.stringify(productsList));
-    } catch {
-      // ignore localStorage quota exceeded
-    }
-  }
-}
-
-export function getStoredCategories(): Category[] {
-  if (typeof window !== "undefined") {
-    try {
-      getDbItem<Category[]>("ykb_custom_categories").then((stored) => {
-        if (stored && Array.isArray(stored) && stored.length > 0) {
-          stored.forEach((c) => {
-            const idx = CATEGORIES.findIndex((x) => x.id === c.id || x.slug === c.slug);
-            if (idx >= 0) CATEGORIES[idx] = c;
-            else CATEGORIES.push(c);
-          });
-        }
-      });
-      const storedLS = localStorage.getItem("ykb_custom_categories");
-      if (storedLS) {
-        const parsed = JSON.parse(storedLS) as Category[];
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          parsed.forEach((c) => {
-            const idx = CATEGORIES.findIndex((x) => x.id === c.id || x.slug === c.slug);
-            if (idx >= 0) CATEGORIES[idx] = c;
-            else CATEGORIES.push(c);
-          });
-        }
-      }
-    } catch {
-      // ignore
-    }
-  }
-  return CATEGORIES;
-}
-
-export function saveCategories(catList: Category[]) {
-  if (typeof window !== "undefined") {
-    setDbItem("ykb_custom_categories", catList);
-    try {
-      localStorage.setItem("ykb_custom_categories", JSON.stringify(catList));
-    } catch {
-      // ignore
-    }
-  }
-}
-
-/* ─── Helper functions ───────────────────────────────────────────────────── */
+/* ─── Simple Helper functions (no persistence, pure array filters) ─────── */
 export function getProductsByCategory(slug: string): Product[] {
-  const prods = getStoredProducts();
-  return prods.filter((p) => p.categorySlug === slug && p.isActive);
+  return PRODUCTS.filter((p) => p.categorySlug === slug && p.isActive);
 }
 
 export function getFeaturedProducts(): Product[] {
-  const prods = getStoredProducts();
-  return prods.filter((p) => p.isFeatured && p.isActive);
+  return PRODUCTS.filter((p) => p.isFeatured && p.isActive);
 }
 
 export function getCategoryBySlug(slug: string): Category | undefined {
-  const cats = getStoredCategories();
-  return cats.find((c) => c.slug === slug);
+  return CATEGORIES.find((c) => c.slug === slug);
 }
 
 export function getProductById(id: string): Product | undefined {
-  const prods = getStoredProducts();
-  return prods.find((p) => p.id === id);
+  return PRODUCTS.find((p) => p.id === id);
 }
 
 export function getRelatedProducts(product: Product, limit = 4): Product[] {
-  const prods = getStoredProducts();
-  return prods.filter(
+  return PRODUCTS.filter(
     (p) => p.categoryId === product.categoryId && p.id !== product.id && p.isActive
   ).slice(0, limit);
-}
-
-export function registerCategory(cat: Category) {
-  const idx = CATEGORIES.findIndex((c) => c.id === cat.id || c.slug === cat.slug);
-  if (idx >= 0) {
-    CATEGORIES[idx] = { ...CATEGORIES[idx], ...cat };
-  } else {
-    CATEGORIES.push({
-      id: cat.id || `cat-${CATEGORIES.length + 1}`,
-      name: cat.name,
-      slug: cat.slug,
-      description: cat.description || "",
-      icon: cat.icon || "🏷️",
-      productCount: cat.productCount || 0,
-      imageUrl: cat.imageUrl || "",
-      order: cat.order || CATEGORIES.length + 1,
-      isActive: cat.isActive ?? true,
-    });
-  }
-  saveCategories(CATEGORIES);
-}
-
-export function registerProduct(product: Product) {
-  const idx = PRODUCTS.findIndex((p) => p.id === product.id || (p.code && p.code === product.code));
-  if (idx >= 0) {
-    PRODUCTS[idx] = { ...PRODUCTS[idx], ...product };
-  } else {
-    PRODUCTS.unshift({
-      ...product,
-      codeGroup: product.codeGroup || "",
-      price: product.price || 0,
-      vatRate: product.vatRate || 20,
-      order: product.order || 0,
-      tags: product.tags || [],
-      isActive: product.isActive ?? true,
-    });
-  }
-  saveProducts(PRODUCTS);
-}
-
-export function unregisterProduct(id: string) {
-  const idx = PRODUCTS.findIndex((p) => p.id === id);
-  if (idx >= 0) {
-    PRODUCTS.splice(idx, 1);
-  }
-  saveProducts(PRODUCTS);
-}
-
-export function unregisterCategory(id: string) {
-  const idx = CATEGORIES.findIndex((c) => c.id === id || c.slug === id);
-  if (idx >= 0) {
-    CATEGORIES.splice(idx, 1);
-  }
-  saveCategories(CATEGORIES);
 }
 

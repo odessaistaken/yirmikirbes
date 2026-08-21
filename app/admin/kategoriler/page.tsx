@@ -14,37 +14,7 @@ import {
   getCategories, addCategory, updateCategory, deleteCategory,
   uploadImage, compressImage, slugify,
 } from "@/lib/firestore-collections";
-import { getDbItem, setDbItem } from "@/lib/db-store";
-import { CATEGORIES as MOCK_CATEGORIES } from "@/lib/mock-data";
 import type { Category } from "@/lib/types";
-
-/** Persist full category list to IndexedDB + localStorage */
-async function persistCategories(list: Category[]) {
-  await setDbItem("ykb_custom_categories", list);
-  try {
-    const slim = list.map((c) => ({
-      ...c,
-      imageUrl: c.imageUrl?.startsWith("data:") ? "" : c.imageUrl,
-    }));
-    localStorage.setItem("ykb_custom_categories", JSON.stringify(slim));
-  } catch { /* ignore quota */ }
-}
-
-/** Load categories: IndexedDB → localStorage → mock data */
-async function loadPersistedCategories(): Promise<Category[]> {
-  try {
-    const db = await getDbItem<Category[]>("ykb_custom_categories");
-    if (db && db.length > 0) return db;
-  } catch { /* ignore */ }
-  try {
-    const ls = localStorage.getItem("ykb_custom_categories");
-    if (ls) {
-      const parsed = JSON.parse(ls) as Category[];
-      if (parsed.length > 0) return parsed;
-    }
-  } catch { /* ignore */ }
-  return MOCK_CATEGORIES;
-}
 
 export default function AdminKategoriler() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -66,20 +36,9 @@ export default function AdminKategoriler() {
       const { url, path } = await uploadImage(file, "categories", setUploadProgress);
       setFormData((prev) => ({ ...prev, imageUrl: url, imageStoragePath: path }));
       toast.success("Kategori görseli yüklendi!");
-    } catch {
-      try {
-        const compressed = await compressImage(file, 800, 0.75);
-        const reader = new FileReader();
-        reader.onload = () => {
-          if (typeof reader.result === "string") {
-            setFormData((prev) => ({ ...prev, imageUrl: reader.result as string }));
-            toast.success("Görsel yüklendi!");
-          }
-        };
-        reader.readAsDataURL(compressed);
-      } catch {
-        toast.error("Görsel okunamadı.");
-      }
+    } catch (err: any) {
+      console.error("Resim yükleme hatası:", err);
+      toast.error(err?.message || "Görsel yüklenemedi. Lütfen bir resim URL'si girin.");
     } finally {
       setUploadProgress(null);
     }
@@ -95,23 +54,16 @@ export default function AdminKategoriler() {
     description: "",
   });
 
-  /* Load locally-persisted data first, then merge with Firestore */
+  /* Load data from Firestore — single source of truth */
   useEffect(() => {
     async function load() {
-      const localCats = await loadPersistedCategories();
-      if (localCats.length > 0) setCategories(localCats);
-
       try {
         const data = await getCategories();
-        if (data.length > 0) {
-          const map = new Map<string, Category>();
-          data.forEach((c) => map.set(c.id, c));
-          localCats.forEach((c) => map.set(c.id, c));
-          const merged = Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
-          setCategories(merged);
-          await persistCategories(merged);
-        }
-      } catch { /* Firestore unavailable — local data shown */ } finally {
+        setCategories(data);
+      } catch (err) {
+        console.error("Firestore kategori yükleme hatası:", err);
+        toast.error("Kategoriler yüklenirken hata oluştu.");
+      } finally {
         setLoading(false);
       }
     }
@@ -154,36 +106,44 @@ export default function AdminKategoriler() {
     setSaving(true);
     try {
       const slug = formData.slug || slugify(formData.name);
-      const payload: Omit<Category, "id"> = {
+      
+      // Base64 görsel kontrolü
+      let safeImageUrl = formData.imageUrl;
+      if (safeImageUrl?.startsWith("data:") && safeImageUrl.length > 200000) {
+        toast.error("Resim boyutu çok yüksek! Lütfen daha küçük bir resim seçin veya URL girin.");
+        setSaving(false);
+        return;
+      }
+
+      const payload: Record<string, any> = {
         name: formData.name,
         slug,
-        imageUrl: formData.imageUrl,
-        imageStoragePath: formData.imageStoragePath || undefined,
+        imageUrl: safeImageUrl || "",
         order: formData.order,
         isActive: formData.isActive,
-        description: formData.description,
+        description: formData.description || "",
       };
 
+      if (formData.imageStoragePath) {
+        payload.imageStoragePath = formData.imageStoragePath;
+      }
+
       if (editTarget) {
-        try { await updateCategory(editTarget.id, payload); } catch { /* fallback */ }
+        await updateCategory(editTarget.id, payload as Partial<Category>);
         const catObj = { id: editTarget.id, ...payload } as Category;
-        const updated = categories.map((c) => (c.id === editTarget.id ? catObj : c));
-        setCategories(updated);
-        await persistCategories(updated);
+        setCategories((prev) => prev.map((c) => (c.id === editTarget.id ? catObj : c)));
         toast.success("Kategori güncellendi.");
       } else {
-        let id = `cat-${Date.now()}`;
-        try { id = await addCategory(payload); } catch { /* fallback */ }
+        const id = await addCategory(payload as Omit<Category, "id">);
         const catObj = { id, ...payload } as Category;
-        const updated = [...categories, catObj];
-        setCategories(updated);
-        await persistCategories(updated);
+        setCategories((prev) => [...prev, catObj]);
         toast.success("Yeni kategori eklendi.");
       }
       setModalOpen(false);
-    } catch (err) {
-      console.error(err);
-      toast.error("Kaydedilemedi. Lütfen tekrar deneyin.");
+    } catch (err: any) {
+      console.error("Firestore kategori kaydetme hatası:", err);
+      const msg = err?.message || err?.code || "Bilinmeyen hata";
+      toast.error(`Kaydedilemedi: ${msg}`);
     } finally {
       setSaving(false);
     }
@@ -192,12 +152,15 @@ export default function AdminKategoriler() {
   async function handleDelete(id: string) {
     const cat = categories.find((c) => c.id === id);
     if (!cat) return;
-    try { await deleteCategory(cat); } catch { /* fallback */ }
-    const updated = categories.filter((c) => c.id !== id);
-    setCategories(updated);
-    await persistCategories(updated);
-    toast.success("Kategori silindi.");
-    setDeleteTarget(null);
+    try {
+      await deleteCategory(cat);
+      setCategories((prev) => prev.filter((c) => c.id !== id));
+      toast.success("Kategori silindi.");
+      setDeleteTarget(null);
+    } catch (err) {
+      console.error("Firestore kategori silme hatası:", err);
+      toast.error("Kategori silinemedi. Firestore bağlantısını kontrol edin.");
+    }
   }
 
   return (

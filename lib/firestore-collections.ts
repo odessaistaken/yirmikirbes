@@ -1,5 +1,5 @@
 import {
-  collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc,
+  collection, getDocs, getDoc, addDoc, updateDoc, deleteDoc, setDoc,
   doc, serverTimestamp, query, orderBy, where,
   type DocumentData,
 } from "firebase/firestore";
@@ -10,7 +10,6 @@ import {
   deleteObject,
 } from "firebase/storage";
 import { requireDb, requireStorage } from "@/lib/firebase";
-import { getDbItem } from "@/lib/db-store";
 import type { SliderItem, Category, Product, Brand, Inquiry } from "@/lib/types";
 
 
@@ -70,29 +69,12 @@ export async function deleteSlider(slider: SliderItem): Promise<void> {
    CATEGORIES
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/** Fetch all categories ordered by `order` */
+/** Fetch all categories ordered by `order` — Firestore is the single source of truth */
 export async function getCategories(): Promise<Category[]> {
-  let firestoreCats: Category[] = [];
-  try {
-    const snap = await getDocs(
-      query(collection(requireDb(), "categories"), orderBy("order", "asc"))
-    );
-    firestoreCats = snap.docs.map((d) => ({ id: d.id, ...d.data() } as Category));
-  } catch { /* Firestore unavailable */ }
-
-  let localCats: Category[] = [];
-  try {
-    const cached = await getDbItem<Category[]>("ykb_custom_categories");
-    if (cached && Array.isArray(cached) && cached.length > 0) {
-      localCats = cached;
-    }
-  } catch { /* ignore */ }
-
-  const map = new Map<string, Category>();
-  firestoreCats.forEach((c) => map.set(c.id, c));
-  localCats.forEach((c) => map.set(c.id, c)); // local edits take priority
-
-  return Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+  const snap = await getDocs(
+    query(collection(requireDb(), "categories"), orderBy("order", "asc"))
+  );
+  return snap.docs.map((d) => ({ id: d.id, ...d.data() } as Category));
 }
 
 /** Fetch only active categories (for frontend) */
@@ -110,66 +92,43 @@ export async function getCategoryBySlug(slug: string): Promise<Category | null> 
 
 /** Create a new category */
 export async function addCategory(data: Omit<Category, "id">): Promise<string> {
-  let id = `cat-${Date.now()}`;
-  try {
-    const ref = await addDoc(collection(requireDb(), "categories"), {
-      ...data,
-      createdAt: serverTimestamp(),
-    });
-    id = ref.id;
-  } catch { /* fallback */ }
+  const id = `cat-${Date.now()}`;
+  await setDoc(doc(requireDb(), "categories", id), {
+    ...data,
+    id,
+    createdAt: serverTimestamp(),
+  }, { merge: true });
   return id;
 }
 
 /** Update an existing category */
 export async function updateCategory(id: string, data: Partial<Category>): Promise<void> {
-  try {
-    await updateDoc(doc(requireDb(), "categories", id), {
-      ...data,
-      updatedAt: serverTimestamp(),
-    });
-  } catch { /* fallback */ }
+  await setDoc(doc(requireDb(), "categories", id), {
+    ...data,
+    updatedAt: serverTimestamp(),
+  }, { merge: true });
 }
 
 /** Delete a category and its Storage image */
 export async function deleteCategory(category: Category): Promise<void> {
-  try {
-    if (category.imageStoragePath) {
-      try {
-        await deleteObject(storageRef(requireStorage(), category.imageStoragePath));
-      } catch { /* image may not exist */ }
-    }
-    await deleteDoc(doc(requireDb(), "categories", category.id));
-  } catch { /* fallback */ }
+  if (category.imageStoragePath) {
+    try {
+      await deleteObject(storageRef(requireStorage(), category.imageStoragePath));
+    } catch { /* image may not exist */ }
+  }
+  await deleteDoc(doc(requireDb(), "categories", category.id));
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    PRODUCTS
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/** Fetch all products ordered by `order` then `name` */
+/** Fetch all products ordered by `order` — Firestore is the single source of truth */
 export async function getProducts(): Promise<Product[]> {
-  let firestoreProds: Product[] = [];
-  try {
-    const snap = await getDocs(
-      query(collection(requireDb(), "products"), orderBy("order", "asc"))
-    );
-    firestoreProds = snap.docs.map((d) => ({ id: d.id, ...d.data() } as Product));
-  } catch { /* Firestore unavailable */ }
-
-  let localProds: Product[] = [];
-  try {
-    const cached = await getDbItem<Product[]>("ykb_custom_products");
-    if (cached && Array.isArray(cached) && cached.length > 0) {
-      localProds = cached;
-    }
-  } catch { /* ignore */ }
-
-  const map = new Map<string, Product>();
-  firestoreProds.forEach((p) => map.set(p.id, p));
-  localProds.forEach((p) => map.set(p.id, p)); // local additions/edits take priority
-
-  return Array.from(map.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+  const snap = await getDocs(
+    query(collection(requireDb(), "products"), orderBy("order", "asc"))
+  );
+  return snap.docs.map((d) => ({ id: d.id, ...d.data() } as Product));
 }
 
 /** Fetch active products by category slug */
@@ -206,25 +165,21 @@ export async function getProductById(id: string): Promise<Product | null> {
 
 /** Create a new product */
 export async function addProduct(data: Omit<Product, "id">): Promise<string> {
-  let id = `prod-${Date.now()}`;
-  try {
-    const ref = await addDoc(collection(requireDb(), "products"), {
-      ...data,
-      createdAt: serverTimestamp(),
-    });
-    id = ref.id;
-  } catch { /* fallback */ }
+  const id = `prod-${Date.now()}`;
+  await setDoc(doc(requireDb(), "products", id), {
+    ...data,
+    id,
+    createdAt: serverTimestamp(),
+  }, { merge: true });
   return id;
 }
 
 /** Update an existing product */
 export async function updateProduct(id: string, data: Partial<Product>): Promise<void> {
-  try {
-    await updateDoc(doc(requireDb(), "products", id), {
-      ...data,
-      updatedAt: serverTimestamp(),
-    });
-  } catch { /* fallback */ }
+  await setDoc(doc(requireDb(), "products", id), {
+    ...data,
+    updatedAt: serverTimestamp(),
+  }, { merge: true });
 }
 
 /** Clone a product (duplicate with "(Kopya)" suffix) */
@@ -240,14 +195,12 @@ export async function cloneProduct(product: Product): Promise<string> {
 
 /** Delete a product and its Storage image */
 export async function deleteProduct(product: Product): Promise<void> {
-  try {
-    if (product.imageStoragePath) {
-      try {
-        await deleteObject(storageRef(requireStorage(), product.imageStoragePath));
-      } catch { /* image may not exist */ }
-    }
-    await deleteDoc(doc(requireDb(), "products", product.id));
-  } catch { /* fallback */ }
+  if (product.imageStoragePath) {
+    try {
+      await deleteObject(storageRef(requireStorage(), product.imageStoragePath));
+    } catch { /* image may not exist */ }
+  }
+  await deleteDoc(doc(requireDb(), "products", product.id));
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -307,9 +260,9 @@ export async function deleteBrand(brand: Brand): Promise<void> {
 
 /**
  * Compress and resize image before upload.
- * Automatically reduces 10MB raw camera photos to lightweight ~80-120KB web-optimized JPEG images.
+ * Keeps ultra high HD quality (1600px width, 92% JPEG quality).
  */
-export async function compressImage(file: File, maxWidth = 1200, quality = 0.82): Promise<File> {
+export async function compressImage(file: File, maxWidth = 1600, quality = 0.92): Promise<File> {
   return new Promise((resolve) => {
     if (!file.type.startsWith("image/") || file.type.includes("svg")) {
       resolve(file);
@@ -337,7 +290,11 @@ export async function compressImage(file: File, maxWidth = 1200, quality = 0.82)
           return;
         }
 
+        // High quality image smoothing
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = "high";
         ctx.drawImage(img, 0, 0, width, height);
+
         canvas.toBlob(
           (blob) => {
             if (!blob) {
@@ -363,53 +320,115 @@ export async function compressImage(file: File, maxWidth = 1200, quality = 0.82)
 }
 
 /**
- * Upload an image to ImgBB free CDN hosting with client-side compression.
- * @param rawFile — File to upload
- * @param folder — Storage folder (used for tracking path)
- * @param onProgress — Progress callback (0-100)
- * @returns { url, path } — Permanent https://i.ibb.co URL and path
+ * Upload an image with client-side compression.
+ * Uses strict timeout wrappers so upload never hangs or gets stuck at 30%.
+ * Priority: 1) ImgBB CDN (fast & direct) 2) Firebase Storage 3) High-compression Web URL
  */
 export async function uploadImage(
   rawFile: File,
   folder: string,
   onProgress?: (percent: number) => void
 ): Promise<{ url: string; path: string }> {
-  // 1. Compress image to ~40KB web JPEG
-  onProgress?.(20);
-  const file = await compressImage(rawFile, 1000, 0.82);
-  onProgress?.(50);
+  // 1. Compress image to HD Ultra Clear JPEG
+  onProgress?.(15);
+  const file = await compressImage(rawFile, 1600, 0.92);
+  onProgress?.(35);
 
-  const path = `${folder}/${Date.now()}_${file.name}`;
+  const path = `${folder}/${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`;
 
-  // 2. Try ImgBB API upload
+  // Helper for fetch with timeout
+  const fetchWithTimeout = (url: string, options: RequestInit, timeoutMs = 6000) => {
+    return Promise.race([
+      fetch(url, options),
+      new Promise<Response>((_, reject) =>
+        setTimeout(() => reject(new Error("Zaman aşımı (Timeout)")), timeoutMs)
+      ),
+    ]);
+  };
+
+  // 2. Try ImgBB CDN (Direct & Fast)
   try {
+    onProgress?.(50);
     const formData = new FormData();
     formData.append("image", file);
 
-    const res = await fetch("https://api.imgbb.com/1/upload?key=6d257f6977e3292f5b356a1175329544", {
-      method: "POST",
-      body: formData,
-    });
+    const res = await fetchWithTimeout(
+      "https://api.imgbb.com/1/upload?key=6d257f6977e3292f5b356a1175329544",
+      { method: "POST", body: formData },
+      7000
+    );
 
     if (res.ok) {
       const data = await res.json();
-      if (data && data.data && data.data.url) {
+      if (data?.data?.url) {
         onProgress?.(100);
         return { url: data.data.url, path };
       }
     }
-  } catch { /* ignore and fallback */ }
+  } catch (err) {
+    console.warn("ImgBB yükleme yanıt vermedi veya başarısız:", err);
+  }
 
-  // 3. Fallback to compressed base64 data URL
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => {
+  // 3. Try Firebase Storage with 6s timeout
+  try {
+    onProgress?.(75);
+    const storage = requireStorage();
+    const fileRef = storageRef(storage, path);
+    const uploadTask = uploadBytesResumable(fileRef, file);
+
+    const storagePromise = new Promise<{ url: string; path: string }>((resolve, reject) => {
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const pct = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 20) + 75;
+          onProgress?.(pct);
+        },
+        (err) => reject(err),
+        async () => {
+          try {
+            const downloadUrl = await getDownloadURL(uploadTask.snapshot.ref);
+            resolve({ url: downloadUrl, path });
+          } catch (e) {
+            reject(e);
+          }
+        }
+      );
+    });
+
+    const timeoutPromise = new Promise<{ url: string; path: string }>((_, reject) =>
+      setTimeout(() => {
+        try { uploadTask.cancel(); } catch {}
+        reject(new Error("Firebase Storage zaman aşımına uğradı"));
+      }, 6000)
+    );
+
+    const res = await Promise.race([storagePromise, timeoutPromise]);
+    onProgress?.(100);
+    return res;
+  } catch (err) {
+    console.warn("Firebase Storage yüklemesi de zaman aşımına uğradı:", err);
+  }
+
+  // 4. Final Fallback: Super compressed Data URL (~25KB max) to guarantee system never blocks
+  try {
+    onProgress?.(90);
+    const tinyFile = await compressImage(rawFile, 600, 0.65);
+    const dataUrl = await new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(tinyFile);
+    });
+
+    if (dataUrl && dataUrl.length < 150000) { // Safety check < 150KB for Firestore
       onProgress?.(100);
-      resolve({ url: reader.result as string, path });
-    };
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
+      return { url: dataUrl, path };
+    }
+  } catch (e) {
+    console.error("DataURL sıkıştırma hatası:", e);
+  }
+
+  throw new Error("Resim yüklenemedi. İnternet bağlantınızı kontrol edin veya 'Görsel URL' alanına doğrudan resim linki girin.");
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
