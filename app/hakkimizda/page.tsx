@@ -91,9 +91,11 @@ export default function HakkimizdaPage() {
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative h-[55vh] min-h-[400px] flex items-end overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=80"
+          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=85"
           alt="20:45 Pastacılık atölyesi"
           fill
+          quality={90}
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -171,9 +173,11 @@ export default function HakkimizdaPage() {
             <FadeIn delay={0.15}>
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-soft-lg">
                 <Image
-                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80"
+                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85"
                   alt="Pastacılık üretim atölyesi"
                   fill
+                  quality={90}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-charcoal-900/80 to-transparent">

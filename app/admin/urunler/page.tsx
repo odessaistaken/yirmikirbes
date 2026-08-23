@@ -245,7 +245,7 @@ export default function AdminUrunler() {
                   <td className="py-3 px-5">
                     <div className="w-12 h-12 rounded-xl overflow-hidden bg-cream-200 relative shrink-0">
                       {p.imageUrl ? (
-                        <Image src={p.imageUrl} alt={p.name} fill className="object-cover" />
+                        <Image src={p.imageUrl} alt={p.name} fill sizes="48px" quality={85} className="object-cover" />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
                           <ImageIcon size={16} className="text-charcoal-300" />
@@ -389,7 +389,7 @@ export default function AdminUrunler() {
                         </div>
                       ) : form.imageUrl ? (
                         <div className="relative w-full aspect-video rounded-lg overflow-hidden group">
-                          <Image src={form.imageUrl} alt="preview" fill className="object-cover" />
+                          <Image src={form.imageUrl} alt="preview" fill sizes="(max-width: 768px) 100vw, 500px" quality={90} className="object-cover" />
                           <div className="absolute inset-0 bg-charcoal-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                             <span className="text-white text-xs font-semibold bg-charcoal-900/70 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
                               <Upload size={14} /> Değiştir (Sürükle veya Tıkla)

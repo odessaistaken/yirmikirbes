@@ -208,7 +208,7 @@ export default function AdminSlider() {
                       <td className="py-3.5 px-5">
                         <div className="w-20 h-12 rounded-lg overflow-hidden bg-cream-200 relative shrink-0">
                           {s.imageUrl ? (
-                            <Image src={s.imageUrl} alt={s.imageAlt || s.name} fill className="object-cover" />
+                            <Image src={s.imageUrl} alt={s.imageAlt || s.name} fill sizes="80px" quality={85} className="object-cover" />
                           ) : (
                             <div className="absolute inset-0 flex items-center justify-center">
                               <ImageIcon size={16} className="text-charcoal-300" />
@@ -312,7 +312,7 @@ export default function AdminSlider() {
                     >
                       {form.imageUrl ? (
                         <div className="relative w-full aspect-[16/7] rounded-lg overflow-hidden">
-                          <Image src={form.imageUrl} alt="preview" fill className="object-cover" />
+                          <Image src={form.imageUrl} alt="preview" fill sizes="(max-width: 768px) 100vw, 500px" quality={90} className="object-cover" />
                         </div>
                       ) : (
                         <>

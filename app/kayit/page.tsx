@@ -63,9 +63,11 @@ export default function RegisterPage() {
       {/* Left Panel */}
       <div className="hidden lg:block lg:w-1/2 relative">
         <Image
-          src="https://images.unsplash.com/photo-1587749091230-8e54cd9e3c0e?w=1200&q=85"
+          src="https://images.unsplash.com/photo-1587749091230-8e54cd9e3c0e?w=1600&q=90"
           alt="Pastacılık ürünleri"
           fill
+          quality={90}
+          sizes="50vw"
           className="object-cover"
           priority
         />

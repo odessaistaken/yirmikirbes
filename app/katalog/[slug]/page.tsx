@@ -172,7 +172,7 @@ export default function CategoryPage() {
             {/* Category image instead of emoji */}
             {category.imageUrl ? (
               <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-charcoal-700">
-                <Image src={category.imageUrl} alt={category.name} fill className="object-cover" />
+                <Image src={category.imageUrl} alt={category.name} fill sizes="64px" quality={90} className="object-cover" />
               </div>
             ) : (
               <div className="w-16 h-16 rounded-xl bg-charcoal-700 flex items-center justify-center shrink-0">
@@ -218,7 +218,7 @@ export default function CategoryPage() {
                   >
                     {cat.imageUrl ? (
                       <div className="relative w-6 h-6 rounded overflow-hidden shrink-0">
-                        <Image src={cat.imageUrl} alt={cat.name} fill className="object-cover" />
+                        <Image src={cat.imageUrl} alt={cat.name} fill sizes="24px" quality={85} className="object-cover" />
                       </div>
                     ) : (
                       <div className="w-6 h-6 rounded bg-cream-300 shrink-0" />

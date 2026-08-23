@@ -386,6 +386,8 @@ export default function HomePage() {
                           src={sliders[currentSlide].imageUrl}
                           alt={sliders[currentSlide].imageAlt || sliders[currentSlide].name}
                           fill
+                          quality={95}
+                          sizes="(max-width: 1280px) 100vw, 1280px"
                           className="object-cover"
                           priority
                         />
@@ -460,9 +462,11 @@ export default function HomePage() {
                 ) : (
                   <>
                     <Image
-                      src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=1200&q=85"
+                      src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=1600&q=90"
                       alt="Premium pastacılık ürünleri"
                       fill
+                      quality={95}
+                      sizes="(max-width: 1280px) 100vw, 1280px"
                       className="object-cover"
                       priority
                     />
@@ -571,6 +575,8 @@ export default function HomePage() {
                           src={cat.imageUrl}
                           alt={cat.name}
                           fill
+                          quality={90}
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       ) : (
@@ -676,6 +682,8 @@ export default function HomePage() {
                               src={brand.imageUrl}
                               alt={brand.name}
                               fill
+                              quality={90}
+                              sizes="120px"
                               className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
                             />
                           </div>
@@ -700,6 +708,8 @@ export default function HomePage() {
                               src={brand.imageUrl}
                               alt={brand.name}
                               fill
+                              quality={90}
+                              sizes="120px"
                               className="object-contain"
                             />
                           </div>
@@ -729,9 +739,11 @@ export default function HomePage() {
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=1600&q=80"
+            src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=1920&q=85"
             alt="Pastacılık atölyesi"
             fill
+            quality={90}
+            sizes="100vw"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-charcoal-900/85" />

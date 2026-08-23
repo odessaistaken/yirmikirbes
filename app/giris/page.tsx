@@ -48,9 +48,11 @@ export default function LoginPage() {
       {/* Left Panel — Image */}
       <div className="hidden lg:block lg:w-1/2 relative">
         <Image
-          src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=1200&q=85"
+          src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=1600&q=90"
           alt="Pastacılık atölyesi"
           fill
+          quality={90}
+          sizes="50vw"
           className="object-cover"
           priority
         />

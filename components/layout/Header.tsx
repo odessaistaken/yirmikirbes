@@ -16,6 +16,7 @@ import {
   ShoppingBag,
   Search,
   Phone,
+  ImageIcon,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import Logo from "@/components/Logo";
@@ -217,7 +218,7 @@ export default function Header() {
                               >
                                 <div className="w-8 h-8 rounded-lg overflow-hidden relative shrink-0 bg-cream-200">
                                   {cat.imageUrl ? (
-                                    <Image src={cat.imageUrl} alt={cat.name} fill className="object-cover" />
+                                    <Image src={cat.imageUrl} alt={cat.name} fill sizes="32px" quality={85} className="object-cover" />
                                   ) : (
                                     <div className="w-full h-full bg-cream-300" />
                                   )}
@@ -446,7 +447,7 @@ export default function Header() {
                       className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-charcoal-700 hover:bg-gold-50 hover:text-gold-700 transition-colors"
                     >
                       <div className="w-5 h-5 rounded overflow-hidden relative shrink-0 bg-cream-200">
-                        {cat.imageUrl && <Image src={cat.imageUrl} alt={cat.name} fill className="object-cover" />}
+                        {cat.imageUrl && <Image src={cat.imageUrl} alt={cat.name} fill sizes="20px" quality={85} className="object-cover" />}
                       </div>
                       {cat.name}
                     </Link>
@@ -553,11 +554,20 @@ export default function Header() {
                         className="flex items-center gap-4 p-3 bg-white border border-border rounded-xl hover:border-gold hover:shadow-soft transition-all group"
                       >
                         <div className="w-16 h-16 rounded-lg bg-cream overflow-hidden shrink-0 relative">
-                          <img
-                            src={product.imageUrl}
-                            alt={product.name}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                          />
+                          {product.imageUrl ? (
+                            <Image
+                              src={product.imageUrl}
+                              alt={product.name}
+                              fill
+                              sizes="64px"
+                              quality={85}
+                              className="object-cover group-hover:scale-110 transition-transform duration-300"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-cream-300">
+                              <ImageIcon size={20} className="text-charcoal-400" />
+                            </div>
+                          )}
                         </div>
                         <div className="min-w-0">
                           <p className="font-heading font-semibold text-charcoal-800 text-sm truncate">

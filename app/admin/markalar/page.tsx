@@ -207,7 +207,7 @@ export default function AdminMarkalar() {
                       <td className="py-3.5 px-5">
                         <div className="w-14 h-14 rounded-xl overflow-hidden bg-cream-200 relative shrink-0 border border-border">
                           {b.imageUrl ? (
-                            <Image src={b.imageUrl} alt={b.name} fill className="object-contain p-1" />
+                            <Image src={b.imageUrl} alt={b.name} fill sizes="56px" quality={90} className="object-contain p-1" />
                           ) : (
                             <div className="absolute inset-0 flex items-center justify-center">
                               <ImageIcon size={16} className="text-charcoal-300" />
@@ -313,7 +313,7 @@ export default function AdminMarkalar() {
                     >
                       {form.imageUrl ? (
                         <div className="relative w-32 h-32 rounded-lg overflow-hidden">
-                          <Image src={form.imageUrl} alt="preview" fill className="object-contain" />
+                          <Image src={form.imageUrl} alt="preview" fill sizes="128px" quality={90} className="object-contain" />
                         </div>
                       ) : (
                         <>

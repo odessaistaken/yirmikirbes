@@ -43,9 +43,11 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
               src={product.imageUrl}
               alt={product.name}
               fill
-              quality={95}
+              quality={90}
+              priority={index < 2}
+              loading={index < 4 ? "eager" : "lazy"}
               className="object-cover transition-transform duration-400"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
               onError={() => setImgError(true)}
             />
           ) : (
