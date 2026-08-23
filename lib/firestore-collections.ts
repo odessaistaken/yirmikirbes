@@ -440,10 +440,10 @@ export async function uploadImage(
     console.warn("ImgBB yükleme yanıt vermedi veya başarısız:", err);
   }
 
-  // 4. Safe Fallback: High Quality WebP Data URL (1400px @ 0.85 WebP for rich details)
+  // 4. Safe Fallback: High Quality WebP Data URL (~60KB for instant Firestore saving)
   try {
     onProgress?.(85);
-    const hdFallbackFile = await compressImage(rawFile, 1400, 0.85);
+    const hdFallbackFile = await compressImage(rawFile, 1000, 0.78);
     const dataUrl = await new Promise<string>((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = () => resolve(reader.result as string);
@@ -451,7 +451,7 @@ export async function uploadImage(
       reader.readAsDataURL(hdFallbackFile);
     });
 
-    if (dataUrl && dataUrl.length < 500000) { // Keep within Firestore document limits
+    if (dataUrl && dataUrl.length < 600000) { // Keep well within Firestore document limits
       onProgress?.(100);
       return { url: dataUrl, path };
     }

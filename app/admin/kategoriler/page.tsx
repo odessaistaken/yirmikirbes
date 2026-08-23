@@ -107,12 +107,22 @@ export default function AdminKategoriler() {
     try {
       const slug = formData.slug || slugify(formData.name);
       
-      // Base64 görsel kontrolü
+      // Base64 görsel optimizasyonu (Firestore 1MB doküman güvenliği)
       let safeImageUrl = formData.imageUrl;
-      if (safeImageUrl?.startsWith("data:") && safeImageUrl.length > 200000) {
-        toast.error("Resim boyutu çok yüksek! Lütfen daha küçük bir resim seçin veya URL girin.");
-        setSaving(false);
-        return;
+      if (safeImageUrl?.startsWith("data:") && safeImageUrl.length > 600000) {
+        try {
+          const res = await fetch(safeImageUrl);
+          const blob = await res.blob();
+          const rawF = new File([blob], "image.webp", { type: "image/webp" });
+          const compressed = await compressImage(rawF, 1000, 0.78);
+          safeImageUrl = await new Promise<string>((resolve) => {
+            const r = new FileReader();
+            r.onload = () => resolve(r.result as string);
+            r.readAsDataURL(compressed);
+          });
+        } catch {
+          console.warn("Base64 görsel optimizasyonu atlandı");
+        }
       }
 
       const payload: Record<string, any> = {

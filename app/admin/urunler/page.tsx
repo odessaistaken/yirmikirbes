@@ -135,13 +135,22 @@ export default function AdminUrunler() {
     try {
       const cat = categories.find((c) => c.id === form.categoryId || c.slug === form.categoryId);
 
-      // Base64 resimlerin sadece 200KB'tan büyük olanları engellenir
+      // Base64 görsel optimizasyonu (Firestore 1MB doküman güvenliği)
       let safeImageUrl = form.imageUrl;
-      if (safeImageUrl?.startsWith("data:") && safeImageUrl.length > 200000) {
-        console.warn("Base64 resim çok büyük.");
-        toast.error("Resim boyutu çok yüksek! Lütfen daha küçük bir resim seçin veya URL girin.");
-        setSaving(false);
-        return;
+      if (safeImageUrl?.startsWith("data:") && safeImageUrl.length > 600000) {
+        try {
+          const res = await fetch(safeImageUrl);
+          const blob = await res.blob();
+          const rawF = new File([blob], "image.webp", { type: "image/webp" });
+          const compressed = await compressImage(rawF, 1000, 0.78);
+          safeImageUrl = await new Promise<string>((resolve) => {
+            const r = new FileReader();
+            r.onload = () => resolve(r.result as string);
+            r.readAsDataURL(compressed);
+          });
+        } catch {
+          console.warn("Base64 görsel optimizasyonu atlandı");
+        }
       }
 
       const payload: any = {
