@@ -102,10 +102,40 @@ const DEFAULT_SLIDERS: SliderItem[] = [
   },
 ];
 
+const DEFAULT_BRANDS: Brand[] = [
+  {
+    id: "b-1",
+    name: "DAVİNCİ",
+    subtitle: "Premium Şurup & Püre",
+    order: 1,
+    targetUrl: "/katalog?search=davinci",
+    imageUrl: "",
+    isActive: true,
+  },
+  {
+    id: "b-2",
+    name: "MONTE CRİSTO",
+    subtitle: "İtalyan Şurup & Sos",
+    order: 2,
+    targetUrl: "/katalog?search=monte-cristo",
+    imageUrl: "",
+    isActive: true,
+  },
+  {
+    id: "b-3",
+    name: "NONNO",
+    subtitle: "Bar & Kahve Çözümleri",
+    order: 3,
+    targetUrl: "/katalog?search=nonno",
+    imageUrl: "",
+    isActive: true,
+  },
+];
+
 export default function HomePage() {
   const [sliders, setSliders] = useState<SliderItem[]>(DEFAULT_SLIDERS);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [brands, setBrands] = useState<Brand[]>([]);
+  const [brands, setBrands] = useState<Brand[]>(DEFAULT_BRANDS);
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -151,6 +181,7 @@ export default function HomePage() {
           );
         }
         if (b.length > 0) setBrands(b);
+        else setBrands(DEFAULT_BRANDS);
         if (p.length > 0) {
           setFeaturedProducts(
             p.map((prod) => {
@@ -489,10 +520,11 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          TRUST STRIP
+          TRUST STRIP & BRANDS (Hero Altı Siyah Alan)
       ════════════════════════════════════════════════════════════ */}
-      <section className="bg-charcoal-900 py-10">
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-charcoal-900 py-8 border-b border-charcoal-800">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          {/* 3 Güven Rozeti */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-charcoal-700">
             {[
               {
@@ -527,6 +559,41 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+
+          {/* Çalıştığımız Markalar (DAVİNCİ, MONTE CRİSTO, NONNO vb.) */}
+          {brands.length > 0 && (
+            <div className="pt-5 border-t border-charcoal-800 flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-2.5 shrink-0">
+                <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+                <p className="text-charcoal-300 text-xs font-bold uppercase tracking-widest">
+                  Çalıştığımız Markalar:
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                {brands.map((brand) => (
+                  <Link
+                    key={brand.id}
+                    href={`/katalog?search=${encodeURIComponent(brand.name.toLowerCase())}`}
+                    className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-charcoal-800 hover:bg-charcoal-700 border border-charcoal-700 hover:border-gold/50 transition-all duration-200 group shadow-sm"
+                  >
+                    {brand.imageUrl && (
+                      <div className="w-6 h-6 relative shrink-0">
+                        <Image src={brand.imageUrl} alt={brand.name} fill sizes="24px" className="object-contain" />
+                      </div>
+                    )}
+                    <span className="font-heading font-bold text-white group-hover:text-gold text-xs uppercase tracking-wider transition-colors">
+                      {brand.name}
+                    </span>
+                    {brand.subtitle && (
+                      <span className="text-charcoal-400 text-2xs hidden sm:inline">
+                        • {brand.subtitle}
+                      </span>
+                    )}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

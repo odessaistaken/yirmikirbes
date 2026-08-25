@@ -9,6 +9,7 @@ import {
   Menu,
   X,
   ChevronDown,
+  ChevronRight,
   User,
   LogIn,
   LogOut,
@@ -17,12 +18,49 @@ import {
   Search,
   Phone,
   ImageIcon,
+  AlignLeft,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import Logo from "@/components/Logo";
 import { CATEGORIES as MOCK_CATEGORIES, PRODUCTS as MOCK_PRODUCTS } from "@/lib/mock-data";
-import { getActiveCategories, getProducts } from "@/lib/firestore-collections";
-import type { Category, Product } from "@/lib/types";
+import { getActiveCategories, getProducts, getActiveBrands } from "@/lib/firestore-collections";
+import type { Category, Product, Brand } from "@/lib/types";
+
+/* ─── Subcategories & Brand links map (from reference images) ─────────────── */
+const SUBCATEGORIES_MAP: Record<string, { name: string; href: string }[]> = {
+  "waffle": [
+    { name: "Waffle Kek", href: "/katalog/waffle-kek" },
+    { name: "Waffle Sos", href: "/katalog/waffle-sos" },
+    { name: "Waffle Süsleme", href: "/katalog/waffle-susleme" },
+    { name: "Waffle Çikolata", href: "/katalog?search=waffle" },
+  ],
+  "suruplar": [
+    { name: "DAVİNCİ", href: "/katalog?search=davinci" },
+    { name: "MONTE CRİSTO", href: "/katalog?search=monte-cristo" },
+    { name: "NONNO", href: "/katalog?search=nonno" },
+  ],
+  "pureler": [
+    { name: "Davinci Püre", href: "/katalog/pureler?search=davinci" },
+    { name: "Monte Cristo Püre", href: "/katalog/pureler?search=monte-cristo" },
+  ],
+  "donuk-pasta": [
+    { name: "Çikolatalı Pasta", href: "/katalog/donuk-pasta?search=cikolata" },
+    { name: "Meyveli Pasta", href: "/katalog/donuk-pasta?search=meyve" },
+    { name: "Cheesecake", href: "/katalog/donuk-pasta?search=cheesecake" },
+    { name: "San Sebastian", href: "/katalog/donuk-pasta?search=sebastian" },
+    { name: "Mozaik Pasta", href: "/katalog/donuk-pasta?search=mozaik" },
+  ],
+  "kahveler": [
+    { name: "Espresso Çekirdek", href: "/katalog/kahveler?search=espresso" },
+    { name: "Filtre Kahve", href: "/katalog/kahveler?search=filtre" },
+    { name: "Türk Kahvesi", href: "/katalog/kahveler?search=turk" },
+  ],
+  "bitki-caylari": [
+    { name: "Yeşil Çay", href: "/katalog/bitki-caylari?search=yesil" },
+    { name: "Ihlamur & Adaçayı", href: "/katalog/bitki-caylari?search=ada" },
+    { name: "Meyve Çayları", href: "/katalog/bitki-caylari?search=meyve" },
+  ],
+};
 
 /* ─── Mega Menu data ──────────────────────────────────────────────────────── */
 const navLinks = [
@@ -41,6 +79,8 @@ export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
   const [categories, setCategories] = useState<Category[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
+  const [brands, setBrands] = useState<Brand[]>([]);
+  const [activeSubCategory, setActiveSubCategory] = useState<string | null>(null);
   const pathname = usePathname();
   const router = useRouter();
   const { currentUser, userProfile, userRole, logoutUser } = useAuth();
@@ -52,9 +92,10 @@ export default function Header() {
   useEffect(() => {
     async function loadData() {
       try {
-        const [cats, prods] = await Promise.all([
+        const [cats, prods, brnds] = await Promise.all([
           getActiveCategories(),
           getProducts(),
+          getActiveBrands(),
         ]);
         if (cats.length > 0) setCategories(cats);
         else {
@@ -69,6 +110,7 @@ export default function Header() {
             ...p, codeGroup: "", price: 0, vatRate: 20, order: i + 1,
           })));
         }
+        if (brnds.length > 0) setBrands(brnds);
       } catch {
         setCategories(MOCK_CATEGORIES.map((c, i) => ({
           id: c.id, name: c.name, slug: c.slug,
@@ -95,6 +137,7 @@ export default function Header() {
     setMobileOpen(false);
     setUserMenuOpen(false);
     setSearchOpen(false);
+    setActiveSubCategory(null);
   }, [pathname]);
 
   /* Outside click handler */
@@ -171,7 +214,7 @@ export default function Header() {
                 link.hasMega ? (
                   <div key={link.href} className="relative" ref={megaRef}>
                     <button
-                      onClick={() => setMegaOpen((v) => !v)}
+                      onClick={() => { setMegaOpen((v) => !v); setActiveSubCategory(null); }}
                       className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                         isActive(link.href)
                           ? "text-gold-600 bg-gold-50"
@@ -187,69 +230,215 @@ export default function Header() {
                       />
                     </button>
 
-                    {/* Mega Menu Dropdown */}
+                    {/* Mega Menu Dropdown — Sol Sidebar + Sağ İçerik */}
                     <AnimatePresence>
-                      {megaOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -8, scale: 0.97 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: -8, scale: 0.97 }}
-                          transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[640px] bg-white rounded-2xl shadow-soft-lg border border-border overflow-hidden"
-                        >
-                          {/* Header */}
-                          <div className="bg-gradient-to-r from-charcoal-800 to-charcoal-700 px-6 py-4">
-                            <p className="text-white font-heading font-semibold text-base">
-                              Ürün Kategorileri
-                            </p>
-                            <p className="text-charcoal-300 text-xs mt-0.5">
-                              Toptan tedarik için 500+ premium ürün
-                            </p>
-                          </div>
+                      {megaOpen && (() => {
+                        const isAllSelected = activeSubCategory === "__all__";
+                        const activeCat = isAllSelected
+                          ? null
+                          : (categories.find(c => c.id === activeSubCategory) ?? categories[0]);
+                        const catProducts = activeCat
+                          ? products.filter(p =>
+                              p.isActive && (
+                                p.categorySlug === activeCat.slug ||
+                                p.categoryId === activeCat.id ||
+                                p.categoryName?.toLowerCase() === activeCat.name.toLowerCase()
+                              )
+                            )
+                          : [];
 
-                          {/* Category grid */}
-                          <div className="grid grid-cols-2 gap-1 p-3">
-                            {categories.map((cat) => (
-                              <Link
-                                key={cat.id}
-                                href={`/katalog/${cat.slug}`}
-                                className="mega-menu-link"
-                                onClick={() => setMegaOpen(false)}
+                        return (
+                          <motion.div
+                            initial={{ opacity: 0, y: -8, scale: 0.97 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -8, scale: 0.97 }}
+                            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                            className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[820px] bg-white rounded-2xl shadow-soft-lg border border-border overflow-hidden flex"
+                            style={{ maxHeight: "480px" }}
+                          >
+                            {/* ── Sol Panel: Kategoriler ── */}
+                            <div className="w-[230px] shrink-0 bg-charcoal-900 flex flex-col overflow-y-auto">
+                              {/* Başlık */}
+                              <div className="flex items-center gap-2 px-4 py-3.5 border-b border-charcoal-700">
+                                <AlignLeft size={14} className="text-white" />
+                                <span className="text-white font-bold text-xs uppercase tracking-widest">
+                                  Kategorilerimiz
+                                </span>
+                              </div>
+
+                              {/* Tüm Ürünler */}
+                              <button
+                                onMouseEnter={() => setActiveSubCategory("__all__")}
+                                onClick={() => { setMegaOpen(false); router.push("/katalog"); }}
+                                className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-charcoal-800 ${
+                                  isAllSelected
+                                    ? "bg-charcoal-700 text-white"
+                                    : "text-charcoal-300 hover:bg-charcoal-800 hover:text-white"
+                                }`}
                               >
-                                <div className="w-8 h-8 rounded-lg overflow-hidden relative shrink-0 bg-cream-200">
-                                  {cat.imageUrl ? (
-                                    <Image src={cat.imageUrl} alt={cat.name} fill sizes="32px" quality={85} className="object-cover" />
-                                  ) : (
-                                    <div className="w-full h-full bg-cream-300" />
+                                <span>Tüm Ürünler</span>
+                                <ChevronRight size={14} className="opacity-60" />
+                              </button>
+
+                              {/* Kategori listesi */}
+                              {categories.map((cat) => (
+                                <button
+                                  key={cat.id}
+                                  onMouseEnter={() => setActiveSubCategory(cat.id)}
+                                  onClick={() => { setMegaOpen(false); router.push(`/katalog/${cat.slug}`); }}
+                                  className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-charcoal-800/50 ${
+                                    activeSubCategory === cat.id
+                                      ? "bg-charcoal-700 text-white"
+                                      : "text-charcoal-300 hover:bg-charcoal-800 hover:text-white"
+                                  }`}
+                                >
+                                  <span className="truncate text-left">{cat.name}</span>
+                                  <ChevronRight size={14} className="shrink-0 opacity-60" />
+                                </button>
+                              ))}
+                            </div>
+
+                            {/* ── Sağ Panel: Ürün/Alt Başlık İçeriği ── */}
+                            <div className="flex-1 overflow-y-auto">
+                              {isAllSelected ? (
+                                /* Tüm Ürünler: Tüm Kategoriler + Markalarımız */
+                                <div className="p-5 space-y-5">
+                                  <div>
+                                    <p className="text-charcoal-400 text-xs font-semibold uppercase tracking-wider mb-3">
+                                      Tüm Kategoriler
+                                    </p>
+                                    <div className="grid grid-cols-3 gap-x-6 gap-y-2.5">
+                                      {categories.map((cat) => (
+                                        <Link
+                                          key={cat.id}
+                                          href={`/katalog/${cat.slug}`}
+                                          onClick={() => setMegaOpen(false)}
+                                          className="text-sm text-charcoal-700 hover:text-gold-600 font-medium transition-colors duration-150 truncate"
+                                        >
+                                          {cat.name}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+
+                                  {brands.length > 0 && (
+                                    <div className="border-t border-border pt-4">
+                                      <p className="text-charcoal-400 text-xs font-semibold uppercase tracking-wider mb-3">
+                                        Markalarımız
+                                      </p>
+                                      <div className="flex flex-wrap gap-2.5">
+                                        {brands.map((brand) => (
+                                          <Link
+                                            key={brand.id}
+                                            href={`/katalog?search=${encodeURIComponent(brand.name.toLowerCase())}`}
+                                            onClick={() => setMegaOpen(false)}
+                                            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cream hover:bg-gold-50 border border-border hover:border-gold-300 transition-all duration-150 group"
+                                          >
+                                            {brand.imageUrl && (
+                                              <div className="w-5 h-5 relative shrink-0">
+                                                <Image src={brand.imageUrl} alt={brand.name} fill sizes="20px" className="object-contain" />
+                                              </div>
+                                            )}
+                                            <span className="text-xs font-bold text-charcoal-800 group-hover:text-gold-700 tracking-wide uppercase">
+                                              {brand.name}
+                                            </span>
+                                          </Link>
+                                        ))}
+                                      </div>
+                                    </div>
                                   )}
                                 </div>
-                                <div className="min-w-0">
-                                  <p className="font-semibold text-charcoal-800 text-sm">
-                                    {cat.name}
-                                  </p>
-                                  <p className="text-charcoal-400 text-xs truncate">
-                                    İncele →
-                                  </p>
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
+                              ) : (() => {
+                                const subItems = (activeCat?.slug && SUBCATEGORIES_MAP[activeCat.slug]) || [];
+                                const hasSubItems = subItems.length > 0;
+                                const hasProducts = catProducts.length > 0;
 
-                          {/* Footer */}
-                          <div className="border-t border-border px-4 py-3 flex items-center justify-between bg-cream-100">
-                            <p className="text-charcoal-500 text-xs">
-                              Tüm kategorileri görüntüle
-                            </p>
-                            <Link
-                              href="/katalog"
-                              className="btn-gold-outline py-1.5 px-4 text-xs"
-                              onClick={() => setMegaOpen(false)}
-                            >
-                              Tüm Ürünler →
-                            </Link>
-                          </div>
-                        </motion.div>
-                      )}
+                                return (
+                                  <div className="p-5 space-y-4">
+                                    <div className="flex items-center justify-between border-b border-border/60 pb-3">
+                                      <div>
+                                        <p className="text-charcoal-800 font-heading font-bold text-base uppercase tracking-wide">
+                                          {activeCat?.name}
+                                        </p>
+                                        {activeCat?.description && (
+                                          <p className="text-charcoal-400 text-xs mt-0.5 line-clamp-1">
+                                            {activeCat.description}
+                                          </p>
+                                        )}
+                                      </div>
+                                      <Link
+                                        href={`/katalog/${activeCat?.slug}`}
+                                        onClick={() => setMegaOpen(false)}
+                                        className="text-gold-600 hover:text-gold-700 text-xs font-semibold shrink-0 transition-colors"
+                                      >
+                                        Tümünü Gör →
+                                      </Link>
+                                    </div>
+
+                                    {/* Alt başlıklar / Markalar (Örn: Waffle Kek, Waffle Sos veya DAVİNCİ, MONTE CRİSTO) */}
+                                    {hasSubItems && (
+                                      <div>
+                                        <p className="text-charcoal-400 text-2xs font-semibold uppercase tracking-wider mb-2.5">
+                                          Çeşitler & Markalar
+                                        </p>
+                                        <div className="grid grid-cols-3 gap-x-6 gap-y-2.5">
+                                          {subItems.map((item, idx) => (
+                                            <Link
+                                              key={idx}
+                                              href={item.href}
+                                              onClick={() => setMegaOpen(false)}
+                                              className="text-sm font-semibold text-charcoal-700 hover:text-gold-600 transition-colors duration-150 truncate flex items-center gap-1.5"
+                                            >
+                                              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0" />
+                                              <span className="truncate">{item.name}</span>
+                                            </Link>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    )}
+
+                                    {/* Ürünler */}
+                                    {hasProducts && (
+                                      <div className={hasSubItems ? "border-t border-border/60 pt-3" : ""}>
+                                        <p className="text-charcoal-400 text-2xs font-semibold uppercase tracking-wider mb-2.5">
+                                          Öne Çıkan Ürünler
+                                        </p>
+                                        <div className="grid grid-cols-3 gap-x-6 gap-y-2.5">
+                                          {catProducts.slice(0, 12).map((product) => (
+                                            <Link
+                                              key={product.id}
+                                              href={`/katalog/${activeCat?.slug}`}
+                                              onClick={() => setMegaOpen(false)}
+                                              className="text-sm text-charcoal-600 hover:text-gold-600 font-medium transition-colors duration-150 truncate"
+                                            >
+                                              {product.name}
+                                            </Link>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    )}
+
+                                    {!hasSubItems && !hasProducts && (
+                                      <div className="py-8 text-center">
+                                        <p className="text-charcoal-400 text-sm mb-3">
+                                          Bu kategoriye ait ürünleri katalogda inceleyin.
+                                        </p>
+                                        <Link
+                                          href={`/katalog/${activeCat?.slug}`}
+                                          onClick={() => setMegaOpen(false)}
+                                          className="btn-gold-outline py-1.5 px-4 text-xs"
+                                        >
+                                          Kategori Ürünlerini Gör →
+                                        </Link>
+                                      </div>
+                                    )}
+                                  </div>
+                                );
+                              })()}
+                            </div>
+                          </motion.div>
+                        );
+                      })()}
                     </AnimatePresence>
                   </div>
                 ) : (
