@@ -160,27 +160,20 @@ const DEFAULT_BRANDS: Brand[] = [
 ];
 
 export default function HomePage() {
-  const [sliders, setSliders] = useState<SliderItem[]>(DEFAULT_SLIDERS);
   const [categories, setCategories] = useState<Category[]>([]);
   const [brands, setBrands] = useState<Brand[]>(DEFAULT_BRANDS);
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [direction, setDirection] = useState(1);
   const [dataLoaded, setDataLoaded] = useState(false);
-  const sliderTimer = useRef<ReturnType<typeof setInterval> | null>(null);
 
   /* Load all dynamic data */
   useEffect(() => {
     async function load() {
       try {
-        const [s, c, b, p] = await Promise.all([
-          getActiveSliders(),
+        const [c, b, p] = await Promise.all([
           getActiveCategories(),
           getActiveBrands(),
-          getFirestoreFeatured(8),
+          getFirestoreFeatured(10),
         ]);
-        if (s.length > 0) setSliders(s);
-        else setSliders(DEFAULT_SLIDERS);
 
         if (c.length > 0) {
           setCategories(
@@ -234,7 +227,6 @@ export default function HomePage() {
           );
         }
       } catch {
-        setSliders(DEFAULT_SLIDERS);
         setCategories(
           MOCK_CATEGORIES.map((mc, i) => ({
             id: mc.id,
@@ -262,70 +254,6 @@ export default function HomePage() {
     }
     load();
   }, []);
-
-  /* Auto-advance slider */
-  const startTimer = useCallback(() => {
-    if (sliderTimer.current) clearInterval(sliderTimer.current);
-    if (sliders.length <= 1) return;
-    sliderTimer.current = setInterval(() => {
-      setDirection(1);
-      setCurrentSlide((prev) => (prev + 1) % sliders.length);
-    }, 5000);
-  }, [sliders.length]);
-
-  useEffect(() => {
-    startTimer();
-    return () => {
-      if (sliderTimer.current) clearInterval(sliderTimer.current);
-    };
-  }, [startTimer]);
-
-  function goToSlide(index: number) {
-    if (index === currentSlide) return;
-    setDirection(index > currentSlide ? 1 : -1);
-    setCurrentSlide(index);
-    startTimer();
-  }
-  function prevSlide() {
-    setDirection(-1);
-    setCurrentSlide((prev) => (prev - 1 + sliders.length) % sliders.length);
-    startTimer();
-  }
-  function nextSlide() {
-    setDirection(1);
-    setCurrentSlide((prev) => (prev + 1) % sliders.length);
-    startTimer();
-  }
-
-  const hasSliders = sliders.length > 0;
-
-  /* Sinematik Ken Burns & Soft Crossfade Animasyonu */
-  const slideVariants: Variants = {
-    initial: {
-      opacity: 0,
-      scale: 1.08,
-      filter: "blur(4px)",
-    },
-    animate: {
-      opacity: 1,
-      scale: 1,
-      filter: "blur(0px)",
-      transition: {
-        opacity: { duration: 0.8, ease: "easeInOut" },
-        scale: { duration: 1.2, ease: "easeInOut" },
-        filter: { duration: 0.5 },
-      },
-    },
-    exit: {
-      opacity: 0,
-      scale: 1.02,
-      filter: "blur(2px)",
-      transition: {
-        opacity: { duration: 0.6, ease: "easeInOut" },
-        filter: { duration: 0.4 },
-      },
-    },
-  };
 
   return (
     <>
@@ -420,126 +348,88 @@ export default function HomePage() {
               </motion.div>
             </div>
 
-            {/* ── Right Column: Slider (50% Width on X-Axis Desktop) ─────── */}
-            <div className="lg:col-span-6 relative">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative h-[350px] sm:h-[460px] lg:h-[480px] w-full rounded-3xl overflow-hidden shadow-soft-lg border border-border group bg-cream-100"
-              >
-                {/* Image Slider */}
-                {hasSliders ? (
-                  <>
-                    <AnimatePresence mode="sync">
-                      <motion.div
-                        key={currentSlide}
-                        variants={slideVariants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        className="absolute inset-0"
-                      >
-                        <Image
-                          src={sliders[currentSlide].imageUrl}
-                          alt={sliders[currentSlide].imageAlt || sliders[currentSlide].name}
-                          fill
-                          quality={95}
-                          sizes="(max-width: 1280px) 100vw, 1280px"
-                          className="object-cover"
-                          priority
-                        />
-                      </motion.div>
-                    </AnimatePresence>
-
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/90 via-charcoal-950/20 to-transparent" />
-
-                    {/* Slide Caption / Tag */}
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={`caption-${currentSlide}`}
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.4, delay: 0.1 }}
-                        className="absolute bottom-6 left-6 right-6 z-10"
-                      >
-                        <span className="inline-block bg-gold text-charcoal-900 text-2xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-2">
-                          Öne Çıkan Ürün
+            {/* ── Right Column: Category Showcase Cards (No Slider) ──────── */}
+            <div className="lg:col-span-6">
+              <div className="grid grid-cols-2 gap-3.5 sm:gap-4.5">
+                {[
+                  {
+                    title: "Aromalı Şuruplar",
+                    brand: "DaVinci & NONNO",
+                    count: "42+ Çeşit",
+                    href: "/katalog/suruplar",
+                    image: "/resimler/p4/p4_1.png",
+                    tag: "Barista & Kahve",
+                    borderColor: "hover:border-gold-400",
+                  },
+                  {
+                    title: "Püreler & Miksler",
+                    brand: "Caffè NONNO & EASY MIX",
+                    count: "44+ Çeşit",
+                    href: "/katalog/pureler",
+                    image: "/resimler/pt1/pt1_1.png",
+                    tag: "Frozen & Kokteyl",
+                    borderColor: "hover:border-gold-400",
+                  },
+                  {
+                    title: "Waffle Malzemeleri",
+                    brand: "CALLEI Kremaları & Süs",
+                    count: "18+ Çeşit",
+                    href: "/katalog/waffle-malzemeleri",
+                    image: "/resimler/p10/p10_1.png",
+                    tag: "Waffle & Krep",
+                    borderColor: "hover:border-gold-400",
+                  },
+                  {
+                    title: "Tatlı & Bar Sosları",
+                    brand: "DaVinci 2L & NONNO",
+                    count: "11+ Çeşit",
+                    href: "/katalog/tatli-soslar",
+                    image: "/resimler/p6/p6_7.png",
+                    tag: "Karamel & Çikolata",
+                    borderColor: "hover:border-gold-400",
+                  },
+                ].map((item, idx) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 18 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.45, delay: 0.15 + idx * 0.08 }}
+                  >
+                    <Link
+                      href={item.href}
+                      className={`group block p-3.5 sm:p-4 rounded-2xl bg-white border border-border shadow-soft hover:shadow-soft-lg ${item.borderColor} transition-all duration-300 relative overflow-hidden`}
+                    >
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-gold-700 bg-gold-50 px-2 py-0.5 rounded">
+                          {item.tag}
                         </span>
-                        <h3 className="font-heading font-bold text-white text-lg sm:text-xl drop-shadow-md">
-                          {sliders[currentSlide].name}
-                        </h3>
-                        {sliders[currentSlide].description && (
-                          <p className="text-charcoal-200 text-xs sm:text-sm line-clamp-1 mt-1">
-                            {sliders[currentSlide].description}
-                          </p>
-                        )}
-                      </motion.div>
-                    </AnimatePresence>
-
-                    {/* Navigation Buttons */}
-                    {sliders.length > 1 && (
-                      <>
-                        <button
-                          onClick={prevSlide}
-                          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-charcoal-900/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-gold hover:text-charcoal-900 transition-all duration-200"
-                          aria-label="Önceki görsel"
-                        >
-                          <ChevronLeft size={20} />
-                        </button>
-                        <button
-                          onClick={nextSlide}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-charcoal-900/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-gold hover:text-charcoal-900 transition-all duration-200"
-                          aria-label="Sonraki görsel"
-                        >
-                          <ChevronRight size={20} />
-                        </button>
-                      </>
-                    )}
-
-                    {/* Dot Indicators */}
-                    {sliders.length > 1 && (
-                      <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-charcoal-900/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
-                        {sliders.map((_, i) => (
-                          <button
-                            key={i}
-                            onClick={() => goToSlide(i)}
-                            className={`transition-all duration-300 rounded-full ${
-                              i === currentSlide
-                                ? "w-6 h-2 bg-gold"
-                                : "w-2 h-2 bg-white/40 hover:bg-white/70"
-                            }`}
-                            aria-label={`Slide ${i + 1}`}
-                          />
-                        ))}
+                        <span className="text-[10px] font-semibold text-charcoal-400">
+                          {item.count}
+                        </span>
                       </div>
-                    )}
-                  </>
-                ) : (
-                  <>
-                    <Image
-                      src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=1600&q=90"
-                      alt="Premium pastacılık ürünleri"
-                      fill
-                      quality={95}
-                      sizes="(max-width: 1280px) 100vw, 1280px"
-                      className="object-cover"
-                      priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/80 via-transparent to-transparent" />
-                    <div className="absolute bottom-6 left-6 right-6 z-10">
-                      <span className="inline-block bg-gold text-charcoal-900 text-2xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-1">
-                        Toptan Tedarik
-                      </span>
-                      <h3 className="font-heading font-bold text-white text-xl">
-                        Premium Pastacılık & Fırıncılık Ürünleri
-                      </h3>
-                    </div>
-                  </>
-                )}
-              </motion.div>
+
+                      <div className="relative aspect-square w-full max-w-[130px] sm:max-w-[150px] mx-auto my-1 bg-cream-100/60 rounded-xl overflow-hidden">
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          sizes="(max-width: 640px) 40vw, 180px"
+                          className="object-contain p-2 group-hover:scale-108 transition-transform duration-300"
+                        />
+                      </div>
+
+                      <div className="mt-2 text-center">
+                        <h3 className="font-heading font-bold text-charcoal-900 text-xs sm:text-sm group-hover:text-gold-600 transition-colors">
+                          {item.title}
+                        </h3>
+                        <p className="text-charcoal-500 text-[11px] mt-0.5 truncate">
+                          {item.brand}
+                        </p>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
             </div>
 
           </div>
