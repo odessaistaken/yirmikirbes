@@ -1,82 +1,8 @@
-/**
- * Mock data for 20:45 Pastacılık catalog.
- * Generated with 100% accurate Turkish naming, categories, specs, and local image paths.
- * Total 6 categories and 123 products.
- */
+import json
+import os
 
-import type { Category, Product } from "@/lib/types";
-export type { Category, Product };
-
-export const CATEGORIES: Category[] = [
-  {
-    "id": "cat-1",
-    "name": "Püreler & Meyve Miksleri",
-    "slug": "pureler",
-    "description": "Caffè NONNO Frozen püreleri, DaVinci Fruit Mix ve Krater meyve karışımlarından oluşan zengin bar ve pastacılık koleksiyonumuz.",
-    "icon": "🍓",
-    "productCount": 44,
-    "imageUrl": "/resimler/pt1/pt1_1.png",
-    "order": 1,
-    "isActive": true
-  },
-  {
-    "id": "cat-2",
-    "name": "Şuruplar",
-    "slug": "suruplar",
-    "description": "DaVinci Gourmet, Caffè NONNO ve Monte Cristo aromalı kahve, kokteyl ve barista şurupları.",
-    "icon": "🍯",
-    "productCount": 42,
-    "imageUrl": "/resimler/p4/p4_1.png",
-    "order": 2,
-    "isActive": true
-  },
-  {
-    "id": "cat-3",
-    "name": "Waffle & Krep Çikolataları",
-    "slug": "waffle-malzemeleri",
-    "description": "CALLEI sürülebilir renkli kremalar, hazır waffle tozu, draje ve krokan süsleme çeşitleri.",
-    "icon": "🧇",
-    "productCount": 18,
-    "imageUrl": "/resimler/p10/p10_1.png",
-    "order": 3,
-    "isActive": true
-  },
-  {
-    "id": "cat-4",
-    "name": "Tatlı & Bar Sosları",
-    "slug": "tatli-soslar",
-    "description": "DaVinci 2L ve Caffè NONNO 750g karamel, çikolata, beyaz çikolata ve meyve sosları.",
-    "icon": "🍫",
-    "productCount": 11,
-    "imageUrl": "/resimler/p6/p6_7.png",
-    "order": 4,
-    "isActive": true
-  },
-  {
-    "id": "cat-5",
-    "name": "Donuk Pasta & Unlu Mamuller",
-    "slug": "donuk-pasta",
-    "description": "Kafeterya ve restoranlar için pratik, lezzetli donuk tuzlu kurabiyeler, poğaçalar ve unlu mamuller.",
-    "icon": "🎂",
-    "productCount": 4,
-    "imageUrl": "/resimler/pt11/pt11_1.png",
-    "order": 5,
-    "isActive": true
-  },
-  {
-    "id": "cat-6",
-    "name": "Kremalı Ürünler & Pastacılık",
-    "slug": "kremali-urunler",
-    "description": "Chantilly, ganaj ve profesyonel pastacılık krema hammaddeleri.",
-    "icon": "🍰",
-    "productCount": 4,
-    "imageUrl": "/resimler/p9/p9_1.png",
-    "order": 6,
-    "isActive": true
-  }
-];
-
-const RAW_PRODUCTS = [
+products = [
+  # ─── P3: Caffè NONNO Şuruplar & Püreler ──────────────────────────
   {
     "id": "prod-p3-1",
     "name": "Caffè NONNO Caramel Aromalı Şurup 750ml",
@@ -87,23 +13,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Kahveler, sıcak ve soğuk içecekler için zengin ve kremsi karamel aromalı premium bar şurubu.",
     "imageUrl": "/resimler/p3/p3_1.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 1,
-    "tags": [
-      "Caffè NONNO",
-      "Karamel",
-      "Şurup",
-      "Kahve",
-      "Barista"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Sıcak/Soğuk Kahve, Latte, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Karamel", "Şurup", "Kahve", "Barista"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Sıcak/Soğuk Kahve, Latte, Kokteyl", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p3-2",
@@ -115,24 +31,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Ferahlatıcı nane lezzetiyle kokteyller, limonatalar ve soğuk içecekler için ferahlatıcı şurup.",
     "imageUrl": "/resimler/p3/p3_2.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 2,
-    "tags": [
-      "Caffè NONNO",
-      "Nane",
-      "Mint",
-      "Şurup",
-      "Limonata",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Kokteyl, Mocktail, Limonata",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Nane", "Mint", "Şurup", "Limonata", "Kokteyl"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Kokteyl, Mocktail, Limonata", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p3-3",
@@ -144,24 +49,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Taze frambuaz tanelerinin yoğun lezzetini içeren özel akışkan kapaklı frozen ve smoothie püresi.",
     "imageUrl": "/resimler/p3/p3_3.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 3,
-    "tags": [
-      "Caffè NONNO",
-      "Frambuaz",
-      "Ahududu",
-      "Püre",
-      "Frozen",
-      "Smoothie"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Frozen, Smoothie, Kokteyl, Pasta",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Frambuaz", "Ahududu", "Püre", "Frozen", "Smoothie"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Frozen, Smoothie, Kokteyl, Pasta", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p3-4",
@@ -173,23 +67,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Misket limonu ve taze nane uyumuyla mükemmel alkolsüz mojito ve kokteyl hazırlama şurubu.",
     "imageUrl": "/resimler/p3/p3_4.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 4,
-    "tags": [
-      "Caffè NONNO",
-      "Mojito",
-      "Lime",
-      "Şurup",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Mojito, Kokteyl, Mocktail",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Mojito", "Lime", "Şurup", "Kokteyl"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Mojito, Kokteyl, Mocktail", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p3-5",
@@ -201,24 +85,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Kavrulmuş fındık aromasıyla kahve ve sıcak çikolatalarınıza derinlik katan lezzet şurubu.",
     "imageUrl": "/resimler/p3/p3_5.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 5,
-    "tags": [
-      "Caffè NONNO",
-      "Fındık",
-      "Hazelnut",
-      "Şurup",
-      "Kahve",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Espresso, Latte, Sıcak Çikolata",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Fındık", "Hazelnut", "Şurup", "Kahve", "Latte"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Espresso, Latte, Sıcak Çikolata", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p3-6",
@@ -230,23 +103,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Böğürtlen, çilek ve yaban mersini aromalarının buzlu ferahlatıcı lezzet şurubu.",
     "imageUrl": "/resimler/p3/p3_6.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 6,
-    "tags": [
-      "Caffè NONNO",
-      "Cool Berry",
-      "Orman Meyvesi",
-      "Şurup",
-      "İçecek"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Cool Berry, Buzlu İçecek, Soda",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Cool Berry", "Orman Meyvesi", "Şurup", "İçecek"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Cool Berry, Buzlu İçecek, Soda", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p3-7",
@@ -258,23 +121,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Yaz aylarının vazgeçilmezi buzlu Cool Lime içecekleri için özel formül konsantre şurup.",
     "imageUrl": "/resimler/p3/p3_7.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 7,
-    "tags": [
-      "Caffè NONNO",
-      "Cool Lime",
-      "Misket Limonu",
-      "Şurup",
-      "Refresher"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Cool Lime, Buzlu İçecek, Mocktail",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Cool Lime", "Misket Limonu", "Şurup", "Refresher"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Cool Lime, Buzlu İçecek, Mocktail", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p3-8",
@@ -286,24 +139,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Doğal Madagaskar vanilyası notalarıyla kahve ve tatlı tariflerini zenginleştiren klasik şurup.",
     "imageUrl": "/resimler/p3/p3_8.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 8,
-    "tags": [
-      "Caffè NONNO",
-      "Vanilya",
-      "Vanilla",
-      "Şurup",
-      "Kahve",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Vanilla Latte, Frappe, Tatlı",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Vanilya", "Vanilla", "Şurup", "Kahve", "Latte"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Vanilla Latte, Frappe, Tatlı", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p3-9",
@@ -315,24 +157,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Yoğun kakao aroması ile mocha, sıcak çikolata ve milkshake yapımı için özel lezzet şurubu.",
     "imageUrl": "/resimler/p3/p3_9.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 9,
-    "tags": [
-      "Caffè NONNO",
-      "Çikolata",
-      "Chocolate",
-      "Şurup",
-      "Mocha",
-      "Frappe"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Mocha, Milkshake, Sıcak Çikolata",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Çikolata", "Chocolate", "Şurup", "Mocha", "Frappe"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Mocha, Milkshake, Sıcak Çikolata", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p3-10",
@@ -344,24 +175,16 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Kremsi beyaz çikolata lezzeti sunan White Mocha ve özel içecekler için gurme şurup.",
     "imageUrl": "/resimler/p3/p3_10.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 10,
-    "tags": [
-      "Caffè NONNO",
-      "Beyaz Çikolata",
-      "White Mocha",
-      "Şurup",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "White Mocha, Kahve, Milkshake",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Beyaz Çikolata", "White Mocha", "Şurup", "Kahve"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "White Mocha, Kahve, Milkshake", "Menşei": "Türkiye" }
   },
+
+  # ─── P4: DaVinci Gourmet Şuruplar ─────────────────────────────────
   {
     "id": "prod-p4-1",
     "name": "DaVinci Gourmet Blue Ocean Aromalı Şurup 750ml",
@@ -372,23 +195,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Tropikal portakal ve narenciye dokunuşlarıyla egzotik mavi kokteyller için DaVinci Blue Ocean.",
     "imageUrl": "/resimler/p4/p4_1.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 11,
-    "tags": [
-      "DaVinci Gourmet",
-      "Blue Ocean",
-      "Mavi Portakal",
-      "Şurup",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Mocktail, Kokteyl, Limonata",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Blue Ocean", "Mavi Portakal", "Şurup", "Kokteyl"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Mocktail, Kokteyl, Limonata", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p4-2",
@@ -400,23 +213,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Geleneksel demlenmiş çay ve ferahlatıcı limon lezzetini bir araya getiren gurme buzlu çay şurubu.",
     "imageUrl": "/resimler/p4/p4_2.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 12,
-    "tags": [
-      "DaVinci Gourmet",
-      "Limon Çayı",
-      "Ice Tea",
-      "Şurup",
-      "Soğuk Çay"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Ice Tea, Soğuk İçecek",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Limon Çayı", "Ice Tea", "Şurup", "Soğuk Çay"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Ice Tea, Soğuk İçecek", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p4-3",
@@ -428,24 +231,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Dünya standartlarında saf vanilya çekirdeği aroması sunan DaVinci Classic Vanilla şurubu.",
     "imageUrl": "/resimler/p4/p4_3.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 13,
-    "tags": [
-      "DaVinci Gourmet",
-      "Vanilla",
-      "Vanilya",
-      "Şurup",
-      "Kahve",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Kahve, Latte, Cappuccino, Frappe",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Vanilla", "Vanilya", "Şurup", "Kahve", "Latte"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Kahve, Latte, Cappuccino, Frappe", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p4-4",
@@ -457,23 +249,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Taze fırından çıkmış tereyağlı İskoç kurabiyesi lezzeti sunan özel DaVinci kurabiye şurubu.",
     "imageUrl": "/resimler/p4/p4_4.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 14,
-    "tags": [
-      "DaVinci Gourmet",
-      "Kurabiye",
-      "Shortbread Cookies",
-      "Şurup",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Latte, Frappe, Milkshake",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Kurabiye", "Shortbread Cookies", "Şurup", "Kahve"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Latte, Frappe, Milkshake", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p4-5",
@@ -485,23 +267,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Küba nanesinin doğal ferahlığıyla hazırlanan otantik mojito ve kokteyl şurubu.",
     "imageUrl": "/resimler/p4/p4_1.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 15,
-    "tags": [
-      "DaVinci Gourmet",
-      "Menta Cubano",
-      "Nane",
-      "Mojito",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Mojito, Kokteyl, Soda",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Menta Cubano", "Nane", "Mojito", "Şurup"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Mojito, Kokteyl, Soda", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p4-6",
@@ -513,24 +285,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Olgun bahçe çileklerinin tatlı ve ferah aromasıyla hazırlanan DaVinci gurme şurup.",
     "imageUrl": "/resimler/p4/p4_6.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 16,
-    "tags": [
-      "DaVinci Gourmet",
-      "Çilek",
-      "Strawberry",
-      "Şurup",
-      "Limonata",
-      "Milkshake"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Milkshake, Smoothie, Limonata, Kokteyl",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Çilek", "Strawberry", "Şurup", "Limonata", "Milkshake"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Milkshake, Smoothie, Limonata, Kokteyl", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p4-7",
@@ -542,23 +303,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Yaz şeftalisinin sulu ve tatlı lezzetiyle buzlu çaylar ve ferahlatıcı içecekler için DaVinci şurup.",
     "imageUrl": "/resimler/p4/p4_7.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 17,
-    "tags": [
-      "DaVinci Gourmet",
-      "Şeftali",
-      "Peach",
-      "Ice Tea",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Peach Ice Tea, Limonata, Kokteyl",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Şeftali", "Peach", "Ice Tea", "Şurup"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Peach Ice Tea, Limonata, Kokteyl", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p4-8",
@@ -570,23 +321,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Zengin kavrulmuş fındık aromasıyla kahve zincirlerinin bir numaralı tercihi DaVinci Classic Hazelnut.",
     "imageUrl": "/resimler/p4/p4_8.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 18,
-    "tags": [
-      "DaVinci Gourmet",
-      "Fındık",
-      "Hazelnut",
-      "Kahve Şurubu",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Latte, Cappuccino, Sıcak Çikolata",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Fındık", "Hazelnut", "Kahve Şurubu", "Latte"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Latte, Cappuccino, Sıcak Çikolata", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p4-9",
@@ -598,23 +339,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Pekan cevizi ve karamelize pralin notalarıyla zenginleştirilmiş özel gurme kahve şurubu.",
     "imageUrl": "/resimler/p4/p4_9.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 19,
-    "tags": [
-      "DaVinci Gourmet",
-      "Pecan Praline",
-      "Pekan Cevizi",
-      "Şurup",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Özel Kahve Reçeteleri, Frappe",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Pecan Praline", "Pekan Cevizi", "Şurup", "Kahve"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Özel Kahve Reçeteleri, Frappe", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p4-10",
@@ -626,24 +357,16 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Böğürtlen, frambuaz ve ahududu meyve kombinasyonuyla zengin lezzet profili sunar.",
     "imageUrl": "/resimler/p4/p4_10.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 20,
-    "tags": [
-      "DaVinci Gourmet",
-      "Forest Berries",
-      "Orman Meyvesi",
-      "Şurup",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Ice Tea, Limonata, Kokteyl",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Forest Berries", "Orman Meyvesi", "Şurup", "Kokteyl"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Ice Tea, Limonata, Kokteyl", "Menşei": "Malezya / ABD" }
   },
+
+  # ─── P5: DaVinci Gourmet Şuruplar & Soslar ─────────────────────────
   {
     "id": "prod-p5-1",
     "name": "DaVinci Gourmet Classic Caramel Şurubu 750ml",
@@ -654,23 +377,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Karamelize şeker ve hafif vanilya tonlarının dengeli uyumuyla üretilen en popüler kahve şurubu.",
     "imageUrl": "/resimler/p5/p5_1.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 21,
-    "tags": [
-      "DaVinci Gourmet",
-      "Caramel",
-      "Karamel",
-      "Şurup",
-      "Caramel Macchiato"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Caramel Macchiato, Latte, Frappe",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Caramel", "Karamel", "Şurup", "Caramel Macchiato"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Caramel Macchiato, Latte, Frappe", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p5-2",
@@ -682,23 +395,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "tatli-soslar",
     "description": "Eski usul tereyağı ve esmer şekerin karamelize lezzetini sunan yoğun kıvamlı DaVinci Butterscotch sos.",
     "imageUrl": "/resimler/p5/p5_2.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 22,
-    "tags": [
-      "DaVinci Gourmet",
-      "Butterscotch",
-      "Karamel Sos",
-      "Kahve Sosu",
-      "Dondurma Sosu"
-    ],
-    "specs": {
-      "Hacim": "2 Litre",
-      "Kullanım": "Kahve Üstü Süsleme, Waffle, Dondurma, Pasta",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Butterscotch", "Karamel Sos", "Kahve Sosu", "Dondurma Sosu"],
+    "specs": { "Hacim": "2 Litre", "Kullanım": "Kahve Üstü Süsleme, Waffle, Dondurma, Pasta", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p5-3",
@@ -710,23 +413,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Doğal yaban mersini aromasıyla soğuk çaylar, limonatalar ve kokteyller için mor renkli şurup.",
     "imageUrl": "/resimler/p5/p5_3.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 23,
-    "tags": [
-      "DaVinci Gourmet",
-      "Blueberry",
-      "Yaban Mersini",
-      "Şurup",
-      "Limonata"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Limonata, Kokteyl, Mocktail",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Blueberry", "Yaban Mersini", "Şurup", "Limonata"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Limonata, Kokteyl, Mocktail", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p5-4",
@@ -738,23 +431,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Fırınlanmış acıbadem ve tatlı badem aromalarının harmanlandığı özel kahve şurubu.",
     "imageUrl": "/resimler/p5/p5_4.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 24,
-    "tags": [
-      "DaVinci Gourmet",
-      "Badem",
-      "Roasted Almond",
-      "Şurup",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Latte, Sıcak Çikolata, Kokteyl",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Badem", "Roasted Almond", "Şurup", "Kahve"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Latte, Sıcak Çikolata, Kokteyl", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p5-5",
@@ -766,23 +449,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Kakao yağı ve vanilyanın pürüzsüz karışımıyla White Chocolate Mocha tutkunları için ideal şurup.",
     "imageUrl": "/resimler/p5/p5_5.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 25,
-    "tags": [
-      "DaVinci Gourmet",
-      "White Chocolate",
-      "Beyaz Çikolata",
-      "Şurup",
-      "Mocha"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "White Mocha, Frappe, Sıcak Süt",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "White Chocolate", "Beyaz Çikolata", "Şurup", "Mocha"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "White Mocha, Frappe, Sıcak Süt", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p5-6",
@@ -794,24 +467,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Tereyağlı tofi şekeri ve kavrulmuş fındık tanelerinin muazzam buluşmasıyla kış aylarının favorisi.",
     "imageUrl": "/resimler/p5/p5_6.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 26,
-    "tags": [
-      "DaVinci Gourmet",
-      "Toffeenut",
-      "Tofi",
-      "Fındık",
-      "Şurup",
-      "Toffee Nut Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Toffee Nut Latte, Frappe, Mocha",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Toffeenut", "Tofi", "Fındık", "Şurup", "Toffee Nut Latte"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Toffee Nut Latte, Frappe, Mocha", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p5-7",
@@ -823,23 +485,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Tropikal hindistan cevizinin egzotik aromasıyla Pina Colada ve özel kahve tarifleri için şurup.",
     "imageUrl": "/resimler/p5/p5_7.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 27,
-    "tags": [
-      "DaVinci Gourmet",
-      "Hindistan Cevizi",
-      "Coconut",
-      "Şurup",
-      "Pina Colada"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Tropikal Kokteyl, Mocha, Frappe",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Hindistan Cevizi", "Coconut", "Şurup", "Pina Colada"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Tropikal Kokteyl, Mocha, Frappe", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p5-8",
@@ -851,23 +503,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Taze sıkılmış misket limonu suyu tazeliği sunan kokteyl ve soğuk meşrubat şurubu.",
     "imageUrl": "/resimler/p5/p5_8.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 28,
-    "tags": [
-      "DaVinci Gourmet",
-      "Juicy Lime",
-      "Misket Limonu",
-      "Şurup",
-      "Limonata"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Limonata, Kokteyl, Soda",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Juicy Lime", "Misket Limonu", "Şurup", "Limonata"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Limonata, Kokteyl, Soda", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p5-9",
@@ -879,23 +521,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Tarçın, kakule, zencefil ve karanfil baharatlarıyla harmanlanmış otantik Chai Tea Latte konsantresi.",
     "imageUrl": "/resimler/p5/p5_9.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 29,
-    "tags": [
-      "DaVinci Gourmet",
-      "Chai Tea",
-      "Baharatlı Çay",
-      "Chai Latte",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Chai Tea Latte, Sıcak/Soğuk Sütlü Çay",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Chai Tea", "Baharatlı Çay", "Chai Latte", "Şurup"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Chai Tea Latte, Sıcak/Soğuk Sütlü Çay", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p5-10",
@@ -907,24 +539,16 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Koyu kakao çekirdeklerinin yoğun aromasıyla sıcak ve soğuk kahvelerde mükemmel çikolata lezzeti.",
     "imageUrl": "/resimler/p5/p5_10.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 30,
-    "tags": [
-      "DaVinci Gourmet",
-      "Çikolata",
-      "Chocolate",
-      "Mocha",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Caffè Mocha, Milkshake, Frappe",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Çikolata", "Chocolate", "Mocha", "Şurup"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Caffè Mocha, Milkshake, Frappe", "Menşei": "Malezya / ABD" }
   },
+
+  # ─── P6: Bar & Tatlı Sosları & Premixler ───────────────────────────
   {
     "id": "prod-p6-1",
     "name": "Caffè NONNO Blue Curacao Bar Sosu 750g",
@@ -935,23 +559,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "tatli-soslar",
     "description": "Canlı mavi rengi ve narenciye aromasıyla bar sunumları, tatlılar ve kokteyller için özel sıkma sos.",
     "imageUrl": "/resimler/p6/p6_1.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 31,
-    "tags": [
-      "Caffè NONNO",
-      "Blue Curacao",
-      "Bar Sosu",
-      "Tatlı Sosu",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Gramaj": "750 g",
-      "Kullanım": "Bar Süsleme, Tatlı Tabağı Dekoru, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Blue Curacao", "Bar Sosu", "Tatlı Sosu", "Kokteyl"],
+    "specs": { "Gramaj": "750 g", "Kullanım": "Bar Süsleme, Tatlı Tabağı Dekoru, Kokteyl", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p6-2",
@@ -963,23 +577,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "tatli-soslar",
     "description": "Sarı muz aromalı akışkan dekor sosu; dondurma, waffle ve pastacılık tabaklarında harika sunum sağlar.",
     "imageUrl": "/resimler/p6/p6_2.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 32,
-    "tags": [
-      "Caffè NONNO",
-      "Muz",
-      "Muz Sosu",
-      "Tatlı Sosu",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "750 g",
-      "Kullanım": "Waffle, Dondurma, Pasta Süsleme",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Muz", "Muz Sosu", "Tatlı Sosu", "Waffle"],
+    "specs": { "Gramaj": "750 g", "Kullanım": "Waffle, Dondurma, Pasta Süsleme", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p6-3",
@@ -991,23 +595,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Portakal ve mango meyvelerinin mükemmel dengesiyle hızlı ve pratik kokteyl & mocktail miksi.",
     "imageUrl": "/resimler/p6/p6_3.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 33,
-    "tags": [
-      "EASY MIX",
-      "Portakal",
-      "Mango",
-      "Kokteyl Premiksi",
-      "Barista"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Kokteyl, Mocktail, Frozen",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Portakal", "Mango", "Kokteyl Premiksi", "Barista"],
+    "specs": { "Hacim": "1000 ml", "Kullanım": "Kokteyl, Mocktail, Frozen", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p6-4",
@@ -1019,22 +613,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Coğrafi işaretli Bodrum mandalinasının eşsiz kokusu ve tadıyla profesyonel barlar için hazır premiks.",
     "imageUrl": "/resimler/p6/p6_4.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 34,
-    "tags": [
-      "EASY MIX",
-      "Bodrum Mandalina",
-      "Kokteyl Miksi",
-      "Premix"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Kokteyl, Mocktail, Limonata",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Bodrum Mandalina", "Kokteyl Miksi", "Premix"],
+    "specs": { "Hacim": "1000 ml", "Kullanım": "Kokteyl, Mocktail, Limonata", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p6-5",
@@ -1046,23 +631,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "tatli-soslar",
     "description": "Kremamsı New York cheesecake lezzetini kahvelere, frappeler ve tatlı tabaklarına taşıyan özel 2L sos.",
     "imageUrl": "/resimler/p6/p6_5.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 35,
-    "tags": [
-      "DaVinci Gourmet",
-      "Cheesecake Sos",
-      "Tatlı Sosu",
-      "Kahve Sosu",
-      "Frappe"
-    ],
-    "specs": {
-      "Hacim": "2 Litre",
-      "Kullanım": "Cheesecake Latte, Frappe, Dondurma, Pasta",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Cheesecake Sos", "Tatlı Sosu", "Kahve Sosu", "Frappe"],
+    "specs": { "Hacim": "2 Litre", "Kullanım": "Cheesecake Latte, Frappe, Dondurma, Pasta", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p6-6",
@@ -1074,22 +649,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "tatli-soslar",
     "description": "İpeksi beyaz çikolata dokusu ve zengin süt aromasıyla baristaların vazgeçilmezi 2 litrelik sos.",
     "imageUrl": "/resimler/p6/p6_6.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 36,
-    "tags": [
-      "DaVinci Gourmet",
-      "White Chocolate",
-      "Beyaz Çikolata Sosu",
-      "Mocha"
-    ],
-    "specs": {
-      "Hacim": "2 Litre",
-      "Kullanım": "White Mocha, Sıcak Çikolata, Waffle, Dondurma",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "White Chocolate", "Beyaz Çikolata Sosu", "Mocha"],
+    "specs": { "Hacim": "2 Litre", "Kullanım": "White Mocha, Sıcak Çikolata, Waffle, Dondurma", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p6-7",
@@ -1101,22 +667,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "tatli-soslar",
     "description": "Geleneksel tereyağlı karamel kıvamı ve parlak dokusuyla kahve ve tatlı sunumlarında lider sos.",
     "imageUrl": "/resimler/p6/p6_7.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 37,
-    "tags": [
-      "DaVinci Gourmet",
-      "Karamel Sos",
-      "Caramel Drizzle",
-      "Kahve Sosu"
-    ],
-    "specs": {
-      "Hacim": "2 Litre",
-      "Kullanım": "Caramel Macchiato, Waffle, Pasta, Dondurma",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Karamel Sos", "Caramel Drizzle", "Kahve Sosu"],
+    "specs": { "Hacim": "2 Litre", "Kullanım": "Caramel Macchiato, Waffle, Pasta, Dondurma", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p6-8",
@@ -1128,23 +685,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "tatli-soslar",
     "description": "Zengin kakao çekirdeklerinden üretilen koyu çikolata sosu; sıcak ve soğuk içeceklerde kusursuz erir.",
     "imageUrl": "/resimler/p6/p6_8.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 38,
-    "tags": [
-      "DaVinci Gourmet",
-      "Çikolata Sosu",
-      "Mocha Sos",
-      "Waffle",
-      "Pasta"
-    ],
-    "specs": {
-      "Hacim": "2 Litre",
-      "Kullanım": "Caffè Mocha, Dondurma, Waffle, Pancake",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Çikolata Sosu", "Mocha Sos", "Waffle", "Pasta"],
+    "specs": { "Hacim": "2 Litre", "Kullanım": "Caffè Mocha, Dondurma, Waffle, Pancake", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-p6-9",
@@ -1156,22 +703,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "tatli-soslar",
     "description": "Özel ince uçlu sıkma şişesiyle pasta, waffle ve kahve üzeri desenler için beyaz çikolata dekor sosu.",
     "imageUrl": "/resimler/p6/p6_9.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 39,
-    "tags": [
-      "Caffè NONNO",
-      "Beyaz Çikolata Sosu",
-      "Dekor Sos",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "750 g",
-      "Kullanım": "Kahve Süsleme, Waffle, Tabak Dekoru",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Beyaz Çikolata Sosu", "Dekor Sos", "Waffle"],
+    "specs": { "Gramaj": "750 g", "Kullanım": "Kahve Süsleme, Waffle, Tabak Dekoru", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p6-10",
@@ -1183,23 +721,16 @@ const RAW_PRODUCTS = [
     "categorySlug": "tatli-soslar",
     "description": "Kokteyl ve tatlı sunumlarına derin mavi ton ve tatlı portakal lezzeti kazandıran özel dekor sos.",
     "imageUrl": "/resimler/p6/p6_10.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 40,
-    "tags": [
-      "Caffè NONNO",
-      "Blue Curacao",
-      "Dekor Sos",
-      "Barista"
-    ],
-    "specs": {
-      "Gramaj": "750 g",
-      "Kullanım": "Bardak Süsleme, Kokteyl, Tatlı Tabağı",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Blue Curacao", "Dekor Sos", "Barista"],
+    "specs": { "Gramaj": "750 g", "Kullanım": "Bardak Süsleme, Kokteyl, Tatlı Tabağı", "Menşei": "Türkiye" }
   },
+
+  # ─── P7: EASY MIX Kokteyl Premiksleri & Refresherlar ──────────────
   {
     "id": "prod-p7-1",
     "name": "EASY MIX Citrus Blend Kokteyl Premiksi 1000ml",
@@ -1210,23 +741,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Limon, misket limonu ve portakalın ferahlatıcı dengesiyle sour kokteyllerin temel harcı.",
     "imageUrl": "/resimler/p7/p7_1.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 41,
-    "tags": [
-      "EASY MIX",
-      "Citrus Blend",
-      "Narenciye",
-      "Kokteyl Premiksi",
-      "Sour"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Sour Kokteyller, Limonata, Mocktail",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Citrus Blend", "Narenciye", "Kokteyl Premiksi", "Sour"],
+    "specs": { "Hacim": "1000 ml", "Kullanım": "Sour Kokteyller, Limonata, Mocktail", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p7-2",
@@ -1238,23 +759,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Ejder meyvesi (Pitaya) ve yeşil çay bazıyla pembe renkli tropikal ferahlık sunan konsantre içecek.",
     "imageUrl": "/resimler/p7/p7_2.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 42,
-    "tags": [
-      "EASY MIX",
-      "Pitaya",
-      "Ejder Meyvesi",
-      "Refresher",
-      "Buzlu İçecek"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Buzlu Refresher, Mocktail, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Pitaya", "Ejder Meyvesi", "Refresher", "Buzlu İçecek"],
+    "specs": { "Hacim": "700 ml", "Kullanım": "Buzlu Refresher, Mocktail, Kokteyl", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p7-3",
@@ -1266,22 +777,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Koyu kiraz ve bitter çikolata uyumuyla gurme kokteyller ve tatlı içecekler için premiks.",
     "imageUrl": "/resimler/p7/p7_3.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 43,
-    "tags": [
-      "EASY MIX",
-      "Kiraz Çikolata",
-      "Cherry Chocolate",
-      "Kokteyl Miksi"
-    ],
-    "specs": {
-      "Hacim": "500 ml",
-      "Kullanım": "Gurme Kokteyl, Tatlı İçecek",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Kiraz Çikolata", "Cherry Chocolate", "Kokteyl Miksi"],
+    "specs": { "Hacim": "500 ml", "Kullanım": "Gurme Kokteyl, Tatlı İçecek", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p7-4",
@@ -1293,23 +795,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Güney Afrika Rooibos çayı ve tatlı şeftali harmanıyla kafeinsiz doğal buzlu içecek bazı.",
     "imageUrl": "/resimler/p7/p7_4.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 44,
-    "tags": [
-      "EASY MIX",
-      "Rooibos",
-      "Şeftali",
-      "Refresher",
-      "Ice Tea"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Buzlu Çay, Refresher, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Rooibos", "Şeftali", "Refresher", "Ice Tea"],
+    "specs": { "Hacim": "700 ml", "Kullanım": "Buzlu Çay, Refresher, Kokteyl", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p7-5",
@@ -1321,23 +813,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Siyah ve beyaz çikolatanın vanilya ile mükemmel dengesiyle lüks kokteyl bazı.",
     "imageUrl": "/resimler/p7/p7_5.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 45,
-    "tags": [
-      "EASY MIX",
-      "Tuxedo",
-      "Çikolata",
-      "Vanilya",
-      "Premix"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Tatlı Kokteyller, Barista İçecekleri",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Tuxedo", "Çikolata", "Vanilya", "Premix"],
+    "specs": { "Hacim": "1000 ml", "Kullanım": "Tatlı Kokteyller, Barista İçecekleri", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p7-6",
@@ -1349,22 +831,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Çarkıfelek meyvesi, vanilya ve narenciye notalarıyla dünyaca ünlü Passion Martini hazırlama miksi.",
     "imageUrl": "/resimler/p7/p7_6.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 46,
-    "tags": [
-      "EASY MIX",
-      "Passion Martini",
-      "Çarkıfelek",
-      "Kokteyl Premiksi"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Pornstar Martini, Passion Mocktail, Frozen",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Passion Martini", "Çarkıfelek", "Kokteyl Premiksi"],
+    "specs": { "Hacim": "1000 ml", "Kullanım": "Pornstar Martini, Passion Mocktail, Frozen", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p7-7",
@@ -1376,22 +849,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Barlar ve restoranlar için standart reçeteli yoğun çarkıfelek meyveli kokteyl bazı.",
     "imageUrl": "/resimler/p7/p7_7.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 47,
-    "tags": [
-      "EASY MIX",
-      "Passion Fruit",
-      "Martini Miksi",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Kokteyl, Mocktail, Frozen",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Passion Fruit", "Martini Miksi", "Kokteyl"],
+    "specs": { "Hacim": "1000 ml", "Kullanım": "Kokteyl, Mocktail, Frozen", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p7-8",
@@ -1403,23 +867,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Tatlı tropikal mango ile hafif acı acı biberin heyecan verici ve cüretkar kokteyl kombinasyonu.",
     "imageUrl": "/resimler/p7/p7_8.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 48,
-    "tags": [
-      "EASY MIX",
-      "Chili Mango",
-      "Acılı Mango",
-      "Kokteyl Premiksi",
-      "Margarita"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Spicy Mango Margarita, Frozen, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Chili Mango", "Acılı Mango", "Kokteyl Premiksi", "Margarita"],
+    "specs": { "Hacim": "1000 ml", "Kullanım": "Spicy Mango Margarita, Frozen, Kokteyl", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p7-9",
@@ -1431,23 +885,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Mor reyhanın aromatik yapısı ve taze limon suyuyla hazırlanan otantik gurme kokteyl premiksi.",
     "imageUrl": "/resimler/p7/p7_9.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 49,
-    "tags": [
-      "EASY MIX",
-      "Mor Reyhan",
-      "Purple Basil",
-      "Reyhan Şerbeti",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Reyhan Kokteyli, Gurme Limonata",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Mor Reyhan", "Purple Basil", "Reyhan Şerbeti", "Kokteyl"],
+    "specs": { "Hacim": "1000 ml", "Kullanım": "Reyhan Kokteyli, Gurme Limonata", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p7-10",
@@ -1459,24 +903,16 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Ekşi yeşil erik ve taze kuzu kulağının ferahlatıcı yeşil çay bazıyla eşsiz uyumu.",
     "imageUrl": "/resimler/p7/p7_10.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 50,
-    "tags": [
-      "EASY MIX",
-      "Yeşil Erik",
-      "Kuzukulağı",
-      "Refresher",
-      "Ekşi İçecek"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Buzlu Refresher, Ekşi Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Yeşil Erik", "Kuzukulağı", "Refresher", "Ekşi İçecek"],
+    "specs": { "Hacim": "700 ml", "Kullanım": "Buzlu Refresher, Ekşi Kokteyl", "Menşei": "Türkiye" }
   },
+
+  # ─── P8: Caffè NONNO Şuruplar & EASY MIX ──────────────────────────
   {
     "id": "prod-p8-1",
     "name": "Caffè NONNO Tiramisu Aromalı Şurup 750ml",
@@ -1487,23 +923,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "İtalyan maskarpone peyniri, bisküvi ve kahve notalarıyla zenginleştirilmiş özel tiramisu şurubu.",
     "imageUrl": "/resimler/p8/p8_1.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 51,
-    "tags": [
-      "Caffè NONNO",
-      "Tiramisu",
-      "Şurup",
-      "Kahve",
-      "Tatlı"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Tiramisu Latte, Sıcak İçecekler, Frappe",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Tiramisu", "Şurup", "Kahve", "Tatlı"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Tiramisu Latte, Sıcak İçecekler, Frappe", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p8-2",
@@ -1515,22 +941,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Karamelize tereyağı ve fındık tanelerinin buluşmasıyla kış kahvelerinin vazgeçilmezi.",
     "imageUrl": "/resimler/p8/p8_2.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 52,
-    "tags": [
-      "Caffè NONNO",
-      "Toffee Nut",
-      "Fındık Şurubu",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Toffee Nut Latte, Cappuccino",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Toffee Nut", "Fındık Şurubu", "Kahve"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Toffee Nut Latte, Cappuccino", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p8-3",
@@ -1542,22 +959,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Yoğun tofi şekeri ve kavrulmuş kuruyemiş profili sunan gurme seri kahve şurubu.",
     "imageUrl": "/resimler/p8/p8_3.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 53,
-    "tags": [
-      "Caffè NONNO",
-      "Toffee Nut",
-      "Gourmet Şurup",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Kahve, Sıcak Süt, Frappe",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Toffee Nut", "Gourmet Şurup", "Latte"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Kahve, Sıcak Süt, Frappe", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p8-4",
@@ -1569,22 +977,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Sulu karpuz ve misket limonunun dengeli formülüyle mükemmel Watermelon Margarita bazı.",
     "imageUrl": "/resimler/p8/p8_4.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 54,
-    "tags": [
-      "EASY MIX",
-      "Karpuz",
-      "Margarita",
-      "Kokteyl Premiksi"
-    ],
-    "specs": {
-      "Hacim": "500 ml",
-      "Kullanım": "Karpuz Margarita, Frozen, Mocktail",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Karpuz", "Margarita", "Kokteyl Premiksi"],
+    "specs": { "Hacim": "500 ml", "Kullanım": "Karpuz Margarita, Frozen, Mocktail", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p8-5",
@@ -1596,22 +995,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Kırmızı orman meyveleri ve Bodrum mandalinasının canlı rengi ve lezzetiyle özel parti miksi.",
     "imageUrl": "/resimler/p8/p8_5.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 55,
-    "tags": [
-      "EASY MIX",
-      "Orman Meyvesi",
-      "Mandalina",
-      "Kokteyl Premiksi"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Kokteyl, Mocktail, Shot",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Orman Meyvesi", "Mandalina", "Kokteyl Premiksi"],
+    "specs": { "Hacim": "1000 ml", "Kullanım": "Kokteyl, Mocktail, Shot", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p8-6",
@@ -1623,23 +1013,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Portakal, greyfurt ve karadut meyvelerinin berrak mavi okyanus tonuyla buluştuğu refresher.",
     "imageUrl": "/resimler/p8/p8_6.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 56,
-    "tags": [
-      "EASY MIX",
-      "Ocean",
-      "Karadut",
-      "Refresher",
-      "Mavi İçecek"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Buzlu Refresher, Okyanus Kokteyli",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Ocean", "Karadut", "Refresher", "Mavi İçecek"],
+    "specs": { "Hacim": "700 ml", "Kullanım": "Buzlu Refresher, Okyanus Kokteyli", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p8-7",
@@ -1651,23 +1031,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Antioksidan zengini yeşil çay özü ve tatlı yaz kavunu harmanı.",
     "imageUrl": "/resimler/p8/p8_7.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 57,
-    "tags": [
-      "EASY MIX",
-      "Kavun",
-      "Yeşil Çay",
-      "Kokteyl Premiksi",
-      "Refresher"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Kavunlu Ice Tea, Kokteyl, Mocktail",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Kavun", "Yeşil Çay", "Kokteyl Premiksi", "Refresher"],
+    "specs": { "Hacim": "700 ml", "Kullanım": "Kavunlu Ice Tea, Kokteyl, Mocktail", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p8-8",
@@ -1679,23 +1049,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Hafif beyaz çay yaprakları ve taze sulu şeftali aromasıyla zarif bir içecek bazı.",
     "imageUrl": "/resimler/p8/p8_8.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 58,
-    "tags": [
-      "EASY MIX",
-      "Beyaz Çay",
-      "Şeftali",
-      "Ice Tea",
-      "Premix"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Beyaz Çaylı İçecek, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Beyaz Çay", "Şeftali", "Ice Tea", "Premix"],
+    "specs": { "Hacim": "700 ml", "Kullanım": "Beyaz Çaylı İçecek, Kokteyl", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p8-9",
@@ -1707,22 +1067,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "The Pumps serisi özel basmalı başlığıyla barlar ve kafeler için pratik frambuaz şurubu.",
     "imageUrl": "/resimler/p8/p8_9.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 59,
-    "tags": [
-      "EASY MIX",
-      "Frambuaz",
-      "Artisan Şurup",
-      "Barista"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Kokteyl, Kahve, Limonata",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["EASY MIX", "Frambuaz", "Artisan Şurup", "Barista"],
+    "specs": { "Hacim": "700 ml", "Kullanım": "Kokteyl, Kahve, Limonata", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p8-10",
@@ -1734,23 +1085,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Tatlı ve mayhoş nar lezzetiyle limonatalar, mocktail ve sıcak kış çayları için özel şurup.",
     "imageUrl": "/resimler/p8/p8_10.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 60,
-    "tags": [
-      "Caffè NONNO",
-      "Nar",
-      "Pomegranate",
-      "Şurup",
-      "Limonata"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Limonata, Kokteyl, Sıcak Meyve Çayı",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Nar", "Pomegranate", "Şurup", "Limonata"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Limonata, Kokteyl, Sıcak Meyve Çayı", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p8-11",
@@ -1762,24 +1103,16 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Tropikal muz lezzetiyle sütlü kahveler, milkshake ve frappe çeşitlerine tatlılık katar.",
     "imageUrl": "/resimler/p8/p8_11.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 61,
-    "tags": [
-      "Caffè NONNO",
-      "Muz",
-      "Banana",
-      "Şurup",
-      "Milkshake"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Milkshake, Muzlu Latte, Frappe",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Muz", "Banana", "Şurup", "Milkshake"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Milkshake, Muzlu Latte, Frappe", "Menşei": "Türkiye" }
   },
+
+  # ─── P9: CALLEI Waffle Kremaları, Toz Karışım & Süslemeler ─────────
   {
     "id": "prod-p9-1",
     "name": "CALLEI Bitter Çikolatalı Waffle & Krep Kreması 1kg",
@@ -1790,23 +1123,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Zengin bitter kakao içeriği ve pürüzsüz sürülebilir kıvamıyla profesyonel waffle ve krep kreması.",
     "imageUrl": "/resimler/p9/p9_1.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 62,
-    "tags": [
-      "CALLEI",
-      "Bitter Çikolata",
-      "Waffle Kreması",
-      "Krep",
-      "Sürülebilir Çikolata"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Pancake, Kruvasan Dolgusu",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["CALLEI", "Bitter Çikolata", "Waffle Kreması", "Krep", "Sürülebilir Çikolata"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Waffle, Krep, Pancake, Kruvasan Dolgusu", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p9-2",
@@ -1818,22 +1141,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Waffle, dondurma, pasta ve cupcake sunumları için renkli granül süsleme şekerlemeleri.",
     "imageUrl": "/resimler/p9/p9_2.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 63,
-    "tags": [
-      "Granül Şeker",
-      "Renkli Pasta Süsü",
-      "Waffle Topping",
-      "Süsleme"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Dondurma, Cupcake, Pasta",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Granül Şeker", "Renkli Pasta Süsü", "Waffle Topping", "Süsleme"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Waffle, Dondurma, Cupcake, Pasta", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p9-3",
@@ -1845,22 +1159,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Çıtır karamel ve fındık parçacıklarının harmanıyla waffle ve pasta üstü için gurme krokan.",
     "imageUrl": "/resimler/p9/p9_3.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 64,
-    "tags": [
-      "Krokan",
-      "Fındık Krokan",
-      "Waffle Süsleme",
-      "Çıtır Topping"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Pasta, Dondurma, Tatlı",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Krokan", "Fındık Krokan", "Waffle Süsleme", "Çıtır Topping"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Waffle, Pasta, Dondurma, Tatlı", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p9-4",
@@ -1872,22 +1177,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Çıtır şeker kaplamalı renkli mini sütlü çikolata drajeleri.",
     "imageUrl": "/resimler/p9/p9_4.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 65,
-    "tags": [
-      "Bonibon",
-      "Renkli Draje",
-      "Waffle Süsleme",
-      "Çikolata Draje"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Dondurma, Pasta",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Bonibon", "Renkli Draje", "Waffle Süsleme", "Çikolata Draje"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Waffle, Dondurma, Pasta", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p9-5",
@@ -1899,22 +1195,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Fırına ve eritmeye dayanıklı kaliteli sütlü damla çikolata; kurabiye, kek ve waffle için.",
     "imageUrl": "/resimler/p9/p9_5.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 66,
-    "tags": [
-      "Sütlü Damla Çikolata",
-      "Çikolata Drops",
-      "Kurabiye Çikolatası",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Kurabiye, Kek, Waffle, Dondurma",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Sütlü Damla Çikolata", "Çikolata Drops", "Kurabiye Çikolatası", "Waffle"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Kurabiye, Kek, Waffle, Dondurma", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p9-6",
@@ -1926,22 +1213,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Doğal taş görünümünde renkli şeker kaplı sütlü çikolata taneleri.",
     "imageUrl": "/resimler/p9/p9_6.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 67,
-    "tags": [
-      "Çakıl Taşı Çikolata",
-      "Draje",
-      "Waffle Süsü",
-      "Pasta Süsleme"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Dondurma, Pasta",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Çakıl Taşı Çikolata", "Draje", "Waffle Süsü", "Pasta Süsleme"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Waffle, Dondurma, Pasta", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p9-7",
@@ -1953,22 +1231,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Yüksek kakao oranlı ısıya dayanıklı bitter damla çikolata parçaları.",
     "imageUrl": "/resimler/p9/p9_7.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 68,
-    "tags": [
-      "Bitter Damla Çikolata",
-      "Kakao Drops",
-      "Kurabiye",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Kurabiye, Muffin, Waffle",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Bitter Damla Çikolata", "Kakao Drops", "Kurabiye", "Waffle"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Kurabiye, Muffin, Waffle", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p9-8",
@@ -1980,22 +1249,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Kakao yağı ve vanilyalı beyaz damla çikolata; kurabiye ve pasta süslemelerinde estetik dokunuş.",
     "imageUrl": "/resimler/p9/p9_8.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 69,
-    "tags": [
-      "Beyaz Damla Çikolata",
-      "White Drops",
-      "Kurabiye",
-      "Pasta"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Kurabiye, Pasta Süsleme, Waffle",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Beyaz Damla Çikolata", "White Drops", "Kurabiye", "Pasta"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Kurabiye, Pasta Süsleme, Waffle", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p9-9",
@@ -2007,23 +1267,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Su ve yağ ilavesiyle dakikalar içinde dışı çıtır, içi yumuşacık altın sarısı waffle, krep ve pankek harcı.",
     "imageUrl": "/resimler/p9/p9_9.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 70,
-    "tags": [
-      "CALLEI",
-      "Waffle Tozu",
-      "Waffle Mix",
-      "Krep Harcı",
-      "Pancake Tozu"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Karışım": "1kg Mix + 1.25L Su + 200g Sıvı Yağ",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["CALLEI", "Waffle Tozu", "Waffle Mix", "Krep Harcı", "Pancake Tozu"],
+    "specs": { "Gramaj": "1 kg", "Karışım": "1kg Mix + 1.25L Su + 200g Sıvı Yağ", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p9-10",
@@ -2035,23 +1285,16 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Özenle kavrulmuş ve elenmiş pirinç fındık taneleri; waffle, çikolata ve pastalara eşsiz çıtırlık katar.",
     "imageUrl": "/resimler/p9/p9_10.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 71,
-    "tags": [
-      "Pirinç Fındık",
-      "Kavrulmuş Fındık",
-      "Waffle Süsü",
-      "Pasta Topping"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Pasta, Dondurma",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Pirinç Fındık", "Kavrulmuş Fındık", "Waffle Süsü", "Pasta Topping"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Waffle, Pasta, Dondurma", "Menşei": "Türkiye" }
   },
+
+  # ─── P10: CALLEI Sürülebilir Waffle & Krep Kremaları ───────────────
   {
     "id": "prod-p10-1",
     "name": "CALLEI Speculoos Bisküvili Waffle & Krep Kreması 1kg",
@@ -2062,23 +1305,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Orijinal karamelize Belçika Speculoos bisküvisi parçacıklı lüks sürülebilir krema.",
     "imageUrl": "/resimler/p10/p10_1.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 72,
-    "tags": [
-      "CALLEI",
-      "Speculoos",
-      "Bisküvi Kreması",
-      "Lotus",
-      "Waffle Kreması"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Kruvasan Dolgusu, Cheesecake",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["CALLEI", "Speculoos", "Bisküvi Kreması", "Lotus", "Waffle Kreması"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Waffle, Krep, Kruvasan Dolgusu, Cheesecake", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p10-2",
@@ -2090,23 +1323,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Canlı pembe rengi ve tatlı çilek aromasıyla dikkat çeken özel sürülebilir krema.",
     "imageUrl": "/resimler/p10/p10_2.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 73,
-    "tags": [
-      "CALLEI",
-      "Çilek Kreması",
-      "Pembe Çikolata",
-      "Waffle",
-      "Krep"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Pasta Kaplama",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["CALLEI", "Çilek Kreması", "Pembe Çikolata", "Waffle", "Krep"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Waffle, Krep, Pasta Kaplama", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p10-3",
@@ -2118,22 +1341,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Kremsi dokusu ve yoğun sütlü beyaz çikolata lezzetiyle vazgeçilmez waffle kreması.",
     "imageUrl": "/resimler/p10/p10_3.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 74,
-    "tags": [
-      "CALLEI",
-      "Beyaz Çikolata",
-      "Sürülebilir Krema",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Profiterol Dolgusu",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["CALLEI", "Beyaz Çikolata", "Sürülebilir Krema", "Waffle"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Waffle, Krep, Profiterol Dolgusu", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p10-4",
@@ -2145,23 +1359,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Bol sütlü ve fındıklı geleneksel çikolata kreması; profesyonel işletmeler için 1 kg ambalajda.",
     "imageUrl": "/resimler/p10/p10_4.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 75,
-    "tags": [
-      "CALLEI",
-      "Sütlü Çikolata",
-      "Fındık Kreması",
-      "Waffle",
-      "Krep"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Pancake, Kruvasan",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["CALLEI", "Sütlü Çikolata", "Fındık Kreması", "Waffle", "Krep"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Waffle, Krep, Pancake, Kruvasan", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p10-5",
@@ -2173,23 +1377,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Frambuaz meyvesinin mayhoş tatlı aromasıyla tatlı tabaklarına renk katan krema.",
     "imageUrl": "/resimler/p10/p10_5.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 76,
-    "tags": [
-      "CALLEI",
-      "Frambuaz Kreması",
-      "Ahududu",
-      "Waffle",
-      "Krep"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Tatlı Dolgusu",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["CALLEI", "Frambuaz Kreması", "Ahududu", "Waffle", "Krep"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Waffle, Krep, Tatlı Dolgusu", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p10-6",
@@ -2201,23 +1395,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Eğlenceli sakız aroması ve göz alıcı turkuaz mavi rengiyle çocukların ve gençlerin gözdesi.",
     "imageUrl": "/resimler/p10/p10_6.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 77,
-    "tags": [
-      "CALLEI",
-      "Bubble Gum",
-      "Sakız Aromalı",
-      "Mavi Krema",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Milkshake, Dondurma",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["CALLEI", "Bubble Gum", "Sakız Aromalı", "Mavi Krema", "Waffle"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Waffle, Krep, Milkshake, Dondurma", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p10-7",
@@ -2229,23 +1413,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Gerçek Antep fıstığı ezmesi içeren zengin yeşil renkli ve gurme lezzetli sürülebilir krema.",
     "imageUrl": "/resimler/p10/p10_7.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 78,
-    "tags": [
-      "CALLEI",
-      "Antep Fıstığı",
-      "Fıstık Kreması",
-      "Dubai Çikolatası",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Dubai Çikolatası, Krep, Kruvasan",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["CALLEI", "Antep Fıstığı", "Fıstık Kreması", "Dubai Çikolatası", "Waffle"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Waffle, Dubai Çikolatası, Krep, Kruvasan", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p10-8",
@@ -2257,24 +1431,16 @@ const RAW_PRODUCTS = [
     "categorySlug": "waffle-malzemeleri",
     "description": "Koyu altın rengi ve karamelize şeker tadıyla krep, waffle ve pasta aralarında eşsiz tat.",
     "imageUrl": "/resimler/p10/p10_8.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 79,
-    "tags": [
-      "CALLEI",
-      "Karamel Kreması",
-      "Dulce de Leche",
-      "Waffle",
-      "Krep"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Kek Dolgusu",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["CALLEI", "Karamel Kreması", "Dulce de Leche", "Waffle", "Krep"],
+    "specs": { "Gramaj": "1 kg", "Kullanım": "Waffle, Krep, Kek Dolgusu", "Menşei": "Türkiye" }
   },
+
+  # ─── P12: Monte Cristo Şuruplar, Caffè NONNO & Krater ─────────────
   {
     "id": "prod-p12-1",
     "name": "Caffè NONNO Passion Fruit Çarkıfelek Püresi 750ml",
@@ -2285,23 +1451,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Tropikal çarkıfelek meyvesi çekirdekleri ve püresi içeren yoğun meyve konsantresi.",
     "imageUrl": "/resimler/p12/p12_1.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 80,
-    "tags": [
-      "Caffè NONNO",
-      "Passion Fruit",
-      "Çarkıfelek",
-      "Püre",
-      "Frozen"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Frozen, Smoothie, Kokteyl, Pasta",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Passion Fruit", "Çarkıfelek", "Püre", "Frozen"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Frozen, Smoothie, Kokteyl, Pasta", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p12-2",
@@ -2313,23 +1469,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Tarçın, zencefil ve karamelize bisküvi lezzetini kahveye taşıyan otantik Monte Cristo Speculaas şurubu.",
     "imageUrl": "/resimler/p12/p12_2.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 81,
-    "tags": [
-      "Monte Cristo",
-      "Speculaas",
-      "Bisküvi Şurubu",
-      "Kahve",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Speculaas Latte, Frappe, Sıcak Süt",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Monte Cristo", "Speculaas", "Bisküvi Şurubu", "Kahve", "Latte"],
+    "specs": { "Hacim": "700 ml", "Kullanım": "Speculaas Latte, Frappe, Sıcak Süt", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p12-3",
@@ -2341,23 +1487,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Doğal yeşil rengi ve kivi taneleriyle frozen ve kokteyller için ferahlatıcı ekşi-tatlı püre.",
     "imageUrl": "/resimler/p12/p12_3.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 82,
-    "tags": [
-      "Caffè NONNO",
-      "Kivi",
-      "Kiwi Frozen",
-      "Püre",
-      "Smoothie"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Frozen, Smoothie, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Kivi", "Kiwi Frozen", "Püre", "Smoothie"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Frozen, Smoothie, Kokteyl", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p12-4",
@@ -2369,23 +1505,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Maestro del Gelato serisi ekşi yeşil elma harcı; dondurma, pasta ve frozen yapımında üstün lezzet.",
     "imageUrl": "/resimler/p12/p12_4.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 83,
-    "tags": [
-      "Krater",
-      "Elma",
-      "Yeşil Elma",
-      "Dondurma",
-      "Meyve Karışımı"
-    ],
-    "specs": {
-      "Gramaj": "1000 g",
-      "Kullanım": "Gelato, Dondurma, Frozen, Pasta",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Krater", "Elma", "Yeşil Elma", "Dondurma", "Meyve Karışımı"],
+    "specs": { "Gramaj": "1000 g", "Kullanım": "Gelato, Dondurma, Frozen, Pasta", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p12-5",
@@ -2397,23 +1523,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Tropikal ananas lezzeti ve kokusunu dondurma ve tatlılarınıza kazandıran profesyonel meyve sosu.",
     "imageUrl": "/resimler/p12/p12_5.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 84,
-    "tags": [
-      "Krater",
-      "Ananas",
-      "Pineapple",
-      "Gelato",
-      "Dondurma Harcı"
-    ],
-    "specs": {
-      "Gramaj": "1000 g",
-      "Kullanım": "Gelato, Frozen, Dondurma, Pasta",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Krater", "Ananas", "Pineapple", "Gelato", "Dondurma Harcı"],
+    "specs": { "Gramaj": "1000 g", "Kullanım": "Gelato, Frozen, Dondurma, Pasta", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p12-6",
@@ -2425,23 +1541,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Doğal kavrulmuş badem ve acıbadem dokunuşuyla kahveler ve sıcak içecekler için Monte Cristo şurubu.",
     "imageUrl": "/resimler/p12/p12_6.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 85,
-    "tags": [
-      "Monte Cristo",
-      "Badem",
-      "Almond",
-      "Şurup",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Almond Latte, Sıcak İçecekler",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Monte Cristo", "Badem", "Almond", "Şurup", "Kahve"],
+    "specs": { "Hacim": "700 ml", "Kullanım": "Almond Latte, Sıcak İçecekler", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p12-7",
@@ -2453,22 +1559,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Geleneksel Hint baharatları karanfil, tarçın ve kakule özüyle Chai Tea Latte hazırlama şurubu.",
     "imageUrl": "/resimler/p12/p12_7.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 86,
-    "tags": [
-      "Monte Cristo",
-      "Chai Tea",
-      "Baharatlı Şurup",
-      "Chai Latte"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Chai Latte, Sıcak Süt, Çay",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Monte Cristo", "Chai Tea", "Baharatlı Şurup", "Chai Latte"],
+    "specs": { "Hacim": "700 ml", "Kullanım": "Chai Latte, Sıcak Süt, Çay", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p12-8",
@@ -2480,23 +1577,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Göz alıcı zümrüt yeşili rengi ve yoğun Antep fıstığı aromasıyla özel kahveler ve kokteyller için.",
     "imageUrl": "/resimler/p12/p12_8.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 87,
-    "tags": [
-      "Monte Cristo",
-      "Antep Fıstığı",
-      "Pistachio",
-      "Şurup",
-      "Pistachio Latte"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Pistachio Latte, Frappe, Mocktail",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Monte Cristo", "Antep Fıstığı", "Pistachio", "Şurup", "Pistachio Latte"],
+    "specs": { "Hacim": "700 ml", "Kullanım": "Pistachio Latte, Frappe, Mocktail", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p12-9",
@@ -2508,23 +1595,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Koyu İsviçre çikolatası aromasıyla mocha ve sıcak tatlı içeceklerinize lezzet katar.",
     "imageUrl": "/resimler/p12/p12_9.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 88,
-    "tags": [
-      "Monte Cristo",
-      "Çikolata",
-      "Chocolate",
-      "Mocha",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Mocha, Milkshake, Frappe",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Monte Cristo", "Çikolata", "Chocolate", "Mocha", "Şurup"],
+    "specs": { "Hacim": "700 ml", "Kullanım": "Mocha, Milkshake, Frappe", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-p12-10",
@@ -2536,24 +1613,16 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Sonbahar klasiği balkabağı püresi, tarçın ve muskat baharatı uyumuyla Pumpkin Spice Latte şurubu.",
     "imageUrl": "/resimler/p12/p12_10.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 89,
-    "tags": [
-      "Monte Cristo",
-      "Pumpkin Spice",
-      "Balkabağı",
-      "Latte",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Pumpkin Spice Latte, Frappe",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Monte Cristo", "Pumpkin Spice", "Balkabağı", "Latte", "Şurup"],
+    "specs": { "Hacim": "700 ml", "Kullanım": "Pumpkin Spice Latte, Frappe", "Menşei": "Türkiye" }
   },
+
+  # ─── PT1: Krater Meyve Karışımları & DaVinci Gourmet ───────────────
   {
     "id": "prod-pt1-1",
     "name": "Krater Çilekli Meyve Karışımı 1000g",
@@ -2564,23 +1633,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Doğal çilek püresi içeren altın ambalajlı dondurma, pasta ve bar sos & püre karışımı.",
     "imageUrl": "/resimler/pt1/pt1_1.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 90,
-    "tags": [
-      "Krater",
-      "Çilek",
-      "Püre",
-      "Gelato",
-      "Dondurma"
-    ],
-    "specs": {
-      "Gramaj": "1000 g",
-      "Kullanım": "Dondurma, Pasta, Frozen, Tatlı",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Krater", "Çilek", "Püre", "Gelato", "Dondurma"],
+    "specs": { "Gramaj": "1000 g", "Kullanım": "Dondurma, Pasta, Frozen, Tatlı", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt1-2",
@@ -2592,23 +1651,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Taze frambuaz taneleriyle zenginleştirilmiş yoğun lezzetli gelato ve pastacılık meyve miksi.",
     "imageUrl": "/resimler/pt1/pt1_2.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 91,
-    "tags": [
-      "Krater",
-      "Frambuaz",
-      "Ahududu",
-      "Püre",
-      "Dondurma"
-    ],
-    "specs": {
-      "Gramaj": "1000 g",
-      "Kullanım": "Dondurma, Pasta, Cheesecake",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Krater", "Frambuaz", "Ahududu", "Püre", "Dondurma"],
+    "specs": { "Gramaj": "1000 g", "Kullanım": "Dondurma, Pasta, Cheesecake", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt1-3",
@@ -2620,23 +1669,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Mis kokulu sarı kavun püresi; dondurma ve soğuk içecek reçetelerinde taze yaz esintisi.",
     "imageUrl": "/resimler/pt1/pt1_3.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 92,
-    "tags": [
-      "Krater",
-      "Kavun",
-      "Melon",
-      "Püre",
-      "Gelato"
-    ],
-    "specs": {
-      "Gramaj": "1000 g",
-      "Kullanım": "Gelato, Frozen, Dondurma",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Krater", "Kavun", "Melon", "Püre", "Gelato"],
+    "specs": { "Gramaj": "1000 g", "Kullanım": "Gelato, Frozen, Dondurma", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt1-4",
@@ -2648,23 +1687,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Yeşil elmanın ferahlatıcı ekşiliğiyle donatılmış profesyonel pastacılık ve dondurma bazı.",
     "imageUrl": "/resimler/pt1/pt1_4.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 93,
-    "tags": [
-      "Krater",
-      "Yeşil Elma",
-      "Apple Mix",
-      "Püre",
-      "Tatlı"
-    ],
-    "specs": {
-      "Gramaj": "1000 g",
-      "Kullanım": "Dondurma, Pasta, Frozen",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Krater", "Yeşil Elma", "Apple Mix", "Püre", "Tatlı"],
+    "specs": { "Gramaj": "1000 g", "Kullanım": "Dondurma, Pasta, Frozen", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt1-5",
@@ -2676,23 +1705,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "tatli-soslar",
     "description": "İspanyol kahvesi, Vietnam kahvesi ve özel tatlılar için yoğunlaştırılmış süt lezzeti sunan 1L sos.",
     "imageUrl": "/resimler/pt1/pt1_5.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 94,
-    "tags": [
-      "DaVinci Gourmet",
-      "Condensed Milk",
-      "Koyulaştırılmış Süt",
-      "Süt Sosu",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "1 Litre",
-      "Kullanım": "Spanish Latte, Vietnam Kahvesi, Tatlı",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Condensed Milk", "Koyulaştırılmış Süt", "Süt Sosu", "Kahve"],
+    "specs": { "Hacim": "1 Litre", "Kullanım": "Spanish Latte, Vietnam Kahvesi, Tatlı", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-pt1-6",
@@ -2704,23 +1723,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Olgun bahçe şeftalilerinin doğal tadını barındıran altın şişeli gurme meyve karışımı.",
     "imageUrl": "/resimler/pt1/pt1_6.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 95,
-    "tags": [
-      "Krater",
-      "Şeftali",
-      "Peach",
-      "Püre",
-      "Dondurma"
-    ],
-    "specs": {
-      "Gramaj": "1000 g",
-      "Kullanım": "Gelato, Dondurma, Frozen, Pasta",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Krater", "Şeftali", "Peach", "Püre", "Dondurma"],
+    "specs": { "Gramaj": "1000 g", "Kullanım": "Gelato, Dondurma, Frozen, Pasta", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt1-7",
@@ -2732,22 +1741,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "tatli-soslar",
     "description": "Kahve zincirleri için özel tasarlanmış ipeksi kıvamlı koyulaştırılmış süt sosu.",
     "imageUrl": "/resimler/pt1/pt1_7.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 96,
-    "tags": [
-      "DaVinci Gourmet",
-      "Condensed Milk",
-      "Barista Sosu",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "1 Litre",
-      "Kullanım": "Kahve, Latte, Bubble Tea",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Condensed Milk", "Barista Sosu", "Latte"],
+    "specs": { "Hacim": "1 Litre", "Kullanım": "Kahve, Latte, Bubble Tea", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-pt1-8",
@@ -2759,23 +1759,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Egzotik Alfonso mangolarının bol etli püresiyle hazırlanan premium smoothie ve kokteyl bazı.",
     "imageUrl": "/resimler/pt1/pt1_8.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 97,
-    "tags": [
-      "DaVinci Gourmet",
-      "Mango Püresi",
-      "Fruit Mix",
-      "Smoothie",
-      "Frozen"
-    ],
-    "specs": {
-      "Hacim": "1 Litre",
-      "Kullanım": "Mango Smoothie, Frozen, Kokteyl",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Mango Püresi", "Fruit Mix", "Smoothie", "Frozen"],
+    "specs": { "Hacim": "1 Litre", "Kullanım": "Mango Smoothie, Frozen, Kokteyl", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-pt1-9",
@@ -2787,22 +1777,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Doğal çilek parçacıklı kıvamıyla milkshake, smoothie ve kokteyller için vazgeçilmez içecek miksi.",
     "imageUrl": "/resimler/pt1/pt1_9.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 98,
-    "tags": [
-      "DaVinci Gourmet",
-      "Çilek Püresi",
-      "Strawberry Mix",
-      "Smoothie"
-    ],
-    "specs": {
-      "Hacim": "1 Litre",
-      "Kullanım": "Çilek Smoothie, Frozen, Kokteyl",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Çilek Püresi", "Strawberry Mix", "Smoothie"],
+    "specs": { "Hacim": "1 Litre", "Kullanım": "Çilek Smoothie, Frozen, Kokteyl", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-pt1-10",
@@ -2814,23 +1795,16 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Ahududu, böğürtlen, çilek ve yaban mersininin muazzam birleşimiyle antioksidan dolu meyve püresi.",
     "imageUrl": "/resimler/pt1/pt1_10.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 99,
-    "tags": [
-      "DaVinci Gourmet",
-      "Mixed Berry",
-      "Orman Meyvesi Püresi",
-      "Smoothie"
-    ],
-    "specs": {
-      "Hacim": "1 Litre",
-      "Kullanım": "Berry Smoothie, Frozen, Kokteyl",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Mixed Berry", "Orman Meyvesi Püresi", "Smoothie"],
+    "specs": { "Hacim": "1 Litre", "Kullanım": "Berry Smoothie, Frozen, Kokteyl", "Menşei": "Malezya / ABD" }
   },
+
+  # ─── PT2: Caffè NONNO Frozen Püreleri & DaVinci ───────────────────
   {
     "id": "prod-pt2-1",
     "name": "Caffè NONNO Coconut Hindistan Cevizi Frozen Püre 750ml",
@@ -2841,23 +1815,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Egzotik hindistan cevizi sütü ve püresi; Pina Colada ve tropikal içecekler için mükemmel kıvam.",
     "imageUrl": "/resimler/pt2/pt2_1.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 100,
-    "tags": [
-      "Caffè NONNO",
-      "Hindistan Cevizi",
-      "Coconut Frozen",
-      "Püre",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Pina Colada, Smoothie, Frappe, Tatlı",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Hindistan Cevizi", "Coconut Frozen", "Püre", "Kokteyl"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Pina Colada, Smoothie, Frappe, Tatlı", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt2-2",
@@ -2869,23 +1833,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Ferahlatıcı yaz karpuzunun taze tadıyla buz gibi frozen ve frozen margarita tarifleri için püre.",
     "imageUrl": "/resimler/pt2/pt2_2.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 101,
-    "tags": [
-      "Caffè NONNO",
-      "Karpuz",
-      "Watermelon Frozen",
-      "Püre",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Karpuz Frozen, Kokteyl, Mocktail",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Karpuz", "Watermelon Frozen", "Püre", "Kokteyl"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Karpuz Frozen, Kokteyl, Mocktail", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt2-3",
@@ -2897,23 +1851,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Kırmızı frenk üzümü, çilek ve ahududu harmanıyla canlı kırmızı renkte ferahlatıcı meyve püresi.",
     "imageUrl": "/resimler/pt2/pt2_3.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 102,
-    "tags": [
-      "Caffè NONNO",
-      "Red Forest",
-      "Kırmızı Orman Meyvesi",
-      "Püre",
-      "Smoothie"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Frozen, Smoothie, Kokteyl, Pasta",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Red Forest", "Kırmızı Orman Meyvesi", "Püre", "Smoothie"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Frozen, Smoothie, Kokteyl, Pasta", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt2-4",
@@ -2925,23 +1869,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Yoğun kokulu yaz kavunu aromasıyla kafeler ve barlar için pratik sıkmalı frozen püresi.",
     "imageUrl": "/resimler/pt2/pt2_4.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 103,
-    "tags": [
-      "Caffè NONNO",
-      "Kavun",
-      "Melon Frozen",
-      "Püre",
-      "İçecek"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Kavun Frozen, Smoothie, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Kavun", "Melon Frozen", "Püre", "İçecek"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Kavun Frozen, Smoothie, Kokteyl", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt2-5",
@@ -2953,23 +1887,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Ege karadutunun zengin koyu mor rengi ve aromasıyla buzlu içeceklerinize doğal dokunuş.",
     "imageUrl": "/resimler/pt2/pt2_5.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 104,
-    "tags": [
-      "Caffè NONNO",
-      "Karadut",
-      "Black Mulberry",
-      "Püre",
-      "Frozen"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Karadut Frozen, Limonata, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Karadut", "Black Mulberry", "Püre", "Frozen"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Karadut Frozen, Limonata, Kokteyl", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt2-6",
@@ -2981,23 +1905,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Taze hasat bahçe çileklerinden elde edilen pürüzsüz ve lezzetli frozen içecek püresi.",
     "imageUrl": "/resimler/pt2/pt2_6.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 105,
-    "tags": [
-      "Caffè NONNO",
-      "Çilek",
-      "Strawberry Frozen",
-      "Püre",
-      "Smoothie"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Çilek Frozen, Smoothie, Milkshake",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Çilek", "Strawberry Frozen", "Püre", "Smoothie"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Çilek Frozen, Smoothie, Milkshake", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt2-7",
@@ -3009,23 +1923,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Bursa şeftalisinin tatlı aromasıyla hazırlanan yoğun kıvamlı ve ferahlatıcı püre.",
     "imageUrl": "/resimler/pt2/pt2_7.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 106,
-    "tags": [
-      "Caffè NONNO",
-      "Şeftali",
-      "Peach Frozen",
-      "Püre",
-      "Ice Tea"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Şeftali Frozen, Smoothie, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Şeftali", "Peach Frozen", "Püre", "Ice Tea"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Şeftali Frozen, Smoothie, Kokteyl", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt2-8",
@@ -3037,23 +1941,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Egzotik mango ve marakuya meyvelerinin mükemmel birleşimiyle tropikal tat deneyimi.",
     "imageUrl": "/resimler/pt2/pt2_8.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 107,
-    "tags": [
-      "Caffè NONNO",
-      "Mango",
-      "Maracuja",
-      "Tropikal Püre",
-      "Frozen"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Mango Frozen, Tropikal Kokteyl, Smoothie",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Mango", "Maracuja", "Tropikal Püre", "Frozen"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Mango Frozen, Tropikal Kokteyl, Smoothie", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt2-9",
@@ -3065,22 +1959,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Yaban mersini, nar, böğürtlen ve ahududu harmanıyla hazırlanmış profesyonel meyve karışımı.",
     "imageUrl": "/resimler/pt2/pt2_9.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 108,
-    "tags": [
-      "DaVinci Gourmet",
-      "Mixed Berry",
-      "Meyve Miksi",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "1 Litre",
-      "Kullanım": "Kokteyl, Smoothie, Frozen",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Mixed Berry", "Meyve Miksi", "Kokteyl"],
+    "specs": { "Hacim": "1 Litre", "Kullanım": "Kokteyl, Smoothie, Frozen", "Menşei": "Malezya / ABD" }
   },
   {
     "id": "prod-pt2-10",
@@ -3092,24 +1977,16 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Tropikaların vazgeçilmezi marakuya çarkıfelek meyvesi özüyle hazırlanan konsantre içecek harcı.",
     "imageUrl": "/resimler/pt2/pt2_10.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 109,
-    "tags": [
-      "DaVinci Gourmet",
-      "Passionfruit",
-      "Çarkıfelek",
-      "Püre",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "1 Litre",
-      "Kullanım": "Passion Smoothie, Kokteyl, Mocktail",
-      "Menşei": "Malezya / ABD"
-    }
+    "tags": ["DaVinci Gourmet", "Passionfruit", "Çarkıfelek", "Püre", "Kokteyl"],
+    "specs": { "Hacim": "1 Litre", "Kullanım": "Passion Smoothie, Kokteyl, Mocktail", "Menşei": "Malezya / ABD" }
   },
+
+  # ─── PT11: Donuk Pastacılık & Unlu Mamuller, Şuruplar & Püreler ───
   {
     "id": "prod-pt11-1",
     "name": "Donuk Çörek Otlu & Susamlı Mini Tuzlu Kurabiye",
@@ -3120,23 +1997,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "donuk-pasta",
     "description": "Ağızda dağılan çıtır yapısı, bol susam ve çörek otu aromasıyla çay saatlerinin vazgeçilmez mini kurabiyesi.",
     "imageUrl": "/resimler/pt11/pt11_1.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 110,
-    "tags": [
-      "Donuk Kurabiye",
-      "Tuzlu Kurabiye",
-      "Çörek Otlu",
-      "Unlu Mamul",
-      "Kafeterya"
-    ],
-    "specs": {
-      "Muhafaza": "-18°C",
-      "Hazırlık": "Oda sıcaklığında 20 dk çözünme / 180°C 5 dk ısıtma",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Donuk Kurabiye", "Tuzlu Kurabiye", "Çörek Otlu", "Unlu Mamul", "Kafeterya"],
+    "specs": { "Muhafaza": "-18°C", "Hazırlık": "Oda sıcaklığında 20 dk çözünme / 180°C 5 dk ısıtma", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt11-2",
@@ -3148,22 +2015,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "donuk-pasta",
     "description": "Kafeler ve oteller için pratik porsiyonlanan tereyağlı çıtır tuzlu kurabiye atıştırmalığı.",
     "imageUrl": "/resimler/pt11/pt11_2.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 111,
-    "tags": [
-      "Donuk Kurabiye",
-      "Tuzlu Atıştırmalık",
-      "İkramlık",
-      "Kafeterya"
-    ],
-    "specs": {
-      "Muhafaza": "-18°C",
-      "Kullanım": "Çözündür ve Servis Et",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Donuk Kurabiye", "Tuzlu Atıştırmalık", "İkramlık", "Kafeterya"],
+    "specs": { "Muhafaza": "-18°C", "Kullanım": "Çözündür ve Servis Et", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt11-3",
@@ -3175,22 +2033,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Taze tropikal ananas aromasıyla ferahlatıcı smoothie ve kokteyller için püre.",
     "imageUrl": "/resimler/pt11/pt11_3.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 112,
-    "tags": [
-      "Caffè NONNO",
-      "Ananas",
-      "Pineapple Frozen",
-      "Püre"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Ananas Frozen, Smoothie, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Ananas", "Pineapple Frozen", "Püre"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Ananas Frozen, Smoothie, Kokteyl", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt11-4",
@@ -3202,23 +2051,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Buzlu narenciye ve tatlı portakal aromasıyla Cool Poka yaz içecekleri için özel şurup.",
     "imageUrl": "/resimler/pt11/pt11_4.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 113,
-    "tags": [
-      "Caffè NONNO",
-      "Cool Poka",
-      "Portakal",
-      "Şurup",
-      "Soğuk İçecek"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Cool Poka, Buzlu İçecek, Soda",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Cool Poka", "Portakal", "Şurup", "Soğuk İçecek"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Cool Poka, Buzlu İçecek, Soda", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt11-5",
@@ -3230,23 +2069,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "suruplar",
     "description": "Çikolata parçacıklı Amerikan kurabiyesi lezzetiyle kahve ve frappeler için özel şurup.",
     "imageUrl": "/resimler/pt11/pt11_5.png",
-    "isActive": true,
-    "isFeatured": true,
+    "isActive": True,
+    "isFeatured": True,
     "price": 0,
     "vatRate": 20,
     "order": 114,
-    "tags": [
-      "Caffè NONNO",
-      "Çikolata Kurabiye",
-      "Cookie Şurubu",
-      "Kahve",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Cookie Latte, Frappe, Milkshake",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Çikolata Kurabiye", "Cookie Şurubu", "Kahve", "Latte"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Cookie Latte, Frappe, Milkshake", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt11-6",
@@ -3258,23 +2087,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Koyu kırmızı vişne ekşiliği ve tatlılığıyla mükemmel dengeli frozen meyve püresi.",
     "imageUrl": "/resimler/pt11/pt11_6.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 115,
-    "tags": [
-      "Caffè NONNO",
-      "Vişne",
-      "Cherry Frozen",
-      "Püre",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Vişne Frozen, Kokteyl, Pasta",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Vişne", "Cherry Frozen", "Püre", "Kokteyl"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Vişne Frozen, Kokteyl, Pasta", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt11-7",
@@ -3286,23 +2105,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Doğal muz püresi dokusuyla milkshake ve smoothie çeşitlerine dolgunluk kazandırır.",
     "imageUrl": "/resimler/pt11/pt11_7.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 116,
-    "tags": [
-      "Caffè NONNO",
-      "Muz",
-      "Banana Frozen",
-      "Püre",
-      "Milkshake"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Muzlu Smoothie, Frozen, Milkshake",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Muz", "Banana Frozen", "Püre", "Milkshake"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Muzlu Smoothie, Frozen, Milkshake", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt11-8",
@@ -3314,22 +2123,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "donuk-pasta",
     "description": "Mayalı yumuşacık hamur içerisinde leziz peynir dolgusu; fırında 10 dakikada servise hazır.",
     "imageUrl": "/resimler/pt11/pt11_8.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 117,
-    "tags": [
-      "Donuk Poğaça",
-      "Peynirli Poğaça",
-      "Unlu Mamul",
-      "Kahvaltı"
-    ],
-    "specs": {
-      "Muhafaza": "-18°C",
-      "Pişirme": "180°C önceden ısıtılmış fırında 10-12 dk",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Donuk Poğaça", "Peynirli Poğaça", "Unlu Mamul", "Kahvaltı"],
+    "specs": { "Muhafaza": "-18°C", "Pişirme": "180°C önceden ısıtılmış fırında 10-12 dk", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt11-9",
@@ -3341,23 +2141,13 @@ const RAW_PRODUCTS = [
     "categorySlug": "pureler",
     "description": "Canlandırıcı ekşi Granny Smith yeşil elma aromasıyla serinletici frozen püresi.",
     "imageUrl": "/resimler/pt11/pt11_9.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 118,
-    "tags": [
-      "Caffè NONNO",
-      "Yeşil Elma",
-      "Green Apple",
-      "Püre",
-      "Frozen"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Elma Frozen, Kokteyl, Limonata",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Caffè NONNO", "Yeşil Elma", "Green Apple", "Püre", "Frozen"],
+    "specs": { "Hacim": "750 ml", "Kullanım": "Elma Frozen, Kokteyl, Limonata", "Menşei": "Türkiye" }
   },
   {
     "id": "prod-pt11-10",
@@ -3369,179 +2159,16 @@ const RAW_PRODUCTS = [
     "categorySlug": "donuk-pasta",
     "description": "Çıtır kabuklu, içi gözenekli mini gurme ekmek ve sandviç hamuru.",
     "imageUrl": "/resimler/pt11/pt11_10.png",
-    "isActive": true,
-    "isFeatured": false,
+    "isActive": True,
+    "isFeatured": False,
     "price": 0,
     "vatRate": 20,
     "order": 119,
-    "tags": [
-      "Donuk Ekmek",
-      "Sandviç Ekmeği",
-      "Gurme Ekmek",
-      "Unlu Mamul"
-    ],
-    "specs": {
-      "Muhafaza": "-18°C",
-      "Pişirme": "200°C fırında 8-10 dk",
-      "Menşei": "Türkiye"
-    }
-  },
-  {
-    "id": "prod-krm-1",
-    "name": "CALLEI Pastacı Kreması (Creme Patissiere) 1kg",
-    "code": "CAL-CPM-1000",
-    "codeGroup": "CALLEI",
-    "categoryId": "cat-5",
-    "categoryName": "Kremalı Ürünler",
-    "categorySlug": "kremali-urunler",
-    "description": "Ekler, profiterol ve tartlar için fırınlanmaya ve dondurulmaya uygun vanilyalı hazır pastacı kreması bazı.",
-    "imageUrl": "/resimler/p9/p9_9.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20,
-    "order": 120,
-    "tags": [
-      "CALLEI",
-      "Pastacı Kreması",
-      "Krema",
-      "Ekler",
-      "Profiterol"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Ekler, Profiterol, Pasta Dolgusu",
-      "Menşei": "Türkiye"
-    }
-  },
-  {
-    "id": "prod-krm-2",
-    "name": "CALLEI Chantilly Şanti Tozu 1kg",
-    "code": "CAL-SNT-1000",
-    "codeGroup": "CALLEI",
-    "categoryId": "cat-5",
-    "categoryName": "Kremalı Ürünler",
-    "categorySlug": "kremali-urunler",
-    "description": "Yüksek hacim alan, sıcağa dayanıklı ve parlak duruşunu kaybetmeyen profesyonel şanti tozu.",
-    "imageUrl": "/resimler/p9/p9_9.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20,
-    "order": 121,
-    "tags": [
-      "CALLEI",
-      "Krem Şanti",
-      "Chantilly",
-      "Şanti Tozu",
-      "Pasta Sıvama"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Pasta Sıvama, Süsleme, Dolgu",
-      "Menşei": "Türkiye"
-    }
-  },
-  {
-    "id": "prod-krm-3",
-    "name": "CALLEI Bitter Ganache Kaplama Sosu 1kg",
-    "code": "CAL-BGN-1000",
-    "codeGroup": "CALLEI",
-    "categoryId": "cat-5",
-    "categoryName": "Kremalı Ürünler",
-    "categorySlug": "kremali-urunler",
-    "description": "Ayna parlaklığında bitter çikolatalı ganaj kaplama ve pasta dolgu kreması.",
-    "imageUrl": "/resimler/p9/p9_1.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20,
-    "order": 122,
-    "tags": [
-      "CALLEI",
-      "Bitter Ganaj",
-      "Ganache",
-      "Pasta Kaplama",
-      "Çikolata"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Pasta Kaplama, Ganaj, Truffle",
-      "Menşei": "Türkiye"
-    }
-  },
-  {
-    "id": "prod-krm-4",
-    "name": "CALLEI Fildişi Beyaz Ganache Sosu 1kg",
-    "code": "CAL-WGN-1000",
-    "codeGroup": "CALLEI",
-    "categoryId": "cat-5",
-    "categoryName": "Kremalı Ürünler",
-    "categorySlug": "kremali-urunler",
-    "description": "İpeksi beyaz çikolata dokulu ganaj; renklendirilebilir ve kolayca şekil alır.",
-    "imageUrl": "/resimler/p10/p10_3.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20,
-    "order": 123,
-    "tags": [
-      "CALLEI",
-      "Beyaz Ganaj",
-      "White Ganache",
-      "Pastacılık"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Pasta Kaplama, Şeker Hamuru Altı Sıvama",
-      "Menşei": "Türkiye"
-    }
+    "tags": ["Donuk Ekmek", "Sandviç Ekmeği", "Gurme Ekmek", "Unlu Mamul"],
+    "specs": { "Muhafaza": "-18°C", "Pişirme": "200°C fırında 8-10 dk", "Menşei": "Türkiye" }
   }
-];
+]
 
-export const PRODUCTS: Product[] = (RAW_PRODUCTS as any[]).map((p, i) => ({
-  id: p.id,
-  name: p.name,
-  code: p.code,
-  codeGroup: p.codeGroup || "",
-  categoryId: p.categoryId,
-  categoryName: p.categoryName,
-  categorySlug: p.categorySlug,
-  description: p.description,
-  imageUrl: p.imageUrl,
-  price: p.price ?? 0,
-  vatRate: p.vatRate ?? 20,
-  order: p.order ?? (i + 1),
-  isActive: p.isActive ?? true,
-  isFeatured: p.isFeatured ?? false,
-  tags: p.tags ?? [],
-  specs: (p.specs ?? {}) as Record<string, string>,
-}));
-
-/* ─── Helper Functions ──────────────────────────────────────────────────────── */
-
-export function getProductsByCategory(categorySlug: string): Product[] {
-  return PRODUCTS.filter((p) => p.categorySlug === categorySlug && p.isActive);
-}
-
-export function getFeaturedProducts(limit = 10): Product[] {
-  return PRODUCTS.filter((p) => p.isFeatured && p.isActive).slice(0, limit);
-}
-
-export function getProductById(id: string): Product | undefined {
-  return PRODUCTS.find((p) => p.id === id);
-}
-
-export function getProductByCode(code: string): Product | undefined {
-  return PRODUCTS.find((p) => p.code.toLowerCase() === code.toLowerCase());
-}
-
-export function getRelatedProducts(product: Product, limit = 5): Product[] {
-  return PRODUCTS
-    .filter((p) => p.id !== product.id && p.categorySlug === product.categorySlug && p.isActive)
-    .slice(0, limit);
-}
-
-export function getCategoryBySlug(slug: string): Category | undefined {
-  return CATEGORIES.find((c) => c.slug === slug);
-}
+print(f"Total products generated: {len(products)}")
+with open("products_json.json", "w", encoding="utf-8") as f:
+    json.dump(products, f, ensure_ascii=False, indent=2)

@@ -45,7 +45,7 @@ export default function ProductPage() {
                 p.isActive &&
                 p.id !== found!.id &&
                 (p.categoryId === found!.categoryId || p.categorySlug === found!.categorySlug)
-            ).slice(0, 4);
+            ).slice(0, 5);
             
             if (rel.length > 0) {
               setRelated(rel);
@@ -260,7 +260,7 @@ export default function ProductPage() {
                   Tümünü gör →
                 </Link>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4.5">
                 {related.map((rp, i) => (
                   <ProductCard key={rp.id} product={rp} index={i} />
                 ))}

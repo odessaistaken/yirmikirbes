@@ -26,39 +26,42 @@ import { CATEGORIES as MOCK_CATEGORIES, PRODUCTS as MOCK_PRODUCTS } from "@/lib/
 import { getActiveCategories, getProducts, getActiveBrands } from "@/lib/firestore-collections";
 import type { Category, Product, Brand } from "@/lib/types";
 
-/* ─── Subcategories & Brand links map (from reference images) ─────────────── */
+/* ─── Subcategories & Brand links map (matching active categories) ───────── */
 const SUBCATEGORIES_MAP: Record<string, { name: string; href: string }[]> = {
-  "waffle": [
-    { name: "Waffle Kek", href: "/katalog/waffle-kek" },
-    { name: "Waffle Sos", href: "/katalog/waffle-sos" },
-    { name: "Waffle Süsleme", href: "/katalog/waffle-susleme" },
-    { name: "Waffle Çikolata", href: "/katalog?search=waffle" },
-  ],
   "suruplar": [
-    { name: "DAVİNCİ", href: "/katalog?search=davinci" },
-    { name: "MONTE CRİSTO", href: "/katalog?search=monte-cristo" },
-    { name: "NONNO", href: "/katalog?search=nonno" },
+    { name: "DaVinci Gourmet Şuruplar", href: "/katalog/suruplar?search=davinci" },
+    { name: "Caffè NONNO Şuruplar", href: "/katalog/suruplar?search=nonno" },
+    { name: "Monte Cristo Şuruplar", href: "/katalog/suruplar?search=monte%20cristo" },
+    { name: "EASY MIX Bar Şurupları", href: "/katalog/suruplar?search=easy%20mix" },
   ],
   "pureler": [
-    { name: "Davinci Püre", href: "/katalog/pureler?search=davinci" },
-    { name: "Monte Cristo Püre", href: "/katalog/pureler?search=monte-cristo" },
+    { name: "Caffè NONNO Frozen Püre", href: "/katalog/pureler?search=nonno" },
+    { name: "DaVinci Fruit Mix İçecek", href: "/katalog/pureler?search=davinci" },
+    { name: "EASY MIX Kokteyl Premiksleri", href: "/katalog/pureler?search=easy%20mix" },
+    { name: "Krater Meyveli Karışımlar", href: "/katalog/pureler?search=krater" },
+  ],
+  "waffle-malzemeleri": [
+    { name: "CALLEI Çikolata Kremaları", href: "/katalog/waffle-malzemeleri?search=callei" },
+    { name: "Hazır Waffle & Krep Tozu", href: "/katalog/waffle-malzemeleri?search=waffle" },
+    { name: "Pasta & Waffle Süslemeleri", href: "/katalog/waffle-malzemeleri?search=draje" },
+    { name: "Damla Çikolata Drops", href: "/katalog/waffle-malzemeleri?search=damla" },
+    { name: "Fındık Krokan & Topping", href: "/katalog/waffle-malzemeleri?search=krokan" },
+  ],
+  "tatli-soslar": [
+    { name: "DaVinci 2L Soslar (Karamel, Çikolata)", href: "/katalog/tatli-soslar?search=davinci" },
+    { name: "Caffè NONNO 750g Dekor Sosları", href: "/katalog/tatli-soslar?search=nonno" },
+    { name: "Condensed Milk (Koyulaştırılmış Süt)", href: "/katalog/tatli-soslar?search=condensed" },
+    { name: "Blue Curacao Sos", href: "/katalog/tatli-soslar?search=curacao" },
   ],
   "donuk-pasta": [
-    { name: "Çikolatalı Pasta", href: "/katalog/donuk-pasta?search=cikolata" },
-    { name: "Meyveli Pasta", href: "/katalog/donuk-pasta?search=meyve" },
-    { name: "Cheesecake", href: "/katalog/donuk-pasta?search=cheesecake" },
-    { name: "San Sebastian", href: "/katalog/donuk-pasta?search=sebastian" },
-    { name: "Mozaik Pasta", href: "/katalog/donuk-pasta?search=mozaik" },
+    { name: "Donuk Tuzlu Kurabiyeler", href: "/katalog/donuk-pasta?search=kurabiye" },
+    { name: "Donuk Poğaça Topları", href: "/katalog/donuk-pasta?search=poğaça" },
+    { name: "Donuk Ekmek & Sandviç Hamuru", href: "/katalog/donuk-pasta?search=ekmek" },
   ],
-  "kahveler": [
-    { name: "Espresso Çekirdek", href: "/katalog/kahveler?search=espresso" },
-    { name: "Filtre Kahve", href: "/katalog/kahveler?search=filtre" },
-    { name: "Türk Kahvesi", href: "/katalog/kahveler?search=turk" },
-  ],
-  "bitki-caylari": [
-    { name: "Yeşil Çay", href: "/katalog/bitki-caylari?search=yesil" },
-    { name: "Ihlamur & Adaçayı", href: "/katalog/bitki-caylari?search=ada" },
-    { name: "Meyve Çayları", href: "/katalog/bitki-caylari?search=meyve" },
+  "kremali-urunler": [
+    { name: "Pastacı Kreması (Creme Patissiere)", href: "/katalog/kremali-urunler?search=pastacı" },
+    { name: "Chantilly Şanti Tozu", href: "/katalog/kremali-urunler?search=şanti" },
+    { name: "Bitter & Beyaz Ganache", href: "/katalog/kremali-urunler?search=ganache" },
   ],
 };
 

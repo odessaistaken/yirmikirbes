@@ -105,8 +105,8 @@ const DEFAULT_SLIDERS: SliderItem[] = [
 const DEFAULT_BRANDS: Brand[] = [
   {
     id: "b-1",
-    name: "DAVİNCİ",
-    subtitle: "Premium Şurup & Püre",
+    name: "DaVinci Gourmet",
+    subtitle: "Premium Barista Şurup & Püre",
     order: 1,
     targetUrl: "/katalog?search=davinci",
     imageUrl: "",
@@ -114,19 +114,46 @@ const DEFAULT_BRANDS: Brand[] = [
   },
   {
     id: "b-2",
-    name: "MONTE CRİSTO",
-    subtitle: "İtalyan Şurup & Sos",
+    name: "Caffè NONNO",
+    subtitle: "İtalyan Şurup & Frozen Püre",
     order: 2,
-    targetUrl: "/katalog?search=monte-cristo",
+    targetUrl: "/katalog?search=nonno",
     imageUrl: "",
     isActive: true,
   },
   {
     id: "b-3",
-    name: "NONNO",
-    subtitle: "Bar & Kahve Çözümleri",
+    name: "Monte Cristo",
+    subtitle: "Gurme Bar Şurupları & Soslar",
     order: 3,
-    targetUrl: "/katalog?search=nonno",
+    targetUrl: "/katalog?search=monte-cristo",
+    imageUrl: "",
+    isActive: true,
+  },
+  {
+    id: "b-4",
+    name: "CALLEI Chocolate",
+    subtitle: "Waffle, Krep & Dekor Çikolataları",
+    order: 4,
+    targetUrl: "/katalog?search=callei",
+    imageUrl: "",
+    isActive: true,
+  },
+  {
+    id: "b-5",
+    name: "EASY MIX",
+    subtitle: "Doğal Meyve & Kokteyl Premiksleri",
+    order: 5,
+    targetUrl: "/katalog?search=easy%20mix",
+    imageUrl: "",
+    isActive: true,
+  },
+  {
+    id: "b-6",
+    name: "Krater",
+    subtitle: "Maestro del Gelato Meyve Miksleri",
+    order: 6,
+    targetUrl: "/katalog?search=krater",
     imageUrl: "",
     isActive: true,
   },
@@ -694,14 +721,14 @@ export default function HomePage() {
           </FadeIn>
 
           {!dataLoaded ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[1, 2, 3, 4].map((i) => (
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4.5">
+              {[1, 2, 3, 4, 5].map((i) => (
                 <div key={i} className="skeleton h-80 rounded-xl" />
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredProducts.slice(0, 8).map((product, i) => (
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4.5">
+              {featuredProducts.slice(0, 10).map((product, i) => (
                 <ProductCard key={product.id} product={product} index={i} />
               ))}
             </div>
