@@ -37,8 +37,11 @@ export const metadata: Metadata = {
     "donuk pasta",
     "B2B pastacılık",
   ],
-  authors: [{ name: "20:45 Pastacılık - YKB Gıda" }],
-  creator: "YKB GIDA",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     type: "website",
     locale: "tr_TR",

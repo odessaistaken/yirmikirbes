@@ -59,7 +59,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Brand */}
         <div className="px-5 py-5 border-b border-charcoal-700">
           <Link href="/" className="flex items-center gap-3">
-            <Logo variant="light" size={32} />
+            <Logo variant="light" size={36} />
           </Link>
         </div>
 

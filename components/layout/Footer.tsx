@@ -60,7 +60,7 @@ export default async function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1 space-y-5">
             <Link href="/" className="inline-block group">
-              <Logo variant="light" size={38} />
+              <Logo variant="light" size={44} />
             </Link>
             <p className="text-charcoal-400 text-sm leading-relaxed">
               YKB Gıda güvencesiyle 20:45 Pastacılık, profesyonel pastacılık ve fırıncılık endüstrisine yönelik premium hammadde, 

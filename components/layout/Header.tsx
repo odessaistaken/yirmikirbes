@@ -208,7 +208,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-18">
             {/* ── Logo ─────────────────────────────────────────────── */}
             <Link href="/" className="flex items-center group shrink-0">
-              <Logo size={34} />
+              <Logo size={40} />
             </Link>
 
             {/* ── Desktop Nav ───────────────────────────────────────── */}
@@ -602,7 +602,7 @@ export default function Header() {
               {/* Header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-border">
                 <Link href="/" onClick={() => setMobileOpen(false)}>
-                  <Logo size={32} />
+                  <Logo size={38} />
                 </Link>
                 <button
                   onClick={() => setMobileOpen(false)}

@@ -181,7 +181,7 @@ export default function HakkimizdaPage() {
                   className="object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-charcoal-900/80 to-transparent">
-                  <Logo variant="light" size={32} />
+                  <Logo variant="light" size={36} />
                 </div>
               </div>
             </FadeIn>
