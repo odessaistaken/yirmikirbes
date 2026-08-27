@@ -153,4 +153,4 @@ seed().catch(console.error);
 with open(r"scripts\seed-all-products.mjs", "w", encoding="utf-8") as f:
     f.write(seed_file_content)
 
-print("Updated scripts/seed-all-products.mjs with 201 products successfully!")
+print(f"Updated scripts/seed-all-products.mjs with {len(raw_products)} products successfully!")
