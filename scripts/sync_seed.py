@@ -11,42 +11,31 @@ if not match_raw:
     print("Could not find RAW_PRODUCTS")
     exit(1)
 
-raw_products = json.loads(match_raw.group(1))
+match_cats = re.search(r'export const CATEGORIES: Category\[\] = (\[[\s\S]*?\n\]);', mock_content)
+if not match_cats:
+    print("Could not find CATEGORIES")
+    exit(1)
 
-# Convert to ALL_PRODUCTS format for seed-all-products.mjs
-# Mapping category slugs to keys:
-slug_to_key = {
-    "pureler": "pureler",
-    "suruplar": "suruplar",
-    "waffle-malzemeleri": "waffle-sos",
-    "tatli-soslar": "bar-sos",
-    "donuk-pasta": "donuk-pasta",
-    "kremali-urunler": "waffle-sos",
-    "cookies-kurabiye": "cookies-kurabiye",
-    "waffle-kek": "waffle-kek",
-    "waffle": "waffle",
-    "waffle-sos": "waffle-sos",
-    "waffle-susleme": "waffle-susleme",
-    "bar-sos": "bar-sos",
-    "taze-pasta": "taze-pasta",
-    "kahveler": "kahveler",
-    "bitki-caylari": "bitki-caylari"
-}
+raw_products = json.loads(match_raw.group(1))
+categories = json.loads(match_cats.group(1))
 
 seed_products = []
 for p in raw_products:
-    cslug = p.get("categorySlug", "donuk-pasta")
-    ckey = slug_to_key.get(cslug, "donuk-pasta")
     sp = {
+        "id": p.get("id", ""),
         "name": p.get("name", ""),
         "code": p.get("code", ""),
         "codeGroup": p.get("codeGroup", ""),
-        "categoryKey": ckey,
+        "categoryId": p.get("categoryId", "cat-5"),
+        "categoryName": p.get("categoryName", "Donuk Pasta & Unlu Mamuller"),
+        "categorySlug": p.get("categorySlug", "donuk-pasta"),
         "imageUrl": p.get("imageUrl", ""),
         "description": p.get("description", ""),
         "tags": p.get("tags", []),
         "specs": p.get("specs", {}),
-        "isFeatured": p.get("isFeatured", False)
+        "isFeatured": p.get("isFeatured", False),
+        "price": p.get("price", 0),
+        "vatRate": p.get("vatRate", 20)
     }
     seed_products.append(sp)
 
@@ -65,22 +54,7 @@ const firebaseConfig = {{
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Category mapping matching seeded categories in Firestore
-const CATEGORIES_MAP = {{
-  "suruplar": {{ id: "cat-1787620072902-12", name: "Şuruplar", slug: "suruplar" }},
-  "pureler": {{ id: "cat-1787620073244-13", name: "Püreler", slug: "pureler" }},
-  "waffle": {{ id: "cat-1787620070903-6", name: "Waffle", slug: "waffle" }},
-  "waffle-kek": {{ id: "cat-1787620071247-7", name: "Waffle Kek", slug: "waffle-kek" }},
-  "waffle-sos": {{ id: "cat-1787620071578-8", name: "Waffle Sos", slug: "waffle-sos" }},
-  "waffle-susleme": {{ id: "cat-1787620071918-9", name: "Waffle Süsleme", slug: "waffle-susleme" }},
-  "bar-sos": {{ id: "cat-1787620072589-11", name: "Bar Sos", slug: "bar-sos" }},
-  "cookies-kurabiye": {{ id: "cat-1787620070579-5", name: "Cookies - Kurabiye", slug: "cookies-kurabiye" }},
-  "donuk-pasta": {{ id: "cat-1787620068687-0", name: "Donuk Pasta", slug: "donuk-pasta" }},
-  "taze-pasta": {{ id: "cat-1787620069218-1", name: "Taze Pasta", slug: "taze-pasta" }},
-  "kahveler": {{ id: "cat-1787620073556-14", name: "Kahveler", slug: "kahveler" }},
-  "bitki-caylari": {{ id: "cat-1787620073977-15", name: "Bitki Çayları", slug: "bitki-caylari" }},
-}};
-
+export const CATEGORIES_DATA = {json.dumps(categories, indent=2, ensure_ascii=False)};
 export const ALL_PRODUCTS = {json.dumps(seed_products, indent=2, ensure_ascii=False)};
 
 export const BRANDS_DATA = [
@@ -93,7 +67,28 @@ export const BRANDS_DATA = [
 ];
 
 async function seed() {{
-  console.log("Seeding brands...");
+  console.log("Seeding categories...");
+  const catSnap = await getDocs(collection(db, "categories"));
+  for (const docSnap of catSnap.docs) {{
+    await deleteDoc(doc(db, "categories", docSnap.id));
+  }}
+  for (const c of CATEGORIES_DATA) {{
+    await setDoc(doc(db, "categories", c.id), {{
+      name: c.name,
+      slug: c.slug,
+      description: c.description || "",
+      icon: c.icon || "",
+      productCount: c.productCount || 0,
+      imageUrl: c.imageUrl || "",
+      order: c.order || 1,
+      isActive: c.isActive !== false,
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+    }});
+    console.log(`✓ Category: ${{c.name}} (${{c.slug}})`);
+  }}
+
+  console.log("\\nSeeding brands...");
   const brandSnap = await getDocs(collection(db, "brands"));
   for (const docSnap of brandSnap.docs) {{
     await deleteDoc(doc(db, "brands", docSnap.id));
@@ -117,18 +112,17 @@ async function seed() {{
 
   for (let i = 0; i < ALL_PRODUCTS.length; i++) {{
     const p = ALL_PRODUCTS[i];
-    const cat = CATEGORIES_MAP[p.categoryKey] || CATEGORIES_MAP["donuk-pasta"];
-    const id = `prod-${{p.code.toLowerCase().replace(/[^a-z0-9]+/g, "-")}}-${{i + 1}}`;
+    const id = p.id || `prod-${{p.code.toLowerCase().replace(/[^a-z0-9]+/g, "-")}}-${{i + 1}}`;
 
     const productDoc = {{
       name: p.name,
       code: p.code,
       codeGroup: p.codeGroup,
-      categoryId: cat.id,
-      categoryName: cat.name,
-      categorySlug: cat.slug,
-      price: 0,
-      vatRate: 20,
+      categoryId: p.categoryId,
+      categoryName: p.categoryName,
+      categorySlug: p.categorySlug,
+      price: p.price ?? 0,
+      vatRate: p.vatRate ?? 20,
       order: i + 1,
       description: p.description,
       imageUrl: p.imageUrl,
@@ -141,10 +135,12 @@ async function seed() {{
     }};
 
     await setDoc(doc(db, "products", id), productDoc);
-    console.log(`[${{i + 1}}/${{ALL_PRODUCTS.length}}] ✓ ${{p.name}} (${{cat.name}})`);
+    if ((i + 1) % 25 === 0 || i === ALL_PRODUCTS.length - 1) {{
+      console.log(`[${{i + 1}}/${{ALL_PRODUCTS.length}}] ✓ ${{p.name}} (${{p.categoryName}})`);
+    }}
   }}
 
-  console.log("\\n🎉 All products and brands successfully seeded into Firestore!");
+  console.log("\\n🎉 All ${{ALL_PRODUCTS.length}} products, categories and brands successfully seeded into Firestore!");
 }}
 
 seed().catch(console.error);
@@ -153,4 +149,4 @@ seed().catch(console.error);
 with open(r"scripts\seed-all-products.mjs", "w", encoding="utf-8") as f:
     f.write(seed_file_content)
 
-print(f"Updated scripts/seed-all-products.mjs with {len(raw_products)} products successfully!")
+print(f"Updated scripts/seed-all-products.mjs with {len(raw_products)} products and {len(categories)} categories successfully!")
