@@ -80,7 +80,7 @@ export default function RootLayout({
             }}
           />
           <Header />
-          <main className="flex-1 pt-18 overflow-x-hidden">{children}</main>
+          <main className="flex-1 pt-20 sm:pt-22 overflow-x-hidden">{children}</main>
           <Footer />
           <WhatsAppButton />
         </AuthProvider>

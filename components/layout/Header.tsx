@@ -201,283 +201,298 @@ export default function Header() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
             ? "glass border-b border-border shadow-soft"
-            : "bg-transparent"
+            : "bg-[#121316]/90 backdrop-blur-md border-b border-[#282C36]/60 shadow-lg"
         }`}
       >
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-18">
-            {/* ── Logo ─────────────────────────────────────────────── */}
-            <Link href="/" className="flex items-center group shrink-0">
-              <Logo size={40} />
-            </Link>
+          <div className="flex items-center justify-between h-20 sm:h-22">
+            {/* ── Sol Taraf: Kategoriler & Menü ─────────────────────────── */}
+            <div className="flex-1 flex items-center justify-start gap-1 sm:gap-2">
+              {/* Mobile menu toggle button */}
+              <button
+                onClick={() => setMobileOpen((v) => !v)}
+                className="lg:hidden p-2 rounded-lg text-slate-300 hover:bg-[#1B1D23] hover:text-white transition-colors"
+                aria-label="Menü"
+              >
+                {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
 
-            {/* ── Desktop Nav ───────────────────────────────────────── */}
-            <nav className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) =>
-                link.hasMega ? (
-                  <div key={link.href} className="relative" ref={megaRef}>
-                    <button
-                      onClick={() => { setMegaOpen((v) => !v); setActiveSubCategory(null); }}
-                      className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
+              {/* Desktop Nav: Kategoriler & Navigasyon */}
+              <nav className="hidden lg:flex items-center gap-1.5">
+                {navLinks.map((link) =>
+                  link.hasMega ? (
+                    <div key={link.href} className="relative" ref={megaRef}>
+                      <button
+                        onClick={() => { setMegaOpen((v) => !v); setActiveSubCategory(null); }}
+                        className={`flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 ${
+                          isActive(link.href)
+                            ? "text-gold bg-gold/10 font-bold border border-gold/30"
+                            : "text-slate-200 hover:text-white hover:bg-[#1B1D23] border border-transparent hover:border-[#282C36]"
+                        }`}
+                      >
+                        <AlignLeft size={16} className="text-gold" />
+                        <span>{link.label}</span>
+                        <ChevronDown
+                          size={14}
+                          className={`transition-transform duration-200 ${
+                            megaOpen ? "rotate-180 text-gold" : "text-slate-400"
+                          }`}
+                        />
+                      </button>
+
+                      {/* Mega Menu Dropdown — Sol Hizada */}
+                      <AnimatePresence>
+                        {megaOpen && (() => {
+                          const isAllSelected = activeSubCategory === "__all__";
+                          const activeCat = isAllSelected
+                            ? null
+                            : (categories.find(c => c.id === activeSubCategory) ?? categories[0]);
+                          const catProducts = activeCat
+                            ? products.filter(p =>
+                                p.isActive && (
+                                  p.categorySlug === activeCat.slug ||
+                                  p.categoryId === activeCat.id ||
+                                  p.categoryName?.toLowerCase() === activeCat.name.toLowerCase()
+                                )
+                              )
+                            : [];
+
+                          return (
+                            <motion.div
+                              initial={{ opacity: 0, y: -8, scale: 0.97 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: -8, scale: 0.97 }}
+                              transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                              className="absolute top-full left-0 mt-3 w-[840px] max-w-[85vw] bg-[#16181D] rounded-2xl shadow-2xl border border-[#282C36] overflow-hidden flex z-50 text-slate-100"
+                              style={{ maxHeight: "480px" }}
+                            >
+                              {/* ── Sol Panel: Kategoriler ── */}
+                              <div className="w-[240px] shrink-0 bg-[#121316] border-r border-[#282C36] flex flex-col overflow-y-auto">
+                                {/* Başlık */}
+                                <div className="flex items-center gap-2 px-4 py-3.5 border-b border-[#282C36]">
+                                  <AlignLeft size={14} className="text-gold" />
+                                  <span className="text-white font-bold text-xs uppercase tracking-widest">
+                                    Kategorilerimiz
+                                  </span>
+                                </div>
+
+                                {/* Tüm Ürünler */}
+                                <button
+                                  onMouseEnter={() => setActiveSubCategory("__all__")}
+                                  onClick={() => { setMegaOpen(false); router.push("/katalog"); }}
+                                  className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-[#282C36]/60 ${
+                                    isAllSelected
+                                      ? "bg-[#1B1D23] text-gold font-bold"
+                                      : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
+                                  }`}
+                                >
+                                  <span>✨ Tüm Ürünler</span>
+                                  <ChevronRight size={14} className="opacity-60" />
+                                </button>
+
+                                {/* Kategori listesi */}
+                                {categories.map((cat) => (
+                                  <button
+                                    key={cat.id}
+                                    onMouseEnter={() => setActiveSubCategory(cat.id)}
+                                    onClick={() => { setMegaOpen(false); router.push(`/katalog/${cat.slug}`); }}
+                                    className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-[#282C36]/40 ${
+                                      activeSubCategory === cat.id
+                                        ? "bg-[#1B1D23] text-gold font-bold"
+                                        : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
+                                    }`}
+                                  >
+                                    <span className="truncate text-left">{cat.name}</span>
+                                    <ChevronRight size={14} className="shrink-0 opacity-60" />
+                                  </button>
+                                ))}
+                              </div>
+
+                              {/* ── Sağ Panel: Ürün/Alt Başlık İçeriği ── */}
+                              <div className="flex-1 overflow-y-auto bg-[#16181D]">
+                                {isAllSelected ? (
+                                  /* Tüm Ürünler: Tüm Kategoriler + Markalarımız */
+                                  <div className="p-5 space-y-5">
+                                    <div>
+                                      <p className="text-gold text-xs font-semibold uppercase tracking-wider mb-3">
+                                        Tüm Kategoriler
+                                      </p>
+                                      <div className="grid grid-cols-3 gap-x-6 gap-y-2.5">
+                                        {categories.map((cat) => (
+                                          <Link
+                                            key={cat.id}
+                                            href={`/katalog/${cat.slug}`}
+                                            onClick={() => setMegaOpen(false)}
+                                            className="text-sm text-slate-300 hover:text-gold font-medium transition-colors duration-150 truncate"
+                                          >
+                                            {cat.name}
+                                          </Link>
+                                        ))}
+                                      </div>
+                                    </div>
+
+                                    {brands.length > 0 && (
+                                      <div className="border-t border-[#282C36] pt-4">
+                                        <p className="text-gold text-xs font-semibold uppercase tracking-wider mb-3">
+                                          Markalarımız
+                                        </p>
+                                        <div className="flex flex-wrap gap-2.5">
+                                          {brands.map((brand) => (
+                                            <Link
+                                              key={brand.id}
+                                              href={`/katalog?search=${encodeURIComponent(brand.name.toLowerCase())}`}
+                                              onClick={() => setMegaOpen(false)}
+                                              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#1B1D23] hover:bg-[#282C36] border border-[#282C36] hover:border-gold/50 transition-all duration-150 group"
+                                            >
+                                              {brand.imageUrl && (
+                                                <div className="w-5 h-5 relative shrink-0">
+                                                  <Image src={brand.imageUrl} alt={brand.name} fill sizes="20px" className="object-contain" />
+                                                </div>
+                                              )}
+                                              <span className="text-xs font-bold text-slate-200 group-hover:text-gold tracking-wide uppercase">
+                                                {brand.name}
+                                              </span>
+                                            </Link>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    )}
+                                  </div>
+                                ) : (() => {
+                                  const subItems = (activeCat?.slug && SUBCATEGORIES_MAP[activeCat.slug]) || [];
+                                  const hasSubItems = subItems.length > 0;
+                                  const hasProducts = catProducts.length > 0;
+
+                                  return (
+                                    <div className="p-5 space-y-4">
+                                      <div className="flex items-center justify-between border-b border-[#282C36] pb-3">
+                                        <div>
+                                          <p className="text-white font-heading font-bold text-base uppercase tracking-wide">
+                                            {activeCat?.name}
+                                          </p>
+                                          {activeCat?.description && (
+                                            <p className="text-slate-400 text-xs mt-0.5 line-clamp-1">
+                                              {activeCat.description}
+                                            </p>
+                                          )}
+                                        </div>
+                                        <Link
+                                          href={`/katalog/${activeCat?.slug}`}
+                                          onClick={() => setMegaOpen(false)}
+                                          className="text-gold hover:text-gold-300 text-xs font-semibold shrink-0 transition-colors"
+                                        >
+                                          Tümünü Gör →
+                                        </Link>
+                                      </div>
+
+                                      {/* Alt başlıklar / Markalar */}
+                                      {hasSubItems && (
+                                        <div>
+                                          <p className="text-gold text-2xs font-semibold uppercase tracking-wider mb-2.5">
+                                            Çeşitler & Markalar
+                                          </p>
+                                          <div className="grid grid-cols-3 gap-x-6 gap-y-2.5">
+                                            {subItems.map((item, idx) => (
+                                              <Link
+                                                key={idx}
+                                                href={item.href}
+                                                onClick={() => setMegaOpen(false)}
+                                                className="text-sm font-semibold text-slate-300 hover:text-gold transition-colors duration-150 truncate flex items-center gap-1.5"
+                                              >
+                                                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                                                <span className="truncate">{item.name}</span>
+                                              </Link>
+                                            ))}
+                                          </div>
+                                        </div>
+                                      )}
+
+                                      {/* Ürünler */}
+                                      {hasProducts && (
+                                        <div className={hasSubItems ? "border-t border-[#282C36] pt-3" : ""}>
+                                          <p className="text-gold text-2xs font-semibold uppercase tracking-wider mb-2.5">
+                                            Öne Çıkan Ürünler
+                                          </p>
+                                          <div className="grid grid-cols-3 gap-x-6 gap-y-2.5">
+                                            {catProducts.slice(0, 12).map((product) => (
+                                              <Link
+                                                key={product.id}
+                                                href={`/katalog/${activeCat?.slug}`}
+                                                onClick={() => setMegaOpen(false)}
+                                                className="text-sm text-slate-300 hover:text-gold font-medium transition-colors duration-150 truncate"
+                                              >
+                                                {product.name}
+                                              </Link>
+                                            ))}
+                                          </div>
+                                        </div>
+                                      )}
+
+                                      {!hasSubItems && !hasProducts && (
+                                        <div className="py-8 text-center">
+                                          <p className="text-slate-400 text-sm mb-3">
+                                            Bu kategoriye ait ürünleri katalogda inceleyin.
+                                          </p>
+                                          <Link
+                                            href={`/katalog/${activeCat?.slug}`}
+                                            onClick={() => setMegaOpen(false)}
+                                            className="btn-gold-outline py-1.5 px-4 text-xs"
+                                          >
+                                            Kategori Ürünlerini Gör →
+                                          </Link>
+                                        </div>
+                                      )}
+                                    </div>
+                                  );
+                                })()}
+                              </div>
+                            </motion.div>
+                          );
+                        })()}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`px-3.5 py-2 rounded-xl text-sm font-medium transition-all duration-150 ${
                         isActive(link.href)
                           ? "text-gold bg-gold/10 font-bold"
                           : "text-slate-300 hover:text-white hover:bg-[#1B1D23]"
                       }`}
                     >
                       {link.label}
-                      <ChevronDown
-                        size={14}
-                        className={`transition-transform duration-200 ${
-                          megaOpen ? "rotate-180 text-gold" : ""
-                        }`}
-                      />
-                    </button>
+                    </Link>
+                  )
+                )}
+              </nav>
+            </div>
 
-                    {/* Mega Menu Dropdown — Sol Sidebar + Sağ İçerik */}
-                    <AnimatePresence>
-                      {megaOpen && (() => {
-                        const isAllSelected = activeSubCategory === "__all__";
-                        const activeCat = isAllSelected
-                          ? null
-                          : (categories.find(c => c.id === activeSubCategory) ?? categories[0]);
-                        const catProducts = activeCat
-                          ? products.filter(p =>
-                              p.isActive && (
-                                p.categorySlug === activeCat.slug ||
-                                p.categoryId === activeCat.id ||
-                                p.categoryName?.toLowerCase() === activeCat.name.toLowerCase()
-                              )
-                            )
-                          : [];
+            {/* ── Orta Kısım: Büyütülmüş & Ortalanmış Logo ────────────────── */}
+            <div className="shrink-0 flex items-center justify-center px-2">
+              <Link href="/" className="flex items-center group py-1">
+                <Logo size={54} />
+              </Link>
+            </div>
 
-                        return (
-                          <motion.div
-                            initial={{ opacity: 0, y: -8, scale: 0.97 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: -8, scale: 0.97 }}
-                            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                            className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[820px] bg-[#16181D] rounded-2xl shadow-soft-lg border border-[#282C36] overflow-hidden flex z-50 text-slate-100"
-                            style={{ maxHeight: "480px" }}
-                          >
-                            {/* ── Sol Panel: Kategoriler ── */}
-                            <div className="w-[230px] shrink-0 bg-[#121316] border-r border-[#282C36] flex flex-col overflow-y-auto">
-                              {/* Başlık */}
-                              <div className="flex items-center gap-2 px-4 py-3.5 border-b border-[#282C36]">
-                                <AlignLeft size={14} className="text-gold" />
-                                <span className="text-white font-bold text-xs uppercase tracking-widest">
-                                  Kategorilerimiz
-                                </span>
-                              </div>
-
-                              {/* Tüm Ürünler */}
-                              <button
-                                onMouseEnter={() => setActiveSubCategory("__all__")}
-                                onClick={() => { setMegaOpen(false); router.push("/katalog"); }}
-                                className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-[#282C36]/60 ${
-                                  isAllSelected
-                                    ? "bg-[#1B1D23] text-gold font-bold"
-                                    : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
-                                }`}
-                              >
-                                <span>✨ Tüm Ürünler</span>
-                                <ChevronRight size={14} className="opacity-60" />
-                              </button>
-
-                              {/* Kategori listesi */}
-                              {categories.map((cat) => (
-                                <button
-                                  key={cat.id}
-                                  onMouseEnter={() => setActiveSubCategory(cat.id)}
-                                  onClick={() => { setMegaOpen(false); router.push(`/katalog/${cat.slug}`); }}
-                                  className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-[#282C36]/40 ${
-                                    activeSubCategory === cat.id
-                                      ? "bg-[#1B1D23] text-gold font-bold"
-                                      : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
-                                  }`}
-                                >
-                                  <span className="truncate text-left">{cat.name}</span>
-                                  <ChevronRight size={14} className="shrink-0 opacity-60" />
-                                </button>
-                              ))}
-                            </div>
-
-                            {/* ── Sağ Panel: Ürün/Alt Başlık İçeriği ── */}
-                            <div className="flex-1 overflow-y-auto bg-[#16181D]">
-                              {isAllSelected ? (
-                                /* Tüm Ürünler: Tüm Kategoriler + Markalarımız */
-                                <div className="p-5 space-y-5">
-                                  <div>
-                                    <p className="text-gold text-xs font-semibold uppercase tracking-wider mb-3">
-                                      Tüm Kategoriler
-                                    </p>
-                                    <div className="grid grid-cols-3 gap-x-6 gap-y-2.5">
-                                      {categories.map((cat) => (
-                                        <Link
-                                          key={cat.id}
-                                          href={`/katalog/${cat.slug}`}
-                                          onClick={() => setMegaOpen(false)}
-                                          className="text-sm text-slate-300 hover:text-gold font-medium transition-colors duration-150 truncate"
-                                        >
-                                          {cat.name}
-                                        </Link>
-                                      ))}
-                                    </div>
-                                  </div>
-
-                                  {brands.length > 0 && (
-                                    <div className="border-t border-[#282C36] pt-4">
-                                      <p className="text-gold text-xs font-semibold uppercase tracking-wider mb-3">
-                                        Markalarımız
-                                      </p>
-                                      <div className="flex flex-wrap gap-2.5">
-                                        {brands.map((brand) => (
-                                          <Link
-                                            key={brand.id}
-                                            href={`/katalog?search=${encodeURIComponent(brand.name.toLowerCase())}`}
-                                            onClick={() => setMegaOpen(false)}
-                                            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#1B1D23] hover:bg-[#282C36] border border-[#282C36] hover:border-gold/50 transition-all duration-150 group"
-                                          >
-                                            {brand.imageUrl && (
-                                              <div className="w-5 h-5 relative shrink-0">
-                                                <Image src={brand.imageUrl} alt={brand.name} fill sizes="20px" className="object-contain" />
-                                              </div>
-                                            )}
-                                            <span className="text-xs font-bold text-slate-200 group-hover:text-gold tracking-wide uppercase">
-                                              {brand.name}
-                                            </span>
-                                          </Link>
-                                        ))}
-                                      </div>
-                                    </div>
-                                  )}
-                                </div>
-                              ) : (() => {
-                                const subItems = (activeCat?.slug && SUBCATEGORIES_MAP[activeCat.slug]) || [];
-                                const hasSubItems = subItems.length > 0;
-                                const hasProducts = catProducts.length > 0;
-
-                                return (
-                                  <div className="p-5 space-y-4">
-                                    <div className="flex items-center justify-between border-b border-[#282C36] pb-3">
-                                      <div>
-                                        <p className="text-white font-heading font-bold text-base uppercase tracking-wide">
-                                          {activeCat?.name}
-                                        </p>
-                                        {activeCat?.description && (
-                                          <p className="text-slate-400 text-xs mt-0.5 line-clamp-1">
-                                            {activeCat.description}
-                                          </p>
-                                        )}
-                                      </div>
-                                      <Link
-                                        href={`/katalog/${activeCat?.slug}`}
-                                        onClick={() => setMegaOpen(false)}
-                                        className="text-gold hover:text-gold-300 text-xs font-semibold shrink-0 transition-colors"
-                                      >
-                                        Tümünü Gör →
-                                      </Link>
-                                    </div>
-
-                                    {/* Alt başlıklar / Markalar */}
-                                    {hasSubItems && (
-                                      <div>
-                                        <p className="text-gold text-2xs font-semibold uppercase tracking-wider mb-2.5">
-                                          Çeşitler & Markalar
-                                        </p>
-                                        <div className="grid grid-cols-3 gap-x-6 gap-y-2.5">
-                                          {subItems.map((item, idx) => (
-                                            <Link
-                                              key={idx}
-                                              href={item.href}
-                                              onClick={() => setMegaOpen(false)}
-                                              className="text-sm font-semibold text-slate-300 hover:text-gold transition-colors duration-150 truncate flex items-center gap-1.5"
-                                            >
-                                              <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
-                                              <span className="truncate">{item.name}</span>
-                                            </Link>
-                                          ))}
-                                        </div>
-                                      </div>
-                                    )}
-
-                                    {/* Ürünler */}
-                                    {hasProducts && (
-                                      <div className={hasSubItems ? "border-t border-[#282C36] pt-3" : ""}>
-                                        <p className="text-gold text-2xs font-semibold uppercase tracking-wider mb-2.5">
-                                          Öne Çıkan Ürünler
-                                        </p>
-                                        <div className="grid grid-cols-3 gap-x-6 gap-y-2.5">
-                                          {catProducts.slice(0, 12).map((product) => (
-                                            <Link
-                                              key={product.id}
-                                              href={`/katalog/${activeCat?.slug}`}
-                                              onClick={() => setMegaOpen(false)}
-                                              className="text-sm text-slate-300 hover:text-gold font-medium transition-colors duration-150 truncate"
-                                            >
-                                              {product.name}
-                                            </Link>
-                                          ))}
-                                        </div>
-                                      </div>
-                                    )}
-
-                                    {!hasSubItems && !hasProducts && (
-                                      <div className="py-8 text-center">
-                                        <p className="text-slate-400 text-sm mb-3">
-                                          Bu kategoriye ait ürünleri katalogda inceleyin.
-                                        </p>
-                                        <Link
-                                          href={`/katalog/${activeCat?.slug}`}
-                                          onClick={() => setMegaOpen(false)}
-                                          className="btn-gold-outline py-1.5 px-4 text-xs"
-                                        >
-                                          Kategori Ürünlerini Gör →
-                                        </Link>
-                                      </div>
-                                    )}
-                                  </div>
-                                );
-                              })()}
-                            </div>
-                          </motion.div>
-                        );
-                      })()}
-                    </AnimatePresence>
-                  </div>
-                ) : (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
-                      isActive(link.href)
-                        ? "text-gold bg-gold/10 font-bold"
-                        : "text-slate-300 hover:text-white hover:bg-[#1B1D23]"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              )}
-            </nav>
-
-            {/* ── Right Actions ─────────────────────────────────────── */}
-            <div className="flex items-center gap-2">
+            {/* ── Sağ Taraf: Arama, Telefon, Giriş/Profil ─────────────────── */}
+            <div className="flex-1 flex items-center justify-end gap-2 sm:gap-3">
               {/* Search (desktop) */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="hidden lg:flex p-2 rounded-lg items-center gap-1.5 text-slate-300 hover:text-white hover:bg-[#1B1D23] transition-colors"
+                className="flex p-2.5 rounded-xl items-center gap-2 text-slate-300 hover:text-white bg-[#1B1D23]/60 hover:bg-[#1B1D23] border border-[#282C36] hover:border-gold/50 transition-colors"
                 title="Ürün ara (Ctrl+K)"
               >
-                <Search size={18} />
-                <span className="text-xs text-slate-400 hidden xl:inline">Ctrl+K</span>
+                <Search size={17} className="text-gold" />
+                <span className="text-xs text-slate-400 hidden xl:inline font-mono">Ctrl+K</span>
               </button>
 
               {/* Phone */}
               <a
                 href="tel:+905010737113"
-                className="hidden xl:flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:text-gold text-sm font-medium transition-colors duration-150"
+                className="hidden xl:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#1B1D23]/60 hover:bg-[#1B1D23] border border-[#282C36] hover:border-gold/50 text-slate-200 hover:text-gold text-sm font-medium transition-all duration-150"
               >
-                <Phone size={15} className="text-gold" />
+                <Phone size={14} className="text-gold" />
                 <span className="text-xs font-semibold tracking-wide">
                   0501 073 71 13
                 </span>
@@ -488,7 +503,7 @@ export default function Header() {
                 <div className="relative" ref={userRef}>
                   <button
                     onClick={() => setUserMenuOpen((v) => !v)}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#1B1D23] border border-[#282C36] text-white hover:border-gold/50 transition-all duration-150"
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#1B1D23] border border-[#282C36] text-white hover:border-gold/50 transition-all duration-150"
                   >
                     <div className="w-7 h-7 rounded-full bg-gradient-gold flex items-center justify-center">
                       <User size={13} className="text-[#0D0E11]" />
@@ -559,24 +574,15 @@ export default function Header() {
                 </div>
               ) : (
                 <div className="hidden sm:flex items-center gap-2">
-                  <Link href="/giris" className="btn-ghost text-sm py-2 text-slate-200 hover:text-white">
+                  <Link href="/giris" className="btn-ghost text-sm py-2 px-3 text-slate-200 hover:text-white">
                     <LogIn size={16} />
                     Giriş Yap
                   </Link>
-                  <Link href="/kayit" className="btn-primary text-sm py-2.5">
+                  <Link href="/kayit" className="btn-primary text-sm py-2 px-4 shadow-gold">
                     Kayıt Ol
                   </Link>
                 </div>
               )}
-
-              {/* Mobile menu toggle */}
-              <button
-                onClick={() => setMobileOpen((v) => !v)}
-                className="lg:hidden p-2 rounded-lg text-slate-300 hover:bg-[#1B1D23] hover:text-white transition-colors"
-                aria-label="Menü"
-              >
-                {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-              </button>
             </div>
           </div>
         </div>
