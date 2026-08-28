@@ -76,37 +76,37 @@ Başvurularınızı kvkk@2045pastaci.com adresine iletebilirsiniz.`,
 
 export default function KVKKPage() {
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-[#121316] text-slate-200">
       {/* Header */}
-      <div className="bg-charcoal-900 py-14">
+      <div className="bg-[#0D0E11] py-14 border-b border-[#282C36]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <span className="section-label">Hukuki Bildirim</span>
           <h1 className="font-heading font-bold text-white text-4xl mt-2 mb-3">KVKK Aydınlatma Metni</h1>
-          <p className="text-charcoal-400 text-sm">Son güncelleme: 1 Ocak 2025</p>
+          <p className="text-slate-400 text-sm">Son güncelleme: 1 Ocak 2025</p>
         </div>
       </div>
 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-white border border-border rounded-2xl p-8 md:p-12 shadow-card">
+        <div className="bg-[#1B1D23] border border-[#282C36] rounded-2xl p-8 md:p-12 shadow-2xl">
           <div className="space-y-10">
             {sections.map((s) => (
               <div key={s.title}>
-                <h2 className="font-heading font-bold text-charcoal-800 text-lg mb-3 pb-2 border-b border-border">
+                <h2 className="font-heading font-bold text-white text-lg mb-3 pb-2 border-b border-[#282C36]">
                   {s.title}
                 </h2>
-                <div className="text-charcoal-600 text-sm leading-loose whitespace-pre-line">
+                <div className="text-slate-300 text-sm leading-loose whitespace-pre-line">
                   {s.content}
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-10 pt-8 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <p className="text-charcoal-400 text-xs">
+          <div className="mt-10 pt-8 border-t border-[#282C36] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <p className="text-slate-400 text-xs">
               Bu metin bilgilendirme amaçlıdır ve hukuki danışmanlık niteliği taşımaz.
             </p>
-            <Link href="/iletisim" className="btn-primary text-sm">
+            <Link href="/iletisim" className="btn-primary text-sm shadow-gold">
               Bize Ulaşın
             </Link>
           </div>

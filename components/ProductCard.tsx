@@ -35,10 +35,10 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
           delay: Math.min((index % 10) * 0.04, 0.4),
           ease: [0.16, 1, 0.3, 1],
         }}
-        className="product-card group flex flex-col h-full bg-white rounded-xl border border-border overflow-hidden hover:border-gold-300 hover:shadow-soft-md transition-all duration-200"
+        className="product-card group flex flex-col h-full bg-[#1B1D23] rounded-xl border border-[#282C36] overflow-hidden hover:border-gold/50 hover:shadow-card-hover transition-all duration-200"
       >
         {/* Image */}
-        <Link href={`/urun/${product.id}`} className="block img-zoom-container aspect-square relative bg-cream-100 shrink-0 overflow-hidden">
+        <Link href={`/urun/${product.id}`} className="block img-zoom-container aspect-square relative bg-[#16181D] shrink-0 overflow-hidden">
           {!imgError && product.imageUrl ? (
             <Image
               src={product.imageUrl}
@@ -46,23 +46,23 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
               fill
               quality={85}
               loading={index < 8 ? "eager" : "lazy"}
-              className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
+              className="object-contain p-2.5 group-hover:scale-105 transition-transform duration-300"
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1440px) 25vw, 20vw"
               onError={() => setImgError(true)}
             />
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center bg-cream-200">
+            <div className="absolute inset-0 flex items-center justify-center bg-[#21242C]">
               <div className="text-center p-3">
-                <ImageIcon size={28} className="text-charcoal-300 mx-auto" />
-                <p className="text-charcoal-400 text-2xs mt-1 truncate">{product.categoryName}</p>
+                <ImageIcon size={28} className="text-slate-500 mx-auto" />
+                <p className="text-slate-400 text-2xs mt-1 truncate">{product.categoryName}</p>
               </div>
             </div>
           )}
 
           {/* Hover overlay */}
-          <div className="absolute inset-0 bg-charcoal-900/0 group-hover:bg-charcoal-900/15 transition-colors duration-200 flex items-center justify-center pointer-events-none">
+          <div className="absolute inset-0 bg-[#0D0E11]/0 group-hover:bg-[#0D0E11]/25 transition-colors duration-200 flex items-center justify-center pointer-events-none">
             <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-              <span className="bg-white/95 text-charcoal-900 text-2xs font-semibold px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+              <span className="bg-[#1B1D23]/95 text-gold border border-gold/40 text-2xs font-bold px-2.5 py-1 rounded-full shadow-lg flex items-center gap-1">
                 <Eye size={11} /> İncele
               </span>
             </div>
@@ -70,34 +70,34 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
         </Link>
 
         {/* Body */}
-        <div className="p-3 sm:p-3.5 flex flex-col flex-1 justify-between">
+        <div className="p-3 sm:p-3.5 flex flex-col flex-1 justify-between bg-[#1B1D23]">
           <div>
             {/* Category / Brand Badge */}
             <div className="flex items-center gap-1 mb-1">
-              <Tag size={10} className="text-gold-500 shrink-0" />
-              <span className="text-[10px] text-gold-700 font-semibold uppercase tracking-wider truncate">
+              <Tag size={10} className="text-gold shrink-0" />
+              <span className="text-[10px] text-gold font-bold uppercase tracking-wider truncate">
                 {product.codeGroup || product.categoryName}
               </span>
             </div>
 
             {/* Name */}
             <Link href={`/urun/${product.id}`}>
-              <h3 className="font-heading font-semibold text-charcoal-800 text-xs sm:text-sm leading-snug line-clamp-2 hover:text-gold-600 transition-colors mb-1">
+              <h3 className="font-heading font-semibold text-slate-100 text-xs sm:text-sm leading-snug line-clamp-2 hover:text-gold transition-colors mb-1">
                 {product.name}
               </h3>
             </Link>
 
             {/* Product code */}
-            <p className="text-charcoal-400 text-[10px] font-mono mb-2 tracking-wider">
+            <p className="text-slate-400 text-[10px] font-mono mb-2 tracking-wider">
               {product.code}
             </p>
 
             {/* Price display (for logged-in users) */}
             {currentUser && product.price > 0 && (
               <div className="mb-2">
-                <p className="font-heading font-bold text-charcoal-800 text-sm sm:text-base">
+                <p className="font-heading font-bold text-white text-sm sm:text-base">
                   ₺{product.price.toFixed(2)}
-                  <span className="text-charcoal-400 text-[10px] font-normal ml-1">
+                  <span className="text-slate-400 text-[10px] font-normal ml-1">
                     +%{product.vatRate} KDV
                   </span>
                 </p>
@@ -106,10 +106,10 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
           </div>
 
           {/* CTA */}
-          <div className="mt-2 pt-2 border-t border-cream-200/80">
+          <div className="mt-2 pt-2 border-t border-[#282C36]">
             <button
               onClick={() => setInquiryOpen(true)}
-              className="btn-primary w-full text-2xs sm:text-xs py-2 px-2 justify-center gap-1.5 font-medium rounded-lg"
+              className="btn-primary w-full text-2xs sm:text-xs py-2 px-2 justify-center gap-1.5 font-bold rounded-lg shadow-sm hover:shadow-gold"
             >
               <MessageCircle size={13} className="shrink-0" />
               <span>Fiyat Sorunuz</span>

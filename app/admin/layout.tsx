@@ -53,18 +53,18 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   }
 
   return (
-    <div className="min-h-screen bg-charcoal-900 flex">
+    <div className="min-h-screen bg-[#0D0E11] flex text-slate-200">
       {/* Sidebar */}
-      <aside className="w-64 bg-charcoal-800 border-r border-charcoal-700 flex flex-col shrink-0 fixed top-0 left-0 bottom-0 z-30">
+      <aside className="w-64 bg-[#16181D] border-r border-[#282C36] flex flex-col shrink-0 fixed top-0 left-0 bottom-0 z-30">
         {/* Brand */}
-        <div className="px-5 py-5 border-b border-charcoal-700">
+        <div className="px-5 py-5 border-b border-[#282C36] bg-[#121316]">
           <Link href="/" className="flex items-center gap-3">
             <Logo variant="light" size={36} />
           </Link>
         </div>
 
         {/* Nav */}
-        <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+        <nav className="flex-1 px-3 py-4 space-y-1.5 overflow-y-auto">
           {adminNavItems.map((item) => {
             const isActive = item.exact
               ? pathname === item.href
@@ -73,30 +73,32 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <Link
                 key={item.href}
                 href={item.href}
-                className={`admin-nav-item ${
-                  isActive ? "admin-nav-item-active" : "admin-nav-item-inactive"
+                className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
+                  isActive
+                    ? "bg-gold text-[#0D0E11] font-bold shadow-gold"
+                    : "text-slate-300 hover:text-white hover:bg-[#1B1D23]"
                 }`}
               >
                 {item.icon}
                 {item.label}
-                {isActive && <ChevronRight size={14} className="ml-auto" />}
+                {isActive && <ChevronRight size={14} className="ml-auto text-[#0D0E11]" />}
               </Link>
             );
           })}
         </nav>
 
         {/* Footer */}
-        <div className="p-3 border-t border-charcoal-700 space-y-1">
+        <div className="p-3 border-t border-[#282C36] space-y-1 bg-[#121316]">
           <Link
             href="/"
-            className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-xs text-charcoal-400 hover:bg-charcoal-700 hover:text-white transition-colors"
+            className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-xs text-slate-400 hover:bg-[#1B1D23] hover:text-white transition-colors"
           >
             <Package size={14} />
             Siteye Dön
           </Link>
           <button
             onClick={async () => { await logoutUser(); router.push("/"); }}
-            className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-xs text-red-400 hover:bg-red-900/30 hover:text-red-300 transition-colors w-full"
+            className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-xs text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors w-full"
           >
             <LogOut size={14} />
             Çıkış Yap
@@ -105,7 +107,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </aside>
 
       {/* Main */}
-      <div className="flex-1 ml-64 min-h-screen bg-cream overflow-auto">
+      <div className="flex-1 ml-64 min-h-screen bg-[#121316] overflow-auto text-slate-200">
         {children}
       </div>
     </div>

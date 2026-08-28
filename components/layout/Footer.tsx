@@ -21,15 +21,16 @@ export default async function Footer() {
   }
 
   return (
-    <footer className="bg-charcoal-900 text-charcoal-200">
+    <footer className="bg-[#0D0E11] text-slate-300 border-t border-[#282C36]">
       {/* ── Top CTA Strip ─────────────────────────────────────────── */}
-      <div className="bg-gradient-to-r from-warm-brown-dark via-warm-brown to-warm-brown-light">
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-gradient-to-r from-[#16181D] via-[#21252E] to-[#16181D] border-b border-[#282C36] relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-full bg-gold/5 blur-3xl pointer-events-none" />
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
           <div>
             <p className="font-heading font-bold text-white text-2xl">
-              Toptan Sipariş & Fiyat Teklifi
+              Toptan Sipariş & <span className="gold-text">Fiyat Teklifi</span>
             </p>
-            <p className="text-white/70 text-sm mt-1">
+            <p className="text-slate-400 text-sm mt-1">
               YKB Gıda & 20:45 Pastacılık B2B müşterileri için özel fiyatlandırma ve hızlı teslimat seçenekleri.
             </p>
           </div>
@@ -45,7 +46,7 @@ export default async function Footer() {
             </a>
             <Link
               href="/iletisim"
-              className="flex items-center gap-2 bg-gold hover:bg-gold-400 text-charcoal-900 font-semibold px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-gold hover:-translate-y-0.5"
+              className="flex items-center gap-2 bg-gold hover:bg-gold-400 text-[#0D0E11] font-bold px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-gold hover:-translate-y-0.5"
             >
               Teklif Alın
               <ArrowRight size={16} />

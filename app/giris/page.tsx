@@ -71,24 +71,24 @@ export default function LoginPage() {
       </div>
 
       {/* Right Panel — Form */}
-      <div className="flex-1 flex items-center justify-center px-6 py-12 bg-cream">
+      <div className="flex-1 flex items-center justify-center px-6 py-12 bg-[#121316] text-slate-200">
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full max-w-md"
+          className="w-full max-w-md bg-[#1B1D23] border border-[#282C36] p-8 sm:p-10 rounded-3xl shadow-2xl"
         >
           <div className="lg:hidden flex items-center mb-8">
             <Logo size={36} />
           </div>
 
           <div className="mb-8">
-            <h1 className="font-heading font-bold text-charcoal-800 text-3xl mb-2">
+            <h1 className="font-heading font-bold text-white text-3xl mb-2">
               Giriş Yapın
             </h1>
-            <p className="text-charcoal-500 text-sm">
+            <p className="text-slate-400 text-sm">
               Hesabınız yok mu?{" "}
-              <Link href="/kayit" className="text-gold-600 font-semibold hover:text-gold-700 transition-colors">
+              <Link href="/kayit" className="text-gold font-bold hover:text-gold-300 transition-colors">
                 Kayıt olun
               </Link>
             </p>
@@ -96,7 +96,7 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <div>
-              <label className="block text-charcoal-700 text-xs font-semibold mb-1.5">
+              <label className="block text-slate-300 text-xs font-semibold mb-1.5">
                 E-posta Adresi
               </label>
               <input
@@ -106,14 +106,14 @@ export default function LoginPage() {
                 className={`input ${errors.email ? "input-error" : ""}`}
               />
               {errors.email && (
-                <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
+                <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>
               )}
             </div>
 
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <label className="text-charcoal-700 text-xs font-semibold">Şifre</label>
-                <Link href="#" className="text-gold-600 text-xs hover:text-gold-700 transition-colors">
+                <label className="text-slate-300 text-xs font-semibold">Şifre</label>
+                <Link href="#" className="text-gold text-xs font-medium hover:text-gold-300 transition-colors">
                   Şifremi unuttum
                 </Link>
               </div>
@@ -127,30 +127,30 @@ export default function LoginPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword((v) => !v)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-charcoal-400 hover:text-charcoal-700"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
                 >
                   {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
               {errors.password && (
-                <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>
+                <p className="text-red-400 text-xs mt-1">{errors.password.message}</p>
               )}
             </div>
 
             {error && (
-              <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg">
-                <AlertCircle size={15} className="text-red-500 shrink-0" />
-                <p className="text-red-600 text-sm">{error}</p>
+              <div className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
+                <AlertCircle size={15} className="text-red-400 shrink-0" />
+                <p className="text-red-300 text-sm">{error}</p>
               </div>
             )}
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn-primary w-full py-3.5 text-base mt-2"
+              className="btn-primary w-full py-3.5 text-base mt-2 shadow-gold hover:shadow-gold-lg"
             >
               {isSubmitting ? (
-                <span className="animate-spin w-4 h-4 border-2 border-charcoal-400 border-t-charcoal-900 rounded-full" />
+                <span className="animate-spin w-4 h-4 border-2 border-slate-700 border-t-black rounded-full" />
               ) : (
                 <>
                   <LogIn size={18} />
@@ -160,13 +160,13 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <p className="text-charcoal-400 text-xs text-center mt-8 leading-relaxed">
+          <p className="text-slate-400 text-xs text-center mt-8 leading-relaxed">
             Giriş yaparak{" "}
-            <Link href="/kosullar" className="underline hover:text-gold transition-colors">
+            <Link href="/kosullar" className="underline text-gold hover:text-gold-300 transition-colors">
               Kullanım Koşulları
             </Link>{" "}
             ve{" "}
-            <Link href="/gizlilik" className="underline hover:text-gold transition-colors">
+            <Link href="/gizlilik" className="underline text-gold hover:text-gold-300 transition-colors">
               Gizlilik Politikası&apos;nı
             </Link>{" "}
             kabul etmiş olursunuz.

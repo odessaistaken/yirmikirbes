@@ -86,24 +86,24 @@ export default function RegisterPage() {
       </div>
 
       {/* Right Panel — Form */}
-      <div className="flex-1 flex items-center justify-center px-6 py-12 bg-cream overflow-y-auto">
+      <div className="flex-1 flex items-center justify-center px-6 py-12 bg-[#121316] text-slate-200 overflow-y-auto">
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full max-w-md"
+          className="w-full max-w-md bg-[#1B1D23] border border-[#282C36] p-8 sm:p-10 rounded-3xl shadow-2xl"
         >
           <div className="lg:hidden flex items-center mb-8">
             <Logo size={36} />
           </div>
 
           <div className="mb-8">
-            <h1 className="font-heading font-bold text-charcoal-800 text-3xl mb-2">
+            <h1 className="font-heading font-bold text-white text-3xl mb-2">
               Kayıt Olun
             </h1>
-            <p className="text-charcoal-500 text-sm">
+            <p className="text-slate-400 text-sm">
               Zaten hesabınız var mı?{" "}
-              <Link href="/giris" className="text-gold-600 font-semibold hover:text-gold-700 transition-colors">
+              <Link href="/giris" className="text-gold font-bold hover:text-gold-300 transition-colors">
                 Giriş yapın
               </Link>
             </p>
@@ -112,31 +112,31 @@ export default function RegisterPage() {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-charcoal-700 text-xs font-semibold mb-1.5">Ad Soyad *</label>
+                <label className="block text-slate-300 text-xs font-semibold mb-1.5">Ad Soyad *</label>
                 <input {...register("name")} placeholder="Adınız Soyadınız" className={`input ${errors.name ? "input-error" : ""}`} />
-                {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name.message}</p>}
               </div>
               <div>
-                <label className="block text-charcoal-700 text-xs font-semibold mb-1.5">Firma Adı *</label>
+                <label className="block text-slate-300 text-xs font-semibold mb-1.5">Firma Adı *</label>
                 <input {...register("company")} placeholder="Firma Adı" className={`input ${errors.company ? "input-error" : ""}`} />
-                {errors.company && <p className="text-red-500 text-xs mt-1">{errors.company.message}</p>}
+                {errors.company && <p className="text-red-400 text-xs mt-1">{errors.company.message}</p>}
               </div>
             </div>
 
             <div>
-              <label className="block text-charcoal-700 text-xs font-semibold mb-1.5">Telefon *</label>
+              <label className="block text-slate-300 text-xs font-semibold mb-1.5">Telefon *</label>
               <input {...register("phone")} type="tel" placeholder="05XX XXX XX XX" className={`input ${errors.phone ? "input-error" : ""}`} />
-              {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
+              {errors.phone && <p className="text-red-400 text-xs mt-1">{errors.phone.message}</p>}
             </div>
 
             <div>
-              <label className="block text-charcoal-700 text-xs font-semibold mb-1.5">E-posta Adresi *</label>
+              <label className="block text-slate-300 text-xs font-semibold mb-1.5">E-posta Adresi *</label>
               <input {...register("email")} type="email" placeholder="firma@email.com" className={`input ${errors.email ? "input-error" : ""}`} />
-              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+              {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>}
             </div>
 
             <div>
-              <label className="block text-charcoal-700 text-xs font-semibold mb-1.5">Şifre *</label>
+              <label className="block text-slate-300 text-xs font-semibold mb-1.5">Şifre *</label>
               <div className="relative">
                 <input
                   {...register("password")}
@@ -144,34 +144,34 @@ export default function RegisterPage() {
                   placeholder="En az 6 karakter"
                   className={`input pr-12 ${errors.password ? "input-error" : ""}`}
                 />
-                <button type="button" onClick={() => setShowPassword((v) => !v)} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-charcoal-400 hover:text-charcoal-700">
+                <button type="button" onClick={() => setShowPassword((v) => !v)} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white">
                   {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
-              {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
+              {errors.password && <p className="text-red-400 text-xs mt-1">{errors.password.message}</p>}
             </div>
 
             <div>
-              <label className="block text-charcoal-700 text-xs font-semibold mb-1.5">Şifre Tekrar *</label>
+              <label className="block text-slate-300 text-xs font-semibold mb-1.5">Şifre Tekrar *</label>
               <input
                 {...register("confirmPassword")}
                 type={showPassword ? "text" : "password"}
                 placeholder="Şifrenizi tekrar girin"
                 className={`input ${errors.confirmPassword ? "input-error" : ""}`}
               />
-              {errors.confirmPassword && <p className="text-red-500 text-xs mt-1">{errors.confirmPassword.message}</p>}
+              {errors.confirmPassword && <p className="text-red-400 text-xs mt-1">{errors.confirmPassword.message}</p>}
             </div>
 
             {error && (
-              <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg">
-                <AlertCircle size={15} className="text-red-500 shrink-0" />
-                <p className="text-red-600 text-sm">{error}</p>
+              <div className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
+                <AlertCircle size={15} className="text-red-400 shrink-0" />
+                <p className="text-red-300 text-sm">{error}</p>
               </div>
             )}
 
-            <button type="submit" disabled={isSubmitting} className="btn-primary w-full py-3.5 text-base mt-2">
+            <button type="submit" disabled={isSubmitting} className="btn-primary w-full py-3.5 text-base mt-2 shadow-gold hover:shadow-gold-lg">
               {isSubmitting ? (
-                <span className="animate-spin w-4 h-4 border-2 border-charcoal-400 border-t-charcoal-900 rounded-full" />
+                <span className="animate-spin w-4 h-4 border-2 border-slate-700 border-t-black rounded-full" />
               ) : (
                 <>
                   <UserPlus size={18} />
@@ -181,11 +181,11 @@ export default function RegisterPage() {
             </button>
           </form>
 
-          <p className="text-charcoal-400 text-xs text-center mt-6 leading-relaxed">
+          <p className="text-slate-400 text-xs text-center mt-6 leading-relaxed">
             Kayıt olarak{" "}
-            <Link href="/kosullar" className="underline hover:text-gold transition-colors">Kullanım Koşulları</Link>{" "}
+            <Link href="/kosullar" className="underline text-gold hover:text-gold-300 transition-colors">Kullanım Koşulları</Link>{" "}
             ve{" "}
-            <Link href="/kvkk" className="underline hover:text-gold transition-colors">KVKK Aydınlatma Metni</Link>&apos;ni kabul etmiş olursunuz.
+            <Link href="/kvkk" className="underline text-gold hover:text-gold-300 transition-colors">KVKK Aydınlatma Metni</Link>&apos;ni kabul etmiş olursunuz.
           </p>
         </motion.div>
       </div>

@@ -12,13 +12,13 @@ interface LogoProps {
 
 export default function Logo({
   className = "",
-  variant = "dark",
+  variant = "light",
   size = 40,
   showText = true,
 }: LogoProps) {
   // Proportional width based on extracted 1058x1174 logo dimensions (~0.901 aspect ratio)
   const width = Math.round(size * 0.901);
-  const logoSrc = variant === "light" ? "/logo-light.png" : "/logo.png";
+  const logoSrc = variant === "dark" ? "/logo.png" : "/logo-light.png";
 
   return (
     <div className={`inline-flex items-center gap-2.5 sm:gap-3 select-none ${className}`}>

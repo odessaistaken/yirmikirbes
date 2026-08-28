@@ -13,8 +13,8 @@ export default function CategoryPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-cream flex items-center justify-center">
-          <div className="text-charcoal-400 text-sm">Kategori yükleniyor...</div>
+        <div className="min-h-screen bg-[#121316] flex items-center justify-center">
+          <div className="text-slate-400 text-sm">Kategori yükleniyor...</div>
         </div>
       }
     >

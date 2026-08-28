@@ -220,15 +220,15 @@ export default function Header() {
                       onClick={() => { setMegaOpen((v) => !v); setActiveSubCategory(null); }}
                       className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                         isActive(link.href)
-                          ? "text-gold-600 bg-gold-50"
-                          : "text-charcoal-700 hover:text-charcoal-900 hover:bg-charcoal-50"
+                          ? "text-gold bg-gold/10 font-bold"
+                          : "text-slate-300 hover:text-white hover:bg-[#1B1D23]"
                       }`}
                     >
                       {link.label}
                       <ChevronDown
                         size={14}
                         className={`transition-transform duration-200 ${
-                          megaOpen ? "rotate-180" : ""
+                          megaOpen ? "rotate-180 text-gold" : ""
                         }`}
                       />
                     </button>
@@ -256,14 +256,14 @@ export default function Header() {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -8, scale: 0.97 }}
                             transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                            className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[820px] bg-white rounded-2xl shadow-soft-lg border border-border overflow-hidden flex"
+                            className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[820px] bg-[#16181D] rounded-2xl shadow-soft-lg border border-[#282C36] overflow-hidden flex z-50 text-slate-100"
                             style={{ maxHeight: "480px" }}
                           >
                             {/* ── Sol Panel: Kategoriler ── */}
-                            <div className="w-[230px] shrink-0 bg-charcoal-900 flex flex-col overflow-y-auto">
+                            <div className="w-[230px] shrink-0 bg-[#121316] border-r border-[#282C36] flex flex-col overflow-y-auto">
                               {/* Başlık */}
-                              <div className="flex items-center gap-2 px-4 py-3.5 border-b border-charcoal-700">
-                                <AlignLeft size={14} className="text-white" />
+                              <div className="flex items-center gap-2 px-4 py-3.5 border-b border-[#282C36]">
+                                <AlignLeft size={14} className="text-gold" />
                                 <span className="text-white font-bold text-xs uppercase tracking-widest">
                                   Kategorilerimiz
                                 </span>
@@ -273,13 +273,13 @@ export default function Header() {
                               <button
                                 onMouseEnter={() => setActiveSubCategory("__all__")}
                                 onClick={() => { setMegaOpen(false); router.push("/katalog"); }}
-                                className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-charcoal-800 ${
+                                className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-[#282C36]/60 ${
                                   isAllSelected
-                                    ? "bg-charcoal-700 text-white"
-                                    : "text-charcoal-300 hover:bg-charcoal-800 hover:text-white"
+                                    ? "bg-[#1B1D23] text-gold font-bold"
+                                    : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
                                 }`}
                               >
-                                <span>Tüm Ürünler</span>
+                                <span>✨ Tüm Ürünler</span>
                                 <ChevronRight size={14} className="opacity-60" />
                               </button>
 
@@ -289,10 +289,10 @@ export default function Header() {
                                   key={cat.id}
                                   onMouseEnter={() => setActiveSubCategory(cat.id)}
                                   onClick={() => { setMegaOpen(false); router.push(`/katalog/${cat.slug}`); }}
-                                  className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-charcoal-800/50 ${
+                                  className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-[#282C36]/40 ${
                                     activeSubCategory === cat.id
-                                      ? "bg-charcoal-700 text-white"
-                                      : "text-charcoal-300 hover:bg-charcoal-800 hover:text-white"
+                                      ? "bg-[#1B1D23] text-gold font-bold"
+                                      : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
                                   }`}
                                 >
                                   <span className="truncate text-left">{cat.name}</span>
@@ -302,12 +302,12 @@ export default function Header() {
                             </div>
 
                             {/* ── Sağ Panel: Ürün/Alt Başlık İçeriği ── */}
-                            <div className="flex-1 overflow-y-auto">
+                            <div className="flex-1 overflow-y-auto bg-[#16181D]">
                               {isAllSelected ? (
                                 /* Tüm Ürünler: Tüm Kategoriler + Markalarımız */
                                 <div className="p-5 space-y-5">
                                   <div>
-                                    <p className="text-charcoal-400 text-xs font-semibold uppercase tracking-wider mb-3">
+                                    <p className="text-gold text-xs font-semibold uppercase tracking-wider mb-3">
                                       Tüm Kategoriler
                                     </p>
                                     <div className="grid grid-cols-3 gap-x-6 gap-y-2.5">
@@ -316,7 +316,7 @@ export default function Header() {
                                           key={cat.id}
                                           href={`/katalog/${cat.slug}`}
                                           onClick={() => setMegaOpen(false)}
-                                          className="text-sm text-charcoal-700 hover:text-gold-600 font-medium transition-colors duration-150 truncate"
+                                          className="text-sm text-slate-300 hover:text-gold font-medium transition-colors duration-150 truncate"
                                         >
                                           {cat.name}
                                         </Link>
@@ -325,8 +325,8 @@ export default function Header() {
                                   </div>
 
                                   {brands.length > 0 && (
-                                    <div className="border-t border-border pt-4">
-                                      <p className="text-charcoal-400 text-xs font-semibold uppercase tracking-wider mb-3">
+                                    <div className="border-t border-[#282C36] pt-4">
+                                      <p className="text-gold text-xs font-semibold uppercase tracking-wider mb-3">
                                         Markalarımız
                                       </p>
                                       <div className="flex flex-wrap gap-2.5">
@@ -335,14 +335,14 @@ export default function Header() {
                                             key={brand.id}
                                             href={`/katalog?search=${encodeURIComponent(brand.name.toLowerCase())}`}
                                             onClick={() => setMegaOpen(false)}
-                                            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cream hover:bg-gold-50 border border-border hover:border-gold-300 transition-all duration-150 group"
+                                            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#1B1D23] hover:bg-[#282C36] border border-[#282C36] hover:border-gold/50 transition-all duration-150 group"
                                           >
                                             {brand.imageUrl && (
                                               <div className="w-5 h-5 relative shrink-0">
                                                 <Image src={brand.imageUrl} alt={brand.name} fill sizes="20px" className="object-contain" />
                                               </div>
                                             )}
-                                            <span className="text-xs font-bold text-charcoal-800 group-hover:text-gold-700 tracking-wide uppercase">
+                                            <span className="text-xs font-bold text-slate-200 group-hover:text-gold tracking-wide uppercase">
                                               {brand.name}
                                             </span>
                                           </Link>
@@ -358,13 +358,13 @@ export default function Header() {
 
                                 return (
                                   <div className="p-5 space-y-4">
-                                    <div className="flex items-center justify-between border-b border-border/60 pb-3">
+                                    <div className="flex items-center justify-between border-b border-[#282C36] pb-3">
                                       <div>
-                                        <p className="text-charcoal-800 font-heading font-bold text-base uppercase tracking-wide">
+                                        <p className="text-white font-heading font-bold text-base uppercase tracking-wide">
                                           {activeCat?.name}
                                         </p>
                                         {activeCat?.description && (
-                                          <p className="text-charcoal-400 text-xs mt-0.5 line-clamp-1">
+                                          <p className="text-slate-400 text-xs mt-0.5 line-clamp-1">
                                             {activeCat.description}
                                           </p>
                                         )}
@@ -372,16 +372,16 @@ export default function Header() {
                                       <Link
                                         href={`/katalog/${activeCat?.slug}`}
                                         onClick={() => setMegaOpen(false)}
-                                        className="text-gold-600 hover:text-gold-700 text-xs font-semibold shrink-0 transition-colors"
+                                        className="text-gold hover:text-gold-300 text-xs font-semibold shrink-0 transition-colors"
                                       >
                                         Tümünü Gör →
                                       </Link>
                                     </div>
 
-                                    {/* Alt başlıklar / Markalar (Örn: Waffle Kek, Waffle Sos veya DAVİNCİ, MONTE CRİSTO) */}
+                                    {/* Alt başlıklar / Markalar */}
                                     {hasSubItems && (
                                       <div>
-                                        <p className="text-charcoal-400 text-2xs font-semibold uppercase tracking-wider mb-2.5">
+                                        <p className="text-gold text-2xs font-semibold uppercase tracking-wider mb-2.5">
                                           Çeşitler & Markalar
                                         </p>
                                         <div className="grid grid-cols-3 gap-x-6 gap-y-2.5">
@@ -390,9 +390,9 @@ export default function Header() {
                                               key={idx}
                                               href={item.href}
                                               onClick={() => setMegaOpen(false)}
-                                              className="text-sm font-semibold text-charcoal-700 hover:text-gold-600 transition-colors duration-150 truncate flex items-center gap-1.5"
+                                              className="text-sm font-semibold text-slate-300 hover:text-gold transition-colors duration-150 truncate flex items-center gap-1.5"
                                             >
-                                              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0" />
+                                              <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
                                               <span className="truncate">{item.name}</span>
                                             </Link>
                                           ))}
@@ -402,8 +402,8 @@ export default function Header() {
 
                                     {/* Ürünler */}
                                     {hasProducts && (
-                                      <div className={hasSubItems ? "border-t border-border/60 pt-3" : ""}>
-                                        <p className="text-charcoal-400 text-2xs font-semibold uppercase tracking-wider mb-2.5">
+                                      <div className={hasSubItems ? "border-t border-[#282C36] pt-3" : ""}>
+                                        <p className="text-gold text-2xs font-semibold uppercase tracking-wider mb-2.5">
                                           Öne Çıkan Ürünler
                                         </p>
                                         <div className="grid grid-cols-3 gap-x-6 gap-y-2.5">
@@ -412,7 +412,7 @@ export default function Header() {
                                               key={product.id}
                                               href={`/katalog/${activeCat?.slug}`}
                                               onClick={() => setMegaOpen(false)}
-                                              className="text-sm text-charcoal-600 hover:text-gold-600 font-medium transition-colors duration-150 truncate"
+                                              className="text-sm text-slate-300 hover:text-gold font-medium transition-colors duration-150 truncate"
                                             >
                                               {product.name}
                                             </Link>
@@ -423,7 +423,7 @@ export default function Header() {
 
                                     {!hasSubItems && !hasProducts && (
                                       <div className="py-8 text-center">
-                                        <p className="text-charcoal-400 text-sm mb-3">
+                                        <p className="text-slate-400 text-sm mb-3">
                                           Bu kategoriye ait ürünleri katalogda inceleyin.
                                         </p>
                                         <Link
@@ -450,8 +450,8 @@ export default function Header() {
                     href={link.href}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                       isActive(link.href)
-                        ? "text-gold-600 bg-gold-50"
-                        : "text-charcoal-700 hover:text-charcoal-900 hover:bg-charcoal-50"
+                        ? "text-gold bg-gold/10 font-bold"
+                        : "text-slate-300 hover:text-white hover:bg-[#1B1D23]"
                     }`}
                   >
                     {link.label}
@@ -465,19 +465,19 @@ export default function Header() {
               {/* Search (desktop) */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="hidden lg:flex btn-ghost p-2 rounded-lg items-center gap-1.5 text-charcoal-500 hover:text-charcoal-900"
+                className="hidden lg:flex p-2 rounded-lg items-center gap-1.5 text-slate-300 hover:text-white hover:bg-[#1B1D23] transition-colors"
                 title="Ürün ara (Ctrl+K)"
               >
                 <Search size={18} />
-                <span className="text-xs text-charcoal-400 hidden xl:inline">Ctrl+K</span>
+                <span className="text-xs text-slate-400 hidden xl:inline">Ctrl+K</span>
               </button>
 
               {/* Phone */}
               <a
                 href="tel:+905010737113"
-                className="hidden xl:flex items-center gap-2 px-3 py-2 rounded-lg text-charcoal-600 hover:text-gold-600 text-sm font-medium transition-colors duration-150"
+                className="hidden xl:flex items-center gap-2 px-3 py-2 rounded-lg text-slate-300 hover:text-gold text-sm font-medium transition-colors duration-150"
               >
-                <Phone size={15} />
+                <Phone size={15} className="text-gold" />
                 <span className="text-xs font-semibold tracking-wide">
                   0501 073 71 13
                 </span>
@@ -488,15 +488,15 @@ export default function Header() {
                 <div className="relative" ref={userRef}>
                   <button
                     onClick={() => setUserMenuOpen((v) => !v)}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gold-50 border border-gold-200 text-charcoal-800 hover:bg-gold-100 transition-all duration-150"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#1B1D23] border border-[#282C36] text-white hover:border-gold/50 transition-all duration-150"
                   >
                     <div className="w-7 h-7 rounded-full bg-gradient-gold flex items-center justify-center">
-                      <User size={13} className="text-charcoal-900" />
+                      <User size={13} className="text-[#0D0E11]" />
                     </div>
-                    <span className="hidden sm:block text-xs font-semibold max-w-[80px] truncate">
+                    <span className="hidden sm:block text-xs font-semibold max-w-[80px] truncate text-slate-200">
                       {userProfile?.name ?? "Hesabım"}
                     </span>
-                    <ChevronDown size={12} />
+                    <ChevronDown size={12} className="text-gold" />
                   </button>
 
                   <AnimatePresence>
@@ -506,13 +506,13 @@ export default function Header() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -8, scale: 0.96 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute right-0 mt-2 w-52 bg-white rounded-xl shadow-soft-lg border border-border overflow-hidden"
+                        className="absolute right-0 mt-2 w-52 bg-[#1B1D23] rounded-xl shadow-soft-lg border border-[#282C36] overflow-hidden z-50 text-slate-200"
                       >
-                        <div className="px-4 py-3 border-b border-border">
-                          <p className="font-semibold text-charcoal-800 text-sm truncate">
+                        <div className="px-4 py-3 border-b border-[#282C36]">
+                          <p className="font-semibold text-white text-sm truncate">
                             {userProfile?.name}
                           </p>
-                          <p className="text-charcoal-400 text-xs truncate">
+                          <p className="text-slate-400 text-xs truncate">
                             {userProfile?.email}
                           </p>
                           {userRole === "admin" && (
@@ -522,32 +522,32 @@ export default function Header() {
                         <div className="p-2">
                           <Link
                             href="/hesap"
-                            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-charcoal-700 hover:bg-charcoal-50 transition-colors"
+                            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-[#282C36] transition-colors"
                           >
-                            <User size={15} />
+                            <User size={15} className="text-gold" />
                             Hesabım
                           </Link>
                           {userRole === "admin" && (
                             <Link
                               href="/admin"
-                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-charcoal-700 hover:bg-charcoal-50 transition-colors"
+                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-[#282C36] transition-colors"
                             >
-                              <LayoutDashboard size={15} />
+                              <LayoutDashboard size={15} className="text-gold" />
                               Admin Paneli
                             </Link>
                           )}
                           <Link
                             href="/katalog"
-                            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-charcoal-700 hover:bg-charcoal-50 transition-colors"
+                            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-[#282C36] transition-colors"
                           >
-                            <ShoppingBag size={15} />
+                            <ShoppingBag size={15} className="text-gold" />
                             Katalog
                           </Link>
                         </div>
-                        <div className="border-t border-border p-2">
+                        <div className="border-t border-[#282C36] p-2">
                           <button
                             onClick={logoutUser}
-                            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-red-600 hover:bg-red-50 transition-colors w-full"
+                            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors w-full"
                           >
                             <LogOut size={15} />
                             Çıkış Yap
@@ -559,7 +559,7 @@ export default function Header() {
                 </div>
               ) : (
                 <div className="hidden sm:flex items-center gap-2">
-                  <Link href="/giris" className="btn-ghost text-sm py-2">
+                  <Link href="/giris" className="btn-ghost text-sm py-2 text-slate-200 hover:text-white">
                     <LogIn size={16} />
                     Giriş Yap
                   </Link>
@@ -572,7 +572,7 @@ export default function Header() {
               {/* Mobile menu toggle */}
               <button
                 onClick={() => setMobileOpen((v) => !v)}
-                className="lg:hidden p-2 rounded-lg text-charcoal-700 hover:bg-charcoal-100 transition-colors"
+                className="lg:hidden p-2 rounded-lg text-slate-300 hover:bg-[#1B1D23] hover:text-white transition-colors"
                 aria-label="Menü"
               >
                 {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -594,19 +594,19 @@ export default function Header() {
           >
             {/* Overlay */}
             <div
-              className="absolute inset-0 bg-charcoal-900/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-[#0D0E11]/80 backdrop-blur-sm"
               onClick={() => setMobileOpen(false)}
             />
             {/* Drawer */}
-            <div className="absolute right-0 top-0 bottom-0 w-80 bg-white flex flex-col overflow-y-auto">
+            <div className="absolute right-0 top-0 bottom-0 w-80 bg-[#16181D] border-l border-[#282C36] flex flex-col overflow-y-auto text-slate-200">
               {/* Header */}
-              <div className="flex items-center justify-between px-6 py-5 border-b border-border">
+              <div className="flex items-center justify-between px-6 py-5 border-b border-[#282C36]">
                 <Link href="/" onClick={() => setMobileOpen(false)}>
                   <Logo size={38} />
                 </Link>
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="p-2 rounded-lg hover:bg-charcoal-100 text-charcoal-700"
+                  className="p-2 rounded-lg hover:bg-[#282C36] text-slate-400 hover:text-white"
                 >
                   <X size={20} />
                 </button>
@@ -620,8 +620,8 @@ export default function Header() {
                     href={link.href}
                     className={`flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                       isActive(link.href)
-                        ? "bg-gold-50 text-gold-700"
-                        : "text-charcoal-700 hover:bg-charcoal-50"
+                        ? "bg-gold/15 text-gold font-bold"
+                        : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
                     }`}
                   >
                     {link.label}
@@ -629,16 +629,16 @@ export default function Header() {
                 ))}
 
                 <div className="pt-3 pb-2">
-                  <p className="text-2xs text-charcoal-400 uppercase tracking-widest px-4 pb-2 font-semibold">
+                  <p className="text-2xs text-gold uppercase tracking-widest px-4 pb-2 font-bold">
                     Kategoriler
                   </p>
                   {categories.map((cat) => (
                     <Link
                       key={cat.id}
                       href={`/katalog/${cat.slug}`}
-                      className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-charcoal-700 hover:bg-gold-50 hover:text-gold-700 transition-colors"
+                      className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-slate-300 hover:bg-[#1B1D23] hover:text-gold transition-colors"
                     >
-                      <div className="w-5 h-5 rounded overflow-hidden relative shrink-0 bg-cream-200">
+                      <div className="w-5 h-5 rounded overflow-hidden relative shrink-0 bg-[#21242C]">
                         {cat.imageUrl && <Image src={cat.imageUrl} alt={cat.name} fill sizes="20px" quality={85} className="object-cover" />}
                       </div>
                       {cat.name}
@@ -648,22 +648,22 @@ export default function Header() {
               </div>
 
               {/* Auth */}
-              <div className="border-t border-border p-4 space-y-2">
+              <div className="border-t border-[#282C36] p-4 space-y-2">
                 {currentUser ? (
                   <>
                     <Link href="/hesap" className="btn-secondary w-full justify-start gap-2">
-                      <User size={16} />
+                      <User size={16} className="text-gold" />
                       {userProfile?.name ?? "Hesabım"}
                     </Link>
                     {userRole === "admin" && (
-                      <Link href="/admin" className="btn-ghost w-full justify-start gap-2">
-                        <LayoutDashboard size={16} />
+                      <Link href="/admin" className="btn-ghost w-full justify-start gap-2 text-slate-300">
+                        <LayoutDashboard size={16} className="text-gold" />
                         Admin Paneli
                       </Link>
                     )}
                     <button
                       onClick={logoutUser}
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm text-red-600 hover:bg-red-50 transition-colors w-full"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm text-red-400 hover:bg-red-500/10 transition-colors w-full"
                     >
                       <LogOut size={16} />
                       Çıkış Yap
@@ -693,45 +693,45 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[60] bg-charcoal-900/60 backdrop-blur-sm flex items-start justify-center pt-20 px-4"
+            className="fixed inset-0 z-[60] bg-[#0D0E11]/80 backdrop-blur-md flex items-start justify-center pt-20 px-4"
           >
             <motion.div
               initial={{ opacity: 0, y: -20, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.98 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-white rounded-2xl w-full max-w-3xl shadow-soft-lg overflow-hidden flex flex-col max-h-[80vh]"
+              className="bg-[#1B1D23] rounded-2xl w-full max-w-3xl shadow-soft-lg border border-[#282C36] overflow-hidden flex flex-col max-h-[80vh] text-slate-200"
             >
-              <div className="p-4 border-b border-border flex items-center gap-3">
-                <Search size={20} className="text-charcoal-400 shrink-0" />
+              <div className="p-4 border-b border-[#282C36] flex items-center gap-3">
+                <Search size={20} className="text-gold shrink-0" />
                 <input
                   ref={searchInputRef}
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Ürün adı, kodu veya kategori ara..."
-                  className="flex-1 bg-transparent border-none outline-none text-charcoal-800 text-lg placeholder:text-charcoal-300"
+                  className="flex-1 bg-transparent border-none outline-none text-white text-lg placeholder:text-slate-500"
                 />
                 <button
                   onClick={() => {
                     setSearchOpen(false);
                     setSearchQuery("");
                   }}
-                  className="p-2 text-charcoal-400 hover:text-charcoal-800 bg-charcoal-50 hover:bg-charcoal-100 rounded-lg transition-colors"
+                  className="p-2 text-slate-400 hover:text-white bg-[#282C36] hover:bg-[#333845] rounded-lg transition-colors"
                 >
                   <X size={18} />
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto p-4 bg-cream">
+              <div className="flex-1 overflow-y-auto p-4 bg-[#121316]">
                 {searchQuery.trim().length <= 1 ? (
-                  <div className="text-center py-12 text-charcoal-400">
-                    <Search size={32} className="mx-auto mb-3 opacity-20" />
+                  <div className="text-center py-12 text-slate-400">
+                    <Search size={32} className="mx-auto mb-3 opacity-20 text-gold" />
                     <p className="text-sm">Aramaya başlamak için en az 2 karakter yazın</p>
                   </div>
                 ) : searchResults.length === 0 ? (
-                  <div className="text-center py-12 text-charcoal-400">
-                    <p className="text-sm">"{searchQuery}" için sonuç bulunamadı.</p>
+                  <div className="text-center py-12 text-slate-400">
+                    <p className="text-sm">&quot;{searchQuery}&quot; için sonuç bulunamadı.</p>
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -743,9 +743,9 @@ export default function Header() {
                           setSearchOpen(false);
                           setSearchQuery("");
                         }}
-                        className="flex items-center gap-4 p-3 bg-white border border-border rounded-xl hover:border-gold hover:shadow-soft transition-all group"
+                        className="flex items-center gap-4 p-3 bg-[#1B1D23] border border-[#282C36] rounded-xl hover:border-gold/50 hover:shadow-soft transition-all group"
                       >
-                        <div className="w-16 h-16 rounded-lg bg-cream overflow-hidden shrink-0 relative">
+                        <div className="w-16 h-16 rounded-lg bg-[#21242C] overflow-hidden shrink-0 relative">
                           {product.imageUrl ? (
                             <Image
                               src={product.imageUrl}
@@ -753,19 +753,19 @@ export default function Header() {
                               fill
                               sizes="64px"
                               quality={85}
-                              className="object-cover group-hover:scale-110 transition-transform duration-300"
+                              className="object-contain p-1 group-hover:scale-110 transition-transform duration-300"
                             />
                           ) : (
-                            <div className="w-full h-full flex items-center justify-center bg-cream-300">
-                              <ImageIcon size={20} className="text-charcoal-400" />
+                            <div className="w-full h-full flex items-center justify-center bg-[#282C36]">
+                              <ImageIcon size={20} className="text-slate-400" />
                             </div>
                           )}
                         </div>
                         <div className="min-w-0">
-                          <p className="font-heading font-semibold text-charcoal-800 text-sm truncate">
+                          <p className="font-heading font-semibold text-white text-sm truncate group-hover:text-gold transition-colors">
                             {product.name}
                           </p>
-                          <p className="text-charcoal-400 text-xs truncate mt-0.5">
+                          <p className="text-slate-400 text-xs truncate mt-0.5">
                             {product.categoryName} • Kod: {product.code}
                           </p>
                         </div>
@@ -776,14 +776,14 @@ export default function Header() {
               </div>
               
               {searchResults.length > 0 && (
-                <div className="p-3 border-t border-border bg-white text-center">
+                <div className="p-3 border-t border-[#282C36] bg-[#16181D] text-center">
                   <Link
                     href={`/katalog?q=${encodeURIComponent(searchQuery)}`}
                     onClick={() => {
                       setSearchOpen(false);
                       setSearchQuery("");
                     }}
-                    className="text-gold-600 hover:text-gold-700 text-sm font-medium hover:underline inline-flex items-center gap-1"
+                    className="text-gold hover:text-gold-300 text-sm font-semibold hover:underline inline-flex items-center gap-1"
                   >
                     Tüm sonuçları katalogda gör <ChevronDown size={14} className="-rotate-90" />
                   </Link>
