@@ -5,8 +5,8 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ChevronRight, Tag, Package, MessageCircle, Share2, CheckCircle, ArrowLeft, ImageIcon } from "lucide-react";
-import { getProductById as getMockProduct, getRelatedProducts as getMockRelated } from "@/lib/mock-data";
+import { ChevronRight, Tag, Package, MessageCircle, Share2, CheckCircle, ArrowLeft, ImageIcon, Store } from "lucide-react";
+import { getProductById as getMockProduct, getRelatedProducts as getMockRelated, getBrandProducts as getMockBrandProducts } from "@/lib/mock-data";
 import { getProductById as getFirestoreProduct, getProducts } from "@/lib/firestore-collections";
 import type { Product } from "@/lib/types";
 import ProductCard from "@/components/ProductCard";
@@ -17,6 +17,7 @@ export default function ProductPage() {
   const id = params?.id as string;
   const [product, setProduct] = useState<Product | null>(null);
   const [related, setRelated] = useState<Product[]>([]);
+  const [brandProducts, setBrandProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [notFoundState, setNotFoundState] = useState(false);
   const [inquiryOpen, setInquiryOpen] = useState(false);
@@ -37,23 +38,35 @@ export default function ProductPage() {
 
         if (found) {
           setProduct(found);
-          // Load related products from same category
+
           try {
             const allProds = await getProducts();
+
+            // Related: same category
             const rel = allProds.filter(
               (p) =>
                 p.isActive &&
                 p.id !== found!.id &&
                 (p.categoryId === found!.categoryId || p.categorySlug === found!.categorySlug)
             ).slice(0, 5);
-            
-            if (rel.length > 0) {
-              setRelated(rel);
+            setRelated(rel.length > 0 ? rel : getMockRelated(found));
+
+            // Brand: same codeGroup
+            if (found.codeGroup) {
+              const brand = allProds.filter(
+                (p) =>
+                  p.isActive &&
+                  p.id !== found!.id &&
+                  p.codeGroup &&
+                  p.codeGroup.toLowerCase() === found!.codeGroup.toLowerCase()
+              ).slice(0, 8);
+              setBrandProducts(brand.length > 0 ? brand : getMockBrandProducts(found));
             } else {
-              setRelated(getMockRelated(found));
+              setBrandProducts([]);
             }
           } catch {
             setRelated(getMockRelated(found));
+            setBrandProducts(getMockBrandProducts(found));
           }
         } else {
           setNotFoundState(true);
@@ -63,6 +76,7 @@ export default function ProductPage() {
         if (foundMock) {
           setProduct(foundMock);
           setRelated(getMockRelated(foundMock));
+          setBrandProducts(getMockBrandProducts(foundMock));
         } else {
           setNotFoundState(true);
         }
@@ -242,7 +256,7 @@ export default function ProductPage() {
           </div>
         </div>
 
-        {/* Related products */}
+        {/* Related products — same category */}
         {related.length > 0 && (
           <div className="bg-[#16181D] py-16 border-t border-[#282C36]">
             <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -268,6 +282,39 @@ export default function ProductPage() {
             </div>
           </div>
         )}
+
+        {/* Brand products — same codeGroup */}
+        {brandProducts.length > 0 && product.codeGroup && (
+          <div className="bg-[#121316] py-16 border-t border-[#282C36]">
+            <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex items-end justify-between mb-8">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <Store size={14} className="text-gold" />
+                    <p className="section-label !mb-0">Marka</p>
+                  </div>
+                  <h2 className="font-heading font-bold text-white text-2xl">
+                    Aynı Markanın Diğer Ürünleri
+                  </h2>
+                  <p className="text-slate-400 text-sm mt-1">
+                    <span className="text-gold font-semibold">{product.codeGroup}</span> markasına ait diğer ürünler
+                  </p>
+                </div>
+                <Link
+                  href={`/katalog?search=${encodeURIComponent(product.codeGroup)}`}
+                  className="text-gold hover:text-gold-300 text-sm font-semibold transition-colors shrink-0"
+                >
+                  Tüm {product.codeGroup} →
+                </Link>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3.5 sm:gap-4.5">
+                {brandProducts.map((bp, i) => (
+                  <ProductCard key={bp.id} product={bp} index={i} />
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       <InquiryModal
@@ -278,3 +325,4 @@ export default function ProductPage() {
     </>
   );
 }
+

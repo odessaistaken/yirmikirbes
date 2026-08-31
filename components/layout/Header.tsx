@@ -513,7 +513,7 @@ export default function Header() {
             {/* ── Orta Kısım: Büyütülmüş & Ortalanmış Logo ────────────────── */}
             <div className="shrink-0 flex items-center justify-center px-2">
               <Link href="/" className="flex items-center group py-1">
-                <Logo size={54} />
+                <Logo size={54} logoScale={1.4} />
               </Link>
             </div>
 

@@ -21,11 +21,16 @@ export const SUBCATEGORIES_MAP: Record<string, { name: string; query: string }[]
     { name: "Vanilya & Karamel", query: "vanilya" },
     { name: "Fındık & Toffee", query: "fındık" },
   ],
+  "kokteyller": [
+    { name: "EASY MIX Kokteyl Premiksi", query: "easy mix" },
+    { name: "Meyveli Kokteyller", query: "mango" },
+    { name: "Refresher & Botanik", query: "refresher" },
+    { name: "Margarita & Martini", query: "martini" },
+  ],
   "pureler": [
     { name: "Caffè NONNO Frozen", query: "nonno" },
     { name: "DaVinci Fruit Mix", query: "davinci" },
-    { name: "EASY MIX Premix", query: "easy mix" },
-    { name: "Krater Gelato", query: "krater" },
+    { name: "Krater Meyve Miksi", query: "krater" },
     { name: "Çilek & Orman Meyvesi", query: "çilek" },
     { name: "Mango & Tropikal", query: "mango" },
   ],
@@ -38,7 +43,7 @@ export const SUBCATEGORIES_MAP: Record<string, { name: string; query: string }[]
     { name: "Damla Çikolatalar", query: "damla" },
     { name: "Krokan & Fındık", query: "krokan" },
   ],
-  "tatli-soslar": [
+  "bar-sos": [
     { name: "DaVinci 2L Soslar", query: "davinci" },
     { name: "Caffè NONNO 750g Bar Sosu", query: "nonno" },
     { name: "Karamel Sos", query: "karamel" },
@@ -46,7 +51,18 @@ export const SUBCATEGORIES_MAP: Record<string, { name: string; query: string }[]
     { name: "Condensed Milk (Süt Sosu)", query: "condensed" },
     { name: "Blue Curacao", query: "curacao" },
   ],
+  "pastalar": [
+    { name: "Tüm Pastalar", query: "" },
+    { name: "Cheesecake & Tiramisu", query: "cheesecake" },
+    { name: "Mono Pastalar", query: "mono" },
+  ],
+  "taze-butik-pastalar": [
+    { name: "Butik Pastalar", query: "butik" },
+    { name: "Özel Tasarım", query: "özel" },
+  ],
   "donuk-pasta": [
+    { name: "Donuk Cheesecake", query: "cheesecake" },
+    { name: "Mono Kutu Pasta", query: "mono" },
     { name: "Tuzlu Mini Kurabiye", query: "kurabiye" },
     { name: "Donuk Poğaça Topları", query: "poğaça" },
     { name: "Gurme Ekmek & Sandviç", query: "ekmek" },
