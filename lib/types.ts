@@ -36,6 +36,8 @@ export interface Category {
   description?: string;
   icon?: string;
   productCount?: number;
+  /** Parent category ID — if set, this is a sub-category */
+  parentId?: string;
 }
 
 /* ─── Product ────────────────────────────────────────────────────────────── */

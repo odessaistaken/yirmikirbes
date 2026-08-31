@@ -27,7 +27,7 @@ for p in raw_products:
         "code": p.get("code", ""),
         "codeGroup": p.get("codeGroup", ""),
         "categoryId": p.get("categoryId", "cat-5"),
-        "categoryName": p.get("categoryName", "Donuk Pasta & Unlu Mamuller"),
+        "categoryName": p.get("categoryName", "Donuk Pastalar"),
         "categorySlug": p.get("categorySlug", "donuk-pasta"),
         "imageUrl": p.get("imageUrl", ""),
         "description": p.get("description", ""),
@@ -82,10 +82,11 @@ async function seed() {{
       imageUrl: c.imageUrl || "",
       order: c.order || 1,
       isActive: c.isActive !== false,
+      ...(c.parentId ? {{ parentId: c.parentId }} : {{}}),
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
     }});
-    console.log(`✓ Category: ${{c.name}} (${{c.slug}})`);
+    console.log(`✓ Category: ${{c.name}} (${{c.slug}})${{c.parentId ? ` [alt: ${{c.parentId}}]` : ``}}`);
   }}
 
   console.log("\\nSeeding brands...");

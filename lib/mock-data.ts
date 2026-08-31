@@ -10,7 +10,7 @@ export type { Category, Product };
 export const CATEGORIES: Category[] = [
   {
     "id": "cat-1",
-    "name": "Püreler & Meyve Miksleri",
+    "name": "Püreler",
     "slug": "pureler",
     "description": "Caffè NONNO Frozen püreleri, DaVinci Fruit Mix ve Krater meyve karışımlarından oluşan zengin bar ve pastacılık koleksiyonumuz.",
     "icon": "🍓",
@@ -31,20 +31,21 @@ export const CATEGORIES: Category[] = [
     "isActive": true
   },
   {
-    "id": "cat-3",
-    "name": "Waffle & Krep Çikolataları",
-    "slug": "waffle-malzemeleri",
-    "description": "CALLEI sürülebilir renkli kremalar, hazır waffle tozu, draje ve krokan süsleme çeşitleri.",
-    "icon": "🧇",
-    "productCount": 24,
-    "imageUrl": "/resimler/p10/p10_1.png",
+    "id": "cat-7",
+    "name": "Kokteyller",
+    "slug": "kokteyller",
+    "description": "EASY MIX doğal meyve ve botanik kokteyl premiksleri, bar kokteyler için profesyonel karışımlar.",
+    "icon": "🍹",
+    "productCount": 0,
+    "imageUrl": "/resimler/pt1/pt1_1.png",
     "order": 3,
-    "isActive": true
+    "isActive": true,
+    "parentId": "cat-2"
   },
   {
     "id": "cat-4",
-    "name": "Tatlı & Bar Sosları",
-    "slug": "tatli-soslar",
+    "name": "Bar Sos",
+    "slug": "bar-sos",
     "description": "DaVinci 2L ve Caffè NONNO 750g karamel, çikolata, beyaz çikolata ve meyve sosları.",
     "icon": "🍫",
     "productCount": 11,
@@ -53,14 +54,49 @@ export const CATEGORIES: Category[] = [
     "isActive": true
   },
   {
-    "id": "cat-5",
-    "name": "Donuk Pasta & Unlu Mamuller",
-    "slug": "donuk-pasta",
-    "description": "Kafeterya ve restoranlar için pratik, lezzetli donuk cheesecake'ler, tiramisu, mono kutu pastalar, dilimli pastalar ve unlu mamuller.",
+    "id": "cat-8",
+    "name": "Pastalar",
+    "slug": "pastalar",
+    "description": "Taze butik pastalar ve donuk pasta çeşitlerimizle profesyonel pastacılık koleksiyonu.",
     "icon": "🎂",
-    "productCount": 125,
+    "productCount": 0,
     "imageUrl": "/resimler/pt12/pt12_14.png",
     "order": 5,
+    "isActive": true
+  },
+  {
+    "id": "cat-9",
+    "name": "Taze - Butik Pastalar",
+    "slug": "taze-butik-pastalar",
+    "description": "Günlük taze üretim, el yapımı butik pasta ve tatlı çeşitleri.",
+    "icon": "🍰",
+    "productCount": 0,
+    "imageUrl": "/resimler/pt12/pt12_14.png",
+    "order": 6,
+    "isActive": true,
+    "parentId": "cat-8"
+  },
+  {
+    "id": "cat-5",
+    "name": "Donuk Pastalar",
+    "slug": "donuk-pasta",
+    "description": "Kafeterya ve restoranlar için pratik, lezzetli donuk cheesecake'ler, tiramisu, mono kutu pastalar, dilimli pastalar ve unlu mamuller.",
+    "icon": "❄️",
+    "productCount": 125,
+    "imageUrl": "/resimler/pt12/pt12_14.png",
+    "order": 7,
+    "isActive": true,
+    "parentId": "cat-8"
+  },
+  {
+    "id": "cat-3",
+    "name": "Waffle Çikolataları",
+    "slug": "waffle-malzemeleri",
+    "description": "CALLEI sürülebilir renkli kremalar, hazır waffle tozu, draje ve krokan süsleme çeşitleri.",
+    "icon": "🧇",
+    "productCount": 24,
+    "imageUrl": "/resimler/p10/p10_1.png",
+    "order": 8,
     "isActive": true
   },
   {
@@ -68,13 +104,14 @@ export const CATEGORIES: Category[] = [
     "name": "Kremalı Ürünler & Pastacılık",
     "slug": "kremali-urunler",
     "description": "Chantilly, ganaj ve profesyonel pastacılık krema hammaddeleri.",
-    "icon": "🍰",
+    "icon": "🍦",
     "productCount": 1,
     "imageUrl": "/resimler/p9/p9_1.png",
-    "order": 6,
+    "order": 9,
     "isActive": true
   }
 ];
+
 
 const RAW_PRODUCTS = [
   {

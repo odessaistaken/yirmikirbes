@@ -28,17 +28,43 @@ import type { Category, Product, Brand } from "@/lib/types";
 
 /* ─── Subcategories & Brand links map (matching active categories) ───────── */
 const SUBCATEGORIES_MAP: Record<string, { name: string; href: string }[]> = {
+  "pureler": [
+    { name: "Caffè NONNO Frozen Püre", href: "/katalog/pureler?search=nonno" },
+    { name: "DaVinci Fruit Mix İçecek", href: "/katalog/pureler?search=davinci" },
+    { name: "Krater Meyveli Karışımlar", href: "/katalog/pureler?search=krater" },
+  ],
   "suruplar": [
     { name: "DaVinci Gourmet Şuruplar", href: "/katalog/suruplar?search=davinci" },
     { name: "Caffè NONNO Şuruplar", href: "/katalog/suruplar?search=nonno" },
     { name: "Monte Cristo Şuruplar", href: "/katalog/suruplar?search=monte%20cristo" },
     { name: "EASY MIX Bar Şurupları", href: "/katalog/suruplar?search=easy%20mix" },
+    { name: "Kokteyller →", href: "/katalog/kokteyller" },
   ],
-  "pureler": [
-    { name: "Caffè NONNO Frozen Püre", href: "/katalog/pureler?search=nonno" },
-    { name: "DaVinci Fruit Mix İçecek", href: "/katalog/pureler?search=davinci" },
-    { name: "EASY MIX Kokteyl Premiksleri", href: "/katalog/pureler?search=easy%20mix" },
-    { name: "Krater Meyveli Karışımlar", href: "/katalog/pureler?search=krater" },
+  "kokteyller": [
+    { name: "EASY MIX Kokteyl Premiksleri", href: "/katalog/kokteyller?search=easy%20mix" },
+    { name: "Meyve Bazlı Kokteyller", href: "/katalog/kokteyller?search=meyve" },
+    { name: "Botanik Kokteyl Karışımları", href: "/katalog/kokteyller?search=botanik" },
+  ],
+  "bar-sos": [
+    { name: "DaVinci 2L Soslar (Karamel, Çikolata)", href: "/katalog/bar-sos?search=davinci" },
+    { name: "Caffè NONNO 750g Dekor Sosları", href: "/katalog/bar-sos?search=nonno" },
+    { name: "Condensed Milk (Koyulaştırılmış Süt)", href: "/katalog/bar-sos?search=condensed" },
+    { name: "Blue Curacao Sos", href: "/katalog/bar-sos?search=curacao" },
+  ],
+  "pastalar": [
+    { name: "Taze - Butik Pastalar", href: "/katalog/taze-butik-pastalar" },
+    { name: "Donuk Pastalar", href: "/katalog/donuk-pasta" },
+  ],
+  "taze-butik-pastalar": [
+    { name: "El Yapımı Butik Pastalar", href: "/katalog/taze-butik-pastalar?search=butik" },
+    { name: "Özel Tasarım Pastalar", href: "/katalog/taze-butik-pastalar?search=ozel" },
+  ],
+  "donuk-pasta": [
+    { name: "Donuk Cheesecake", href: "/katalog/donuk-pasta?search=cheesecake" },
+    { name: "Donuk Tiramisu", href: "/katalog/donuk-pasta?search=tiramisu" },
+    { name: "Mono Kutu Pastalar", href: "/katalog/donuk-pasta?search=mono" },
+    { name: "Dilimli Pastalar", href: "/katalog/donuk-pasta?search=dilimli" },
+    { name: "Donuk Unlu Mamuller", href: "/katalog/donuk-pasta?search=ekmek" },
   ],
   "waffle-malzemeleri": [
     { name: "CALLEI Çikolata Kremaları", href: "/katalog/waffle-malzemeleri?search=callei" },
@@ -46,17 +72,6 @@ const SUBCATEGORIES_MAP: Record<string, { name: string; href: string }[]> = {
     { name: "Pasta & Waffle Süslemeleri", href: "/katalog/waffle-malzemeleri?search=draje" },
     { name: "Damla Çikolata Drops", href: "/katalog/waffle-malzemeleri?search=damla" },
     { name: "Fındık Krokan & Topping", href: "/katalog/waffle-malzemeleri?search=krokan" },
-  ],
-  "tatli-soslar": [
-    { name: "DaVinci 2L Soslar (Karamel, Çikolata)", href: "/katalog/tatli-soslar?search=davinci" },
-    { name: "Caffè NONNO 750g Dekor Sosları", href: "/katalog/tatli-soslar?search=nonno" },
-    { name: "Condensed Milk (Koyulaştırılmış Süt)", href: "/katalog/tatli-soslar?search=condensed" },
-    { name: "Blue Curacao Sos", href: "/katalog/tatli-soslar?search=curacao" },
-  ],
-  "donuk-pasta": [
-    { name: "Donuk Tuzlu Kurabiyeler", href: "/katalog/donuk-pasta?search=kurabiye" },
-    { name: "Donuk Poğaça Topları", href: "/katalog/donuk-pasta?search=poğaça" },
-    { name: "Donuk Ekmek & Sandviç Hamuru", href: "/katalog/donuk-pasta?search=ekmek" },
   ],
   "kremali-urunler": [
     { name: "Pastacı Kreması (Creme Patissiere)", href: "/katalog/kremali-urunler?search=pastacı" },
@@ -290,22 +305,49 @@ export default function Header() {
                                   <ChevronRight size={14} className="opacity-60" />
                                 </button>
 
-                                {/* Kategori listesi */}
-                                {categories.map((cat) => (
-                                  <button
-                                    key={cat.id}
-                                    onMouseEnter={() => setActiveSubCategory(cat.id)}
-                                    onClick={() => { setMegaOpen(false); router.push(`/katalog/${cat.slug}`); }}
-                                    className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-[#282C36]/40 ${
-                                      activeSubCategory === cat.id
-                                        ? "bg-[#1B1D23] text-gold font-bold"
-                                        : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
-                                    }`}
-                                  >
-                                    <span className="truncate text-left">{cat.name}</span>
-                                    <ChevronRight size={14} className="shrink-0 opacity-60" />
-                                  </button>
-                                ))}
+                                {/* Ana + Alt kategori hiyerarşik listesi */}
+                                {categories
+                                  .filter((cat) => !cat.parentId)
+                                  .map((parentCat) => {
+                                    const children = categories.filter((c) => c.parentId === parentCat.id);
+                                    return (
+                                      <div key={parentCat.id}>
+                                        {/* Ana kategori */}
+                                        <button
+                                          onMouseEnter={() => setActiveSubCategory(parentCat.id)}
+                                          onClick={() => { setMegaOpen(false); router.push(`/katalog/${parentCat.slug}`); }}
+                                          className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-[#282C36]/40 ${
+                                            activeSubCategory === parentCat.id
+                                              ? "bg-[#1B1D23] text-gold font-bold"
+                                              : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
+                                          }`}
+                                        >
+                                          <span className="truncate text-left">{parentCat.name}</span>
+                                          <ChevronRight size={14} className="shrink-0 opacity-60" />
+                                        </button>
+                                        {/* Alt kategoriler */}
+                                        {children.map((child) => (
+                                          <button
+                                            key={child.id}
+                                            onMouseEnter={() => setActiveSubCategory(child.id)}
+                                            onClick={() => { setMegaOpen(false); router.push(`/katalog/${child.slug}`); }}
+                                            className={`w-full flex items-center justify-between pl-8 pr-4 py-2.5 text-xs font-medium transition-colors duration-150 border-b border-[#282C36]/30 ${
+                                              activeSubCategory === child.id
+                                                ? "bg-[#1B1D23] text-gold font-bold"
+                                                : "text-slate-400 hover:bg-[#1B1D23] hover:text-white"
+                                            }`}
+                                          >
+                                            <span className="flex items-center gap-1.5 truncate text-left">
+                                              <span className="w-1 h-1 rounded-full bg-gold/60 shrink-0" />
+                                              {child.name}
+                                            </span>
+                                            <ChevronRight size={12} className="shrink-0 opacity-50" />
+                                          </button>
+                                        ))}
+                                      </div>
+                                    );
+                                  })
+                                }
                               </div>
 
                               {/* ── Sağ Panel: Ürün/Alt Başlık İçeriği ── */}
@@ -638,19 +680,41 @@ export default function Header() {
                   <p className="text-2xs text-gold uppercase tracking-widest px-4 pb-2 font-bold">
                     Kategoriler
                   </p>
-                  {categories.map((cat) => (
-                    <Link
-                      key={cat.id}
-                      href={`/katalog/${cat.slug}`}
-                      className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-slate-300 hover:bg-[#1B1D23] hover:text-gold transition-colors"
-                    >
-                      <div className="w-5 h-5 rounded overflow-hidden relative shrink-0 bg-[#21242C]">
-                        {cat.imageUrl && <Image src={cat.imageUrl} alt={cat.name} fill sizes="20px" quality={85} className="object-cover" />}
-                      </div>
-                      {cat.name}
-                    </Link>
-                  ))}
+                  {categories
+                    .filter((cat) => !cat.parentId)
+                    .map((parentCat) => {
+                      const children = categories.filter((c) => c.parentId === parentCat.id);
+                      return (
+                        <div key={parentCat.id}>
+                          {/* Ana kategori */}
+                          <Link
+                            href={`/katalog/${parentCat.slug}`}
+                            onClick={() => setMobileOpen(false)}
+                            className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-slate-300 hover:bg-[#1B1D23] hover:text-gold transition-colors font-medium"
+                          >
+                            <div className="w-5 h-5 rounded overflow-hidden relative shrink-0 bg-[#21242C]">
+                              {parentCat.imageUrl && <Image src={parentCat.imageUrl} alt={parentCat.name} fill sizes="20px" quality={85} className="object-cover" />}
+                            </div>
+                            {parentCat.name}
+                          </Link>
+                          {/* Alt kategoriler — girintili */}
+                          {children.map((child) => (
+                            <Link
+                              key={child.id}
+                              href={`/katalog/${child.slug}`}
+                              onClick={() => setMobileOpen(false)}
+                              className="flex items-center gap-2 pl-10 pr-4 py-2 rounded-xl text-xs text-slate-400 hover:bg-[#1B1D23] hover:text-gold transition-colors"
+                            >
+                              <span className="w-1 h-1 rounded-full bg-gold/60 shrink-0" />
+                              {child.name}
+                            </Link>
+                          ))}
+                        </div>
+                      );
+                    })
+                  }
                 </div>
+
               </div>
 
               {/* Auth */}

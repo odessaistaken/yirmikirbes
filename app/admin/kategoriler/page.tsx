@@ -52,6 +52,7 @@ export default function AdminKategoriler() {
     order: 1,
     isActive: true,
     description: "",
+    parentId: "",
   });
 
   /* Load data from Firestore — single source of truth */
@@ -80,6 +81,7 @@ export default function AdminKategoriler() {
       order: categories.length + 1,
       isActive: true,
       description: "",
+      parentId: "",
     });
     setModalOpen(true);
   }
@@ -94,6 +96,7 @@ export default function AdminKategoriler() {
       order: cat.order,
       isActive: cat.isActive,
       description: cat.description ?? "",
+      parentId: cat.parentId ?? "",
     });
     setModalOpen(true);
   }
@@ -132,6 +135,7 @@ export default function AdminKategoriler() {
         order: formData.order,
         isActive: formData.isActive,
         description: formData.description || "",
+        ...(formData.parentId ? { parentId: formData.parentId } : {}),
       };
 
       if (formData.imageStoragePath) {
@@ -204,6 +208,9 @@ export default function AdminKategoriler() {
                   Slug
                 </th>
                 <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                  Üst Kat.
+                </th>
+                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
                   Sıra
                 </th>
                 <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
@@ -217,7 +224,7 @@ export default function AdminKategoriler() {
             <tbody className="divide-y divide-[#282C36]">
               {loading ? (
                 <tr>
-                  <td colSpan={7} className="py-12 text-center">
+                  <td colSpan={8} className="py-12 text-center">
                     <div className="w-6 h-6 border-2 border-gold border-t-transparent rounded-full animate-spin mx-auto" />
                   </td>
                 </tr>
@@ -250,6 +257,15 @@ export default function AdminKategoriler() {
                         <code className="text-xs bg-[#121316] text-gold border border-[#282C36] px-2 py-0.5 rounded font-mono">
                           {cat.slug}
                         </code>
+                      </td>
+                      <td className="py-3.5 px-5">
+                        {cat.parentId ? (
+                          <span className="text-xs text-slate-400 bg-[#121316] border border-[#282C36] px-2 py-0.5 rounded">
+                            {categories.find((c) => c.id === cat.parentId)?.name ?? cat.parentId}
+                          </span>
+                        ) : (
+                          <span className="text-slate-600 text-xs">—</span>
+                        )}
                       </td>
                       <td className="py-3.5 px-5">
                         <span className="text-slate-300 text-sm">{cat.order}</span>
@@ -446,6 +462,29 @@ export default function AdminKategoriler() {
                       placeholder="Kategori açıklaması..."
                       className="input resize-none"
                     />
+                  </div>
+
+                  {/* Parent Category */}
+                  <div>
+                    <label className="block text-slate-300 text-xs font-semibold mb-1.5">Üst Kategori (Ana Kategori)</label>
+                    <select
+                      value={formData.parentId}
+                      onChange={(e) => setFormData({ ...formData, parentId: e.target.value })}
+                      className="input text-sm"
+                    >
+                      <option value="">— Ana Kategori (üst kategori yok)</option>
+                      {categories
+                        .filter((c) => !c.parentId && c.id !== editTarget?.id)
+                        .sort((a, b) => a.order - b.order)
+                        .map((c) => (
+                          <option key={c.id} value={c.id}>
+                            {c.name}
+                          </option>
+                        ))}
+                    </select>
+                    <p className="text-slate-400 text-xs mt-1">
+                      Alt kategori yapmak için bir üst kategori seçin.
+                    </p>
                   </div>
 
                   {/* Order */}
