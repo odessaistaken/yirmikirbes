@@ -6,9 +6,6 @@ import Image from "next/image";
 import { motion, useInView, AnimatePresence, type Variants } from "framer-motion";
 import {
   ArrowRight,
-  Truck,
-  Award,
-  Users,
   ChevronRight,
   ChevronLeft,
   ExternalLink,
@@ -544,65 +541,28 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          TRUST STRIP & BRANDS (Hero Altı Koyu Antrasit Alan)
+          BRANDS STRIP (Hero Altı Koyu Antrasit Alan)
       ════════════════════════════════════════════════════════════ */}
-      <section className="bg-[#0D0E11] py-8 border-b border-[#282C36]">
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          {/* 3 Güven Rozeti */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-[#282C36]">
-            {[
-              {
-                icon: <Award size={24} className="text-gold" />,
-                title: "Premium Kalite",
-                desc: "ISO sertifikalı tedarikçilerden seçilen ürünler",
-              },
-              {
-                icon: <Truck size={24} className="text-gold" />,
-                title: "Türkiye Geneli Teslimat",
-                desc: "Soğuk zincir korumalı, 81 ile güvenli nakliye",
-              },
-              {
-                icon: <Users size={24} className="text-gold" />,
-                title: "Özel B2B Desteği",
-                desc: "Teknik satış ekibimiz her zaman yanınızda",
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-4 px-6 py-2 sm:py-0 first:pl-0 last:pr-0"
-              >
-                <div className="w-12 h-12 rounded-xl bg-[#1B1D23] border border-[#282C36] flex items-center justify-center shrink-0">
-                  {item.icon}
-                </div>
-                <div>
-                  <p className="font-heading font-semibold text-white text-sm">
-                    {item.title}
-                  </p>
-                  <p className="text-slate-400 text-xs mt-0.5">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Çalıştığımız Markalar */}
-          {brands.length > 0 && (
-            <div className="pt-5 border-t border-[#282C36] flex flex-col md:flex-row items-center justify-between gap-4">
+      {brands.length > 0 && (
+        <section className="bg-[#0D0E11] py-3.5 border-b border-[#282C36]">
+          <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
               <div className="flex items-center gap-2.5 shrink-0">
                 <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
                 <p className="text-gold text-xs font-bold uppercase tracking-widest">
                   Çalıştığımız Markalar:
                 </p>
               </div>
-              <div className="flex flex-wrap items-center justify-center gap-3">
+              <div className="flex flex-wrap items-center justify-center md:justify-end gap-2.5">
                 {brands.map((brand) => (
                   <Link
                     key={brand.id}
                     href={`/katalog?search=${encodeURIComponent(brand.name.toLowerCase())}`}
-                    className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-[#16181D] hover:bg-[#21242C] border border-[#282C36] hover:border-gold/50 transition-all duration-200 group shadow-sm"
+                    className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#16181D] hover:bg-[#21242C] border border-[#282C36] hover:border-gold/50 transition-all duration-200 group shadow-sm"
                   >
                     {brand.imageUrl && (
-                      <div className="w-6 h-6 relative shrink-0">
-                        <Image src={brand.imageUrl} alt={brand.name} fill sizes="24px" className="object-contain" />
+                      <div className="w-5 h-5 relative shrink-0">
+                        <Image src={brand.imageUrl} alt={brand.name} fill sizes="20px" className="object-contain" />
                       </div>
                     )}
                     <span className="font-heading font-bold text-slate-200 group-hover:text-gold text-xs uppercase tracking-wider transition-colors">
@@ -617,9 +577,9 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
       {/* ════════════════════════════════════════════════════════════
           CATEGORIES SHOWCASE — Dynamic with images
