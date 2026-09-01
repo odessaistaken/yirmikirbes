@@ -141,6 +141,13 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
   }, [categories, activeCategory]);
 
   const filteredProducts = useMemo(() => {
+    const childCategoryIds = currentCategory
+      ? categories.filter((c) => c.parentId === currentCategory.id).map((c) => c.id)
+      : [];
+    const childCategorySlugs = currentCategory
+      ? categories.filter((c) => c.parentId === currentCategory.id).map((c) => c.slug.toLowerCase())
+      : [];
+
     return products.filter((p) => {
       const matchCat =
         activeCategory === "all" ||
@@ -148,7 +155,9 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
         p.categoryId === activeCategory ||
         p.categoryId === currentCategory?.id ||
         (currentCategory && p.categoryName?.toLowerCase() === currentCategory.name.toLowerCase()) ||
-        (currentCategory && p.categorySlug?.toLowerCase() === currentCategory.slug.toLowerCase());
+        (currentCategory && p.categorySlug?.toLowerCase() === currentCategory.slug.toLowerCase()) ||
+        (currentCategory && childCategoryIds.includes(p.categoryId)) ||
+        (currentCategory && p.categorySlug && childCategorySlugs.includes(p.categorySlug.toLowerCase()));
 
       const query = searchQuery.toLowerCase().trim();
       const matchSearch =
@@ -161,17 +170,23 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
 
       return matchCat && matchSearch && p.isActive !== false;
     });
-  }, [products, activeCategory, searchQuery, currentCategory]);
+  }, [products, activeCategory, searchQuery, currentCategory, categories]);
 
-  const getCategoryProductCount = (cat: Category) =>
-    products.filter(
+  const getCategoryProductCount = (cat: Category) => {
+    const childIds = categories.filter((c) => c.parentId === cat.id).map((c) => c.id);
+    const childSlugs = categories.filter((c) => c.parentId === cat.id).map((c) => c.slug.toLowerCase());
+
+    return products.filter(
       (p) =>
         p.isActive !== false &&
         (p.categorySlug === cat.slug ||
           p.categoryId === cat.id ||
           p.categorySlug?.toLowerCase() === cat.slug.toLowerCase() ||
-          p.categoryName?.toLowerCase() === cat.name.toLowerCase())
+          p.categoryName?.toLowerCase() === cat.name.toLowerCase() ||
+          childIds.includes(p.categoryId) ||
+          (p.categorySlug && childSlugs.includes(p.categorySlug.toLowerCase())))
     ).length;
+  };
 
   const currentSubItems = (currentCategory?.slug && SUBCATEGORIES_MAP[currentCategory.slug]) || [];
 
@@ -206,33 +221,68 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
             <ChevronRight size={13} className="opacity-50" />
           </span>
         </button>
-        {categories.map((cat) => {
-          const count = getCategoryProductCount(cat);
-          const isActive = activeCategory === cat.slug || activeCategory === cat.id;
-          return (
-            <button
-              key={cat.id}
-              onClick={() => {
-                setActiveCategory(cat.slug || cat.id);
-                onClose?.();
-              }}
-              className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-[#282C36]/30 ${
-                isActive ? "bg-[#1B1D23] text-gold font-bold" : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
-              }`}
-            >
-              <span className="truncate text-left flex items-center gap-2">
-                {cat.icon && <span>{cat.icon}</span>}
-                <span>{cat.name}</span>
-              </span>
-              <span className="flex items-center gap-1.5 shrink-0">
-                <span className={`text-2xs px-1.5 py-0.5 rounded ${isActive ? "bg-gold/20 text-gold font-bold" : "bg-[#282C36] text-slate-400"}`}>
-                  {count}
-                </span>
-                <ChevronRight size={13} className="opacity-50" />
-              </span>
-            </button>
-          );
-        })}
+        {categories
+          .filter((cat) => !cat.parentId)
+          .map((parentCat) => {
+            const children = categories.filter((c) => c.parentId === parentCat.id);
+            const parentCount = getCategoryProductCount(parentCat);
+            const isParentActive = activeCategory === parentCat.slug || activeCategory === parentCat.id;
+
+            return (
+              <div key={parentCat.id} className="border-b border-[#282C36]/30">
+                {/* Ana Kategori */}
+                <button
+                  onClick={() => {
+                    setActiveCategory(parentCat.slug || parentCat.id);
+                    onClose?.();
+                  }}
+                  className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 ${
+                    isParentActive ? "bg-[#1B1D23] text-gold font-bold" : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
+                  }`}
+                >
+                  <span className="truncate text-left flex items-center gap-2">
+                    {parentCat.icon && <span>{parentCat.icon}</span>}
+                    <span>{parentCat.name}</span>
+                  </span>
+                  <span className="flex items-center gap-1.5 shrink-0">
+                    <span className={`text-2xs px-1.5 py-0.5 rounded ${isParentActive ? "bg-gold/20 text-gold font-bold" : "bg-[#282C36] text-slate-400"}`}>
+                      {parentCount}
+                    </span>
+                    <ChevronRight size={13} className="opacity-50" />
+                  </span>
+                </button>
+
+                {/* Alt Kategoriler */}
+                {children.map((child) => {
+                  const childCount = getCategoryProductCount(child);
+                  const isChildActive = activeCategory === child.slug || activeCategory === child.id;
+                  return (
+                    <button
+                      key={child.id}
+                      onClick={() => {
+                        setActiveCategory(child.slug || child.id);
+                        onClose?.();
+                      }}
+                      className={`w-full flex items-center justify-between pl-8 pr-4 py-2.5 text-xs font-medium transition-colors duration-150 border-t border-[#282C36]/20 ${
+                        isChildActive ? "bg-[#1B1D23] text-gold font-bold" : "text-slate-400 hover:bg-[#1B1D23] hover:text-white"
+                      }`}
+                    >
+                      <span className="truncate text-left flex items-center gap-2">
+                        {child.icon ? <span>{child.icon}</span> : <span className="w-1.5 h-1.5 rounded-full bg-gold/60 shrink-0" />}
+                        <span>{child.name}</span>
+                      </span>
+                      <span className="flex items-center gap-1.5 shrink-0">
+                        <span className={`text-2xs px-1.5 py-0.5 rounded ${isChildActive ? "bg-gold/20 text-gold font-bold" : "bg-[#282C36] text-slate-400"}`}>
+                          {childCount}
+                        </span>
+                        <ChevronRight size={11} className="opacity-40" />
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            );
+          })}
       </div>
 
       {/* Brands section */}

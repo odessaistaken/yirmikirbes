@@ -70,7 +70,7 @@ export const CATEGORIES: Category[] = [
     "slug": "taze-butik-pastalar",
     "description": "Günlük taze üretim, el yapımı butik pasta ve tatlı çeşitleri.",
     "icon": "🍰",
-    "productCount": 0,
+    "productCount": 55,
     "imageUrl": "/resimler/pt14/pt14_1.png",
     "order": 6,
     "isActive": true,
@@ -82,7 +82,7 @@ export const CATEGORIES: Category[] = [
     "slug": "donuk-pasta",
     "description": "Kafeterya ve restoranlar için pratik, lezzetli donuk cheesecake'ler, tiramisu, mono kutu pastalar, dilimli pastalar ve unlu mamuller.",
     "icon": "❄️",
-    "productCount": 121,
+    "productCount": 66,
     "imageUrl": "/resimler/pt12/pt12_14.png",
     "order": 7,
     "isActive": true,
@@ -4394,12 +4394,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-13",
-    "name": "Donuk Çilekli Mono Box Magnolia & Kutu Pasta",
+    "name": "Taze Butik Çilekli Mono Box Magnolia & Kutu Pasta",
     "code": "PST-DNK-BX-STR",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Özel şeffaf kutusunda, taze çilek sosu, ufalanmış bebe bisküvisi ve kadife magnolia kreması içeren kutu tatlısı.",
     "imageUrl": "/resimler/pt13/pt13_13.png",
     "isActive": true,
@@ -4407,7 +4407,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Kutu Pasta",
       "Mono Box",
       "Magnolia",
@@ -4416,11 +4417,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box (Kutulu)",
-      "Ambalaj": "Koli / Kutu (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kutusunda pratik kaşıkla tüketime hazır."
+      "Servis Tavsiyesi": "Kutusunda pratik kaşıkla tüketime hazır.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -4487,12 +4488,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-16",
-    "name": "Donuk Çikolatalı Kubbe Rulo Dilim Pasta (D-Kek)",
+    "name": "Taze Butik Çikolatalı Kubbe Rulo Dilim Pasta (D-Kek)",
     "code": "PST-DNK-DL-KUB",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Kubbe formunda yoğun kakaolu nemli kek, çikolata kaplama ve rende çikolata talaşlarıyla bezenmiş porsiyonluk pasta.",
     "imageUrl": "/resimler/pt13/pt13_16.png",
     "isActive": true,
@@ -4500,7 +4501,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Dilimli Pasta",
       "Kubbe Kek",
       "D-Kek",
@@ -4509,11 +4511,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Porsiyonluk Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kahve eşliğinde servis ediniz."
+      "Servis Tavsiyesi": "Kahve eşliğinde servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -4611,12 +4613,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-20",
-    "name": "Donuk Dubai Kadayıflı & Fıstıklı Mono Küre Pasta",
+    "name": "Taze Butik Dubai Kadayıflı & Fıstıklı Mono Küre Pasta",
     "code": "PST-DNK-MN-DUB-KAD",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Dışı tereyağında kavrulmuş çıtır tel kadayıfla kaplı, içi yoğun Antep fıstığı ezmeli krema ve çikolata dolgulu trend Dubai küre pasta.",
     "imageUrl": "/resimler/pt13/pt13_20.png",
     "isActive": true,
@@ -4624,7 +4626,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Dubai Çikolatası",
       "Kadayıflı",
@@ -4634,11 +4637,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Küre",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Özel altın altlığı ile doğrudan servise hazırdır."
+      "Servis Tavsiyesi": "Özel altın altlığı ile doğrudan servise hazırdır.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -4674,12 +4677,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-2",
-    "name": "Donuk Frambuazlı & Beyaz Çikolatalı Dilim Pasta",
+    "name": "Taze Butik Frambuazlı & Beyaz Çikolatalı Dilim Pasta",
     "code": "PST-DNK-DL-FRM-WHT",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Kakaolu pandispanya katları arasında ipeksi beyaz çikolata kreması ve üstte bol taze frambuaz jölesi.",
     "imageUrl": "/resimler/pt14/pt14_2.png",
     "isActive": true,
@@ -4687,7 +4690,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Dilimli Pasta",
       "Frambuazlı",
       "Beyaz Çikolata",
@@ -4696,21 +4700,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Çözündükten sonra servis ediniz."
+      "Servis Tavsiyesi": "Çözündükten sonra servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt14-3",
-    "name": "Donuk Böğürtlenli & Mor Glazürlü Mono Kubbe Pasta",
+    "name": "Taze Butik Böğürtlenli & Mor Glazürlü Mono Kubbe Pasta",
     "code": "PST-DNK-MN-BGR",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Mor orman meyveli ayna glazür kaplama, hindistan cevizi işlemeli etek, böğürtlen mus dolgulu tek kişilik zarif kubbe pasta.",
     "imageUrl": "/resimler/pt14/pt14_3.png",
     "isActive": true,
@@ -4718,7 +4722,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Böğürtlenli",
       "Glazür",
@@ -4727,11 +4732,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Kubbe",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis önerilir."
+      "Servis Tavsiyesi": "Soğuk servis önerilir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -4798,20 +4803,21 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-6",
-    "name": "Donuk Frambuazlı & Egzotik Meyveli Mono Parfe",
+    "name": "Taze Butik Frambuazlı & Egzotik Meyveli Mono Parfe",
     "code": "PST-DNK-MN-PRF-1",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
-    "description": "Yivli pembe parfe gövdesi, üzerinde donuk böğürtlen, frambuaz ve mango küpleri bulunan ferahlatıcı dondurmalı tatlı.",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
+    "description": "Yivli pembe parfe gövdesi, üzerinde taze böğürtlen, frambuaz ve mango küpleri bulunan ferahlatıcı dondurmalı tatlı.",
     "imageUrl": "/resimler/pt14/pt14_6.png",
     "isActive": true,
     "isFeatured": false,
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Parfe",
       "Frambuazlı",
       "Semifreddo",
@@ -4820,21 +4826,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Parfe",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "Servisten 10-15 dk önce buzluktan çıkarınız",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C donuk muhafaza",
-      "Servis Tavsiyesi": "Yarı donuk (semifreddo) olarak servis edilir."
+      "Servis Tavsiyesi": "Yarı donuk (semifreddo) olarak servis edilir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt14-7",
-    "name": "Donuk Orman Meyveli Çiçek Desenli Mono Parfe",
+    "name": "Taze Butik Orman Meyveli Çiçek Desenli Mono Parfe",
     "code": "PST-DNK-MN-PRF-2",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Kristalize orman meyveleriyle taçlandırılmış, pembe meyve kremalı özel formlu mono parfe tatlısı.",
     "imageUrl": "/resimler/pt14/pt14_7.png",
     "isActive": true,
@@ -4842,30 +4848,31 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Parfe",
       "Orman Meyveli",
       "Çiçek Formu",
       "Semifreddo",
-      "Donuk Tatlı"
+      "Taze Tatlı"
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Parfe",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "Servis öncesi 10 dk oda sıcaklığında dinlendirin",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Yarı donuk servis tavsiye edilir."
+      "Servis Tavsiyesi": "Yarı donuk servis tavsiye edilir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt14-8",
-    "name": "Donuk Karışık Meyveli Silindir Mono Parfe",
+    "name": "Taze Butik Karışık Meyveli Silindir Mono Parfe",
     "code": "PST-DNK-MN-PRF-3",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Meyve taneleri, taze süt kreması ve frambuaz püresiyle hazırlanan silindirik formlu soğuk mono parfe.",
     "imageUrl": "/resimler/pt14/pt14_8.png",
     "isActive": true,
@@ -4873,19 +4880,20 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Parfe",
       "Meyveli",
       "Silindir Parfe",
-      "Donuk Tatlı"
+      "Taze Tatlı"
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "10-15 dakika",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk / donuk tüketim."
+      "Servis Tavsiyesi": "Soğuk / donuk tüketim.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -4953,12 +4961,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-11",
-    "name": "Donuk Bitter Çikolata & Fıstık Kaplı Baton Mono Kek",
+    "name": "Taze Butik Bitter Çikolata & Fıstık Kaplı Baton Mono Kek",
     "code": "PST-DNK-MN-BAT-CHOC",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Rocher çikolata kaplamalı, fıstık dokunuşlu, içi nemli çikolatalı brownie ve krema dolgulu dikdörtgen baton mono kek.",
     "imageUrl": "/resimler/pt14/pt14_11.png",
     "isActive": true,
@@ -4966,7 +4974,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Baton Kek",
       "Mono Kek",
       "Bitter Çikolata",
@@ -4975,21 +4984,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Baton Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Doğrudan servise uygundur."
+      "Servis Tavsiyesi": "Doğrudan servise uygundur.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt14-12",
-    "name": "Donuk Gökkuşağı (Rainbow) Katlı Dilim Pasta",
+    "name": "Taze Butik Gökkuşağı (Rainbow) Katlı Dilim Pasta",
     "code": "PST-DNK-DL-RNB",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Rengarenk pandispanya katları, hafif vanilyalı süt kreması ve üzeri fıstık-bisküvi kırıntılarıyla neşeli dilim pasta.",
     "imageUrl": "/resimler/pt14/pt14_12.png",
     "isActive": true,
@@ -4997,7 +5006,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Rainbow",
       "Gökkuşağı",
       "Katlı Pasta",
@@ -5006,21 +5016,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Servis öncesi +4°C'de dinlendiriniz."
+      "Servis Tavsiyesi": "Servis öncesi +4°C'de dinlendiriniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt14-13",
-    "name": "Donuk Karamelli & Krokantlı Dilim Pasta",
+    "name": "Taze Butik Karamelli & Krokantlı Dilim Pasta",
     "code": "PST-DNK-DL-CRM-KROK",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Karamel kreması, çıtır fındık krokant parçacıkları ve yumuşacık pandispanya katmanlarıyla zengin dilim pasta.",
     "imageUrl": "/resimler/pt14/pt14_13.png",
     "isActive": true,
@@ -5028,7 +5038,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Dilimli Pasta",
       "Karamel",
       "Krokant",
@@ -5037,21 +5048,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "+4°C'de çözündükten sonra servis ediniz."
+      "Servis Tavsiyesi": "+4°C'de çözündükten sonra servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt14-14",
-    "name": "Donuk Oreo & Karamel Kremalı Mono Pasta",
+    "name": "Taze Butik Oreo & Karamel Kremalı Mono Pasta",
     "code": "PST-DNK-MN-OREO-CRM",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Siyah Oreo bisküvi tabanı, karamel mousse, çırpılmış vanilya kreması ve bütün Oreo bisküvisiyle tek kişilik mono tatlı.",
     "imageUrl": "/resimler/pt14/pt14_14.png",
     "isActive": true,
@@ -5059,7 +5070,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Oreo",
       "Karamel",
@@ -5068,21 +5080,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Yuvarlak Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis önerilir."
+      "Servis Tavsiyesi": "Soğuk servis önerilir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt14-15",
-    "name": "Donuk Antep Fıstıklı & Ganajlı Mono Pasta",
+    "name": "Taze Butik Antep Fıstıklı & Ganajlı Mono Pasta",
     "code": "PST-DNK-MN-PST-GNJ",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Doğal yeşil fıstıklı pandispanya, yoğun çikolata ganaj tabakası ve fıstıklı krem şantiyle süslenmiş mono pasta.",
     "imageUrl": "/resimler/pt14/pt14_15.png",
     "isActive": true,
@@ -5090,7 +5102,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Antep Fıstığı",
       "Ganaj",
@@ -5099,21 +5112,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Pasta",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kahve yanına servis ediniz."
+      "Servis Tavsiyesi": "Kahve yanına servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt14-16",
-    "name": "Donuk Fıstıklı & Çikolata Kremalı Mini Mono Pasta",
+    "name": "Taze Butik Fıstıklı & Çikolata Kremalı Mini Mono Pasta",
     "code": "PST-DNK-MN-PST-MINI",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Fıstık tozu kaplamalı kenarlar, çikolatalı ipeksi mousse ve fıstık draje detaylı butik mono tatlı.",
     "imageUrl": "/resimler/pt14/pt14_16.png",
     "isActive": true,
@@ -5121,7 +5134,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Mini Pasta",
       "Fıstıklı",
@@ -5130,11 +5144,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Butik Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "+4°C'de servis ediniz."
+      "Servis Tavsiyesi": "+4°C'de servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -5263,12 +5277,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-1",
-    "name": "Donuk Antep Fıstıklı Magnolia Mono Box Tatlısı",
+    "name": "Taze Butik Antep Fıstıklı Magnolia Mono Box Tatlısı",
     "code": "PST-DNK-BX-PST",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Özel Antep fıstığı kreması, ipeksi pastacı vanilyası ve üzeri iri fıstık parçacıklarıyla zenginleştirilmiş tek kişilik mono box kutu tatlı.",
     "imageUrl": "/resimler/pt15/pt15_1.png",
     "isActive": true,
@@ -5276,7 +5290,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Box",
       "Kutu Tatlısı",
       "Antep Fıstığı",
@@ -5285,21 +5300,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kutusunda pratik kaşık servisine uygundur."
+      "Servis Tavsiyesi": "Kutusunda pratik kaşık servisine uygundur.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt15-2",
-    "name": "Donuk Yaban Mersinli & Böğürtlenli Dilim Pasta",
+    "name": "Taze Butik Yaban Mersinli & Böğürtlenli Dilim Pasta",
     "code": "PST-DNK-DLM-BLU",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Yumuşak kakaolu pandispanya katları arasında mayhoş yaban mersini ve böğürtlenli hafif mus krema, üzerinde parlak meyve glazürü.",
     "imageUrl": "/resimler/pt15/pt15_2.png",
     "isActive": true,
@@ -5307,7 +5322,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Dilim Pasta",
       "Yaban Mersini",
       "Böğürtlen",
@@ -5316,11 +5332,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Dilimli Servis (Tek Kişilik)",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -5356,12 +5372,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-4",
-    "name": "Donuk Frambuazlı & Çikolatalı Parfe Kup Tatlısı",
+    "name": "Taze Butik Frambuazlı & Çikolatalı Parfe Kup Tatlısı",
     "code": "PST-DNK-KP-FRM-CHO",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Bireysel sunum bardağında kremsi çikolata ve moka musu, taze bütün frambuaz meyveleri ve pudra şekeri serpiştirmeli nefis parfe kup.",
     "imageUrl": "/resimler/pt15/pt15_4.png",
     "isActive": true,
@@ -5369,7 +5385,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Kup Tatlısı",
       "Frambuaz",
       "Çikolatalı Parfe",
@@ -5378,21 +5395,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kup Bardak",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Bardağında doğrudan servis edilir."
+      "Servis Tavsiyesi": "Bardağında doğrudan servis edilir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt15-5",
-    "name": "Donuk Karamelize Fındık & Krokanlı Mono Pasta",
+    "name": "Taze Butik Karamelize Fındık & Krokanlı Mono Pasta",
     "code": "PST-DNK-MN-KRO-CAR",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Karamelli ve fındıklı çift katmanlı krema, yumuşak kek tabanı ve üzerinde sıkma karamel kreması ile çıtır karamelize fındık krokanları.",
     "imageUrl": "/resimler/pt15/pt15_5.png",
     "isActive": true,
@@ -5400,7 +5417,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Krokan",
       "Fındıklı",
@@ -5409,11 +5427,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis ediniz."
+      "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -5480,12 +5498,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-8",
-    "name": "Donuk Mavi Haşhaşlı & Limonlu Baton Dilim Kek",
+    "name": "Taze Butik Mavi Haşhaşlı & Limonlu Baton Dilim Kek",
     "code": "PST-DNK-KEK-HSH-LIM",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Ferahlatıcı limon kabuğu rendesi ve çıtır mavi haşhaş tohumları ile kabarmış, kahve yanı servisleri için kalın dilimli nefis baton kek.",
     "imageUrl": "/resimler/pt15/pt15_8.png",
     "isActive": true,
@@ -5493,7 +5511,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Baton Kek",
       "Dilim Kek",
       "Haşhaşlı Kek",
@@ -5502,11 +5521,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Kalın Baton Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1 saat veya oda sıcaklığında 30 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Çay ve kahve sunumlarına uygundur."
+      "Servis Tavsiyesi": "Çay ve kahve sunumlarına uygundur.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -5541,12 +5560,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-10",
-    "name": "Donuk Mozaik (Ebruli) Kakaolu & Sade Baton Dilim Kek",
+    "name": "Taze Butik Mozaik (Ebruli) Kakaolu & Sade Baton Dilim Kek",
     "code": "PST-DNK-KEK-MOZ-BAT",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Geleneksel lezzette kakaolu ve vanilyalı hamurun ebruli kıvrımlarıyla harmanlandığı, porsiyonluk dilimli yumuşacık mozaik baton kek.",
     "imageUrl": "/resimler/pt15/pt15_10.png",
     "isActive": true,
@@ -5554,7 +5573,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Dilim Kek",
       "Mozaik Kek",
       "Kakaolu Kek",
@@ -5563,21 +5583,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Baton Dilim (Tek Porsiyon)",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Sıcak içecekler ile mükemmel uyum sağlar."
+      "Servis Tavsiyesi": "Sıcak içecekler ile mükemmel uyum sağlar.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt15-11",
-    "name": "Donuk Havuçlu, Tarçınlı & Cevizli Gurme Baton Dilim Kek",
+    "name": "Taze Butik Havuçlu, Tarçınlı & Cevizli Gurme Baton Dilim Kek",
     "code": "PST-DNK-KEK-HVC-TRC",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Taze rendelenmiş havuç, aromatik Seylan tarçını ve dövülmüş ceviz parçalarıyla zenginleştirilmiş, nemli dokulu klasik havuçlu kek dilimi.",
     "imageUrl": "/resimler/pt15/pt15_11.png",
     "isActive": true,
@@ -5585,7 +5605,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Havuçlu Kek",
       "Tarçınlı",
       "Cevizli Kek",
@@ -5594,21 +5615,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Gurme Baton Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1 saat veya oda sıcaklığında 30 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kahve yanı menülerinde en çok tercih edilen lezzet."
+      "Servis Tavsiyesi": "Kahve yanı menülerinde en çok tercih edilen lezzet.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt15-12",
-    "name": "Donuk Çikolata Ganajlı & Vanilyalı Kare Mono Kup Tatlısı",
+    "name": "Taze Butik Çikolata Ganajlı & Vanilyalı Kare Mono Kup Tatlısı",
     "code": "PST-DNK-KP-VAN-CHO",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Şeffaf kare sunum kabında kat kat vanilya kreması, yumuşak pandispanya ve üzerinde kavrulmuş fındıklı akışkan çikolata ganajı.",
     "imageUrl": "/resimler/pt15/pt15_12.png",
     "isActive": true,
@@ -5616,7 +5637,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Kup Tatlısı",
       "Kare Mono",
       "Vanilyalı",
@@ -5625,21 +5647,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kare Mono Kup",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kendi şık kabında kaşıkla pratik servis."
+      "Servis Tavsiyesi": "Kendi şık kabında kaşıkla pratik servis.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt15-13",
-    "name": "Donuk Red Velvet Kalp Mono Pasta",
+    "name": "Taze Butik Red Velvet Kalp Mono Pasta",
     "code": "PST-DNK-MN-RED-HRT",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Romantik kalp formunda, kadifemsi kırmızı kek kırıntılarıyla kaplanmış, içi yumuşacık peynirli vanilya kremalı özel mono pasta.",
     "imageUrl": "/resimler/pt15/pt15_13.png",
     "isActive": true,
@@ -5647,7 +5669,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Red Velvet",
       "Kalp Pasta",
@@ -5656,11 +5679,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kalp Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Tabak sunumunda nane yaprağı ve taze meyveyle süslenebilir."
+      "Servis Tavsiyesi": "Tabak sunumunda nane yaprağı ve taze meyveyle süslenebilir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -5725,12 +5748,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-16",
-    "name": "Donuk Limonlu Kadife Kubbe (Lemon Dome) Mono Pasta",
+    "name": "Taze Butik Limonlu Kadife Kubbe (Lemon Dome) Mono Pasta",
     "code": "PST-DNK-MN-LIM-DOM",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Kadife sarı püskürtme dokusuyla göz alıcı kubbe şeklinde, içi ferah limon dolgusu ve hafif bisküvi tabanlı porsiyonluk mono pasta.",
     "imageUrl": "/resimler/pt15/pt15_16.png",
     "isActive": true,
@@ -5738,7 +5761,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Limonlu",
       "Kubbe Pasta",
@@ -5747,21 +5771,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Tabak sunumunda şık bir tatlı alternatifi."
+      "Servis Tavsiyesi": "Tabak sunumunda şık bir tatlı alternatifi.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt15-17",
-    "name": "Donuk Tropikal Mango & Çarkıfelek Kubbe Mono Pasta",
+    "name": "Taze Butik Tropikal Mango & Çarkıfelek Kubbe Mono Pasta",
     "code": "PST-DNK-MN-MNG-PAS",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Tropikal mango ve passion fruit pürelerinin ferahlatıcı ekşi-tatlı dengesi ile hazırlanan sarı kubbe mono tatlı.",
     "imageUrl": "/resimler/pt15/pt15_17.png",
     "isActive": true,
@@ -5769,7 +5793,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Mango",
       "Passion Fruit",
@@ -5778,21 +5803,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt15-18",
-    "name": "Donuk Karamelli & Fıstıklı Snickers Mono Pasta",
+    "name": "Taze Butik Karamelli & Fıstıklı Snickers Mono Pasta",
     "code": "PST-DNK-MN-SNK-CAR",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Kakaolu kek tabanı, fıstık ezmeli krema katmanı, akışkan sütlü karamel sosu ve bol kavrulmuş yer fıstığı kaplı gurme mono pasta.",
     "imageUrl": "/resimler/pt15/pt15_18.png",
     "isActive": true,
@@ -5800,7 +5825,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Snickers",
       "Karamel",
@@ -5809,21 +5835,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis ediniz."
+      "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt15-19",
-    "name": "Donuk Red Velvet & Antep Fıstıklı Gurme Dilim Pasta",
+    "name": "Taze Butik Red Velvet & Antep Fıstıklı Gurme Dilim Pasta",
     "code": "PST-DNK-DLM-RED-PST",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Kırmızı kadife kek tabanı üzerinde kadifemsi peynir kreması, üzeri bol kırmızı kek tozu ve kırık Antep fıstığı süslemeli şık dilim pasta.",
     "imageUrl": "/resimler/pt15/pt15_19.png",
     "isActive": true,
@@ -5831,7 +5857,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Dilim Pasta",
       "Red Velvet",
       "Antep Fıstığı",
@@ -5840,11 +5867,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Dilimli Servis",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -5879,12 +5906,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-21",
-    "name": "Donuk Yoğun Bitter Çikolatalı & Deniz Tuzlu Gurme Tartlet",
+    "name": "Taze Butik Yoğun Bitter Çikolatalı & Deniz Tuzlu Gurme Tartlet",
     "code": "PST-DNK-TRT-BIT-CHOC",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Gevrek kakaolu tart hamuru içerisinde akışkan ve yoğun bitter Belçika çikolatası ganajı, hafif pudra şekeri ve deniz tuzu dokunuşlu.",
     "imageUrl": "/resimler/pt15/pt15_21.png",
     "isActive": true,
@@ -5892,7 +5919,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Tartlet",
       "Bitter Çikolata",
       "Ganaj",
@@ -5901,21 +5929,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Gurme Tartlet",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1 saat veya oda sıcaklığında 20 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Hafif ısıtıldığında akışkan sufle kıvamına gelir."
+      "Servis Tavsiyesi": "Hafif ısıtıldığında akışkan sufle kıvamına gelir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt15-22",
-    "name": "Donuk Çıtır Kıtır Craquelin Ekler Kabuğu & Dolgulu Ekler",
+    "name": "Taze Butik Çıtır Kıtır Craquelin Ekler Kabuğu & Dolgulu Ekler",
     "code": "PST-DNK-EKL-CRQ-10",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Fransız usulü craquelin kıtır kaplamalı şu hamuru, vanilyalı pastacı kreması dolgulu veya dolgusuz servise hazır çıtır ekler.",
     "imageUrl": "/resimler/pt15/pt15_22.png",
     "isActive": true,
@@ -5923,7 +5951,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Ekler",
       "Craquelin",
       "Şu Hamuru",
@@ -5932,21 +5961,22 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tekli / Koli İçi Çoklu",
-      "Ambalaj": "Koli (-18°C Donuk)",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Çözünme / Servis": "+4°C dolapta 1 saatte servise hazır hale gelir.",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Üzerine çikolata ganaj veya pudra şekeri ile servis edilir."
+      "Servis Tavsiyesi": "Üzerine çikolata ganaj veya pudra şekeri ile servis edilir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt16-1",
-    "name": "Donuk Mango Trompe-l'œil Gurme Mono Pasta",
+    "name": "Taze Butik Mango Trompe-l'œil Gurme Mono Pasta",
     "code": "PST-DNK-MN-MNG-TRM",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Usta pastacılık tekniğiyle gerçek mango formunda şekillendirilmiş, doğal meyve renk geçişli kadife kabuklu, içi tropikal mango mousse ve taze meyve kompostosu dolgulu Fransız usulü illüzyon mono pasta.",
     "imageUrl": "/resimler/pt16/pt16_1.png",
     "isActive": true,
@@ -5954,7 +5984,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Trompe L'oeil",
       "Mango",
@@ -5964,21 +5995,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Gurme Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Çözündükten sonra doğrudan tabak sunumu yapılır."
+      "Servis Tavsiyesi": "Çözündükten sonra doğrudan tabak sunumu yapılır.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt16-2",
-    "name": "Donuk Tropikal Mango Mousse İllüzyon Mono Pasta",
+    "name": "Taze Butik Tropikal Mango Mousse İllüzyon Mono Pasta",
     "code": "PST-DNK-MN-MNG-V2",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Taze mango püresi ile hazırlanan hafif meyve köpüğü kreması ve vanilyalı sünger pandispanya çekirdeği, menülerde fark yaratan gerçekçi mango görünümü.",
     "imageUrl": "/resimler/pt16/pt16_2.png",
     "isActive": true,
@@ -5986,7 +6017,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Mango",
       "Trompe L'oeil",
@@ -5994,21 +6026,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt16-3",
-    "name": "Donuk Antep Fıstığı Görünümlü Trompe-l'œil Mono Pasta",
+    "name": "Taze Butik Antep Fıstığı Görünümlü Trompe-l'œil Mono Pasta",
     "code": "PST-DNK-MN-PST-TRM",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Antep fıstığı kabuğu formunda özel kalıplanmış, hafif ebruli fıstık yeşili glazür kaplama ve yoğun kavrulmuş Antep fıstığı ezmeli krema dolgusuyla gurme lezzet.",
     "imageUrl": "/resimler/pt16/pt16_3.png",
     "isActive": true,
@@ -6016,7 +6048,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Antep Fıstığı",
       "Trompe L'oeil",
@@ -6025,21 +6058,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Gurme Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Özel tabak sunumları için mükemmeldir."
+      "Servis Tavsiyesi": "Özel tabak sunumları için mükemmeldir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt16-4",
-    "name": "Donuk Fıstık Rüyası Gurme Mono İllüzyon Pasta",
+    "name": "Taze Butik Fıstık Rüyası Gurme Mono İllüzyon Pasta",
     "code": "PST-DNK-MN-PST-V2",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Çıtır fıstıklı pralin tabanı, ipeksi fıstık ganajı ve gerçek Antep fıstığı aromalı dolgusuyla üst düzey gastronomi sunumu sunan illüzyon pasta.",
     "imageUrl": "/resimler/pt16/pt16_4.png",
     "isActive": true,
@@ -6047,7 +6080,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Antep Fıstığı",
       "Pistachio",
@@ -6055,11 +6089,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -6094,12 +6128,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-6",
-    "name": "Donuk Fransız Usulü Çıtır Craquelin Kremalı Choux Halka Pasta",
+    "name": "Taze Butik Fransız Usulü Çıtır Craquelin Kremalı Choux Halka Pasta",
     "code": "PST-DNK-MN-CHX-PRS",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Üzeri çıtır kıtır craquelin kabuklu pişmiş şu hamuru halkası içinde ipeksi vanilyalı pastacı kreması dolgulu nefis Paris-Brest yorumu mono tatlı.",
     "imageUrl": "/resimler/pt16/pt16_6.png",
     "isActive": true,
@@ -6107,7 +6141,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Craquelin",
       "Choux",
@@ -6116,11 +6151,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Porsiyon",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis edilir."
+      "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis edilir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -6187,12 +6222,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-9",
-    "name": "Donuk Bol Antep Fıstığı Kaplı Kubbe Mono Pasta",
+    "name": "Taze Butik Bol Antep Fıstığı Kaplı Kubbe Mono Pasta",
     "code": "PST-DNK-MN-PST-DOM",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "İçi ipeksi pastacı kreması ve fıstık ezmesi dolgulu, dışı tamamen toz ve parça Antep fıstıklarıyla kaplanmış şık porsiyonluk kubbe pasta.",
     "imageUrl": "/resimler/pt16/pt16_9.png",
     "isActive": true,
@@ -6200,7 +6235,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Kubbe Pasta",
       "Antep Fıstığı",
@@ -6208,11 +6244,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -6248,12 +6284,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-11",
-    "name": "Donuk Vişneli Kara Orman Meyveli Çikolatalı Dilim Pasta",
+    "name": "Taze Butik Vişneli Kara Orman Meyveli Çikolatalı Dilim Pasta",
     "code": "PST-DNK-DLM-BLK-FOR",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Yumuşacık kakaolu pandispanya, taze sütlü krema, mayhoş ekşi vişne taneleri ve bol çikolata rendesiyle süslenmiş klasik Black Forest dilim pasta.",
     "imageUrl": "/resimler/pt16/pt16_11.png",
     "isActive": true,
@@ -6261,7 +6297,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Dilim Pasta",
       "Kara Orman",
       "Black Forest",
@@ -6270,21 +6307,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Dilimli Servis",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt16-12",
-    "name": "Donuk Fransız Usulü Çıtır Craquelin Kremalı Gurme Ekler",
+    "name": "Taze Butik Fransız Usulü Çıtır Craquelin Kremalı Gurme Ekler",
     "code": "PST-DNK-EKL-CRQ-LNG",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Fırınlanmış çıtır craquelin kabuklu uzun şu hamuru arasında taşan lezzette yoğun vanilyalı pastacı kreması dolgulu kafe ekleri.",
     "imageUrl": "/resimler/pt16/pt16_12.png",
     "isActive": true,
@@ -6292,7 +6329,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Ekler",
       "Craquelin",
       "Pastacı Kreması",
@@ -6300,21 +6338,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Uzun Ekler",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Pudra şekeri serpilerek servis edilebilir."
+      "Servis Tavsiyesi": "Pudra şekeri serpilerek servis edilebilir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt16-13",
-    "name": "Donuk Orman Meyveli & Makaronlu Glazür Kubbe Mono Pasta",
+    "name": "Taze Butik Orman Meyveli & Makaronlu Glazür Kubbe Mono Pasta",
     "code": "PST-DNK-MN-FRT-DOM",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Bordo renkli parlak ayna glazür kaplama, alt çeperinde hindistan cevizi kırıntıları, tepesinde çıtır mini makaron ve içi orman meyveli mousse dolgulu mono tatlı.",
     "imageUrl": "/resimler/pt16/pt16_13.png",
     "isActive": true,
@@ -6322,7 +6360,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Orman Meyveli",
       "Makaronlu",
@@ -6331,21 +6370,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt16-14",
-    "name": "Donuk Beyaz Çikolata Parçacıklı Profiterollü Polka Mono Pasta",
+    "name": "Taze Butik Beyaz Çikolata Parçacıklı Profiterollü Polka Mono Pasta",
     "code": "PST-DNK-MN-WHT-POL",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Üzerinde krema dolgulu şu topları, bol beyaz çikolata rendesi ve çikolata çizgileriyle kaplı kare porsiyonluk Polka mono pasta.",
     "imageUrl": "/resimler/pt16/pt16_14.png",
     "isActive": true,
@@ -6353,7 +6392,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Polka Pasta",
       "Beyaz Çikolata",
@@ -6362,11 +6402,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kare Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -6401,12 +6441,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-16",
-    "name": "Donuk Vişneli & Beyaz Kremalı Dikdörtgen Dilim Pasta",
+    "name": "Taze Butik Vişneli & Beyaz Kremalı Dikdörtgen Dilim Pasta",
     "code": "PST-DNK-DLM-OPR-BER",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Kakaolu pandispanya, pembe meyveli krema, beyaz pastacı kreması ve üzerinde parıltılı vişne/frambuaz jeli ile beyaz çikolata pirinçleri.",
     "imageUrl": "/resimler/pt16/pt16_16.png",
     "isActive": true,
@@ -6414,7 +6454,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Dilim Pasta",
       "Dikdörtgen Dilim",
       "Vişneli",
@@ -6422,11 +6463,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Dikdörtgen Dilim Servis",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -6492,12 +6533,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-19",
-    "name": "Donuk Kremalı Havuçlu, Tarçınlı & Bol Cevizli Dilim Pasta",
+    "name": "Taze Butik Kremalı Havuçlu, Tarçınlı & Bol Cevizli Dilim Pasta",
     "code": "PST-DNK-DLM-HVC-CRM",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Taze havuç rendesi, tarçın ve cevizli nemli kek katmanları, arasında ve üzerinde hafif labne kreması ile ceviz kırıntıları kaplaması.",
     "imageUrl": "/resimler/pt16/pt16_19.png",
     "isActive": true,
@@ -6505,7 +6546,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Dilim Pasta",
       "Havuçlu Kek",
       "Cevizli Pasta",
@@ -6514,21 +6556,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Dilimli Servis",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1 saat veya oda sıcaklığında 30 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Sıcak çay ve kahve eşliğinde ikram edilir."
+      "Servis Tavsiyesi": "Sıcak çay ve kahve eşliğinde ikram edilir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt16-20",
-    "name": "Donuk Çikolatalı, Fındıklı & Hindistan Cevizli Kubbe Mono Pasta",
+    "name": "Taze Butik Çikolatalı, Fındıklı & Hindistan Cevizli Kubbe Mono Pasta",
     "code": "PST-DNK-MN-CHO-FND",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Parlak çikolata sosu, pirinç fındık taneleri, alt bordürde hindistan cevizi ve içi yoğun Belçika çikolata muslu porsiyonluk kubbe tatlı.",
     "imageUrl": "/resimler/pt16/pt16_20.png",
     "isActive": true,
@@ -6536,7 +6578,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Kubbe Pasta",
       "Çikolatalı",
@@ -6545,11 +6588,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -6584,12 +6627,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-2",
-    "name": "Donuk Bitter Çikolata Kaplı Profiterollü Polka Mono Pasta",
+    "name": "Taze Butik Bitter Çikolata Kaplı Profiterollü Polka Mono Pasta",
     "code": "PST-DNK-MN-BIT-POL",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Üzerinde çikolata dolgulu şu topları, dış çeperinde bol bitter çikolata rendesi ve çikolata dolgulu kare mono pasta.",
     "imageUrl": "/resimler/pt17/pt17_2.png",
     "isActive": true,
@@ -6597,7 +6640,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Polka Pasta",
       "Bitter Çikolata",
@@ -6605,11 +6649,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kare Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -6673,12 +6717,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-5",
-    "name": "Donuk Çikolatalı & Bol Hindistan Cevizli Kartopu Mono Pasta",
+    "name": "Taze Butik Çikolatalı & Bol Hindistan Cevizli Kartopu Mono Pasta",
     "code": "PST-DNK-MN-COC-BAL",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Dışı tamamen ince rendelenmiş kar beyazı hindistan cevizi ile kaplı, içi akışkan çikolata kreması ve yumuşak kek dolgulu kubbe tatlı.",
     "imageUrl": "/resimler/pt17/pt17_5.png",
     "isActive": true,
@@ -6686,7 +6730,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Kartopu",
       "Hindistan Cevizli",
@@ -6694,21 +6739,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt17-6",
-    "name": "Donuk Kavrulmuş Fındık Kaplı Karamel Kare Mono Pasta",
+    "name": "Taze Butik Kavrulmuş Fındık Kaplı Karamel Kare Mono Pasta",
     "code": "PST-DNK-MN-KRO-FND",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Dört bir yanı altın kavrulmuş çıtır fındık kırıklarıyla kaplı, üzerinde zikzak çikolata çizgileri ve içi fındıklı karamel kremalı kare pasta.",
     "imageUrl": "/resimler/pt17/pt17_6.png",
     "isActive": true,
@@ -6716,7 +6761,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Kavrulmuş Fındık",
       "Karamel",
@@ -6724,21 +6770,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kare Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt17-7",
-    "name": "Donuk Süt Karamel & Dulce de Leche Kubbe Mono Pasta",
+    "name": "Taze Butik Süt Karamel & Dulce de Leche Kubbe Mono Pasta",
     "code": "PST-DNK-MN-DUL-CAR",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "İpeksi süt reçeli/karamel kaplama, halka rölyef desenleri ve içi zengin karamel mousse dolgulu enfes porsiyonluk kubbe pasta.",
     "imageUrl": "/resimler/pt17/pt17_7.png",
     "isActive": true,
@@ -6746,7 +6792,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Dulce de Leche",
       "Süt Karamel",
@@ -6754,21 +6801,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt17-8",
-    "name": "Donuk Çikolata Mousse & Beyaz Çikolata Bukleli Kubbe Mono",
+    "name": "Taze Butik Çikolata Mousse & Beyaz Çikolata Bukleli Kubbe Mono",
     "code": "PST-DNK-MN-CHO-WTR",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Kakao kaplı kubbe, tepesinde sıkma krema rozeti ve beyaz Belçika çikolatası bukleleri, alt bordüründe çıtır fındıklı hindistan cevizi.",
     "imageUrl": "/resimler/pt17/pt17_8.png",
     "isActive": true,
@@ -6776,7 +6823,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Kubbe Pasta",
       "Çikolata Mousse",
@@ -6784,11 +6832,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -6914,12 +6962,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-13",
-    "name": "Donuk Frambuazlı & Kırmızı Kadife 'Love' Kalp Mono Pasta",
+    "name": "Taze Butik Frambuazlı & Kırmızı Kadife 'Love' Kalp Mono Pasta",
     "code": "PST-DNK-MN-HRT-LOV",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Şık kalp formunda, alt katı nefis frambuaz püresi dolgusu, üst katı peynirli krema ve kırmızı kadife tozu üzerinde 'Love' çikolata madalyonlu özel pasta.",
     "imageUrl": "/resimler/pt17/pt17_13.png",
     "isActive": true,
@@ -6927,7 +6975,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Kalp Pasta",
       "Red Velvet",
@@ -6936,11 +6985,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kalp Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Özel gün menüleri için idealdir."
+      "Servis Tavsiyesi": "Özel gün menüleri için idealdir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -7037,12 +7086,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-17",
-    "name": "Donuk Çilekli & Ruby Magnolia Parfe Kup Tatlısı",
+    "name": "Taze Butik Çilekli & Ruby Magnolia Parfe Kup Tatlısı",
     "code": "PST-DNK-KP-STR-RUB",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Pembe kadife çilek/ruby kreması, dipte bisküvi kırıntıları ve üzerinde beyaz çikolata kıtırlarıyla şeffaf kasede pratik tek kişilik kup tatlısı.",
     "imageUrl": "/resimler/pt17/pt17_17.png",
     "isActive": true,
@@ -7050,7 +7099,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Kup Tatlısı",
       "Magnolia",
       "Çilekli",
@@ -7059,21 +7109,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kup Kase",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kendi şık kasesinde kaşıkla servis edilir."
+      "Servis Tavsiyesi": "Kendi şık kasesinde kaşıkla servis edilir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt17-18",
-    "name": "Donuk Süt Karamel & Bitter Ganajlı Gurme Kup Tatlısı",
+    "name": "Taze Butik Süt Karamel & Bitter Ganajlı Gurme Kup Tatlısı",
     "code": "PST-DNK-KP-DUL-CHO",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Çift katmanlı lezzet; alt katta kadifemsi karamel kreması, üst katta akışkan çikolata ganajı ve krokan serpintili tek kişilik kutu tatlı.",
     "imageUrl": "/resimler/pt17/pt17_18.png",
     "isActive": true,
@@ -7081,7 +7131,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Kup Tatlısı",
       "Dulce de Leche",
       "Karamel",
@@ -7090,11 +7141,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kup Kase",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Doğrudan kasesinde servis edilir."
+      "Servis Tavsiyesi": "Doğrudan kasesinde servis edilir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
@@ -7160,12 +7211,12 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-1",
-    "name": "Donuk Red Velvet & Antep Fıstıklı Dikdörtgen Mono Pasta",
+    "name": "Taze Butik Red Velvet & Antep Fıstıklı Dikdörtgen Mono Pasta",
     "code": "PST-DNK-MN-RED-PST-REC",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Kırmızı kadife pandispanya katları, labneli beyaz krema, ara katmanda gizli Antep fıstıkları ve üzeri yoğun kırmızı kek tozu kaplı şık mono dilim.",
     "imageUrl": "/resimler/pt18/pt18_1.png",
     "isActive": true,
@@ -7173,7 +7224,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Red Velvet",
       "Antep Fıstığı",
@@ -7181,21 +7233,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Dikdörtgen Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt18-2",
-    "name": "Donuk Çilek & Frambuaz Dolgulu Kalp Mono Aşk Pastası",
+    "name": "Taze Butik Çilek & Frambuaz Dolgulu Kalp Mono Aşk Pastası",
     "code": "PST-DNK-MN-HRT-LOV-2",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Sevgililer günü, yıl dönümü ve özel kutlamalar için tasarlanmış, meyve jölesi ve peynir kremalı kalp formunda mono pasta.",
     "imageUrl": "/resimler/pt18/pt18_2.png",
     "isActive": true,
@@ -7203,7 +7255,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Kalp Pasta",
       "Çilekli",
@@ -7212,21 +7265,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kalp Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt18-3",
-    "name": "Donuk Çikolata Kaplamalı Orman Meyveli Rulo Mono Pasta",
+    "name": "Taze Butik Çikolata Kaplamalı Orman Meyveli Rulo Mono Pasta",
     "code": "PST-DNK-MN-RUL-FRT",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Kakaolu pandispanya rulosu içinde orman meyveli kremamsı dolgu, dışı çıtır bitter çikolata kaplama ve kurutulmuş meyve parçacıkları.",
     "imageUrl": "/resimler/pt18/pt18_3.png",
     "isActive": true,
@@ -7234,7 +7287,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Rulo Pasta",
       "Orman Meyveli",
@@ -7242,21 +7296,21 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Rulo Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt18-4",
-    "name": "Donuk Yoğun Fındıklı & Kuru Meyveli Kare Brownie Dilim Pasta",
+    "name": "Taze Butik Yoğun Fındıklı & Kuru Meyveli Kare Brownie Dilim Pasta",
     "code": "PST-DNK-DLM-BRW-FND",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Nemli ve yoğun kakao dokulu çift kat brownie, çikolatalı fudge kreması ve üzerinde kavrulmuş fındık ile kuru meyve parçacıkları.",
     "imageUrl": "/resimler/pt18/pt18_4.png",
     "isActive": true,
@@ -7264,7 +7318,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Brownie",
       "Fındıklı",
       "Dilim Pasta",
@@ -7272,21 +7327,22 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Kare Dilim Porsiyon",
-      "Ambalaj": "Koli (-18°C Donuk)",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya mikrodalgada 15-20 sn hafif ılık",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Ilık servis edildiğinde yanında vanilyalı dondurma önerilir."
+      "Servis Tavsiyesi": "Ilık servis edildiğinde yanında vanilyalı dondurma önerilir.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
     "id": "prod-pt18-5",
-    "name": "Donuk Narenciye & Antep Fıstıklı Sarı Glazür Kubbe Mono Pasta",
+    "name": "Taze Butik Narenciye & Antep Fıstıklı Sarı Glazür Kubbe Mono Pasta",
     "code": "PST-DNK-MN-LIM-PST-DOM",
     "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
-    "categorySlug": "donuk-pasta",
+    "categoryId": "cat-9",
+    "categoryName": "Taze - Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
     "description": "Fıstık parçacıklı sarı çikolata/glazür kabuk, tepesinde karamelize kuru limon dilimi ve içi ferahlatıcı narenciye muslu gurme kubbe tatlı.",
     "imageUrl": "/resimler/pt18/pt18_5.png",
     "isActive": true,
@@ -7294,7 +7350,8 @@ const RAW_PRODUCTS = [
     "price": 0,
     "vatRate": 20,
     "tags": [
-      "Donuk Pasta",
+      "Taze Pasta",
+      "Butik Pasta",
       "Mono Pasta",
       "Kubbe Pasta",
       "Narenciye",
@@ -7303,11 +7360,11 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz."
+      "Servis Tavsiyesi": "Soğuk servis ediniz.",
+      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     }
   },
   {
