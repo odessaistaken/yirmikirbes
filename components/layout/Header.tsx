@@ -108,6 +108,7 @@ const SUBCATEGORIES_MAP: Record<string, { name: string; href: string }[]> = {
 const navLinks = [
   { label: "Ana Sayfa", href: "/" },
   { label: "Kategoriler", href: "/katalog", hasMega: true },
+  { label: "Akademi", href: "/akademi" },
   { label: "Hakkımızda", href: "/hakkimizda" },
   { label: "İletişim", href: "/iletisim" },
 ];
@@ -139,12 +140,27 @@ export default function Header() {
           getProducts(),
           getActiveBrands(),
         ]);
-        if (cats.length > 0) setCategories(cats);
-        else {
-          setCategories(MOCK_CATEGORIES.map((c, i) => ({
-            id: c.id, name: c.name, slug: c.slug,
-            imageUrl: "", order: i + 1, isActive: true, description: c.description,
-          })));
+        if (cats.length > 0) {
+          const merged = [...cats];
+          for (const mc of MOCK_CATEGORIES) {
+            if (!merged.some((c) => c.slug === mc.slug || c.id === mc.id)) {
+              merged.push(mc);
+            }
+          }
+          setCategories(merged.sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
+        } else {
+          setCategories(
+            MOCK_CATEGORIES.map((c, i) => ({
+              id: c.id,
+              name: c.name,
+              slug: c.slug,
+              parentId: c.parentId,
+              imageUrl: c.imageUrl || "",
+              order: c.order || i + 1,
+              isActive: true,
+              description: c.description,
+            }))
+          );
         }
         if (prods.length > 0) setProducts(prods);
         else {
@@ -154,10 +170,18 @@ export default function Header() {
         }
         if (brnds.length > 0) setBrands(brnds);
       } catch {
-        setCategories(MOCK_CATEGORIES.map((c, i) => ({
-          id: c.id, name: c.name, slug: c.slug,
-          imageUrl: "", order: i + 1, isActive: true, description: c.description,
-        })));
+        setCategories(
+          MOCK_CATEGORIES.map((c, i) => ({
+            id: c.id,
+            name: c.name,
+            slug: c.slug,
+            parentId: c.parentId,
+            imageUrl: c.imageUrl || "",
+            order: c.order || i + 1,
+            isActive: true,
+            description: c.description,
+          }))
+        );
         setProducts(MOCK_PRODUCTS.map((p, i) => ({
           ...p, codeGroup: "", price: 0, vatRate: 20, order: i + 1,
         })));

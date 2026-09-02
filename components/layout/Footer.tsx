@@ -64,7 +64,7 @@ export default async function Footer() {
               <Logo variant="light" size={44} />
             </Link>
             <p className="text-charcoal-400 text-sm leading-relaxed">
-              YKB Gıda güvencesiyle 20:45 Pastacılık, profesyonel pastacılık ve fırıncılık endüstrisine yönelik premium hammadde, 
+              YKB Gıda güvencesiyle 20:45 Pastacılık, profesyonel pastacılık ve fırıncılık endüstrisine yönelik premium hammadde,
               yarı mamul ve yardımcı ürünler sunar.
             </p>
             {/* Social Links */}
