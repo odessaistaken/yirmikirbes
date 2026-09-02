@@ -106,7 +106,7 @@ const DEFAULT_BRANDS: Brand[] = [
     subtitle: "Premium Barista Şurup & Püre",
     order: 1,
     targetUrl: "/katalog?search=davinci",
-    imageUrl: "",
+    imageUrl: "/brands/davinci-gourmet.png",
     isActive: true,
   },
   {
@@ -133,7 +133,7 @@ const DEFAULT_BRANDS: Brand[] = [
     subtitle: "Waffle, Krep & Dekor Çikolataları",
     order: 4,
     targetUrl: "/katalog?search=callei",
-    imageUrl: "",
+    imageUrl: "/brands/callei-chocolate.png",
     isActive: true,
   },
   {
@@ -204,8 +204,23 @@ export default function HomePage() {
             }))
           );
         }
-        if (b.length > 0) setBrands(b);
-        else setBrands(DEFAULT_BRANDS);
+        if (b.length > 0) {
+          setBrands(
+            b.map((brand) => {
+              const def = DEFAULT_BRANDS.find(
+                (d) =>
+                  d.id === brand.id ||
+                  d.name.toLowerCase() === brand.name.toLowerCase() ||
+                  brand.name.toLowerCase().includes(d.name.toLowerCase()) ||
+                  d.name.toLowerCase().includes(brand.name.toLowerCase())
+              );
+              return {
+                ...brand,
+                imageUrl: brand.imageUrl || def?.imageUrl || "",
+              };
+            })
+          );
+        } else setBrands(DEFAULT_BRANDS);
         if (p.length > 0) {
           setFeaturedProducts(
             p.map((prod) => {
