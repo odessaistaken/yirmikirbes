@@ -53,8 +53,10 @@ export const SUBCATEGORIES_MAP: Record<string, { name: string; query: string }[]
   ],
   "pastalar": [
     { name: "Tüm Pastalar", query: "" },
-    { name: "Cheesecake & Tiramisu", query: "cheesecake" },
-    { name: "Mono Pastalar", query: "mono" },
+    { name: "Taze - Butik Pastalar", query: "butik" },
+    { name: "Donuk Pastalar", query: "donuk" },
+    { name: "Butik Cup", query: "cup" },
+    { name: "Organizasyon Pastaları", query: "organizasyon" },
   ],
   "taze-butik-pastalar": [
     { name: "Butik Pastalar", query: "butik" },
@@ -66,6 +68,28 @@ export const SUBCATEGORIES_MAP: Record<string, { name: string; query: string }[]
     { name: "Tuzlu Mini Kurabiye", query: "kurabiye" },
     { name: "Donuk Poğaça Topları", query: "poğaça" },
     { name: "Gurme Ekmek & Sandviç", query: "ekmek" },
+  ],
+  "butik-cup": [
+    { name: "Bireysel Cup Pasta", query: "cup" },
+    { name: "Mini Cheesecake Cup", query: "cheesecake" },
+  ],
+  "organizasyon-pastalari": [
+    { name: "Düğün & Nişan", query: "düğün" },
+    { name: "Özel Tasarım", query: "özel" },
+    { name: "Kurumsal", query: "kurumsal" },
+  ],
+  "kasa-onu-urunler": [
+    { name: "Atıştırmalıklar", query: "atıştırmalık" },
+    { name: "İkramlık & Mini", query: "ikramlık" },
+  ],
+  "ekipmanlar": [
+    { name: "Pastacılık Ekipmanları", query: "pastacılık" },
+    { name: "Barista Ekipmanları", query: "barista" },
+  ],
+  "kruvasan": [
+    { name: "Taze Kruvasan", query: "taze" },
+    { name: "Donuk Kruvasan", query: "donuk" },
+    { name: "Dolgulu Kruvasan", query: "dolgulu" },
   ],
   "kremali-urunler": [
     { name: "CALLEI Pastacı Kreması", query: "pastacı" },

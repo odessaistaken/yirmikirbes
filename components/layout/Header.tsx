@@ -77,6 +77,10 @@ const SUBCATEGORIES_MAP: Record<string, { name: string; href: string }[]> = {
     { name: "Doğum Günü Pastaları", href: "/katalog/organizasyon-pastalari?search=doğum" },
     { name: "Kurumsal Pastalar", href: "/katalog/organizasyon-pastalari?search=kurumsal" },
   ],
+  "kasa-onu-urunler": [
+    { name: "Atıştırmalık Ürünler", href: "/katalog/kasa-onu-urunler?search=atıştırmalık" },
+    { name: "İkramlık & Mini Ürünler", href: "/katalog/kasa-onu-urunler?search=ikramlık" },
+  ],
   "ekipmanlar": [
     { name: "Pastacılık Ekipmanları", href: "/katalog/ekipmanlar?search=pastacılık" },
     { name: "Barista Ekipmanları", href: "/katalog/ekipmanlar?search=barista" },

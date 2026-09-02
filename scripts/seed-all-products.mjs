@@ -118,7 +118,7 @@ export const CATEGORIES_DATA = [
   },
   {
     "id": "cat-butik-cup",
-    "name": "Butik Cup Pastalar",
+    "name": "Butik Cup",
     "slug": "butik-cup",
     "description": "Bireysel servis için hazırlanmış, özel sunum kaplarda butik cup pasta çeşitleri.",
     "icon": "🧁",
@@ -141,6 +141,17 @@ export const CATEGORIES_DATA = [
     "parentId": "cat-8"
   },
   {
+    "id": "cat-kasa-onu",
+    "name": "Kasa Önü Ürünler",
+    "slug": "kasa-onu-urunler",
+    "description": "Kasa önü atıştırmalıklar, ikramlık ve impuls ürün seçenekleri.",
+    "icon": "🍬",
+    "productCount": 0,
+    "imageUrl": "",
+    "order": 12,
+    "isActive": true
+  },
+  {
     "id": "cat-ekipmanlar",
     "name": "Ekipmanlar",
     "slug": "ekipmanlar",
@@ -148,7 +159,7 @@ export const CATEGORIES_DATA = [
     "icon": "🔧",
     "productCount": 0,
     "imageUrl": "",
-    "order": 12,
+    "order": 13,
     "isActive": true
   },
   {
@@ -159,7 +170,7 @@ export const CATEGORIES_DATA = [
     "icon": "🥐",
     "productCount": 0,
     "imageUrl": "",
-    "order": 13,
+    "order": 14,
     "isActive": true
   }
 ];

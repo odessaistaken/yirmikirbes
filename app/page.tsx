@@ -677,7 +677,7 @@ export default function HomePage() {
             </div>
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {categories.map((cat, i) => (
+              {(categories.some((c) => !c.parentId) ? categories.filter((c) => !c.parentId) : categories).map((cat, i) => (
                 <FadeIn key={cat.id} delay={i * 0.07}>
                   <Link
                     href={`/katalog/${cat.slug}`}

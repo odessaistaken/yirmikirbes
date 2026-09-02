@@ -109,6 +109,63 @@ export const CATEGORIES: Category[] = [
     "imageUrl": "/resimler/p9/p9_1.png",
     "order": 9,
     "isActive": true
+  },
+  {
+    "id": "cat-butik-cup",
+    "name": "Butik Cup",
+    "slug": "butik-cup",
+    "description": "Bireysel servis ve sunumlar için özel tasarlanmış butik cup pasta çeşitleri.",
+    "icon": "🧁",
+    "productCount": 0,
+    "imageUrl": "/resimler/pt14/pt14_1.png",
+    "order": 10,
+    "isActive": true,
+    "parentId": "cat-8"
+  },
+  {
+    "id": "cat-organizasyon",
+    "name": "Organizasyon Pastaları",
+    "slug": "organizasyon-pastalari",
+    "description": "Düğün, nişan, kutlama ve kurumsal etkinlikler için özel tasarım organizasyon pastaları.",
+    "icon": "🎊",
+    "productCount": 0,
+    "imageUrl": "/resimler/pt12/pt12_14.png",
+    "order": 11,
+    "isActive": true,
+    "parentId": "cat-8"
+  },
+  {
+    "id": "cat-kasa-onu",
+    "name": "Kasa Önü Ürünler",
+    "slug": "kasa-onu-urunler",
+    "description": "Kasa önü atıştırmalıklar, ikramlık ve impuls ürün seçenekleri.",
+    "icon": "🍬",
+    "productCount": 0,
+    "imageUrl": "",
+    "order": 12,
+    "isActive": true
+  },
+  {
+    "id": "cat-ekipmanlar",
+    "name": "Ekipmanlar",
+    "slug": "ekipmanlar",
+    "description": "Profesyonel pastacılık ve barista ekipmanları, servis ve mutfak araç gereçleri.",
+    "icon": "🔧",
+    "productCount": 0,
+    "imageUrl": "",
+    "order": 13,
+    "isActive": true
+  },
+  {
+    "id": "cat-kruvasan",
+    "name": "Kruvasan",
+    "slug": "kruvasan",
+    "description": "Taze ve donuk kruvasan çeşitleri, Fransız usulü tereyağlı hamur işleri.",
+    "icon": "🥐",
+    "productCount": 0,
+    "imageUrl": "",
+    "order": 14,
+    "isActive": true
   }
 ];
 
