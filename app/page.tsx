@@ -541,41 +541,90 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          BRANDS STRIP (Hero Altı Koyu Antrasit Alan)
+          BRANDS SHOWCASE — Hero Altı Markalar Alanı
       ════════════════════════════════════════════════════════════ */}
       {brands.length > 0 && (
-        <section className="bg-[#0D0E11] py-3.5 border-b border-[#282C36]">
+        <section className="py-16 bg-[#0D0E11] border-b border-[#282C36]">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
-              <div className="flex items-center gap-2.5 shrink-0">
-                <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-                <p className="text-gold text-xs font-bold uppercase tracking-widest">
-                  Çalıştığımız Markalar:
-                </p>
+            <FadeIn>
+              <div className="text-center mb-10">
+                <p className="section-label text-center">Çalıştığımız Markalar</p>
+                <h2 className="font-heading font-bold text-white text-2xl sm:text-3xl lg:text-4xl">
+                  Dünya Standartlarında <span className="gold-text">Markalar</span>
+                </h2>
               </div>
-              <div className="flex flex-wrap items-center justify-center md:justify-end gap-2.5">
-                {brands.map((brand) => (
-                  <Link
-                    key={brand.id}
-                    href={`/katalog?search=${encodeURIComponent(brand.name.toLowerCase())}`}
-                    className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#16181D] hover:bg-[#21242C] border border-[#282C36] hover:border-gold/50 transition-all duration-200 group shadow-sm"
-                  >
-                    {brand.imageUrl && (
-                      <div className="w-5 h-5 relative shrink-0">
-                        <Image src={brand.imageUrl} alt={brand.name} fill sizes="20px" className="object-contain" />
-                      </div>
+            </FadeIn>
+            <div className="flex flex-wrap items-start justify-center gap-6 sm:gap-8 lg:gap-10">
+              {brands.map((brand, i) => {
+                const targetHref = brand.targetUrl || `/katalog?search=${encodeURIComponent(brand.name.toLowerCase())}`;
+                const isExternal = targetHref.startsWith("http://") || targetHref.startsWith("https://");
+
+                return (
+                  <FadeIn key={brand.id} delay={i * 0.05}>
+                    {isExternal ? (
+                      <a
+                        href={targetHref}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group flex flex-col items-center gap-2.5 text-center w-28 sm:w-32 transition-transform duration-300 hover:-translate-y-1"
+                      >
+                        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#1B1D23] border border-[#282C36] flex items-center justify-center p-3.5 group-hover:border-gold/50 group-hover:shadow-card-hover transition-all duration-300">
+                          {brand.imageUrl ? (
+                            <div className="relative w-full h-full">
+                              <Image
+                                src={brand.imageUrl}
+                                alt={brand.name}
+                                fill
+                                quality={90}
+                                sizes="120px"
+                                className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                              />
+                            </div>
+                          ) : (
+                            <span className="font-heading font-bold text-slate-300 group-hover:text-gold text-xs text-center transition-colors">
+                              {brand.name}
+                            </span>
+                          )}
+                        </div>
+                        {brand.subtitle && (
+                          <p className="text-slate-400 text-xs font-medium group-hover:text-slate-200 transition-colors leading-snug">
+                            {brand.subtitle}
+                          </p>
+                        )}
+                      </a>
+                    ) : (
+                      <Link
+                        href={targetHref}
+                        className="group flex flex-col items-center gap-2.5 text-center w-28 sm:w-32 transition-transform duration-300 hover:-translate-y-1"
+                      >
+                        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#1B1D23] border border-[#282C36] flex items-center justify-center p-3.5 group-hover:border-gold/50 group-hover:shadow-card-hover transition-all duration-300">
+                          {brand.imageUrl ? (
+                            <div className="relative w-full h-full">
+                              <Image
+                                src={brand.imageUrl}
+                                alt={brand.name}
+                                fill
+                                quality={90}
+                                sizes="120px"
+                                className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                              />
+                            </div>
+                          ) : (
+                            <span className="font-heading font-bold text-slate-300 group-hover:text-gold text-xs text-center transition-colors">
+                              {brand.name}
+                            </span>
+                          )}
+                        </div>
+                        {brand.subtitle && (
+                          <p className="text-slate-400 text-xs font-medium group-hover:text-slate-200 transition-colors leading-snug">
+                            {brand.subtitle}
+                          </p>
+                        )}
+                      </Link>
                     )}
-                    <span className="font-heading font-bold text-slate-200 group-hover:text-gold text-xs uppercase tracking-wider transition-colors">
-                      {brand.name}
-                    </span>
-                    {brand.subtitle && (
-                      <span className="text-slate-400 text-2xs hidden sm:inline">
-                        • {brand.subtitle}
-                      </span>
-                    )}
-                  </Link>
-                ))}
-              </div>
+                  </FadeIn>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -701,88 +750,6 @@ export default function HomePage() {
           </FadeIn>
         </div>
       </section>
-
-      {/* ════════════════════════════════════════════════════════════
-          BRANDS LOGO STRIP — Dynamic
-      ════════════════════════════════════════════════════════════ */}
-      {brands.length > 0 && (
-        <section className="py-16 bg-[#121316] border-b border-[#282C36]">
-          <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-            <FadeIn>
-              <div className="text-center mb-10">
-                <p className="section-label text-center">Çalıştığımız Markalar</p>
-                <h2 className="font-heading font-bold text-white">
-                  Dünya Standartlarında <span className="gold-text">Markalar</span>
-                </h2>
-              </div>
-            </FadeIn>
-            <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
-              {brands.map((brand, i) => (
-                <FadeIn key={brand.id} delay={i * 0.05}>
-                  {brand.targetUrl ? (
-                    <a
-                      href={brand.targetUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group flex flex-col items-center gap-2"
-                    >
-                      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#1B1D23] border border-[#282C36] flex items-center justify-center p-3 group-hover:border-gold/50 group-hover:shadow-card-hover transition-all duration-300">
-                        {brand.imageUrl ? (
-                          <div className="relative w-full h-full">
-                            <Image
-                              src={brand.imageUrl}
-                              alt={brand.name}
-                              fill
-                              quality={90}
-                              sizes="120px"
-                              className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                            />
-                          </div>
-                        ) : (
-                          <span className="font-heading font-bold text-slate-400 text-xs text-center">
-                            {brand.name}
-                          </span>
-                        )}
-                      </div>
-                      {brand.subtitle && (
-                        <p className="text-slate-400 text-xs text-center font-medium group-hover:text-slate-200 transition-colors">
-                          {brand.subtitle}
-                        </p>
-                      )}
-                    </a>
-                  ) : (
-                    <div className="flex flex-col items-center gap-2">
-                      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#1B1D23] border border-[#282C36] flex items-center justify-center p-3">
-                        {brand.imageUrl ? (
-                          <div className="relative w-full h-full">
-                            <Image
-                              src={brand.imageUrl}
-                              alt={brand.name}
-                              fill
-                              quality={90}
-                              sizes="120px"
-                              className="object-contain"
-                            />
-                          </div>
-                        ) : (
-                          <span className="font-heading font-bold text-slate-400 text-xs text-center">
-                            {brand.name}
-                          </span>
-                        )}
-                      </div>
-                      {brand.subtitle && (
-                        <p className="text-slate-400 text-xs text-center font-medium">
-                          {brand.subtitle}
-                        </p>
-                      )}
-                    </div>
-                  )}
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* ════════════════════════════════════════════════════════════
           B2B INTRO BANNER
