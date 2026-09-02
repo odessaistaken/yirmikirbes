@@ -115,7 +115,7 @@ const DEFAULT_BRANDS: Brand[] = [
     subtitle: "İtalyan Şurup & Frozen Püre",
     order: 2,
     targetUrl: "/katalog?search=nonno",
-    imageUrl: "",
+    imageUrl: "/brands/caffe-nonno.png",
     isActive: true,
   },
   {
@@ -124,7 +124,7 @@ const DEFAULT_BRANDS: Brand[] = [
     subtitle: "Gurme Bar Şurupları & Soslar",
     order: 3,
     targetUrl: "/katalog?search=monte-cristo",
-    imageUrl: "",
+    imageUrl: "/brands/monte-cristo.png",
     isActive: true,
   },
   {
@@ -142,7 +142,7 @@ const DEFAULT_BRANDS: Brand[] = [
     subtitle: "Doğal Meyve & Kokteyl Premiksleri",
     order: 5,
     targetUrl: "/katalog?search=easy%20mix",
-    imageUrl: "",
+    imageUrl: "/brands/easy-mix.png",
     isActive: true,
   },
   {
@@ -151,7 +151,7 @@ const DEFAULT_BRANDS: Brand[] = [
     subtitle: "Maestro del Gelato Meyve Miksleri",
     order: 6,
     targetUrl: "/katalog?search=krater",
-    imageUrl: "",
+    imageUrl: "/brands/krater.png",
     isActive: true,
   },
 ];

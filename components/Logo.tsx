@@ -44,20 +44,11 @@ export default function Logo({
       {showText && (
         <div className="flex flex-col justify-center leading-none">
           <span
-            className={`font-heading font-black tracking-tight ${
-              isLarge
-                ? "text-base sm:text-xl md:text-2xl"
-                : "text-sm sm:text-base"
-            } ${variant === "light" ? "text-white" : "text-charcoal-900"}`}
-          >
-            PASTACILIK
-          </span>
-          <span
-            className={`font-bold tracking-widest text-gold uppercase mt-0.5 sm:mt-1 ${
-              isLarge ? "text-[11px] sm:text-xs" : "text-[10px]"
+            className={`font-heading font-black tracking-widest text-gold uppercase mt-0.5 sm:mt-1 ${
+              isLarge ? "text-sm sm:text-base" : "text-xs sm:text-sm"
             }`}
           >
-            YKB GIDA
+            HORECA
           </span>
         </div>
       )}

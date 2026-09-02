@@ -131,11 +131,11 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  background-color: #121316;
+  background-color: #383b40;
 }
 
 body {
-  background-color: #121316;
+  background-color: #383b40;
   color: #E2E8F0;
   font-family: var(--font-sans);
   line-height: 1.6;
@@ -143,7 +143,7 @@ body {
 
 /* ─── Custom Scrollbar ───────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #121316; }
+::-webkit-scrollbar-track { background: #383b40; }
 ::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-gold-400); }
 

@@ -115,6 +115,52 @@ export const CATEGORIES_DATA = [
     "imageUrl": "/resimler/p9/p9_1.png",
     "order": 9,
     "isActive": true
+  },
+  {
+    "id": "cat-butik-cup",
+    "name": "Butik Cup Pastalar",
+    "slug": "butik-cup",
+    "description": "Bireysel servis için hazırlanmış, özel sunum kaplarda butik cup pasta çeşitleri.",
+    "icon": "🧁",
+    "productCount": 0,
+    "imageUrl": "/resimler/pt14/pt14_1.png",
+    "order": 10,
+    "isActive": true,
+    "parentId": "cat-8"
+  },
+  {
+    "id": "cat-organizasyon",
+    "name": "Organizasyon Pastaları",
+    "slug": "organizasyon-pastalari",
+    "description": "Düğün, nişan, doğum günü ve kurumsal etkinlikler için özel tasarım organizasyon pastaları.",
+    "icon": "🎊",
+    "productCount": 0,
+    "imageUrl": "/resimler/pt12/pt12_14.png",
+    "order": 11,
+    "isActive": true,
+    "parentId": "cat-8"
+  },
+  {
+    "id": "cat-ekipmanlar",
+    "name": "Ekipmanlar",
+    "slug": "ekipmanlar",
+    "description": "Profesyonel pastacılık ve barista ekipmanları, araç gereçler.",
+    "icon": "🔧",
+    "productCount": 0,
+    "imageUrl": "",
+    "order": 12,
+    "isActive": true
+  },
+  {
+    "id": "cat-kruvasan",
+    "name": "Kruvasan",
+    "slug": "kruvasan",
+    "description": "Taze ve donuk kruvasan çeşitleri, Fransız usulü tereyağlı hamur işleri.",
+    "icon": "🥐",
+    "productCount": 0,
+    "imageUrl": "",
+    "order": 13,
+    "isActive": true
   }
 ];
 export const ALL_PRODUCTS = [
@@ -3555,8 +3601,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "10-12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 3-4 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 3-4 saat",
+      "Raf Ömrü": "3 gün",
       "Kullanım": "Çözündükten sonra servise hazırdır, tekrar dondurmayınız."
     },
     "isFeatured": true,
@@ -3584,8 +3630,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "10-12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 2-3 saat",
+      "Raf Ömrü": "3 gün",
       "Kullanım": "Servis öncesi buzdolabında dinlendiriniz."
     },
     "isFeatured": true,
@@ -3613,8 +3659,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "12 Adet Bireysel Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Kullanım": "Kendi özel kutusunda pratik paket ve masa servisi."
     },
     "isFeatured": true,
@@ -3642,8 +3688,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "12 Dilim Bütün Pasta",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 4 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 4 saat",
+      "Raf Ömrü": "3 gün",
       "Kullanım": "Dilim bazlı veya bütün olarak servis edilebilir."
     },
     "isFeatured": true,
@@ -3671,8 +3717,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "10-12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 2-3 saat",
+      "Raf Ömrü": "3 gün",
       "Kullanım": "Servis öncesi +4°C'de çözündürünüz."
     },
     "isFeatured": false,
@@ -3700,8 +3746,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "12 Adet Tek Kişilik Mono",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Kullanım": "Tabakta şık sunumlar için ideal tek kişilik porsiyon."
     },
     "isFeatured": true,
@@ -3729,8 +3775,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "12-16 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2 saat veya ılık servis",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 2 saat veya ılık servis",
+      "Raf Ömrü": "3 gün",
       "Kullanım": "Ilık servis edilerek dondurma eşliğinde sunulabilir."
     },
     "isFeatured": true,
@@ -3758,8 +3804,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "10-12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 3 saat",
+      "Raf Ömrü": "3 gün",
       "Kullanım": "Servis öncesi buzdolabında çözündürünüz."
     },
     "isFeatured": true,
@@ -3788,8 +3834,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
       "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis ediniz."
     },
@@ -3818,8 +3864,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
       "Servis Tavsiyesi": "Taze kahve ve çay ile mükemmel uyum."
     },
@@ -3848,8 +3894,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C'de saklayınız.",
       "Servis Tavsiyesi": "Soğuk servis önerilir."
     },
@@ -3878,8 +3924,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
       "Servis Tavsiyesi": "Çözündükten sonra tabak sunumuna hazırdır."
     },
@@ -3908,8 +3954,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C donuk",
       "Servis Tavsiyesi": "Espresso ve filtre kahve yanına tavsiye edilir."
     },
@@ -3938,8 +3984,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C muhafaza ediniz.",
       "Servis Tavsiyesi": "Oda sıcaklığına yakın kıvamda tüketilmesi önerilir."
     },
@@ -3968,8 +4014,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 2-3 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C muhafaza",
       "Servis Tavsiyesi": "+4°C'de çözündürünüz."
     },
@@ -3998,8 +4044,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 2-3 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C donuk",
       "Servis Tavsiyesi": "Çözündükten sonra servis ediniz."
     },
@@ -4028,8 +4074,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 2-3 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Sıcak içecekler eşliğinde servis ediniz."
     },
@@ -4058,8 +4104,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 2-3 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Servis öncesi +4°C'de dinlendiriniz."
     },
@@ -4088,8 +4134,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Oda sıcaklığına gelince servis ediniz."
     },
@@ -4118,8 +4164,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis edilir."
     },
@@ -4149,7 +4195,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box (Kutulu)",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kutusunda pratik kaşıkla tüketime hazır.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -4179,8 +4225,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis yapınız."
     },
@@ -4209,8 +4255,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kendi kutusunda veya tabakta sunulabilir."
     },
@@ -4240,7 +4286,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Porsiyonluk Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kahve eşliğinde servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -4270,8 +4316,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 3 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "+4°C dolapta çözündükten sonra servis ediniz."
     },
@@ -4300,8 +4346,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "Mikrodalgada 20-30 sn veya +4°C dolapta 1 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "Mikrodalgada 20-30 sn veya +4°C dolapta 1 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Hafif ısıtılarak vanilyalı dondurma ile servis önerilir."
     },
@@ -4330,8 +4376,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Cheesecake",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -4362,7 +4408,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Küre",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Özel altın altlığı ile doğrudan servise hazırdır.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -4392,8 +4438,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Üçgen Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -4423,7 +4469,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Çözündükten sonra servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -4454,7 +4500,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Kubbe",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis önerilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -4484,8 +4530,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Bireysel Kare Porsiyon",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "+4°C dolapta dinlendirip servis ediniz."
     },
@@ -4514,8 +4560,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 3 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Sıcak çay veya filtre kahve eşliğinde mükemmel lezzet."
     },
@@ -4545,7 +4591,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Parfe",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C donuk muhafaza",
       "Servis Tavsiyesi": "Yarı donuk (semifreddo) olarak servis edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -4576,7 +4622,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Parfe",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Yarı donuk servis tavsiye edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -4606,7 +4652,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk / donuk tüketim.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -4636,8 +4682,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 3-4 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 3-4 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "+4°C'de çözündürerek soğuk servis ediniz."
     },
@@ -4667,8 +4713,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Özel Mono",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Nitelikli kahve sunumları için idealdir."
     },
@@ -4698,7 +4744,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Baton Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Doğrudan servise uygundur.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -4729,7 +4775,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Servis öncesi +4°C'de dinlendiriniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -4760,7 +4806,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "+4°C'de çözündükten sonra servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -4791,7 +4837,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Yuvarlak Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis önerilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -4822,7 +4868,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Pasta",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kahve yanına servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -4853,7 +4899,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Butik Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "+4°C'de servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -4883,8 +4929,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Servis öncesi dolapta dinlendiriniz."
     },
@@ -4913,8 +4959,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kutusunda pratik kaşık servisine uygundur."
     },
@@ -4943,8 +4989,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -4973,8 +5019,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kendi kutusunda kaşıkla servise hazır."
     },
@@ -5004,7 +5050,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kutusunda pratik kaşık servisine uygundur.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5035,7 +5081,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis (Tek Kişilik)",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5065,8 +5111,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Taze çekilmiş espresso eşliğinde servis önerilir."
     },
@@ -5096,7 +5142,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kup Bardak",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Bardağında doğrudan servis edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5127,7 +5173,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5158,7 +5204,7 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "2'li Porsiyon / Koli",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya fırında 160°C'de 3-4 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Ilık servis edildiğinde çikolata akışkanlaşır."
     },
@@ -5188,7 +5234,7 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "3'lü Sunum Tabağı / Koli",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya fırında 160°C'de 3-4 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Filtre kahve ve latte yanında idealdir."
     },
@@ -5218,7 +5264,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Kalın Baton Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Çay ve kahve sunumlarına uygundur.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5248,7 +5294,7 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "2'li Paket / Koli",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk çözündürünüz.",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Ilık servis edilebilir."
     },
@@ -5278,7 +5324,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Baton Dilim (Tek Porsiyon)",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Sıcak içecekler ile mükemmel uyum sağlar.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5309,7 +5355,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Gurme Baton Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kahve yanı menülerinde en çok tercih edilen lezzet.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5340,7 +5386,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kare Mono Kup",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kendi şık kabında kaşıkla pratik servis.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5371,7 +5417,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kalp Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Tabak sunumunda nane yaprağı ve taze meyveyle süslenebilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5400,8 +5446,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -5430,7 +5476,7 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "2'li Porsiyon / Koli",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya 160°C fırında 3 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Sıcak veya soğuk içeceklerle ikram edilebilir."
     },
@@ -5460,7 +5506,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Tabak sunumunda şık bir tatlı alternatifi.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5491,7 +5537,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5522,7 +5568,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5553,7 +5599,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5582,8 +5628,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Meyve sosu eşliğinde servis edilebilir."
     },
@@ -5613,7 +5659,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Gurme Tartlet",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Hafif ısıtıldığında akışkan sufle kıvamına gelir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5645,7 +5691,7 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "Tekli / Koli İçi Çoklu",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Çözünme / Servis": "+4°C dolapta 1 saatte servise hazır hale gelir.",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Üzerine çikolata ganaj veya pudra şekeri ile servis edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5677,7 +5723,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Gurme Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Çözündükten sonra doğrudan tabak sunumu yapılır.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5707,7 +5753,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5738,7 +5784,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Gurme Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Özel tabak sunumları için mükemmeldir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5768,7 +5814,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5797,8 +5843,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kahve sunumları eşliğinde soğuk servis önerilir."
     },
@@ -5828,7 +5874,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Porsiyon",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5858,8 +5904,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Porsiyon",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 30-45 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 30-45 dk",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Çay saatlerinin vazgeçilmez ikramlığı."
     },
@@ -5888,8 +5934,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat veya oda sıcaklığında 30 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat veya oda sıcaklığında 30 dk",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Sıcak eritilmiş Belçika çikolatası sosu ile servis önerilir."
     },
@@ -5918,7 +5964,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -5948,8 +5994,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -5979,7 +6025,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6009,7 +6055,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Uzun Ekler",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Pudra şekeri serpilerek servis edilebilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6040,7 +6086,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6071,7 +6117,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kare Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6100,8 +6146,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -6130,7 +6176,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dikdörtgen Dilim Servis",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6160,8 +6206,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Opera Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Filtre kahve veya espresso yanında servis edilir."
     },
@@ -6189,8 +6235,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Opera Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -6220,7 +6266,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Sıcak çay ve kahve eşliğinde ikram edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6251,7 +6297,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6280,8 +6326,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -6310,7 +6356,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kare Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6339,8 +6385,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -6367,8 +6413,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -6397,7 +6443,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6427,7 +6473,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kare Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6457,7 +6503,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6487,7 +6533,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6516,8 +6562,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -6546,8 +6592,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Espresso veya cappuccino yanında servis ediniz."
     },
@@ -6575,8 +6621,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -6604,8 +6650,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -6635,7 +6681,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kalp Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Özel gün menüleri için idealdir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6666,7 +6712,7 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "2'li Porsiyon / Koli",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya fırında 160°C'de 3 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Ilık servis edildiğinde çikolatalar yumuşar."
     },
@@ -6694,8 +6740,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -6724,8 +6770,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -6755,7 +6801,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kup Kase",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kendi şık kasesinde kaşıkla servis edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6786,7 +6832,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kup Kase",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Doğrudan kasesinde servis edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6816,8 +6862,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Oval Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kutusunda pratik kaşık servisine uygundur."
     },
@@ -6845,8 +6891,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Dikdörtgen Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kutusunda pratik servis."
     },
@@ -6875,7 +6921,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Dikdörtgen Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6906,7 +6952,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kalp Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6936,7 +6982,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Rulo Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6967,7 +7013,7 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "Kare Dilim Porsiyon",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya mikrodalgada 15-20 sn hafif ılık",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Ilık servis edildiğinde yanında vanilyalı dondurma önerilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -6998,7 +7044,7 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
@@ -7028,8 +7074,8 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
@@ -7059,7 +7105,7 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "Tek Kişilik Adet",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Önceden ısıtılmış 180°C fırında 3-4 dakika çıtırlaştırınız.",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Sıcak servis ediniz, reçel veya çikolata ezmesi ile sunulabilir."
     },
@@ -7089,7 +7135,7 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "Tek Kişilik Roll Porsiyon",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Fırında 170°C'de 3-4 dk ısıtıldığında ekstra çıtırlaşır.",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "İçi krema dolgulanabilir veya üzeri ganajla kaplanabilir."
     },
@@ -7118,7 +7164,7 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "Tek Kişilik Adet",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Fırında 170°C'de 3-4 dk ısıtınız.",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Ilık servis yapıldığında iç dolgusu akışkan hale gelir."
     },
@@ -7147,7 +7193,7 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "Tek Kişilik Adet",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Fırında 175°C'de 3-4 dk ısıtınız.",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kahve yanında sıcak servis edilir."
     },
@@ -7176,7 +7222,7 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "2 Dilim / Paket",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Kullanım": "Tost makinesinde doğrudan kızartılabilir.",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kaşarlı, avokadolu veya gurme sandviç yapımına uygundur."
     },
@@ -7206,7 +7252,7 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "1 Adet Dikdörtgen Waffle",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Tost makinesi veya fırında 180°C'de 2-3 dakika",
-      "Raf Ömrü": "-18°C'de 12 Ay",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "CALLEI sürülebilir kremalar ve taze meyvelerle süsleyiniz."
     },
@@ -7266,7 +7312,7 @@ export const ALL_PRODUCTS = [
       "Hacim": "1000 ml (Cam / PET Şişe)",
       "Kullanım Oranı": "1:7 veya 1:8 oranında su ve buz ile seyreltiniz.",
       "Kullanım Alanı": "Cool Lime içecekleri, limonatalar, ferahlatıcı kokteyller.",
-      "Raf Ömrü": "Açıldıktan sonra serin ve kuru yerde 12 Ay",
+      "Raf Ömrü": "3 gün",
       "Saklama Koşulu": "Oda sıcaklığında, güneş ışığından uzakta muhafaza ediniz."
     },
     "isFeatured": true,
@@ -7276,12 +7322,12 @@ export const ALL_PRODUCTS = [
 ];
 
 export const BRANDS_DATA = [
-  { name: "DaVinci Gourmet", subtitle: "Dünya Standartlarında Barista Şurupları & Püreler", order: 1, targetUrl: "/katalog?search=davinci", imageUrl: "", isActive: true },
-  { name: "Caffè NONNO", subtitle: "İtalyan Reçeteli Kahve Şurupları & Frozen Püreleri", order: 2, targetUrl: "/katalog?search=nonno", imageUrl: "", isActive: true },
-  { name: "Monte Cristo", subtitle: "Gurme Bar Şurupları & Profesyonel Dekor Sosları", order: 3, targetUrl: "/katalog?search=monte-cristo", imageUrl: "", isActive: true },
-  { name: "CALLEI Chocolate", subtitle: "Waffle, Krep & Dondurma Çikolata Kremaları & Waffle Mix", order: 4, targetUrl: "/katalog?search=callei", imageUrl: "", isActive: true },
-  { name: "EASY MIX Premixes", subtitle: "Doğal Meyve & Botanik Kokteyl Premiksleri", order: 5, targetUrl: "/katalog?search=easy%20mix", imageUrl: "", isActive: true },
-  { name: "Krater", subtitle: "Maestro del Gelato Pastacılık & Dondurma Meyve Karışımları", order: 6, targetUrl: "/katalog?search=krater", imageUrl: "", isActive: true }
+  { name: "DaVinci Gourmet", subtitle: "Dünya Standartlarında Barista Şurupları & Püreler", order: 1, targetUrl: "/katalog?search=davinci", imageUrl: "/brands/davinci-gourmet.png", isActive: true },
+  { name: "Caffè NONNO", subtitle: "İtalyan Reçeteli Kahve Şurupları & Frozen Püreleri", order: 2, targetUrl: "/katalog?search=nonno", imageUrl: "/brands/caffe-nonno.png", isActive: true },
+  { name: "Monte Cristo", subtitle: "Gurme Bar Şurupları & Profesyonel Dekor Sosları", order: 3, targetUrl: "/katalog?search=monte-cristo", imageUrl: "/brands/monte-cristo.png", isActive: true },
+  { name: "CALLEI Chocolate", subtitle: "Waffle, Krep & Dondurma Çikolata Kremaları & Waffle Mix", order: 4, targetUrl: "/katalog?search=callei", imageUrl: "/brands/callei-chocolate.png", isActive: true },
+  { name: "EASY MIX Premixes", subtitle: "Doğal Meyve & Botanik Kokteyl Premiksleri", order: 5, targetUrl: "/katalog?search=easy%20mix", imageUrl: "/brands/easy-mix.png", isActive: true },
+  { name: "Krater", subtitle: "Maestro del Gelato Pastacılık & Dondurma Meyve Karışımları", order: 6, targetUrl: "/katalog?search=krater", imageUrl: "/brands/krater.png", isActive: true }
 ];
 
 async function seed() {
@@ -7363,3 +7409,5 @@ async function seed() {
 }
 
 seed().catch(console.error);
+
+

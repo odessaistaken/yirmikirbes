@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ChevronRight, Tag, Package, MessageCircle, Share2, CheckCircle, ArrowLeft, ImageIcon, Store } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronRight, Tag, Package, MessageCircle, Share2, CheckCircle, ArrowLeft, ImageIcon, Store, X, ZoomIn } from "lucide-react";
 import { getProductById as getMockProduct, getRelatedProducts as getMockRelated, getBrandProducts as getMockBrandProducts } from "@/lib/mock-data";
 import { getProductById as getFirestoreProduct, getProducts } from "@/lib/firestore-collections";
 import type { Product } from "@/lib/types";
@@ -22,6 +22,7 @@ export default function ProductPage() {
   const [notFoundState, setNotFoundState] = useState(false);
   const [inquiryOpen, setInquiryOpen] = useState(false);
   const [imgError, setImgError] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   useEffect(() => {
     async function loadProduct() {
@@ -140,18 +141,29 @@ export default function ProductPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="relative aspect-product rounded-2xl overflow-hidden bg-[#16181D] border border-[#282C36] shadow-2xl p-4">
+              <div
+                className={`relative aspect-product rounded-2xl overflow-hidden bg-[#16181D] border border-[#282C36] shadow-2xl p-4 ${
+                  !imgError && product.imageUrl ? "cursor-zoom-in" : ""
+                }`}
+                onClick={() => { if (!imgError && product.imageUrl) setLightboxOpen(true); }}
+                title={!imgError && product.imageUrl ? "Görseli büyütmek için tıklayın" : undefined}
+              >
                 {!imgError && product.imageUrl ? (
-                  <Image
-                    src={product.imageUrl}
-                    alt={product.name}
-                    fill
-                    quality={95}
-                    className="object-contain p-4"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    onError={() => setImgError(true)}
-                    priority
-                  />
+                  <>
+                    <Image
+                      src={product.imageUrl}
+                      alt={product.name}
+                      fill
+                      quality={95}
+                      className="object-contain p-4"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      onError={() => setImgError(true)}
+                      priority
+                    />
+                    <div className="absolute bottom-3 right-3 bg-[#1B1D23]/80 text-gold border border-gold/30 rounded-lg p-1.5">
+                      <ZoomIn size={16} />
+                    </div>
+                  </>
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center bg-[#21242C]">
                     <div className="text-center">
@@ -322,6 +334,51 @@ export default function ProductPage() {
         onClose={() => setInquiryOpen(false)}
         product={product}
       />
+
+      {/* ── Lightbox Modal ──────────────────────────────────────────── */}
+      <AnimatePresence>
+        {lightboxOpen && product.imageUrl && !imgError && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+            onClick={() => setLightboxOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.85, opacity: 0 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="relative max-w-4xl w-full bg-[#16181D] rounded-2xl border border-[#282C36] shadow-2xl overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setLightboxOpen(false)}
+                className="absolute top-3 right-3 z-10 p-2 bg-[#1B1D23]/90 hover:bg-[#282C36] text-slate-300 hover:text-white rounded-xl border border-[#282C36] transition-colors"
+              >
+                <X size={20} />
+              </button>
+              <div className="relative w-full aspect-square max-h-[85vh]">
+                <Image
+                  src={product.imageUrl}
+                  alt={product.name}
+                  fill
+                  quality={98}
+                  sizes="95vw"
+                  className="object-contain p-8"
+                  priority
+                />
+              </div>
+              <div className="px-6 py-4 border-t border-[#282C36] bg-[#1B1D23]">
+                <p className="font-heading font-bold text-white">{product.name}</p>
+                <p className="text-slate-400 text-sm font-mono mt-0.5">Kod: {product.code}</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

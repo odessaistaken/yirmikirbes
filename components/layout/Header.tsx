@@ -54,6 +54,8 @@ const SUBCATEGORIES_MAP: Record<string, { name: string; href: string }[]> = {
   "pastalar": [
     { name: "Taze - Butik Pastalar", href: "/katalog/taze-butik-pastalar" },
     { name: "Donuk Pastalar", href: "/katalog/donuk-pasta" },
+    { name: "Butik Cup Pastalar", href: "/katalog/butik-cup" },
+    { name: "Organizasyon Pastaları", href: "/katalog/organizasyon-pastalari" },
   ],
   "taze-butik-pastalar": [
     { name: "El Yapımı Butik Pastalar", href: "/katalog/taze-butik-pastalar?search=butik" },
@@ -65,6 +67,24 @@ const SUBCATEGORIES_MAP: Record<string, { name: string; href: string }[]> = {
     { name: "Mono Kutu Pastalar", href: "/katalog/donuk-pasta?search=mono" },
     { name: "Dilimli Pastalar", href: "/katalog/donuk-pasta?search=dilimli" },
     { name: "Donuk Unlu Mamuller", href: "/katalog/donuk-pasta?search=ekmek" },
+  ],
+  "butik-cup": [
+    { name: "Bireysel Sunum Pastalar", href: "/katalog/butik-cup?search=cup" },
+    { name: "Mini Cheesecake Cup", href: "/katalog/butik-cup?search=cheesecake" },
+  ],
+  "organizasyon-pastalari": [
+    { name: "Düğün & Nişan Pastaları", href: "/katalog/organizasyon-pastalari?search=düğün" },
+    { name: "Doğum Günü Pastaları", href: "/katalog/organizasyon-pastalari?search=doğum" },
+    { name: "Kurumsal Pastalar", href: "/katalog/organizasyon-pastalari?search=kurumsal" },
+  ],
+  "ekipmanlar": [
+    { name: "Pastacılık Ekipmanları", href: "/katalog/ekipmanlar?search=pastacılık" },
+    { name: "Barista Ekipmanları", href: "/katalog/ekipmanlar?search=barista" },
+  ],
+  "kruvasan": [
+    { name: "Taze Kruvasan", href: "/katalog/kruvasan?search=taze" },
+    { name: "Donuk Kruvasan", href: "/katalog/kruvasan?search=donuk" },
+    { name: "Dolgulu Kruvasan", href: "/katalog/kruvasan?search=dolgulu" },
   ],
   "waffle-malzemeleri": [
     { name: "CALLEI Çikolata Kremaları", href: "/katalog/waffle-malzemeleri?search=callei" },
@@ -83,7 +103,7 @@ const SUBCATEGORIES_MAP: Record<string, { name: string; href: string }[]> = {
 /* ─── Mega Menu data ──────────────────────────────────────────────────────── */
 const navLinks = [
   { label: "Ana Sayfa", href: "/" },
-  { label: "Katalog", href: "/katalog", hasMega: true },
+  { label: "Kategoriler", href: "/katalog", hasMega: true },
   { label: "Hakkımızda", href: "/hakkimizda" },
   { label: "İletişim", href: "/iletisim" },
 ];

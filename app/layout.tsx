@@ -60,7 +60,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" className={`${inter.variable} ${montserrat.variable}`}>
-      <body className="font-sans bg-[#121316] text-[#E2E8F0] antialiased min-h-screen flex flex-col selection:bg-gold/30 selection:text-white">
+      <body className="font-sans bg-[#383b40] text-[#E2E8F0] antialiased min-h-screen flex flex-col selection:bg-gold/30 selection:text-white">
         <AuthProvider>
           <Toaster
             position="top-right"
