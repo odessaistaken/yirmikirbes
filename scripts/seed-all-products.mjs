@@ -147,7 +147,7 @@ export const CATEGORIES_DATA = [
     "description": "Kasa önü atıştırmalıklar, ikramlık ve impuls ürün seçenekleri.",
     "icon": "🍬",
     "productCount": 0,
-    "imageUrl": "",
+    "imageUrl": "/resimler/kategoriler/kasa-onu-urunler.jpg",
     "order": 12,
     "isActive": true
   },
@@ -158,7 +158,7 @@ export const CATEGORIES_DATA = [
     "description": "Profesyonel pastacılık ve barista ekipmanları, araç gereçler.",
     "icon": "🔧",
     "productCount": 0,
-    "imageUrl": "",
+    "imageUrl": "/resimler/kategoriler/ekipmanlar.jpg",
     "order": 13,
     "isActive": true
   },
@@ -169,7 +169,7 @@ export const CATEGORIES_DATA = [
     "description": "Taze ve donuk kruvasan çeşitleri, Fransız usulü tereyağlı hamur işleri.",
     "icon": "🥐",
     "productCount": 0,
-    "imageUrl": "",
+    "imageUrl": "/resimler/kategoriler/kruvasan.jpg",
     "order": 14,
     "isActive": true
   }
