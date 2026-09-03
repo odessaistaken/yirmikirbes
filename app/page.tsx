@@ -170,12 +170,18 @@ export default function HomePage() {
   useEffect(() => {
     async function load() {
       try {
-        const [s, c, b, p] = await Promise.all([
+        const results = await Promise.allSettled([
           getActiveSliders(),
           getActiveCategories(),
           getActiveBrands(),
           getFirestoreFeatured(10),
         ]);
+
+        const s = results[0].status === "fulfilled" ? results[0].value : [];
+        const c = results[1].status === "fulfilled" ? results[1].value : [];
+        const b = results[2].status === "fulfilled" ? results[2].value : [];
+        const p = results[3].status === "fulfilled" ? results[3].value : [];
+
         if (s.length > 0) setSliders(s);
         else setSliders(DEFAULT_SLIDERS);
 
@@ -245,34 +251,17 @@ export default function HomePage() {
             }))
           );
         }
-      } catch {
-        setSliders(DEFAULT_SLIDERS);
-        setCategories(
-          MOCK_CATEGORIES.map((mc, i) => ({
-            id: mc.id,
-            name: mc.name,
-            slug: mc.slug,
-            imageUrl: mc.imageUrl || "",
-            order: i + 1,
-            isActive: true,
-            description: mc.description,
-          }))
-        );
-        const mockFeatured = getMockFeatured();
-        setFeaturedProducts(
-          mockFeatured.map((mp, i) => ({
-            ...mp,
-            codeGroup: "",
-            price: 0,
-            vatRate: 20,
-            order: i + 1,
-          }))
-        );
+      } catch (err) {
+        console.error("Ana sayfa veri yükleme hatası:", err);
       } finally {
         setDataLoaded(true);
       }
     }
     load();
+
+    const handleCategoryUpdate = () => { load(); };
+    window.addEventListener("categories-updated", handleCategoryUpdate);
+    return () => window.removeEventListener("categories-updated", handleCategoryUpdate);
   }, []);
 
   /* Auto-advance slider */

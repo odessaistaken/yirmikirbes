@@ -220,12 +220,14 @@ export async function getActiveBrands(): Promise<Brand[]> {
   const snap = await getDocs(
     query(
       collection(requireDb(), "brands"),
-      where("isActive", "==", true),
-      orderBy("order", "asc")
+      where("isActive", "==", true)
     )
   );
-  return snap.docs.map((d) => ({ id: d.id, ...d.data() } as Brand));
+  return snap.docs
+    .map((d) => ({ id: d.id, ...d.data() } as Brand))
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 }
+
 
 /** Create a new brand */
 export async function addBrand(data: Omit<Brand, "id">): Promise<string> {
@@ -407,26 +409,26 @@ export async function uploadImage(
       setTimeout(() => {
         try { uploadTask.cancel(); } catch {}
         reject(new Error("Firebase Storage zaman aşımına uğradı"));
-      }, 25000)
+      }, 3500)
     );
 
     const res = await Promise.race([storagePromise, timeoutPromise]);
     onProgress?.(100);
     return res;
   } catch (err) {
-    console.warn("Firebase Storage yükleme uyarısı (ImgBB deneniyor):", err);
+    console.warn("Firebase Storage yükleme uyarısı (Alternatif deneniyor):", err);
   }
 
-  // 3. Fallback: ImgBB CDN
+  // 3. Fallback: ImgBB CDN (if configured)
   try {
-    onProgress?.(60);
+    onProgress?.(50);
     const formData = new FormData();
     formData.append("image", file);
 
     const res = await fetchWithTimeout(
       "https://api.imgbb.com/1/upload?key=6d257f6977e3292f5b356a1175329544",
       { method: "POST", body: formData },
-      15000
+      4000
     );
 
     if (res.ok) {
@@ -436,14 +438,15 @@ export async function uploadImage(
         return { url: data.data.url, path };
       }
     }
-  } catch (err) {
-    console.warn("ImgBB yükleme yanıt vermedi veya başarısız:", err);
+  } catch {
+    // CDN fallback skipped
   }
 
-  // 4. Safe Fallback: High Quality WebP Data URL (~60KB for instant Firestore saving)
+  // 4. Guaranteed Fallback: High Quality, Lightweight WebP Data URL (~35KB-60KB)
   try {
-    onProgress?.(85);
-    const hdFallbackFile = await compressImage(rawFile, 1000, 0.78);
+    onProgress?.(80);
+    // Compress to 800px max, 0.72 quality for crystal-clear look at ultra-low byte size
+    const hdFallbackFile = await compressImage(rawFile, 800, 0.72);
     const dataUrl = await new Promise<string>((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = () => resolve(reader.result as string);
@@ -451,15 +454,15 @@ export async function uploadImage(
       reader.readAsDataURL(hdFallbackFile);
     });
 
-    if (dataUrl && dataUrl.length < 600000) { // Keep well within Firestore document limits
+    if (dataUrl) {
       onProgress?.(100);
       return { url: dataUrl, path };
     }
   } catch (e) {
-    console.error("HD DataURL dönüştürme hatası:", e);
+    console.error("WebP DataURL dönüştürme hatası:", e);
   }
 
-  throw new Error("Resim yüklenemedi. İnternet bağlantınızı kontrol edin veya 'Görsel URL' alanına doğrudan resim linki girin.");
+  throw new Error("Resim yüklenemedi. Lütfen geçerli bir resim dosyası seçin veya 'Görsel URL' alanına link girin.");
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

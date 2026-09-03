@@ -7,7 +7,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Plus, Pencil, Trash2, X, Check, Upload,
-  GripVertical, ImageIcon, Tag, AlertTriangle,
+  GripVertical, ImageIcon, Tag, AlertTriangle, Search,
 } from "lucide-react";
 import toast from "react-hot-toast";
 import {
@@ -19,6 +19,7 @@ import type { Category } from "@/lib/types";
 export default function AdminKategoriler() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [editTarget, setEditTarget] = useState<Category | null>(null);
   const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
@@ -73,12 +74,13 @@ export default function AdminKategoriler() {
 
   function openAdd() {
     setEditTarget(null);
+    const maxOrder = categories.reduce((max, c) => Math.max(max, Number(c.order) || 0), 0);
     setFormData({
       name: "",
       slug: "",
       imageUrl: "",
       imageStoragePath: "",
-      order: categories.length + 1,
+      order: maxOrder + 1,
       isActive: true,
       description: "",
       parentId: "",
@@ -102,39 +104,34 @@ export default function AdminKategoriler() {
   }
 
   async function handleSave() {
-    if (!formData.name.trim()) {
+    const trimmedName = formData.name.trim();
+    if (!trimmedName) {
       toast.error("Kategori adı gereklidir.");
       return;
     }
     setSaving(true);
     try {
-      const slug = formData.slug || slugify(formData.name);
+      const slug = (formData.slug.trim() || slugify(trimmedName)).toLowerCase();
       
-      // Base64 görsel optimizasyonu (Firestore 1MB doküman güvenliği)
-      let safeImageUrl = formData.imageUrl;
-      if (safeImageUrl?.startsWith("data:") && safeImageUrl.length > 600000) {
-        try {
-          const res = await fetch(safeImageUrl);
-          const blob = await res.blob();
-          const rawF = new File([blob], "image.webp", { type: "image/webp" });
-          const compressed = await compressImage(rawF, 1000, 0.78);
-          safeImageUrl = await new Promise<string>((resolve) => {
-            const r = new FileReader();
-            r.onload = () => resolve(r.result as string);
-            r.readAsDataURL(compressed);
-          });
-        } catch {
-          console.warn("Base64 görsel optimizasyonu atlandı");
-        }
+      // Check slug conflict with another category
+      const conflict = categories.find(
+        (c) => c.slug === slug && c.id !== editTarget?.id
+      );
+      if (conflict) {
+        toast.error(`"${slug}" slug'ı zaten "${conflict.name}" kategorisinde kullanılıyor. Lütfen farklı bir slug veya isim belirleyin.`);
+        setSaving(false);
+        return;
       }
 
+      const safeOrder = Number.isFinite(Number(formData.order)) ? Number(formData.order) : (categories.length + 1);
+
       const payload: Record<string, any> = {
-        name: formData.name,
+        name: trimmedName,
         slug,
-        imageUrl: safeImageUrl || "",
-        order: formData.order,
-        isActive: formData.isActive,
-        description: formData.description || "",
+        imageUrl: formData.imageUrl || "",
+        order: safeOrder,
+        isActive: Boolean(formData.isActive),
+        description: formData.description?.trim() || "",
         ...(formData.parentId ? { parentId: formData.parentId } : {}),
       };
 
@@ -144,15 +141,21 @@ export default function AdminKategoriler() {
 
       if (editTarget) {
         await updateCategory(editTarget.id, payload as Partial<Category>);
-        const catObj = { id: editTarget.id, ...payload } as Category;
-        setCategories((prev) => prev.map((c) => (c.id === editTarget.id ? catObj : c)));
         toast.success("Kategori güncellendi.");
       } else {
-        const id = await addCategory(payload as Omit<Category, "id">);
-        const catObj = { id, ...payload } as Category;
-        setCategories((prev) => [...prev, catObj]);
-        toast.success("Yeni kategori eklendi.");
+        await addCategory(payload as Omit<Category, "id">);
+        toast.success("Yeni kategori başarıyla eklendi.");
       }
+
+      // Re-fetch authoritative fresh data from Firestore
+      const freshData = await getCategories();
+      setCategories(freshData);
+
+      // Notify other components (Header, Katalog, etc.) immediately
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("categories-updated"));
+      }
+
       setModalOpen(false);
     } catch (err: any) {
       console.error("Firestore kategori kaydetme hatası:", err);
@@ -168,7 +171,11 @@ export default function AdminKategoriler() {
     if (!cat) return;
     try {
       await deleteCategory(cat);
-      setCategories((prev) => prev.filter((c) => c.id !== id));
+      const freshData = await getCategories();
+      setCategories(freshData);
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("categories-updated"));
+      }
       toast.success("Kategori silindi.");
       setDeleteTarget(null);
     } catch (err) {
@@ -180,15 +187,29 @@ export default function AdminKategoriler() {
   return (
     <div className="p-8 text-slate-200">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
         <div>
           <p className="section-label">Admin</p>
-          <h1 className="font-heading font-bold text-white text-3xl">Kategoriler</h1>
+          <h1 className="font-heading font-bold text-white text-3xl">
+            Kategoriler <span className="text-slate-500 text-lg font-normal">({categories.length})</span>
+          </h1>
         </div>
-        <button onClick={openAdd} className="btn-primary shadow-gold">
-          <Plus size={16} />
-          Yeni Kategori
-        </button>
+        <div className="flex items-center gap-3 w-full sm:w-auto">
+          <div className="relative flex-1 sm:w-64">
+            <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Kategori ara..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full pl-9 pr-4 py-2 bg-[#1B1D23] border border-[#282C36] rounded-xl text-white text-xs placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-gold"
+            />
+          </div>
+          <button onClick={openAdd} className="btn-primary shadow-gold shrink-0">
+            <Plus size={16} />
+            Yeni Kategori
+          </button>
+        </div>
       </div>
 
       {/* Table */}
@@ -229,8 +250,14 @@ export default function AdminKategoriler() {
                   </td>
                 </tr>
               ) : (
-                categories
-                  .sort((a, b) => a.order - b.order)
+                [...categories]
+                  .filter((cat) =>
+                    search
+                      ? cat.name.toLowerCase().includes(search.toLowerCase()) ||
+                        cat.slug.toLowerCase().includes(search.toLowerCase())
+                      : true
+                  )
+                  .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
                   .map((cat) => (
                     <tr key={cat.id} className="hover:bg-[#16181D] transition-colors">
                       <td className="py-3.5 px-5 text-slate-500">

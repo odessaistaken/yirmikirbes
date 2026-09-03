@@ -132,11 +132,16 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
   useEffect(() => {
     async function loadData() {
       try {
-        const [cats, prods, brnds] = await Promise.all([
+        const results = await Promise.allSettled([
           getActiveCategories(),
           getProducts(),
           getActiveBrands(),
         ]);
+
+        const cats = results[0].status === "fulfilled" ? results[0].value : [];
+        const prods = results[1].status === "fulfilled" ? results[1].value : [];
+        const brnds = results[2].status === "fulfilled" ? results[2].value : [];
+
         if (cats && cats.length > 0) {
           setCategories(cats.filter((c) => c.isActive !== false).sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
         }
@@ -146,12 +151,15 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
         if (brnds && brnds.length > 0) {
           setBrands(brnds);
         }
-      } catch {
-        setCategories(MOCK_CATEGORIES);
-        setProducts(MOCK_PRODUCTS);
+      } catch (err) {
+        console.error("Katalog veri yükleme hatası:", err);
       }
     }
     loadData();
+
+    const handleCategoryUpdate = () => { loadData(); };
+    window.addEventListener("categories-updated", handleCategoryUpdate);
+    return () => window.removeEventListener("categories-updated", handleCategoryUpdate);
   }, []);
 
   const currentCategory = useMemo(() => {

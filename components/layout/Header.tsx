@@ -127,19 +127,27 @@ export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const { currentUser, userProfile, userRole, logoutUser } = useAuth();
+  const [mounted, setMounted] = useState(false);
   const megaRef = useRef<HTMLDivElement>(null);
   const userRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
+
   /* Load categories & products for mega menu and search */
   useEffect(() => {
+    setMounted(true);
     async function loadData() {
       try {
-        const [cats, prods, brnds] = await Promise.all([
+        const results = await Promise.allSettled([
           getActiveCategories(),
           getProducts(),
           getActiveBrands(),
         ]);
+
+        const cats = results[0].status === "fulfilled" ? results[0].value : [];
+        const prods = results[1].status === "fulfilled" ? results[1].value : [];
+        const brnds = results[2].status === "fulfilled" ? results[2].value : [];
+
         if (cats.length > 0) {
           const merged = [...cats];
           for (const mc of MOCK_CATEGORIES) {
@@ -169,26 +177,18 @@ export default function Header() {
           })));
         }
         if (brnds.length > 0) setBrands(brnds);
-      } catch {
-        setCategories(
-          MOCK_CATEGORIES.map((c, i) => ({
-            id: c.id,
-            name: c.name,
-            slug: c.slug,
-            parentId: c.parentId,
-            imageUrl: c.imageUrl || "",
-            order: c.order || i + 1,
-            isActive: true,
-            description: c.description,
-          }))
-        );
-        setProducts(MOCK_PRODUCTS.map((p, i) => ({
-          ...p, codeGroup: "", price: 0, vatRate: 20, order: i + 1,
-        })));
+      } catch (err) {
+        console.error("Header veri yükleme hatası:", err);
       }
     }
     loadData();
+
+    // Listen for category updates from admin panel
+    const handleCategoryUpdate = () => { loadData(); };
+    window.addEventListener("categories-updated", handleCategoryUpdate);
+    return () => window.removeEventListener("categories-updated", handleCategoryUpdate);
   }, []);
+
 
   /* Scroll detection */
   useEffect(() => {
@@ -589,7 +589,7 @@ export default function Header() {
               </a>
 
               {/* Auth buttons */}
-              {currentUser ? (
+              {mounted && currentUser ? (
                 <div className="relative" ref={userRef}>
                   <button
                     onClick={() => setUserMenuOpen((v) => !v)}
@@ -767,7 +767,7 @@ export default function Header() {
 
               {/* Auth */}
               <div className="border-t border-[#282C36] p-4 space-y-2">
-                {currentUser ? (
+                {mounted && currentUser ? (
                   <>
                     <Link href="/hesap" className="btn-secondary w-full justify-start gap-2">
                       <User size={16} className="text-gold" />
