@@ -24,6 +24,7 @@ export default function AdminKategoriler() {
   const [editTarget, setEditTarget] = useState<Category | null>(null);
   const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -180,19 +181,25 @@ export default function AdminKategoriler() {
 
   async function handleDelete(id: string) {
     const cat = categories.find((c) => c.id === id);
-    if (!cat) return;
+    if (!cat) {
+      setDeleteTarget(null);
+      return;
+    }
+    setDeleting(true);
     try {
       await deleteCategory(cat);
-      const freshData = await getCategories();
-      setCategories(freshData);
+      setCategories((prev) => prev.filter((c) => c.id !== id));
+      getCategories().then((fresh) => setCategories(fresh)).catch(() => {});
       if (typeof window !== "undefined") {
         window.dispatchEvent(new CustomEvent("categories-updated"));
       }
-      toast.success("Kategori silindi.");
-      setDeleteTarget(null);
-    } catch (err) {
+      toast.success("Kategori başarıyla silindi.");
+    } catch (err: any) {
       console.error("Firestore kategori silme hatası:", err);
-      toast.error("Kategori silinemedi. Firestore bağlantısını kontrol edin.");
+      toast.error(`Kategori silinemedi: ${err?.message || "Firestore bağlantısını kontrol edin."}`);
+    } finally {
+      setDeleting(false);
+      setDeleteTarget(null);
     }
   }
 
@@ -631,40 +638,58 @@ export default function AdminKategoriler() {
       {/* Delete confirm */}
       <AnimatePresence>
         {deleteTarget && (
-          <>
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 bg-[#0D0E11]/80 backdrop-blur-sm"
-              onClick={() => setDeleteTarget(null)}
+              className="fixed inset-0 bg-[#0D0E11]/80 backdrop-blur-sm"
+              onClick={() => !deleting && setDeleteTarget(null)}
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4"
+              className="relative z-10 bg-[#1B1D23] border border-[#282C36] rounded-2xl shadow-2xl p-6 max-w-sm w-full text-center text-slate-200"
+              onClick={(e) => e.stopPropagation()}
             >
-              <div className="bg-[#1B1D23] border border-[#282C36] rounded-2xl shadow-2xl p-6 max-w-sm w-full text-center text-slate-200" onClick={(e) => e.stopPropagation()}>
-                <div className="w-14 h-14 rounded-full bg-red-500/15 border border-red-500/30 flex items-center justify-center mx-auto mb-4">
-                  <AlertTriangle size={28} className="text-red-400" />
-                </div>
-                <h3 className="font-heading font-bold text-white text-lg mb-2">
-                  Silmek istediğinize emin misiniz?
-                </h3>
-                <p className="text-slate-400 text-sm mb-6">
-                  Bu kategori kalıcı olarak silinecektir.
-                </p>
-                <div className="flex gap-3">
-                  <button onClick={() => setDeleteTarget(null)} className="btn-secondary flex-1">İptal</button>
-                  <button onClick={() => handleDelete(deleteTarget)} className="flex-1 px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg font-semibold text-sm transition-colors">
-                    Sil
-                  </button>
-                </div>
+              <div className="w-14 h-14 rounded-full bg-red-500/15 border border-red-500/30 flex items-center justify-center mx-auto mb-4">
+                <AlertTriangle size={28} className="text-red-400" />
+              </div>
+              <h3 className="font-heading font-bold text-white text-lg mb-2">
+                Silmek istediğinize emin misiniz?
+              </h3>
+              <p className="text-slate-400 text-sm mb-6">
+                Bu kategori kalıcı olarak silinecektir.
+              </p>
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  disabled={deleting}
+                  onClick={() => setDeleteTarget(null)}
+                  className="btn-secondary flex-1"
+                >
+                  İptal
+                </button>
+                <button
+                  type="button"
+                  disabled={deleting}
+                  onClick={() => handleDelete(deleteTarget)}
+                  className="flex-1 px-4 py-2.5 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white rounded-lg font-semibold text-sm transition-colors flex items-center justify-center gap-2"
+                >
+                  {deleting ? (
+                    <>
+                      <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      <span>Siliniyor...</span>
+                    </>
+                  ) : (
+                    "Sil"
+                  )}
+                </button>
               </div>
             </motion.div>
-          </>
+          </div>
         )}
       </AnimatePresence>
     </div>

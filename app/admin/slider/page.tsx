@@ -23,6 +23,7 @@ export default function AdminSlider() {
   const [editTarget, setEditTarget] = useState<SliderItem | null>(null);
   const [deleteTarget, setDeleteTarget] = useState<SliderItem | null>(null);
   const [saving, setSaving] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -136,14 +137,20 @@ export default function AdminSlider() {
   }
 
   async function handleDelete(s: SliderItem) {
+    if (!s) {
+      setDeleteTarget(null);
+      return;
+    }
+    setDeleting(true);
     try {
       await deleteSlider(s);
       setSliders((prev) => prev.filter((x) => x.id !== s.id));
-      toast.success("Slider silindi.");
-    } catch (err) {
-      console.error(err);
-      toast.error("Silinemedi.");
+      toast.success("Slider başarıyla silindi.");
+    } catch (err: any) {
+      console.error("Slider silme hatası:", err);
+      toast.error(`Silinemedi: ${err?.message || "Bilinmeyen hata"}`);
     } finally {
+      setDeleting(false);
       setDeleteTarget(null);
     }
   }
@@ -534,47 +541,57 @@ export default function AdminSlider() {
       {/* Delete Confirmation */}
       <AnimatePresence>
         {deleteTarget && (
-          <>
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 bg-[#0D0E11]/80 backdrop-blur-sm"
-              onClick={() => setDeleteTarget(null)}
+              className="fixed inset-0 bg-[#0D0E11]/80 backdrop-blur-sm"
+              onClick={() => !deleting && setDeleteTarget(null)}
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4"
+              className="relative z-10 bg-[#1B1D23] border border-[#282C36] rounded-2xl shadow-2xl p-6 max-w-sm w-full text-center text-slate-200"
+              onClick={(e) => e.stopPropagation()}
             >
-              <div
-                className="bg-[#1B1D23] border border-[#282C36] rounded-2xl shadow-2xl p-6 max-w-sm w-full text-center text-slate-200"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="w-14 h-14 rounded-full bg-red-500/15 border border-red-500/30 flex items-center justify-center mx-auto mb-4">
-                  <AlertTriangle size={28} className="text-red-400" />
-                </div>
-                <h3 className="font-heading font-bold text-white text-lg mb-2">
-                  Slider&apos;ı Sil
-                </h3>
-                <p className="text-slate-400 text-sm mb-6">
-                  &quot;{deleteTarget.name}&quot; slider görseli kalıcı olarak silinecek.
-                </p>
-                <div className="flex gap-3">
-                  <button onClick={() => setDeleteTarget(null)} className="btn-secondary flex-1">
-                    İptal
-                  </button>
-                  <button
-                    onClick={() => handleDelete(deleteTarget)}
-                    className="flex-1 px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg font-semibold text-sm transition-colors"
-                  >
-                    Sil
-                  </button>
-                </div>
+              <div className="w-14 h-14 rounded-full bg-red-500/15 border border-red-500/30 flex items-center justify-center mx-auto mb-4">
+                <AlertTriangle size={28} className="text-red-400" />
+              </div>
+              <h3 className="font-heading font-bold text-white text-lg mb-2">
+                Slider&apos;ı Sil
+              </h3>
+              <p className="text-slate-400 text-sm mb-6">
+                &quot;{deleteTarget.name}&quot; slider görseli kalıcı olarak silinecek.
+              </p>
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  disabled={deleting}
+                  onClick={() => setDeleteTarget(null)}
+                  className="btn-secondary flex-1"
+                >
+                  İptal
+                </button>
+                <button
+                  type="button"
+                  disabled={deleting}
+                  onClick={() => handleDelete(deleteTarget)}
+                  className="flex-1 px-4 py-2.5 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white rounded-lg font-semibold text-sm transition-colors flex items-center justify-center gap-2"
+                >
+                  {deleting ? (
+                    <>
+                      <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      <span>Siliniyor...</span>
+                    </>
+                  ) : (
+                    "Sil"
+                  )}
+                </button>
               </div>
             </motion.div>
-          </>
+          </div>
         )}
       </AnimatePresence>
     </div>

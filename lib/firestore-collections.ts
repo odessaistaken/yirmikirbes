@@ -74,26 +74,25 @@ export async function deleteStoredImage(pathOrUrl?: string): Promise<void> {
 
   try {
     const storage = requireStorage();
+    let fileRef;
     if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
-      try {
-        const fileRef = storageRef(storage, trimmed);
-        await deleteObject(fileRef);
-        return;
-      } catch {
-        // Fallback: parse object path from Firebase Storage download URL
-        const match = trimmed.match(/\/o\/([^?]+)/);
-        if (match && match[1]) {
-          const decodedPath = decodeURIComponent(match[1]);
-          const pathRef = storageRef(storage, decodedPath);
-          await deleteObject(pathRef);
-          return;
-        }
+      const match = trimmed.match(/\/o\/([^?]+)/);
+      if (match && match[1]) {
+        const decodedPath = decodeURIComponent(match[1]);
+        fileRef = storageRef(storage, decodedPath);
+      } else {
+        fileRef = storageRef(storage, trimmed);
       }
     } else {
       // Relative path in storage bucket
-      const fileRef = storageRef(storage, trimmed);
-      await deleteObject(fileRef);
+      fileRef = storageRef(storage, trimmed);
     }
+
+    // Strict 2-second timeout so storage never hangs the user
+    await Promise.race([
+      deleteObject(fileRef),
+      new Promise((_, reject) => setTimeout(() => reject(new Error("Storage timeout")), 2000)),
+    ]);
   } catch (err) {
     // File may already be deleted or does not exist in storage; do not block operations
     console.warn("Firebase Storage görsel silme atlandı:", err);
@@ -102,12 +101,14 @@ export async function deleteStoredImage(pathOrUrl?: string): Promise<void> {
 
 /** Delete a slider and its Storage image */
 export async function deleteSlider(slider: SliderItem): Promise<void> {
-  if (slider.imageStoragePath) {
-    await deleteStoredImage(slider.imageStoragePath);
-  } else if (slider.imageUrl) {
-    await deleteStoredImage(slider.imageUrl);
-  }
+  // 1. Delete from Firestore first to guarantee immediate deletion
   await deleteDoc(doc(requireDb(), "sliders", slider.id));
+
+  // 2. Clean up Storage in background without blocking UI
+  const imgTarget = slider.imageStoragePath || slider.imageUrl;
+  if (imgTarget) {
+    deleteStoredImage(imgTarget).catch(() => {});
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -156,12 +157,14 @@ export async function updateCategory(id: string, data: Partial<Category>): Promi
 
 /** Delete a category and its Storage image */
 export async function deleteCategory(category: Category): Promise<void> {
-  if (category.imageStoragePath) {
-    await deleteStoredImage(category.imageStoragePath);
-  } else if (category.imageUrl) {
-    await deleteStoredImage(category.imageUrl);
-  }
+  // 1. Delete from Firestore first to guarantee immediate deletion
   await deleteDoc(doc(requireDb(), "categories", category.id));
+
+  // 2. Clean up Storage in background without blocking UI
+  const imgTarget = category.imageStoragePath || category.imageUrl;
+  if (imgTarget) {
+    deleteStoredImage(imgTarget).catch(() => {});
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -240,12 +243,14 @@ export async function cloneProduct(product: Product): Promise<string> {
 
 /** Delete a product and its Storage image */
 export async function deleteProduct(product: Product): Promise<void> {
-  if (product.imageStoragePath) {
-    await deleteStoredImage(product.imageStoragePath);
-  } else if (product.imageUrl) {
-    await deleteStoredImage(product.imageUrl);
-  }
+  // 1. Delete from Firestore first to guarantee immediate deletion
   await deleteDoc(doc(requireDb(), "products", product.id));
+
+  // 2. Clean up Storage in background without blocking UI
+  const imgTarget = product.imageStoragePath || product.imageUrl;
+  if (imgTarget) {
+    deleteStoredImage(imgTarget).catch(() => {});
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -293,12 +298,14 @@ export async function updateBrand(id: string, data: Partial<Brand>): Promise<voi
 
 /** Delete a brand and its Storage image */
 export async function deleteBrand(brand: Brand): Promise<void> {
-  if (brand.imageStoragePath) {
-    await deleteStoredImage(brand.imageStoragePath);
-  } else if (brand.imageUrl) {
-    await deleteStoredImage(brand.imageUrl);
-  }
+  // 1. Delete from Firestore first to guarantee immediate deletion
   await deleteDoc(doc(requireDb(), "brands", brand.id));
+
+  // 2. Clean up Storage in background without blocking UI
+  const imgTarget = brand.imageStoragePath || brand.imageUrl;
+  if (imgTarget) {
+    deleteStoredImage(imgTarget).catch(() => {});
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
