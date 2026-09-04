@@ -12,7 +12,7 @@ import {
 import toast from "react-hot-toast";
 import {
   getCategories, addCategory, updateCategory, deleteCategory,
-  uploadImage, compressImage, slugify,
+  uploadImage, compressImage, slugify, deleteStoredImage,
 } from "@/lib/firestore-collections";
 import type { Category } from "@/lib/types";
 
@@ -43,6 +43,21 @@ export default function AdminKategoriler() {
     } finally {
       setUploadProgress(null);
     }
+  }
+
+  async function handleRemoveImage() {
+    if (formData.imageStoragePath || formData.imageUrl) {
+      await deleteStoredImage(formData.imageStoragePath || formData.imageUrl);
+    }
+    setFormData((prev) => ({
+      ...prev,
+      imageUrl: "",
+      imageStoragePath: "",
+    }));
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+    toast.success("Kategori görseli kaldırıldı.");
   }
 
   const [formData, setFormData] = useState({
@@ -128,16 +143,13 @@ export default function AdminKategoriler() {
       const payload: Record<string, any> = {
         name: trimmedName,
         slug,
-        imageUrl: formData.imageUrl || "",
+        imageUrl: formData.imageUrl?.trim() || "",
+        imageStoragePath: formData.imageStoragePath || "",
         order: safeOrder,
         isActive: Boolean(formData.isActive),
         description: formData.description?.trim() || "",
-        ...(formData.parentId ? { parentId: formData.parentId } : {}),
+        ...(formData.parentId ? { parentId: formData.parentId } : { parentId: "" }),
       };
-
-      if (formData.imageStoragePath) {
-        payload.imageStoragePath = formData.imageStoragePath;
-      }
 
       if (editTarget) {
         await updateCategory(editTarget.id, payload as Partial<Category>);
@@ -358,11 +370,23 @@ export default function AdminKategoriler() {
                 </div>
 
                 <div className="p-6 space-y-4">
-                  {/* Image Upload with Drag & Drop */}
+                  {/* Image Upload */}
                   <div>
-                    <label className="block text-slate-300 text-xs font-semibold mb-2">
-                      Kategori Görseli (Sürükle & Bırak veya Tıkla)
-                    </label>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <label className="text-slate-300 text-xs font-semibold">
+                        Kategori Görseli
+                      </label>
+                      {formData.imageUrl && (
+                        <button
+                          type="button"
+                          onClick={handleRemoveImage}
+                          className="text-red-400 hover:text-red-300 text-xs font-medium flex items-center gap-1 hover:underline transition-colors cursor-pointer"
+                        >
+                          <Trash2 size={12} /> Görseli Kaldır / Sil
+                        </button>
+                      )}
+                    </div>
+
                     <div
                       onDragOver={(e) => {
                         e.preventDefault();
@@ -383,13 +407,13 @@ export default function AdminKategoriler() {
                           await handleFileSelect(file);
                         }
                       }}
-                      onClick={() => fileInputRef.current?.click()}
-                      className={`relative border-2 border-dashed rounded-xl p-5 flex flex-col items-center justify-center gap-2.5 cursor-pointer transition-all duration-200 ${
+                      onClick={() => !formData.imageUrl && fileInputRef.current?.click()}
+                      className={`relative border-2 border-dashed rounded-xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all duration-200 ${
                         isDragging
                           ? "border-gold bg-gold/15 scale-[1.02]"
                           : formData.imageUrl
-                          ? "border-[#282C36] bg-[#16181D] hover:border-gold"
-                          : "border-[#282C36] bg-[#16181D] hover:border-gold hover:bg-gold/5"
+                          ? "border-[#282C36] bg-[#16181D]"
+                          : "border-[#282C36] bg-[#16181D] hover:border-gold hover:bg-gold/5 cursor-pointer"
                       }`}
                     >
                       {isDragging ? (
@@ -401,11 +425,36 @@ export default function AdminKategoriler() {
                         </div>
                       ) : formData.imageUrl ? (
                         <div className="relative w-full aspect-video rounded-lg overflow-hidden group bg-[#121316]">
-                          <Image src={formData.imageUrl} alt="preview" fill sizes="(max-width: 768px) 100vw, 500px" quality={90} className="object-contain p-2" />
-                          <div className="absolute inset-0 bg-[#0D0E11]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span className="text-white text-xs font-semibold bg-[#1B1D23] border border-[#282C36] px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                              <Upload size={14} /> Değiştir (Sürükle veya Tıkla)
-                            </span>
+                          <Image
+                            src={formData.imageUrl}
+                            alt="preview"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 500px"
+                            quality={90}
+                            className="object-contain p-2"
+                          />
+                          {/* Hover action overlay */}
+                          <div className="absolute inset-0 bg-[#0D0E11]/75 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2.5">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                fileInputRef.current?.click();
+                              }}
+                              className="text-white text-xs font-semibold bg-[#1B1D23] hover:bg-[#282C36] border border-[#282C36] px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors shadow-md"
+                            >
+                              <Upload size={13} /> Değiştir
+                            </button>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleRemoveImage();
+                              }}
+                              className="text-red-300 text-xs font-semibold bg-red-950/80 hover:bg-red-900 border border-red-700/50 px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors shadow-md"
+                            >
+                              <Trash2 size={13} /> Görseli Sil
+                            </button>
                           </div>
                         </div>
                       ) : (
@@ -443,10 +492,28 @@ export default function AdminKategoriler() {
                       }}
                     />
 
-                    <p className="text-slate-400 text-xs mt-2">veya Görsel URL giriniz:</p>
+                    <div className="flex items-center justify-between gap-2 mt-2">
+                      <p className="text-slate-400 text-xs">veya Görsel URL giriniz:</p>
+                      {formData.imageUrl && (
+                        <button
+                          type="button"
+                          onClick={handleRemoveImage}
+                          className="text-red-400 hover:text-red-300 text-2xs flex items-center gap-1 hover:underline"
+                        >
+                          <Trash2 size={10} /> Görseli Temizle
+                        </button>
+                      )}
+                    </div>
                     <input
                       value={formData.imageUrl}
-                      onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        setFormData({
+                          ...formData,
+                          imageUrl: val,
+                          imageStoragePath: val ? formData.imageStoragePath : "",
+                        });
+                      }}
                       placeholder="https://..."
                       className="input mt-1 text-sm"
                     />

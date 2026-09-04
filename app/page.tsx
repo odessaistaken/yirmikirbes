@@ -193,7 +193,7 @@ export default function HomePage() {
               );
               return {
                 ...cat,
-                imageUrl: cat.imageUrl || mockCat?.imageUrl || "",
+                imageUrl: typeof cat.imageUrl === "string" ? cat.imageUrl : (mockCat?.imageUrl || ""),
               };
             })
           );
@@ -222,7 +222,7 @@ export default function HomePage() {
               );
               return {
                 ...brand,
-                imageUrl: brand.imageUrl || def?.imageUrl || "",
+                imageUrl: typeof brand.imageUrl === "string" ? brand.imageUrl : (def?.imageUrl || ""),
               };
             })
           );
@@ -235,7 +235,7 @@ export default function HomePage() {
               );
               return {
                 ...prod,
-                imageUrl: prod.imageUrl || mockProd?.imageUrl || "",
+                imageUrl: typeof prod.imageUrl === "string" ? prod.imageUrl : (mockProd?.imageUrl || ""),
               };
             })
           );

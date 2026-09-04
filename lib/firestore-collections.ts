@@ -55,12 +55,57 @@ export async function updateSlider(id: string, data: Partial<SliderItem>): Promi
   });
 }
 
+/** Safely delete an image file from Firebase Storage by path or URL */
+export async function deleteStoredImage(pathOrUrl?: string): Promise<void> {
+  if (!pathOrUrl || typeof pathOrUrl !== "string") return;
+  const trimmed = pathOrUrl.trim();
+  if (!trimmed) return;
+
+  // Skip data URLs, local assets (/...), and non-Firebase external URLs
+  if (
+    trimmed.startsWith("/") ||
+    trimmed.startsWith("data:") ||
+    (trimmed.startsWith("http") &&
+      !trimmed.includes("firebasestorage.googleapis.com") &&
+      !trimmed.includes("storage.googleapis.com"))
+  ) {
+    return;
+  }
+
+  try {
+    const storage = requireStorage();
+    if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+      try {
+        const fileRef = storageRef(storage, trimmed);
+        await deleteObject(fileRef);
+        return;
+      } catch {
+        // Fallback: parse object path from Firebase Storage download URL
+        const match = trimmed.match(/\/o\/([^?]+)/);
+        if (match && match[1]) {
+          const decodedPath = decodeURIComponent(match[1]);
+          const pathRef = storageRef(storage, decodedPath);
+          await deleteObject(pathRef);
+          return;
+        }
+      }
+    } else {
+      // Relative path in storage bucket
+      const fileRef = storageRef(storage, trimmed);
+      await deleteObject(fileRef);
+    }
+  } catch (err) {
+    // File may already be deleted or does not exist in storage; do not block operations
+    console.warn("Firebase Storage görsel silme atlandı:", err);
+  }
+}
+
 /** Delete a slider and its Storage image */
 export async function deleteSlider(slider: SliderItem): Promise<void> {
   if (slider.imageStoragePath) {
-    try {
-      await deleteObject(storageRef(requireStorage(), slider.imageStoragePath));
-    } catch { /* image may not exist */ }
+    await deleteStoredImage(slider.imageStoragePath);
+  } else if (slider.imageUrl) {
+    await deleteStoredImage(slider.imageUrl);
   }
   await deleteDoc(doc(requireDb(), "sliders", slider.id));
 }
@@ -112,9 +157,9 @@ export async function updateCategory(id: string, data: Partial<Category>): Promi
 /** Delete a category and its Storage image */
 export async function deleteCategory(category: Category): Promise<void> {
   if (category.imageStoragePath) {
-    try {
-      await deleteObject(storageRef(requireStorage(), category.imageStoragePath));
-    } catch { /* image may not exist */ }
+    await deleteStoredImage(category.imageStoragePath);
+  } else if (category.imageUrl) {
+    await deleteStoredImage(category.imageUrl);
   }
   await deleteDoc(doc(requireDb(), "categories", category.id));
 }
@@ -196,9 +241,9 @@ export async function cloneProduct(product: Product): Promise<string> {
 /** Delete a product and its Storage image */
 export async function deleteProduct(product: Product): Promise<void> {
   if (product.imageStoragePath) {
-    try {
-      await deleteObject(storageRef(requireStorage(), product.imageStoragePath));
-    } catch { /* image may not exist */ }
+    await deleteStoredImage(product.imageStoragePath);
+  } else if (product.imageUrl) {
+    await deleteStoredImage(product.imageUrl);
   }
   await deleteDoc(doc(requireDb(), "products", product.id));
 }
@@ -249,9 +294,9 @@ export async function updateBrand(id: string, data: Partial<Brand>): Promise<voi
 /** Delete a brand and its Storage image */
 export async function deleteBrand(brand: Brand): Promise<void> {
   if (brand.imageStoragePath) {
-    try {
-      await deleteObject(storageRef(requireStorage(), brand.imageStoragePath));
-    } catch { /* image may not exist */ }
+    await deleteStoredImage(brand.imageStoragePath);
+  } else if (brand.imageUrl) {
+    await deleteStoredImage(brand.imageUrl);
   }
   await deleteDoc(doc(requireDb(), "brands", brand.id));
 }

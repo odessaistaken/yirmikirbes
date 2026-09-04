@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 import {
-  getSliders, addSlider, updateSlider, deleteSlider, uploadImage,
+  getSliders, addSlider, updateSlider, deleteSlider, uploadImage, deleteStoredImage,
 } from "@/lib/firestore-collections";
 import type { SliderItem } from "@/lib/types";
 
@@ -35,6 +35,21 @@ export default function AdminSlider() {
     imageStoragePath: "",
     isActive: true,
   });
+
+  async function handleRemoveImage() {
+    if (form.imageStoragePath || form.imageUrl) {
+      await deleteStoredImage(form.imageStoragePath || form.imageUrl);
+    }
+    setForm((prev) => ({
+      ...prev,
+      imageUrl: "",
+      imageStoragePath: "",
+    }));
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+    toast.success("Slider görseli silindi. Lütfen yeni bir görsel seçin veya URL girin.");
+  }
 
   /* Load sliders on mount */
   useEffect(() => {
@@ -91,12 +106,12 @@ export default function AdminSlider() {
     setSaving(true);
     try {
       const payload: Omit<SliderItem, "id"> = {
-        name: form.name,
-        order: form.order,
-        targetUrl: form.targetUrl,
-        imageUrl: form.imageUrl,
-        imageAlt: form.imageAlt,
-        imageStoragePath: form.imageStoragePath || undefined,
+        name: form.name.trim(),
+        order: Number(form.order) || 0,
+        targetUrl: form.targetUrl.trim(),
+        imageUrl: form.imageUrl.trim(),
+        imageAlt: form.imageAlt.trim(),
+        imageStoragePath: form.imageStoragePath || "",
         isActive: form.isActive,
       };
 
@@ -303,23 +318,69 @@ export default function AdminSlider() {
                 <div className="p-6 space-y-5">
                   {/* Image Upload */}
                   <div>
-                    <label className="block text-slate-300 text-xs font-semibold mb-2">
-                      Slider Görseli (1920x600 önerilir)
-                    </label>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <label className="text-slate-300 text-xs font-semibold">
+                        Slider Görseli (1920x600 önerilir)
+                      </label>
+                      {form.imageUrl && (
+                        <button
+                          type="button"
+                          onClick={handleRemoveImage}
+                          className="text-red-400 hover:text-red-300 text-xs font-medium flex items-center gap-1 hover:underline transition-colors cursor-pointer"
+                        >
+                          <Trash2 size={12} /> Görseli Kaldır / Sil
+                        </button>
+                      )}
+                    </div>
+
                     <div
-                      className="border-2 border-dashed border-[#282C36] bg-[#16181D] rounded-xl p-4 flex flex-col items-center gap-3 cursor-pointer hover:border-gold transition-colors"
-                      onClick={() => fileInputRef.current?.click()}
+                      className={`border-2 border-dashed rounded-xl p-4 flex flex-col items-center gap-3 transition-colors ${
+                        form.imageUrl
+                          ? "border-[#282C36] bg-[#16181D]"
+                          : "border-[#282C36] bg-[#16181D] hover:border-gold cursor-pointer"
+                      }`}
+                      onClick={() => !form.imageUrl && fileInputRef.current?.click()}
                     >
                       {form.imageUrl ? (
-                        <div className="relative w-full aspect-[21/9] rounded-lg overflow-hidden bg-[#121316]">
-                          <Image src={form.imageUrl} alt="preview" fill sizes="(max-width: 768px) 100vw, 500px" quality={90} className="object-cover" />
+                        <div className="relative w-full aspect-[21/9] rounded-lg overflow-hidden group bg-[#121316]">
+                          <Image
+                            src={form.imageUrl}
+                            alt="preview"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 500px"
+                            quality={90}
+                            className="object-cover"
+                          />
+                          {/* Hover action overlay */}
+                          <div className="absolute inset-0 bg-[#0D0E11]/75 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2.5">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                fileInputRef.current?.click();
+                              }}
+                              className="text-white text-xs font-semibold bg-[#1B1D23] hover:bg-[#282C36] border border-[#282C36] px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors shadow-md"
+                            >
+                              <Upload size={13} /> Değiştir
+                            </button>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleRemoveImage();
+                              }}
+                              className="text-red-300 text-xs font-semibold bg-red-950/80 hover:bg-red-900 border border-red-700/50 px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors shadow-md"
+                            >
+                              <Trash2 size={13} /> Görseli Sil
+                            </button>
+                          </div>
                         </div>
                       ) : (
-                        <>
-                          <Upload size={28} className="text-slate-500" />
+                        <div className="text-center py-4">
+                          <Upload size={28} className="text-slate-500 mx-auto mb-2" />
                           <p className="text-slate-300 text-xs">Görsel yüklemek için tıklayın</p>
-                          <p className="text-slate-500 text-2xs">PNG, JPG, WEBP — Max 5MB</p>
-                        </>
+                          <p className="text-slate-500 text-2xs mt-1">PNG, JPG, WEBP — Max 5MB</p>
+                        </div>
                       )}
                       {uploadProgress !== null && (
                         <div className="w-full">
@@ -351,10 +412,29 @@ export default function AdminSlider() {
                         }
                       }}
                     />
-                    <p className="text-slate-400 text-xs mt-1.5">veya URL giriniz:</p>
+
+                    <div className="flex items-center justify-between gap-2 mt-2">
+                      <p className="text-slate-400 text-xs">veya URL giriniz:</p>
+                      {form.imageUrl && (
+                        <button
+                          type="button"
+                          onClick={handleRemoveImage}
+                          className="text-red-400 hover:text-red-300 text-2xs flex items-center gap-1 hover:underline"
+                        >
+                          <Trash2 size={10} /> Görseli Temizle
+                        </button>
+                      )}
+                    </div>
                     <input
                       value={form.imageUrl}
-                      onChange={(e) => setForm({ ...form, imageUrl: e.target.value })}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        setForm({
+                          ...form,
+                          imageUrl: val,
+                          imageStoragePath: val ? form.imageStoragePath : "",
+                        });
+                      }}
                       placeholder="https://..."
                       className="input mt-1 text-sm"
                     />
