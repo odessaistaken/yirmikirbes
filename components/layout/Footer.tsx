@@ -154,10 +154,15 @@ export default async function Footer() {
                 </div>
                 <div>
                   <p className="text-white text-sm font-medium">Firma / Adres</p>
-                  <p className="text-charcoal-400 text-xs leading-relaxed mt-0.5">
-                    <strong className="text-charcoal-200">YKB GIDA - 20:45 Pastacılık</strong><br />
-                    İstanbul, Türkiye
-                  </p>
+                  <a
+                    href="https://maps.app.goo.gl/73MbWwGjFQdZ2mLE6"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-charcoal-400 hover:text-gold text-xs leading-relaxed mt-0.5 block transition-colors group"
+                  >
+                    <strong className="text-charcoal-200 group-hover:text-gold transition-colors">YKB GIDA - 20:45 Pastacılık</strong><br />
+                    Yeni, 5105. Sk. No:46, 41420 Çayırova/Kocaeli
+                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">

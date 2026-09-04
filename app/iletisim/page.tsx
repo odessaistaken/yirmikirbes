@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import {
   Phone, Mail, MapPin, Clock, MessageCircle,
-  Send, CheckCircle, AlertCircle, Building2,
+  Send, CheckCircle, AlertCircle, Building2, Navigation,
 } from "lucide-react";
 
 const schema = z.object({
@@ -48,9 +48,9 @@ const contactCards = [
   {
     icon: <MapPin size={22} />,
     title: "Firma / Adres",
-    lines: ["YKB GIDA - 20:45 Pastacılık", "İstanbul, Türkiye"],
-    sub: "B2B Toptan Tedarik",
-    href: "https://maps.google.com",
+    lines: ["Yeni, 5105. Sk. No:46", "41420 Çayırova / Kocaeli"],
+    sub: "YKB GIDA - 20:45 Pastacılık",
+    href: "https://maps.app.goo.gl/73MbWwGjFQdZ2mLE6",
     cta: "Haritada Gör",
   },
 ];
@@ -263,18 +263,52 @@ export default function IletisimPage() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="lg:col-span-2 space-y-5"
           >
-            {/* Map placeholder */}
-            <div className="rounded-2xl overflow-hidden border border-[#282C36] shadow-card bg-[#16181D] relative h-64">
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#16181D] gap-3">
-                <MapPin size={28} className="text-gold" />
-                <p className="text-white font-semibold text-sm">Bağcılar, İstanbul</p>
+            {/* Google Maps Container */}
+            <div className="rounded-2xl overflow-hidden border border-[#282C36] shadow-card bg-[#1B1D23] flex flex-col">
+              <div className="p-4 border-b border-[#282C36] flex items-center justify-between bg-[#16181D]">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-gold/15 text-gold flex items-center justify-center shrink-0">
+                    <MapPin size={16} />
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-semibold text-white text-sm">Konumumuz</h3>
+                    <p className="text-slate-400 text-xs">Çayırova / Kocaeli</p>
+                  </div>
+                </div>
                 <a
-                  href="https://maps.google.com/?q=Bagcilar+Istanbul"
+                  href="https://maps.app.goo.gl/73MbWwGjFQdZ2mLE6"
                   target="_blank"
                   rel="noreferrer"
-                  className="btn-gold-outline text-xs py-1.5 px-4"
+                  className="btn-gold-outline text-xs py-1.5 px-3 flex items-center gap-1.5 hover:shadow-gold transition-all"
                 >
-                  Haritada Aç
+                  <Navigation size={13} />
+                  Yol Tarifi Al
+                </a>
+              </div>
+
+              <div className="relative w-full h-72 sm:h-80 bg-[#121316]">
+                <iframe
+                  title="YKB Gıda / 20:45 Pastacılık Harita Konumu"
+                  src="https://maps.google.com/maps?q=40.8210718,29.3710342&hl=tr&z=16&output=embed"
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+
+              <div className="p-4 bg-[#16181D] border-t border-[#282C36] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                <div className="text-slate-300">
+                  <span className="font-semibold text-white">Adres: </span>
+                  Yeni, 5105. Sk. No:46, 41420 Çayırova/Kocaeli
+                </div>
+                <a
+                  href="https://maps.app.goo.gl/73MbWwGjFQdZ2mLE6"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-gold hover:underline font-semibold flex items-center gap-1 shrink-0"
+                >
+                  Haritada Aç →
                 </a>
               </div>
             </div>
@@ -309,10 +343,10 @@ export default function IletisimPage() {
               </div>
               <div className="space-y-2.5 text-sm">
                 {[
-                  { label: "Unvan", value: "20:45 Pastacılık Gıda A.Ş." },
-                  { label: "Vergi Dairesi", value: "Bağcılar VD" },
-                  { label: "Vergi No", value: "1234567890" },
-                  { label: "Ticaret Sicil", value: "İstanbul / 123456" },
+                  { label: "Unvan", value: "20:45 Pastacılık — YKB Gıda" },
+                  { label: "Adres", value: "Yeni, 5105. Sk. No:46, 41420 Çayırova/Kocaeli" },
+                  { label: "Dağıtım", value: "81 İl & Marmara B2B Tedarik" },
+                  { label: "Ticaret Sicil", value: "Kocaeli / Gebze" },
                 ].map((row) => (
                   <div key={row.label} className="flex items-start gap-2">
                     <span className="text-slate-400 w-28 shrink-0">{row.label}</span>

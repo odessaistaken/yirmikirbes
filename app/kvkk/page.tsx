@@ -11,8 +11,8 @@ const sections = [
     content: `6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, kişisel verileriniz; veri sorumlusu sıfatıyla 20:45 Pastacılık Gıda A.Ş. ("Şirket") tarafından aşağıda açıklanan kapsamda işlenecektir.
 
 Şirket Unvanı: 20:45 Pastacılık Gıda A.Ş.
-Adres: Atatürk Mah. Gıda Çarşısı No:45/B, Bağcılar / İstanbul
-E-posta: kvkk@2045pastaci.com`,
+Adres: Yeni, 5105. Sk. No:46, 41420 Çayırova / Kocaeli
+E-posta: ykbgida@gmail.com`,
   },
   {
     title: "2. İşlenen Kişisel Veriler",
