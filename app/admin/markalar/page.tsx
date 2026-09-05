@@ -152,15 +152,15 @@ export default function AdminMarkalar() {
   }
 
   return (
-    <div className="p-8">
+    <div className="p-8 text-slate-800">
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
           <p className="section-label">Admin</p>
-          <h1 className="font-heading font-bold text-white text-3xl">
+          <h1 className="font-heading font-bold text-slate-900 text-3xl">
             Markalar
           </h1>
-          <p className="text-slate-400 text-sm mt-1">
+          <p className="text-slate-500 text-sm mt-1">
             Ana sayfada gösterilen marka logolarını yönetin.
           </p>
         </div>
@@ -171,36 +171,36 @@ export default function AdminMarkalar() {
       </div>
 
       {/* Table */}
-      <div className="bg-[#1B1D23] border border-[#282C36] rounded-2xl overflow-hidden shadow-xl">
+      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-[#121316] border-b border-[#282C36]">
+            <thead className="bg-slate-50 border-b border-slate-200">
               <tr>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider w-8" />
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider w-20">
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider w-8" />
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider w-20">
                   Logo
                 </th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                   Marka Adı
                 </th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                   Altyazı
                 </th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                   Hedef URL
                 </th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                   Sıra
                 </th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                   Durum
                 </th>
-                <th className="text-right py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                <th className="text-right py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                   İşlemler
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#282C36]">
+            <tbody className="divide-y divide-slate-100">
               {loading ? (
                 <tr>
                   <td colSpan={8} className="py-12 text-center">
@@ -210,8 +210,8 @@ export default function AdminMarkalar() {
               ) : brands.length === 0 ? (
                 <tr>
                   <td colSpan={8} className="text-center py-12">
-                    <Award size={32} className="text-slate-500 mx-auto mb-3" />
-                    <p className="text-slate-400 text-sm">Henüz marka eklenmemiş.</p>
+                    <Award size={32} className="text-slate-400 mx-auto mb-3" />
+                    <p className="text-slate-500 text-sm">Henüz marka eklenmemiş.</p>
                     <button onClick={openAdd} className="btn-gold-outline mt-4 text-xs">
                       <Plus size={14} />
                       İlk Markayı Ekle
@@ -222,26 +222,26 @@ export default function AdminMarkalar() {
                 brands
                   .sort((a, b) => a.order - b.order)
                   .map((b) => (
-                    <tr key={b.id} className="hover:bg-[#16181D] transition-colors">
-                      <td className="py-3.5 px-5 text-slate-500">
+                    <tr key={b.id} className="hover:bg-slate-50 transition-colors">
+                      <td className="py-3.5 px-5 text-slate-400">
                         <GripVertical size={16} />
                       </td>
                       <td className="py-3.5 px-5">
-                        <div className="w-14 h-14 rounded-xl overflow-hidden bg-[#16181D] relative shrink-0 border border-[#282C36]">
+                        <div className="w-14 h-14 rounded-xl overflow-hidden bg-slate-50 relative shrink-0 border border-slate-200">
                           {b.imageUrl ? (
                             <Image src={b.imageUrl} alt={b.name} fill sizes="56px" quality={90} className="object-contain p-1" />
                           ) : (
                             <div className="absolute inset-0 flex items-center justify-center">
-                              <ImageIcon size={16} className="text-slate-500" />
+                              <ImageIcon size={16} className="text-slate-400" />
                             </div>
                           )}
                         </div>
                       </td>
                       <td className="py-3.5 px-5">
-                        <p className="font-semibold text-white text-sm">{b.name}</p>
+                        <p className="font-semibold text-slate-900 text-sm">{b.name}</p>
                       </td>
                       <td className="py-3.5 px-5">
-                        <p className="text-slate-400 text-sm">{b.subtitle || "—"}</p>
+                        <p className="text-slate-500 text-sm">{b.subtitle || "—"}</p>
                       </td>
                       <td className="py-3.5 px-5">
                         {b.targetUrl ? (
@@ -249,17 +249,17 @@ export default function AdminMarkalar() {
                             href={b.targetUrl}
                             target="_blank"
                             rel="noreferrer"
-                            className="flex items-center gap-1 text-gold text-xs hover:text-gold-300"
+                            className="flex items-center gap-1 text-gold-600 text-xs hover:text-gold-700"
                           >
                             <ExternalLink size={11} />
                             {b.targetUrl.length > 25 ? b.targetUrl.slice(0, 25) + "…" : b.targetUrl}
                           </a>
                         ) : (
-                          <span className="text-slate-500 text-xs">—</span>
+                          <span className="text-slate-400 text-xs">—</span>
                         )}
                       </td>
                       <td className="py-3.5 px-5">
-                        <span className="text-slate-300 text-sm">{b.order}</span>
+                        <span className="text-slate-700 text-sm">{b.order}</span>
                       </td>
                       <td className="py-3.5 px-5">
                         <span className={`badge ${b.isActive ? "badge-green" : "badge-red"}`}>
@@ -276,7 +276,7 @@ export default function AdminMarkalar() {
                           </button>
                           <button
                             onClick={() => setDeleteTarget(b)}
-                            className="p-2 rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-colors"
+                            className="p-2 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 transition-colors"
                           >
                             <Trash2 size={15} />
                           </button>
@@ -298,27 +298,28 @@ export default function AdminMarkalar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 bg-[#0D0E11]/80 backdrop-blur-sm"
+              className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm"
               onClick={() => setModalOpen(false)}
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
             >
               <div
-                className="bg-[#1B1D23] border border-[#282C36] rounded-2xl shadow-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto text-slate-200"
+                className="bg-white border border-slate-200 rounded-2xl shadow-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto text-slate-800"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="flex items-center justify-between px-6 py-5 border-b border-[#282C36] bg-[#121316]">
+                <div className="flex items-center justify-between px-6 py-5 border-b border-slate-200 bg-slate-50">
                   <div className="flex items-center gap-2">
-                    <Award size={18} className="text-gold" />
-                    <h2 className="font-heading font-bold text-white text-lg">
+                    <Award size={18} className="text-gold-600" />
+                    <h2 className="font-heading font-bold text-slate-900 text-lg">
                       {editTarget ? "Markayı Düzenle" : "Yeni Marka Ekle"}
                     </h2>
                   </div>
-                  <button onClick={() => setModalOpen(false)} className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-[#16181D]">
+                  <button onClick={() => setModalOpen(false)} className="p-2 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100">
                     <X size={18} />
                   </button>
                 </div>
@@ -327,14 +328,14 @@ export default function AdminMarkalar() {
                   {/* Logo Upload */}
                   <div>
                     <div className="flex items-center justify-between mb-1.5">
-                      <label className="text-slate-300 text-xs font-semibold">
+                      <label className="text-slate-700 text-xs font-semibold">
                         Marka Logosu
                       </label>
                       {form.imageUrl && (
                         <button
                           type="button"
                           onClick={handleRemoveImage}
-                          className="text-red-400 hover:text-red-300 text-xs font-medium flex items-center gap-1 hover:underline transition-colors cursor-pointer"
+                          className="text-red-500 hover:text-red-600 text-xs font-medium flex items-center gap-1 hover:underline transition-colors cursor-pointer"
                         >
                           <Trash2 size={12} /> Logoyu Kaldır / Sil
                         </button>
@@ -344,23 +345,23 @@ export default function AdminMarkalar() {
                     <div
                       className={`border-2 border-dashed rounded-xl p-4 flex flex-col items-center gap-3 transition-colors ${
                         form.imageUrl
-                          ? "border-[#282C36] bg-[#16181D]"
-                          : "border-[#282C36] bg-[#16181D] hover:border-gold cursor-pointer"
+                          ? "border-slate-200 bg-slate-50"
+                          : "border-slate-300 bg-slate-50 hover:border-gold cursor-pointer"
                       }`}
                       onClick={() => !form.imageUrl && fileInputRef.current?.click()}
                     >
                       {form.imageUrl ? (
-                        <div className="relative w-32 h-32 rounded-lg overflow-hidden group bg-[#121316]">
+                        <div className="relative w-32 h-32 rounded-lg overflow-hidden group bg-slate-100">
                           <Image src={form.imageUrl} alt="preview" fill sizes="128px" quality={90} className="object-contain p-2" />
                           {/* Hover action overlay */}
-                          <div className="absolute inset-0 bg-[#0D0E11]/75 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                          <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                             <button
                               type="button"
                               onClick={(e) => {
                                 e.stopPropagation();
                                 fileInputRef.current?.click();
                               }}
-                              className="text-white text-xs font-semibold bg-[#1B1D23] hover:bg-[#282C36] border border-[#282C36] px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition-colors shadow-md"
+                              className="text-white text-xs font-semibold bg-white/20 hover:bg-white/30 backdrop-blur-sm px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition-colors shadow-md"
                             >
                               <Upload size={12} /> Değiştir
                             </button>
@@ -370,7 +371,7 @@ export default function AdminMarkalar() {
                                 e.stopPropagation();
                                 handleRemoveImage();
                               }}
-                              className="text-red-300 text-xs font-semibold bg-red-950/80 hover:bg-red-900 border border-red-700/50 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition-colors shadow-md"
+                              className="text-white text-xs font-semibold bg-red-600/80 hover:bg-red-600 backdrop-blur-sm px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition-colors shadow-md"
                             >
                               <Trash2 size={12} /> Sil
                             </button>
@@ -378,20 +379,20 @@ export default function AdminMarkalar() {
                         </div>
                       ) : (
                         <div className="text-center py-4">
-                          <Upload size={28} className="text-slate-500 mx-auto mb-2" />
-                          <p className="text-slate-300 text-xs">Logo yüklemek için tıklayın</p>
-                          <p className="text-slate-500 text-2xs mt-1">PNG, SVG, JPG, WEBP</p>
+                          <Upload size={28} className="text-slate-400 mx-auto mb-2" />
+                          <p className="text-slate-700 text-xs font-semibold">Logo yüklemek için tıklayın</p>
+                          <p className="text-slate-400 text-2xs mt-1">PNG, SVG, JPG, WEBP</p>
                         </div>
                       )}
                       {uploadProgress !== null && (
                         <div className="w-full">
-                          <div className="h-1.5 bg-[#282C36] rounded-full overflow-hidden">
+                          <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-gold transition-all duration-300"
                               style={{ width: `${uploadProgress}%` }}
                             />
                           </div>
-                          <p className="text-xs text-slate-400 mt-1 text-center">{uploadProgress}%</p>
+                          <p className="text-xs text-slate-500 mt-1 text-center">{uploadProgress}%</p>
                         </div>
                       )}
                     </div>
@@ -415,12 +416,12 @@ export default function AdminMarkalar() {
                     />
 
                     <div className="flex items-center justify-between gap-2 mt-2">
-                      <p className="text-slate-400 text-xs">veya URL giriniz:</p>
+                      <p className="text-slate-500 text-xs">veya URL giriniz:</p>
                       {form.imageUrl && (
                         <button
                           type="button"
                           onClick={handleRemoveImage}
-                          className="text-red-400 hover:text-red-300 text-2xs flex items-center gap-1 hover:underline"
+                          className="text-red-500 hover:text-red-600 text-2xs flex items-center gap-1 hover:underline"
                         >
                           <Trash2 size={10} /> Logoyu Temizle
                         </button>
@@ -443,7 +444,7 @@ export default function AdminMarkalar() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">
                         Marka Adı *
                       </label>
                       <input
@@ -454,7 +455,7 @@ export default function AdminMarkalar() {
                       />
                     </div>
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">
                         Sıralama
                       </label>
                       <input
@@ -467,7 +468,7 @@ export default function AdminMarkalar() {
                   </div>
 
                   <div>
-                    <label className="block text-slate-300 text-xs font-semibold mb-1.5">
+                    <label className="block text-slate-700 text-xs font-semibold mb-1.5">
                       Altyazı
                     </label>
                     <input
@@ -479,7 +480,7 @@ export default function AdminMarkalar() {
                   </div>
 
                   <div>
-                    <label className="block text-slate-300 text-xs font-semibold mb-1.5">
+                    <label className="block text-slate-700 text-xs font-semibold mb-1.5">
                       Hedef URL
                     </label>
                     <input
@@ -495,13 +496,13 @@ export default function AdminMarkalar() {
                     <button
                       type="button"
                       onClick={() => setForm({ ...form, isActive: !form.isActive })}
-                      className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${form.isActive ? "bg-gold" : "bg-[#282C36]"}`}
+                      className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${form.isActive ? "bg-gold" : "bg-slate-200"}`}
                     >
                       <span
                         className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200 ${form.isActive ? "translate-x-5" : "translate-x-0.5"}`}
                       />
                     </button>
-                    <span className="text-slate-300 text-sm font-medium">
+                    <span className="text-slate-700 text-sm font-medium">
                       {form.isActive ? "Aktif (sayfada görünür)" : "Pasif (gizli)"}
                     </span>
                   </div>
@@ -540,23 +541,24 @@ export default function AdminMarkalar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-[#0D0E11]/80 backdrop-blur-sm"
+              className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm"
               onClick={() => !deleting && setDeleteTarget(null)}
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="relative z-10 bg-[#1B1D23] border border-[#282C36] rounded-2xl shadow-2xl p-6 max-w-sm w-full text-center text-slate-200"
+              transition={{ duration: 0.2 }}
+              className="relative z-10 bg-white border border-slate-200 rounded-2xl shadow-2xl p-6 max-w-sm w-full text-center text-slate-800"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="w-14 h-14 rounded-full bg-red-500/15 border border-red-500/30 flex items-center justify-center mx-auto mb-4">
-                <AlertTriangle size={28} className="text-red-400" />
+              <div className="w-14 h-14 rounded-full bg-red-50 border border-red-200 flex items-center justify-center mx-auto mb-4">
+                <AlertTriangle size={28} className="text-red-500" />
               </div>
-              <h3 className="font-heading font-bold text-white text-lg mb-2">
+              <h3 className="font-heading font-bold text-slate-900 text-lg mb-2">
                 Markayı Sil
               </h3>
-              <p className="text-slate-400 text-sm mb-6">
+              <p className="text-slate-500 text-sm mb-6">
                 &quot;{deleteTarget.name}&quot; markası kalıcı olarak silinecek.
               </p>
               <div className="flex gap-3">

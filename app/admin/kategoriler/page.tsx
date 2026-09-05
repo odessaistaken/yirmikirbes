@@ -204,12 +204,12 @@ export default function AdminKategoriler() {
   }
 
   return (
-    <div className="p-8 text-slate-200">
+    <div className="p-8 text-slate-800">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
         <div>
           <p className="section-label">Admin</p>
-          <h1 className="font-heading font-bold text-white text-3xl">
+          <h1 className="font-heading font-bold text-slate-900 text-3xl">
             Kategoriler <span className="text-slate-500 text-lg font-normal">({categories.length})</span>
           </h1>
         </div>
@@ -221,7 +221,7 @@ export default function AdminKategoriler() {
               placeholder="Kategori ara..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 bg-[#1B1D23] border border-[#282C36] rounded-xl text-white text-xs placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-gold"
+              className="w-full pl-9 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-slate-900 text-xs placeholder:text-slate-400 focus:outline-none focus:border-gold"
             />
           </div>
           <button onClick={openAdd} className="btn-primary shadow-gold shrink-0">
@@ -232,36 +232,36 @@ export default function AdminKategoriler() {
       </div>
 
       {/* Table */}
-      <div className="bg-[#1B1D23] border border-[#282C36] rounded-2xl overflow-hidden shadow-xl">
+      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-[#121316] border-b border-[#282C36]">
+            <thead className="bg-slate-50 border-b border-slate-200">
               <tr>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider w-8" />
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider w-16">
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider w-8" />
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider w-16">
                   Görsel
                 </th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                   Kategori
                 </th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                   Slug
                 </th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                   Üst Kat.
                 </th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                   Sıra
                 </th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                   Durum
                 </th>
-                <th className="text-right py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                <th className="text-right py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                   İşlemler
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#282C36]">
+            <tbody className="divide-y divide-slate-100">
               {loading ? (
                 <tr>
                   <td colSpan={8} className="py-12 text-center">
@@ -278,43 +278,43 @@ export default function AdminKategoriler() {
                   )
                   .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
                   .map((cat) => (
-                    <tr key={cat.id} className="hover:bg-[#16181D] transition-colors">
-                      <td className="py-3.5 px-5 text-slate-500">
+                    <tr key={cat.id} className="hover:bg-slate-50 transition-colors">
+                      <td className="py-3.5 px-5 text-slate-400">
                         <GripVertical size={16} />
                       </td>
                       <td className="py-3.5 px-5">
-                        <div className="w-12 h-12 rounded-xl overflow-hidden bg-[#16181D] border border-[#282C36] relative shrink-0">
+                        <div className="w-12 h-12 rounded-xl overflow-hidden bg-slate-50 border border-slate-200 relative shrink-0">
                           {cat.imageUrl ? (
                             <Image src={cat.imageUrl} alt={cat.name} fill sizes="48px" quality={85} className="object-contain p-1" />
                           ) : (
                             <div className="absolute inset-0 flex items-center justify-center">
-                              <ImageIcon size={16} className="text-slate-500" />
+                              <ImageIcon size={16} className="text-slate-400" />
                             </div>
                           )}
                         </div>
                       </td>
                       <td className="py-3.5 px-5">
-                        <p className="font-semibold text-white text-sm">{cat.name}</p>
+                        <p className="font-semibold text-slate-900 text-sm">{cat.name}</p>
                         {cat.description && (
-                          <p className="text-slate-400 text-xs mt-0.5 line-clamp-1">{cat.description}</p>
+                          <p className="text-slate-500 text-xs mt-0.5 line-clamp-1">{cat.description}</p>
                         )}
                       </td>
                       <td className="py-3.5 px-5">
-                        <code className="text-xs bg-[#121316] text-gold border border-[#282C36] px-2 py-0.5 rounded font-mono">
+                        <code className="text-xs bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded font-mono">
                           {cat.slug}
                         </code>
                       </td>
                       <td className="py-3.5 px-5">
                         {cat.parentId ? (
-                          <span className="text-xs text-slate-400 bg-[#121316] border border-[#282C36] px-2 py-0.5 rounded">
+                          <span className="text-xs text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded">
                             {categories.find((c) => c.id === cat.parentId)?.name ?? cat.parentId}
                           </span>
                         ) : (
-                          <span className="text-slate-600 text-xs">—</span>
+                          <span className="text-slate-400 text-xs">—</span>
                         )}
                       </td>
                       <td className="py-3.5 px-5">
-                        <span className="text-slate-300 text-sm">{cat.order}</span>
+                        <span className="text-slate-700 text-sm">{cat.order}</span>
                       </td>
                       <td className="py-3.5 px-5">
                         <span className={`badge ${cat.isActive ? "badge-green" : "badge-red"}`}>
@@ -331,7 +331,7 @@ export default function AdminKategoriler() {
                           </button>
                           <button
                             onClick={() => setDeleteTarget(cat.id)}
-                            className="p-2 rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-colors"
+                            className="p-2 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 transition-colors"
                           >
                             <Trash2 size={15} />
                           </button>
@@ -353,7 +353,7 @@ export default function AdminKategoriler() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 bg-[#0D0E11]/80 backdrop-blur-sm"
+              className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm"
               onClick={() => setModalOpen(false)}
             />
             <motion.div
@@ -363,15 +363,15 @@ export default function AdminKategoriler() {
               transition={{ duration: 0.2 }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
             >
-              <div className="bg-[#1B1D23] border border-[#282C36] rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto text-slate-200" onClick={(e) => e.stopPropagation()}>
-                <div className="flex items-center justify-between px-6 py-5 border-b border-[#282C36] bg-[#121316]">
+              <div className="bg-white border border-slate-200 rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto text-slate-800" onClick={(e) => e.stopPropagation()}>
+                <div className="flex items-center justify-between px-6 py-5 border-b border-slate-200 bg-slate-50">
                   <div className="flex items-center gap-2">
-                    <Tag size={18} className="text-gold" />
-                    <h2 className="font-heading font-bold text-white text-lg">
+                    <Tag size={18} className="text-gold-600" />
+                    <h2 className="font-heading font-bold text-slate-900 text-lg">
                       {editTarget ? "Kategoriyi Düzenle" : "Yeni Kategori"}
                     </h2>
                   </div>
-                  <button onClick={() => setModalOpen(false)} className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-[#16181D]">
+                  <button onClick={() => setModalOpen(false)} className="p-2 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100">
                     <X size={18} />
                   </button>
                 </div>
@@ -380,14 +380,14 @@ export default function AdminKategoriler() {
                   {/* Image Upload */}
                   <div>
                     <div className="flex items-center justify-between mb-1.5">
-                      <label className="text-slate-300 text-xs font-semibold">
+                      <label className="text-slate-700 text-xs font-semibold">
                         Kategori Görseli
                       </label>
                       {formData.imageUrl && (
                         <button
                           type="button"
                           onClick={handleRemoveImage}
-                          className="text-red-400 hover:text-red-300 text-xs font-medium flex items-center gap-1 hover:underline transition-colors cursor-pointer"
+                          className="text-red-500 hover:text-red-600 text-xs font-medium flex items-center gap-1 hover:underline transition-colors cursor-pointer"
                         >
                           <Trash2 size={12} /> Görseli Kaldır / Sil
                         </button>
@@ -419,19 +419,19 @@ export default function AdminKategoriler() {
                         isDragging
                           ? "border-gold bg-gold/15 scale-[1.02]"
                           : formData.imageUrl
-                          ? "border-[#282C36] bg-[#16181D]"
-                          : "border-[#282C36] bg-[#16181D] hover:border-gold hover:bg-gold/5 cursor-pointer"
+                          ? "border-slate-200 bg-slate-50"
+                          : "border-slate-300 bg-slate-50 hover:border-gold hover:bg-gold/5 cursor-pointer"
                       }`}
                     >
                       {isDragging ? (
                         <div className="text-center py-4">
-                          <Upload size={32} className="text-gold animate-bounce mx-auto mb-1.5" />
-                          <p className="font-heading font-semibold text-gold text-xs">
+                          <Upload size={32} className="text-gold-600 animate-bounce mx-auto mb-1.5" />
+                          <p className="font-heading font-semibold text-gold-600 text-xs">
                             Resmi Buraya Bırakın
                           </p>
                         </div>
                       ) : formData.imageUrl ? (
-                        <div className="relative w-full aspect-video rounded-lg overflow-hidden group bg-[#121316]">
+                        <div className="relative w-full aspect-video rounded-lg overflow-hidden group bg-slate-100">
                           <Image
                             src={formData.imageUrl}
                             alt="preview"
@@ -441,14 +441,14 @@ export default function AdminKategoriler() {
                             className="object-contain p-2"
                           />
                           {/* Hover action overlay */}
-                          <div className="absolute inset-0 bg-[#0D0E11]/75 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2.5">
+                          <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2.5">
                             <button
                               type="button"
                               onClick={(e) => {
                                 e.stopPropagation();
                                 fileInputRef.current?.click();
                               }}
-                              className="text-white text-xs font-semibold bg-[#1B1D23] hover:bg-[#282C36] border border-[#282C36] px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors shadow-md"
+                              className="text-white text-xs font-semibold bg-white/20 hover:bg-white/30 backdrop-blur-sm px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors shadow-md"
                             >
                               <Upload size={13} /> Değiştir
                             </button>
@@ -458,7 +458,7 @@ export default function AdminKategoriler() {
                                 e.stopPropagation();
                                 handleRemoveImage();
                               }}
-                              className="text-red-300 text-xs font-semibold bg-red-950/80 hover:bg-red-900 border border-red-700/50 px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors shadow-md"
+                              className="text-white text-xs font-semibold bg-red-600/80 hover:bg-red-600 backdrop-blur-sm px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors shadow-md"
                             >
                               <Trash2 size={13} /> Görseli Sil
                             </button>
@@ -467,7 +467,7 @@ export default function AdminKategoriler() {
                       ) : (
                         <div className="text-center py-2">
                           <Upload size={28} className="text-slate-400 mx-auto mb-2" />
-                          <p className="text-slate-200 text-xs font-semibold">
+                          <p className="text-slate-700 text-xs font-semibold">
                             Resmi buraya sürükleyip bırakın
                           </p>
                           <p className="text-slate-400 text-2xs mt-1">
@@ -478,10 +478,10 @@ export default function AdminKategoriler() {
 
                       {uploadProgress !== null && (
                         <div className="w-full mt-2">
-                          <div className="h-1.5 bg-[#282C36] rounded-full overflow-hidden">
+                          <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
                             <div className="h-full bg-gold transition-all duration-300" style={{ width: `${uploadProgress}%` }} />
                           </div>
-                          <p className="text-xs text-slate-400 mt-1 text-center">Yükleniyor... %{uploadProgress}</p>
+                          <p className="text-xs text-slate-500 mt-1 text-center">Yükleniyor... %{uploadProgress}</p>
                         </div>
                       )}
                     </div>
@@ -500,12 +500,12 @@ export default function AdminKategoriler() {
                     />
 
                     <div className="flex items-center justify-between gap-2 mt-2">
-                      <p className="text-slate-400 text-xs">veya Görsel URL giriniz:</p>
+                      <p className="text-slate-500 text-xs">veya Görsel URL giriniz:</p>
                       {formData.imageUrl && (
                         <button
                           type="button"
                           onClick={handleRemoveImage}
-                          className="text-red-400 hover:text-red-300 text-2xs flex items-center gap-1 hover:underline"
+                          className="text-red-500 hover:text-red-600 text-2xs flex items-center gap-1 hover:underline"
                         >
                           <Trash2 size={10} /> Görseli Temizle
                         </button>
@@ -528,7 +528,7 @@ export default function AdminKategoriler() {
 
                   {/* Name */}
                   <div>
-                    <label className="block text-slate-300 text-xs font-semibold mb-1.5">Kategori Adı *</label>
+                    <label className="block text-slate-700 text-xs font-semibold mb-1.5">Kategori Adı *</label>
                     <input
                       value={formData.name}
                       onChange={(e) => setFormData({
@@ -543,19 +543,19 @@ export default function AdminKategoriler() {
 
                   {/* Slug */}
                   <div>
-                    <label className="block text-slate-300 text-xs font-semibold mb-1.5">Slug</label>
+                    <label className="block text-slate-700 text-xs font-semibold mb-1.5">Slug</label>
                     <input
                       value={formData.slug}
                       onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
                       placeholder="dondurma-bazlari"
                       className="input font-mono text-sm"
                     />
-                    <p className="text-slate-400 text-xs mt-1">URL: /katalog/{formData.slug || "…"}</p>
+                    <p className="text-slate-500 text-xs mt-1">URL: /katalog/{formData.slug || "…"}</p>
                   </div>
 
                   {/* Description */}
                   <div>
-                    <label className="block text-slate-300 text-xs font-semibold mb-1.5">Açıklama</label>
+                    <label className="block text-slate-700 text-xs font-semibold mb-1.5">Açıklama</label>
                     <textarea
                       value={formData.description}
                       onChange={(e) => setFormData({ ...formData, description: e.target.value })}
@@ -567,7 +567,7 @@ export default function AdminKategoriler() {
 
                   {/* Parent Category */}
                   <div>
-                    <label className="block text-slate-300 text-xs font-semibold mb-1.5">Üst Kategori (Ana Kategori)</label>
+                    <label className="block text-slate-700 text-xs font-semibold mb-1.5">Üst Kategori (Ana Kategori)</label>
                     <select
                       value={formData.parentId}
                       onChange={(e) => setFormData({ ...formData, parentId: e.target.value })}
@@ -583,14 +583,14 @@ export default function AdminKategoriler() {
                           </option>
                         ))}
                     </select>
-                    <p className="text-slate-400 text-xs mt-1">
+                    <p className="text-slate-500 text-xs mt-1">
                       Alt kategori yapmak için bir üst kategori seçin.
                     </p>
                   </div>
 
                   {/* Order */}
                   <div>
-                    <label className="block text-slate-300 text-xs font-semibold mb-1.5">Sıralama</label>
+                    <label className="block text-slate-700 text-xs font-semibold mb-1.5">Sıralama</label>
                     <input
                       type="number"
                       value={formData.order}
@@ -604,11 +604,11 @@ export default function AdminKategoriler() {
                     <button
                       type="button"
                       onClick={() => setFormData({ ...formData, isActive: !formData.isActive })}
-                      className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${formData.isActive ? "bg-gold" : "bg-[#282C36]"}`}
+                      className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${formData.isActive ? "bg-gold" : "bg-slate-200"}`}
                     >
                       <span className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200 ${formData.isActive ? "translate-x-5" : "translate-x-0.5"}`} />
                     </button>
-                    <span className="text-slate-300 text-sm font-medium">
+                    <span className="text-slate-700 text-sm font-medium">
                       {formData.isActive ? "Aktif (katalogda görünür)" : "Pasif (gizli)"}
                     </span>
                   </div>
@@ -643,7 +643,7 @@ export default function AdminKategoriler() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-[#0D0E11]/80 backdrop-blur-sm"
+              className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm"
               onClick={() => !deleting && setDeleteTarget(null)}
             />
             <motion.div
@@ -651,16 +651,16 @@ export default function AdminKategoriler() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="relative z-10 bg-[#1B1D23] border border-[#282C36] rounded-2xl shadow-2xl p-6 max-w-sm w-full text-center text-slate-200"
+              className="relative z-10 bg-white border border-slate-200 rounded-2xl shadow-2xl p-6 max-w-sm w-full text-center text-slate-800"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="w-14 h-14 rounded-full bg-red-500/15 border border-red-500/30 flex items-center justify-center mx-auto mb-4">
-                <AlertTriangle size={28} className="text-red-400" />
+              <div className="w-14 h-14 rounded-full bg-red-50 border border-red-200 flex items-center justify-center mx-auto mb-4">
+                <AlertTriangle size={28} className="text-red-500" />
               </div>
-              <h3 className="font-heading font-bold text-white text-lg mb-2">
+              <h3 className="font-heading font-bold text-slate-900 text-lg mb-2">
                 Silmek istediğinize emin misiniz?
               </h3>
-              <p className="text-slate-400 text-sm mb-6">
+              <p className="text-slate-500 text-sm mb-6">
                 Bu kategori kalıcı olarak silinecektir.
               </p>
               <div className="flex gap-3">

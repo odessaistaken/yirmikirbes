@@ -132,12 +132,12 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="p-8 text-slate-200">
+    <div className="p-8 text-slate-800">
       {/* Header */}
       <div className="mb-8">
         <p className="section-label">Admin Paneli</p>
-        <h1 className="font-heading font-bold text-white text-3xl">Dashboard</h1>
-        <p className="text-slate-400 text-sm mt-1">Genel bakış ve son aktiviteler</p>
+        <h1 className="font-heading font-bold text-slate-900 text-3xl">Dashboard</h1>
+        <p className="text-slate-500 text-sm mt-1">Genel bakış ve son aktiviteler</p>
       </div>
 
       {/* Stats */}
@@ -149,10 +149,10 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: i * 0.07 }}
-            className={`bg-[#1B1D23] border border-[#282C36] rounded-2xl p-6 cursor-pointer shadow-lg hover:border-gold/50 transition-all ${stat.highlight ? "ring-2 ring-gold" : ""}`}
+            className={`bg-white border border-slate-200 rounded-2xl p-6 cursor-pointer shadow-sm hover:border-gold/50 hover:shadow-md transition-all ${stat.highlight ? "ring-2 ring-gold" : ""}`}
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-gold/15 text-gold">
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-gold/15 text-gold-600">
                 {stat.icon}
               </div>
               {stat.highlight && (
@@ -162,21 +162,21 @@ export default function AdminDashboard() {
                 </span>
               )}
             </div>
-            <p className="font-heading font-bold text-white text-3xl">
+            <p className="font-heading font-bold text-slate-900 text-3xl">
               {loading ? "—" : stat.value}
             </p>
-            <p className="text-slate-400 text-sm mt-1">{stat.label}</p>
+            <p className="text-slate-500 text-sm mt-1">{stat.label}</p>
           </motion.a>
         ))}
       </div>
 
       {/* Recent inquiries */}
-      <div className="bg-[#1B1D23] border border-[#282C36] rounded-2xl p-6 shadow-xl">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
         <div className="flex items-center justify-between mb-5">
-          <h2 className="font-heading font-semibold text-white text-lg">
+          <h2 className="font-heading font-semibold text-slate-900 text-lg">
             Son Fiyat Talepleri
           </h2>
-          <a href="/admin/talepler" className="text-gold text-sm font-semibold hover:text-gold-300">
+          <a href="/admin/talepler" className="text-gold-600 text-sm font-semibold hover:text-gold-700">
             Tümünü gör →
           </a>
         </div>
@@ -184,52 +184,52 @@ export default function AdminDashboard() {
         {loading ? (
           <div className="space-y-3">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="skeleton h-14 w-full bg-[#16181D]" />
+              <div key={i} className="skeleton h-14 w-full bg-slate-100" />
             ))}
           </div>
         ) : inquiries.length === 0 ? (
           <div className="text-center py-10">
-            <MessageSquare size={32} className="text-slate-500 mx-auto mb-3" />
-            <p className="text-slate-400 text-sm">Henüz talep bulunmamaktadır.</p>
+            <MessageSquare size={32} className="text-slate-400 mx-auto mb-3" />
+            <p className="text-slate-500 text-sm">Henüz talep bulunmamaktadır.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-[#282C36]">
-                  <th className="text-left py-2.5 pr-4 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                <tr className="bg-slate-50 border-b border-slate-200">
+                  <th className="text-left py-2.5 px-4 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                     Müşteri
                   </th>
-                  <th className="text-left py-2.5 pr-4 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                  <th className="text-left py-2.5 px-4 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                     Ürün
                   </th>
-                  <th className="text-left py-2.5 pr-4 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                  <th className="text-left py-2.5 px-4 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                     Tarih
                   </th>
-                  <th className="text-left py-2.5 text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                  <th className="text-left py-2.5 px-4 text-slate-500 text-xs font-semibold uppercase tracking-wider">
                     Durum
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#282C36]">
+              <tbody className="divide-y divide-slate-100">
                 {inquiries.map((iq) => (
-                  <tr key={iq.id} className="hover:bg-[#16181D] transition-colors">
-                    <td className="py-3 pr-4">
-                      <p className="font-medium text-white">{iq.userName}</p>
-                      <p className="text-slate-400 text-xs">{iq.company}</p>
+                  <tr key={iq.id} className="hover:bg-slate-50 transition-colors">
+                    <td className="py-3 px-4">
+                      <p className="font-medium text-slate-900">{iq.userName}</p>
+                      <p className="text-slate-500 text-xs">{iq.company}</p>
                     </td>
-                    <td className="py-3 pr-4">
-                      <p className="text-slate-300 truncate max-w-[180px]">{iq.productName}</p>
+                    <td className="py-3 px-4">
+                      <p className="text-slate-700 truncate max-w-[180px]">{iq.productName}</p>
                     </td>
-                    <td className="py-3 pr-4">
-                      <div className="flex items-center gap-1.5 text-slate-400 text-xs">
+                    <td className="py-3 px-4">
+                      <div className="flex items-center gap-1.5 text-slate-500 text-xs">
                         <Clock size={11} />
                         {iq.createdAt
                           ? new Date(iq.createdAt.toDate()).toLocaleDateString("tr-TR")
                           : "—"}
                       </div>
                     </td>
-                    <td className="py-3">
+                    <td className="py-3 px-4">
                       <span className={`badge text-xs ${statusColors[iq.status] ?? "badge-gold"}`}>
                         {statusLabels[iq.status] ?? iq.status}
                       </span>

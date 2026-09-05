@@ -494,9 +494,10 @@ img { max-width: 100%; height: auto; }
 .shadow-soft { box-shadow: var(--shadow-soft); }
 .shadow-soft-lg { box-shadow: var(--shadow-soft-lg); }
 
-/* ─── Admin Panel High-Contrast Scoped Styles ────────────────────────────── */
+/* ─── Admin Panel Light High-Contrast Scoped Styles ────────────────────────────── */
 .admin-root {
-  color: #F1F5F9;
+  background-color: #F8FAFC;
+  color: #1E293B;
 }
 .admin-root h1,
 .admin-root h2,
@@ -504,40 +505,42 @@ img { max-width: 100%; height: auto; }
 .admin-root h4,
 .admin-root h5,
 .admin-root h6 {
-  color: #FFFFFF !important;
+  color: #0F172A !important;
 }
 .admin-root p {
-  color: #E2E8F0;
+  color: #475569;
 }
 .admin-root label {
-  color: #E2E8F0 !important;
+  color: #334155 !important;
 }
 .admin-root table th {
-  color: #94A3B8 !important;
-}
-.admin-root table td {
-  color: #F8FAFC !important;
-}
-.admin-root .input {
-  background: #16181D !important;
-  color: #FFFFFF !important;
-  border-color: #282C36 !important;
-}
-.admin-root .input::placeholder {
   color: #64748B !important;
 }
+.admin-root table td {
+  color: #1E293B !important;
+}
+.admin-root .input {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: #E2E8F0 !important;
+}
+.admin-root .input::placeholder {
+  color: #94A3B8 !important;
+}
 .admin-root .input:focus {
-  background: #1B1D23 !important;
+  background: #FFFFFF !important;
   border-color: var(--color-gold) !important;
-  color: #FFFFFF !important;
+  color: #0F172A !important;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2) !important;
 }
 .admin-root select.input option {
-  background: #1B1D23 !important;
-  color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  color: #0F172A !important;
 }
 .admin-root .card {
-  background: #1B1D23 !important;
-  border-color: #282C36 !important;
-  color: #F1F5F9 !important;
+  background: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #1E293B !important;
 }
+
 

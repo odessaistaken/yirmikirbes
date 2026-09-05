@@ -56,12 +56,12 @@ export default function AdminKullanicilar() {
   );
 
   return (
-    <div className="p-8 text-slate-200">
+    <div className="p-8 text-slate-800">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
         <div>
           <p className="section-label">Admin</p>
-          <h1 className="font-heading font-bold text-white text-3xl">Kullanıcılar</h1>
-          <p className="text-slate-400 text-sm mt-1">{users.length} kayıtlı kullanıcı</p>
+          <h1 className="font-heading font-bold text-slate-900 text-3xl">Kullanıcılar</h1>
+          <p className="text-slate-500 text-sm mt-1">{users.length} kayıtlı kullanıcı</p>
         </div>
         <div className="relative">
           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -74,26 +74,26 @@ export default function AdminKullanicilar() {
         </div>
       </div>
 
-      <div className="bg-[#1B1D23] border border-[#282C36] rounded-2xl overflow-hidden shadow-xl">
+      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-[#121316] border-b border-[#282C36]">
+            <thead className="bg-slate-50 border-b border-slate-200">
               <tr>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Kullanıcı</th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Firma</th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">İletişim</th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Rol</th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Kayıt Tarihi</th>
-                <th className="text-right py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Yetki</th>
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">Kullanıcı</th>
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">Firma</th>
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">İletişim</th>
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">Rol</th>
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">Kayıt Tarihi</th>
+                <th className="text-right py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">Yetki</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#282C36]">
+            <tbody className="divide-y divide-slate-100">
               {loading ? (
                 Array.from({ length: 4 }).map((_, i) => (
                   <tr key={i}>
                     {Array.from({ length: 6 }).map((_, j) => (
                       <td key={j} className="py-4 px-5">
-                        <div className="skeleton h-4 w-full rounded" />
+                        <div className="skeleton h-4 w-full rounded bg-slate-100" />
                       </td>
                     ))}
                   </tr>
@@ -101,8 +101,8 @@ export default function AdminKullanicilar() {
               ) : filtered.length === 0 ? (
                 <tr>
                   <td colSpan={6} className="text-center py-12">
-                    <Users size={32} className="text-slate-500 mx-auto mb-3" />
-                    <p className="text-slate-400 text-sm">Kullanıcı bulunamadı.</p>
+                    <Users size={32} className="text-slate-400 mx-auto mb-3" />
+                    <p className="text-slate-500 text-sm">Kullanıcı bulunamadı.</p>
                   </td>
                 </tr>
               ) : (
@@ -111,45 +111,45 @@ export default function AdminKullanicilar() {
                     key={user.id}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="hover:bg-[#16181D] transition-colors"
+                    className="hover:bg-slate-50 transition-colors"
                   >
                     <td className="py-3.5 px-5">
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center shrink-0">
-                          <span className="text-gold font-bold text-sm">
+                        <div className="w-9 h-9 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center shrink-0">
+                          <span className="text-gold-600 font-bold text-sm">
                             {user.name[0]?.toUpperCase()}
                           </span>
                         </div>
-                        <p className="font-semibold text-white text-sm">{user.name}</p>
+                        <p className="font-semibold text-slate-900 text-sm">{user.name}</p>
                       </div>
                     </td>
                     <td className="py-3.5 px-5">
-                      <div className="flex items-center gap-1.5 text-slate-300 text-sm">
-                        <Building2 size={13} className="text-slate-500 shrink-0" />
+                      <div className="flex items-center gap-1.5 text-slate-700 text-sm">
+                        <Building2 size={13} className="text-slate-400 shrink-0" />
                         {user.company}
                       </div>
                     </td>
                     <td className="py-3.5 px-5">
                       <div className="space-y-0.5">
-                        <div className="flex items-center gap-1.5 text-slate-400 text-xs">
-                          <Mail size={11} className="shrink-0 text-slate-500" />
+                        <div className="flex items-center gap-1.5 text-slate-500 text-xs">
+                          <Mail size={11} className="shrink-0 text-slate-400" />
                           {user.email}
                         </div>
                         {user.phone && (
-                          <div className="flex items-center gap-1.5 text-slate-400 text-xs">
-                            <Phone size={11} className="shrink-0 text-slate-500" />
+                          <div className="flex items-center gap-1.5 text-slate-500 text-xs">
+                            <Phone size={11} className="shrink-0 text-slate-400" />
                             {user.phone}
                           </div>
                         )}
                       </div>
                     </td>
                     <td className="py-3.5 px-5">
-                      <span className={`badge text-xs ${user.role === "admin" ? "badge-gold" : "bg-[#16181D] text-slate-400 border border-[#282C36]"}`}>
+                      <span className={`badge text-xs ${user.role === "admin" ? "badge-gold" : "bg-slate-100 text-slate-600 border border-slate-200"}`}>
                         {user.role === "admin" ? "Admin" : "Kullanıcı"}
                       </span>
                     </td>
                     <td className="py-3.5 px-5">
-                      <p className="text-slate-400 text-xs">
+                      <p className="text-slate-500 text-xs">
                         {user.createdAt
                           ? new Date(user.createdAt.toDate()).toLocaleDateString("tr-TR")
                           : "—"}
@@ -162,8 +162,8 @@ export default function AdminKullanicilar() {
                           title={user.role === "admin" ? "Admin yetkisini kaldır" : "Admin yap"}
                           className={`p-2 rounded-lg transition-colors ${
                             user.role === "admin"
-                              ? "text-gold bg-gold/10 hover:bg-gold/20"
-                              : "text-slate-400 hover:text-gold hover:bg-gold/10"
+                              ? "text-gold-600 bg-gold/15 hover:bg-gold/25"
+                              : "text-slate-400 hover:text-gold-600 hover:bg-gold/10"
                           }`}
                         >
                           {user.role === "admin" ? <ShieldOff size={16} /> : <Shield size={16} />}

@@ -245,12 +245,12 @@ export default function AdminUrunler() {
   }
 
   return (
-    <div className="p-8 text-slate-200">
+    <div className="p-8 text-slate-800">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
         <div>
           <p className="section-label">Admin</p>
-          <h1 className="font-heading font-bold text-white text-3xl">Ürünler</h1>
+          <h1 className="font-heading font-bold text-slate-900 text-3xl">Ürünler</h1>
         </div>
         <div className="flex items-center gap-3">
           {/* Search */}
@@ -271,56 +271,56 @@ export default function AdminUrunler() {
       </div>
 
       {/* Table */}
-      <div className="bg-[#1B1D23] border border-[#282C36] rounded-2xl overflow-hidden shadow-xl">
+      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-[#121316] border-b border-[#282C36]">
+            <thead className="bg-slate-50 border-b border-slate-200">
               <tr>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider w-16">Görsel</th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Ürün Adı</th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Kod</th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Kategori</th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Fiyat</th>
-                <th className="text-center py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Çok Satan</th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Sıra</th>
-                <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Durum</th>
-                <th className="text-right py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">İşlemler</th>
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider w-16">Görsel</th>
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">Ürün Adı</th>
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">Kod</th>
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">Kategori</th>
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">Fiyat</th>
+                <th className="text-center py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">Çok Satan</th>
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">Sıra</th>
+                <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">Durum</th>
+                <th className="text-right py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">İşlemler</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#282C36]">
+            <tbody className="divide-y divide-slate-100">
               {filtered.map((p) => (
-                <tr key={p.id} className="hover:bg-[#16181D] transition-colors">
+                <tr key={p.id} className="hover:bg-slate-50 transition-colors">
                   <td className="py-3 px-5">
-                    <div className="w-12 h-12 rounded-xl overflow-hidden bg-[#16181D] border border-[#282C36] relative shrink-0">
+                    <div className="w-12 h-12 rounded-xl overflow-hidden bg-slate-50 border border-slate-200 relative shrink-0">
                       {p.imageUrl ? (
                         <Image src={p.imageUrl} alt={p.name} fill sizes="48px" quality={85} className="object-contain p-1" />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <ImageIcon size={16} className="text-slate-500" />
+                          <ImageIcon size={16} className="text-slate-400" />
                         </div>
                       )}
                     </div>
                   </td>
                   <td className="py-3 px-5">
-                    <p className="font-semibold text-white text-sm">{p.name}</p>
+                    <p className="font-semibold text-slate-900 text-sm">{p.name}</p>
                     {p.codeGroup && (
-                      <p className="text-slate-400 text-xs mt-0.5">Grup: {p.codeGroup}</p>
+                      <p className="text-slate-500 text-xs mt-0.5">Grup: {p.codeGroup}</p>
                     )}
                   </td>
                   <td className="py-3 px-5">
-                    <code className="text-xs bg-[#121316] text-gold border border-[#282C36] px-2 py-0.5 rounded font-mono">{p.code}</code>
+                    <code className="text-xs bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded font-mono">{p.code}</code>
                   </td>
                   <td className="py-3 px-5">
-                    <span className="text-slate-300 text-sm">
+                    <span className="text-slate-600 text-sm">
                       {categories.find((c) => c.id === p.categoryId)?.name ?? p.categoryName ?? p.categoryId}
                     </span>
                   </td>
                   <td className="py-3 px-5">
-                    <span className="text-slate-200 text-sm font-medium">
+                    <span className="text-slate-900 text-sm font-medium">
                       {p.price > 0 ? `₺${p.price.toFixed(2)}` : "—"}
                     </span>
                     {p.price > 0 && (
-                      <span className="text-slate-400 text-xs ml-1">+%{p.vatRate}</span>
+                      <span className="text-slate-500 text-xs ml-1">+%{p.vatRate}</span>
                     )}
                   </td>
                   <td className="py-3 px-5 text-center">
@@ -331,7 +331,7 @@ export default function AdminUrunler() {
                       className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold transition-all ${
                         p.isBestSeller
                           ? "bg-amber-500 text-white shadow-sm hover:bg-amber-600"
-                          : "bg-[#282C36] text-slate-400 hover:text-amber-400 hover:bg-amber-500/10 border border-[#383E4C]"
+                          : "bg-slate-100 text-slate-600 hover:text-amber-600 hover:bg-amber-50 border border-slate-200"
                       }`}
                     >
                       <Flame size={12} className={p.isBestSeller ? "fill-white" : ""} />
@@ -339,7 +339,7 @@ export default function AdminUrunler() {
                     </button>
                   </td>
                   <td className="py-3 px-5">
-                    <span className="text-slate-300 text-sm">{p.order}</span>
+                    <span className="text-slate-700 text-sm">{p.order}</span>
                   </td>
                   <td className="py-3 px-5">
                     <span className={`badge ${p.isActive ? "badge-green" : "badge-red"}`}>
@@ -351,7 +351,7 @@ export default function AdminUrunler() {
                       <button
                         onClick={() => handleClone(p)}
                         title="Klonla"
-                        className="p-2 rounded-lg text-slate-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"
+                        className="p-2 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-colors"
                       >
                         <Copy size={15} />
                       </button>
@@ -363,7 +363,7 @@ export default function AdminUrunler() {
                       </button>
                       <button
                         onClick={() => setDeleteTarget(p.id)}
-                        className="p-2 rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-colors"
+                        className="p-2 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 transition-colors"
                       >
                         <Trash2 size={15} />
                       </button>
@@ -375,8 +375,8 @@ export default function AdminUrunler() {
           </table>
           {filtered.length === 0 && (
             <div className="text-center py-12">
-              <Package size={32} className="text-slate-500 mx-auto mb-3" />
-              <p className="text-slate-400 text-sm">Ürün bulunamadı.</p>
+              <Package size={32} className="text-slate-400 mx-auto mb-3" />
+              <p className="text-slate-500 text-sm">Ürün bulunamadı.</p>
             </div>
           )}
         </div>
@@ -388,7 +388,7 @@ export default function AdminUrunler() {
           <>
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 bg-[#0D0E11]/80 backdrop-blur-sm"
+              className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm"
               onClick={() => setModalOpen(false)}
             />
             <motion.div
@@ -398,14 +398,14 @@ export default function AdminUrunler() {
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
             >
               <div
-                className="bg-[#1B1D23] border border-[#282C36] rounded-2xl shadow-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto text-slate-200"
+                className="bg-white border border-slate-200 rounded-2xl shadow-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto text-slate-800"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="flex items-center justify-between px-6 py-5 border-b border-[#282C36] bg-[#121316]">
-                  <h2 className="font-heading font-bold text-white text-lg">
+                <div className="flex items-center justify-between px-6 py-5 border-b border-slate-200 bg-slate-50">
+                  <h2 className="font-heading font-bold text-slate-900 text-lg">
                     {editTarget ? "Ürünü Düzenle" : "Yeni Ürün Ekle"}
                   </h2>
-                  <button onClick={() => setModalOpen(false)} className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-[#16181D]">
+                  <button onClick={() => setModalOpen(false)} className="p-2 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100">
                     <X size={18} />
                   </button>
                 </div>
@@ -414,14 +414,14 @@ export default function AdminUrunler() {
                   {/* Image upload */}
                   <div>
                     <div className="flex items-center justify-between mb-1.5">
-                      <label className="text-slate-300 text-xs font-semibold">
+                      <label className="text-slate-700 text-xs font-semibold">
                         Ürün Görseli
                       </label>
                       {form.imageUrl && (
                         <button
                           type="button"
                           onClick={handleRemoveImage}
-                          className="text-red-400 hover:text-red-300 text-xs font-medium flex items-center gap-1 hover:underline transition-colors cursor-pointer"
+                          className="text-red-500 hover:text-red-600 text-xs font-medium flex items-center gap-1 hover:underline transition-colors cursor-pointer"
                         >
                           <Trash2 size={12} /> Görseli Kaldır / Sil
                         </button>
@@ -453,19 +453,19 @@ export default function AdminUrunler() {
                         isDragging
                           ? "border-gold bg-gold/15 scale-[1.02]"
                           : form.imageUrl
-                          ? "border-[#282C36] bg-[#16181D]"
-                          : "border-[#282C36] bg-[#16181D] hover:border-gold hover:bg-gold/5 cursor-pointer"
+                          ? "border-slate-200 bg-slate-50"
+                          : "border-slate-300 bg-slate-50 hover:border-gold hover:bg-gold/5 cursor-pointer"
                       }`}
                     >
                       {isDragging ? (
                         <div className="text-center py-4">
-                          <Upload size={32} className="text-gold animate-bounce mx-auto mb-1.5" />
-                          <p className="font-heading font-semibold text-gold text-xs">
+                          <Upload size={32} className="text-gold-600 animate-bounce mx-auto mb-1.5" />
+                          <p className="font-heading font-semibold text-gold-600 text-xs">
                             Resmi Buraya Bırakın
                           </p>
                         </div>
                       ) : form.imageUrl ? (
-                        <div className="relative w-full aspect-video rounded-lg overflow-hidden group bg-[#121316]">
+                        <div className="relative w-full aspect-video rounded-lg overflow-hidden group bg-slate-100">
                           <Image
                             src={form.imageUrl}
                             alt="preview"
@@ -475,14 +475,14 @@ export default function AdminUrunler() {
                             className="object-contain p-2"
                           />
                           {/* Hover action overlay */}
-                          <div className="absolute inset-0 bg-[#0D0E11]/75 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2.5">
+                          <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2.5">
                             <button
                               type="button"
                               onClick={(e) => {
                                 e.stopPropagation();
                                 fileInputRef.current?.click();
                               }}
-                              className="text-white text-xs font-semibold bg-[#1B1D23] hover:bg-[#282C36] border border-[#282C36] px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors shadow-md"
+                              className="text-white text-xs font-semibold bg-white/20 hover:bg-white/30 backdrop-blur-sm px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors shadow-md"
                             >
                               <Upload size={13} /> Değiştir
                             </button>
@@ -492,7 +492,7 @@ export default function AdminUrunler() {
                                 e.stopPropagation();
                                 handleRemoveImage();
                               }}
-                              className="text-red-300 text-xs font-semibold bg-red-950/80 hover:bg-red-900 border border-red-700/50 px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors shadow-md"
+                              className="text-white text-xs font-semibold bg-red-600/80 hover:bg-red-600 backdrop-blur-sm px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors shadow-md"
                             >
                               <Trash2 size={13} /> Görseli Sil
                             </button>
@@ -501,7 +501,7 @@ export default function AdminUrunler() {
                       ) : (
                         <div className="text-center py-2">
                           <ImageIcon size={28} className="text-slate-400 mx-auto mb-2" />
-                          <p className="text-slate-200 text-xs font-semibold">
+                          <p className="text-slate-700 text-xs font-semibold">
                             Resmi buraya sürükleyip bırakın
                           </p>
                           <p className="text-slate-400 text-2xs mt-1">
@@ -512,10 +512,10 @@ export default function AdminUrunler() {
 
                       {uploadProgress !== null && (
                         <div className="w-full mt-2">
-                          <div className="h-1.5 bg-[#282C36] rounded-full overflow-hidden">
+                          <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
                             <div className="h-full bg-gold transition-all duration-300" style={{ width: `${uploadProgress}%` }} />
                           </div>
-                          <p className="text-xs text-slate-400 mt-1 text-center">Yükleniyor... %{uploadProgress}</p>
+                          <p className="text-xs text-slate-500 mt-1 text-center">Yükleniyor... %{uploadProgress}</p>
                         </div>
                       )}
                     </div>
@@ -534,12 +534,12 @@ export default function AdminUrunler() {
                     />
 
                     <div className="flex items-center justify-between gap-2 mt-2">
-                      <p className="text-slate-400 text-xs">veya Görsel URL giriniz:</p>
+                      <p className="text-slate-500 text-xs">veya Görsel URL giriniz:</p>
                       {form.imageUrl && (
                         <button
                           type="button"
                           onClick={handleRemoveImage}
-                          className="text-red-400 hover:text-red-300 text-2xs flex items-center gap-1 hover:underline"
+                          className="text-red-500 hover:text-red-600 text-2xs flex items-center gap-1 hover:underline"
                         >
                           <Trash2 size={10} /> Görseli Temizle
                         </button>
@@ -563,11 +563,11 @@ export default function AdminUrunler() {
                   {/* Name & Code */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">Ürün Adı *</label>
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">Ürün Adı *</label>
                       <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Ürün adı" className="input" />
                     </div>
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">Ürün Kodu *</label>
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">Ürün Kodu *</label>
                       <input value={form.code} onChange={(e) => setForm({ ...form, code: e.target.value })} placeholder="PUR-2045-001" className="input font-mono text-sm" />
                     </div>
                   </div>
@@ -575,18 +575,18 @@ export default function AdminUrunler() {
                   {/* Code Group & Category */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">Kod Grubu</label>
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">Kod Grubu</label>
                       <input value={form.codeGroup} onChange={(e) => setForm({ ...form, codeGroup: e.target.value })} placeholder="PUR-2045" className="input font-mono text-sm" />
                     </div>
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">Kategori</label>
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">Kategori</label>
                       <select
                         value={form.categoryId}
                         onChange={(e) => setForm({ ...form, categoryId: e.target.value })}
                         className="input"
                       >
                         {categories.map((c) => (
-                          <option key={c.id} value={c.id} className="bg-[#1B1D23] text-white">{c.name}</option>
+                          <option key={c.id} value={c.id}>{c.name}</option>
                         ))}
                       </select>
                     </div>
@@ -595,7 +595,7 @@ export default function AdminUrunler() {
                   {/* Price, VAT, Order */}
                   <div className="grid grid-cols-3 gap-4">
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">Fiyat (₺)</label>
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">Fiyat (₺)</label>
                       <input
                         type="number"
                         step="0.01"
@@ -605,19 +605,19 @@ export default function AdminUrunler() {
                       />
                     </div>
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">KDV (%)</label>
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">KDV (%)</label>
                       <select
                         value={form.vatRate}
                         onChange={(e) => setForm({ ...form, vatRate: Number(e.target.value) })}
                         className="input"
                       >
-                        <option value={1} className="bg-[#1B1D23] text-white">%1</option>
-                        <option value={10} className="bg-[#1B1D23] text-white">%10</option>
-                        <option value={20} className="bg-[#1B1D23] text-white">%20</option>
+                        <option value={1}>%1</option>
+                        <option value={10}>%10</option>
+                        <option value={20}>%20</option>
                       </select>
                     </div>
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">Sıra</label>
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">Sıra</label>
                       <input
                         type="number"
                         value={form.order}
@@ -629,7 +629,7 @@ export default function AdminUrunler() {
 
                   {/* Description */}
                   <div>
-                    <label className="block text-slate-300 text-xs font-semibold mb-1.5">Açıklama</label>
+                    <label className="block text-slate-700 text-xs font-semibold mb-1.5">Açıklama</label>
                     <textarea
                       value={form.description}
                       onChange={(e) => setForm({ ...form, description: e.target.value })}
@@ -645,11 +645,11 @@ export default function AdminUrunler() {
                       <button
                         type="button"
                         onClick={() => setForm({ ...form, isActive: !form.isActive })}
-                        className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${form.isActive ? "bg-gold" : "bg-[#282C36]"}`}
+                        className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${form.isActive ? "bg-gold" : "bg-slate-200"}`}
                       >
                         <span className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200 ${form.isActive ? "translate-x-5" : "translate-x-0.5"}`} />
                       </button>
-                      <span className="text-slate-300 text-sm font-medium">
+                      <span className="text-slate-700 text-sm font-medium">
                         {form.isActive ? "Aktif Ürün" : "Pasif Ürün"}
                       </span>
                     </div>
@@ -658,12 +658,12 @@ export default function AdminUrunler() {
                       <button
                         type="button"
                         onClick={() => setForm({ ...form, isBestSeller: !form.isBestSeller })}
-                        className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${form.isBestSeller ? "bg-amber-500" : "bg-[#282C36]"}`}
+                        className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${form.isBestSeller ? "bg-amber-500" : "bg-slate-200"}`}
                       >
                         <span className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200 ${form.isBestSeller ? "translate-x-5" : "translate-x-0.5"}`} />
                       </button>
-                      <span className="text-slate-300 text-sm font-medium flex items-center gap-1.5">
-                        <Flame size={14} className={form.isBestSeller ? "text-amber-500 fill-amber-500" : "text-slate-500"} />
+                      <span className="text-slate-700 text-sm font-medium flex items-center gap-1.5">
+                        <Flame size={14} className={form.isBestSeller ? "text-amber-500 fill-amber-500" : "text-slate-400"} />
                         {form.isBestSeller ? "Çok Satanlar'da Göster" : "Normal Ürün"}
                       </span>
                     </div>
@@ -694,21 +694,22 @@ export default function AdminUrunler() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-[#0D0E11]/80 backdrop-blur-sm"
+              className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm"
               onClick={() => !deleting && setDeleteTarget(null)}
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="relative z-10 bg-[#1B1D23] border border-[#282C36] rounded-2xl shadow-2xl p-6 max-w-sm w-full text-center text-slate-200"
+              transition={{ duration: 0.2 }}
+              className="relative z-10 bg-white border border-slate-200 rounded-2xl shadow-2xl p-6 max-w-sm w-full text-center text-slate-800"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="w-14 h-14 rounded-full bg-red-500/15 border border-red-500/30 flex items-center justify-center mx-auto mb-4">
-                <AlertTriangle size={28} className="text-red-400" />
+              <div className="w-14 h-14 rounded-full bg-red-50 border border-red-200 flex items-center justify-center mx-auto mb-4">
+                <AlertTriangle size={28} className="text-red-500" />
               </div>
-              <h3 className="font-heading font-bold text-white text-lg mb-2">Ürünü sil</h3>
-              <p className="text-slate-400 text-sm mb-6">Bu ürün kalıcı olarak silinecek. Bu işlem geri alınamaz.</p>
+              <h3 className="font-heading font-bold text-slate-900 text-lg mb-2">Ürünü sil</h3>
+              <p className="text-slate-500 text-sm mb-6">Bu ürün kalıcı olarak silinecek. Bu işlem geri alınamaz.</p>
               <div className="flex gap-3">
                 <button
                   type="button"
