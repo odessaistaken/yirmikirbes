@@ -55,22 +55,22 @@ export default function AkademiPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#383b40] text-slate-200">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-800">
       {/* ── Breadcrumb ── */}
-      <div className="bg-[#121316] border-b border-[#282C36]">
+      <div className="bg-white border-b border-slate-200">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-          <div className="flex items-center gap-2 text-slate-400 text-xs">
-            <Link href="/" className="hover:text-gold transition-colors">
+          <div className="flex items-center gap-2 text-slate-500 text-xs">
+            <Link href="/" className="hover:text-amber-600 transition-colors">
               Ana Sayfa
             </Link>
             <ChevronRight size={12} />
-            <span className="text-gold font-semibold">20:45 Akademi</span>
+            <span className="text-amber-700 font-semibold">20:45 Akademi</span>
           </div>
         </div>
       </div>
 
-      {/* ── Hero Section ── */}
-      <section className="relative overflow-hidden py-16 sm:py-24 bg-gradient-to-b from-[#121316] via-[#1B1D23] to-[#383b40] border-b border-[#282C36]">
+      {/* ── Hero Section (Header antrasit olarak korunuyor) ── */}
+      <section className="relative overflow-hidden py-16 sm:py-24 bg-gradient-to-b from-[#121316] via-[#1B1D23] to-[#282C36] border-b border-[#282C36]">
         {/* Ambient background glow */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gold/10 blur-[130px] rounded-full pointer-events-none" />
 
@@ -140,7 +140,7 @@ export default function AkademiPage() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="bg-[#1B1D23]/80 backdrop-blur border border-[#282C36] rounded-2xl p-4 text-center hover:border-gold/40 transition-colors"
+                className="bg-[#1B1D23]/90 backdrop-blur border border-[#282C36] rounded-2xl p-4 text-center hover:border-gold/40 transition-colors shadow-sm"
               >
                 <div className="w-10 h-10 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-2.5">
                   {item.icon}
@@ -158,20 +158,20 @@ export default function AkademiPage() {
         <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
           <button
             onClick={() => setActiveTab("all")}
-            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all shadow-sm ${
               activeTab === "all"
                 ? "bg-gold text-[#0D0E11] shadow-gold"
-                : "bg-[#1B1D23] text-slate-300 hover:text-white border border-[#282C36]"
+                : "bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200"
             }`}
           >
             Tüm Workshoplar
           </button>
           <button
             onClick={() => setActiveTab("serif")}
-            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 shadow-sm ${
               activeTab === "serif"
                 ? "bg-gold text-[#0D0E11] shadow-gold"
-                : "bg-[#1B1D23] text-slate-300 hover:text-white border border-[#282C36]"
+                : "bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200"
             }`}
           >
             <Coffee size={15} />
@@ -179,10 +179,10 @@ export default function AkademiPage() {
           </button>
           <button
             onClick={() => setActiveTab("neslihan")}
-            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 shadow-sm ${
               activeTab === "neslihan"
                 ? "bg-gold text-[#0D0E11] shadow-gold"
-                : "bg-[#1B1D23] text-slate-300 hover:text-white border border-[#282C36]"
+                : "bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200"
             }`}
           >
             <Flame size={15} />
@@ -195,35 +195,35 @@ export default function AkademiPage() {
       {(activeTab === "all" || activeTab === "serif") && (
         <section className="py-12 sm:py-16">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-[#1B1D23] rounded-3xl border border-[#282C36] overflow-hidden shadow-2xl">
+            <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-soft-lg">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-10 items-start">
                 {/* Left Col: Info & Modules */}
                 <div className="lg:col-span-7 space-y-6">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="badge badge-gold font-bold">Kahve & Barista Masterclass</span>
-                    <span className="text-slate-400 text-xs flex items-center gap-1">
-                      <Clock size={13} className="text-gold" /> Tam Gün / 8 Saat
+                    <span className="text-slate-500 text-xs flex items-center gap-1">
+                      <Clock size={13} className="text-amber-600" /> Tam Gün / 8 Saat
                     </span>
-                    <span className="text-slate-400 text-xs flex items-center gap-1">
-                      <Users size={13} className="text-gold" /> Maks. 8 Katılımcı
+                    <span className="text-slate-500 text-xs flex items-center gap-1">
+                      <Users size={13} className="text-amber-600" /> Maks. 8 Katılımcı
                     </span>
                   </div>
 
                   <div>
-                    <h2 className="font-heading font-extrabold text-white text-2xl sm:text-3xl lg:text-4xl leading-snug">
+                    <h2 className="font-heading font-extrabold text-slate-900 text-2xl sm:text-3xl lg:text-4xl leading-snug">
                       Espresso Kalibrasyonu, Latte Art &{" "}
                       <span className="gold-text">Yeni Nesil Barista Miksolojisi</span>
                     </h2>
-                    <p className="text-gold font-semibold text-sm sm:text-base mt-1.5 flex items-center gap-2">
+                    <p className="text-amber-700 font-semibold text-sm sm:text-base mt-1.5 flex items-center gap-2">
                       <span>Eğitmen:</span>
-                      <strong className="text-white font-heading tracking-wide">Şerif Yeğen</strong>
-                      <span className="text-slate-400 text-xs font-normal">
+                      <strong className="text-slate-900 font-heading tracking-wide">Şerif Yeğen</strong>
+                      <span className="text-slate-500 text-xs font-normal">
                         (Baş Barista & SCA Kahve Danışmanı)
                       </span>
                     </p>
                   </div>
 
-                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                     Nitelikli kahve barlarında standart ve tutarlı lezzet yakalamanın kimyası, değirmen mikron kalibrasyonu,
                     su sertliği ve ekstraksiyon dinamikleri. DaVinci Gourmet ve Caffè NONNO ürünleriyle imza mocktail,
                     soğuk kahve ve aromatik içecek reçetelerinin oluşturulması.
@@ -231,7 +231,7 @@ export default function AkademiPage() {
 
                   {/* Modules */}
                   <div className="space-y-3 pt-2">
-                    <p className="text-xs font-bold uppercase tracking-widest text-gold flex items-center gap-1.5">
+                    <p className="text-xs font-bold uppercase tracking-widest text-amber-700 flex items-center gap-1.5">
                       <Layers size={14} /> Eğitim Modülleri
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -255,13 +255,13 @@ export default function AkademiPage() {
                       ].map((mod, idx) => (
                         <div
                           key={idx}
-                          className="bg-[#121316] border border-[#282C36] rounded-xl p-3.5 hover:border-gold/30 transition-colors"
+                          className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 hover:border-amber-400 transition-colors"
                         >
                           <div className="flex items-center gap-2 mb-1">
-                            <CheckCircle size={14} className="text-gold shrink-0" />
-                            <p className="font-heading font-semibold text-white text-xs sm:text-sm">{mod.title}</p>
+                            <CheckCircle size={14} className="text-amber-600 shrink-0" />
+                            <p className="font-heading font-semibold text-slate-900 text-xs sm:text-sm">{mod.title}</p>
                           </div>
-                          <p className="text-slate-400 text-2xs leading-normal">{mod.desc}</p>
+                          <p className="text-slate-500 text-2xs leading-normal">{mod.desc}</p>
                         </div>
                       ))}
                     </div>
@@ -285,7 +285,7 @@ export default function AkademiPage() {
                       href="https://wa.me/905010737113?text=Merhaba,%20Şerif%20Yeğen%20barista%20workshopu%20hakkında%20bilgi%20almak%20istiyorum."
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-2 px-4 py-3 rounded-xl bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all text-xs sm:text-sm font-semibold"
+                      className="flex items-center gap-2 px-4 py-3 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-700 hover:bg-emerald-600 hover:text-white transition-all text-xs sm:text-sm font-semibold"
                     >
                       <MessageCircle size={15} />
                       WhatsApp ile Bilgi Al
@@ -293,9 +293,9 @@ export default function AkademiPage() {
                   </div>
                 </div>
 
-                {/* Right Col: Instructor Article / Card */}
+                {/* Right Col: Instructor Article / Card (Antrasit detay olarak korunuyor) */}
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-[#121316] border border-[#282C36] rounded-2xl p-6 relative overflow-hidden">
+                  <div className="bg-[#16181D] border border-[#282C36] rounded-2xl p-6 relative overflow-hidden text-slate-200 shadow-md">
                     <div className="flex items-center gap-3.5 pb-4 border-b border-[#282C36]">
                       <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold/30 to-[#1B1D23] border border-gold/40 flex items-center justify-center shrink-0 text-2xl">
                         ☕
@@ -344,37 +344,37 @@ export default function AkademiPage() {
 
       {/* ── Workshop 2: Neslihan Demir ── */}
       {(activeTab === "all" || activeTab === "neslihan") && (
-        <section className="py-12 sm:py-16 bg-[#16181D]/60 border-y border-[#282C36]">
+        <section className="py-12 sm:py-16 bg-slate-50/50 border-y border-slate-200">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-[#1B1D23] rounded-3xl border border-[#282C36] overflow-hidden shadow-2xl">
+            <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-soft-lg">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-10 items-start">
                 {/* Left Col: Info & Modules */}
                 <div className="lg:col-span-7 space-y-6">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="badge badge-gold font-bold">Pastacılık & Çikolata Masterclass</span>
-                    <span className="text-slate-400 text-xs flex items-center gap-1">
-                      <Clock size={13} className="text-gold" /> 2 Günlük Yoğun Kamp
+                    <span className="text-slate-500 text-xs flex items-center gap-1">
+                      <Clock size={13} className="text-amber-600" /> 2 Günlük Yoğun Kamp
                     </span>
-                    <span className="text-slate-400 text-xs flex items-center gap-1">
-                      <Users size={13} className="text-gold" /> Maks. 6 Katılımcı
+                    <span className="text-slate-500 text-xs flex items-center gap-1">
+                      <Users size={13} className="text-amber-600" /> Maks. 6 Katılımcı
                     </span>
                   </div>
 
                   <div>
-                    <h2 className="font-heading font-extrabold text-white text-2xl sm:text-3xl lg:text-4xl leading-snug">
+                    <h2 className="font-heading font-extrabold text-slate-900 text-2xl sm:text-3xl lg:text-4xl leading-snug">
                       Modern Monoporiyon Pastalar, Choux Hamuru &{" "}
                       <span className="gold-text">Artisan Çikolata Sanatı</span>
                     </h2>
-                    <p className="text-gold font-semibold text-sm sm:text-base mt-1.5 flex items-center gap-2">
+                    <p className="text-amber-700 font-semibold text-sm sm:text-base mt-1.5 flex items-center gap-2">
                       <span>Eğitmen:</span>
-                      <strong className="text-white font-heading tracking-wide">Şef Neslihan Demir</strong>
-                      <span className="text-slate-400 text-xs font-normal">
+                      <strong className="text-slate-900 font-heading tracking-wide">Şef Neslihan Demir</strong>
+                      <span className="text-slate-500 text-xs font-normal">
                         (Executive Pastry Chef & Pastacılık Danışmanı)
                       </span>
                     </p>
                   </div>
 
-                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                     Fransız pastacılık disiplinini modern vitrin trendleriyle buluşturan ileri seviye workshop.
                     Pate a Choux ve Craquelin teknikleri, CALLEI çikolatalarıyla doğru temperleme ve ayna glaze kaplamalar,
                     Krater meyve püreleriyle asidite ve doku dengesi.
@@ -382,7 +382,7 @@ export default function AkademiPage() {
 
                   {/* Modules */}
                   <div className="space-y-3 pt-2">
-                    <p className="text-xs font-bold uppercase tracking-widest text-gold flex items-center gap-1.5">
+                    <p className="text-xs font-bold uppercase tracking-widest text-amber-700 flex items-center gap-1.5">
                       <Layers size={14} /> Eğitim Modülleri
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -406,13 +406,13 @@ export default function AkademiPage() {
                       ].map((mod, idx) => (
                         <div
                           key={idx}
-                          className="bg-[#121316] border border-[#282C36] rounded-xl p-3.5 hover:border-gold/30 transition-colors"
+                          className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 hover:border-amber-400 transition-colors"
                         >
                           <div className="flex items-center gap-2 mb-1">
-                            <CheckCircle size={14} className="text-gold shrink-0" />
-                            <p className="font-heading font-semibold text-white text-xs sm:text-sm">{mod.title}</p>
+                            <CheckCircle size={14} className="text-amber-600 shrink-0" />
+                            <p className="font-heading font-semibold text-slate-900 text-xs sm:text-sm">{mod.title}</p>
                           </div>
-                          <p className="text-slate-400 text-2xs leading-normal">{mod.desc}</p>
+                          <p className="text-slate-500 text-2xs leading-normal">{mod.desc}</p>
                         </div>
                       ))}
                     </div>
@@ -436,7 +436,7 @@ export default function AkademiPage() {
                       href="https://wa.me/905010737113?text=Merhaba,%20Şef%20Neslihan%20Demir%20pastacılık%20workshopu%20hakkında%20bilgi%20almak%20istiyorum."
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-2 px-4 py-3 rounded-xl bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all text-xs sm:text-sm font-semibold"
+                      className="flex items-center gap-2 px-4 py-3 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-700 hover:bg-emerald-600 hover:text-white transition-all text-xs sm:text-sm font-semibold"
                     >
                       <MessageCircle size={15} />
                       WhatsApp ile Bilgi Al
@@ -444,9 +444,9 @@ export default function AkademiPage() {
                   </div>
                 </div>
 
-                {/* Right Col: Instructor Article / Card */}
+                {/* Right Col: Instructor Article / Card (Antrasit detay olarak korunuyor) */}
                 <div className="lg:col-span-5 space-y-4">
-                  <div className="bg-[#121316] border border-[#282C36] rounded-2xl p-6 relative overflow-hidden">
+                  <div className="bg-[#16181D] border border-[#282C36] rounded-2xl p-6 relative overflow-hidden text-slate-200 shadow-md">
                     <div className="flex items-center gap-3.5 pb-4 border-b border-[#282C36]">
                       <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold/30 to-[#1B1D23] border border-gold/40 flex items-center justify-center shrink-0 text-2xl">
                         🍰
@@ -495,17 +495,17 @@ export default function AkademiPage() {
       )}
 
       {/* ── Registration Form Section ── */}
-      <section id="kayit" className="py-20 bg-gradient-to-b from-[#383b40] to-[#121316]">
+      <section id="kayit" className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#1B1D23] border border-[#282C36] rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-gold/5 blur-3xl pointer-events-none" />
+          <div className="bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 shadow-soft-lg relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/5 blur-3xl pointer-events-none" />
 
             <div className="text-center max-w-xl mx-auto mb-10">
               <span className="badge badge-gold mb-3">Sınırlı Kontenjan</span>
-              <h2 className="font-heading font-bold text-white text-2xl sm:text-3xl">
+              <h2 className="font-heading font-bold text-slate-900 text-2xl sm:text-3xl">
                 Workshop Katılım & Ön Başvuru Formu
               </h2>
-              <p className="text-slate-400 text-sm mt-2">
+              <p className="text-slate-500 text-sm mt-2">
                 Bilgilerinizi bırakın, eğitim takvimi ve kontenjan durumuna göre danışmanımız sizi arasın.
               </p>
             </div>
@@ -513,7 +513,7 @@ export default function AkademiPage() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
                     Ad Soyad *
                   </label>
                   <input
@@ -522,11 +522,11 @@ export default function AkademiPage() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Örn: Ahmet Yılmaz"
-                    className="w-full bg-[#121316] border border-[#282C36] rounded-xl px-4 py-3 text-white text-sm focus:border-gold outline-none transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:border-amber-500 focus:bg-white outline-none transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
                     Telefon Numarası *
                   </label>
                   <input
@@ -535,14 +535,14 @@ export default function AkademiPage() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="05XX XXX XX XX"
-                    className="w-full bg-[#121316] border border-[#282C36] rounded-xl px-4 py-3 text-white text-sm focus:border-gold outline-none transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:border-amber-500 focus:bg-white outline-none transition-colors"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
                     İşletme / Unvan (Opsiyonel)
                   </label>
                   <input
@@ -550,17 +550,17 @@ export default function AkademiPage() {
                     value={formData.business}
                     onChange={(e) => setFormData({ ...formData, business: e.target.value })}
                     placeholder="Örn: Coffee Shop / Kafe Sahibi / Şef"
-                    className="w-full bg-[#121316] border border-[#282C36] rounded-xl px-4 py-3 text-white text-sm focus:border-gold outline-none transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:border-amber-500 focus:bg-white outline-none transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
                     İlgilendiğiniz Workshop *
                   </label>
                   <select
                     value={formData.workshop}
                     onChange={(e) => setFormData({ ...formData, workshop: e.target.value })}
-                    className="w-full bg-[#121316] border border-[#282C36] rounded-xl px-4 py-3 text-white text-sm focus:border-gold outline-none transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:border-amber-500 focus:bg-white outline-none transition-colors"
                   >
                     <option value="Şerif Yeğen ile Barista & Kahve Miksolojisi Masterclass">
                       Şerif Yeğen — Barista & Kahve Miksolojisi
@@ -579,7 +579,7 @@ export default function AkademiPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
                   Notlarınız / Sorularınız
                 </label>
                 <textarea
@@ -587,7 +587,7 @@ export default function AkademiPage() {
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   placeholder="Deneyim seviyeniz, katılmak istediğiniz tarih aralığı veya öğrenmek istedikleriniz..."
-                  className="w-full bg-[#121316] border border-[#282C36] rounded-xl px-4 py-3 text-white text-sm focus:border-gold outline-none transition-colors resize-none"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:border-amber-500 focus:bg-white outline-none transition-colors resize-none"
                 />
               </div>
 
@@ -609,13 +609,13 @@ export default function AkademiPage() {
               </div>
 
               <div className="text-center pt-3">
-                <p className="text-slate-400 text-xs">
+                <p className="text-slate-500 text-xs">
                   Veya doğrudan WhatsApp üzerinden iletişime geçebilirsiniz:{" "}
                   <a
                     href="https://wa.me/905010737113?text=Merhaba,%2020:45%20Akademi%20workshopları%20hakkında%20bilgi%20almak%20istiyorum."
                     target="_blank"
                     rel="noreferrer"
-                    className="text-gold hover:underline font-semibold"
+                    className="text-amber-700 hover:underline font-semibold"
                   >
                     0501 073 71 13
                   </a>

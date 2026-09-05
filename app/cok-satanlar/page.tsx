@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
-import { Flame, Search, ChevronRight, SlidersHorizontal, Sparkles } from "lucide-react";
+import { Flame, Search, ChevronRight, SlidersHorizontal, Sparkles, X } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import { getBestSellerProducts, getProducts } from "@/lib/firestore-collections";
 import { PRODUCTS as MOCK_PRODUCTS } from "@/lib/mock-data";
@@ -87,50 +87,68 @@ export default function CokSatanlarPage() {
   }, [products, selectedCategory, search]);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0D0E11] text-slate-900 dark:text-slate-100 transition-colors">
-      {/* ── Hero Banner ── */}
-      <div className="relative bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden shadow-lg">
-        <div className="absolute inset-0 bg-black/15" />
-        <div className="absolute -right-16 -top-16 w-80 h-80 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute left-1/3 bottom-0 w-64 h-64 bg-amber-400/20 rounded-full blur-2xl pointer-events-none" />
-
-        <div className="max-w-8xl mx-auto relative z-10">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-amber-100 text-xs mb-4">
-            <Link href="/" className="hover:text-white transition-colors">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-800">
+      {/* ── Page Header Banner ── */}
+      <div className="bg-white pt-8 pb-10 border-b border-slate-200">
+        <div className="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-2 text-slate-500 text-xs mb-6">
+            <Link href="/" className="hover:text-amber-600 transition-colors">
               Ana Sayfa
             </Link>
-            <ChevronRight size={12} className="opacity-70" />
-            <span className="text-white font-semibold">Çok Satanlar</span>
+            <ChevronRight size={12} />
+            <span className="text-amber-700 font-semibold">Çok Satanlar</span>
           </div>
 
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider mb-4 border border-white/30">
-              <Flame size={15} className="fill-amber-300 text-amber-300" />
-              <span>En Çok Tercih Edilenler</span>
+          <div className="flex flex-col sm:flex-row sm:items-end gap-4 justify-between">
+            <div>
+              <p className="text-amber-700 text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-1.5">
+                <Flame size={15} className="text-amber-600 fill-amber-500" />
+                <span>En Çok Tercih Edilenler</span>
+              </p>
+              <h1 className="font-heading font-bold text-slate-900 text-3xl sm:text-4xl">
+                Çok Satan Ürünler
+              </h1>
+              <p className="text-slate-500 text-sm mt-2">
+                {filteredProducts.length} popüler ürün listeleniyor — Kafe, otel ve pastanelerin en çok tercih ettiği ürünler
+              </p>
             </div>
-            <h1 className="font-heading text-3xl sm:text-5xl font-black tracking-tight leading-tight">
-              Sektörün En Çok Satan <span className="underline decoration-amber-300 decoration-4">Popüler Ürünleri</span>
-            </h1>
-            <p className="mt-4 text-amber-50 text-sm sm:text-base leading-relaxed max-w-2xl">
-              Türkiye&apos;nin önde gelen kafe, otel ve pastanelerinin en çok sipariş verdiği hammadde, püre, pasta ve şurup çeşitleri tek bir çatı altında.
-            </p>
+
+            <div className="relative w-full sm:w-80">
+              <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-amber-600" />
+              <input
+                type="text"
+                placeholder="Çok satanlarda ara..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full pl-10 pr-9 py-3 bg-white border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 shadow-sm"
+              />
+              {search && (
+                <button
+                  onClick={() => setSearch("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700"
+                >
+                  <X size={14} />
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
 
       {/* ── Main Content Area ── */}
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-        {/* Search & Category Filter Bar */}
-        <div className="bg-white dark:bg-[#16181D] border border-slate-200 dark:border-[#282C36] rounded-2xl p-4 sm:p-5 shadow-sm mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Categories Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
+      <div className="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Categories Quick Pills Bar */}
+        {categories.length > 0 && (
+          <div className="mb-6 flex flex-wrap items-center gap-2 bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm">
+            <span className="text-amber-800 text-xs font-bold uppercase tracking-wider mr-1">
+              Kategoriler:
+            </span>
             <button
               onClick={() => setSelectedCategory("all")}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 selectedCategory === "all"
-                  ? "bg-amber-500 text-white shadow-md"
-                  : "bg-slate-100 dark:bg-[#1B1D23] text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#282C36]"
+                  ? "bg-amber-600 text-white font-bold shadow-sm"
+                  : "bg-slate-50 text-slate-700 hover:text-slate-900 hover:bg-slate-100 border border-slate-200"
               }`}
             >
               Tümü ({products.length})
@@ -139,44 +157,45 @@ export default function CokSatanlarPage() {
               <button
                 key={c.id}
                 onClick={() => setSelectedCategory(c.id)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   selectedCategory === c.id
-                    ? "bg-amber-500 text-white shadow-md"
-                    : "bg-slate-100 dark:bg-[#1B1D23] text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#282C36]"
+                    ? "bg-amber-600 text-white font-bold shadow-sm"
+                    : "bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-amber-700 border border-slate-200"
                 }`}
               >
                 {c.name}
               </button>
             ))}
           </div>
+        )}
 
-          {/* Search Box */}
-          <div className="relative w-full md:w-72 shrink-0">
-            <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Çok satanlarda ara..."
-              className="w-full bg-slate-50 dark:bg-[#1B1D23] border border-slate-200 dark:border-[#282C36] text-slate-800 dark:text-slate-200 rounded-xl py-2.5 pl-10 pr-4 text-xs sm:text-sm outline-none focus:border-amber-500 transition-colors"
-            />
+        {/* Active search filter badge */}
+        {search && (
+          <div className="mb-4 flex items-center gap-2">
+            <span className="text-xs text-slate-500">Aktif Filtre:</span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold">
+              {search}
+              <button onClick={() => setSearch("")} className="hover:text-amber-900">
+                <X size={12} />
+              </button>
+            </span>
           </div>
-        </div>
+        )}
 
         {/* Products Grid */}
         {loading ? (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4.5">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-              <div key={i} className="h-80 rounded-2xl bg-slate-200 dark:bg-[#1B1D23] animate-pulse" />
+              <div key={i} className="h-80 rounded-2xl bg-white border border-slate-200 animate-pulse" />
             ))}
           </div>
         ) : filteredProducts.length === 0 ? (
-          <div className="bg-white dark:bg-[#16181D] border border-slate-200 dark:border-[#282C36] rounded-2xl p-12 text-center shadow-sm">
-            <Flame size={48} className="text-amber-500/50 mx-auto mb-3" />
-            <h3 className="font-heading font-bold text-xl text-slate-900 dark:text-white">
+          <div className="flex flex-col items-center justify-center py-24 text-center bg-white rounded-2xl border border-slate-200 shadow-sm">
+            <div className="text-6xl mb-4">🔍</div>
+            <h3 className="font-heading font-semibold text-slate-900 text-lg mb-2">
               Aramanıza uygun ürün bulunamadı
             </h3>
-            <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
+            <p className="text-slate-500 text-sm mb-6">
               Filtrelerinizi temizleyerek veya farklı bir arama yaparak tekrar deneyebilirsiniz.
             </p>
             <button
@@ -184,13 +203,13 @@ export default function CokSatanlarPage() {
                 setSearch("");
                 setSelectedCategory("all");
               }}
-              className="btn-primary bg-amber-500 hover:bg-amber-600 text-white font-bold mt-4 inline-flex py-2 px-6 rounded-xl text-xs sm:text-sm"
+              className="btn-gold-outline"
             >
-              Filtreleri Sıfırla
+              Filtreleri Temizle
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4.5">
             {filteredProducts.map((product, idx) => (
               <ProductCard key={product.id} product={product} index={idx} />
             ))}

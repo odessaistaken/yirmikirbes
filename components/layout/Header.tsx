@@ -19,6 +19,7 @@ import {
   Phone,
   ImageIcon,
   AlignLeft,
+  Flame,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import Logo from "@/components/Logo";
@@ -547,8 +548,8 @@ export default function Header() {
                       href={link.href}
                       className={`px-3.5 py-2 rounded-xl text-sm font-medium transition-all duration-150 ${
                         isActive(link.href)
-                          ? "text-gold bg-gold/10 font-bold"
-                          : "text-slate-300 hover:text-white hover:bg-[#1B1D23]"
+                          ? "text-gold-600 bg-gold/10 font-bold border border-gold/30"
+                          : "text-slate-700 hover:text-slate-900 hover:bg-slate-100"
                       }`}
                     >
                       {link.label}
@@ -564,17 +565,17 @@ export default function Header() {
                 <Logo size={54} logoScale={1.4} />
               </Link>
               
-              {/* Çok Satanlar Linki - Logonun hemen sağında */}
+              {/* Çok Satanlar Butonu - Kategoriler butonu ile aynı tarzda */}
               <Link
                 href="/cok-satanlar"
-                className={`relative flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 border ${
+                className={`flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 ${
                   isActive("/cok-satanlar")
-                    ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white border-amber-600 shadow-md scale-105"
-                    : "bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400 border-amber-500/30 hover:border-amber-500/60 shadow-sm hover:scale-105"
+                    ? "text-gold-600 bg-gold/10 font-bold border border-gold/30"
+                    : "text-slate-700 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 hover:border-slate-300"
                 }`}
               >
-                <span className="text-sm sm:text-base animate-pulse">🔥</span>
-                <span className="whitespace-nowrap">Çok Satanlar</span>
+                <Flame size={16} className="text-amber-600" />
+                <span>Çok Satanlar</span>
               </Link>
             </div>
 
