@@ -60,22 +60,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" className={`${inter.variable} ${montserrat.variable}`}>
-      <body className="font-sans bg-[#383b40] text-[#E2E8F0] antialiased min-h-screen flex flex-col selection:bg-gold/30 selection:text-white">
+      <body className="font-sans bg-[#FFFFFF] text-[#1E293B] antialiased min-h-screen flex flex-col selection:bg-gold/30 selection:text-slate-900">
         <AuthProvider>
           <Toaster
             position="top-right"
             toastOptions={{
               duration: 4000,
               style: {
-                background: "#1B1D23",
-                color: "#F8FAFC",
+                background: "#FFFFFF",
+                color: "#0F172A",
                 borderRadius: "12px",
                 fontSize: "14px",
-                border: "1px solid #282C36",
-                boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
+                border: "1px solid #E2E8F0",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
               },
               success: {
-                iconTheme: { primary: "#D4AF37", secondary: "#121316" },
+                iconTheme: { primary: "#D4AF37", secondary: "#FFFFFF" },
               },
             }}
           />

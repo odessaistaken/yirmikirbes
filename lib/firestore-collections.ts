@@ -204,6 +204,19 @@ export async function getFeaturedProducts(limitCount = 8): Promise<Product[]> {
     .slice(0, limitCount);
 }
 
+/** Fetch active best seller products ("Çok Satanlar") */
+export async function getBestSellerProducts(): Promise<Product[]> {
+  const allProds = await getProducts();
+  return allProds
+    .filter((p) => p.isActive && p.isBestSeller)
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+}
+
+/** Toggle product best seller status */
+export async function setProductBestSeller(id: string, isBestSeller: boolean): Promise<void> {
+  await updateProduct(id, { isBestSeller });
+}
+
 /** Get a single product by ID */
 export async function getProductById(id: string): Promise<Product | null> {
   const allProds = await getProducts();

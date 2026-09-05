@@ -263,8 +263,8 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "glass border-b border-border shadow-soft"
-            : "bg-[#121316]/90 backdrop-blur-md border-b border-[#282C36]/60 shadow-lg"
+            ? "glass border-b border-slate-200 shadow-sm"
+            : "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
         }`}
       >
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -274,7 +274,7 @@ export default function Header() {
               {/* Mobile menu toggle button */}
               <button
                 onClick={() => setMobileOpen((v) => !v)}
-                className="lg:hidden p-2 rounded-lg text-slate-300 hover:bg-[#1B1D23] hover:text-white transition-colors"
+                className="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors"
                 aria-label="Menü"
               >
                 {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -289,8 +289,8 @@ export default function Header() {
                         onClick={() => { setMegaOpen((v) => !v); setActiveSubCategory(null); }}
                         className={`flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 ${
                           isActive(link.href)
-                            ? "text-gold bg-gold/10 font-bold border border-gold/30"
-                            : "text-slate-200 hover:text-white hover:bg-[#1B1D23] border border-transparent hover:border-[#282C36]"
+                            ? "text-gold-600 bg-gold/10 font-bold border border-gold/30"
+                            : "text-slate-700 hover:text-slate-900 hover:bg-slate-100 border border-transparent hover:border-slate-200"
                         }`}
                       >
                         <AlignLeft size={16} className="text-gold" />
@@ -321,90 +321,90 @@ export default function Header() {
                             : [];
 
                           return (
-                            <motion.div
+                              <motion.div
                               initial={{ opacity: 0, y: -8, scale: 0.97 }}
                               animate={{ opacity: 1, y: 0, scale: 1 }}
                               exit={{ opacity: 0, y: -8, scale: 0.97 }}
                               transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                              className="absolute top-full left-0 mt-3 w-[840px] max-w-[85vw] bg-[#16181D] rounded-2xl shadow-2xl border border-[#282C36] overflow-hidden flex z-50 text-slate-100"
+                              className="absolute top-full left-0 mt-3 w-[840px] max-w-[85vw] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex z-50 text-slate-800"
                               style={{ maxHeight: "480px" }}
                             >
                               {/* ── Sol Panel: Kategoriler ── */}
-                              <div className="w-[240px] shrink-0 bg-[#121316] border-r border-[#282C36] flex flex-col overflow-y-auto">
-                                {/* Başlık */}
-                                <div className="flex items-center gap-2 px-4 py-3.5 border-b border-[#282C36]">
-                                  <AlignLeft size={14} className="text-gold" />
-                                  <span className="text-white font-bold text-xs uppercase tracking-widest">
-                                    Kategorilerimiz
-                                  </span>
-                                </div>
+                              <div className="w-[240px] shrink-0 bg-slate-50 border-r border-slate-200 flex flex-col overflow-y-auto">
+                                 {/* Başlık */}
+                                 <div className="flex items-center gap-2 px-4 py-3.5 border-b border-slate-200 bg-white">
+                                   <AlignLeft size={14} className="text-gold" />
+                                   <span className="text-slate-900 font-bold text-xs uppercase tracking-widest">
+                                     Kategorilerimiz
+                                   </span>
+                                 </div>
 
-                                {/* Tüm Ürünler */}
-                                <button
-                                  onMouseEnter={() => setActiveSubCategory("__all__")}
-                                  onClick={() => { setMegaOpen(false); router.push("/katalog"); }}
-                                  className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-[#282C36]/60 ${
-                                    isAllSelected
-                                      ? "bg-[#1B1D23] text-gold font-bold"
-                                      : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
-                                  }`}
-                                >
-                                  <span>✨ Tüm Ürünler</span>
-                                  <ChevronRight size={14} className="opacity-60" />
-                                </button>
+                                 {/* Tüm Ürünler */}
+                                 <button
+                                   onMouseEnter={() => setActiveSubCategory("__all__")}
+                                   onClick={() => { setMegaOpen(false); router.push("/katalog"); }}
+                                   className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-slate-200 ${
+                                     isAllSelected
+                                       ? "bg-white text-gold-600 font-bold shadow-sm"
+                                       : "text-slate-700 hover:bg-white hover:text-slate-900"
+                                   }`}
+                                 >
+                                   <span>✨ Tüm Ürünler</span>
+                                   <ChevronRight size={14} className="opacity-60" />
+                                 </button>
 
-                                {/* Ana + Alt kategori hiyerarşik listesi */}
-                                {categories
-                                  .filter((cat) => !cat.parentId)
-                                  .map((parentCat) => {
-                                    const children = categories.filter((c) => c.parentId === parentCat.id);
-                                    return (
-                                      <div key={parentCat.id}>
-                                        {/* Ana kategori */}
-                                        <button
-                                          onMouseEnter={() => setActiveSubCategory(parentCat.id)}
-                                          onClick={() => { setMegaOpen(false); router.push(`/katalog/${parentCat.slug}`); }}
-                                          className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-[#282C36]/40 ${
-                                            activeSubCategory === parentCat.id
-                                              ? "bg-[#1B1D23] text-gold font-bold"
-                                              : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
-                                          }`}
-                                        >
-                                          <span className="truncate text-left">{parentCat.name}</span>
-                                          <ChevronRight size={14} className="shrink-0 opacity-60" />
-                                        </button>
-                                        {/* Alt kategoriler */}
-                                        {children.map((child) => (
-                                          <button
-                                            key={child.id}
-                                            onMouseEnter={() => setActiveSubCategory(child.id)}
-                                            onClick={() => { setMegaOpen(false); router.push(`/katalog/${child.slug}`); }}
-                                            className={`w-full flex items-center justify-between pl-8 pr-4 py-2.5 text-xs font-medium transition-colors duration-150 border-b border-[#282C36]/30 ${
-                                              activeSubCategory === child.id
-                                                ? "bg-[#1B1D23] text-gold font-bold"
-                                                : "text-slate-400 hover:bg-[#1B1D23] hover:text-white"
-                                            }`}
-                                          >
-                                            <span className="flex items-center gap-1.5 truncate text-left">
-                                              <span className="w-1 h-1 rounded-full bg-gold/60 shrink-0" />
-                                              {child.name}
-                                            </span>
-                                            <ChevronRight size={12} className="shrink-0 opacity-50" />
-                                          </button>
-                                        ))}
-                                      </div>
-                                    );
-                                  })
-                                }
-                              </div>
+                                 {/* Ana + Alt kategori hiyerarşik listesi */}
+                                 {categories
+                                   .filter((cat) => !cat.parentId)
+                                   .map((parentCat) => {
+                                     const children = categories.filter((c) => c.parentId === parentCat.id);
+                                     return (
+                                       <div key={parentCat.id}>
+                                         {/* Ana kategori */}
+                                         <button
+                                           onMouseEnter={() => setActiveSubCategory(parentCat.id)}
+                                           onClick={() => { setMegaOpen(false); router.push(`/katalog/${parentCat.slug}`); }}
+                                           className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-slate-200/60 ${
+                                             activeSubCategory === parentCat.id
+                                               ? "bg-white text-gold-600 font-bold shadow-sm"
+                                               : "text-slate-700 hover:bg-white hover:text-slate-900"
+                                           }`}
+                                         >
+                                           <span className="truncate text-left">{parentCat.name}</span>
+                                           <ChevronRight size={14} className="shrink-0 opacity-60" />
+                                         </button>
+                                         {/* Alt kategoriler */}
+                                         {children.map((child) => (
+                                           <button
+                                             key={child.id}
+                                             onMouseEnter={() => setActiveSubCategory(child.id)}
+                                             onClick={() => { setMegaOpen(false); router.push(`/katalog/${child.slug}`); }}
+                                             className={`w-full flex items-center justify-between pl-8 pr-4 py-2.5 text-xs font-medium transition-colors duration-150 border-b border-slate-200/40 ${
+                                               activeSubCategory === child.id
+                                                 ? "bg-white text-gold-600 font-bold"
+                                                 : "text-slate-500 hover:bg-white hover:text-slate-900"
+                                             }`}
+                                           >
+                                             <span className="flex items-center gap-1.5 truncate text-left">
+                                               <span className="w-1 h-1 rounded-full bg-gold shrink-0" />
+                                               {child.name}
+                                             </span>
+                                             <ChevronRight size={12} className="shrink-0 opacity-50" />
+                                           </button>
+                                         ))}
+                                       </div>
+                                     );
+                                   })
+                                 }
+                               </div>
 
                               {/* ── Sağ Panel: Ürün/Alt Başlık İçeriği ── */}
-                              <div className="flex-1 overflow-y-auto bg-[#16181D]">
+                              <div className="flex-1 overflow-y-auto bg-white">
                                 {isAllSelected ? (
                                   /* Tüm Ürünler: Tüm Kategoriler + Markalarımız */
                                   <div className="p-5 space-y-5">
                                     <div>
-                                      <p className="text-gold text-xs font-semibold uppercase tracking-wider mb-3">
+                                      <p className="text-gold-600 text-xs font-bold uppercase tracking-wider mb-3">
                                         Tüm Kategoriler
                                       </p>
                                       <div className="grid grid-cols-3 gap-x-6 gap-y-2.5">
@@ -413,7 +413,7 @@ export default function Header() {
                                             key={cat.id}
                                             href={`/katalog/${cat.slug}`}
                                             onClick={() => setMegaOpen(false)}
-                                            className="text-sm text-slate-300 hover:text-gold font-medium transition-colors duration-150 truncate"
+                                            className="text-sm text-slate-700 hover:text-gold-600 font-medium transition-colors duration-150 truncate"
                                           >
                                             {cat.name}
                                           </Link>
@@ -422,8 +422,8 @@ export default function Header() {
                                     </div>
 
                                     {brands.length > 0 && (
-                                      <div className="border-t border-[#282C36] pt-4">
-                                        <p className="text-gold text-xs font-semibold uppercase tracking-wider mb-3">
+                                      <div className="border-t border-slate-200 pt-4">
+                                        <p className="text-gold-600 text-xs font-bold uppercase tracking-wider mb-3">
                                           Markalarımız
                                         </p>
                                         <div className="flex flex-wrap gap-2.5">
@@ -432,14 +432,14 @@ export default function Header() {
                                               key={brand.id}
                                               href={`/katalog?search=${encodeURIComponent(brand.name.toLowerCase())}`}
                                               onClick={() => setMegaOpen(false)}
-                                              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#1B1D23] hover:bg-[#282C36] border border-[#282C36] hover:border-gold/50 transition-all duration-150 group"
+                                              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-gold/50 transition-all duration-150 group"
                                             >
                                               {brand.imageUrl && (
                                                 <div className="w-5 h-5 relative shrink-0">
                                                   <Image src={brand.imageUrl} alt={brand.name} fill sizes="20px" className="object-contain" />
                                                 </div>
                                               )}
-                                              <span className="text-xs font-bold text-slate-200 group-hover:text-gold tracking-wide uppercase">
+                                              <span className="text-xs font-bold text-slate-700 group-hover:text-gold-600 tracking-wide uppercase">
                                                 {brand.name}
                                               </span>
                                             </Link>
@@ -558,10 +558,23 @@ export default function Header() {
               </nav>
             </div>
 
-            {/* ── Orta Kısım: Büyütülmüş & Ortalanmış Logo ────────────────── */}
-            <div className="shrink-0 flex items-center justify-center px-2">
+            {/* ── Orta Kısım: Büyütülmüş & Ortalanmış Logo + Çok Satanlar ────────────────── */}
+            <div className="shrink-0 flex items-center justify-center gap-3 sm:gap-4 px-2">
               <Link href="/" className="flex items-center group py-1">
                 <Logo size={54} logoScale={1.4} />
+              </Link>
+              
+              {/* Çok Satanlar Linki - Logonun hemen sağında */}
+              <Link
+                href="/cok-satanlar"
+                className={`relative flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 border ${
+                  isActive("/cok-satanlar")
+                    ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white border-amber-600 shadow-md scale-105"
+                    : "bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400 border-amber-500/30 hover:border-amber-500/60 shadow-sm hover:scale-105"
+                }`}
+              >
+                <span className="text-sm sm:text-base animate-pulse">🔥</span>
+                <span className="whitespace-nowrap">Çok Satanlar</span>
               </Link>
             </div>
 
@@ -570,17 +583,17 @@ export default function Header() {
               {/* Search (desktop) */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="flex p-2.5 rounded-xl items-center gap-2 text-slate-300 hover:text-white bg-[#1B1D23]/60 hover:bg-[#1B1D23] border border-[#282C36] hover:border-gold/50 transition-colors"
+                className="flex p-2.5 rounded-xl items-center gap-2 text-slate-700 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-gold/50 transition-colors"
                 title="Ürün ara (Ctrl+K)"
               >
                 <Search size={17} className="text-gold" />
-                <span className="text-xs text-slate-400 hidden xl:inline font-mono">Ctrl+K</span>
+                <span className="text-xs text-slate-500 hidden xl:inline font-mono">Ctrl+K</span>
               </button>
 
               {/* Phone */}
               <a
                 href="tel:+905010737113"
-                className="hidden xl:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#1B1D23]/60 hover:bg-[#1B1D23] border border-[#282C36] hover:border-gold/50 text-slate-200 hover:text-gold text-sm font-medium transition-all duration-150"
+                className="hidden xl:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-gold/50 text-slate-700 hover:text-gold-600 text-sm font-medium transition-all duration-150"
               >
                 <Phone size={14} className="text-gold" />
                 <span className="text-xs font-semibold tracking-wide">
@@ -593,12 +606,12 @@ export default function Header() {
                 <div className="relative" ref={userRef}>
                   <button
                     onClick={() => setUserMenuOpen((v) => !v)}
-                    className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#1B1D23] border border-[#282C36] text-white hover:border-gold/50 transition-all duration-150"
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 hover:border-gold/50 transition-all duration-150"
                   >
                     <div className="w-7 h-7 rounded-full bg-gradient-gold flex items-center justify-center">
-                      <User size={13} className="text-[#0D0E11]" />
+                      <User size={13} className="text-slate-900" />
                     </div>
-                    <span className="hidden sm:block text-xs font-semibold max-w-[80px] truncate text-slate-200">
+                    <span className="hidden sm:block text-xs font-semibold max-w-[80px] truncate text-slate-800">
                       {userProfile?.name ?? "Hesabım"}
                     </span>
                     <ChevronDown size={12} className="text-gold" />
@@ -611,13 +624,13 @@ export default function Header() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -8, scale: 0.96 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute right-0 mt-2 w-52 bg-[#1B1D23] rounded-xl shadow-soft-lg border border-[#282C36] overflow-hidden z-50 text-slate-200"
+                        className="absolute right-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden z-50 text-slate-800"
                       >
-                        <div className="px-4 py-3 border-b border-[#282C36]">
-                          <p className="font-semibold text-white text-sm truncate">
+                        <div className="px-4 py-3 border-b border-slate-100">
+                          <p className="font-semibold text-slate-900 text-sm truncate">
                             {userProfile?.name}
                           </p>
-                          <p className="text-slate-400 text-xs truncate">
+                          <p className="text-slate-500 text-xs truncate">
                             {userProfile?.email}
                           </p>
                           {userRole === "admin" && (
@@ -627,7 +640,7 @@ export default function Header() {
                         <div className="p-2">
                           <Link
                             href="/hesap"
-                            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-[#282C36] transition-colors"
+                            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-slate-700 hover:text-slate-900 hover:bg-slate-50 transition-colors"
                           >
                             <User size={15} className="text-gold" />
                             Hesabım
@@ -635,7 +648,7 @@ export default function Header() {
                           {userRole === "admin" && (
                             <Link
                               href="/admin"
-                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-[#282C36] transition-colors"
+                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-slate-700 hover:text-slate-900 hover:bg-slate-50 transition-colors"
                             >
                               <LayoutDashboard size={15} className="text-gold" />
                               Admin Paneli
@@ -643,16 +656,16 @@ export default function Header() {
                           )}
                           <Link
                             href="/katalog"
-                            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-[#282C36] transition-colors"
+                            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-slate-700 hover:text-slate-900 hover:bg-slate-50 transition-colors"
                           >
                             <ShoppingBag size={15} className="text-gold" />
                             Katalog
                           </Link>
                         </div>
-                        <div className="border-t border-[#282C36] p-2">
+                        <div className="border-t border-slate-100 p-2">
                           <button
                             onClick={logoutUser}
-                            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors w-full"
+                            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-red-600 hover:bg-red-50 transition-colors w-full"
                           >
                             <LogOut size={15} />
                             Çıkış Yap
@@ -694,15 +707,15 @@ export default function Header() {
               onClick={() => setMobileOpen(false)}
             />
             {/* Drawer */}
-            <div className="absolute right-0 top-0 bottom-0 w-80 bg-[#16181D] border-l border-[#282C36] flex flex-col overflow-y-auto text-slate-200">
+            <div className="absolute right-0 top-0 bottom-0 w-80 bg-white border-l border-slate-200 flex flex-col overflow-y-auto text-slate-800">
               {/* Header */}
-              <div className="flex items-center justify-between px-6 py-5 border-b border-[#282C36]">
+              <div className="flex items-center justify-between px-6 py-5 border-b border-slate-200">
                 <Link href="/" onClick={() => setMobileOpen(false)}>
                   <Logo size={38} />
                 </Link>
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="p-2 rounded-lg hover:bg-[#282C36] text-slate-400 hover:text-white"
+                  className="p-2 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-slate-800"
                 >
                   <X size={20} />
                 </button>
@@ -710,14 +723,27 @@ export default function Header() {
 
               {/* Nav */}
               <div className="flex-1 p-4 space-y-1">
+                <Link
+                  href="/cok-satanlar"
+                  onClick={() => setMobileOpen(false)}
+                  className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
+                    isActive("/cok-satanlar")
+                      ? "bg-amber-500 text-white shadow-md"
+                      : "bg-amber-50 text-amber-700 hover:bg-amber-100 border border-amber-200"
+                  }`}
+                >
+                  <span>🔥</span>
+                  <span>Çok Satanlar</span>
+                </Link>
+
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     className={`flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                       isActive(link.href)
-                        ? "bg-gold/15 text-gold font-bold"
-                        : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
+                        ? "bg-gold/15 text-gold-700 font-bold"
+                        : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
                     }`}
                   >
                     {link.label}
@@ -725,7 +751,7 @@ export default function Header() {
                 ))}
 
                 <div className="pt-3 pb-2">
-                  <p className="text-2xs text-gold uppercase tracking-widest px-4 pb-2 font-bold">
+                  <p className="text-2xs text-gold-600 uppercase tracking-widest px-4 pb-2 font-bold">
                     Kategoriler
                   </p>
                   {categories
@@ -738,9 +764,9 @@ export default function Header() {
                           <Link
                             href={`/katalog/${parentCat.slug}`}
                             onClick={() => setMobileOpen(false)}
-                            className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-slate-300 hover:bg-[#1B1D23] hover:text-gold transition-colors font-medium"
+                            className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-slate-700 hover:bg-slate-50 hover:text-gold-600 transition-colors font-medium"
                           >
-                            <div className="w-5 h-5 rounded overflow-hidden relative shrink-0 bg-[#21242C]">
+                            <div className="w-5 h-5 rounded overflow-hidden relative shrink-0 bg-slate-100">
                               {parentCat.imageUrl && <Image src={parentCat.imageUrl} alt={parentCat.name} fill sizes="20px" quality={85} className="object-cover" />}
                             </div>
                             {parentCat.name}
@@ -751,7 +777,7 @@ export default function Header() {
                               key={child.id}
                               href={`/katalog/${child.slug}`}
                               onClick={() => setMobileOpen(false)}
-                              className="flex items-center gap-2 pl-10 pr-4 py-2 rounded-xl text-xs text-slate-400 hover:bg-[#1B1D23] hover:text-gold transition-colors"
+                              className="flex items-center gap-2 pl-10 pr-4 py-2 rounded-xl text-xs text-slate-500 hover:bg-slate-50 hover:text-gold-600 transition-colors"
                             >
                               <span className="w-1 h-1 rounded-full bg-gold/60 shrink-0" />
                               {child.name}
@@ -766,7 +792,7 @@ export default function Header() {
               </div>
 
               {/* Auth */}
-              <div className="border-t border-[#282C36] p-4 space-y-2">
+              <div className="border-t border-slate-200 p-4 space-y-2">
                 {mounted && currentUser ? (
                   <>
                     <Link href="/hesap" className="btn-secondary w-full justify-start gap-2">
@@ -774,14 +800,14 @@ export default function Header() {
                       {userProfile?.name ?? "Hesabım"}
                     </Link>
                     {userRole === "admin" && (
-                      <Link href="/admin" className="btn-ghost w-full justify-start gap-2 text-slate-300">
+                      <Link href="/admin" className="btn-ghost w-full justify-start gap-2 text-slate-700">
                         <LayoutDashboard size={16} className="text-gold" />
                         Admin Paneli
                       </Link>
                     )}
                     <button
                       onClick={logoutUser}
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm text-red-400 hover:bg-red-500/10 transition-colors w-full"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm text-red-600 hover:bg-red-50 transition-colors w-full"
                     >
                       <LogOut size={16} />
                       Çıkış Yap
@@ -811,16 +837,16 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[60] bg-[#0D0E11]/80 backdrop-blur-md flex items-start justify-center pt-20 px-4"
+            className="fixed inset-0 z-[60] bg-slate-900/40 backdrop-blur-md flex items-start justify-center pt-20 px-4"
           >
             <motion.div
               initial={{ opacity: 0, y: -20, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.98 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#1B1D23] rounded-2xl w-full max-w-3xl shadow-soft-lg border border-[#282C36] overflow-hidden flex flex-col max-h-[80vh] text-slate-200"
+              className="bg-white rounded-2xl w-full max-w-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[80vh] text-slate-800"
             >
-              <div className="p-4 border-b border-[#282C36] flex items-center gap-3">
+              <div className="p-4 border-b border-slate-200 flex items-center gap-3">
                 <Search size={20} className="text-gold shrink-0" />
                 <input
                   ref={searchInputRef}
@@ -828,27 +854,27 @@ export default function Header() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Ürün adı, kodu veya kategori ara..."
-                  className="flex-1 bg-transparent border-none outline-none text-white text-lg placeholder:text-slate-500"
+                  className="flex-1 bg-transparent border-none outline-none text-slate-900 text-lg placeholder:text-slate-400"
                 />
                 <button
                   onClick={() => {
                     setSearchOpen(false);
                     setSearchQuery("");
                   }}
-                  className="p-2 text-slate-400 hover:text-white bg-[#282C36] hover:bg-[#333845] rounded-lg transition-colors"
+                  className="p-2 text-slate-500 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors"
                 >
                   <X size={18} />
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto p-4 bg-[#121316]">
+              <div className="flex-1 overflow-y-auto p-4 bg-slate-50">
                 {searchQuery.trim().length <= 1 ? (
                   <div className="text-center py-12 text-slate-400">
-                    <Search size={32} className="mx-auto mb-3 opacity-20 text-gold" />
+                    <Search size={32} className="mx-auto mb-3 opacity-30 text-gold" />
                     <p className="text-sm">Aramaya başlamak için en az 2 karakter yazın</p>
                   </div>
                 ) : searchResults.length === 0 ? (
-                  <div className="text-center py-12 text-slate-400">
+                  <div className="text-center py-12 text-slate-500">
                     <p className="text-sm">&quot;{searchQuery}&quot; için sonuç bulunamadı.</p>
                   </div>
                 ) : (
@@ -861,9 +887,9 @@ export default function Header() {
                           setSearchOpen(false);
                           setSearchQuery("");
                         }}
-                        className="flex items-center gap-4 p-3 bg-[#1B1D23] border border-[#282C36] rounded-xl hover:border-gold/50 hover:shadow-soft transition-all group"
+                        className="flex items-center gap-4 p-3 bg-white border border-slate-200 rounded-xl hover:border-gold/50 hover:shadow-md transition-all group"
                       >
-                        <div className="w-16 h-16 rounded-lg bg-[#21242C] overflow-hidden shrink-0 relative">
+                        <div className="w-16 h-16 rounded-lg bg-slate-50 overflow-hidden shrink-0 relative border border-slate-100">
                           {product.imageUrl ? (
                             <Image
                               src={product.imageUrl}
@@ -874,18 +900,21 @@ export default function Header() {
                               className="object-contain p-1 group-hover:scale-110 transition-transform duration-300"
                             />
                           ) : (
-                            <div className="w-full h-full flex items-center justify-center bg-[#282C36]">
+                            <div className="w-full h-full flex items-center justify-center bg-slate-100">
                               <ImageIcon size={20} className="text-slate-400" />
                             </div>
                           )}
                         </div>
                         <div className="min-w-0">
-                          <p className="font-heading font-semibold text-white text-sm truncate group-hover:text-gold transition-colors">
+                          <p className="font-heading font-semibold text-slate-900 text-sm truncate group-hover:text-gold-600 transition-colors">
                             {product.name}
                           </p>
-                          <p className="text-slate-400 text-xs truncate mt-0.5">
-                            {product.categoryName} • Kod: {product.code}
+                          <p className="text-slate-400 text-xs font-mono mt-0.5">
+                            {product.code}
                           </p>
+                          <span className="text-[11px] font-bold text-gold-600 uppercase">
+                            {product.categoryName}
+                          </span>
                         </div>
                       </Link>
                     ))}

@@ -7,7 +7,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Plus, Pencil, Trash2, X, Check, Upload,
-  AlertTriangle, Search, Package, ImageIcon, Copy,
+  AlertTriangle, Search, Package, ImageIcon, Copy, Flame,
 } from "lucide-react";
 import toast from "react-hot-toast";
 import {
@@ -75,6 +75,7 @@ export default function AdminUrunler() {
     imageUrl: "",
     imageStoragePath: "",
     isActive: true,
+    isBestSeller: false,
   };
   const [form, setForm] = useState(emptyForm);
 
@@ -126,8 +127,23 @@ export default function AdminUrunler() {
       imageUrl: p.imageUrl,
       imageStoragePath: p.imageStoragePath ?? "",
       isActive: p.isActive,
+      isBestSeller: !!p.isBestSeller,
     });
     setModalOpen(true);
+  }
+
+  async function handleToggleBestSeller(p: Product) {
+    const newVal = !p.isBestSeller;
+    try {
+      await updateProduct(p.id, { isBestSeller: newVal });
+      setProducts((prev) =>
+        prev.map((item) => (item.id === p.id ? { ...item, isBestSeller: newVal } : item))
+      );
+      toast.success(newVal ? `"${p.name}" Çok Satanlara eklendi.` : `"${p.name}" Çok Satanlardan çıkarıldı.`);
+    } catch (err) {
+      console.error(err);
+      toast.error("İşlem başarısız oldu.");
+    }
   }
 
   async function handleClone(p: Product) {
@@ -183,6 +199,7 @@ export default function AdminUrunler() {
         imageUrl: safeImageUrl?.trim() || "",
         imageStoragePath: form.imageStoragePath || "",
         isActive: form.isActive,
+        isBestSeller: form.isBestSeller,
         tags: [],
       };
 
@@ -264,6 +281,7 @@ export default function AdminUrunler() {
                 <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Kod</th>
                 <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Kategori</th>
                 <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Fiyat</th>
+                <th className="text-center py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Çok Satan</th>
                 <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Sıra</th>
                 <th className="text-left py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">Durum</th>
                 <th className="text-right py-3.5 px-5 text-slate-400 text-xs font-semibold uppercase tracking-wider">İşlemler</th>
@@ -304,6 +322,21 @@ export default function AdminUrunler() {
                     {p.price > 0 && (
                       <span className="text-slate-400 text-xs ml-1">+%{p.vatRate}</span>
                     )}
+                  </td>
+                  <td className="py-3 px-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => handleToggleBestSeller(p)}
+                      title={p.isBestSeller ? "Çok Satanlardan Çıkar" : "Çok Satanlara Ekle"}
+                      className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold transition-all ${
+                        p.isBestSeller
+                          ? "bg-amber-500 text-white shadow-sm hover:bg-amber-600"
+                          : "bg-[#282C36] text-slate-400 hover:text-amber-400 hover:bg-amber-500/10 border border-[#383E4C]"
+                      }`}
+                    >
+                      <Flame size={12} className={p.isBestSeller ? "fill-white" : ""} />
+                      <span>{p.isBestSeller ? "Evet" : "Hayır"}</span>
+                    </button>
                   </td>
                   <td className="py-3 px-5">
                     <span className="text-slate-300 text-sm">{p.order}</span>
@@ -606,18 +639,34 @@ export default function AdminUrunler() {
                     />
                   </div>
 
-                  {/* Status toggle */}
-                  <div className="flex items-center gap-3">
-                    <button
-                      type="button"
-                      onClick={() => setForm({ ...form, isActive: !form.isActive })}
-                      className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${form.isActive ? "bg-gold" : "bg-[#282C36]"}`}
-                    >
-                      <span className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200 ${form.isActive ? "translate-x-5" : "translate-x-0.5"}`} />
-                    </button>
-                    <span className="text-slate-300 text-sm font-medium">
-                      {form.isActive ? "Aktif (katalogda görünür)" : "Pasif (katalogda gizli)"}
-                    </span>
+                  {/* Status & Best Seller toggles */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                    <div className="flex items-center gap-3">
+                      <button
+                        type="button"
+                        onClick={() => setForm({ ...form, isActive: !form.isActive })}
+                        className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${form.isActive ? "bg-gold" : "bg-[#282C36]"}`}
+                      >
+                        <span className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200 ${form.isActive ? "translate-x-5" : "translate-x-0.5"}`} />
+                      </button>
+                      <span className="text-slate-300 text-sm font-medium">
+                        {form.isActive ? "Aktif Ürün" : "Pasif Ürün"}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <button
+                        type="button"
+                        onClick={() => setForm({ ...form, isBestSeller: !form.isBestSeller })}
+                        className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${form.isBestSeller ? "bg-amber-500" : "bg-[#282C36]"}`}
+                      >
+                        <span className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200 ${form.isBestSeller ? "translate-x-5" : "translate-x-0.5"}`} />
+                      </button>
+                      <span className="text-slate-300 text-sm font-medium flex items-center gap-1.5">
+                        <Flame size={14} className={form.isBestSeller ? "text-amber-500 fill-amber-500" : "text-slate-500"} />
+                        {form.isBestSeller ? "Çok Satanlar'da Göster" : "Normal Ürün"}
+                      </span>
+                    </div>
                   </div>
                 </div>
 

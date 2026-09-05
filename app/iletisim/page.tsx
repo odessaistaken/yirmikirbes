@@ -95,10 +95,10 @@ export default function IletisimPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#121316] text-slate-200">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-800">
 
       {/* ── Page header ───────────────────────────────────────────────────── */}
-      <div className="bg-[#0D0E11] pt-12 pb-14 border-b border-[#282C36]">
+      <div className="bg-white pt-12 pb-14 border-b border-slate-200">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -106,10 +106,10 @@ export default function IletisimPage() {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="section-label">İletişim</span>
-            <h1 className="font-heading font-bold text-white text-4xl md:text-5xl mt-2 mb-3">
+            <h1 className="font-heading font-bold text-slate-900 text-4xl md:text-5xl mt-2 mb-3">
               Bize Ulaşın
             </h1>
-            <p className="text-slate-300 text-lg max-w-2xl">
+            <p className="text-slate-600 text-lg max-w-2xl">
               B2B fiyat teklifi, distribütörlük başvurusu veya ürün bilgisi için
               uzman ekibimizle iletişime geçin.
             </p>
@@ -129,20 +129,20 @@ export default function IletisimPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="bg-[#1B1D23] border border-[#282C36] rounded-2xl p-5 shadow-card hover:shadow-card-hover hover:border-gold/50 hover:-translate-y-1 transition-all duration-300 group block"
+              className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-card-hover hover:border-amber-400 hover:-translate-y-1 transition-all duration-300 group block"
             >
-              <div className="w-11 h-11 rounded-xl bg-gold/15 text-gold flex items-center justify-center mb-4 group-hover:bg-gold group-hover:text-[#0D0E11] transition-all duration-200">
+              <div className="w-11 h-11 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-white transition-all duration-200">
                 {card.icon}
               </div>
-              <p className="font-heading font-bold text-white text-sm mb-2 group-hover:text-gold transition-colors">{card.title}</p>
+              <p className="font-heading font-bold text-slate-900 text-sm mb-2 group-hover:text-amber-700 transition-colors">{card.title}</p>
               {card.lines.map((line) => (
-                <p key={line} className="text-slate-300 text-sm">{line}</p>
+                <p key={line} className="text-slate-600 text-sm">{line}</p>
               ))}
-              <p className="text-slate-400 text-xs mt-2 flex items-center gap-1">
+              <p className="text-slate-500 text-xs mt-2 flex items-center gap-1">
                 <Clock size={10} className="shrink-0" />
                 {card.sub}
               </p>
-              <span className="inline-flex items-center gap-1 text-gold text-xs font-bold mt-3 group-hover:underline">
+              <span className="inline-flex items-center gap-1 text-amber-700 text-xs font-bold mt-3 group-hover:underline">
                 {card.cta} →
               </span>
             </motion.a>
@@ -161,14 +161,14 @@ export default function IletisimPage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="lg:col-span-3"
           >
-            <div className="bg-[#1B1D23] border border-[#282C36] rounded-2xl p-8 shadow-card">
+            <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
               <div className="flex items-center gap-3 mb-7">
-                <div className="w-10 h-10 rounded-xl bg-gold/15 text-gold flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
                   <Send size={18} />
                 </div>
                 <div>
-                  <h2 className="font-heading font-bold text-white text-xl">Mesaj Gönderin</h2>
-                  <p className="text-slate-400 text-xs mt-0.5">En geç 24 saat içinde yanıt veririz</p>
+                  <h2 className="font-heading font-bold text-slate-900 text-xl">Mesaj Gönderin</h2>
+                  <p className="text-slate-500 text-xs mt-0.5">En geç 24 saat içinde yanıt veririz</p>
                 </div>
               </div>
 
@@ -179,10 +179,10 @@ export default function IletisimPage() {
                   className="text-center py-12"
                 >
                   <div className="w-16 h-16 rounded-full bg-green-500/15 border border-green-500/30 flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle size={32} className="text-green-400" />
+                    <CheckCircle size={32} className="text-green-600" />
                   </div>
-                  <h3 className="font-heading font-bold text-white text-xl mb-2">Mesajınız İletildi!</h3>
-                  <p className="text-slate-300 text-sm mb-6">
+                  <h3 className="font-heading font-bold text-slate-900 text-xl mb-2">Mesajınız İletildi!</h3>
+                  <p className="text-slate-600 text-sm mb-6">
                     Ekibimiz en kısa sürede sizinle iletişime geçecektir.
                   </p>
                   <button onClick={() => setSent(false)} className="btn-primary shadow-gold">
@@ -193,51 +193,51 @@ export default function IletisimPage() {
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">Ad Soyad *</label>
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">Ad Soyad *</label>
                       <input {...register("name")} placeholder="Adınız Soyadınız" className={`input ${errors.name ? "input-error" : ""}`} />
-                      {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name.message}</p>}
+                      {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
                     </div>
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">Firma Adı *</label>
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">Firma Adı *</label>
                       <input {...register("company")} placeholder="Firma / İşletme Adı" className={`input ${errors.company ? "input-error" : ""}`} />
-                      {errors.company && <p className="text-red-400 text-xs mt-1">{errors.company.message}</p>}
+                      {errors.company && <p className="text-red-500 text-xs mt-1">{errors.company.message}</p>}
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">E-posta *</label>
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">E-posta *</label>
                       <input {...register("email")} type="email" placeholder="firma@email.com" className={`input ${errors.email ? "input-error" : ""}`} />
-                      {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>}
+                      {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
                     </div>
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">Telefon *</label>
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">Telefon *</label>
                       <input {...register("phone")} type="tel" placeholder="05XX XXX XX XX" className={`input ${errors.phone ? "input-error" : ""}`} />
-                      {errors.phone && <p className="text-red-400 text-xs mt-1">{errors.phone.message}</p>}
+                      {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
                     </div>
                   </div>
                   <div>
-                    <label className="block text-slate-300 text-xs font-semibold mb-1.5">Konu *</label>
+                    <label className="block text-slate-700 text-xs font-semibold mb-1.5">Konu *</label>
                     <select {...register("subject")} className={`input ${errors.subject ? "input-error" : ""}`}>
-                      <option value="" className="bg-[#1B1D23] text-slate-400">Konu seçiniz...</option>
-                      {subjects.map((s) => <option key={s} value={s} className="bg-[#1B1D23] text-white">{s}</option>)}
+                      <option value="" className="text-slate-400">Konu seçiniz...</option>
+                      {subjects.map((s) => <option key={s} value={s} className="text-slate-800">{s}</option>)}
                     </select>
-                    {errors.subject && <p className="text-red-400 text-xs mt-1">{errors.subject.message}</p>}
+                    {errors.subject && <p className="text-red-500 text-xs mt-1">{errors.subject.message}</p>}
                   </div>
                   <div>
-                    <label className="block text-slate-300 text-xs font-semibold mb-1.5">Mesajınız *</label>
+                    <label className="block text-slate-700 text-xs font-semibold mb-1.5">Mesajınız *</label>
                     <textarea
                       {...register("message")}
                       rows={5}
                       placeholder="Mesajınızı buraya yazın... Ürün adı, talep ettiğiniz miktar ve teslimat tercihinizi belirtirseniz daha hızlı yanıt verebiliriz."
                       className={`input resize-none ${errors.message ? "input-error" : ""}`}
                     />
-                    {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message.message}</p>}
+                    {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
                   </div>
 
                   {error && (
-                    <div className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
-                      <AlertCircle size={15} className="text-red-400 shrink-0" />
-                      <p className="text-red-300 text-sm">{error}</p>
+                    <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg">
+                      <AlertCircle size={15} className="text-red-500 shrink-0" />
+                      <p className="text-red-700 text-sm">{error}</p>
                     </div>
                   )}
 
@@ -264,15 +264,15 @@ export default function IletisimPage() {
             className="lg:col-span-2 space-y-5"
           >
             {/* Google Maps Container */}
-            <div className="rounded-2xl overflow-hidden border border-[#282C36] shadow-card bg-[#1B1D23] flex flex-col">
-              <div className="p-4 border-b border-[#282C36] flex items-center justify-between bg-[#16181D]">
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white flex flex-col">
+              <div className="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-gold/15 text-gold flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
                     <MapPin size={16} />
                   </div>
                   <div>
-                    <h3 className="font-heading font-semibold text-white text-sm">Konumumuz</h3>
-                    <p className="text-slate-400 text-xs">Çayırova / Kocaeli</p>
+                    <h3 className="font-heading font-semibold text-slate-900 text-sm">Konumumuz</h3>
+                    <p className="text-slate-500 text-xs">Çayırova / Kocaeli</p>
                   </div>
                 </div>
                 <a
@@ -286,7 +286,7 @@ export default function IletisimPage() {
                 </a>
               </div>
 
-              <div className="relative w-full h-72 sm:h-80 bg-[#121316]">
+              <div className="relative w-full h-72 sm:h-80 bg-slate-100">
                 <iframe
                   title="YKB Gıda / 20:45 Pastacılık Harita Konumu"
                   src="https://maps.google.com/maps?q=40.8210718,29.3710342&hl=tr&z=16&output=embed"
@@ -297,16 +297,16 @@ export default function IletisimPage() {
                 />
               </div>
 
-              <div className="p-4 bg-[#16181D] border-t border-[#282C36] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
-                <div className="text-slate-300">
-                  <span className="font-semibold text-white">Adres: </span>
+              <div className="p-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                <div className="text-slate-600">
+                  <span className="font-semibold text-slate-900">Adres: </span>
                   Yeni, 5105. Sk. No:46, 41420 Çayırova/Kocaeli
                 </div>
                 <a
                   href="https://maps.app.goo.gl/73MbWwGjFQdZ2mLE6"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-gold hover:underline font-semibold flex items-center gap-1 shrink-0"
+                  className="text-amber-700 hover:underline font-semibold flex items-center gap-1 shrink-0"
                 >
                   Haritada Aç →
                 </a>
@@ -314,10 +314,10 @@ export default function IletisimPage() {
             </div>
 
             {/* Working hours */}
-            <div className="bg-[#1B1D23] border border-[#282C36] rounded-2xl p-6 shadow-md">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
               <div className="flex items-center gap-2 mb-4">
-                <Clock size={16} className="text-gold" />
-                <h3 className="font-heading font-semibold text-white text-sm">Çalışma Saatleri</h3>
+                <Clock size={16} className="text-amber-600" />
+                <h3 className="font-heading font-semibold text-slate-900 text-sm">Çalışma Saatleri</h3>
               </div>
               <div className="space-y-2.5">
                 {[
@@ -326,8 +326,8 @@ export default function IletisimPage() {
                   { days: "Pazar", hours: "Kapalı" },
                 ].map((row) => (
                   <div key={row.days} className="flex items-center justify-between">
-                    <span className="text-slate-300 text-sm">{row.days}</span>
-                    <span className={`text-sm font-medium ${row.hours === "Kapalı" ? "text-red-400" : "text-gold font-bold"}`}>
+                    <span className="text-slate-600 text-sm">{row.days}</span>
+                    <span className={`text-sm font-medium ${row.hours === "Kapalı" ? "text-red-500" : "text-amber-700 font-bold"}`}>
                       {row.hours}
                     </span>
                   </div>
@@ -336,10 +336,10 @@ export default function IletisimPage() {
             </div>
 
             {/* Company quick info */}
-            <div className="bg-[#16181D] border border-[#282C36] rounded-2xl p-6 shadow-md">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
               <div className="flex items-center gap-2 mb-4">
-                <Building2 size={16} className="text-gold" />
-                <h3 className="font-heading font-semibold text-white text-sm">Şirket Bilgileri</h3>
+                <Building2 size={16} className="text-amber-600" />
+                <h3 className="font-heading font-semibold text-slate-900 text-sm">Şirket Bilgileri</h3>
               </div>
               <div className="space-y-2.5 text-sm">
                 {[
@@ -349,8 +349,8 @@ export default function IletisimPage() {
                   { label: "Ticaret Sicil", value: "Kocaeli / Gebze" },
                 ].map((row) => (
                   <div key={row.label} className="flex items-start gap-2">
-                    <span className="text-slate-400 w-28 shrink-0">{row.label}</span>
-                    <span className="text-slate-200 font-medium">{row.value}</span>
+                    <span className="text-slate-500 w-28 shrink-0">{row.label}</span>
+                    <span className="text-slate-800 font-medium">{row.value}</span>
                   </div>
                 ))}
               </div>

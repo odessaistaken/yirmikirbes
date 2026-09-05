@@ -13,7 +13,7 @@ interface LogoProps {
 
 export default function Logo({
   className = "",
-  variant = "light",
+  variant = "dark",
   size = 52,
   logoScale = 1.0,
   showText = true,
@@ -26,32 +26,40 @@ export default function Logo({
   const isLarge = size >= 48;
 
   return (
-    <div className={`inline-flex items-center gap-3 sm:gap-3.5 select-none ${className}`}>
-      <div
-        className="relative shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105"
-        style={{ width: `${width}px`, height: `${imgHeight}px` }}
-      >
-        <Image
-          src={logoSrc}
-          alt="20:45 Pastacılık Logo"
-          fill
-          priority
-          sizes={`${imgHeight * 2}px`}
-          className="object-contain"
-        />
-      </div>
-
-      {showText && (
-        <div className="flex flex-col justify-center leading-none">
-          <span
-            className={`font-heading font-black tracking-widest text-gold uppercase mt-0.5 sm:mt-1 ${
-              isLarge ? "text-sm sm:text-base" : "text-xs sm:text-sm"
-            }`}
-          >
-            HORECA
-          </span>
+    <div className={`inline-flex flex-col select-none ${className}`}>
+      {/* Logo container */}
+      <div className="relative group flex flex-col items-start">
+        <div
+          className="relative shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105"
+          style={{ width: `${width}px`, height: `${imgHeight}px` }}
+        >
+          <Image
+            src={logoSrc}
+            alt="20:45 Pastacılık Logo"
+            fill
+            priority
+            sizes={`${imgHeight * 2}px`}
+            className="object-contain"
+          />
         </div>
-      )}
+
+        {/* HORECA directly under the '45' (which sits on the right 50% of the logo) */}
+        {showText && (
+          <div
+            className="w-full flex justify-end pr-1 mt-0.5"
+            style={{ width: `${width}px` }}
+          >
+            <span
+              className={`font-heading font-black tracking-widest text-gold uppercase text-right leading-none ${
+                isLarge ? "text-[11px] sm:text-xs" : "text-[9px] sm:text-[10px]"
+              }`}
+              style={{ letterSpacing: "0.22em" }}
+            >
+              HORECA
+            </span>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

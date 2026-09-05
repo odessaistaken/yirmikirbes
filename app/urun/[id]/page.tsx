@@ -90,10 +90,10 @@ export default function ProductPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#121316] flex items-center justify-center py-24">
+      <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center py-24">
         <div className="text-center">
           <div className="w-10 h-10 border-3 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-slate-400 text-sm font-medium">Ürün yükleniyor...</p>
+          <p className="text-slate-600 text-sm font-medium">Ürün yükleniyor...</p>
         </div>
       </div>
     );
@@ -101,10 +101,10 @@ export default function ProductPage() {
 
   if (notFoundState || !product) {
     return (
-      <div className="min-h-screen bg-[#121316] flex flex-col items-center justify-center py-24 text-center px-4">
+      <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center justify-center py-24 text-center px-4">
         <div className="text-6xl mb-4">🔍</div>
-        <h1 className="font-heading font-bold text-white text-2xl mb-2">Ürün Bulunamadı</h1>
-        <p className="text-slate-400 text-sm mb-6">Aradığınız ürün mevcut değil veya kaldırılmış olabilir.</p>
+        <h1 className="font-heading font-bold text-slate-900 text-2xl mb-2">Ürün Bulunamadı</h1>
+        <p className="text-slate-600 text-sm mb-6">Aradığınız ürün mevcut değil veya kaldırılmış olabilir.</p>
         <Link href="/katalog" className="btn-primary shadow-gold">
           <ArrowLeft size={16} /> Kataloğa Dön
         </Link>
@@ -114,20 +114,20 @@ export default function ProductPage() {
 
   return (
     <>
-      <div className="min-h-screen bg-[#121316] text-slate-200">
+      <div className="min-h-screen bg-[#F8FAFC] text-slate-800">
         {/* Breadcrumb */}
-        <div className="bg-[#0D0E11] border-b border-[#282C36]">
+        <div className="bg-white border-b border-slate-200">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-            <div className="flex items-center gap-2 text-slate-400 text-xs">
-              <Link href="/" className="hover:text-gold transition-colors">Ana Sayfa</Link>
+            <div className="flex items-center gap-2 text-slate-500 text-xs">
+              <Link href="/" className="hover:text-amber-600 transition-colors">Ana Sayfa</Link>
               <ChevronRight size={12} />
-              <Link href="/katalog" className="hover:text-gold transition-colors">Katalog</Link>
+              <Link href="/katalog" className="hover:text-amber-600 transition-colors">Katalog</Link>
               <ChevronRight size={12} />
-              <Link href={`/katalog/${product.categorySlug}`} className="hover:text-gold transition-colors">
+              <Link href={`/katalog/${product.categorySlug}`} className="hover:text-amber-600 transition-colors">
                 {product.categoryName || "Kategori"}
               </Link>
               <ChevronRight size={12} />
-              <span className="text-gold font-semibold truncate max-w-40">{product.name}</span>
+              <span className="text-amber-700 font-semibold truncate max-w-40">{product.name}</span>
             </div>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function ProductPage() {
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             >
               <div
-                className={`relative aspect-product rounded-2xl overflow-hidden bg-[#16181D] border border-[#282C36] shadow-2xl p-4 ${
+                className={`relative aspect-product rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-soft-lg p-4 ${
                   !imgError && product.imageUrl ? "cursor-zoom-in" : ""
                 }`}
                 onClick={() => { if (!imgError && product.imageUrl) setLightboxOpen(true); }}
@@ -160,15 +160,15 @@ export default function ProductPage() {
                       onError={() => setImgError(true)}
                       priority
                     />
-                    <div className="absolute bottom-3 right-3 bg-[#1B1D23]/80 text-gold border border-gold/30 rounded-lg p-1.5">
+                    <div className="absolute bottom-3 right-3 bg-white/90 text-amber-700 border border-slate-200 shadow-sm rounded-lg p-1.5 hover:text-amber-800 transition-colors">
                       <ZoomIn size={16} />
                     </div>
                   </>
                 ) : (
-                  <div className="absolute inset-0 flex items-center justify-center bg-[#21242C]">
+                  <div className="absolute inset-0 flex items-center justify-center bg-slate-100">
                     <div className="text-center">
-                      <ImageIcon size={48} className="text-slate-500 mx-auto" />
-                      <p className="text-slate-400 text-sm mt-2">{product.categoryName}</p>
+                      <ImageIcon size={48} className="text-slate-400 mx-auto" />
+                      <p className="text-slate-500 text-sm mt-2">{product.categoryName}</p>
                     </div>
                   </div>
                 )}
@@ -186,39 +186,39 @@ export default function ProductPage() {
               <div className="flex items-center gap-3">
                 <Link
                   href={`/katalog/${product.categorySlug}`}
-                  className="flex items-center gap-1.5 text-gold text-xs font-bold uppercase tracking-wider hover:text-gold-300 transition-colors"
+                  className="flex items-center gap-1.5 text-amber-700 text-xs font-bold uppercase tracking-wider hover:text-amber-800 transition-colors"
                 >
                   <Tag size={11} />
                   {product.categoryName || "Kategori"}
                 </Link>
-                <span className="w-1 h-1 rounded-full bg-slate-600" />
-                <span className="text-slate-400 text-xs font-mono">Kod: {product.code}</span>
+                <span className="w-1 h-1 rounded-full bg-slate-300" />
+                <span className="text-slate-500 text-xs font-mono">Kod: {product.code}</span>
               </div>
 
               {/* Name */}
               <div>
-                <h1 className="font-heading font-bold text-white text-3xl sm:text-4xl leading-tight mb-3">
+                <h1 className="font-heading font-bold text-slate-900 text-3xl sm:text-4xl leading-tight mb-3">
                   {product.name}
                 </h1>
                 <div className="gold-divider" />
               </div>
 
               {/* Description */}
-              <p className="text-slate-300 text-base leading-relaxed">
+              <p className="text-slate-600 text-base leading-relaxed">
                 {product.description}
               </p>
 
               {/* Specs */}
               {product.specs && Object.keys(product.specs).length > 0 && (
-                <div className="bg-[#1B1D23] border border-[#282C36] rounded-2xl p-5 space-y-3 shadow-md">
+                <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-3 shadow-sm">
                   <div className="flex items-center gap-2 mb-1">
-                    <Package size={14} className="text-gold" />
-                    <p className="text-white text-sm font-semibold">Ürün Özellikleri</p>
+                    <Package size={14} className="text-amber-600" />
+                    <p className="text-slate-900 text-sm font-semibold">Ürün Özellikleri</p>
                   </div>
                   {Object.entries(product.specs).map(([key, val]) => (
-                    <div key={key} className="flex items-center justify-between py-2 border-b border-[#282C36] last:border-0">
-                      <span className="text-slate-400 text-sm">{key}</span>
-                      <span className="text-slate-100 text-sm font-medium">{val}</span>
+                    <div key={key} className="flex items-center justify-between py-2 border-b border-slate-100 last:border-0">
+                      <span className="text-slate-500 text-sm">{key}</span>
+                      <span className="text-slate-800 text-sm font-medium">{val}</span>
                     </div>
                   ))}
                 </div>
@@ -243,8 +243,8 @@ export default function ProductPage() {
                   "Toplu sipariş için özel fiyat teklifi",
                 ].map((point) => (
                   <div key={point} className="flex items-center gap-2.5">
-                    <CheckCircle size={15} className="text-gold shrink-0" />
-                    <span className="text-slate-300 text-sm">{point}</span>
+                    <CheckCircle size={15} className="text-amber-600 shrink-0" />
+                    <span className="text-slate-700 text-sm">{point}</span>
                   </div>
                 ))}
               </div>
@@ -260,7 +260,7 @@ export default function ProductPage() {
                 </button>
               </div>
 
-              <p className="text-slate-400 text-xs">
+              <p className="text-slate-500 text-xs">
                 B2B müşterileri için özel fiyatlandırma ve minimum sipariş miktarı hakkında 
                 bilgi almak için lütfen teklif formunu doldurun.
               </p>
@@ -270,18 +270,18 @@ export default function ProductPage() {
 
         {/* Related products — same category */}
         {related.length > 0 && (
-          <div className="bg-[#16181D] py-16 border-t border-[#282C36]">
+          <div className="bg-white py-16 border-t border-slate-200">
             <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-end justify-between mb-8">
                 <div>
                   <p className="section-label">Benzer Ürünler</p>
-                  <h2 className="font-heading font-bold text-white text-2xl">
+                  <h2 className="font-heading font-bold text-slate-900 text-2xl">
                     İlgili Ürünler
                   </h2>
                 </div>
                 <Link
                   href={`/katalog/${product.categorySlug}`}
-                  className="text-gold hover:text-gold-300 text-sm font-semibold transition-colors"
+                  className="text-amber-700 hover:text-amber-800 text-sm font-semibold transition-colors"
                 >
                   Tümünü gör →
                 </Link>
@@ -297,24 +297,24 @@ export default function ProductPage() {
 
         {/* Brand products — same codeGroup */}
         {brandProducts.length > 0 && product.codeGroup && (
-          <div className="bg-[#121316] py-16 border-t border-[#282C36]">
+          <div className="bg-slate-50 py-16 border-t border-slate-200">
             <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-end justify-between mb-8">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <Store size={14} className="text-gold" />
+                    <Store size={14} className="text-amber-600" />
                     <p className="section-label !mb-0">Marka</p>
                   </div>
-                  <h2 className="font-heading font-bold text-white text-2xl">
+                  <h2 className="font-heading font-bold text-slate-900 text-2xl">
                     Aynı Markanın Diğer Ürünleri
                   </h2>
-                  <p className="text-slate-400 text-sm mt-1">
-                    <span className="text-gold font-semibold">{product.codeGroup}</span> markasına ait diğer ürünler
+                  <p className="text-slate-500 text-sm mt-1">
+                    <span className="text-amber-700 font-semibold">{product.codeGroup}</span> markasına ait diğer ürünler
                   </p>
                 </div>
                 <Link
                   href={`/katalog?search=${encodeURIComponent(product.codeGroup)}`}
-                  className="text-gold hover:text-gold-300 text-sm font-semibold transition-colors shrink-0"
+                  className="text-amber-700 hover:text-amber-800 text-sm font-semibold transition-colors shrink-0"
                 >
                   Tüm {product.codeGroup} →
                 </Link>
@@ -343,7 +343,7 @@ export default function ProductPage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+            className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
             onClick={() => setLightboxOpen(false)}
           >
             <motion.div
@@ -351,12 +351,12 @@ export default function ProductPage() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.85, opacity: 0 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="relative max-w-4xl w-full bg-[#16181D] rounded-2xl border border-[#282C36] shadow-2xl overflow-hidden"
+              className="relative max-w-4xl w-full bg-white rounded-2xl border border-slate-200 shadow-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setLightboxOpen(false)}
-                className="absolute top-3 right-3 z-10 p-2 bg-[#1B1D23]/90 hover:bg-[#282C36] text-slate-300 hover:text-white rounded-xl border border-[#282C36] transition-colors"
+                className="absolute top-3 right-3 z-10 p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-200 transition-colors"
               >
                 <X size={20} />
               </button>
@@ -371,9 +371,9 @@ export default function ProductPage() {
                   priority
                 />
               </div>
-              <div className="px-6 py-4 border-t border-[#282C36] bg-[#1B1D23]">
-                <p className="font-heading font-bold text-white">{product.name}</p>
-                <p className="text-slate-400 text-sm font-mono mt-0.5">Kod: {product.code}</p>
+              <div className="px-6 py-4 border-t border-slate-200 bg-slate-50">
+                <p className="font-heading font-bold text-slate-900">{product.name}</p>
+                <p className="text-slate-500 text-sm font-mono mt-0.5">Kod: {product.code}</p>
               </div>
             </motion.div>
           </motion.div>

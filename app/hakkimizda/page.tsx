@@ -86,7 +86,7 @@ const milestones = [
 
 export default function HakkimizdaPage() {
   return (
-    <div className="min-h-screen bg-[#121316] text-slate-200">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-800">
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative h-[55vh] min-h-[400px] flex items-end overflow-hidden">
@@ -99,18 +99,18 @@ export default function HakkimizdaPage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0D0E11] via-[#0D0E11]/70 to-[#0D0E11]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
         <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="section-label">Hakkımızda</span>
+            <span className="section-label text-amber-300">Hakkımızda</span>
             <h1 className="text-white font-heading font-bold text-4xl md:text-5xl lg:text-6xl mt-2 mb-4">
               Pastacılığın <span className="gold-text">Güvenilir</span> Tedarikçisi
             </h1>
-            <p className="text-slate-300 text-lg max-w-2xl">
+            <p className="text-slate-200 text-lg max-w-2xl">
               2009&apos;dan bu yana Türkiye&apos;nin önde gelen pastacı, fırıncı ve kafe zincirlerine
               premium hammadde ve yarı mamul ürün tedarik ediyoruz.
             </p>
@@ -119,13 +119,13 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* ── Stats ─────────────────────────────────────────────────────────── */}
-      <section className="bg-[#0D0E11] py-10 border-y border-[#282C36]">
+      <section className="bg-white py-10 border-y border-slate-200 shadow-sm">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((s, i) => (
               <FadeIn key={s.label} delay={i * 0.08} className="text-center">
-                <p className="gold-text font-heading font-black text-4xl lg:text-5xl mb-1">{s.value}</p>
-                <p className="text-slate-400 text-sm font-semibold">{s.label}</p>
+                <p className="text-amber-700 font-heading font-black text-4xl lg:text-5xl mb-1">{s.value}</p>
+                <p className="text-slate-600 text-sm font-semibold">{s.label}</p>
               </FadeIn>
             ))}
           </div>
@@ -133,15 +133,15 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* ── Story ─────────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-[#121316]">
+      <section className="py-20 bg-[#F8FAFC]">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeIn>
               <span className="section-label">Hikayemiz</span>
-              <h2 className="font-heading font-bold text-white text-3xl lg:text-4xl mt-2 mb-6">
+              <h2 className="font-heading font-bold text-slate-900 text-3xl lg:text-4xl mt-2 mb-6">
                 Pastacılık endüstrisinin ihtiyaçlarını anlıyoruz
               </h2>
-              <div className="space-y-4 text-slate-300 leading-relaxed">
+              <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
                   20:45 Pastacılık, 2009 yılında İstanbul&apos;da profesyonel pastacılık tedarik
                   firması olarak yola çıktı. Kuruluşumuzdaki en büyük motivasyon, Türkiye&apos;deki
@@ -171,7 +171,7 @@ export default function HakkimizdaPage() {
             </FadeIn>
 
             <FadeIn delay={0.15}>
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl border border-[#282C36]">
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-soft-lg border border-slate-200">
                 <Image
                   src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85"
                   alt="Pastacılık üretim atölyesi"
@@ -180,7 +180,7 @@ export default function HakkimizdaPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#0D0E11]/90 to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
                   <Logo variant="light" size={36} />
                 </div>
               </div>
@@ -190,23 +190,23 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* ── Values ────────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-[#16181D] border-y border-[#282C36]">
+      <section className="py-20 bg-white border-y border-slate-200">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-14">
             <span className="section-label">Değerlerimiz</span>
-            <h2 className="font-heading font-bold text-white text-3xl lg:text-4xl mt-2">
+            <h2 className="font-heading font-bold text-slate-900 text-3xl lg:text-4xl mt-2">
               Neden 20:45 Pastacılık?
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((v, i) => (
               <FadeIn key={v.title} delay={i * 0.07}>
-                <div className="p-6 rounded-2xl border border-[#282C36] bg-[#1B1D23] hover:border-gold/50 hover:shadow-card-hover transition-all duration-300 group h-full">
-                  <div className="w-12 h-12 rounded-xl bg-gold/15 border border-gold/30 text-gold flex items-center justify-center mb-4 group-hover:bg-gold group-hover:text-[#0D0E11] transition-all duration-300">
+                <div className="p-6 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-amber-300 hover:shadow-card-hover transition-all duration-300 group h-full">
+                  <div className="w-12 h-12 rounded-xl bg-amber-100 border border-amber-300 text-amber-700 flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
                     {v.icon}
                   </div>
-                  <h3 className="font-heading font-bold text-white text-base mb-2 group-hover:text-gold transition-colors">{v.title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">{v.desc}</p>
+                  <h3 className="font-heading font-bold text-slate-900 text-base mb-2 group-hover:text-amber-700 transition-colors">{v.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{v.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -215,30 +215,30 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* ── Timeline ──────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-[#121316]">
+      <section className="py-20 bg-[#F8FAFC]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-14">
             <span className="section-label">Tarihçemiz</span>
-            <h2 className="font-heading font-bold text-white text-3xl lg:text-4xl mt-2">
+            <h2 className="font-heading font-bold text-slate-900 text-3xl lg:text-4xl mt-2">
               15 Yılda Büyüme Hikayemiz
             </h2>
           </FadeIn>
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-6 lg:left-1/2 top-0 bottom-0 w-px bg-gold/30 lg:-translate-x-px" />
+            <div className="absolute left-6 lg:left-1/2 top-0 bottom-0 w-px bg-amber-300 lg:-translate-x-px" />
             <div className="space-y-10">
               {milestones.map((m, i) => (
                 <FadeIn key={m.year} delay={i * 0.1}>
                   <div className={`relative flex items-start gap-6 lg:gap-0 ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}>
                     {/* Dot */}
-                    <div className="absolute left-6 lg:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-gold border-2 border-[#121316] shadow-gold shrink-0 mt-1.5" />
+                    <div className="absolute left-6 lg:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-amber-500 border-2 border-white shadow-md shrink-0 mt-1.5" />
 
                     {/* Content */}
                     <div className={`ml-14 lg:ml-0 lg:w-[46%] ${i % 2 === 0 ? "lg:pr-10 lg:text-right" : "lg:pl-10 lg:ml-auto"}`}>
                       <div className="inline-flex items-center gap-2 mb-2">
-                        <span className="font-heading font-black text-gold text-xl">{m.year}</span>
+                        <span className="font-heading font-black text-amber-700 text-xl">{m.year}</span>
                       </div>
-                      <p className="text-slate-300 text-sm leading-relaxed bg-[#1B1D23] border border-[#282C36] rounded-xl p-4 shadow-card">
+                      <p className="text-slate-700 text-sm leading-relaxed bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
                         {m.text}
                       </p>
                     </div>
@@ -251,18 +251,18 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* ── Certifications strip ──────────────────────────────────────────── */}
-      <section className="bg-[#0D0E11] py-10 border-y border-[#282C36]">
+      <section className="bg-white py-10 border-y border-slate-200 shadow-sm">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <p className="text-white font-heading font-bold text-xl mb-1">Sertifikalar & Uyum</p>
-              <p className="text-slate-400 text-sm">Tedarikçilerimizin tamamı uluslararası standartlara uygundur</p>
+              <p className="text-slate-900 font-heading font-bold text-xl mb-1">Sertifikalar & Uyum</p>
+              <p className="text-slate-500 text-sm">Tedarikçilerimizin tamamı uluslararası standartlara uygundur</p>
             </div>
             <div className="flex flex-wrap items-center gap-3">
               {["ISO 22000", "HACCP", "TSE", "GMP+", "IFS Food"].map((cert) => (
-                <div key={cert} className="flex items-center gap-1.5 bg-[#1B1D23] border border-[#282C36] rounded-lg px-3 py-1.5">
-                  <CheckCircle size={13} className="text-gold shrink-0" />
-                  <span className="text-slate-300 text-xs font-medium">{cert}</span>
+                <div key={cert} className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 shadow-2xs">
+                  <CheckCircle size={13} className="text-amber-600 shrink-0" />
+                  <span className="text-slate-700 text-xs font-medium">{cert}</span>
                 </div>
               ))}
             </div>
@@ -271,14 +271,14 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-[#16181D]">
+      <section className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
             <span className="section-label">B2B İş Birliği</span>
-            <h2 className="font-heading font-bold text-white text-3xl lg:text-4xl mt-2 mb-4">
+            <h2 className="font-heading font-bold text-slate-900 text-3xl lg:text-4xl mt-2 mb-4">
               Birlikte büyüyelim
             </h2>
-            <p className="text-slate-300 mb-8 leading-relaxed">
+            <p className="text-slate-600 mb-8 leading-relaxed">
               İşletmeniz için özel fiyat teklifi almak veya ürün kataloğumuzu incelemek için
               bizimle iletişime geçin. Uzman satış ekibimiz en kısa sürede yanınızda olacak.
             </p>

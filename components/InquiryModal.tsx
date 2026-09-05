@@ -125,28 +125,28 @@ export default function InquiryModal({ isOpen, onClose, product }: InquiryModalP
             className="fixed bottom-0 left-0 right-0 z-50 md:inset-0 md:flex md:items-center md:justify-center md:p-8"
           >
             <div
-              className="bg-[#1B1D23] border border-[#282C36] text-slate-200 rounded-t-3xl md:rounded-2xl w-full md:max-w-lg overflow-hidden shadow-2xl"
+              className="bg-white border border-slate-200 text-slate-800 rounded-t-3xl md:rounded-2xl w-full md:max-w-lg overflow-hidden shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {!submitted ? (
                 <>
                   {/* Header */}
-                  <div className="bg-gradient-to-r from-[#121316] to-[#1B1D23] border-b border-[#282C36] px-6 py-5">
+                  <div className="bg-gradient-to-r from-slate-50 to-white border-b border-slate-200 px-6 py-5">
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <p className="text-gold text-xs font-bold uppercase tracking-wider mb-1">
+                        <p className="text-gold-600 text-xs font-bold uppercase tracking-wider mb-1">
                           Fiyat Talebi
                         </p>
-                        <h2 className="font-heading font-bold text-white text-lg leading-snug">
+                        <h2 className="font-heading font-bold text-slate-900 text-lg leading-snug">
                           {product.name}
                         </h2>
-                        <p className="text-slate-400 text-xs font-mono mt-0.5">
+                        <p className="text-slate-500 text-xs font-mono mt-0.5">
                           Kod: {product.code}
                         </p>
                       </div>
                       <button
                         onClick={handleClose}
-                        className="p-2 rounded-xl bg-[#282C36] hover:bg-[#333845] text-slate-300 hover:text-white transition-colors shrink-0"
+                        className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-colors shrink-0"
                       >
                         <X size={18} />
                       </button>
@@ -160,7 +160,7 @@ export default function InquiryModal({ isOpen, onClose, product }: InquiryModalP
                   >
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-slate-300 text-xs font-semibold mb-1.5">
+                        <label className="block text-slate-700 text-xs font-semibold mb-1.5">
                           Ad Soyad *
                         </label>
                         <input
@@ -169,13 +169,13 @@ export default function InquiryModal({ isOpen, onClose, product }: InquiryModalP
                           className={`input ${errors.name ? "input-error" : ""}`}
                         />
                         {errors.name && (
-                          <p className="text-red-400 text-xs mt-1">
+                          <p className="text-red-500 text-xs mt-1">
                             {errors.name.message}
                           </p>
                         )}
                       </div>
                       <div>
-                        <label className="block text-slate-300 text-xs font-semibold mb-1.5">
+                        <label className="block text-slate-700 text-xs font-semibold mb-1.5">
                           Firma Adı *
                         </label>
                         <input
@@ -184,7 +184,7 @@ export default function InquiryModal({ isOpen, onClose, product }: InquiryModalP
                           className={`input ${errors.company ? "input-error" : ""}`}
                         />
                         {errors.company && (
-                          <p className="text-red-400 text-xs mt-1">
+                          <p className="text-red-500 text-xs mt-1">
                             {errors.company.message}
                           </p>
                         )}
@@ -193,7 +193,7 @@ export default function InquiryModal({ isOpen, onClose, product }: InquiryModalP
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-slate-300 text-xs font-semibold mb-1.5">
+                        <label className="block text-slate-700 text-xs font-semibold mb-1.5">
                           E-posta *
                         </label>
                         <input
@@ -203,13 +203,13 @@ export default function InquiryModal({ isOpen, onClose, product }: InquiryModalP
                           className={`input ${errors.email ? "input-error" : ""}`}
                         />
                         {errors.email && (
-                          <p className="text-red-400 text-xs mt-1">
+                          <p className="text-red-500 text-xs mt-1">
                             {errors.email.message}
                           </p>
                         )}
                       </div>
                       <div>
-                        <label className="block text-slate-300 text-xs font-semibold mb-1.5">
+                        <label className="block text-slate-700 text-xs font-semibold mb-1.5">
                           Telefon *
                         </label>
                         <input
@@ -219,7 +219,7 @@ export default function InquiryModal({ isOpen, onClose, product }: InquiryModalP
                           className={`input ${errors.phone ? "input-error" : ""}`}
                         />
                         {errors.phone && (
-                          <p className="text-red-400 text-xs mt-1">
+                          <p className="text-red-500 text-xs mt-1">
                             {errors.phone.message}
                           </p>
                         )}
@@ -227,7 +227,7 @@ export default function InquiryModal({ isOpen, onClose, product }: InquiryModalP
                     </div>
 
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">
                         Tahmini Miktar
                       </label>
                       <input
@@ -238,7 +238,7 @@ export default function InquiryModal({ isOpen, onClose, product }: InquiryModalP
                     </div>
 
                     <div>
-                      <label className="block text-slate-300 text-xs font-semibold mb-1.5">
+                      <label className="block text-slate-700 text-xs font-semibold mb-1.5">
                         Ek Mesaj
                       </label>
                       <textarea
@@ -250,9 +250,9 @@ export default function InquiryModal({ isOpen, onClose, product }: InquiryModalP
                     </div>
 
                     {submitError && (
-                      <div className="flex items-center gap-2 p-3 bg-red-500/10 rounded-lg border border-red-500/30">
-                        <AlertCircle size={15} className="text-red-400 shrink-0" />
-                        <p className="text-red-300 text-sm">{submitError}</p>
+                      <div className="flex items-center gap-2 p-3 bg-red-50 rounded-lg border border-red-200">
+                        <AlertCircle size={15} className="text-red-500 shrink-0" />
+                        <p className="text-red-600 text-sm">{submitError}</p>
                       </div>
                     )}
 
@@ -263,7 +263,7 @@ export default function InquiryModal({ isOpen, onClose, product }: InquiryModalP
                     >
                       {isSubmitting ? (
                         <>
-                          <span className="animate-spin w-4 h-4 border-2 border-slate-700 border-t-black rounded-full" />
+                          <span className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full" />
                           Gönderiliyor...
                         </>
                       ) : (
@@ -282,14 +282,14 @@ export default function InquiryModal({ isOpen, onClose, product }: InquiryModalP
               ) : (
                 /* Success state */
                 <div className="p-10 flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-green-500/15 border border-green-500/30 flex items-center justify-center mb-4">
-                    <CheckCircle size={32} className="text-green-400" />
+                  <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center mb-4">
+                    <CheckCircle size={32} className="text-emerald-500" />
                   </div>
-                  <h3 className="font-heading font-bold text-white text-xl mb-2">
+                  <h3 className="font-heading font-bold text-slate-900 text-xl mb-2">
                     Talebiniz Alındı!
                   </h3>
-                  <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                    <span className="font-semibold text-gold">{product.name}</span>{" "}
+                  <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                    <span className="font-semibold text-gold-600">{product.name}</span>{" "}
                     için fiyat talebiniz başarıyla iletildi. En geç 1 iş günü içinde
                     ekibimiz sizinle iletişime geçecektir.
                   </p>

@@ -14,6 +14,7 @@ import {
   ChevronRight,
   Layers,
   Award,
+  Flame,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import Logo from "@/components/Logo";
@@ -23,6 +24,7 @@ const adminNavItems = [
   { label: "Slider", href: "/admin/slider", icon: <Layers size={18} /> },
   { label: "Kategoriler", href: "/admin/kategoriler", icon: <Tag size={18} /> },
   { label: "Ürünler", href: "/admin/urunler", icon: <Package size={18} /> },
+  { label: "Çok Satanlar", href: "/admin/cok-satanlar", icon: <Flame size={18} className="text-amber-500" /> },
   { label: "Markalar", href: "/admin/markalar", icon: <Award size={18} /> },
   { label: "Kullanıcılar", href: "/admin/kullanicilar", icon: <Users size={18} /> },
   { label: "Talepler", href: "/admin/talepler", icon: <MessageSquare size={18} /> },

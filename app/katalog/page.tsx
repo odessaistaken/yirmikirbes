@@ -223,12 +223,12 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
   const currentSubItems = (currentCategory?.slug && SUBCATEGORIES_MAP[currentCategory.slug]) || [];
 
   const SidebarContent = ({ onClose }: { onClose?: () => void }) => (
-    <div className="bg-[#16181D] border border-[#282C36] h-full flex flex-col text-slate-200">
-      <div className="flex items-center gap-2 px-4 py-3.5 border-b border-[#282C36] shrink-0 bg-[#121316]">
-        <AlignLeft size={14} className="text-gold" />
-        <span className="text-white font-bold text-xs uppercase tracking-widest">Kategorilerimiz</span>
+    <div className="bg-white border border-slate-200 h-full flex flex-col text-slate-700">
+      <div className="flex items-center gap-2 px-4 py-3.5 border-b border-slate-200 shrink-0 bg-slate-50">
+        <AlignLeft size={14} className="text-gold-600" />
+        <span className="text-slate-900 font-bold text-xs uppercase tracking-widest">Kategorilerimiz</span>
         {onClose && (
-          <button onClick={onClose} className="ml-auto text-slate-400 hover:text-white">
+          <button onClick={onClose} className="ml-auto text-slate-400 hover:text-slate-700">
             <X size={18} />
           </button>
         )}
@@ -239,15 +239,15 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
             setActiveCategory("all");
             onClose?.();
           }}
-          className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-[#282C36]/50 ${
-            activeCategory === "all" ? "bg-[#1B1D23] text-gold font-bold" : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
+          className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-slate-100 ${
+            activeCategory === "all" ? "bg-amber-50/70 text-amber-800 font-bold" : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
           }`}
         >
           <span className="flex items-center gap-2">
             <span>✨</span> Tüm Ürünler
           </span>
           <span className="flex items-center gap-1.5 shrink-0">
-            <span className={`text-2xs px-1.5 py-0.5 rounded ${activeCategory === "all" ? "bg-gold/20 text-gold font-bold" : "bg-[#282C36] text-slate-400"}`}>
+            <span className={`text-2xs px-1.5 py-0.5 rounded ${activeCategory === "all" ? "bg-amber-100 text-amber-800 font-bold" : "bg-slate-100 text-slate-500"}`}>
               {products.length}
             </span>
             <ChevronRight size={13} className="opacity-50" />
@@ -261,7 +261,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
             const isParentActive = activeCategory === parentCat.slug || activeCategory === parentCat.id;
 
             return (
-              <div key={parentCat.id} className="border-b border-[#282C36]/30">
+              <div key={parentCat.id} className="border-b border-slate-100">
                 {/* Ana Kategori */}
                 <button
                   onClick={() => {
@@ -269,7 +269,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
                     onClose?.();
                   }}
                   className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 ${
-                    isParentActive ? "bg-[#1B1D23] text-gold font-bold" : "text-slate-300 hover:bg-[#1B1D23] hover:text-white"
+                    isParentActive ? "bg-amber-50/70 text-amber-800 font-bold" : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
                   }`}
                 >
                   <span className="truncate text-left flex items-center gap-2">
@@ -277,7 +277,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
                     <span>{parentCat.name}</span>
                   </span>
                   <span className="flex items-center gap-1.5 shrink-0">
-                    <span className={`text-2xs px-1.5 py-0.5 rounded ${isParentActive ? "bg-gold/20 text-gold font-bold" : "bg-[#282C36] text-slate-400"}`}>
+                    <span className={`text-2xs px-1.5 py-0.5 rounded ${isParentActive ? "bg-amber-100 text-amber-800 font-bold" : "bg-slate-100 text-slate-500"}`}>
                       {parentCount}
                     </span>
                     <ChevronRight size={13} className="opacity-50" />
@@ -295,16 +295,16 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
                         setActiveCategory(child.slug || child.id);
                         onClose?.();
                       }}
-                      className={`w-full flex items-center justify-between pl-8 pr-4 py-2.5 text-xs font-medium transition-colors duration-150 border-t border-[#282C36]/20 ${
-                        isChildActive ? "bg-[#1B1D23] text-gold font-bold" : "text-slate-400 hover:bg-[#1B1D23] hover:text-white"
+                      className={`w-full flex items-center justify-between pl-8 pr-4 py-2.5 text-xs font-medium transition-colors duration-150 border-t border-slate-100 ${
+                        isChildActive ? "bg-amber-50/70 text-amber-800 font-bold" : "text-slate-500 hover:bg-slate-50 hover:text-slate-800"
                       }`}
                     >
                       <span className="truncate text-left flex items-center gap-2">
-                        {child.icon ? <span>{child.icon}</span> : <span className="w-1.5 h-1.5 rounded-full bg-gold/60 shrink-0" />}
+                        {child.icon ? <span>{child.icon}</span> : <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />}
                         <span>{child.name}</span>
                       </span>
                       <span className="flex items-center gap-1.5 shrink-0">
-                        <span className={`text-2xs px-1.5 py-0.5 rounded ${isChildActive ? "bg-gold/20 text-gold font-bold" : "bg-[#282C36] text-slate-400"}`}>
+                        <span className={`text-2xs px-1.5 py-0.5 rounded ${isChildActive ? "bg-amber-100 text-amber-800 font-bold" : "bg-slate-100 text-slate-500"}`}>
                           {childCount}
                         </span>
                         <ChevronRight size={11} className="opacity-40" />
@@ -318,8 +318,8 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
       </div>
 
       {/* Brands section */}
-      <div className="border-t border-[#282C36] p-4 shrink-0 bg-[#121316]">
-        <p className="text-gold text-2xs font-bold uppercase tracking-widest mb-3">Markalarımız</p>
+      <div className="border-t border-slate-200 p-4 shrink-0 bg-slate-50">
+        <p className="text-amber-700 text-2xs font-bold uppercase tracking-widest mb-3">Markalarımız</p>
         <div className="space-y-1.5">
           {[
             { id: "b1", name: "DaVinci Gourmet", logo: "☕" },
@@ -338,8 +338,8 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
               }}
               className={`w-full flex items-center gap-2.5 px-2 py-1.5 rounded-lg text-left transition-colors duration-150 ${
                 searchQuery.toLowerCase() === brand.name.toLowerCase()
-                  ? "bg-[#1B1D23] text-gold font-bold border border-gold/30"
-                  : "text-slate-300 hover:text-white hover:bg-[#1B1D23]"
+                  ? "bg-amber-100/60 text-amber-800 font-bold border border-amber-300"
+                  : "text-slate-600 hover:text-slate-900 hover:bg-white"
               }`}
             >
               <span className="text-sm shrink-0">{brand.logo}</span>
@@ -349,9 +349,9 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
         </div>
       </div>
 
-      <div className="p-4 border-t border-[#282C36] shrink-0 bg-[#16181D]">
-        <p className="font-heading font-semibold text-white text-xs mb-1">Toplu Sipariş & Teklif</p>
-        <p className="text-slate-400 text-2xs mb-3">Özel toptan fiyatlandırma için bizimle iletişime geçin.</p>
+      <div className="p-4 border-t border-slate-200 shrink-0 bg-white">
+        <p className="font-heading font-semibold text-slate-900 text-xs mb-1">Toplu Sipariş & Teklif</p>
+        <p className="text-slate-500 text-2xs mb-3">Özel toptan fiyatlandırma için bizimle iletişime geçin.</p>
         <Link href="/iletisim" className="btn-primary py-2 w-full text-xs justify-center shadow-gold">
           Teklif Al
         </Link>
@@ -360,51 +360,51 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
   );
 
   return (
-    <div className="min-h-screen bg-[#121316]">
+    <div className="min-h-screen bg-[#F8FAFC]">
       {/* Page header banner */}
-      <div className="bg-[#0D0E11] pt-8 pb-10 border-b border-[#282C36]">
+      <div className="bg-white pt-8 pb-10 border-b border-slate-200">
         <div className="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-slate-400 text-xs mb-6">
-            <Link href="/" className="hover:text-gold transition-colors">
+          <div className="flex items-center gap-2 text-slate-500 text-xs mb-6">
+            <Link href="/" className="hover:text-amber-600 transition-colors">
               Ana Sayfa
             </Link>
             <ChevronRight size={12} />
-            <Link href="/katalog" className={`hover:text-gold transition-colors ${!currentCategory ? "text-slate-200 font-semibold" : ""}`}>
+            <Link href="/katalog" className={`hover:text-amber-600 transition-colors ${!currentCategory ? "text-slate-800 font-semibold" : ""}`}>
               Katalog
             </Link>
             {currentCategory && (
               <>
                 <ChevronRight size={12} />
-                <span className="text-gold font-bold">{currentCategory.name}</span>
+                <span className="text-amber-700 font-bold">{currentCategory.name}</span>
               </>
             )}
           </div>
           <div className="flex flex-col sm:flex-row sm:items-end gap-4 justify-between">
             <div>
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">
+              <p className="text-amber-700 text-xs font-bold uppercase tracking-widest mb-2">
                 {currentCategory ? "Kategori" : "Ürün Kataloğu"}
               </p>
-              <h1 className="font-heading font-bold text-white text-3xl sm:text-4xl">
+              <h1 className="font-heading font-bold text-slate-900 text-3xl sm:text-4xl">
                 {currentCategory ? currentCategory.name : "Tüm Ürünler"}
               </h1>
-              <p className="text-slate-400 text-sm mt-2">
+              <p className="text-slate-500 text-sm mt-2">
                 {filteredProducts.length} ürün listeleniyor
                 {currentCategory?.description && ` — ${currentCategory.description}`}
               </p>
             </div>
             <div className="relative w-full sm:w-80">
-              <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gold" />
+              <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-amber-600" />
               <input
                 type="text"
                 placeholder="Ürün, marka veya tat ara..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-9 py-3 bg-[#16181D] border border-[#282C36] rounded-xl text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold"
+                className="w-full pl-10 pr-9 py-3 bg-white border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 shadow-sm"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700"
                 >
                   <X size={14} />
                 </button>
@@ -425,7 +425,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
 
           {/* Desktop Sidebar */}
           <aside className="hidden lg:block w-64 shrink-0">
-            <div className="sticky top-24 rounded-2xl overflow-hidden shadow-soft-lg border border-[#282C36]">
+            <div className="sticky top-24 rounded-2xl overflow-hidden shadow-soft-lg border border-slate-200">
               <SidebarContent />
             </div>
           </aside>
@@ -434,7 +434,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
           {mobileSidebarOpen && (
             <div className="lg:hidden fixed inset-0 z-40 flex">
               <div
-                className="absolute inset-0 bg-[#0D0E11]/80 backdrop-blur-sm"
+                className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
                 onClick={() => setMobileSidebarOpen(false)}
               />
               <motion.div
@@ -453,16 +453,16 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
           <div className="flex-1 min-w-0">
             {/* Subcategories / Brands Quick Pills Bar */}
             {currentSubItems.length > 0 && (
-              <div className="mb-6 flex flex-wrap items-center gap-2 bg-[#1B1D23] p-3.5 rounded-2xl border border-[#282C36] shadow-sm">
-                <span className="text-gold text-xs font-bold uppercase tracking-wider mr-1">
+              <div className="mb-6 flex flex-wrap items-center gap-2 bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm">
+                <span className="text-amber-800 text-xs font-bold uppercase tracking-wider mr-1">
                   Çeşitler & Markalar:
                 </span>
                 <button
                   onClick={() => setSearchQuery("")}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                     !searchQuery
-                      ? "bg-gold text-[#0D0E11] font-bold shadow-sm"
-                      : "bg-[#16181D] text-slate-300 hover:text-white border border-[#282C36]"
+                      ? "bg-amber-600 text-white font-bold shadow-sm"
+                      : "bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200"
                   }`}
                 >
                   Tümü
@@ -473,8 +473,8 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
                     onClick={() => setSearchQuery(sub.query)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                       searchQuery.toLowerCase() === sub.query.toLowerCase()
-                        ? "bg-gold text-[#0D0E11] font-bold shadow-sm"
-                        : "bg-[#16181D] text-slate-300 hover:bg-[#21242C] hover:text-gold border border-[#282C36]"
+                        ? "bg-amber-600 text-white font-bold shadow-sm"
+                        : "bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-amber-700 border border-slate-200"
                     }`}
                   >
                     {sub.name}
@@ -486,10 +486,10 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
             {/* Active search filter badge */}
             {searchQuery && (
               <div className="mb-4 flex items-center gap-2">
-                <span className="text-xs text-slate-400">Aktif Filtre:</span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-gold/15 border border-gold/30 text-gold text-xs font-bold">
+                <span className="text-xs text-slate-500">Aktif Filtre:</span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold">
                   {searchQuery}
-                  <button onClick={() => setSearchQuery("")} className="hover:text-white">
+                  <button onClick={() => setSearchQuery("")} className="hover:text-amber-900">
                     <X size={12} />
                   </button>
                 </span>
@@ -497,10 +497,10 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
             )}
 
             {filteredProducts.length === 0 ? (
-              <div className="flex flex-col items-center justify-center py-24 text-center bg-[#1B1D23] rounded-2xl border border-[#282C36]">
+              <div className="flex flex-col items-center justify-center py-24 text-center bg-white rounded-2xl border border-slate-200 shadow-sm">
                 <div className="text-6xl mb-4">🔍</div>
-                <h3 className="font-heading font-semibold text-white text-lg mb-2">Ürün bulunamadı</h3>
-                <p className="text-slate-400 text-sm mb-6">Arama veya kategori kriterlerinizi değiştirerek tekrar deneyin.</p>
+                <h3 className="font-heading font-semibold text-slate-900 text-lg mb-2">Ürün bulunamadı</h3>
+                <p className="text-slate-500 text-sm mb-6">Arama veya kategori kriterlerinizi değiştirerek tekrar deneyin.</p>
                 <button
                   onClick={() => {
                     setSearchQuery("");
@@ -530,8 +530,8 @@ export default function KatalogPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#121316] flex items-center justify-center">
-          <div className="text-slate-400 text-sm">Katalog yükleniyor...</div>
+        <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center">
+          <div className="text-slate-500 text-sm">Katalog yükleniyor...</div>
         </div>
       }
     >

@@ -57,6 +57,7 @@ export interface Product {
   imageStoragePath?: string;
   isActive: boolean;
   isFeatured?: boolean;
+  isBestSeller?: boolean;
   tags: string[];
   specs?: Record<string, string>;
 }

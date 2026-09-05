@@ -331,9 +331,9 @@ export default function HomePage() {
   return (
     <>
       {/* ════════════════════════════════════════════════════════════
-          HERO SECTION — Anthracite Background & X-Axis Split (50% / 50%)
+          HERO SECTION — Clean White Background & X-Axis Split (50% / 50%)
       ════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#121316] text-white min-h-[80vh] flex items-center py-10 lg:py-16 overflow-hidden border-b border-[#282C36]">
+      <section className="relative bg-white text-slate-900 min-h-[80vh] flex items-center py-10 lg:py-16 overflow-hidden border-b border-slate-200">
         {/* Subtle background ambient glow */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[130px] rounded-full pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-gold/5 blur-[100px] rounded-full pointer-events-none" />
@@ -349,7 +349,7 @@ export default function HomePage() {
                 transition={{ duration: 0.5 }}
                 className="flex items-center gap-2 sm:gap-3"
               >
-                <span className="text-gold bg-gold/10 border border-gold/30 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                <span className="text-gold-600 bg-gold/10 border border-gold/30 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                   YKB GIDA — 20:45 PASTACILIK
                 </span>
               </motion.div>
@@ -358,7 +358,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.15 }}
-                className="font-heading text-3xl sm:text-5xl lg:text-5xl font-extrabold text-white leading-tight"
+                className="font-heading text-3xl sm:text-5xl lg:text-5xl font-extrabold text-slate-900 leading-tight"
               >
                 Günün her anına uygun <span className="gold-text">doyurucu bir lezzet</span>
               </motion.h1>
@@ -367,7 +367,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.25 }}
-                className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl"
+                className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl"
               >
                 Profesyonel pastacılık ve fırıncılık işletmeleri için özel olarak seçilmiş 
                 premium hammadde ve yarı mamul ürünler. Güvenilir B2B tedarik zinciri.
@@ -403,7 +403,7 @@ export default function HomePage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.45 }}
-                className="grid grid-cols-3 gap-4 pt-6 border-t border-[#282C36] max-w-md"
+                className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200 max-w-md"
               >
                 {[
                   { value: "500+", label: "Ürün Çeşidi" },
@@ -412,7 +412,7 @@ export default function HomePage() {
                 ].map((stat) => (
                   <div key={stat.label} className="text-left">
                     <p className="font-heading font-extrabold text-gold text-xl sm:text-2xl">{stat.value}</p>
-                    <p className="text-slate-400 text-xs font-semibold">{stat.label}</p>
+                    <p className="text-slate-500 text-xs font-semibold">{stat.label}</p>
                   </div>
                 ))}
               </motion.div>
@@ -424,34 +424,34 @@ export default function HomePage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative h-[350px] sm:h-[460px] lg:h-[480px] w-full rounded-3xl overflow-hidden shadow-2xl border border-[#282C36] group bg-[#16181D]"
+                className="relative h-[350px] sm:h-[460px] lg:h-[480px] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group bg-slate-100"
               >
                 {/* Image Slider */}
                 {hasSliders ? (
                   <>
-                    <AnimatePresence mode="sync">
+                    <AnimatePresence initial={false} custom={direction} mode="popLayout">
                       <motion.div
-                        key={currentSlide}
+                        key={`slide-${currentSlide}`}
                         variants={slideVariants}
                         initial="initial"
                         animate="animate"
                         exit="exit"
-                        className="absolute inset-0"
+                        className="absolute inset-0 will-change-transform will-change-[opacity]"
                       >
                         <Image
                           src={sliders[currentSlide].imageUrl}
                           alt={sliders[currentSlide].imageAlt || sliders[currentSlide].name}
                           fill
-                          quality={95}
-                          sizes="(max-width: 1280px) 100vw, 1280px"
+                          priority={currentSlide === 0}
+                          quality={90}
+                          sizes="(max-width: 1024px) 100vw, 50vw"
                           className="object-cover"
-                          priority
                         />
                       </motion.div>
                     </AnimatePresence>
 
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0D0E11]/95 via-[#0D0E11]/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/25 to-transparent" />
 
                     {/* Slide Caption / Tag */}
                     <AnimatePresence mode="wait">
@@ -463,14 +463,14 @@ export default function HomePage() {
                         transition={{ duration: 0.4, delay: 0.1 }}
                         className="absolute bottom-6 left-6 right-6 z-10"
                       >
-                        <span className="inline-block bg-gold text-[#0D0E11] text-2xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-2">
+                        <span className="inline-block bg-gold text-white text-2xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-2">
                           Öne Çıkan Ürün
                         </span>
                         <h3 className="font-heading font-bold text-white text-lg sm:text-xl drop-shadow-md">
                           {sliders[currentSlide].name}
                         </h3>
                         {sliders[currentSlide].description && (
-                          <p className="text-slate-300 text-xs sm:text-sm line-clamp-1 mt-1">
+                          <p className="text-slate-200 text-xs sm:text-sm line-clamp-1 mt-1">
                             {sliders[currentSlide].description}
                           </p>
                         )}
@@ -482,14 +482,14 @@ export default function HomePage() {
                       <>
                         <button
                           onClick={prevSlide}
-                          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#121316]/70 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-gold hover:text-[#0D0E11] transition-all duration-200"
+                          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-gold hover:text-white transition-all duration-200 shadow-md"
                           aria-label="Önceki görsel"
                         >
                           <ChevronLeft size={20} />
                         </button>
                         <button
                           onClick={nextSlide}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-[#121316]/70 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-gold hover:text-[#0D0E11] transition-all duration-200"
+                          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-gold hover:text-white transition-all duration-200 shadow-md"
                           aria-label="Sonraki görsel"
                         >
                           <ChevronRight size={20} />
@@ -499,7 +499,7 @@ export default function HomePage() {
 
                     {/* Dot Indicators */}
                     {sliders.length > 1 && (
-                      <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-[#121316]/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                      <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
                         {sliders.map((_, i) => (
                           <button
                             key={i}
@@ -507,7 +507,7 @@ export default function HomePage() {
                             className={`transition-all duration-300 rounded-full ${
                               i === currentSlide
                                 ? "w-6 h-2 bg-gold"
-                                : "w-2 h-2 bg-white/40 hover:bg-white/70"
+                                : "w-2 h-2 bg-slate-400 hover:bg-slate-600"
                             }`}
                             aria-label={`Slide ${i + 1}`}
                           />
@@ -526,9 +526,9 @@ export default function HomePage() {
                       className="object-cover"
                       priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0D0E11]/85 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-transparent to-transparent" />
                     <div className="absolute bottom-6 left-6 right-6 z-10">
-                      <span className="inline-block bg-gold text-[#0D0E11] text-2xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-1">
+                      <span className="inline-block bg-gold text-white text-2xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-1">
                         Toptan Tedarik
                       </span>
                       <h3 className="font-heading font-bold text-white text-xl">
@@ -548,12 +548,12 @@ export default function HomePage() {
           BRANDS SHOWCASE — Hero Altı Markalar Alanı
       ════════════════════════════════════════════════════════════ */}
       {brands.length > 0 && (
-        <section className="py-16 bg-[#0D0E11] border-b border-[#282C36]">
+        <section className="py-16 bg-slate-50 border-b border-slate-200">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             <FadeIn>
               <div className="text-center mb-10">
                 <p className="section-label text-center">Çalıştığımız Markalar</p>
-                <h2 className="font-heading font-bold text-white text-2xl sm:text-3xl lg:text-4xl">
+                <h2 className="font-heading font-bold text-slate-900 text-2xl sm:text-3xl lg:text-4xl">
                   Dünya Standartlarında <span className="gold-text">Markalar</span>
                 </h2>
               </div>
@@ -572,7 +572,7 @@ export default function HomePage() {
                         rel="noreferrer"
                         className="group flex flex-col items-center gap-2.5 text-center w-28 sm:w-32 transition-transform duration-300 hover:-translate-y-1"
                       >
-                        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#1B1D23] border border-[#282C36] flex items-center justify-center p-3.5 group-hover:border-gold/50 group-hover:shadow-card-hover transition-all duration-300">
+                        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white border border-slate-200 flex items-center justify-center p-3.5 group-hover:border-gold/50 group-hover:shadow-md transition-all duration-300">
                           {brand.imageUrl ? (
                             <div className="relative w-full h-full">
                               <Image
@@ -585,13 +585,13 @@ export default function HomePage() {
                               />
                             </div>
                           ) : (
-                            <span className="font-heading font-bold text-slate-300 group-hover:text-gold text-xs text-center transition-colors">
+                            <span className="font-heading font-bold text-slate-700 group-hover:text-gold-600 text-xs text-center transition-colors">
                               {brand.name}
                             </span>
                           )}
                         </div>
                         {brand.subtitle && (
-                          <p className="text-slate-400 text-xs font-medium group-hover:text-slate-200 transition-colors leading-snug">
+                          <p className="text-slate-500 text-xs font-medium group-hover:text-slate-800 transition-colors leading-snug">
                             {brand.subtitle}
                           </p>
                         )}
@@ -601,7 +601,7 @@ export default function HomePage() {
                         href={targetHref}
                         className="group flex flex-col items-center gap-2.5 text-center w-28 sm:w-32 transition-transform duration-300 hover:-translate-y-1"
                       >
-                        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#1B1D23] border border-[#282C36] flex items-center justify-center p-3.5 group-hover:border-gold/50 group-hover:shadow-card-hover transition-all duration-300">
+                        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white border border-slate-200 flex items-center justify-center p-3.5 group-hover:border-gold/50 group-hover:shadow-md transition-all duration-300">
                           {brand.imageUrl ? (
                             <div className="relative w-full h-full">
                               <Image
@@ -614,13 +614,13 @@ export default function HomePage() {
                               />
                             </div>
                           ) : (
-                            <span className="font-heading font-bold text-slate-300 group-hover:text-gold text-xs text-center transition-colors">
+                            <span className="font-heading font-bold text-slate-700 group-hover:text-gold-600 text-xs text-center transition-colors">
                               {brand.name}
                             </span>
                           )}
                         </div>
                         {brand.subtitle && (
-                          <p className="text-slate-400 text-xs font-medium group-hover:text-slate-200 transition-colors leading-snug">
+                          <p className="text-slate-500 text-xs font-medium group-hover:text-slate-800 transition-colors leading-snug">
                             {brand.subtitle}
                           </p>
                         )}
@@ -637,20 +637,23 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           CATEGORIES SHOWCASE — Dynamic with images
       ════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-[#121316]">
+      {/* ════════════════════════════════════════════════════════════
+          CATEGORIES SHOWCASE — Dynamic with images
+      ════════════════════════════════════════════════════════════ */}
+      <section className="py-24 bg-white">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-12">
               <div>
                 <p className="section-label">Ürün Kategorileri</p>
-                <h2 className="font-heading font-bold text-white">
+                <h2 className="font-heading font-bold text-slate-900">
                   Tüm İhtiyaçlarınız<br />
                   <span className="gold-text">Tek Çatı Altında</span>
                 </h2>
               </div>
               <Link
                 href="/katalog"
-                className="flex items-center gap-2 text-slate-300 hover:text-gold text-sm font-semibold transition-colors shrink-0"
+                className="flex items-center gap-2 text-slate-600 hover:text-gold-600 text-sm font-semibold transition-colors shrink-0"
               >
                 Tüm kategoriler
                 <ChevronRight size={16} />
@@ -670,10 +673,10 @@ export default function HomePage() {
                 <FadeIn key={cat.id} delay={i * 0.07}>
                   <Link
                     href={`/katalog/${cat.slug}`}
-                    className="group block bg-[#1B1D23] rounded-2xl overflow-hidden border border-[#282C36] shadow-card hover:shadow-card-hover hover:-translate-y-1 hover:border-gold/50 transition-all duration-300"
+                    className="group block bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-card-hover hover:-translate-y-1 hover:border-gold/50 transition-all duration-300"
                   >
                     {/* Category Image */}
-                    <div className="relative aspect-[4/3] bg-[#16181D] overflow-hidden">
+                    <div className="relative aspect-[4/3] bg-slate-50 overflow-hidden">
                       {cat.imageUrl ? (
                         <Image
                           src={cat.imageUrl}
@@ -684,15 +687,15 @@ export default function HomePage() {
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       ) : (
-                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#16181D] to-[#21242C]">
-                          <ImageIcon size={32} className="text-slate-500" />
+                        <div className="absolute inset-0 flex items-center justify-center bg-slate-100">
+                          <ImageIcon size={32} className="text-slate-400" />
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-gradient-card opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     {/* Category Info */}
-                    <div className="p-4 text-center bg-[#1B1D23]">
-                      <p className="font-heading font-semibold text-slate-100 text-sm mb-1 group-hover:text-gold transition-colors">
+                    <div className="p-4 text-center bg-white">
+                      <p className="font-heading font-semibold text-slate-800 text-sm mb-1 group-hover:text-gold-600 transition-colors">
                         {cat.name}
                       </p>
                       <div className="mt-2 h-0.5 w-0 group-hover:w-full bg-gold transition-all duration-300 mx-auto rounded-full" />
@@ -708,13 +711,13 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           FEATURED PRODUCTS
       ════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-[#16181D] border-y border-[#282C36]">
+      <section className="py-24 bg-slate-50 border-y border-slate-200">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-12">
               <div>
                 <p className="section-label">Öne Çıkan Ürünler</p>
-                <h2 className="font-heading font-bold text-white">
+                <h2 className="font-heading font-bold text-slate-900">
                   En Çok Tercih Edilen
                   <br />
                   <span className="gold-text">Premium Ürünler</span>
@@ -722,7 +725,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="/katalog"
-                className="flex items-center gap-2 text-slate-300 hover:text-gold text-sm font-semibold transition-colors shrink-0"
+                className="flex items-center gap-2 text-slate-600 hover:text-gold-600 text-sm font-semibold transition-colors shrink-0"
               >
                 Tüm ürünler
                 <ChevronRight size={16} />
@@ -746,7 +749,7 @@ export default function HomePage() {
 
           <FadeIn delay={0.2}>
             <div className="text-center mt-12">
-              <Link href="/katalog" className="btn-secondary px-10 py-3.5 shadow-md">
+              <Link href="/katalog" className="btn-secondary px-10 py-3.5 shadow-sm hover:shadow-md">
                 Tüm Ürün Kataloğunu İncele
                 <ArrowRight size={16} />
               </Link>
@@ -768,7 +771,7 @@ export default function HomePage() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-[#0D0E11]/88 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-slate-900/75 backdrop-blur-[2px]" />
         </div>
         <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
@@ -780,7 +783,7 @@ export default function HomePage() {
                 İşletmenizin Büyümesine{" "}
                 <span className="gold-text">Ortak Oluyoruz</span>
               </h2>
-              <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-10">
+              <p className="text-slate-200 text-base sm:text-lg leading-relaxed mb-10">
                 Pastane, otel, restoran veya endüstriyel mutfak işletiyorsanız; 
                 özel B2B fiyatlandırma, esnek ödeme vadesi ve teknik destek 
                 hizmetlerimizden yararlanabilirsiniz.
@@ -790,7 +793,7 @@ export default function HomePage() {
                   B2B Hesap Oluştur
                   <ArrowRight size={18} />
                 </Link>
-                <Link href="/katalog" className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-[#383E4C] bg-[#16181D]/80 text-white font-semibold hover:border-gold hover:text-gold transition-all duration-200">
+                <Link href="/katalog" className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-white/30 bg-white/10 hover:bg-white/20 text-white font-semibold hover:border-gold hover:text-gold transition-all duration-200 backdrop-blur-sm">
                   Kataloğu İncele
                 </Link>
               </div>
