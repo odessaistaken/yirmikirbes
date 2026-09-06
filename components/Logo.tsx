@@ -23,8 +23,14 @@ export default function Logo({
   const width = Math.round(imgHeight * 0.901);
   const logoSrc = variant === "dark" ? "/logo.png" : "/logo-light.png";
 
+  // Extra width to reserve for the 2x enlarged HORECA text extending to the right
+  const extraRightPadding = showText ? Math.round(imgHeight * 0.22) : 0;
+
   return (
-    <div className={`inline-flex items-center select-none ${className}`}>
+    <div
+      className={`inline-flex items-center select-none ${className}`}
+      style={{ paddingRight: `${extraRightPadding}px` }}
+    >
       {/* Logo container */}
       <div className="relative group flex items-center justify-center">
         <div
@@ -40,22 +46,22 @@ export default function Logo({
             className="object-contain"
           />
 
-          {/* HORECA directly under the '45' number - perfectly anchored with viewBox */}
+          {/* HORECA directly under the '45' number - 2x enlarged and crystal clear */}
           {showText && (
             <svg
               viewBox="0 0 1058 1174"
-              className="absolute inset-0 w-full h-full pointer-events-none select-none"
+              className="absolute inset-0 w-full h-full pointer-events-none select-none overflow-visible"
               aria-hidden="true"
             >
               <text
-                x="795"
-                y="735"
-                textAnchor="middle"
+                x="555"
+                y="760"
+                textAnchor="start"
                 className="font-heading"
                 fill="#D4AF37"
                 fontWeight="900"
-                fontSize="102"
-                letterSpacing="2"
+                fontSize="170"
+                letterSpacing="1"
               >
                 HORECA
               </text>
