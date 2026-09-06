@@ -49,13 +49,13 @@ export default function Logo({
             >
               <text
                 x="795"
-                y="695"
+                y="735"
                 textAnchor="middle"
                 className="font-heading"
                 fill="#D4AF37"
                 fontWeight="900"
-                fontSize="68"
-                letterSpacing="4"
+                fontSize="102"
+                letterSpacing="2"
               >
                 HORECA
               </text>
