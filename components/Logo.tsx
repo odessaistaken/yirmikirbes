@@ -23,8 +23,6 @@ export default function Logo({
   const width = Math.round(imgHeight * 0.901);
   const logoSrc = variant === "dark" ? "/logo.png" : "/logo-light.png";
 
-  const fontSize = Math.max(7, Math.round(imgHeight * 0.125));
-
   return (
     <div className={`inline-flex items-center select-none ${className}`}>
       {/* Logo container */}
@@ -42,20 +40,26 @@ export default function Logo({
             className="object-contain"
           />
 
-          {/* HORECA directly under the '45' number */}
+          {/* HORECA directly under the '45' number - perfectly anchored with viewBox */}
           {showText && (
-            <span
-              className="absolute font-heading font-black tracking-wider text-gold uppercase pointer-events-none select-none flex items-center justify-center leading-none"
-              style={{
-                left: "51.5%",
-                top: "54%",
-                width: "47%",
-                fontSize: `${fontSize}px`,
-                letterSpacing: "0.12em",
-              }}
+            <svg
+              viewBox="0 0 1058 1174"
+              className="absolute inset-0 w-full h-full pointer-events-none select-none"
+              aria-hidden="true"
             >
-              HORECA
-            </span>
+              <text
+                x="795"
+                y="695"
+                textAnchor="middle"
+                className="font-heading"
+                fill="#D4AF37"
+                fontWeight="900"
+                fontSize="68"
+                letterSpacing="4"
+              >
+                HORECA
+              </text>
+            </svg>
           )}
         </div>
       </div>
