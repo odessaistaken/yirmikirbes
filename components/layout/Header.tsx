@@ -19,7 +19,6 @@ import {
   Phone,
   ImageIcon,
   AlignLeft,
-  Flame,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import Logo from "@/components/Logo";
@@ -565,17 +564,16 @@ export default function Header() {
                 <Logo size={54} logoScale={1.4} />
               </Link>
               
-              {/* Çok Satanlar Butonu - Kategoriler butonu ile aynı tarzda */}
+              {/* Çok Satanlar Linki - Menü isimleri ile aynı sade ve şık stil */}
               <Link
                 href="/cok-satanlar"
-                className={`flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 ${
+                className={`px-3.5 py-2 rounded-xl text-sm font-medium transition-all duration-150 ${
                   isActive("/cok-satanlar")
                     ? "text-gold-600 bg-gold/10 font-bold border border-gold/30"
-                    : "text-slate-700 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 hover:border-slate-300"
+                    : "text-slate-700 hover:text-slate-900 hover:bg-slate-100"
                 }`}
               >
-                <Flame size={16} className="text-amber-600" />
-                <span>Çok Satanlar</span>
+                Çok Satanlar
               </Link>
             </div>
 
@@ -727,14 +725,13 @@ export default function Header() {
                 <Link
                   href="/cok-satanlar"
                   onClick={() => setMobileOpen(false)}
-                  className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
+                  className={`flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                     isActive("/cok-satanlar")
-                      ? "bg-amber-500 text-white shadow-md"
-                      : "bg-amber-50 text-amber-700 hover:bg-amber-100 border border-amber-200"
+                      ? "bg-gold/10 text-gold-600 font-bold border border-gold/30"
+                      : "text-slate-700 hover:bg-slate-100"
                   }`}
                 >
-                  <span>🔥</span>
-                  <span>Çok Satanlar</span>
+                  Çok Satanlar
                 </Link>
 
                 {navLinks.map((link) => (

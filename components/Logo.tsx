@@ -23,12 +23,12 @@ export default function Logo({
   const width = Math.round(imgHeight * 0.901);
   const logoSrc = variant === "dark" ? "/logo.png" : "/logo-light.png";
 
-  const isLarge = size >= 48;
+  const fontSize = Math.max(7, Math.round(imgHeight * 0.125));
 
   return (
-    <div className={`inline-flex flex-col select-none ${className}`}>
+    <div className={`inline-flex items-center select-none ${className}`}>
       {/* Logo container */}
-      <div className="relative group flex flex-col items-start">
+      <div className="relative group flex items-center justify-center">
         <div
           className="relative shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105"
           style={{ width: `${width}px`, height: `${imgHeight}px` }}
@@ -41,24 +41,23 @@ export default function Logo({
             sizes={`${imgHeight * 2}px`}
             className="object-contain"
           />
-        </div>
 
-        {/* HORECA directly under the '45' (which sits on the right 50% of the logo) */}
-        {showText && (
-          <div
-            className="w-full flex justify-end pr-1 mt-0.5"
-            style={{ width: `${width}px` }}
-          >
+          {/* HORECA directly under the '45' number */}
+          {showText && (
             <span
-              className={`font-heading font-black tracking-widest text-gold uppercase text-right leading-none ${
-                isLarge ? "text-[11px] sm:text-xs" : "text-[9px] sm:text-[10px]"
-              }`}
-              style={{ letterSpacing: "0.22em" }}
+              className="absolute font-heading font-black tracking-wider text-gold uppercase pointer-events-none select-none flex items-center justify-center leading-none"
+              style={{
+                left: "51.5%",
+                top: "54%",
+                width: "47%",
+                fontSize: `${fontSize}px`,
+                letterSpacing: "0.12em",
+              }}
             >
               HORECA
             </span>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
