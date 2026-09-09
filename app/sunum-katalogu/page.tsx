@@ -16,14 +16,13 @@ import toast from "react-hot-toast";
 
 import PresentationCategoryAccordion from "@/components/presentation/PresentationCategoryAccordion";
 import PresentationDetailModal from "@/components/presentation/PresentationDetailModal";
-import PresentationPDFTemplate from "@/components/presentation/PresentationPDFTemplate";
 import {
   fetchPresentationCategories,
   fetchPresentationProducts,
   groupProductsByCategory,
   type PresentationProduct,
 } from "@/lib/presentation-catalog-service";
-import { exportCatalogToPdf } from "@/lib/pdf-export";
+import { downloadVectorCatalogPDF } from "@/lib/pdf-generator";
 import type { Category } from "@/lib/types";
 
 export default function SunumKataloguPage() {
@@ -112,20 +111,19 @@ export default function SunumKataloguPage() {
     }
   };
 
-  // PDF İndirme Fonksiyonu
+  // Gerçek Vektörel PDF İndirme Fonksiyonu (Ekran görüntüsü içermez)
   const handleExportPDF = async () => {
     setIsExportingPdf(true);
-    const toastId = toast.loading("Katalog PDF formatında hazırlanıyor...");
+    const toastId = toast.loading("Vektörel PDF belgesi oluşturuluyor...");
     try {
-      await exportCatalogToPdf(
-        "presentation-pdf-container",
+      await downloadVectorCatalogPDF(
+        categoryGroups,
         `Yirmikirbes-Ozel-Sunum-Katalogu-${new Date().toISOString().slice(0, 10)}.pdf`
       );
-      toast.success("Katalog PDF olarak başarıyla indirildi!", { id: toastId });
+      toast.success("Vektörel PDF başarıyla indirildi!", { id: toastId });
     } catch (err: any) {
-      console.error("PDF export hatası:", err);
-      toast.error("PDF oluşturulurken bir sorun oluştu. Yazdırma penceresi açılıyor...", { id: toastId });
-      window.print();
+      console.error("Vektörel PDF hatası:", err);
+      toast.error("PDF oluşturulurken bir sorun oluştu: " + (err?.message || "Lütfen tekrar deneyin."), { id: toastId });
     } finally {
       setIsExportingPdf(false);
     }
@@ -353,9 +351,6 @@ export default function SunumKataloguPage() {
         product={activeModalProduct}
         onClose={() => setActiveModalProduct(null)}
       />
-
-      {/* ── 6. PDF Çıktısı İçin Hazırlanan A4 Şablon (Görünmez DOM) ────────── */}
-      <PresentationPDFTemplate categoryGroups={categoryGroups} />
     </div>
   );
 }
