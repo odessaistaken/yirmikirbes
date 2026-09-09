@@ -543,4 +543,17 @@ img { max-width: 100%; height: auto; }
   color: #1E293B !important;
 }
 
+/* ─── GSAP ScrollTrigger & Catalog Transitions ──────────────────────────────── */
+.catalog-grid-item {
+  will-change: transform, opacity;
+}
+
+.hero-breadcrumb,
+.hero-title-group,
+.hero-search,
+.sidebar-item {
+  will-change: transform, opacity;
+}
+
+
 
