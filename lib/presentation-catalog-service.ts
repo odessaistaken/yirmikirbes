@@ -1,16 +1,18 @@
 /**
  * Özel Müşteri Sunum Kataloğu — Veri ve Entegrasyon Katmanı
  * 
- * Sitenin mevcut kategorileriyle tam entegre çalışır.
- * İstenen veri modelini (id, görsel URL, ürün_ismi, fiyat, kategori_id, tanıtım_metni)
- * ve Mock API / Firestore operasyon iskeletlerini sağlar.
+ * Web sitesindeki mevcut "Ürün Kategorileri" ve "Ürünler" verisini
+ * Firestore veya Mock veri kaynaklarından doğrudan çeker.
+ * 
+ * Veri Modeli:
+ * id, imageUrl (görsel URL), name (ürün_ismi), price (fiyat), categoryId (kategori_id), description (tanıtım_metni)
  */
 
-import { getActiveCategories, getProducts } from "@/lib/firestore-collections";
-import { CATEGORIES as MOCK_CATEGORIES } from "@/lib/mock-data";
-import type { Category } from "@/lib/types";
+import { getActiveCategories, getProducts, updateProduct as firestoreUpdateProduct } from "@/lib/firestore-collections";
+import { CATEGORIES as MOCK_CATEGORIES, PRODUCTS as MOCK_PRODUCTS } from "@/lib/mock-data";
+import type { Category, Product } from "@/lib/types";
 
-/* ─── 1. Veri Modeli Tanımı ──────────────────────────────────────────────── */
+/* ─── 1. Temel Veri Modeli ───────────────────────────────────────────────── */
 export interface PresentationProduct {
   id: string;
   imageUrl: string;      // görsel URL
@@ -19,162 +21,176 @@ export interface PresentationProduct {
   categoryId: string;    // kategori_id
   description: string;   // ürünü anlatan, müşteriyi cezbedecek tanıtım_metni
   categoryName?: string;
-  badge?: string;        // Örn: "Şefin Seçimi", "Yeni Sezon", "İmza Lezzet"
+  categorySlug?: string;
+  code?: string;
+  badge?: string;        // Örn: "İmza Lezzet", "Yeni Sezon", "Şefin Favorisi"
   order?: number;
   isActive?: boolean;
 }
 
-/* ─── Başlangıç Sunum Ürünleri (Mock / Default Veriler) ───────────────────── */
-export const INITIAL_PRESENTATION_PRODUCTS: PresentationProduct[] = [
-  {
-    id: "pres-1",
-    name: "DaVinci Gourmet Madagaskar Vanilya Şurubu",
-    imageUrl: "/resimler/urunler/165.webp",
-    price: 345.0,
-    categoryId: "suruplar",
-    categoryName: "Şuruplar",
-    badge: "İmza Lezzet",
-    description:
-      "Gerçek Madagaskar vanilya çekirdeklerinin büyüleyici kokusuyla harmanlanan bu şurup; sıcak ve soğuk kahve reçetelerinizde damakta kadifemsi, kalıcı ve seçkin bir tat profili bırakır. Profesyonel baristaların vazgeçilmez lezzet ortağı.",
-    order: 1,
-    isActive: true,
-  },
-  {
-    id: "pres-2",
-    name: "Caffè NONNO Frozen Orman Meyveleri Püresi",
-    imageUrl: "/resimler/urunler/31.webp",
-    price: 420.0,
-    categoryId: "pureler",
-    categoryName: "Püreler",
-    badge: "%100 Meyve Yoğunluğu",
-    description:
-      "Taze toplanmış böğürtlen, frambuaz ve yaban mersininin canlı mayhoşluğunu içeceklerinize taşıyın. Yüksek meyve oranıyla hazırlanan bu püre; artisan kokteyller, mocktail ve frozen sunumlarında göz alıcı renk ve eşsiz bir aroma dengesi sunar.",
-    order: 2,
-    isActive: true,
-  },
-  {
-    id: "pres-3",
-    name: "CALLEI Belçika Fındıklı Sürülebilir Çikolata Kreması",
-    imageUrl: "/resimler/urunler/10.webp",
-    price: 580.0,
-    categoryId: "waffle-malzemeleri",
-    categoryName: "Waffle & Pastacılık",
-    badge: "Gurme Seçim",
-    description:
-      "Geleneksel Belçika çikolata ustalığıyla harmanlanmış, kavrulmuş birinci sınıf fındık tanecikleriyle zenginleştirilmiş pürüzsüz doku. Sıcak waffle, krep ve butik pasta dolgularında üstün kıvam ve lüks bir lezzet imzası yaratır.",
-    order: 3,
-    isActive: true,
-  },
-  {
-    id: "pres-4",
-    name: "EASY MIX Botanik Hibiscus & Gül Kokteyl Premiksi",
-    imageUrl: "/resimler/urunler/115.webp",
-    price: 390.0,
-    categoryId: "kokteyller",
-    categoryName: "Kokteyl Premiksleri",
-    badge: "Trend Koleksiyon",
-    description:
-      "Doğal hibiscus yaprakları ve Isparta güllerinin zarafetiyle demlenen eşsiz botanik harmoni. Saniyeler içinde hazırlanan yüksek standartlı imza kokteyller için barlara hız, konuklarınıza unutulmaz bir lezzet yolculuğu kazandırır.",
-    order: 4,
-    isActive: true,
-  },
-  {
-    id: "pres-5",
-    name: "Caffè NONNO Altın Karamel Bar Sosu",
-    imageUrl: "/resimler/urunler/21.webp",
-    price: 310.0,
-    categoryId: "bar-sos",
-    categoryName: "Bar Sosları",
-    badge: "Zengin Doku",
-    description:
-      "Ağır ateşte karamelize edilen saf şekerin tereyağımsı zenginliği ve ipeksi akışkanlığı. Kahve kreması süslemelerinde, bardak içi dekorasyonlarda ve tatlı tabaklarında kusursuz formunu korur.",
-    order: 5,
-    isActive: true,
-  },
-  {
-    id: "pres-6",
-    name: "San Sebastián Donuk Bask Cheesecake",
-    imageUrl: "/resimler/urunler/201.webp",
-    price: 750.0,
-    categoryId: "donuk-pasta",
-    categoryName: "Donuk Pastalar",
-    badge: "Şefin Favorisi",
-    description:
-      "Geleneksel San Sebastián fırınlama tekniğiyle üzeri nar gibi kızarmış, içi akışkan ve yoğun kremamsı kıvamda. Çözündükten sonra ilk anki tazeliğini koruyan, kafe ve restoranlar için fireyi sıfıra indiren birinci sınıf tatlı çözümü.",
-    order: 6,
-    isActive: true,
-  },
-];
-
-/* ─── 2. Backend Entegrasyon Fonksiyonları ───────────────────────────────── */
+/* ─── 2. Backend Entegrasyonu (Doğrudan Sitedeki Verileri Çeker) ──────────── */
 
 /**
- * Web sitesindeki mevcut kategori listesini çeker.
+ * Web sitesindeki aktif kategorileri çeker
  */
 export async function fetchPresentationCategories(): Promise<Category[]> {
   try {
-    const categories = await getActiveCategories();
-    if (categories && categories.length > 0) {
-      return categories
+    const cats = await getActiveCategories();
+    if (cats && cats.length > 0) {
+      return cats
         .filter((c) => c.isActive !== false)
         .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
     }
     return MOCK_CATEGORIES;
-  } catch (error) {
-    console.warn("Kategoriler Firestore'dan çekilemedi, mock veriler kullanılıyor:", error);
+  } catch (err) {
+    console.warn("Kategoriler Firestore'dan çekilemedi, mock veri kullanılıyor:", err);
     return MOCK_CATEGORIES;
   }
 }
 
 /**
- * Sunum kataloğu ürünlerini çeker.
+ * Web sitesindeki tüm ürünleri PresentationProduct formatına uyarlayarak çeker.
+ * Varsa localStorage'daki sunum düzenlemelerini (overrides) harmanlar.
  */
 export async function fetchPresentationProducts(): Promise<PresentationProduct[]> {
-  // Eğer localStorage veya API'de kayıtlı ürün varsa onu döndür, yoksa başlangıç verisini sun
+  let rawProducts: Product[] = [];
+  try {
+    rawProducts = await getProducts();
+    if (!rawProducts || rawProducts.length === 0) {
+      rawProducts = MOCK_PRODUCTS;
+    }
+  } catch (err) {
+    console.warn("Ürünler Firestore'dan çekilemedi, mock veri kullanılıyor:", err);
+    rawProducts = MOCK_PRODUCTS;
+  }
+
+  // Veri modeli eşleme (id, imageUrl, name, price, categoryId, description)
+  const mapped: PresentationProduct[] = rawProducts
+    .filter((p) => p.isActive !== false)
+    .map((p) => ({
+      id: p.id,
+      imageUrl: p.imageUrl || "/resimler/logo.png",
+      name: p.name,
+      price: p.price || 0,
+      categoryId: p.categoryId || p.categorySlug || "genel",
+      categoryName: p.categoryName || "",
+      categorySlug: p.categorySlug || "",
+      code: p.code || "",
+      description:
+        p.description?.trim() ||
+        `${p.name}, profesyonel gastronomi ve barista standartları için özel olarak geliştirilmiş seçkin bir lezzet profilidir.`,
+      badge: p.isBestSeller ? "Çok Satan" : undefined,
+      order: p.order ?? 0,
+      isActive: p.isActive !== false,
+    }));
+
+  // LocalStorage'daki admin güncellemeleri varsa uygula (anlık önizleme için)
   if (typeof window !== "undefined") {
-    const saved = localStorage.getItem("presentation_products");
-    if (saved) {
+    const customEdits = localStorage.getItem("presentation_custom_products");
+    if (customEdits) {
       try {
-        return JSON.parse(saved);
+        const parsed: Record<string, Partial<PresentationProduct>> = JSON.parse(customEdits);
+        return mapped.map((item) => {
+          if (parsed[item.id]) {
+            return { ...item, ...parsed[item.id] };
+          }
+          return item;
+        });
       } catch (e) {
         console.error("LocalStorage parse hatası:", e);
       }
     }
   }
-  return INITIAL_PRESENTATION_PRODUCTS;
+
+  return mapped;
 }
 
-/* ─── 3. Mock API & CRUD Operasyon İskeleti ───────────────────────────────── */
+/* ─── 3. Kategori Bazlı Gruplama Yardımcısı ───────────────────────────────── */
+export interface CategoryProductGroup {
+  category: Category;
+  products: PresentationProduct[];
+}
 
+export function groupProductsByCategory(
+  categories: Category[],
+  products: PresentationProduct[]
+): CategoryProductGroup[] {
+  // Yalnızca ana kategorileri ve çocuklarını hiyerarşik veya düz gruplar
+  return categories
+    .map((cat) => {
+      const catProducts = products.filter(
+        (p) =>
+          p.categoryId === cat.id ||
+          p.categoryId === cat.slug ||
+          p.categorySlug?.toLowerCase() === cat.slug?.toLowerCase() ||
+          (p.categoryName && p.categoryName.toLowerCase() === cat.name.toLowerCase())
+      );
+
+      return {
+        category: cat,
+        products: catProducts,
+      };
+    })
+    .filter((group) => group.products.length > 0);
+}
+
+/* ─── 4. Mock API & CRUD Fonksiyon İskeletleri ────────────────────────────── */
 export const presentationApi = {
   /**
-   * Tüm ürünleri getir
+   * Tüm ürünleri listele
    */
   async getAll(): Promise<PresentationProduct[]> {
+    return fetchPresentationProducts();
+  },
+
+  /**
+   * Ürün güncelleme (Edit)
+   * Hem Firestore'u günceller hem de lokal sunum state'ini senkronize eder.
+   */
+  async update(id: string, data: Partial<PresentationProduct>): Promise<PresentationProduct> {
     return new Promise((resolve) => {
       setTimeout(async () => {
-        const products = await fetchPresentationProducts();
-        resolve(products);
+        // Firestore güncelleme denemesi (arka planda hata olsa bile akışı bozmaz)
+        try {
+          await firestoreUpdateProduct(id, {
+            name: data.name,
+            price: data.price,
+            description: data.description,
+            imageUrl: data.imageUrl,
+            categoryId: data.categoryId,
+          });
+        } catch (e) {
+          console.warn("Firestore güncellemesi atlandı, lokal sunum kaydı yapılıyor:", e);
+        }
+
+        // Lokal sunum overrides kaydı
+        if (typeof window !== "undefined") {
+          const stored = localStorage.getItem("presentation_custom_products");
+          const map: Record<string, Partial<PresentationProduct>> = stored ? JSON.parse(stored) : {};
+          map[id] = { ...map[id], ...data };
+          localStorage.setItem("presentation_custom_products", JSON.stringify(map));
+        }
+
+        resolve({ id, ...data } as PresentationProduct);
       }, 300);
     });
   },
 
   /**
-   * Yeni ürün oluştur
+   * Yeni sunum ürünü ekleme
    */
-  async create(item: Omit<PresentationProduct, "id">): Promise<PresentationProduct> {
+  async create(data: Omit<PresentationProduct, "id">): Promise<PresentationProduct> {
     return new Promise((resolve) => {
-      setTimeout(async () => {
-        const current = await fetchPresentationProducts();
+      setTimeout(() => {
         const newProduct: PresentationProduct = {
-          ...item,
+          ...data,
           id: `pres-${Date.now()}`,
-          order: item.order ?? current.length + 1,
-          isActive: item.isActive ?? true,
         };
-        const updated = [newProduct, ...current];
         if (typeof window !== "undefined") {
-          localStorage.setItem("presentation_products", JSON.stringify(updated));
+          const stored = localStorage.getItem("presentation_custom_products");
+          const map: Record<string, Partial<PresentationProduct>> = stored ? JSON.parse(stored) : {};
+          map[newProduct.id] = newProduct;
+          localStorage.setItem("presentation_custom_products", JSON.stringify(map));
         }
         resolve(newProduct);
       }, 400);
@@ -182,37 +198,16 @@ export const presentationApi = {
   },
 
   /**
-   * Ürün güncelle (Edit)
-   */
-  async update(id: string, updates: Partial<PresentationProduct>): Promise<PresentationProduct> {
-    return new Promise((resolve, reject) => {
-      setTimeout(async () => {
-        const current = await fetchPresentationProducts();
-        const index = current.findIndex((p) => p.id === id);
-        if (index === -1) {
-          reject(new Error("Ürün bulunamadı"));
-          return;
-        }
-        const updatedItem = { ...current[index], ...updates };
-        current[index] = updatedItem;
-        if (typeof window !== "undefined") {
-          localStorage.setItem("presentation_products", JSON.stringify(current));
-        }
-        resolve(updatedItem);
-      }, 400);
-    });
-  },
-
-  /**
-   * Ürün sil (Delete)
+   * Sunum ürününü gizleme / silme
    */
   async delete(id: string): Promise<{ success: boolean; id: string }> {
     return new Promise((resolve) => {
-      setTimeout(async () => {
-        const current = await fetchPresentationProducts();
-        const filtered = current.filter((p) => p.id !== id);
+      setTimeout(() => {
         if (typeof window !== "undefined") {
-          localStorage.setItem("presentation_products", JSON.stringify(filtered));
+          const stored = localStorage.getItem("presentation_custom_products");
+          const map: Record<string, Partial<PresentationProduct>> = stored ? JSON.parse(stored) : {};
+          map[id] = { ...map[id], isActive: false };
+          localStorage.setItem("presentation_custom_products", JSON.stringify(map));
         }
         resolve({ success: true, id });
       }, 300);
