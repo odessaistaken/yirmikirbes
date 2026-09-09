@@ -103,6 +103,7 @@ export default async function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: "Ana Sayfa", href: "/" },
+                { label: "Özel Müşteri Sunumu ✨", href: "/sunum-katalogu" },
                 { label: "Çok Satanlar 🔥", href: "/cok-satanlar" },
                 { label: "Ürün Kataloğu", href: "/katalog" },
                 { label: "Hakkımızda", href: "/hakkimizda" },

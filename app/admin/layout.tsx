@@ -15,6 +15,7 @@ import {
   Layers,
   Award,
   Flame,
+  BookOpen,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import Logo from "@/components/Logo";
@@ -24,6 +25,7 @@ const adminNavItems = [
   { label: "Slider", href: "/admin/slider", icon: <Layers size={18} /> },
   { label: "Kategoriler", href: "/admin/kategoriler", icon: <Tag size={18} /> },
   { label: "Ürünler", href: "/admin/urunler", icon: <Package size={18} /> },
+  { label: "Sunum Kataloğu", href: "/admin/sunum-katalogu", icon: <BookOpen size={18} className="text-amber-500" /> },
   { label: "Çok Satanlar", href: "/admin/cok-satanlar", icon: <Flame size={18} className="text-amber-500" /> },
   { label: "Markalar", href: "/admin/markalar", icon: <Award size={18} /> },
   { label: "Kullanıcılar", href: "/admin/kullanicilar", icon: <Users size={18} /> },
