@@ -1,40 +1,112 @@
 /**
  * Vektörel & Resimli PDF Üretim Servisi (Screen-capture / html2canvas İÇERMEZ)
  * 
- * @react-pdf/renderer kullanarak arka planda State / JSON verilerinden doğrudan
- * gerçek, metinleri seçilebilir, aranabilir ve yüksek kaliteli A4 Dergi/Baskı PDF'i üretir.
+ * @react-pdf/renderer kullanarak doğrudan State / JSON verilerinden
+ * gerçek, metinleri seçilebilir ve optimize edilmiş resimlerle A4 dergi formatında PDF üretir.
  */
 
 import React from "react";
 import type { CategoryProductGroup } from "@/lib/presentation-catalog-service";
 
 /**
- * Görsel yollarını @react-pdf/renderer için mutlak URL'ye ve güvenli formata dönüştürür
+ * Tarayıcı ortamında görseli yükler, canvas ile 180px'e boyutlandırıp
+ * optimize edilmiş JPEG base64 veri formatına dönüştürür. Hata veya zaman aşımında null döner.
  */
-function prepareCategoryGroupsForPdf(
-  categoryGroups: CategoryProductGroup[]
-): CategoryProductGroup[] {
-  const origin = typeof window !== "undefined" ? window.location.origin : "";
+async function optimizeImageForPdf(url: string): Promise<string | null> {
+  if (!url || typeof window === "undefined") return null;
 
-  return categoryGroups.map((group) => ({
-    ...group,
-    products: group.products.map((p) => {
-      let img = p.imageUrl ? p.imageUrl.trim() : "";
+  return new Promise((resolve) => {
+    const fullUrl = url.startsWith("/") ? `${window.location.origin}${url}` : url;
+    const img = new window.Image();
+    img.crossOrigin = "anonymous";
 
-      // SVG veya geçersiz formatları temizle (react-pdf <Image> SVG desteklemez)
-      if (img.toLowerCase().endsWith(".svg")) {
-        img = "";
-      } else if (img.startsWith("/") && origin) {
-        // Göreli yolları (/resimler/...) mutlak URL'ye çevir (http://localhost:3000/resimler/...)
-        img = `${origin}${img}`;
+    // 2.5 saniyelik zaman aşımı koruması (asla kilitlenmez)
+    const timer = setTimeout(() => {
+      resolve(null);
+    }, 2500);
+
+    img.onload = () => {
+      clearTimeout(timer);
+      try {
+        const canvas = document.createElement("canvas");
+        const maxDim = 180; // 64x64pt kutu için ~2.8x Retina DPI çözünürlüğü
+        let width = img.naturalWidth || img.width || maxDim;
+        let height = img.naturalHeight || img.height || maxDim;
+
+        if (width > height) {
+          if (width > maxDim) {
+            height = Math.round((height * maxDim) / width);
+            width = maxDim;
+          }
+        } else {
+          if (height > maxDim) {
+            width = Math.round((width * maxDim) / height);
+            height = maxDim;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) {
+          resolve(null);
+          return;
+        }
+
+        ctx.drawImage(img, 0, 0, width, height);
+        // Optimize JPEG formatı (~12-20 KB per resim)
+        const dataUrl = canvas.toDataURL("image/jpeg", 0.82);
+        resolve(dataUrl);
+      } catch {
+        resolve(null);
       }
+    };
 
-      return {
-        ...p,
-        imageUrl: img,
-      };
-    }),
-  }));
+    img.onerror = () => {
+      clearTimeout(timer);
+      resolve(null);
+    };
+
+    img.src = fullUrl;
+  });
+}
+
+/**
+ * Ürün görsellerini tarayıcı belleğinde optimize ederek PDF şablonu için hazırlar
+ */
+async function prepareCategoryGroupsForPdf(
+  categoryGroups: CategoryProductGroup[]
+): Promise<CategoryProductGroup[]> {
+  const result: CategoryProductGroup[] = [];
+
+  for (const group of categoryGroups) {
+    const productsWithOptimizedImages = [];
+    const chunkSize = 12; // 12'şerli eşzamanlı görsel işleme
+
+    for (let i = 0; i < group.products.length; i += chunkSize) {
+      const slice = group.products.slice(i, i + chunkSize);
+      const processedSlice = await Promise.all(
+        slice.map(async (p) => {
+          let base64Img: string | null = null;
+          if (p.imageUrl && !p.imageUrl.toLowerCase().endsWith(".svg")) {
+            base64Img = await optimizeImageForPdf(p.imageUrl);
+          }
+          return {
+            ...p,
+            imageUrl: base64Img || "",
+          };
+        })
+      );
+      productsWithOptimizedImages.push(...processedSlice);
+    }
+
+    result.push({
+      ...group,
+      products: productsWithOptimizedImages,
+    });
+  }
+
+  return result;
 }
 
 export async function downloadVectorCatalogPDF(
@@ -45,8 +117,8 @@ export async function downloadVectorCatalogPDF(
     throw new Error("PDF çıktısı için görüntülenecek kategori veya ürün bulunamadı.");
   }
 
-  // 1. Görselleri ve verileri PDF mizanpajı için hazırla
-  const sanitizedGroups = prepareCategoryGroupsForPdf(categoryGroups);
+  // 1. Görselleri bellekte optimize et (react-pdf'in takılmasını ve boş sayfa üretmesini engeller)
+  const sanitizedGroups = await prepareCategoryGroupsForPdf(categoryGroups);
 
   // 2. @react-pdf/renderer ve PDF Şablonunu dinamik yükle (SSR güvenliği için)
   const [{ pdf }, { default: PresentationPDFDocument }] = await Promise.all([
@@ -82,8 +154,8 @@ export async function downloadVectorCatalogPDF(
   link.click();
   document.body.removeChild(link);
 
-  // Bellek temizliği
+  // 6. Bellek temizliği (tarayıcı indirme akışını kesmemek için 60 saniye sonra serbest bırakılır)
   setTimeout(() => {
     URL.revokeObjectURL(url);
-  }, 1000);
+  }, 60000);
 }
