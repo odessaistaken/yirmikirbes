@@ -76,10 +76,10 @@ export default function PresentationPDFTemplate({
               {group.products.map((product, pIdx) => (
                 <div
                   key={product.id}
-                  className="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 break-inside-avoid"
+                  className="bg-white border border-stone-200 rounded-2xl p-5 flex flex-col justify-between break-inside-avoid shadow-xs"
                 >
-                  {/* Görsel */}
-                  <div className="w-24 h-24 bg-stone-100 rounded-lg overflow-hidden shrink-0 flex items-center justify-center p-1 border border-stone-100">
+                  {/* Büyütülmüş Görsel Alanı */}
+                  <div className="w-full h-52 bg-stone-50 rounded-xl overflow-hidden shrink-0 flex items-center justify-center p-3 mb-4 border border-stone-100">
                     {/* html2canvas ile tam uyumlu img etiketi */}
                     <img
                       src={product.imageUrl || "/resimler/logo.png"}
@@ -92,22 +92,27 @@ export default function PresentationPDFTemplate({
                   {/* Detay */}
                   <div className="flex-1 min-w-0 flex flex-col justify-between">
                     <div>
-                      <div className="flex items-start justify-between gap-2 mb-1">
-                        <h3 className="text-xs font-serif font-bold text-stone-900 leading-snug truncate">
-                          {product.name}
-                        </h3>
-                        <span className="text-xs font-serif font-bold text-amber-800 shrink-0">
-                          {product.price > 0 ? `₺${product.price.toFixed(2)}` : "—"}
+                      <div className="flex items-baseline justify-between gap-2 mb-1.5">
+                        <span className="text-[10px] text-stone-500 font-mono">
+                          № {String(pIdx + 1).padStart(2, "0")}
+                        </span>
+                        <span className="text-sm font-serif font-bold text-amber-800 shrink-0">
+                          {product.price > 0 ? `₺${product.price.toFixed(2)}` : "Özel Teklif"}
                         </span>
                       </div>
-                      <p className="text-[10px] text-stone-600 leading-relaxed line-clamp-3">
+
+                      <h3 className="text-sm font-serif font-bold text-stone-900 leading-snug mb-2">
+                        {product.name}
+                      </h3>
+
+                      <p className="text-[11px] text-stone-600 leading-relaxed line-clamp-3">
                         {product.description}
                       </p>
                     </div>
 
-                    <div className="pt-2 mt-1 border-t border-stone-100 flex items-center justify-between text-[9px] text-stone-400 font-mono">
-                      <span>№ {String(pIdx + 1).padStart(2, "0")}</span>
-                      <span>Yirmikirbes Horeca</span>
+                    <div className="pt-3 mt-3 border-t border-stone-100 flex items-center justify-between text-[10px] text-stone-400 font-mono">
+                      <span>{product.badge || group.category.name}</span>
+                      <span>Horeca Standart</span>
                     </div>
                   </div>
                 </div>

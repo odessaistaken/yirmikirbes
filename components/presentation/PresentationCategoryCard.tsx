@@ -48,29 +48,29 @@ export default function PresentationCategoryCard({
       onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onClick()}
       className="group relative w-full h-[280px] sm:h-[320px] rounded-3xl overflow-hidden cursor-pointer select-none border border-stone-200/90 hover:border-amber-500/60 shadow-md hover:shadow-2xl transition-all duration-500 flex flex-col justify-between p-6 sm:p-8"
     >
-      {/* ── Arka Plan Görseli & Gradyan ── */}
-      <div className="absolute inset-0 bg-stone-950">
+      {/* ── Arka Plan Görseli & Aydınlık Gradyan ── */}
+      <div className="absolute inset-0 bg-stone-900">
         <Image
           src={bgImage}
           alt={category.name}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          quality={85}
-          className="object-cover object-center opacity-50 group-hover:scale-108 group-hover:opacity-40 transition-all duration-700 ease-out"
+          quality={90}
+          className="object-cover object-center opacity-85 group-hover:scale-105 group-hover:opacity-95 transition-all duration-700 ease-out"
         />
-        {/* Lüks Karartma Katmanı */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/30" />
+        {/* Zarif ve Aydınlık Karartma Katmanı (Resmin net görünmesini sağlar) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10 transition-opacity duration-500" />
       </div>
 
       {/* ── Üst Bilgi Barı: Bölüm No & Adet ── */}
       <div className="relative z-10 flex items-center justify-between">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/40 text-[11px] font-mono font-bold tracking-widest uppercase backdrop-blur-md">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/45 text-amber-300 border border-amber-400/40 text-[11px] font-mono font-bold tracking-widest uppercase backdrop-blur-md drop-shadow-sm">
           <Sparkles size={11} className="text-amber-400" />
           <span>Koleksiyon {sectionNumber}</span>
         </span>
 
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-stone-200 text-xs font-mono font-medium backdrop-blur-md border border-white/10">
-          <Layers size={12} className="text-stone-300" />
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/45 text-white text-xs font-mono font-medium backdrop-blur-md border border-white/20 drop-shadow-sm">
+          <Layers size={12} className="text-amber-300" />
           <span>{productCount} Çeşit</span>
         </span>
       </div>
@@ -78,24 +78,28 @@ export default function PresentationCategoryCard({
       {/* ── Alt Bilgi: Başlık, Açıklama ve Giriş Aksiyonu ── */}
       <div className="relative z-10">
         <div className="flex items-center gap-2.5 mb-2">
-          {category.icon && <span className="text-2xl drop-shadow-sm">{category.icon}</span>}
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight group-hover:text-amber-200 transition-colors">
+          {category.icon && (
+            <span className="text-2xl drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+              {category.icon}
+            </span>
+          )}
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] group-hover:text-amber-200 transition-colors">
             {category.name}
           </h2>
         </div>
 
         {category.description && (
-          <p className="text-xs sm:text-sm text-stone-300/90 line-clamp-2 font-sans leading-relaxed mb-5 max-w-xl">
+          <p className="text-xs sm:text-sm text-stone-100 font-sans leading-relaxed mb-5 max-w-xl line-clamp-2 drop-shadow-[0_1px_5px_rgba(0,0,0,0.85)]">
             {category.description}
           </p>
         )}
 
-        <div className="flex items-center justify-between pt-3 border-t border-white/15">
-          <span className="text-xs text-stone-400 font-mono">
+        <div className="flex items-center justify-between pt-3 border-t border-white/25">
+          <span className="text-xs text-stone-200 font-mono drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
             Horeca & Barista Seçkisi
           </span>
 
-          <div className="inline-flex items-center gap-2 text-xs font-semibold text-amber-300 group-hover:text-amber-200 group-hover:translate-x-1 transition-all duration-300">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold text-amber-300 group-hover:text-amber-200 group-hover:translate-x-1 transition-all duration-300 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
             <span>Koleksiyonu Keşfet</span>
             <ArrowRight size={15} />
           </div>

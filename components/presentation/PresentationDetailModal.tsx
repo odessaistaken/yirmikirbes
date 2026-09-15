@@ -2,17 +2,19 @@
 
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Sparkles, MessageCircle, Share2 } from "lucide-react";
+import { X, Sparkles, MessageCircle, Share2, ZoomIn } from "lucide-react";
 import type { PresentationProduct } from "@/lib/presentation-catalog-service";
 
 interface PresentationDetailModalProps {
   product: PresentationProduct | null;
   onClose: () => void;
+  onZoomImage?: (product: PresentationProduct) => void;
 }
 
 export default function PresentationDetailModal({
   product,
   onClose,
+  onZoomImage,
 }: PresentationDetailModalProps) {
   if (!product) return null;
 
@@ -53,13 +55,29 @@ export default function PresentationDetailModal({
           </button>
 
           {/* Left: Product Visual */}
-          <div className="relative w-full md:w-1/2 aspect-square md:aspect-auto min-h-[320px] bg-stone-100 p-10 flex items-center justify-center">
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => onZoomImage?.(product)}
+            onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onZoomImage?.(product)}
+            title="Tam ekran büyütmek için tıklayın"
+            className="group/detailImg relative w-full md:w-1/2 aspect-square md:aspect-auto min-h-[320px] bg-stone-100 p-10 flex items-center justify-center cursor-zoom-in"
+          >
             {product.badge && (
               <div className="absolute top-6 left-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-900 text-stone-100 text-xs font-medium">
                 <Sparkles size={12} className="text-amber-400" />
                 <span>{product.badge}</span>
               </div>
             )}
+
+            {/* Hover Zoom Göstergesi */}
+            <div className="absolute inset-0 bg-black/15 opacity-0 group-hover/detailImg:opacity-100 transition-opacity duration-300 flex items-center justify-center z-15 backdrop-blur-[1px]">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-stone-900/90 text-white text-xs font-semibold shadow-lg backdrop-blur-md">
+                <ZoomIn size={14} className="text-amber-400" />
+                <span>Tam Ekran Büyüt</span>
+              </span>
+            </div>
+
             <div className="relative w-full h-full max-h-[400px]">
               <Image
                 src={product.imageUrl || "/resimler/logo.png"}
@@ -67,7 +85,7 @@ export default function PresentationDetailModal({
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 quality={95}
-                className="object-contain"
+                className="object-contain transition-transform duration-500 group-hover/detailImg:scale-105"
               />
             </div>
           </div>

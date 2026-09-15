@@ -29,7 +29,7 @@ async function optimizeImageForPdf(url: string): Promise<string | null> {
       clearTimeout(timer);
       try {
         const canvas = document.createElement("canvas");
-        const maxDim = 180; // 64x64pt kutu için ~2.8x Retina DPI çözünürlüğü
+        const maxDim = 520; // Büyük 145pt yükseklik x 245pt genişlik kutular için yüksek Retina DPI çözünürlüğü
         let width = img.naturalWidth || img.width || maxDim;
         let height = img.naturalHeight || img.height || maxDim;
 
@@ -54,8 +54,8 @@ async function optimizeImageForPdf(url: string): Promise<string | null> {
         }
 
         ctx.drawImage(img, 0, 0, width, height);
-        // Optimize JPEG formatı (~12-20 KB per resim)
-        const dataUrl = canvas.toDataURL("image/jpeg", 0.82);
+        // Optimize ve kristal netliğinde JPEG formatı
+        const dataUrl = canvas.toDataURL("image/jpeg", 0.88);
         resolve(dataUrl);
       } catch {
         resolve(null);

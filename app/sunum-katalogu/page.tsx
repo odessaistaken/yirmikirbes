@@ -22,6 +22,7 @@ import toast from "react-hot-toast";
 import PresentationCategoryCard from "@/components/presentation/PresentationCategoryCard";
 import PresentationProductCard from "@/components/presentation/PresentationProductCard";
 import PresentationDetailModal from "@/components/presentation/PresentationDetailModal";
+import PresentationImageLightbox from "@/components/presentation/PresentationImageLightbox";
 import {
   fetchPresentationCategories,
   fetchPresentationProducts,
@@ -57,6 +58,7 @@ function SunumKataloguInner() {
   const [activeCategoryId, setActiveCategoryId] = useState<string | null>(initialCategory);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [activeModalProduct, setActiveModalProduct] = useState<PresentationProduct | null>(null);
+  const [lightboxProduct, setLightboxProduct] = useState<PresentationProduct | null>(null);
   const [loading, setLoading] = useState(true);
   const [isExportingPdf, setIsExportingPdf] = useState(false);
 
@@ -415,6 +417,7 @@ function SunumKataloguInner() {
                       product={product}
                       index={pIdx}
                       onOpenDetail={(p) => setActiveModalProduct(p)}
+                      onZoomImage={(p) => setLightboxProduct(p)}
                     />
                   ))}
                 </div>
@@ -632,6 +635,7 @@ function SunumKataloguInner() {
                         product={p}
                         index={idx}
                         onOpenDetail={(product) => setActiveModalProduct(product)}
+                        onZoomImage={(product) => setLightboxProduct(product)}
                       />
                     ))}
                   </div>
@@ -709,6 +713,13 @@ function SunumKataloguInner() {
       <PresentationDetailModal
         product={activeModalProduct}
         onClose={() => setActiveModalProduct(null)}
+        onZoomImage={(product) => setLightboxProduct(product)}
+      />
+
+      {/* ── 5. Tam Ekran Ürün Resmi Lightbox Modalı ─────────────────────────── */}
+      <PresentationImageLightbox
+        product={lightboxProduct}
+        onClose={() => setLightboxProduct(null)}
       />
     </div>
   );
