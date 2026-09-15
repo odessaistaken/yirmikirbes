@@ -76,30 +76,39 @@ export default function PresentationCategoryCard({
       </div>
 
       {/* ── Alt Bilgi: Başlık, Açıklama ve Giriş Aksiyonu ── */}
-      <div className="relative z-10">
-        <div className="flex items-center gap-2.5 mb-2">
+      <div className="relative z-10 flex flex-col justify-end">
+        <div className="relative z-10 flex items-center gap-2.5 mb-2">
           {category.icon && (
-            <span className="text-2xl drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+            <span className="text-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
               {category.icon}
             </span>
           )}
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] group-hover:text-amber-200 transition-colors">
+          <h2
+            style={{ color: "#ffffff" }}
+            className="relative z-10 text-2xl sm:text-3xl font-serif font-bold !text-white tracking-tight drop-shadow-lg drop-shadow-[0_4px_14px_rgba(0,0,0,0.98)] shadow-black"
+          >
             {category.name}
           </h2>
         </div>
 
         {category.description && (
-          <p className="text-xs sm:text-sm text-stone-100 font-sans leading-relaxed mb-5 max-w-xl line-clamp-2 drop-shadow-[0_1px_5px_rgba(0,0,0,0.85)]">
+          <p
+            style={{ color: "#f8fafc" }}
+            className="relative z-10 text-xs sm:text-sm !text-white font-sans leading-relaxed mb-5 max-w-xl line-clamp-2 drop-shadow-md drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]"
+          >
             {category.description}
           </p>
         )}
 
-        <div className="flex items-center justify-between pt-3 border-t border-white/25">
-          <span className="text-xs text-stone-200 font-mono drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+        <div className="relative z-10 flex items-center justify-between pt-3 border-t border-white/30 backdrop-blur-[2px]">
+          <span
+            style={{ color: "#f1f5f9" }}
+            className="text-xs !text-white/90 font-mono drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]"
+          >
             Horeca & Barista Seçkisi
           </span>
 
-          <div className="inline-flex items-center gap-2 text-xs font-semibold text-amber-300 group-hover:text-amber-200 group-hover:translate-x-1 transition-all duration-300 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold !text-amber-300 group-hover:translate-x-1 transition-all duration-300 drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
             <span>Koleksiyonu Keşfet</span>
             <ArrowRight size={15} />
           </div>

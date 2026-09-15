@@ -95,8 +95,11 @@ export default function PresentationCategoryAccordion({
             </div>
 
             {/* Kategori Başlığı */}
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white tracking-tight flex items-center gap-3">
-              {category.icon && <span className="text-2xl sm:text-3xl">{category.icon}</span>}
+            <h2
+              style={{ color: "#ffffff" }}
+              className="relative z-10 text-2xl sm:text-3xl lg:text-4xl font-serif font-bold !text-white tracking-tight flex items-center gap-3 drop-shadow-lg drop-shadow-[0_4px_14px_rgba(0,0,0,0.98)] shadow-black"
+            >
+              {category.icon && <span className="text-2xl sm:text-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">{category.icon}</span>}
               <span>{category.name}</span>
             </h2>
 
