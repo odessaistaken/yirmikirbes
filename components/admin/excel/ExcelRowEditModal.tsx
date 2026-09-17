@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   X,
   Save,
@@ -8,12 +8,13 @@ import {
   RotateCcw,
   CheckCircle2,
   AlertCircle,
-  ExternalLink,
+  Upload,
   Layers,
   Sparkles,
+  Trash2,
 } from "lucide-react";
 import toast from "react-hot-toast";
-import { detectRowFields, type DetectedRowData } from "@/lib/excel-import-service";
+import { resizeImageBase64 } from "@/lib/excel-image-extractor";
 
 interface ExcelRowEditModalProps {
   isOpen: boolean;
@@ -32,24 +33,45 @@ export default function ExcelRowEditModal({
   columns,
   onSave,
 }: ExcelRowEditModalProps) {
-  // State for all editable fields
   const [formData, setFormData] = useState<Record<string, unknown>>({});
-  const [detected, setDetected] = useState<DetectedRowData | null>(null);
   const [saving, setSaving] = useState(false);
   const [imageError, setImageError] = useState(false);
-  const [showAllColumns, setShowAllColumns] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Initialize form data when row changes
+  // Identify which key in row stores the image
+  const imageKey =
+    columns.find((c) => {
+      const l = c.toLowerCase().trim();
+      return (
+        l === "görsel" ||
+        l === "gorsel" ||
+        l === "resim" ||
+        l === "image" ||
+        l === "imageurl"
+      );
+    }) || "Görsel";
+
+  // Filter out imageKey from dynamic text columns so it's managed in the dedicated visual image manager
+  const textColumns = columns.filter((col) => {
+    const l = col.toLowerCase().trim();
+    return (
+      l !== "görsel" &&
+      l !== "gorsel" &&
+      l !== "resim" &&
+      l !== "image" &&
+      l !== "imageurl"
+    );
+  });
+
+  // Initialize form state
   useEffect(() => {
     if (row) {
       setFormData({ ...row });
-      const detectedInfo = detectRowFields(row, columns);
-      setDetected(detectedInfo);
       setImageError(false);
     }
-  }, [row, columns]);
+  }, [row]);
 
-  // Close on Escape key
+  // Escape key handler
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen && !saving) {
@@ -60,15 +82,10 @@ export default function ExcelRowEditModal({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, saving, onClose]);
 
-  if (!isOpen || !row || !detected) return null;
+  if (!isOpen || !row) return null;
 
-  // Active field keys
-  const { titleKey, imageKey, priceKey, categoryKey, codeKey, descriptionKey } =
-    detected.keys;
+  const currentImage = String(formData[imageKey] || "").trim();
 
-  const currentImageUrl = String(formData[imageKey] ?? "").trim();
-
-  // Handle single field change
   const handleFieldChange = (key: string, value: unknown) => {
     setFormData((prev) => ({
       ...prev,
@@ -79,14 +96,37 @@ export default function ExcelRowEditModal({
     }
   };
 
-  // Reset to original row values
+  // Upload local image from computer
+  const handleLocalImageSelect = async (file: File) => {
+    if (!file.type.startsWith("image/")) {
+      toast.error("Lütfen geçerli bir resim dosyası seçin (PNG, JPG, WEBP).");
+      return;
+    }
+
+    try {
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const rawBase64 = e.target?.result as string;
+        if (rawBase64) {
+          // Resize & compress for safety
+          const compressed = await resizeImageBase64(rawBase64, 400, 400, 0.85);
+          handleFieldChange(imageKey, compressed);
+          toast.success("Yeni görsel başarıyla yüklendi.");
+        }
+      };
+      reader.readAsDataURL(file);
+    } catch (err) {
+      console.error("Resim okuma hatası:", err);
+      toast.error("Görsel okunurken bir hata oluştu.");
+    }
+  };
+
   const handleReset = () => {
     setFormData({ ...row });
     setImageError(false);
-    toast.success("Değerler orijinal haline sıfırlandı.");
+    toast.success("Orijinal değerler geri yüklendi.");
   };
 
-  // Submit
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
@@ -95,23 +135,22 @@ export default function ExcelRowEditModal({
       toast.success(`Satır #${rowIndex + 1} başarıyla güncellendi.`);
       onClose();
     } catch (err: any) {
-      console.error("Satır güncelleme hatası:", err);
+      console.error("Satır kaydetme hatası:", err);
       toast.error(err?.message || "Kayıt güncellenirken bir hata oluştu.");
     } finally {
       setSaving(false);
     }
   };
 
-  // Collect other miscellaneous columns
-  const mainKeys = new Set([
-    titleKey,
-    imageKey,
-    priceKey,
-    categoryKey,
-    codeKey,
-    descriptionKey,
-  ]);
-  const otherKeys = columns.filter((col) => !mainKeys.has(col));
+  // Find a friendly row title for modal header
+  const titleCandidate =
+    String(
+      formData["ÜRÜN ADI"] ||
+        formData["Ürün Adı"] ||
+        formData["name"] ||
+        formData[textColumns[0]] ||
+        `Satır #${rowIndex + 1}`
+    );
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
@@ -121,7 +160,7 @@ export default function ExcelRowEditModal({
         onClick={!saving ? onClose : undefined}
       />
 
-      {/* Modal Container */}
+      {/* Modal Dialog */}
       <div className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl border border-slate-200/80 overflow-hidden flex flex-col max-h-[92vh] z-10 animate-in fade-in zoom-in-95 duration-200">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4.5 border-b border-slate-100 bg-slate-50/70">
@@ -132,14 +171,14 @@ export default function ExcelRowEditModal({
             <div className="min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
                 <h3 className="font-heading font-bold text-slate-900 text-base sm:text-lg truncate">
-                  Ürünü Düzenle
+                  Excel Verisini Düzenle
                 </h3>
                 <span className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-amber-100/70 text-amber-800 font-semibold">
                   Satır #{rowIndex + 1}
                 </span>
               </div>
               <p className="text-xs text-slate-500 truncate max-w-md mt-0.5">
-                {String(formData[titleKey] || "İsimsiz Ürün")}
+                {titleCandidate}
               </p>
             </div>
           </div>
@@ -150,7 +189,7 @@ export default function ExcelRowEditModal({
               onClick={handleReset}
               disabled={saving}
               className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-200/60 rounded-xl transition-colors text-xs flex items-center gap-1.5"
-              title="Değişiklikleri geri al"
+              title="Değişiklikleri orijinal haline sıfırla"
             >
               <RotateCcw size={15} />
               <span className="hidden sm:inline">Sıfırla</span>
@@ -166,18 +205,22 @@ export default function ExcelRowEditModal({
           </div>
         </div>
 
-        {/* Body Form */}
-        <form id="edit-row-form" onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-6 space-y-6">
+        {/* Modal Form Body */}
+        <form
+          id="dynamic-row-form"
+          onSubmit={handleSubmit}
+          className="flex-1 overflow-y-auto p-6 space-y-6"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            {/* LEFT / TOP: Resim (Görsel) Yönetimi & Canlı Önizleme */}
+            {/* LEFT: Resim (Görsel) Yönetimi & Canlı Önizleme */}
             <div className="lg:col-span-5 flex flex-col gap-4">
-              <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-4.5 space-y-3.5">
+              <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-4.5 space-y-4">
                 <div className="flex items-center justify-between">
                   <label className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
                     <ImageIcon size={14} className="text-amber-500" />
-                    Ürün Görseli Önizleme
+                    Ürün Görseli
                   </label>
-                  {currentImageUrl && (
+                  {currentImage && (
                     <span
                       className={`text-[10px] font-semibold px-2 py-0.5 rounded-full flex items-center gap-1 ${
                         imageError
@@ -191,201 +234,152 @@ export default function ExcelRowEditModal({
                         </>
                       ) : (
                         <>
-                          <CheckCircle2 size={10} /> Aktif
+                          <CheckCircle2 size={10} /> Yüklendi
                         </>
                       )}
                     </span>
                   )}
                 </div>
 
-                {/* Resim Önizleme Çerçevesi */}
-                <div className="relative w-full aspect-square bg-white rounded-xl border border-slate-200 flex items-center justify-center overflow-hidden shadow-xs">
-                  {currentImageUrl && !imageError ? (
+                {/* Resim Önizleme Kutusu */}
+                <div className="relative w-full aspect-square bg-white rounded-2xl border border-slate-200 flex items-center justify-center overflow-hidden shadow-xs">
+                  {currentImage && !imageError ? (
                     <>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={currentImageUrl}
+                        src={currentImage}
                         alt="Önizleme"
                         onError={() => setImageError(true)}
-                        className="w-full h-full object-contain p-2"
+                        className="w-full h-full object-contain p-2 transition-all"
                       />
-                      <a
-                        href={currentImageUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="absolute top-2 right-2 p-1.5 bg-white/90 hover:bg-white text-slate-600 rounded-lg shadow-xs transition-colors"
-                        title="Yeni sekmede aç"
+                      <button
+                        type="button"
+                        onClick={() => handleFieldChange(imageKey, "")}
+                        className="absolute top-2 right-2 p-1.5 bg-white/90 hover:bg-red-50 text-slate-500 hover:text-red-600 rounded-lg shadow-xs transition-colors"
+                        title="Görseli kaldır"
                       >
-                        <ExternalLink size={14} />
-                      </a>
+                        <Trash2 size={14} />
+                      </button>
                     </>
                   ) : (
                     <div className="flex flex-col items-center justify-center text-slate-400 p-4 text-center">
-                      <ImageIcon size={40} className="text-slate-300 mb-2" />
+                      <ImageIcon size={42} className="text-slate-300 mb-2" />
                       <p className="text-xs font-medium text-slate-600">
-                        {currentImageUrl ? "Görsel yüklenemedi" : "Görsel Belirtilmedi"}
+                        {currentImage ? "Görsel yüklenemedi" : "Görsel Yok"}
                       </p>
                       <p className="text-[11px] text-slate-400 mt-1 max-w-[200px]">
-                        Aşağıdaki alana geçerli bir görsel URL&apos;si veya yolu girin.
+                        Aşağıdaki alana yeni bir resim URL&apos;si yazabilir veya bilgisayarınızdan resim seçebilirsiniz.
                       </p>
                     </div>
                   )}
                 </div>
 
-                {/* Görsel URL Input Alanı */}
+                {/* Bilgisayardan Resim Yükleme Butonu */}
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) handleLocalImageSelect(file);
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="w-full flex items-center justify-center gap-2 py-2.5 px-3 bg-white hover:bg-slate-100 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 transition-colors shadow-xs"
+                >
+                  <Upload size={14} className="text-amber-600" />
+                  <span>Bilgisayardan Yeni Resim Seç</span>
+                </button>
+
+                {/* Resim URL / Yolu Input Alanı */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-slate-700 flex items-center justify-between">
-                    <span>Görsel Yolu / URL</span>
-                    <span className="text-[10px] text-slate-400 font-mono">
-                      kolon: {imageKey}
-                    </span>
-                  </label>
+                  <div className="flex items-center justify-between">
+                    <label className="text-[11px] font-semibold text-slate-700">
+                      Görsel Yolu / URL / Base64
+                    </label>
+                  </div>
                   <div className="relative">
                     <input
                       type="text"
-                      value={String(formData[imageKey] ?? "")}
+                      value={currentImage.startsWith("data:image") ? "Gömülü Resim (Base64)" : currentImage}
                       onChange={(e) => handleFieldChange(imageKey, e.target.value)}
                       placeholder="https://... veya /resimler/ornek.png"
-                      className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400 font-mono transition-all pr-8"
+                      className="w-full px-3 py-2 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/40 font-mono transition-all pr-8"
                     />
-                    {String(formData[imageKey] ?? "") && (
+                    {currentImage && (
                       <button
                         type="button"
                         onClick={() => handleFieldChange(imageKey, "")}
                         className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
-                        title="URL'yi temizle"
+                        title="Temizle"
                       >
                         <X size={13} />
                       </button>
                     )}
                   </div>
-                  <p className="text-[10px] text-slate-500 leading-relaxed">
-                    Harici web linki (URL) veya sitenizdeki yerel görsel yolunu yazabilirsiniz.
+                  <p className="text-[10px] text-slate-400 leading-tight">
+                    Yeni bir resim URL&apos;si yazabilir veya yukarıdaki butonla doğrudan görsel yükleyebilirsiniz.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* RIGHT / MAIN: Metinsel Ürün Bilgileri */}
+            {/* RIGHT: Dinamik Olarak Excel'den Gelen TÜM Sütunlar */}
             <div className="lg:col-span-7 space-y-4">
-              {/* Ürün Adı */}
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between">
-                  <label className="text-xs font-bold text-slate-800 flex items-center gap-1">
-                    Ürün Adı / Başlık <span className="text-red-500">*</span>
-                  </label>
-                  <span className="text-[10px] text-slate-400 font-mono">{titleKey}</span>
-                </div>
-                <input
-                  type="text"
-                  required
-                  value={String(formData[titleKey] ?? "")}
-                  onChange={(e) => handleFieldChange(titleKey, e.target.value)}
-                  placeholder="Örn: Caramel Aromalı Şurup 750ml"
-                  className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400 transition-all"
-                />
+              <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
+                <Layers size={15} className="text-amber-500" />
+                <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                  Excel Sütun Bilgileri ({textColumns.length} Alan)
+                </span>
               </div>
 
-              {/* Fiyat & Kategori & Kod (3'lü veya 2'li grid) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {/* Fiyat */}
-                <div className="space-y-1.5">
-                  <div className="flex items-center justify-between">
-                    <label className="text-xs font-semibold text-slate-700">Fiyat</label>
-                    <span className="text-[10px] text-slate-400 font-mono">{priceKey}</span>
-                  </div>
-                  <input
-                    type="text"
-                    value={String(formData[priceKey] ?? "")}
-                    onChange={(e) => handleFieldChange(priceKey, e.target.value)}
-                    placeholder="Örn: 250 veya 250 TL"
-                    className="w-full px-3.5 py-2 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400 transition-all font-medium"
-                  />
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {textColumns.map((colName) => {
+                  const val = formData[colName];
+                  const strVal = String(val ?? "");
+                  const lowerCol = colName.toLowerCase();
+                  const isLongText =
+                    lowerCol.includes("açıklama") ||
+                    lowerCol.includes("aciklama") ||
+                    lowerCol.includes("not") ||
+                    lowerCol.includes("detay") ||
+                    lowerCol.includes("içerik") ||
+                    lowerCol.includes("icerik") ||
+                    strVal.length > 60;
 
-                {/* Kategori */}
-                <div className="space-y-1.5">
-                  <div className="flex items-center justify-between">
-                    <label className="text-xs font-semibold text-slate-700">Kategori</label>
-                    <span className="text-[10px] text-slate-400 font-mono">{categoryKey}</span>
-                  </div>
-                  <input
-                    type="text"
-                    value={String(formData[categoryKey] ?? "")}
-                    onChange={(e) => handleFieldChange(categoryKey, e.target.value)}
-                    placeholder="Örn: Şuruplar, Kahve vb."
-                    className="w-full px-3.5 py-2 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400 transition-all"
-                  />
-                </div>
+                  return (
+                    <div
+                      key={colName}
+                      className={`space-y-1.5 ${isLongText ? "sm:col-span-2" : ""}`}
+                    >
+                      <label className="text-xs font-semibold text-slate-700 block truncate" title={colName}>
+                        {colName}
+                      </label>
 
-                {/* Ürün Kodu / SKU */}
-                <div className="space-y-1.5 sm:col-span-2">
-                  <div className="flex items-center justify-between">
-                    <label className="text-xs font-semibold text-slate-700">
-                      Ürün Kodu / Barkod / SKU
-                    </label>
-                    <span className="text-[10px] text-slate-400 font-mono">{codeKey}</span>
-                  </div>
-                  <input
-                    type="text"
-                    value={String(formData[codeKey] ?? "")}
-                    onChange={(e) => handleFieldChange(codeKey, e.target.value)}
-                    placeholder="Örn: NON-CAR-750"
-                    className="w-full px-3.5 py-2 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400 transition-all font-mono"
-                  />
-                </div>
-              </div>
-
-              {/* Açıklama */}
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between">
-                  <label className="text-xs font-semibold text-slate-700">Açıklama</label>
-                  <span className="text-[10px] text-slate-400 font-mono">
-                    {descriptionKey}
-                  </span>
-                </div>
-                <textarea
-                  rows={4}
-                  value={String(formData[descriptionKey] ?? "")}
-                  onChange={(e) => handleFieldChange(descriptionKey, e.target.value)}
-                  placeholder="Ürün açıklaması, özellikleri veya notlar…"
-                  className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400 transition-all resize-y"
-                />
-              </div>
-
-              {/* Diğer Kolonlar Accordion / Section */}
-              {otherKeys.length > 0 && (
-                <div className="pt-2 border-t border-slate-100">
-                  <button
-                    type="button"
-                    onClick={() => setShowAllColumns(!showAllColumns)}
-                    className="flex items-center gap-1.5 text-xs font-semibold text-amber-700 hover:text-amber-800 py-1 transition-colors"
-                  >
-                    <Layers size={13} />
-                    <span>
-                      {showAllColumns ? "Diğer Kolonları Gizle" : `Diğer Kolonları Düzenle (${otherKeys.length} kolon)`}
-                    </span>
-                  </button>
-
-                  {showAllColumns && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3 p-4 bg-slate-50/80 rounded-2xl border border-slate-200/80">
-                      {otherKeys.map((colKey) => (
-                        <div key={colKey} className="space-y-1">
-                          <label className="text-[11px] font-medium text-slate-600 truncate block">
-                            {colKey}
-                          </label>
-                          <input
-                            type="text"
-                            value={String(formData[colKey] ?? "")}
-                            onChange={(e) => handleFieldChange(colKey, e.target.value)}
-                            className="w-full px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-amber-400"
-                          />
-                        </div>
-                      ))}
+                      {isLongText ? (
+                        <textarea
+                          rows={3}
+                          value={strVal}
+                          onChange={(e) => handleFieldChange(colName, e.target.value)}
+                          placeholder={`${colName} giriniz…`}
+                          className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400 transition-all resize-y"
+                        />
+                      ) : (
+                        <input
+                          type="text"
+                          value={strVal}
+                          onChange={(e) => handleFieldChange(colName, e.target.value)}
+                          placeholder={`${colName} giriniz…`}
+                          className="w-full px-3.5 py-2 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400 transition-all font-medium"
+                        />
+                      )}
                     </div>
-                  )}
-                </div>
-              )}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </form>
@@ -393,7 +387,7 @@ export default function ExcelRowEditModal({
         {/* Footer */}
         <div className="flex items-center justify-between px-6 py-4 border-t border-slate-100 bg-slate-50/50">
           <p className="text-xs text-slate-400 hidden sm:block">
-            Değişiklikler doğrudan içe aktarılan kayda işlenecektir.
+            Tüm değişiklikler içe aktarılan kayda kalıcı olarak kaydedilecektir.
           </p>
           <div className="flex items-center gap-2.5 ml-auto">
             <button
@@ -406,9 +400,9 @@ export default function ExcelRowEditModal({
             </button>
             <button
               type="submit"
-              form="edit-row-form"
+              form="dynamic-row-form"
               disabled={saving}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs shadow-sm transition-all disabled:opacity-50"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs shadow-sm transition-all disabled:opacity-50 cursor-pointer"
             >
               {saving ? (
                 <>

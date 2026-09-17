@@ -135,11 +135,32 @@ export default function ExcelImportModal({
                   {previewRows.map((row, i) => (
                     <tr key={i} className="hover:bg-slate-50 transition-colors">
                       <td className="px-3 py-2 text-slate-400">{i + 1}</td>
-                      {data.columns.map((col) => (
-                        <td key={col} className="px-3 py-2 text-slate-700 max-w-[200px] truncate">
-                          {String(row[col] ?? "")}
-                        </td>
-                      ))}
+                      {data.columns.map((col) => {
+                        const val = String(row[col] ?? "");
+                        const isImg =
+                          col === "Görsel" ||
+                          val.startsWith("data:image/") ||
+                          val.startsWith("/resimler/") ||
+                          ((val.startsWith("http://") || val.startsWith("https://")) &&
+                            /\.(png|jpe?g|webp|svg|gif)(\?.*)?$/i.test(val));
+
+                        return (
+                          <td key={col} className="px-3 py-2 text-slate-700 max-w-[200px] truncate">
+                            {isImg && val ? (
+                              <div className="w-10 h-10 rounded-lg bg-slate-100 border border-slate-200 overflow-hidden flex items-center justify-center">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                  src={val}
+                                  alt="Önizleme"
+                                  className="w-full h-full object-contain p-0.5"
+                                />
+                              </div>
+                            ) : (
+                              val
+                            )}
+                          </td>
+                        );
+                      })}
                     </tr>
                   ))}
                 </tbody>

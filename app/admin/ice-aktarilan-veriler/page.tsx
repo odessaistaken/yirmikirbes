@@ -123,7 +123,10 @@ function ImportedDataContent() {
     let withImage = 0;
     for (const r of activeRecord.rows) {
       const detected = detectRowFields(r, activeRecord.columns);
-      if (detected.imageUrl && detected.imageUrl.trim()) {
+      const hasImg = Boolean(
+        String(r["Görsel"] || r["Resim"] || detected.imageUrl || "").trim()
+      );
+      if (hasImg) {
         withImage++;
       }
     }
@@ -141,6 +144,9 @@ function ImportedDataContent() {
 
     return activeRecord.rows.filter((row) => {
       const detected = detectRowFields(row, activeRecord.columns);
+      const hasImg = Boolean(
+        String(row["Görsel"] || row["Resim"] || detected.imageUrl || "").trim()
+      );
 
       // Search match
       if (searchQuery.trim()) {
@@ -165,9 +171,9 @@ function ImportedDataContent() {
 
       // Image filter
       if (imageFilter === "withImage") {
-        if (!detected.imageUrl || !detected.imageUrl.trim()) return false;
+        if (!hasImg) return false;
       } else if (imageFilter === "withoutImage") {
-        if (detected.imageUrl && detected.imageUrl.trim()) return false;
+        if (hasImg) return false;
       }
 
       return true;

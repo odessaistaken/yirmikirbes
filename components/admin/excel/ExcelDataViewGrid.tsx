@@ -6,12 +6,11 @@ import {
   ChevronLeft,
   ChevronRight,
   ImageIcon,
-  Tag,
   Copy,
   Check,
 } from "lucide-react";
 import toast from "react-hot-toast";
-import { detectRowFields, type DetectedRowData } from "@/lib/excel-import-service";
+import { detectRowFields } from "@/lib/excel-import-service";
 import ExcelRowImage from "./ExcelRowImage";
 
 interface ExcelDataViewGridProps {
@@ -29,13 +28,32 @@ export default function ExcelDataViewGrid({
   const [pageSize, setPageSize] = useState(24);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
-  // Pre-process rows with detected fields while preserving original index
+  // Dynamic text columns excluding raw image columns
+  const dynamicColumns = useMemo(() => {
+    return columns.filter((col) => {
+      const l = col.toLowerCase().trim();
+      return (
+        l !== "görsel" &&
+        l !== "gorsel" &&
+        l !== "resim" &&
+        l !== "image" &&
+        l !== "imageurl"
+      );
+    });
+  }, [columns]);
+
+  // Pre-process rows with detected fields and image sources
   const processedRows = useMemo(() => {
     return rows.map((r, originalIndex) => {
-      const detected: DetectedRowData = detectRowFields(r, columns);
+      const detected = detectRowFields(r, columns);
+      const imgSrc = String(
+        r["Görsel"] || r["Resim"] || r["imageUrl"] || detected.imageUrl || ""
+      ).trim();
+
       return {
         originalIndex,
         raw: r,
+        imgSrc,
         detected,
       };
     });
@@ -52,7 +70,7 @@ export default function ExcelDataViewGrid({
     if (!url) return;
     navigator.clipboard.writeText(url);
     setCopiedIndex(idx);
-    toast.success("Görsel URL panoya kopyalandı.");
+    toast.success("Görsel panoya kopyalandı.");
     setTimeout(() => setCopiedIndex(null), 2000);
   };
 
@@ -70,7 +88,12 @@ export default function ExcelDataViewGrid({
     <div className="space-y-6">
       {/* Grid container */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 gap-5">
-        {pageRows.map(({ originalIndex, detected }) => {
+        {pageRows.map(({ originalIndex, imgSrc, detected, raw }) => {
+          // Dynamic attributes to show on card (show up to 4 key-values)
+          const visibleAttrs = dynamicColumns
+            .filter((c) => c !== detected.keys.titleKey && String(raw[c] ?? "").trim() !== "")
+            .slice(0, 4);
+
           return (
             <div
               key={originalIndex}
@@ -79,7 +102,7 @@ export default function ExcelDataViewGrid({
               {/* Image Preview Container */}
               <div className="relative w-full aspect-square bg-slate-50 border-b border-slate-100 overflow-hidden flex items-center justify-center p-3">
                 <ExcelRowImage
-                  src={detected.imageUrl}
+                  src={imgSrc}
                   alt={detected.title}
                   size="full"
                   className="rounded-2xl"
@@ -99,14 +122,14 @@ export default function ExcelDataViewGrid({
                 </div>
 
                 {/* Copy URL Button */}
-                {detected.imageUrl && (
+                {imgSrc && (
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
-                      copyImageUrl(detected.imageUrl, originalIndex);
+                      copyImageUrl(imgSrc, originalIndex);
                     }}
-                    title="Görsel URL Kopyala"
+                    title="Görseli kopyala"
                     className="absolute bottom-3 right-3 p-1.5 bg-white/90 hover:bg-white text-slate-600 hover:text-amber-600 rounded-xl shadow-xs border border-slate-200/80 opacity-0 group-hover:opacity-100 transition-opacity"
                   >
                     {copiedIndex === originalIndex ? (
@@ -120,13 +143,7 @@ export default function ExcelDataViewGrid({
 
               {/* Card Body */}
               <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
-                <div className="space-y-1.5">
-                  {detected.code && (
-                    <div className="text-[10px] font-mono text-slate-400 truncate">
-                      Kod: {detected.code}
-                    </div>
-                  )}
-
+                <div className="space-y-2">
                   <h4
                     className="font-bold text-slate-900 text-sm leading-snug line-clamp-2"
                     title={detected.title}
@@ -134,19 +151,18 @@ export default function ExcelDataViewGrid({
                     {detected.title || "İsimsiz Ürün"}
                   </h4>
 
-                  {detected.price ? (
-                    <div className="text-amber-600 font-extrabold text-sm pt-0.5">
-                      {detected.price}
+                  {/* Dynamic Excel Attributes list */}
+                  {visibleAttrs.length > 0 && (
+                    <div className="space-y-1 pt-1 border-t border-slate-100 text-[11px]">
+                      {visibleAttrs.map((col) => (
+                        <div key={col} className="flex items-center justify-between gap-1">
+                          <span className="text-slate-400 truncate max-w-[110px]">{col}:</span>
+                          <span className="text-slate-700 font-semibold truncate max-w-[120px]">
+                            {String(raw[col])}
+                          </span>
+                        </div>
+                      ))}
                     </div>
-                  ) : null}
-
-                  {detected.description && (
-                    <p
-                      className="text-xs text-slate-500 line-clamp-2 leading-relaxed pt-1"
-                      title={detected.description}
-                    >
-                      {detected.description}
-                    </p>
                   )}
                 </div>
 
