@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
   FileSpreadsheet,
   Trash2,
@@ -12,6 +13,7 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
+  Maximize2,
 } from "lucide-react";
 import type { ExcelImportRecord } from "@/lib/excel-import-service";
 
@@ -234,13 +236,23 @@ export default function ExcelDataTable({
 
               {/* Actions */}
               <div className="flex items-center gap-2 shrink-0">
+                {/* Wide View & Edit */}
+                <Link
+                  href={`/admin/ice-aktarilan-veriler?id=${record.id}`}
+                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-950 bg-amber-400 hover:bg-amber-500 rounded-xl transition-all shadow-2xs"
+                  title="Geniş ekranda aç, resimleri gör ve düzenle"
+                >
+                  <Maximize2 size={12} />
+                  <span className="hidden sm:inline">Geniş Ekranda Aç</span>
+                </Link>
+
                 {/* Expand */}
                 <button
                   onClick={() => setExpanded(isExpanded ? null : record.id)}
                   className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors"
                 >
                   {isExpanded ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
-                  {isExpanded ? "Kapat" : "Görüntüle"}
+                  {isExpanded ? "Kapat" : "Hızlı Bakış"}
                 </button>
 
                 {/* Delete */}

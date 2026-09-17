@@ -17,6 +17,7 @@ import {
   Flame,
   BookOpen,
   FileSpreadsheet,
+  Database,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import Logo from "@/components/Logo";
@@ -32,6 +33,7 @@ const adminNavItems = [
   { label: "Kullanıcılar", href: "/admin/kullanicilar", icon: <Users size={18} /> },
   { label: "Talepler", href: "/admin/talepler", icon: <MessageSquare size={18} /> },
   { label: "Excel Veri", href: "/admin/excel-veri", icon: <FileSpreadsheet size={18} className="text-emerald-500" /> },
+  { label: "İçe Aktarılan Veriler", href: "/admin/ice-aktarilan-veriler", icon: <Database size={18} className="text-amber-500" /> },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

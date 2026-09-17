@@ -3,9 +3,10 @@
 export const dynamic = "force-dynamic";
 
 import { useState, useCallback, useEffect } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
-import { FileSpreadsheet, RefreshCw, Database, Info } from "lucide-react";
+import { FileSpreadsheet, RefreshCw, Database, Info, Maximize2 } from "lucide-react";
 import { requireDb } from "@/lib/firebase";
 import {
   getAllExcelImports,
@@ -89,17 +90,27 @@ export default function ExcelVeriPage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35 }}
-        className="mb-8"
+        className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
       >
-        <p className="section-label">Admin Paneli</p>
-        <div className="flex items-center gap-3">
-          <h1 className="font-heading font-bold text-slate-900 text-3xl">
-            Excel Veri Yönetimi
-          </h1>
+        <div>
+          <p className="section-label">Admin Paneli</p>
+          <div className="flex items-center gap-3">
+            <h1 className="font-heading font-bold text-slate-900 text-3xl">
+              Excel Veri Yönetimi
+            </h1>
+          </div>
+          <p className="text-slate-500 text-sm mt-1">
+            Excel dosyalarını yükle, içe aktar ve yönet. Müşteri kataloğu ile hiçbir bağlantısı yoktur.
+          </p>
         </div>
-        <p className="text-slate-500 text-sm mt-1">
-          Excel dosyalarını yükle, içe aktar ve yönet. Müşteri kataloğu ile hiçbir bağlantısı yoktur.
-        </p>
+
+        <Link
+          href="/admin/ice-aktarilan-veriler"
+          className="inline-flex items-center gap-2 px-4 py-2.5 bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs rounded-2xl shadow-sm transition-all shrink-0"
+        >
+          <Maximize2 size={15} />
+          <span>Geniş Ekranda İncele & Düzenle</span>
+        </Link>
       </motion.div>
 
       {/* Info banner */}
