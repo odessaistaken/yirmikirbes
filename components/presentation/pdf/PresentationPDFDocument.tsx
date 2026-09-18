@@ -533,7 +533,7 @@ export default function PresentationPDFDocument({
     <Document
       title="Yirmikirbes Özel Müşteri Sunum Kataloğu"
       author="Yirmikirbes Gıda San. Tic. Ltd. Şti."
-      subject="Profesyonel Barista Şurupları, Gurme Meyve Püreleri, Waffle Çikolataları ve Donuk Pastacılık"
+      subject="Profesyonel Barista Şurupları, Gurme Meyve Püreleri, Waffle Çikolataları ve Pastacılık"
       keywords="katalog, barista, horeca, gurme, suruplar, pureler, waffle, pastacilik"
     >
       {/* ── 1. ÖN KAPAK SAYFASI ── */}
@@ -552,7 +552,7 @@ export default function PresentationPDFDocument({
             <View style={styles.coverAccentLine} />
             <Text style={styles.coverSubtitle}>
               İşletmenizin menüsüne prestij katacak; barista şurupları, doğal meyve püreleri,
-              waffle çikolataları ve donuk butik pastalardan oluşan seçkin koleksiyonumuz.
+              waffle çikolataları ve butik pastalardan oluşan seçkin koleksiyonumuz.
             </Text>
 
             <View style={styles.coverStatsBar}>
@@ -746,7 +746,7 @@ export default function PresentationPDFDocument({
               </Text>
               <View style={styles.coverAccentLine} />
               <Text style={styles.backCoverSubtitle}>
-                İşletmenizin ihtiyacı olan tüm barista şurupları, püreler, pasta malzemeleri ve donuk
+                İşletmenizin ihtiyacı olan tüm barista şurupları, püreler, pasta malzemeleri ve
                 ürünlerde doğrudan tedarik, reçete danışmanlığı ve hızlı lojistik avantajı sağlıyoruz.
               </Text>
             </View>
