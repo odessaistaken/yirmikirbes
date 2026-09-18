@@ -484,7 +484,7 @@ function SunumKataloguInner() {
 
                   <p className="text-sm sm:text-base text-stone-600 mt-3 font-sans leading-relaxed">
                     İşletmenizin menüsüne prestij katacak; barista şurupları, meyve püreleri, waffle çikolataları
-                    ve donuk butik pastalardan oluşan seçkin koleksiyonumuz.
+                    ve butik pastalardan oluşan seçkin koleksiyonumuz.
                   </p>
 
                   <div className="flex flex-wrap items-center gap-4 mt-5 text-xs text-stone-500 font-mono">
