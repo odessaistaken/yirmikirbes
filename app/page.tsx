@@ -331,25 +331,143 @@ export default function HomePage() {
   return (
     <>
       {/* ════════════════════════════════════════════════════════════
-          HERO SECTION — Clean White Background & X-Axis Split (50% / 50%)
+          HERO SECTION — Full-Width Stacked: Slider on Top, Text Below
       ════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-white text-slate-900 h-screen min-h-[100vh] flex items-center overflow-hidden border-b border-slate-200">
-        {/* Subtle background ambient glow */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[130px] rounded-full pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-80 h-80 bg-gold/5 blur-[100px] rounded-full pointer-events-none" />
-        {/* Full-screen dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+      <section className="relative bg-white text-slate-900 overflow-hidden border-b border-slate-200">
+        {/* ── Full-Width Slider (Top) ─────────────────────────── */}
+        <div className="relative w-full h-[70vh] sm:h-[75vh] lg:h-[80vh]">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="absolute inset-0 bg-slate-100"
+          >
+            {/* Image Slider */}
+            {hasSliders ? (
+              <>
+                <AnimatePresence initial={false} custom={direction} mode="popLayout">
+                  <motion.div
+                    key={`slide-${currentSlide}`}
+                    variants={slideVariants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    className="absolute inset-0 will-change-transform will-change-[opacity]"
+                  >
+                    <Image
+                      src={sliders[currentSlide].imageUrl}
+                      alt={sliders[currentSlide].imageAlt || sliders[currentSlide].name}
+                      fill
+                      priority={currentSlide === 0}
+                      quality={90}
+                      sizes="100vw"
+                      className="object-cover"
+                    />
+                  </motion.div>
+                </AnimatePresence>
 
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-[5] relative">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            {/* ── Left Column: Text & Content (50% Width on Desktop) ──────── */}
-            <div className="lg:col-span-6 space-y-6">
+                {/* Gradient Overlay — Strong for readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-black/20" />
+
+                {/* Slide Caption / Tag */}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`caption-${currentSlide}`}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.4, delay: 0.1 }}
+                    className="absolute bottom-8 left-6 right-6 sm:left-10 sm:right-10 z-10"
+                  >
+                    <span className="inline-block bg-gold text-white text-2xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-2">
+                      Öne Çıkan Ürün
+                    </span>
+                    <h3 className="font-heading font-bold text-white text-xl sm:text-2xl lg:text-3xl drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>
+                      {sliders[currentSlide].name}
+                    </h3>
+                    {sliders[currentSlide].description && (
+                      <p className="text-slate-100 text-sm sm:text-base line-clamp-2 mt-1.5 max-w-2xl drop-shadow-lg" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
+                        {sliders[currentSlide].description}
+                      </p>
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Navigation Buttons */}
+                {sliders.length > 1 && (
+                  <>
+                    <button
+                      onClick={prevSlide}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-gold hover:text-white transition-all duration-200 shadow-md"
+                      aria-label="Önceki görsel"
+                    >
+                      <ChevronLeft size={22} />
+                    </button>
+                    <button
+                      onClick={nextSlide}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-gold hover:text-white transition-all duration-200 shadow-md"
+                      aria-label="Sonraki görsel"
+                    >
+                      <ChevronRight size={22} />
+                    </button>
+                  </>
+                )}
+
+                {/* Dot Indicators */}
+                {sliders.length > 1 && (
+                  <div className="absolute top-5 right-5 z-20 flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
+                    {sliders.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => goToSlide(i)}
+                        className={`transition-all duration-300 rounded-full ${
+                          i === currentSlide
+                            ? "w-6 h-2 bg-gold"
+                            : "w-2 h-2 bg-slate-400 hover:bg-slate-600"
+                        }`}
+                        aria-label={`Slide ${i + 1}`}
+                      />
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : (
+              <>
+                <Image
+                  src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=1600&q=90"
+                  alt="Premium pastacılık ürünleri"
+                  fill
+                  quality={95}
+                  sizes="100vw"
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-transparent to-transparent" />
+                <div className="absolute bottom-8 left-6 right-6 sm:left-10 sm:right-10 z-10">
+                  <span className="inline-block bg-gold text-white text-2xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-1">
+                    Toptan Tedarik
+                  </span>
+                  <h3 className="font-heading font-bold text-white text-xl sm:text-2xl">
+                    Premium Pastacılık & Fırıncılık Ürünleri
+                  </h3>
+                </div>
+              </>
+            )}
+          </motion.div>
+        </div>
+
+        {/* ── Text Content (Below Slider) ─────────────────────── */}
+        <div className="relative bg-gradient-to-b from-white to-slate-50/80">
+          {/* Subtle ambient glow */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[130px] rounded-full pointer-events-none" />
+
+          <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-[5]">
+            <div className="max-w-3xl">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
-                className="flex items-center gap-2 sm:gap-3"
+                className="flex items-center gap-2 sm:gap-3 mb-5"
               >
                 <span className="text-gold-600 bg-gold/10 border border-gold/30 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                   YKB GIDA — 20:45 PASTACILIK
@@ -360,145 +478,21 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.15 }}
-                className="font-heading text-3xl sm:text-5xl lg:text-5xl font-extrabold text-slate-900 leading-tight"
+                className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight"
               >
                 Günün her anına uygun <span className="gold-text">doyurucu bir lezzet</span>
               </motion.h1>
 
-                <motion.p
+              <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.25 }}
-                className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl drop-shadow-sm"
+                className="text-slate-600 text-base sm:text-lg leading-relaxed mt-5 max-w-2xl"
               >
                 Profesyonel pastacılık ve fırıncılık işletmeleri için özel olarak seçilmiş 
                 premium hammadde ve yarı mamul ürünler. Güvenilir B2B tedarik zinciri.
               </motion.p>
-
             </div>
-
-            {/* ── Right Column: Slider (50% Width on Desktop) ─────── */}
-            <div className="lg:col-span-6 relative">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative h-[350px] sm:h-[460px] lg:h-[480px] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group bg-slate-100"
-              >
-                {/* Image Slider */}
-                {hasSliders ? (
-                  <>
-                    <AnimatePresence initial={false} custom={direction} mode="popLayout">
-                      <motion.div
-                        key={`slide-${currentSlide}`}
-                        variants={slideVariants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        className="absolute inset-0 will-change-transform will-change-[opacity]"
-                      >
-                        <Image
-                          src={sliders[currentSlide].imageUrl}
-                          alt={sliders[currentSlide].imageAlt || sliders[currentSlide].name}
-                          fill
-                          priority={currentSlide === 0}
-                          quality={90}
-                          sizes="(max-width: 1024px) 100vw, 50vw"
-                          className="object-cover"
-                        />
-                      </motion.div>
-                    </AnimatePresence>
-
-                    {/* Gradient Overlay — Stronger for readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-black/20" />
-
-                    {/* Slide Caption / Tag */}
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={`caption-${currentSlide}`}
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.4, delay: 0.1 }}
-                        className="absolute bottom-6 left-6 right-6 z-10"
-                      >
-                        <span className="inline-block bg-gold text-white text-2xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-2">
-                          Öne Çıkan Ürün
-                        </span>
-                        <h3 className="font-heading font-bold text-white text-lg sm:text-xl drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>
-                          {sliders[currentSlide].name}
-                        </h3>
-                        {sliders[currentSlide].description && (
-                          <p className="text-slate-100 text-xs sm:text-sm line-clamp-1 mt-1 drop-shadow-lg" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
-                            {sliders[currentSlide].description}
-                          </p>
-                        )}
-                      </motion.div>
-                    </AnimatePresence>
-
-                    {/* Navigation Buttons */}
-                    {sliders.length > 1 && (
-                      <>
-                        <button
-                          onClick={prevSlide}
-                          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-gold hover:text-white transition-all duration-200 shadow-md"
-                          aria-label="Önceki görsel"
-                        >
-                          <ChevronLeft size={20} />
-                        </button>
-                        <button
-                          onClick={nextSlide}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-gold hover:text-white transition-all duration-200 shadow-md"
-                          aria-label="Sonraki görsel"
-                        >
-                          <ChevronRight size={20} />
-                        </button>
-                      </>
-                    )}
-
-                    {/* Dot Indicators */}
-                    {sliders.length > 1 && (
-                      <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
-                        {sliders.map((_, i) => (
-                          <button
-                            key={i}
-                            onClick={() => goToSlide(i)}
-                            className={`transition-all duration-300 rounded-full ${
-                              i === currentSlide
-                                ? "w-6 h-2 bg-gold"
-                                : "w-2 h-2 bg-slate-400 hover:bg-slate-600"
-                            }`}
-                            aria-label={`Slide ${i + 1}`}
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <>
-                    <Image
-                      src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=1600&q=90"
-                      alt="Premium pastacılık ürünleri"
-                      fill
-                      quality={95}
-                      sizes="(max-width: 1280px) 100vw, 1280px"
-                      className="object-cover"
-                      priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-transparent to-transparent" />
-                    <div className="absolute bottom-6 left-6 right-6 z-10">
-                      <span className="inline-block bg-gold text-white text-2xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-1">
-                        Toptan Tedarik
-                      </span>
-                      <h3 className="font-heading font-bold text-white text-xl">
-                        Premium Pastacılık & Fırıncılık Ürünleri
-                      </h3>
-                    </div>
-                  </>
-                )}
-              </motion.div>
-            </div>
-
           </div>
         </div>
       </section>

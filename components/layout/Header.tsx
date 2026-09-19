@@ -270,10 +270,10 @@ export default function Header() {
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-24 sm:h-28">
             {/* ── Sol Taraf: Logo + Kategoriler & Menü ─────────────────────────── */}
-            <div className="flex-1 flex items-center justify-start gap-3 sm:gap-4">
+            <div className="flex-1 flex items-center justify-start gap-6 lg:gap-8">
               {/* Logo - En Sol */}
-              <Link href="/" className="flex items-center group py-1 shrink-0">
-                <Logo size={72} logoScale={1.6} />
+              <Link href="/" className="flex items-center group py-1 shrink-0 max-w-[180px]">
+                <Logo size={44} logoScale={1.2} />
               </Link>
 
               {/* Mobile menu toggle button */}
