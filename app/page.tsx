@@ -382,7 +382,7 @@ export default function HomePage() {
                     <span className="inline-block bg-gold text-white text-2xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-2">
                       Öne Çıkan Ürün
                     </span>
-                    <h3 className="font-heading font-bold text-white text-xl sm:text-2xl lg:text-3xl drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>
+                    <h3 className="font-heading font-bold !text-white text-xl sm:text-2xl lg:text-3xl drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)', color: '#ffffff' }}>
                       {sliders[currentSlide].name}
                     </h3>
                     {sliders[currentSlide].description && (
@@ -447,7 +447,7 @@ export default function HomePage() {
                   <span className="inline-block bg-gold text-white text-2xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-1">
                     Toptan Tedarik
                   </span>
-                  <h3 className="font-heading font-bold text-white text-xl sm:text-2xl">
+                  <h3 className="font-heading font-bold !text-white text-xl sm:text-2xl" style={{ color: '#ffffff' }}>
                     Premium Pastacılık & Fırıncılık Ürünleri
                   </h3>
                 </div>
