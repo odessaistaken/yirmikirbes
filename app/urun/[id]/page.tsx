@@ -154,9 +154,10 @@ export default function ProductPage() {
                       src={product.imageUrl}
                       alt={product.name}
                       fill
-                      quality={95}
-                      className="object-contain p-4"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      quality={100}
+                      className="object-contain p-4 transform-gpu sharp-render"
+                      sizes="(max-width: 1024px) 100vw, 800px"
+                      style={{ imageRendering: "-webkit-optimize-contrast" }}
                       onError={() => setImgError(true)}
                       priority
                     />

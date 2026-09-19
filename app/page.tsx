@@ -642,9 +642,10 @@ export default function HomePage() {
                           src={cat.imageUrl}
                           alt={cat.name}
                           fill
-                          quality={90}
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          quality={100}
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
+                          style={{ imageRendering: "-webkit-optimize-contrast" }}
+                          className="object-cover group-hover:scale-105 transition-transform duration-300 transform-gpu sharp-render"
                         />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center bg-slate-100">

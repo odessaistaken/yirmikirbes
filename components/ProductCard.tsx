@@ -54,10 +54,11 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                 src={product.imageUrl}
                 alt={product.name}
                 fill
-                quality={85}
+                quality={100}
                 loading={index < 8 ? "eager" : "lazy"}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1440px) 25vw, 20vw"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 transform-gpu sharp-render"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 500px"
+                style={{ imageRendering: "-webkit-optimize-contrast" }}
                 onError={() => setImgError(true)}
               />
             ) : (
@@ -182,9 +183,10 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                   src={product.imageUrl}
                   alt={product.name}
                   fill
-                  quality={95}
+                  quality={100}
                   sizes="90vw"
-                  className="object-contain p-6"
+                  className="object-contain p-6 sharp-render"
+                  style={{ imageRendering: "-webkit-optimize-contrast" }}
                   priority
                 />
               </div>

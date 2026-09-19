@@ -73,8 +73,10 @@ export default function PresentationProductCard({
               src={product.imageUrl || "/resimler/logo.png"}
               alt={product.name}
               fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-contain p-2 group-hover:scale-105 transition-transform duration-500 ease-out"
+              quality={100}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
+              style={{ imageRendering: "-webkit-optimize-contrast" }}
+              className="object-contain p-2 group-hover:scale-105 transition-transform duration-500 ease-out transform-gpu sharp-render"
             />
           </div>
         </div>

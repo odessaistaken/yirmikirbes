@@ -557,5 +557,15 @@ img { max-width: 100%; height: auto; }
   will-change: transform, opacity;
 }
 
-
-
+/* ─── Product Card Image Sharpness & High-Quality Downscaling ───────────────── */
+.product-card img,
+.img-zoom-container img,
+.sharp-render,
+.product-image-container img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
+}
