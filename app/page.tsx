@@ -333,10 +333,12 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           HERO SECTION — Clean White Background & X-Axis Split (50% / 50%)
       ════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-white text-slate-900 min-h-[80vh] flex items-center py-10 lg:py-16 overflow-hidden border-b border-slate-200">
+      <section className="relative bg-white text-slate-900 h-screen min-h-[100vh] flex items-center overflow-hidden border-b border-slate-200">
         {/* Subtle background ambient glow */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[130px] rounded-full pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-gold/5 blur-[100px] rounded-full pointer-events-none" />
+        {/* Full-screen dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/5 pointer-events-none" />
 
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-[5] relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -363,59 +365,16 @@ export default function HomePage() {
                 Günün her anına uygun <span className="gold-text">doyurucu bir lezzet</span>
               </motion.h1>
 
-              <motion.p
+                <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.25 }}
-                className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl"
+                className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl drop-shadow-sm"
               >
                 Profesyonel pastacılık ve fırıncılık işletmeleri için özel olarak seçilmiş 
                 premium hammadde ve yarı mamul ürünler. Güvenilir B2B tedarik zinciri.
               </motion.p>
 
-              {/* Action Buttons */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.35 }}
-                className="flex flex-wrap items-center gap-3 pt-2"
-              >
-                <Link
-                  href="/katalog"
-                  className="btn-primary text-sm sm:text-base py-3 px-7 shadow-gold flex items-center gap-2"
-                >
-                  Kataloğu İncele
-                  <ArrowRight size={18} />
-                </Link>
-
-                <a
-                  href="https://wa.me/905010737113?text=Merhaba,%2020:45%20Pastac%C4%B1l%C4%B1k%20bilgi%20almak%20istiyorum."
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold text-sm sm:text-base transition-all duration-200 shadow-md hover:scale-105"
-                >
-                  WhatsApp Teklif Al
-                </a>
-              </motion.div>
-
-              {/* Mini Stats */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.45 }}
-                className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200 max-w-md"
-              >
-                {[
-                  { value: "500+", label: "Ürün Çeşidi" },
-                  { value: "81", label: "İl Teslimat" },
-                  { value: "15+", label: "Yıl Deneyim" },
-                ].map((stat) => (
-                  <div key={stat.label} className="text-left">
-                    <p className="font-heading font-extrabold text-gold text-xl sm:text-2xl">{stat.value}</p>
-                    <p className="text-slate-500 text-xs font-semibold">{stat.label}</p>
-                  </div>
-                ))}
-              </motion.div>
             </div>
 
             {/* ── Right Column: Slider (50% Width on Desktop) ─────── */}
@@ -450,8 +409,8 @@ export default function HomePage() {
                       </motion.div>
                     </AnimatePresence>
 
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/25 to-transparent" />
+                    {/* Gradient Overlay — Stronger for readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-black/20" />
 
                     {/* Slide Caption / Tag */}
                     <AnimatePresence mode="wait">
@@ -466,11 +425,11 @@ export default function HomePage() {
                         <span className="inline-block bg-gold text-white text-2xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-2">
                           Öne Çıkan Ürün
                         </span>
-                        <h3 className="font-heading font-bold text-white text-lg sm:text-xl drop-shadow-md">
+                        <h3 className="font-heading font-bold text-white text-lg sm:text-xl drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>
                           {sliders[currentSlide].name}
                         </h3>
                         {sliders[currentSlide].description && (
-                          <p className="text-slate-200 text-xs sm:text-sm line-clamp-1 mt-1">
+                          <p className="text-slate-100 text-xs sm:text-sm line-clamp-1 mt-1 drop-shadow-lg" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
                             {sliders[currentSlide].description}
                           </p>
                         )}
@@ -662,28 +621,28 @@ export default function HomePage() {
           </FadeIn>
 
           {!dataLoaded ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={i} className="skeleton h-48 rounded-2xl" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="skeleton h-72 rounded-2xl" />
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               {(categories.some((c) => !c.parentId) ? categories.filter((c) => !c.parentId) : categories).map((cat, i) => (
                 <FadeIn key={cat.id} delay={i * 0.07}>
                   <Link
                     href={`/katalog/${cat.slug}`}
                     className="group block bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-card-hover hover:-translate-y-1 hover:border-gold/50 transition-all duration-300"
                   >
-                    {/* Category Image */}
-                    <div className="relative aspect-[4/3] bg-slate-50 overflow-hidden">
+                    {/* Category Image — Bigger for 3-col layout */}
+                    <div className="relative aspect-[4/3] sm:aspect-[16/10] bg-slate-50 overflow-hidden">
                       {cat.imageUrl ? (
                         <Image
                           src={cat.imageUrl}
                           alt={cat.name}
                           fill
                           quality={90}
-                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       ) : (
@@ -695,7 +654,7 @@ export default function HomePage() {
                     </div>
                     {/* Category Info */}
                     <div className="p-4 text-center bg-white">
-                      <p className="font-heading font-semibold text-slate-800 text-sm mb-1 group-hover:text-gold-600 transition-colors">
+                      <p className="font-heading font-semibold text-slate-800 text-base sm:text-lg mb-1 group-hover:text-gold-600 transition-colors">
                         {cat.name}
                       </p>
                       <div className="mt-2 h-0.5 w-0 group-hover:w-full bg-gold transition-all duration-300 mx-auto rounded-full" />

@@ -14,7 +14,7 @@ interface LogoProps {
 export default function Logo({
   className = "",
   variant = "dark",
-  size = 52,
+  size = 80,
   logoScale = 1.0,
   showText = true,
 }: LogoProps) {
@@ -60,7 +60,7 @@ export default function Logo({
                 className="font-heading"
                 fill="#D4AF37"
                 fontWeight="900"
-                fontSize="170"
+                fontSize="260"
                 letterSpacing="1"
               >
                 HORECA

@@ -268,9 +268,14 @@ export default function Header() {
         }`}
       >
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20 sm:h-22">
-            {/* ── Sol Taraf: Kategoriler & Menü ─────────────────────────── */}
-            <div className="flex-1 flex items-center justify-start gap-1 sm:gap-2">
+          <div className="flex items-center justify-between h-24 sm:h-28">
+            {/* ── Sol Taraf: Logo + Kategoriler & Menü ─────────────────────────── */}
+            <div className="flex-1 flex items-center justify-start gap-3 sm:gap-4">
+              {/* Logo - En Sol */}
+              <Link href="/" className="flex items-center group py-1 shrink-0">
+                <Logo size={72} logoScale={1.6} />
+              </Link>
+
               {/* Mobile menu toggle button */}
               <button
                 onClick={() => setMobileOpen((v) => !v)}
@@ -294,7 +299,7 @@ export default function Header() {
                         }`}
                       >
                         <AlignLeft size={16} className="text-gold" />
-                        <span>{link.label}</span>
+                        <span className="uppercase">{link.label}</span>
                         <ChevronDown
                           size={14}
                           className={`transition-transform duration-200 ${
@@ -545,7 +550,7 @@ export default function Header() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`px-3.5 py-2 rounded-xl text-sm font-medium transition-all duration-150 ${
+                      className={`px-3.5 py-2 rounded-xl text-sm font-medium transition-all duration-150 uppercase ${
                         isActive(link.href)
                           ? "text-gold-600 bg-gold/10 font-bold border border-gold/30"
                           : "text-slate-700 hover:text-slate-900 hover:bg-slate-100"
@@ -558,16 +563,12 @@ export default function Header() {
               </nav>
             </div>
 
-            {/* ── Orta Kısım: Büyütülmüş & Ortalanmış Logo + Çok Satanlar ────────────────── */}
+            {/* ── Orta Kısım: Çok Satanlar (Logo artık sol tarafa taşındı) ────────────────── */}
             <div className="shrink-0 flex items-center justify-center gap-3 sm:gap-4 px-2">
-              <Link href="/" className="flex items-center group py-1">
-                <Logo size={54} logoScale={1.4} />
-              </Link>
-              
               {/* Çok Satanlar Linki - Menü isimleri ile aynı sade ve şık stil */}
               <Link
                 href="/cok-satanlar"
-                className={`px-3.5 py-2 rounded-xl text-sm font-medium transition-all duration-150 ${
+                className={`px-3.5 py-2 rounded-xl text-sm font-medium transition-all duration-150 uppercase ${
                   isActive("/cok-satanlar")
                     ? "text-gold-600 bg-gold/10 font-bold border border-gold/30"
                     : "text-slate-700 hover:text-slate-900 hover:bg-slate-100"
