@@ -10,7 +10,6 @@ import { CATEGORIES as MOCK_CATEGORIES, PRODUCTS as MOCK_PRODUCTS } from "@/lib/
 import { getActiveCategories, getProducts, getActiveBrands } from "@/lib/firestore-collections";
 import type { Category, Product, Brand } from "@/lib/types";
 import ProductCard from "@/components/ProductCard";
-import { sortCategoriesByStandardOrder } from "@/lib/category-order";
 
 /* ─── Subcategories & Brand links map ─────────────────────────────────────── */
 export const SUBCATEGORIES_MAP: Record<string, { name: string; query: string }[]> = {
@@ -113,7 +112,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
   const [activeCategory, setActiveCategory] = useState<string>(initialCategory);
   const [searchQuery, setSearchQuery] = useState(initialSearch || initialBrand);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
-  const [categories, setCategories] = useState<Category[]>(sortCategoriesByStandardOrder(MOCK_CATEGORIES));
+  const [categories, setCategories] = useState<Category[]>(MOCK_CATEGORIES);
   const [products, setProducts] = useState<Product[]>(MOCK_PRODUCTS);
   const [brands, setBrands] = useState<Brand[]>([]);
 
@@ -144,7 +143,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
         const brnds = results[2].status === "fulfilled" ? results[2].value : [];
 
         if (cats && cats.length > 0) {
-          setCategories(sortCategoriesByStandardOrder(cats.filter((c) => c.isActive !== false)));
+          setCategories(cats.filter((c) => c.isActive !== false).sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
         }
         if (prods && prods.length > 0) {
           setProducts(prods.filter((p) => p.isActive !== false).sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
@@ -254,9 +253,9 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
             <ChevronRight size={13} className="opacity-50" />
           </span>
         </button>
-        {sortCategoriesByStandardOrder(
-          categories.filter((cat) => !cat.parentId && cat.slug !== "ekipmanlar" && cat.slug !== "kokteyller")
-        ).map((parentCat) => {
+        {categories
+          .filter((cat) => !cat.parentId)
+          .map((parentCat) => {
             const children = categories.filter((c) => c.parentId === parentCat.id);
             const parentCount = getCategoryProductCount(parentCat);
             const isParentActive = activeCategory === parentCat.slug || activeCategory === parentCat.id;

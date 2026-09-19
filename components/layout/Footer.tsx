@@ -9,7 +9,6 @@ import {
 import Logo from "@/components/Logo";
 import { CATEGORIES as MOCK_CATEGORIES } from "@/lib/mock-data";
 import { getActiveCategories } from "@/lib/firestore-collections";
-import { sortCategoriesByStandardOrder } from "@/lib/category-order";
 
 export default async function Footer() {
   const year = new Date().getFullYear();
@@ -21,9 +20,6 @@ export default async function Footer() {
     categories = MOCK_CATEGORIES;
   }
 
-  const sortedCategories = sortCategoriesByStandardOrder(
-    categories.filter((c: any) => !c.parentId && c.slug !== "ekipmanlar" && c.slug !== "kokteyller")
-  );
 
   return (
     <footer className="bg-white text-slate-600 border-t border-slate-200">
@@ -135,7 +131,7 @@ export default async function Footer() {
               Ürün Kategorileri
             </h3>
             <ul className="space-y-2.5">
-              {sortedCategories.slice(0, 8).map((cat: any) => (
+              {categories.slice(0, 8).map((cat: any) => (
                 <li key={cat.id}>
                   <Link
                     href={`/katalog/${cat.slug}`}

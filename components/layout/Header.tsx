@@ -25,7 +25,6 @@ import Logo from "@/components/Logo";
 import { CATEGORIES as MOCK_CATEGORIES, PRODUCTS as MOCK_PRODUCTS } from "@/lib/mock-data";
 import { getActiveCategories, getProducts, getActiveBrands } from "@/lib/firestore-collections";
 import type { Category, Product, Brand } from "@/lib/types";
-import { sortCategoriesByStandardOrder } from "@/lib/category-order";
 
 /* ─── Navigation links ────────────────────────────────────────────────────── */
 const navLinks = [
@@ -74,21 +73,19 @@ export default function Header() {
               merged.push(mc);
             }
           }
-          setCategories(sortCategoriesByStandardOrder(merged));
+          setCategories(merged.sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
         } else {
           setCategories(
-            sortCategoriesByStandardOrder(
-              MOCK_CATEGORIES.map((c, i) => ({
-                id: c.id,
-                name: c.name,
-                slug: c.slug,
-                parentId: c.parentId,
-                imageUrl: c.imageUrl || "",
-                order: c.order || i + 1,
-                isActive: true,
-                description: c.description,
-              }))
-            )
+            MOCK_CATEGORIES.map((c, i) => ({
+              id: c.id,
+              name: c.name,
+              slug: c.slug,
+              parentId: c.parentId,
+              imageUrl: c.imageUrl || "",
+              order: c.order || i + 1,
+              isActive: true,
+              description: c.description,
+            }))
           );
         }
         if (prods.length > 0) setProducts(prods);
