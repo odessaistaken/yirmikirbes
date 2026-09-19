@@ -106,7 +106,6 @@ const SUBCATEGORIES_MAP: Record<string, { name: string; href: string }[]> = {
 
 /* ─── Mega Menu data ──────────────────────────────────────────────────────── */
 const navLinks = [
-  { label: "Ana Sayfa", href: "/" },
   { label: "Kategoriler", href: "/katalog", hasMega: true },
   { label: "Akademi", href: "/akademi" },
   { label: "Hakkımızda", href: "/hakkimizda" },
@@ -271,9 +270,9 @@ export default function Header() {
           <div className="flex items-center justify-between h-24 sm:h-28">
             {/* ── Sol Taraf: Logo + Kategoriler & Menü ─────────────────────────── */}
             <div className="flex-1 flex items-center justify-start gap-6 lg:gap-8">
-              {/* Logo - En Sol */}
-              <Link href="/" className="flex items-center group py-1 shrink-0 max-w-[180px]">
-                <Logo size={44} logoScale={1.2} />
+              {/* Logo - En Sol (Tıklanabilir → Ana Sayfa) */}
+              <Link href="/" className="flex items-center group py-1 shrink-0 max-w-[220px]">
+                <Logo size={64} logoScale={1.5} />
               </Link>
 
               {/* Mobile menu toggle button */}
