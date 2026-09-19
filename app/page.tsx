@@ -20,6 +20,7 @@ import {
 } from "@/lib/firestore-collections";
 import type { SliderItem, Category, Brand, Product } from "@/lib/types";
 import ProductCard from "@/components/ProductCard";
+import { sortCategoriesByStandardOrder } from "@/lib/category-order";
 
 /* ─── Fade-in wrapper ────────────────────────────────────────────────────── */
 function FadeIn({
@@ -187,27 +188,31 @@ export default function HomePage() {
 
         if (c.length > 0) {
           setCategories(
-            c.map((cat) => {
-              const mockCat = MOCK_CATEGORIES.find(
-                (m) => m.slug === cat.slug || m.name.toLowerCase() === cat.name.toLowerCase()
-              );
-              return {
-                ...cat,
-                imageUrl: typeof cat.imageUrl === "string" ? cat.imageUrl : (mockCat?.imageUrl || ""),
-              };
-            })
+            sortCategoriesByStandardOrder(
+              c.map((cat) => {
+                const mockCat = MOCK_CATEGORIES.find(
+                  (m) => m.slug === cat.slug || m.name.toLowerCase() === cat.name.toLowerCase()
+                );
+                return {
+                  ...cat,
+                  imageUrl: typeof cat.imageUrl === "string" ? cat.imageUrl : (mockCat?.imageUrl || ""),
+                };
+              })
+            )
           );
         } else {
           setCategories(
-            MOCK_CATEGORIES.map((mc, i) => ({
-              id: mc.id,
-              name: mc.name,
-              slug: mc.slug,
-              imageUrl: mc.imageUrl || "",
-              order: i + 1,
-              isActive: true,
-              description: mc.description,
-            }))
+            sortCategoriesByStandardOrder(
+              MOCK_CATEGORIES.map((mc, i) => ({
+                id: mc.id,
+                name: mc.name,
+                slug: mc.slug,
+                imageUrl: mc.imageUrl || "",
+                order: i + 1,
+                isActive: true,
+                description: mc.description,
+              }))
+            )
           );
         }
         if (b.length > 0) {
@@ -622,7 +627,9 @@ export default function HomePage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-              {(categories.some((c) => !c.parentId) ? categories.filter((c) => !c.parentId) : categories).map((cat, i) => (
+              {sortCategoriesByStandardOrder(
+                categories.filter((c) => !c.parentId && c.slug !== "ekipmanlar" && c.slug !== "kokteyller")
+              ).map((cat, i) => (
                 <FadeIn key={cat.id} delay={i * 0.07}>
                   <Link
                     href={`/katalog/${cat.slug}`}

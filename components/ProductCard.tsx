@@ -40,7 +40,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
         className="product-card group flex flex-col h-full bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-gold/60 hover:shadow-card-hover transition-all duration-200"
       >
         {/* Image */}
-        <div className="img-zoom-container aspect-square relative bg-slate-50 shrink-0 overflow-hidden">
+        <div className="img-zoom-container aspect-square relative bg-slate-50 shrink-0 w-full overflow-hidden">
           {product.isBestSeller && (
             <div className="absolute top-2 left-2 z-10 flex items-center gap-1 bg-amber-500 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full shadow-md">
               <span className="text-xs">🔥</span>
@@ -48,7 +48,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
             </div>
           )}
 
-          <Link href={`/urun/${product.id}`} className="block absolute inset-0">
+          <Link href={`/urun/${product.id}`} className="block absolute inset-0 w-full h-full overflow-hidden">
             {!imgError && product.imageUrl ? (
               <Image
                 src={product.imageUrl}
@@ -56,7 +56,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                 fill
                 quality={85}
                 loading={index < 8 ? "eager" : "lazy"}
-                className="object-contain p-2.5 group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1440px) 25vw, 20vw"
                 onError={() => setImgError(true)}
               />

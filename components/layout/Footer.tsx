@@ -9,6 +9,7 @@ import {
 import Logo from "@/components/Logo";
 import { CATEGORIES as MOCK_CATEGORIES } from "@/lib/mock-data";
 import { getActiveCategories } from "@/lib/firestore-collections";
+import { sortCategoriesByStandardOrder } from "@/lib/category-order";
 
 export default async function Footer() {
   const year = new Date().getFullYear();
@@ -19,6 +20,10 @@ export default async function Footer() {
   } catch {
     categories = MOCK_CATEGORIES;
   }
+
+  const sortedCategories = sortCategoriesByStandardOrder(
+    categories.filter((c: any) => !c.parentId && c.slug !== "ekipmanlar" && c.slug !== "kokteyller")
+  );
 
   return (
     <footer className="bg-white text-slate-600 border-t border-slate-200">
@@ -60,8 +65,8 @@ export default async function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-1 space-y-5">
-            <Link href="/" className="inline-block group">
-              <Logo variant="dark" size={44} />
+            <Link href="/" className="inline-block group w-56 sm:w-64 max-w-full py-1">
+              <Logo variant="dark" size={76} logoScale={1.3} />
             </Link>
             <p className="text-slate-500 text-sm leading-relaxed">
               YKB Gıda güvencesiyle 20:45 Pastacılık, profesyonel pastacılık ve fırıncılık endüstrisine yönelik premium hammadde,
@@ -130,7 +135,7 @@ export default async function Footer() {
               Ürün Kategorileri
             </h3>
             <ul className="space-y-2.5">
-              {categories.slice(0, 7).map((cat) => (
+              {sortedCategories.slice(0, 8).map((cat: any) => (
                 <li key={cat.id}>
                   <Link
                     href={`/katalog/${cat.slug}`}

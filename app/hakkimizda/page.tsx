@@ -1,12 +1,13 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
   Award, Truck, Users, ShieldCheck,
   ArrowRight, CheckCircle, Globe, Thermometer,
+  ChevronLeft, ChevronRight,
 } from "lucide-react";
 import Logo from "@/components/Logo";
 
@@ -34,6 +35,50 @@ function FadeIn({
     </motion.div>
   );
 }
+
+/* ─── Hero Coffee Slider Data ────────────────────────────────────────────── */
+const HERO_SLIDES = [
+  {
+    imageUrl: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&q=85",
+    alt: "Artisan Kahve & Barista Sanatı",
+    subtitle: "Hakkımızda",
+    title: "Pastacılığın ve Kahvenin Güvenilir Tedarikçisi",
+    desc: "2009'dan bu yana Türkiye'nin önde gelen pastacı, fırıncı ve kafe zincirlerine premium hammadde ve yarı mamul ürün tedarik ediyoruz.",
+  },
+  {
+    imageUrl: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1920&q=85",
+    alt: "Taze Kavrulmuş Nitelikli Kahve Çekirdekleri",
+    subtitle: "Kahve & Miksoloji",
+    title: "Aromatik Şuruplar & Nitelikli Kahve Çözümleri",
+    desc: "DaVinci Gourmet, Caffè NONNO ve Monte Cristo güvencesiyle en seçkin kahve ve içecek reçeteleri için tek adres.",
+  },
+  {
+    imageUrl: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1920&q=85",
+    alt: "Profesyonel Barista İstasyonu",
+    subtitle: "Ustalık & Kalite",
+    title: "En İyilerle Çalışan Profesyonellerin Tercihi",
+    desc: "Soğuk zincir lojistiğimiz ve 120'den fazla ürün portföyümüzle Türkiye'nin 81 iline kesintisiz tedarik sağlıyoruz.",
+  },
+];
+
+/* ─── Story Coffee Slider Data ───────────────────────────────────────────── */
+const STORY_SLIDES = [
+  {
+    imageUrl: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1200&q=85",
+    alt: "Kahve ve Şurup Sunumu",
+    caption: "İmza Kahve & Barista Reçeteleri",
+  },
+  {
+    imageUrl: "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1200&q=85",
+    alt: "Latte Art ve Espresso Sanatı",
+    caption: "Kusursuz Ekstraksiyon & Latte Art",
+  },
+  {
+    imageUrl: "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=1200&q=85",
+    alt: "Kavrulmuş Kahve Çekirdekleri",
+    caption: "Taze Hammadde & B2B Güvencesi",
+  },
+];
 
 /* ─── Data ────────────────────────────────────────────────────────────────── */
 const stats = [
@@ -85,36 +130,106 @@ const milestones = [
 ];
 
 export default function HakkimizdaPage() {
+  const [heroSlide, setHeroSlide] = useState(0);
+  const [storySlide, setStorySlide] = useState(0);
+
+  useEffect(() => {
+    const heroTimer = setInterval(() => {
+      setHeroSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 5000);
+    return () => clearInterval(heroTimer);
+  }, []);
+
+  useEffect(() => {
+    const storyTimer = setInterval(() => {
+      setStorySlide((prev) => (prev + 1) % STORY_SLIDES.length);
+    }, 4500);
+    return () => clearInterval(storyTimer);
+  }, []);
+
+  const prevHero = () => setHeroSlide((prev) => (prev === 0 ? HERO_SLIDES.length - 1 : prev - 1));
+  const nextHero = () => setHeroSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-800">
 
-      {/* ── Hero ──────────────────────────────────────────────────────────── */}
-      <section className="relative h-[55vh] min-h-[400px] flex items-end overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=85"
-          alt="20:45 Pastacılık atölyesi"
-          fill
-          quality={90}
-          sizes="100vw"
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-        <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 w-full">
+      {/* ── Hero Carousel (Coffee Themed) ─────────────────────────────────── */}
+      <section className="relative h-[60vh] min-h-[460px] flex items-end overflow-hidden">
+        <AnimatePresence mode="wait">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            key={`hero-${heroSlide}`}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7 }}
+            className="absolute inset-0"
           >
-            <span className="section-label text-amber-300">Hakkımızda</span>
-            <h1 className="text-white font-heading font-bold text-4xl md:text-5xl lg:text-6xl mt-2 mb-4">
-              Pastacılığın <span className="gold-text">Güvenilir</span> Tedarikçisi
-            </h1>
-            <p className="text-slate-200 text-lg max-w-2xl">
-              2009&apos;dan bu yana Türkiye&apos;nin önde gelen pastacı, fırıncı ve kafe zincirlerine
-              premium hammadde ve yarı mamul ürün tedarik ediyoruz.
-            </p>
+            <Image
+              src={HERO_SLIDES[heroSlide].imageUrl}
+              alt={HERO_SLIDES[heroSlide].alt}
+              fill
+              quality={90}
+              sizes="100vw"
+              className="object-cover"
+              priority
+            />
           </motion.div>
+        </AnimatePresence>
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30" />
+
+        {/* Navigation buttons */}
+        <button
+          onClick={prevHero}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-gold text-white flex items-center justify-center backdrop-blur-sm border border-white/20 transition-all duration-200"
+          aria-label="Önceki slayt"
+        >
+          <ChevronLeft size={22} />
+        </button>
+        <button
+          onClick={nextHero}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 hover:bg-gold text-white flex items-center justify-center backdrop-blur-sm border border-white/20 transition-all duration-200"
+          aria-label="Sonraki slayt"
+        >
+          <ChevronRight size={22} />
+        </button>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-6 right-8 z-20 flex items-center gap-2">
+          {HERO_SLIDES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setHeroSlide(i)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === heroSlide ? "w-8 bg-gold" : "w-2 bg-white/50 hover:bg-white/80"
+              }`}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Content */}
+        <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 w-full z-10">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`text-${heroSlide}`}
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="section-label text-amber-300">
+                {HERO_SLIDES[heroSlide].subtitle}
+              </span>
+              <h1 className="text-white font-heading font-bold text-4xl md:text-5xl lg:text-6xl mt-2 mb-4 drop-shadow-lg">
+                {HERO_SLIDES[heroSlide].title}
+              </h1>
+              <p className="text-slate-200 text-base sm:text-lg max-w-2xl drop-shadow-md">
+                {HERO_SLIDES[heroSlide].desc}
+              </p>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 
@@ -171,17 +286,46 @@ export default function HakkimizdaPage() {
             </FadeIn>
 
             <FadeIn delay={0.15}>
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-soft-lg border border-slate-200">
-                <Image
-                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85"
-                  alt="Pastacılık üretim atölyesi"
-                  fill
-                  quality={90}
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                  <Logo variant="light" size={36} />
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-soft-lg border border-slate-200 group">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`story-${storySlide}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={STORY_SLIDES[storySlide].imageUrl}
+                      alt={STORY_SLIDES[storySlide].alt}
+                      fill
+                      quality={90}
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Dot Indicators */}
+                <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-full border border-white/20">
+                  {STORY_SLIDES.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setStorySlide(i)}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        i === storySlide ? "w-5 bg-gold" : "w-1.5 bg-white/60 hover:bg-white"
+                      }`}
+                      aria-label={`Slayt ${i + 1}`}
+                    />
+                  ))}
+                </div>
+
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/85 via-black/40 to-transparent z-10 flex items-end justify-between">
+                  <Logo variant="light" size={44} />
+                  <span className="text-white text-xs font-semibold drop-shadow-md bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">
+                    {STORY_SLIDES[storySlide].caption}
+                  </span>
                 </div>
               </div>
             </FadeIn>
