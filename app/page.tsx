@@ -456,20 +456,17 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        {/* ── Text Content (Below Slider) ─────────────────────── */}
-        <div className="relative bg-gradient-to-b from-white to-slate-50/80">
-          {/* Subtle ambient glow */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[130px] rounded-full pointer-events-none" />
-
-          <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-[5]">
-            <div className="max-w-3xl">
+        {/* ── Text Content (Overlay on Slider) ─────────────────────── */}
+        <div className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none">
+          <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 pb-28 sm:pb-32 relative">
+            <div className="max-w-3xl pointer-events-auto">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
                 className="flex items-center gap-2 sm:gap-3 mb-5"
               >
-                <span className="text-gold-600 bg-gold/10 border border-gold/30 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                <span className="text-white bg-white/15 border border-white/30 backdrop-blur-sm px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider drop-shadow-lg">
                   YKB GIDA — 20:45 PASTACILIK
                 </span>
               </motion.div>
@@ -478,16 +475,18 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.15 }}
-                className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight"
+                className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight drop-shadow-lg"
+                style={{ textShadow: '0 2px 12px rgba(0,0,0,0.7)' }}
               >
-                Günün her anına uygun <span className="gold-text">doyurucu bir lezzet</span>
+                Günün her anına uygun <span className="gold-text drop-shadow-lg">doyurucu bir lezzet</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.25 }}
-                className="text-slate-600 text-base sm:text-lg leading-relaxed mt-5 max-w-2xl"
+                className="text-white/90 text-base sm:text-lg leading-relaxed mt-5 max-w-2xl drop-shadow-md"
+                style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}
               >
                 Profesyonel pastacılık ve fırıncılık işletmeleri için özel olarak seçilmiş 
                 premium hammadde ve yarı mamul ürünler. Güvenilir B2B tedarik zinciri.
