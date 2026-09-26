@@ -172,7 +172,7 @@ export const CATEGORIES: Category[] = [
 const RAW_PRODUCTS = [
   {
     "id": "prod-p3-1",
-    "name": "Caffè NONNO Caramel Aromalı Şurup 750ml",
+    "name": "Caramel Aromalı Şurup 750ml",
     "code": "NON-CAR-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -200,7 +200,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p3-2",
-    "name": "Caffè NONNO Mint Aromalı Nane Şurubu 750ml",
+    "name": "Mint Aromalı Nane Şurubu 750ml",
     "code": "NON-MNT-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -229,7 +229,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p3-3",
-    "name": "Caffè NONNO Raspberry Frozen Frambuaz Püresi 750ml",
+    "name": "Raspberry Frozen Frambuaz Püresi 750ml",
     "code": "NON-RAS-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -258,7 +258,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p3-4",
-    "name": "Caffè NONNO Mojito Aromalı Şurup 750ml",
+    "name": "Mojito Aromalı Şurup 750ml",
     "code": "NON-MOJ-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -286,7 +286,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p3-5",
-    "name": "Caffè NONNO Hazelnut Fındık Aromalı Şurup 750ml",
+    "name": "Hazelnut Fındık Aromalı Şurup 750ml",
     "code": "NON-HAZ-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -315,7 +315,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p3-6",
-    "name": "Caffè NONNO Cool Berry Orman Meyveleri Şurubu 750ml",
+    "name": "Cool Berry Orman Meyveleri Şurubu 750ml",
     "code": "NON-CBR-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -343,7 +343,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p3-7",
-    "name": "Caffè NONNO Cool Lime Misket Limonu Şurubu 750ml",
+    "name": "Cool Lime Misket Limonu Şurubu 750ml",
     "code": "NON-CLM-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -371,7 +371,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p3-8",
-    "name": "Caffè NONNO Vanilla Vanilya Aromalı Şurup 750ml",
+    "name": "Vanilla Vanilya Aromalı Şurup 750ml",
     "code": "NON-VAN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -400,7 +400,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p3-9",
-    "name": "Caffè NONNO Chocolate Çikolata Aromalı Şurup 750ml",
+    "name": "Chocolate Çikolata Aromalı Şurup 750ml",
     "code": "NON-CHO-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -429,7 +429,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p3-10",
-    "name": "Caffè NONNO White Chocolate Beyaz Çikolata Şurubu 750ml",
+    "name": "White Chocolate Beyaz Çikolata Şurubu 750ml",
     "code": "NON-WCH-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -457,7 +457,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p4-1",
-    "name": "DaVinci Gourmet Blue Ocean Aromalı Şurup 750ml",
+    "name": "Blue Ocean Aromalı Şurup 750ml",
     "code": "DVG-BOC-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -485,7 +485,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p4-2",
-    "name": "DaVinci Gourmet Lemon Tea Aromalı Şurup 750ml",
+    "name": "Lemon Tea Aromalı Şurup 750ml",
     "code": "DVG-LTE-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -513,7 +513,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p4-3",
-    "name": "DaVinci Gourmet Classic Vanilla Aromalı Şurup 750ml",
+    "name": "Classic Vanilla Aromalı Şurup 750ml",
     "code": "DVG-VAN-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -542,7 +542,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p4-4",
-    "name": "DaVinci Gourmet Shortbread Cookies Aromalı Şurup 750ml",
+    "name": "Shortbread Cookies Aromalı Şurup 750ml",
     "code": "DVG-SBC-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -570,7 +570,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p4-5",
-    "name": "DaVinci Gourmet Menta Cubano Aromalı Şurup 750ml",
+    "name": "Menta Cubano Aromalı Şurup 750ml",
     "code": "DVG-MCU-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -598,7 +598,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p4-6",
-    "name": "DaVinci Gourmet Classic Strawberry Çilek Şurubu 750ml",
+    "name": "Classic Strawberry Çilek Şurubu 750ml",
     "code": "DVG-STR-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -627,7 +627,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p4-7",
-    "name": "DaVinci Gourmet Peach Garden Şeftali Şurubu 750ml",
+    "name": "Peach Garden Şeftali Şurubu 750ml",
     "code": "DVG-PGA-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -655,7 +655,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p4-8",
-    "name": "DaVinci Gourmet Classic Hazelnut Fındık Şurubu 750ml",
+    "name": "Classic Hazelnut Fındık Şurubu 750ml",
     "code": "DVG-HAZ-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -683,7 +683,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p4-9",
-    "name": "DaVinci Gourmet Pecan Praline Aromalı Şurup 750ml",
+    "name": "Pecan Praline Aromalı Şurup 750ml",
     "code": "DVG-PPR-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -711,7 +711,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p4-10",
-    "name": "DaVinci Gourmet Forest Berries Orman Meyveleri Şurubu 750ml",
+    "name": "Forest Berries Orman Meyveleri Şurubu 750ml",
     "code": "DVG-FBR-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -739,7 +739,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p5-1",
-    "name": "DaVinci Gourmet Classic Caramel Şurubu 750ml",
+    "name": "Classic Caramel Şurubu 750ml",
     "code": "DVG-CAR-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -767,7 +767,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p5-2",
-    "name": "DaVinci Gourmet Butterscotch Aromalı Sos 2L",
+    "name": "Butterscotch Aromalı Sos 2L",
     "code": "DVG-BSC-2000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-4",
@@ -795,7 +795,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p5-3",
-    "name": "DaVinci Gourmet Classic Blueberry Şurubu 750ml",
+    "name": "Classic Blueberry Şurubu 750ml",
     "code": "DVG-BLU-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -823,7 +823,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p5-4",
-    "name": "DaVinci Gourmet Classic Roasted Almond Şurubu 750ml",
+    "name": "Classic Roasted Almond Şurubu 750ml",
     "code": "DVG-ALM-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -851,7 +851,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p5-5",
-    "name": "DaVinci Gourmet White Chocolate Şurubu 750ml",
+    "name": "White Chocolate Şurubu 750ml",
     "code": "DVG-WCH-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -879,7 +879,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p5-6",
-    "name": "DaVinci Gourmet Toffeenut Aromalı Şurup 750ml",
+    "name": "Toffeenut Aromalı Şurup 750ml",
     "code": "DVG-TOF-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -908,7 +908,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p5-7",
-    "name": "DaVinci Gourmet Classic Coconut Şurubu 750ml",
+    "name": "Classic Coconut Şurubu 750ml",
     "code": "DVG-COC-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -936,7 +936,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p5-8",
-    "name": "DaVinci Gourmet Juicy Lime Aromalı Şurup 750ml",
+    "name": "Juicy Lime Aromalı Şurup 750ml",
     "code": "DVG-JLM-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -964,7 +964,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p5-9",
-    "name": "DaVinci Gourmet Spiced Chai Tea Konsantre Şurup 750ml",
+    "name": "Spiced Chai Tea Konsantre Şurup 750ml",
     "code": "DVG-CHA-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -992,7 +992,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p5-10",
-    "name": "DaVinci Gourmet Classic Chocolate Şurubu 750ml",
+    "name": "Classic Chocolate Şurubu 750ml",
     "code": "DVG-CHO-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -1020,7 +1020,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p6-1",
-    "name": "Caffè NONNO Blue Curacao Bar Sosu 750g",
+    "name": "Blue Curacao Bar Sosu 750g",
     "code": "NON-BCS-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-4",
@@ -1048,7 +1048,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p6-2",
-    "name": "Caffè NONNO Muz Aromalı Bar Sosu 750g",
+    "name": "Muz Aromalı Bar Sosu 750g",
     "code": "NON-BNS-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-4",
@@ -1076,7 +1076,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p6-3",
-    "name": "EASY MIX Orange Mango Kokteyl Premiksi 1000ml",
+    "name": "Orange Mango Kokteyl Premiksi 1000ml",
     "code": "EMX-OMG-1000",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1104,7 +1104,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p6-4",
-    "name": "EASY MIX Bodrum Mandalin Kokteyl Premiksi 1000ml",
+    "name": "Bodrum Mandalin Kokteyl Premiksi 1000ml",
     "code": "EMX-BDR-1000",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1131,7 +1131,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p6-5",
-    "name": "DaVinci Gourmet Cheese Cake Aromalı Sos 2L",
+    "name": "Cheese Cake Aromalı Sos 2L",
     "code": "DVG-CHK-2000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-4",
@@ -1159,7 +1159,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p6-6",
-    "name": "DaVinci Gourmet White Chocolate Aromalı Sos 2L",
+    "name": "White Chocolate Aromalı Sos 2L",
     "code": "DVG-WCS-2000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-4",
@@ -1186,7 +1186,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p6-7",
-    "name": "DaVinci Gourmet Caramel Aromalı Sos 2L",
+    "name": "Caramel Aromalı Sos 2L",
     "code": "DVG-CRS-2000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-4",
@@ -1213,7 +1213,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p6-8",
-    "name": "DaVinci Gourmet Chocolate Aromalı Sos 2L",
+    "name": "Chocolate Aromalı Sos 2L",
     "code": "DVG-CHS-2000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-4",
@@ -1241,7 +1241,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p6-9",
-    "name": "Caffè NONNO White Chocolate Bar Sosu 750g",
+    "name": "White Chocolate Bar Sosu 750g",
     "code": "NON-WCS-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-4",
@@ -1268,7 +1268,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p6-10",
-    "name": "Caffè NONNO Blue Curacao Bar & Tatlı Sosu 750g",
+    "name": "Blue Curacao Bar & Tatlı Sosu 750g",
     "code": "NON-BCS-750B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-4",
@@ -1295,7 +1295,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p7-1",
-    "name": "EASY MIX Citrus Blend Kokteyl Premiksi 1000ml",
+    "name": "Citrus Blend Kokteyl Premiksi 1000ml",
     "code": "EMX-CIT-1000",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1323,7 +1323,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p7-2",
-    "name": "EASY MIX Pitaya Refresher İçecek 700ml",
+    "name": "Pitaya Refresher İçecek 700ml",
     "code": "EMX-PIT-700",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1351,7 +1351,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p7-3",
-    "name": "EASY MIX Cherry & Chocolate Kokteyl Premiksi 500ml",
+    "name": "Cherry & Chocolate Kokteyl Premiksi 500ml",
     "code": "EMX-CCH-500",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1378,7 +1378,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p7-4",
-    "name": "EASY MIX Rooibos Peach Refresher İçecek 700ml",
+    "name": "Rooibos Peach Refresher İçecek 700ml",
     "code": "EMX-RBP-700",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1406,7 +1406,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p7-5",
-    "name": "EASY MIX Tuxedo Çikolata & Vanilya Premiksi 1000ml",
+    "name": "Tuxedo Çikolata & Vanilya Premiksi 1000ml",
     "code": "EMX-TUX-1000",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1434,7 +1434,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p7-6",
-    "name": "EASY MIX Passion Martini Kokteyl Premiksi 1000ml",
+    "name": "Passion Martini Kokteyl Premiksi 1000ml",
     "code": "EMX-PSM-1000",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1461,7 +1461,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p7-7",
-    "name": "EASY MIX Passion Martini Kokteyl Miksi 1000ml",
+    "name": "Passion Martini Kokteyl Miksi 1000ml",
     "code": "EMX-PSM-1000B",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1488,7 +1488,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p7-8",
-    "name": "EASY MIX Chili Mango Kokteyl Premiksi 1000ml",
+    "name": "Chili Mango Kokteyl Premiksi 1000ml",
     "code": "EMX-CHM-1000",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1516,7 +1516,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p7-9",
-    "name": "EASY MIX Purple Basil Limon & Reyhan Premiksi 1000ml",
+    "name": "Purple Basil Limon & Reyhan Premiksi 1000ml",
     "code": "EMX-PRB-1000",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1544,7 +1544,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p7-10",
-    "name": "EASY MIX Sorrel & Green Plum Refresher 700ml",
+    "name": "Sorrel & Green Plum Refresher 700ml",
     "code": "EMX-SGP-700",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1572,7 +1572,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p8-1",
-    "name": "Caffè NONNO Tiramisu Aromalı Şurup 750ml",
+    "name": "Tiramisu Aromalı Şurup 750ml",
     "code": "NON-TIR-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -1600,7 +1600,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p8-2",
-    "name": "Caffè NONNO Toffee Nut Aromalı Şurup 750ml",
+    "name": "Toffee Nut Aromalı Şurup 750ml",
     "code": "NON-TFN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -1627,7 +1627,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p8-3",
-    "name": "Caffè NONNO Toffee Nut Gourmet Şurup 750ml",
+    "name": "Toffee Nut Gourmet Şurup 750ml",
     "code": "NON-TFN-750B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -1654,7 +1654,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p8-4",
-    "name": "EASY MIX Watermelon Margarita Kokteyl Premiksi 500ml",
+    "name": "Watermelon Margarita Kokteyl Premiksi 500ml",
     "code": "EMX-WMM-500",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1681,7 +1681,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p8-5",
-    "name": "EASY MIX Libido Orman Meyveli Kokteyl Premiksi 1000ml",
+    "name": "Libido Orman Meyveli Kokteyl Premiksi 1000ml",
     "code": "EMX-LBD-1000",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1708,7 +1708,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p8-6",
-    "name": "EASY MIX Ocean Karadut & Narenciye Refresher 700ml",
+    "name": "Ocean Karadut & Narenciye Refresher 700ml",
     "code": "EMX-OCN-700",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1736,7 +1736,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p8-7",
-    "name": "EASY MIX Yeşil Çay & Kavun Kokteyl Premiksi 700ml",
+    "name": "Yeşil Çay & Kavun Kokteyl Premiksi 700ml",
     "code": "EMX-MLN-700",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1764,7 +1764,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p8-8",
-    "name": "EASY MIX Beyaz Çay & Şeftali Kokteyl Premiksi 700ml",
+    "name": "Beyaz Çay & Şeftali Kokteyl Premiksi 700ml",
     "code": "EMX-WPC-700",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1792,7 +1792,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p8-9",
-    "name": "EASY MIX Frambuaz Artisan Bar Şurubu 700ml",
+    "name": "Frambuaz Artisan Bar Şurubu 700ml",
     "code": "EMX-RAS-700",
     "codeGroup": "EASY MIX",
     "categoryId": "cat-7",
@@ -1819,7 +1819,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p8-10",
-    "name": "Caffè NONNO Nar Aromalı Şurup 750ml",
+    "name": "Nar Aromalı Şurup 750ml",
     "code": "NON-POM-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -1847,7 +1847,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p8-11",
-    "name": "Caffè NONNO Muz Aromalı Şurup 750ml",
+    "name": "Muz Aromalı Şurup 750ml",
     "code": "NON-BAN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -1875,7 +1875,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p9-1",
-    "name": "CALLEI Bitter Çikolatalı Waffle & Krep Kreması 1kg",
+    "name": "Bitter Çikolatalı Waffle & Krep Kreması 1kg",
     "code": "CAL-BIT-1000",
     "codeGroup": "CALLEI",
     "categoryId": "cat-3",
@@ -2092,7 +2092,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p9-9",
-    "name": "CALLEI Hazır Waffle, Krep & Pancake Toz Karışımı 1kg",
+    "name": "Hazır Waffle, Krep & Pancake Toz Karışımı 1kg",
     "code": "CAL-WFX-1000",
     "codeGroup": "CALLEI",
     "categoryId": "cat-3",
@@ -2147,7 +2147,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p10-1",
-    "name": "CALLEI Speculoos Bisküvili Waffle & Krep Kreması 1kg",
+    "name": "Speculoos Bisküvili Waffle & Krep Kreması 1kg",
     "code": "CAL-SPC-1000",
     "codeGroup": "CALLEI",
     "categoryId": "cat-3",
@@ -2175,7 +2175,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p10-2",
-    "name": "CALLEI Çilek Aromalı Pembe Waffle & Krep Kreması 1kg",
+    "name": "Çilek Aromalı Pembe Waffle & Krep Kreması 1kg",
     "code": "CAL-STR-1000",
     "codeGroup": "CALLEI",
     "categoryId": "cat-3",
@@ -2203,7 +2203,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p10-3",
-    "name": "CALLEI Beyaz Çikolatalı Waffle & Krep Kreması 1kg",
+    "name": "Beyaz Çikolatalı Waffle & Krep Kreması 1kg",
     "code": "CAL-WHT-1000",
     "codeGroup": "CALLEI",
     "categoryId": "cat-3",
@@ -2230,7 +2230,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p10-4",
-    "name": "CALLEI Sütlü Çikolatalı Waffle & Krep Kreması 1kg",
+    "name": "Sütlü Çikolatalı Waffle & Krep Kreması 1kg",
     "code": "CAL-MLK-1000",
     "codeGroup": "CALLEI",
     "categoryId": "cat-3",
@@ -2258,7 +2258,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p10-5",
-    "name": "CALLEI Frambuaz Aromalı Waffle & Krep Kreması 1kg",
+    "name": "Frambuaz Aromalı Waffle & Krep Kreması 1kg",
     "code": "CAL-RAS-1000",
     "codeGroup": "CALLEI",
     "categoryId": "cat-3",
@@ -2286,7 +2286,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p10-6",
-    "name": "CALLEI Bubble Gum Aromalı Mavi Waffle Kreması 1kg",
+    "name": "Bubble Gum Aromalı Mavi Waffle Kreması 1kg",
     "code": "CAL-BBG-1000",
     "codeGroup": "CALLEI",
     "categoryId": "cat-3",
@@ -2314,7 +2314,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p10-7",
-    "name": "CALLEI Antep Fıstıklı Yeşil Waffle & Krep Kreması 1kg",
+    "name": "Antep Fıstıklı Yeşil Waffle & Krep Kreması 1kg",
     "code": "CAL-PST-1000",
     "codeGroup": "CALLEI",
     "categoryId": "cat-3",
@@ -2342,7 +2342,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p10-8",
-    "name": "CALLEI Karamel Aromalı Sürülebilir Krema 1kg",
+    "name": "Karamel Aromalı Sürülebilir Krema 1kg",
     "code": "CAL-CAR-1000",
     "codeGroup": "CALLEI",
     "categoryId": "cat-3",
@@ -2370,7 +2370,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p12-1",
-    "name": "Caffè NONNO Passion Fruit Çarkıfelek Püresi 750ml",
+    "name": "Passion Fruit Çarkıfelek Püresi 750ml",
     "code": "NON-PAS-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -2398,7 +2398,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p12-2",
-    "name": "Monte Cristo Speculaas Bisküvi Aromalı Şurup 700ml",
+    "name": "Speculaas Bisküvi Aromalı Şurup 700ml",
     "code": "MTC-SPC-700",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -2426,7 +2426,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p12-3",
-    "name": "Caffè NONNO Kivi Aromalı Frozen Püre 750ml",
+    "name": "Kivi Aromalı Frozen Püre 750ml",
     "code": "NON-KIW-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -2454,7 +2454,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p12-4",
-    "name": "Krater Elmalı Meyve Karışımı 1000g",
+    "name": "Elmalı Meyve Karışımı 1000g",
     "code": "KRT-APL-1000",
     "codeGroup": "Krater",
     "categoryId": "cat-1",
@@ -2482,7 +2482,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p12-5",
-    "name": "Krater Ananaslı Meyve Karışımı 1000g",
+    "name": "Ananaslı Meyve Karışımı 1000g",
     "code": "KRT-PIN-1000",
     "codeGroup": "Krater",
     "categoryId": "cat-1",
@@ -2510,7 +2510,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p12-6",
-    "name": "Monte Cristo Badem Aromalı Şurup 700ml",
+    "name": "Badem Aromalı Şurup 700ml",
     "code": "MTC-ALM-700",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -2538,7 +2538,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p12-7",
-    "name": "Monte Cristo Chai Tea Baharatlı Şurup 700ml",
+    "name": "Chai Tea Baharatlı Şurup 700ml",
     "code": "MTC-CHT-700",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -2565,7 +2565,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p12-8",
-    "name": "Monte Cristo Antep Fıstığı Aromalı Şurup 700ml",
+    "name": "Antep Fıstığı Aromalı Şurup 700ml",
     "code": "MTC-PST-700",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -2593,7 +2593,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p12-9",
-    "name": "Monte Cristo Çikolata Aromalı Şurup 700ml",
+    "name": "Çikolata Aromalı Şurup 700ml",
     "code": "MTC-CHO-700",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -2621,7 +2621,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-p12-10",
-    "name": "Monte Cristo Pumpkin Spice Balkabağı Şurubu 700ml",
+    "name": "Pumpkin Spice Balkabağı Şurubu 700ml",
     "code": "MTC-PMP-700",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -2649,7 +2649,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt1-1",
-    "name": "Krater Çilekli Meyve Karışımı 1000g",
+    "name": "Çilekli Meyve Karışımı 1000g",
     "code": "KRT-STR-1000",
     "codeGroup": "Krater",
     "categoryId": "cat-1",
@@ -2677,7 +2677,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt1-2",
-    "name": "Krater Frambuazlı Meyve Karışımı 1000g",
+    "name": "Frambuazlı Meyve Karışımı 1000g",
     "code": "KRT-RAS-1000",
     "codeGroup": "Krater",
     "categoryId": "cat-1",
@@ -2705,7 +2705,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt1-3",
-    "name": "Krater Kavunlu Meyve Karışımı 1000g",
+    "name": "Kavunlu Meyve Karışımı 1000g",
     "code": "KRT-MEL-1000",
     "codeGroup": "Krater",
     "categoryId": "cat-1",
@@ -2733,7 +2733,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt1-4",
-    "name": "Krater Elmalı Meyve Karışımı Gold 1000g",
+    "name": "Elmalı Meyve Karışımı Gold 1000g",
     "code": "KRT-APG-1000",
     "codeGroup": "Krater",
     "categoryId": "cat-1",
@@ -2761,7 +2761,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt1-5",
-    "name": "DaVinci Gourmet Condensed Milk Koyulaştırılmış Süt Sosu 1L",
+    "name": "Condensed Milk Koyulaştırılmış Süt Sosu 1L",
     "code": "DVG-CND-1000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-4",
@@ -2789,7 +2789,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt1-6",
-    "name": "Krater Şeftalili Meyve Karışımı 1000g",
+    "name": "Şeftalili Meyve Karışımı 1000g",
     "code": "KRT-PCH-1000",
     "codeGroup": "Krater",
     "categoryId": "cat-1",
@@ -2817,7 +2817,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt1-7",
-    "name": "DaVinci Gourmet Yoğunlaştırılmış Süt Aromalı Sos 1L",
+    "name": "Yoğunlaştırılmış Süt Aromalı Sos 1L",
     "code": "DVG-CND-1000B",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-4",
@@ -2844,7 +2844,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt1-8",
-    "name": "DaVinci Gourmet Mango Fruit Beverage Mix 1L",
+    "name": "Mango Fruit Beverage Mix 1L",
     "code": "DVG-MNG-1000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1",
@@ -2872,7 +2872,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt1-9",
-    "name": "DaVinci Gourmet Strawberry Fruit Beverage Mix 1L",
+    "name": "Strawberry Fruit Beverage Mix 1L",
     "code": "DVG-STR-1000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1",
@@ -2899,7 +2899,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt1-10",
-    "name": "DaVinci Gourmet Mixed Berry Fruit Beverage Mix 1L",
+    "name": "Mixed Berry Fruit Beverage Mix 1L",
     "code": "DVG-MXB-1000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1",
@@ -2926,7 +2926,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt2-1",
-    "name": "Caffè NONNO Coconut Hindistan Cevizi Frozen Püre 750ml",
+    "name": "Coconut Hindistan Cevizi Frozen Püre 750ml",
     "code": "NON-COC-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -2954,7 +2954,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt2-2",
-    "name": "Caffè NONNO Karpuz Aromalı Frozen Püre 750ml",
+    "name": "Karpuz Aromalı Frozen Püre 750ml",
     "code": "NON-WTR-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -2982,7 +2982,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt2-3",
-    "name": "Caffè NONNO Red Forest Kırmızı Orman Meyveli Frozen 750ml",
+    "name": "Red Forest Kırmızı Orman Meyveli Frozen 750ml",
     "code": "NON-ROF-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -3010,7 +3010,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt2-4",
-    "name": "Caffè NONNO Kavun Aromalı Frozen Püre 750ml",
+    "name": "Kavun Aromalı Frozen Püre 750ml",
     "code": "NON-MEL-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -3038,7 +3038,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt2-5",
-    "name": "Caffè NONNO Karadut Aromalı Frozen Püre 750ml",
+    "name": "Karadut Aromalı Frozen Püre 750ml",
     "code": "NON-BKM-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -3066,7 +3066,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt2-6",
-    "name": "Caffè NONNO Çilek Aromalı Frozen Püre 750ml",
+    "name": "Çilek Aromalı Frozen Püre 750ml",
     "code": "NON-STR-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -3094,7 +3094,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt2-7",
-    "name": "Caffè NONNO Şeftali Aromalı Frozen Püre 750ml",
+    "name": "Şeftali Aromalı Frozen Püre 750ml",
     "code": "NON-PCH-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -3122,7 +3122,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt2-8",
-    "name": "Caffè NONNO Mango & Maracuja Frozen Püre 750ml",
+    "name": "Mango & Maracuja Frozen Püre 750ml",
     "code": "NON-MNG-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -3150,7 +3150,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt2-9",
-    "name": "DaVinci Gourmet Mixed Berry Orman Meyveli Mix 1L",
+    "name": "Mixed Berry Orman Meyveli Mix 1L",
     "code": "DVG-MXB-1000B",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1",
@@ -3177,7 +3177,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt2-10",
-    "name": "DaVinci Gourmet Passionfruit Çarkıfelek Mix 1L",
+    "name": "Passionfruit Çarkıfelek Mix 1L",
     "code": "DVG-PAS-1000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1",
@@ -3260,7 +3260,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt11-3",
-    "name": "Caffè NONNO Ananas Aromalı Frozen Püre 750ml",
+    "name": "Ananas Aromalı Frozen Püre 750ml",
     "code": "NON-PIN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -3287,7 +3287,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt11-4",
-    "name": "Caffè NONNO Cool Poka Portakallı Şurup 750ml",
+    "name": "Cool Poka Portakallı Şurup 750ml",
     "code": "NON-CPK-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -3315,7 +3315,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt11-5",
-    "name": "Caffè NONNO Çikolatalı Kurabiye Şurubu 750ml",
+    "name": "Çikolatalı Kurabiye Şurubu 750ml",
     "code": "NON-CKY-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -3343,7 +3343,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt11-6",
-    "name": "Caffè NONNO Vişne Aromalı Frozen Püre 750ml",
+    "name": "Vişne Aromalı Frozen Püre 750ml",
     "code": "NON-CHR-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -3371,7 +3371,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt11-7",
-    "name": "Caffè NONNO Muz Aromalı Frozen Püre 750ml",
+    "name": "Muz Aromalı Frozen Püre 750ml",
     "code": "NON-BNF-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -3426,7 +3426,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt11-9",
-    "name": "Caffè NONNO Yeşil Elma Frozen Püre 750ml",
+    "name": "Yeşil Elma Frozen Püre 750ml",
     "code": "NON-GAP-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -3481,7 +3481,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-1",
-    "name": "Monte Cristo Tarçın Aromalı Şurup 700 ml",
+    "name": "Tarçın Aromalı Şurup 700 ml",
     "code": "MC-SYR-CIN-700",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -3511,7 +3511,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-2",
-    "name": "Monte Cristo Nar Aromalı Şurup 700 ml",
+    "name": "Nar Aromalı Şurup 700 ml",
     "code": "MC-SYR-POM-700",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -3541,7 +3541,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-3",
-    "name": "Monte Cristo Hindistan Cevizi Aromalı Şurup 700 ml",
+    "name": "Hindistan Cevizi Aromalı Şurup 700 ml",
     "code": "MC-SYR-COC-700",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -3571,7 +3571,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-4",
-    "name": "Monte Cristo Fındık Aromalı Şurup 700 ml",
+    "name": "Fındık Aromalı Şurup 700 ml",
     "code": "MC-SYR-HAZ-700",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -3601,7 +3601,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-5",
-    "name": "Monte Cristo Karpuz Aromalı Şurup 700 ml",
+    "name": "Karpuz Aromalı Şurup 700 ml",
     "code": "MC-SYR-WAT-700",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -3631,7 +3631,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-6",
-    "name": "Monte Cristo Misket Limonu (Lime) Aromalı Şurup 700 ml",
+    "name": "Misket Limonu (Lime) Aromalı Şurup 700 ml",
     "code": "MC-SYR-LIM-700",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -3661,7 +3661,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-7",
-    "name": "CALLEI Beyaz Çikolatalı Çıtır Pirinç Patlağı Draje (İnci Topping)",
+    "name": "Beyaz Çikolatalı Çıtır Pirinç Patlağı Draje (İnci Topping)",
     "code": "CAL-TOP-WHT-1K",
     "codeGroup": "CALLEI Chocolate",
     "categoryId": "cat-3",
@@ -3691,7 +3691,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-8",
-    "name": "Monte Cristo Yeşil Limon (Lime) Kokteyl Şurubu 700 ml",
+    "name": "Yeşil Limon (Lime) Kokteyl Şurubu 700 ml",
     "code": "MC-SYR-LIM2-700",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -3720,7 +3720,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-9",
-    "name": "CALLEI Pembe Çıtır Pirinç Patlağı Süsleme Drajesi (Fuşya İnci)",
+    "name": "Pembe Çıtır Pirinç Patlağı Süsleme Drajesi (Fuşya İnci)",
     "code": "CAL-TOP-PNK-1K",
     "codeGroup": "CALLEI Chocolate",
     "categoryId": "cat-3",
@@ -3749,7 +3749,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-10",
-    "name": "CALLEI Sütlü Çikolatalı Çıtır Pirinç Patlağı Draje Topping",
+    "name": "Sütlü Çikolatalı Çıtır Pirinç Patlağı Draje Topping",
     "code": "CAL-TOP-MLK-1K",
     "codeGroup": "CALLEI Chocolate",
     "categoryId": "cat-3",
@@ -3779,7 +3779,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-11",
-    "name": "CALLEI Canlı Fuşya Çıtır Pirinç Patlağı Pasta & Waffle Drajesi",
+    "name": "Canlı Fuşya Çıtır Pirinç Patlağı Pasta & Waffle Drajesi",
     "code": "CAL-TOP-FUS-1K",
     "codeGroup": "CALLEI Chocolate",
     "categoryId": "cat-3",
@@ -3808,7 +3808,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-12",
-    "name": "CALLEI Bitter Çikolatalı Çıtır Pirinç Patlağı Draje Topping",
+    "name": "Bitter Çikolatalı Çıtır Pirinç Patlağı Draje Topping",
     "code": "CAL-TOP-DRK-1K",
     "codeGroup": "CALLEI Chocolate",
     "categoryId": "cat-3",
@@ -3838,7 +3838,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-13",
-    "name": "Egzotik Mangolu & Chia Tohumlu Cheesecake",
+    "name": "Mangolu & Chia Tohumlu Dilimli Cheesecake",
     "code": "PST-DNK-MNG-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3868,7 +3868,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-14",
-    "name": "Venedik Usulü Mascarpone Tiramisu",
+    "name": "İtalyan Tiramisu Dilimli Pasta",
     "code": "PST-DNK-TIR-10D",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3898,7 +3898,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-15",
-    "name": "Dubai Pırlantası Fıstıklı Kadayıf Mono",
+    "name": "Antep Fıstıklı & Çikolatalı Mono Kutu Pasta (Dubai Pasta)",
     "code": "PST-DNK-DUB-BOX",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3928,7 +3928,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-16",
-    "name": "Lotus Biscoff & Yaban Mersini Senfonisi",
+    "name": "Lotus Bisküvili & Yaban Mersinli Bütün Pasta (Dilimli)",
     "code": "PST-DNK-LOT-BLU",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3958,7 +3958,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-17",
-    "name": "Yoğun Bitter Ganajlı Fıstık Ezmeli Dilim",
+    "name": "Yoğun Çikolatalı & Fıstık Ezmeli Dilim Pasta",
     "code": "PST-DNK-PNT-CHOC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3988,7 +3988,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-18",
-    "name": "Kavrulmuş Fındıklı Altın Karamel Mono",
+    "name": "Karamelli & Fındık Parçacıklı Mono Pasta",
     "code": "PST-DNK-CRM-MONO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4018,7 +4018,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-19",
-    "name": "Orman Meyveli Fudgy Belçika Brownie",
+    "name": "Kuruyemişli & Kırmızı Meyveli Fudgy Brownie Dilim",
     "code": "PST-DNK-BRW-NUT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4048,7 +4048,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-20",
-    "name": "Zümrüt Antep Fıstığı & Ahududu Katmanlı Dilim",
+    "name": "Antep Fıstıklı & Ahududu Katmanlı Dilim Pasta",
     "code": "PST-DNK-PST-RAS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4078,7 +4078,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-1",
-    "name": "Yaban Mersini Bahçesi Kare Pasta",
+    "name": "Çikolata Kaplı Çilekli Mono Pasta",
     "code": "PST-DNK-MN-CHOC-STR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4110,7 +4110,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-2",
-    "name": "Espresso Aromalı Çikolatalı Fudgy Kare",
+    "name": "Antep Fıstıklı Mono Pasta (Fıstık Rüyası)",
     "code": "PST-DNK-MN-PST",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4141,7 +4141,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-3",
-    "name": "Klasik Mascarpone Tiramisu Kare Dilim",
+    "name": "Limonlu & Glazürlü Mono Kubbe Pasta",
     "code": "PST-DNK-MN-LIM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4172,7 +4172,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-4",
-    "name": "Kırmızı Kadife (Red Velvet) Rüya Kare",
+    "name": "Orman Meyveli & Ahududulu Mono Pasta (Red Berry)",
     "code": "PST-DNK-MN-RED",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4203,7 +4203,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-5",
-    "name": "Fırınlanmış New York Usulü Mini Cheesecake",
+    "name": "Lotus Bisküvili Karamel Mono Pasta",
     "code": "PST-DNK-MN-LOT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4234,7 +4234,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-6",
-    "name": "Tropikal Mango & Beyaz Çikolata Dome",
+    "name": "Rocher Fındıklı & Çikolatalı Mono Pasta",
     "code": "PST-DNK-MN-ROC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4265,7 +4265,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-7",
-    "name": "Belçika Çikolatalı Truffle Küre Mono",
+    "name": "Karamel Soslu & Kremalı Katlı Dilim Pasta",
     "code": "PST-DNK-DL-CRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4296,7 +4296,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-8",
-    "name": "Fındık Krokanlı Yoğun Çikolata Brownie",
+    "name": "Antep Fıstıklı & Çikolatalı Katlı Dilim Pasta",
     "code": "PST-DNK-DL-PSTC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4327,7 +4327,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-9",
-    "name": "Beyaz İnci Hindistan Cevizli Kubbe",
+    "name": "Moka Kahveli & Fındıklı Dilim Pasta",
     "code": "PST-DNK-DL-MOK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4358,7 +4358,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-10",
-    "name": "Mangolu Mascarpone Kup Parfe",
+    "name": "Karaorman Meyveli (Schwarzwalder) Dilim Pasta",
     "code": "PST-DNK-DL-BLF",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4389,7 +4389,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-11",
-    "name": "Akışkan Kalpli Sıcak Çikolata Sufle",
+    "name": "Çikolatalı & Fındık Parçacıklı Dilim Kek",
     "code": "PST-DNK-DL-CHK-KEK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4420,7 +4420,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-12",
-    "name": "Orman Meyveli Çikolata Rulo Mono",
+    "name": "Geleneksel Çikolatalı Mozaik Pasta Dilimi",
     "code": "PST-DNK-DL-MOZ",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4451,7 +4451,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-13",
-    "name": "Antep Fıstıklı Zümrüt Üçgen Dilim",
+    "name": "Çilekli Mono Box Magnolia & Kutu Pasta",
     "code": "PST-DNK-BX-STR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -4483,7 +4483,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-14",
-    "name": "Kakao Taneli Espresso Tiramisu Kup",
+    "name": "Oreo & Çikolatalı Mono Box Kutu Pasta",
     "code": "PST-DNK-BX-OREO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4514,7 +4514,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-15",
-    "name": "Karamelize Lotus Bisküvi Kup Parfe",
+    "name": "Lotus Biscoff Mono Box Kutu Pasta",
     "code": "PST-DNK-BX-LOT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4545,7 +4545,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-16",
-    "name": "Yarım Ay Çikolatalı Mousse Pasta",
+    "name": "Çikolatalı Kubbe Rulo Dilim Pasta (D-Kek)",
     "code": "PST-DNK-DL-KUB",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -4577,7 +4577,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-17",
-    "name": "Yaban Mersinli Tereyağlı Crumble Tart Dilim",
+    "name": "Orman Meyveli & Crumble Cheesecake Dilimi",
     "code": "PST-DNK-DL-CRM-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4608,7 +4608,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-18",
-    "name": "Çikolata Parçacıklı Kurabiye Tart Dilim",
+    "name": "Çikolata Dolgulu Cookie Turta (Cookie Pie) Dilimi",
     "code": "PST-DNK-DL-CKP",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4639,7 +4639,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-19",
-    "name": "Taze Çilekli Mini Butik Cheesecake",
+    "name": "Çilekli & Antep Fıstıklı Mono Cheesecake",
     "code": "PST-DNK-MN-STR-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4670,7 +4670,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-20",
-    "name": "Zümrüt Antep Fıstıklı Truffle Küre Mono",
+    "name": "Dubai Kadayıflı & Fıstıklı Mono Küre Pasta",
     "code": "PST-DNK-MN-DUB-KAD",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -4703,7 +4703,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-1",
-    "name": "Otantik İtalyan Tiramisu Üçgen Dilim",
+    "name": "İtalyan Tiramisu Üçgen Dilim Pasta",
     "code": "PST-DNK-DL-TIR-TRI",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4734,7 +4734,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-2",
-    "name": "Orman Meyveli Beyaz Kadife Dilim",
+    "name": "Frambuazlı & Beyaz Çikolatalı Dilim Pasta",
     "code": "PST-DNK-DL-FRM-WHT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -4766,7 +4766,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-3",
-    "name": "Mor Dağ Meyveleri Glazür Kubbe Mono",
+    "name": "Böğürtlenli & Mor Glazürlü Mono Kubbe Pasta",
     "code": "PST-DNK-MN-BGR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -4798,7 +4798,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-4",
-    "name": "Kare Katmanlı Gurme Tiramisu",
+    "name": "Kare Porsiyon İtalyan Tiramisu",
     "code": "PST-DNK-SQ-TIR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4829,7 +4829,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-5",
-    "name": "Geleneksel Ballı Rus Medovik Dilim",
+    "name": "Geleneksel Ballı Medovik Dilim Pasta",
     "code": "PST-DNK-DL-MED",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4860,7 +4860,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-6",
-    "name": "Ahududulu Pileli Fransız Sanat Monosu",
+    "name": "Frambuazlı & Egzotik Meyveli Mono Parfe",
     "code": "PST-DNK-MN-PRF-1",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -4892,7 +4892,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-7",
-    "name": "Gül & Beyaz Çikolatalı Kadife Mono",
+    "name": "Orman Meyveli Çiçek Desenli Mono Parfe",
     "code": "PST-DNK-MN-PRF-2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -4924,7 +4924,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-8",
-    "name": "Böğürtlenli & Mor Meyveli Pileli Mono",
+    "name": "Karışık Meyveli Silindir Mono Parfe",
     "code": "PST-DNK-MN-PRF-3",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -4955,7 +4955,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-9",
-    "name": "Taze Yaban Mersinli Fırın Cheesecake",
+    "name": "Yaban Mersinli (Blueberry) Cheesecake Dilimi",
     "code": "PST-DNK-DL-BLU-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4986,7 +4986,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-10",
-    "name": "Moka Kahveli & Bitter Çekirdekli Kubbe",
+    "name": "Kahve Çekirdeği Şekilli Mono Mousse Pasta",
     "code": "PST-DNK-MN-COF-BEAN",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -5018,7 +5018,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-11",
-    "name": "Aynalı Çikolata Glazürlü Gurme Baton Kek",
+    "name": "Bitter Çikolata & Fıstık Kaplı Baton Mono Kek",
     "code": "PST-DNK-MN-BAT-CHOC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5050,7 +5050,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-12",
-    "name": "Gökkuşağı (Rainbow) Katlı Şenlik Pastası",
+    "name": "Gökkuşağı (Rainbow) Katlı Dilim Pasta",
     "code": "PST-DNK-DL-RNB",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5082,7 +5082,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-13",
-    "name": "Karamel Krokanlı Çok Katlı Dilim Pasta",
+    "name": "Karamelli & Krokantlı Dilim Pasta",
     "code": "PST-DNK-DL-CRM-KROK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5114,7 +5114,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-14",
-    "name": "Siyah Bisküvili Karamel Mono Pasta",
+    "name": "Oreo & Karamel Kremalı Mono Pasta",
     "code": "PST-DNK-MN-OREO-CRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5146,7 +5146,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-15",
-    "name": "Zümrüt Yeşili Antep Fıstığı Silindir Mono",
+    "name": "Antep Fıstıklı & Ganajlı Mono Pasta",
     "code": "PST-DNK-MN-PST-GNJ",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5178,7 +5178,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-16",
-    "name": "Fıstık Glazürlü Pırlanta Kare Mono",
+    "name": "Fıstıklı & Çikolata Kremalı Mini Mono Pasta",
     "code": "PST-DNK-MN-PST-MINI",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5210,7 +5210,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-17",
-    "name": "Bitter Çikolata Mousse Gurme Dilim",
+    "name": "Çikolatalı Kadife Mousse Dilim Pasta",
     "code": "PST-DNK-DL-CHOC-VLV",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -5241,7 +5241,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-18",
-    "name": "İpeksi Çikolatalı Kup Parfe",
+    "name": "Yoğun Çikolatalı Mono Box Mousse Tatlısı",
     "code": "PST-DNK-BX-CHOC-MSS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -5272,7 +5272,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-19",
-    "name": "Kırmızı Meyveli Velvet Kadeh Tatlısı",
+    "name": "Orman Meyveli & Kadife Mono Box Kutu Pasta",
     "code": "PST-DNK-BX-FRM-MSS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -5303,7 +5303,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-20",
-    "name": "Belçika Çikolatalı Çıtır Profiterol Kutu",
+    "name": "Profiterollü & Supangle Mono Box Tatlısı",
     "code": "PST-DNK-BX-PRO-SUP",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -5334,7 +5334,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-1",
-    "name": "Antep Fıstıklı Gurme Magnolia Kutu",
+    "name": "Antep Fıstıklı Magnolia Mono Box Tatlısı",
     "code": "PST-DNK-BX-PST",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5366,7 +5366,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-2",
-    "name": "Mor Kadife Yaban Mersinli Dilim",
+    "name": "Yaban Mersinli & Böğürtlenli Dilim Pasta",
     "code": "PST-DNK-DLM-BLU",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5398,7 +5398,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-3",
-    "name": "Çift Kat Çikolatalı Sandviç Dilim",
+    "name": "İtalyan Tiramisu & Kakaolu Mousse Dilim Pasta",
     "code": "PST-DNK-DLM-TIR-CHOC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -5429,7 +5429,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-4",
-    "name": "Kırmızı Meyveli Panna Cotta Kup",
+    "name": "Frambuazlı & Çikolatalı Parfe Kup Tatlısı",
     "code": "PST-DNK-KP-FRM-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5461,7 +5461,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-5",
-    "name": "Kavrulmuş Fındıklı Krokan Silindir Mono",
+    "name": "Karamelize Fındık & Krokanlı Mono Pasta",
     "code": "PST-DNK-MN-KRO-CAR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5493,7 +5493,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-6",
-    "name": "Tereyağlı Amerikan Damla Çikolatalı Cookie",
+    "name": "Bol Çikolata Parçacıklı Gurme Amerikan Cookie (2'li / Koli)",
     "code": "PST-DNK-CKI-CHOC-2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -5524,7 +5524,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-7",
-    "name": "Klasik Vanilyalı Jumbo Fırın Cookie",
+    "name": "Klasik Vanilyalı & Çikolata Taneli Jumbo Cookie (3'lü Sunum)",
     "code": "PST-DNK-CKI-JUMBO-3",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -5555,7 +5555,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-8",
-    "name": "Limonlu & Mavi Haşhaşlı Baton Dilim Kek",
+    "name": "Mavi Haşhaşlı & Limonlu Baton Dilim Kek",
     "code": "PST-DNK-KEK-HSH-LIM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5587,7 +5587,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-9",
-    "name": "Yoğun Bitter Çikolatalı Double Cookie",
+    "name": "Fırın Tipi Çift Çikolatalı Gurme Cookie (2'li Paket)",
     "code": "PST-DNK-CKI-DBL-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -5617,7 +5617,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-10",
-    "name": "Ebruli Mozaik Kakaolu Baton Dilim Kek",
+    "name": "Mozaik (Ebruli) Kakaolu & Sade Baton Dilim Kek",
     "code": "PST-DNK-KEK-MOZ-BAT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5649,7 +5649,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-11",
-    "name": "Havuçlu, Tarçınlı & Bol Cevizli Baton Kek",
+    "name": "Havuçlu, Tarçınlı & Cevizli Gurme Baton Dilim Kek",
     "code": "PST-DNK-KEK-HVC-TRC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5681,7 +5681,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-12",
-    "name": "Vanilyalı & Bitter Ganajlı Kare Kup",
+    "name": "Çikolata Ganajlı & Vanilyalı Kare Mono Kup Tatlısı",
     "code": "PST-DNK-KP-VAN-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5713,7 +5713,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-13",
-    "name": "Kırmızı Kadife Kalp Mono Pasta",
+    "name": "Red Velvet Kalp Mono Pasta",
     "code": "PST-DNK-MN-RED-HRT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5745,7 +5745,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-14",
-    "name": "Boston Kremalı Çikolata Glazürlü Dilim",
+    "name": "Boston Kremalı & Çikolata Soslu Dilim Pasta",
     "code": "PST-DNK-DLM-BST-CRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -5775,7 +5775,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-15",
-    "name": "Yulaflı & Kuru Meyveli Fit Cookie",
+    "name": "Yulaflı & Damla Çikolatalı Gurme Cookie (2'li)",
     "code": "PST-DNK-CKI-OAT-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -5805,7 +5805,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-16",
-    "name": "Sicilya Limonlu Kadife Kubbe Mono",
+    "name": "Limonlu Kadife Kubbe (Lemon Dome) Mono Pasta",
     "code": "PST-DNK-MN-LIM-DOM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5837,7 +5837,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-17",
-    "name": "Tropikal Mango & Çarkıfelek Kubbe Mono",
+    "name": "Tropikal Mango & Çarkıfelek Kubbe Mono Pasta",
     "code": "PST-DNK-MN-MNG-PAS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5869,7 +5869,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-18",
-    "name": "Karamelli & Yer Fıstıklı Snickers Mono",
+    "name": "Karamelli & Fıstıklı Snickers Mono Pasta",
     "code": "PST-DNK-MN-SNK-CAR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5901,7 +5901,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-19",
-    "name": "Red Velvet & Antep Fıstıklı Gurme Dilim",
+    "name": "Red Velvet & Antep Fıstıklı Gurme Dilim Pasta",
     "code": "PST-DNK-DLM-RED-PST",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5933,7 +5933,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-20",
-    "name": "New York Usulü Red Velvet Cheesecake",
+    "name": "Red Velvet Cheesecake Dilim Pasta",
     "code": "PST-DNK-DLM-RED-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -5963,7 +5963,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-21",
-    "name": "Bitter Çikolatalı & Deniz Tuzlu Gurme Tartlet",
+    "name": "Yoğun Bitter Çikolatalı & Deniz Tuzlu Gurme Tartlet",
     "code": "PST-DNK-TRT-BIT-CHOC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -5995,7 +5995,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-22",
-    "name": "Fransız Usulü Çıtır Craquelin Ekler",
+    "name": "Çıtır Kıtır Craquelin Ekler Kabuğu & Dolgulu Ekler",
     "code": "PST-DNK-EKL-CRQ-10",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6028,7 +6028,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-1",
-    "name": "Trompe-l'œil Egzotik Mango İllüzyon Mono",
+    "name": "Mango Trompe-l'œil Gurme Mono Pasta",
     "code": "PST-DNK-MN-MNG-TRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6061,7 +6061,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-2",
-    "name": "Tropikal Mango Mousse İllüzyon Sanatı",
+    "name": "Tropikal Mango Mousse İllüzyon Mono Pasta",
     "code": "PST-DNK-MN-MNG-V2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6092,7 +6092,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-3",
-    "name": "Trompe-l'œil Antep Fıstığı İllüzyon Mono",
+    "name": "Antep Fıstığı Görünümlü Trompe-l'œil Mono Pasta",
     "code": "PST-DNK-MN-PST-TRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6124,7 +6124,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-4",
-    "name": "Zümrüt Fıstık Rüyası Gurme İllüzyon Mono",
+    "name": "Fıstık Rüyası Gurme Mono İllüzyon Pasta",
     "code": "PST-DNK-MN-PST-V2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6155,7 +6155,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-5",
-    "name": "Yoğun Bitter Çikolatalı Devil's Food Dilim",
+    "name": "Yoğun Bitter Çikolatalı Devil's Dilim Pasta",
     "code": "PST-DNK-DLM-DEV-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -6185,7 +6185,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-6",
-    "name": "Paris-Brest Çıtır Craquelin Choux Halka",
+    "name": "Fransız Usulü Çıtır Craquelin Kremalı Choux Halka Pasta",
     "code": "PST-DNK-MN-CHX-PRS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6217,7 +6217,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-7",
-    "name": "Nostaljik Çikolatalı Bisküvili Mozaik Dilim",
+    "name": "Geleneksel Çikolatalı Bisküvili Mozaik Dilim Pasta",
     "code": "PST-DNK-DLM-MOZ-CLS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -6248,7 +6248,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-8",
-    "name": "Orijinal San Sebastian Yanık Cheesecake Dilim",
+    "name": "Orijinal San Sebastian Yanık Cheesecake Dilim Pasta",
     "code": "PST-DNK-DLM-SAN-SEB",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -6279,7 +6279,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-9",
-    "name": "Zümrüt Antep Fıstığı Kaplı Kubbe Mono",
+    "name": "Bol Antep Fıstığı Kaplı Kubbe Mono Pasta",
     "code": "PST-DNK-MN-PST-DOM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6310,7 +6310,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-10",
-    "name": "Lotus Biscoff Karamelize Cheesecake Dilim",
+    "name": "Lotus Biscoff Karamel Bisküvili Cheesecake Dilim",
     "code": "PST-DNK-DLM-CHK-LOT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -6341,7 +6341,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-11",
-    "name": "Kara Orman Vişneli & Çikolatalı Dilim",
+    "name": "Vişneli Kara Orman Meyveli Çikolatalı Dilim Pasta",
     "code": "PST-DNK-DLM-BLK-FOR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6373,7 +6373,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-12",
-    "name": "Fransız Karamelize Craquelin Gurme Ekler",
+    "name": "Fransız Usulü Çıtır Craquelin Kremalı Gurme Ekler",
     "code": "PST-DNK-EKL-CRQ-LNG",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6404,7 +6404,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-13",
-    "name": "Orman Meyveli Makaronlu Glazür Kubbe Mono",
+    "name": "Orman Meyveli & Makaronlu Glazür Kubbe Mono Pasta",
     "code": "PST-DNK-MN-FRT-DOM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6436,7 +6436,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-14",
-    "name": "Beyaz Çikolatalı Profiterollü Polka Mono",
+    "name": "Beyaz Çikolata Parçacıklı Profiterollü Polka Mono Pasta",
     "code": "PST-DNK-MN-WHT-POL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6468,7 +6468,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-15",
-    "name": "Klasik New York Red Velvet Dilim Pasta",
+    "name": "Klasik Red Velvet (Kırmızı Kadife) Dilim Pasta",
     "code": "PST-DNK-DLM-RED-VEL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -6498,7 +6498,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-16",
-    "name": "Vişneli & Beyaz Kremalı Dikdörtgen Dilim",
+    "name": "Vişneli & Beyaz Kremalı Dikdörtgen Dilim Pasta",
     "code": "PST-DNK-DLM-OPR-BER",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6529,7 +6529,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-17",
-    "name": "Klasik Fransız Opera Dilim Pasta (Kahve & Karamel)",
+    "name": "Mocha & Karamel Glazürlü Çok Katlı Opera Dilim Pasta",
     "code": "PST-DNK-DLM-OPR-MCH",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -6560,7 +6560,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-18",
-    "name": "Fırınlanmış Karamel & Mocha Opera Dilim",
+    "name": "Kahveli & Fırınlanmış Karamel Opera Dilim Pasta",
     "code": "PST-DNK-DLM-OPR-ESP",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -6590,7 +6590,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-19",
-    "name": "Kremalı Havuçlu & Bol Cevizli Dilim Pasta",
+    "name": "Kremalı Havuçlu, Tarçınlı & Bol Cevizli Dilim Pasta",
     "code": "PST-DNK-DLM-HVC-CRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6622,7 +6622,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-20",
-    "name": "Çikolatalı Fındıklı Raffaello Kubbe Mono",
+    "name": "Çikolatalı, Fındıklı & Hindistan Cevizli Kubbe Mono Pasta",
     "code": "PST-DNK-MN-CHO-FND",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6684,7 +6684,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-2",
-    "name": "Çilek & Frambuaz Dolgulu Kalp Aşk Pastası",
+    "name": "Bitter Çikolata Kaplı Profiterollü Polka Mono Pasta",
     "code": "PST-DNK-MN-BIT-POL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6715,7 +6715,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-3",
-    "name": "Limon Soslu Klasik New York Cheesecake",
+    "name": "Limon Soslu Klasik New York Cheesecake Dilim",
     "code": "PST-DNK-DLM-CHK-LIM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -6745,7 +6745,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-4",
-    "name": "Sicilya Limonlu & Bademli Gurme Cheesecake",
+    "name": "Sicilya Limonlu Gurme Cheesecake Dilim",
     "code": "PST-DNK-DLM-CHK-LM2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -6774,7 +6774,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-5",
-    "name": "Kartopu Hindistan Cevizli Beyaz Truffle Mono",
+    "name": "Çikolatalı & Bol Hindistan Cevizli Kartopu Mono Pasta",
     "code": "PST-DNK-MN-COC-BAL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6805,7 +6805,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-6",
-    "name": "Kavrulmuş Fındıklı Fudgy Brownie Dilim",
+    "name": "Kavrulmuş Fındık Kaplı Karamel Kare Mono Pasta",
     "code": "PST-DNK-MN-KRO-FND",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6836,7 +6836,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-7",
-    "name": "Süt Karamel & Dulce de Leche Kubbe Mono",
+    "name": "Süt Karamel & Dulce de Leche Kubbe Mono Pasta",
     "code": "PST-DNK-MN-DUL-CAR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6867,7 +6867,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-8",
-    "name": "Bitter Çikolata & Beyaz Bukleli Kubbe Mono",
+    "name": "Çikolata Mousse & Beyaz Çikolata Bukleli Kubbe Mono",
     "code": "PST-DNK-MN-CHO-WTR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -6898,7 +6898,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-9",
-    "name": "Frambuaz Soslu Klasik New York Cheesecake",
+    "name": "Frambuaz Soslu Klasik New York Cheesecake Dilim",
     "code": "PST-DNK-DLM-CHK-FRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -6928,7 +6928,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-10",
-    "name": "Orijinal Venedik Usulü Tiramisu Dilim",
+    "name": "Orijinal İtalyan Usulü Tiramisu Dilim Pasta",
     "code": "PST-DNK-DLM-TIR-ITA",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -6959,7 +6959,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-11",
-    "name": "Çikolata Glazürlü Mascarpone Tiramisu Dilim",
+    "name": "Çikolata Glazürlü & Mascarpone Tiramisu Dilim Pasta",
     "code": "PST-DNK-DLM-TIR-GLZ",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -6989,7 +6989,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-12",
-    "name": "Yoğun Espresso Mascarpone Tiramisu",
+    "name": "Espresso Aromalı Mascarpone Tiramisu Dilim",
     "code": "PST-DNK-DLM-TIR-ESP",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -7019,7 +7019,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-13",
-    "name": "Red Velvet & Antep Fıstıklı Dikdörtgen Mono",
+    "name": "Frambuazlı & Kırmızı Kadife 'Love' Kalp Mono Pasta",
     "code": "PST-DNK-MN-HRT-LOV",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -7051,7 +7051,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-14",
-    "name": "Red Velvet & Beyaz Çikolatalı Fırın Cookie",
+    "name": "Red Velvet & Beyaz Çikolata Parçacıklı Gurme Cookie (2'li)",
     "code": "PST-DNK-CKI-RED-WHT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -7143,7 +7143,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-17",
-    "name": "Ruby Çikolatalı & Çilekli Magnolia Kup",
+    "name": "Çilekli & Ruby Magnolia Parfe Kup Tatlısı",
     "code": "PST-DNK-KP-STR-RUB",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -7175,7 +7175,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-18",
-    "name": "Süt Karamel & Bitter Ganajlı Gurme Kup",
+    "name": "Süt Karamel & Bitter Ganajlı Gurme Kup Tatlısı",
     "code": "PST-DNK-KP-DUL-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -7207,7 +7207,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-19",
-    "name": "Limonlu & Karamel Katmanlı Oval Mono Kutu",
+    "name": "Limonlu & Karamel Katmanlı Oval Mono Box Tatlısı",
     "code": "PST-DNK-BX-LIM-OVL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -7238,7 +7238,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-20",
-    "name": "Çikolata Ganajlı & Bisküvili Dikdörtgen Box",
+    "name": "Çikolata Ganajlı & Bisküvili Dikdörtgen Mono Box Tatlısı",
     "code": "PST-DNK-BX-CHO-REC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -7268,7 +7268,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-1",
-    "name": "Red Velvet & Fıstıklı Mono",
+    "name": "Red Velvet & Antep Fıstıklı Dikdörtgen Mono Pasta",
     "code": "PST-DNK-MN-RED-PST-REC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -7299,7 +7299,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-2",
-    "name": "Çilek & Ahududu Kalbi Mono Aşk Pastası",
+    "name": "Çilek & Frambuaz Dolgulu Kalp Mono Aşk Pastası",
     "code": "PST-DNK-MN-HRT-LOV-2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -7331,7 +7331,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-3",
-    "name": "Bitter Çikolata Kaplı Orman Meyveli Rulo Mono",
+    "name": "Çikolata Kaplamalı Orman Meyveli Rulo Mono Pasta",
     "code": "PST-DNK-MN-RUL-FRT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -7362,7 +7362,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-4",
-    "name": "Yoğun Fındıklı & Kuru Meyveli Kare Brownie",
+    "name": "Yoğun Fındıklı & Kuru Meyveli Kare Brownie Dilim Pasta",
     "code": "PST-DNK-DLM-BRW-FND",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -7394,7 +7394,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-5",
-    "name": "Narenciye & Antep Fıstıklı Sarı Glazür Kubbe",
+    "name": "Narenciye & Antep Fıstıklı Sarı Glazür Kubbe Mono Pasta",
     "code": "PST-DNK-MN-LIM-PST-DOM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -7426,7 +7426,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-6",
-    "name": "Tane Yaban Mersinli & Krokanlı Cheesecake Dilim",
+    "name": "Tane Yaban Mersinli & Krokan Kenarlı Cheesecake Dilim",
     "code": "PST-DNK-DLM-CHK-BLU-TN",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -7457,7 +7457,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-7",
-    "name": "Fransız Tereyağlı Klasik Kruvasan (Pişmeye / Servise Hazır)",
+    "name": "Fransız Tereyağlı Sade Klasik Kruvasan (Pişmeye / Servise Hazır)",
     "code": "PST-DNK-UNL-KRV-SAD",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -7488,7 +7488,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-8",
-    "name": "New York Roll Spiral Kat Kat Gurme Çörek",
+    "name": "New York Roll Spiral Kat Kat Kruvasan Çöreği",
     "code": "PST-DNK-UNL-NY-ROLL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -7519,7 +7519,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-9",
-    "name": "Belçika Çikolatası & Fındıklı Gurme Kruvasan",
+    "name": "Çikolata Dolgulu & Kavrulmuş Fındıklı Gurme Kruvasan",
     "code": "PST-DNK-UNL-KRV-CHO-FND",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -7579,7 +7579,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-11",
-    "name": "Fransız Tereyağlı Kalın Brioche Tost & Sandviç Dilimi",
+    "name": "Gurme Tost & Sandviç Ekmeği Kalın Dilim (2'li Servis)",
     "code": "PST-DNK-UNL-TST-EKM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -7670,7 +7670,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-14",
-    "name": "Monte Cristo Cool Lime Base Aromalı Barista Şurubu 1000ml",
+    "name": "Cool Lime Base Aromalı Barista Şurubu 1000ml",
     "code": "MNT-CLM-1000",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
