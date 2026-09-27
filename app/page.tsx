@@ -51,7 +51,7 @@ const DEFAULT_SLIDERS: SliderItem[] = [
     id: "slide-1",
     name: "Çikolatalı & Meyveli Premium Donuk Pastalar",
     description: "Profesyonel kafeler ve restoranlar için anında servise hazır donuk pasta çeşitleri.",
-    imageUrl: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1400&q=85",
+    imageUrl: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=3840&q=100&auto=format&fit=crop",
     imageAlt: "Donuk Pasta Çeşitleri",
     order: 1,
     isActive: true,
@@ -61,7 +61,7 @@ const DEFAULT_SLIDERS: SliderItem[] = [
     id: "slide-2",
     name: "Belçika Usulü Waffle & Özel Çikolata Sosları",
     description: "Çıtır dış doku ve akışkan premium çikolata sosları ile lezzet lezzeti.",
-    imageUrl: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=1400&q=85",
+    imageUrl: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=3840&q=100&auto=format&fit=crop",
     imageAlt: "Waffle Malzemeleri",
     order: 2,
     isActive: true,
@@ -71,7 +71,7 @@ const DEFAULT_SLIDERS: SliderItem[] = [
     id: "slide-3",
     name: "%100 Doğal Meyve Püreleri & Konsantreler",
     description: "Çilek, ahududu ve mango püreleri ile pastalarınıza doğal meyve tadı verin.",
-    imageUrl: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=1400&q=85",
+    imageUrl: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=3840&q=100&auto=format&fit=crop",
     imageAlt: "Meyve Püreleri",
     order: 3,
     isActive: true,
@@ -81,7 +81,7 @@ const DEFAULT_SLIDERS: SliderItem[] = [
     id: "slide-4",
     name: "Aromatik Kahve & Gurme Lezzet Şurupları",
     description: "Karamel, vanilya ve fındık aromalarıyla içecek ve tatlılarınızı zenginleştirin.",
-    imageUrl: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1400&q=85",
+    imageUrl: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=3840&q=100&auto=format&fit=crop",
     imageAlt: "Lezzet Şurupları",
     order: 4,
     isActive: true,
@@ -91,7 +91,7 @@ const DEFAULT_SLIDERS: SliderItem[] = [
     id: "slide-5",
     name: "San Sebastian & Taze Fırıncılık Hammaddeleri",
     description: "Gurme pastaneler için yüksek kaliteli hamur ve krema malzemeleri.",
-    imageUrl: "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=1400&q=85",
+    imageUrl: "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=3840&q=100&auto=format&fit=crop",
     imageAlt: "Pastacılık Hammaddeleri",
     order: 5,
     isActive: true,
@@ -300,30 +300,23 @@ export default function HomePage() {
 
   const hasSliders = sliders.length > 0;
 
-  /* Sinematik Ken Burns & Soft Crossfade Animasyonu */
+  /* Donanım compositing katmanlarını zorlamayan kristal netliğinde soft crossfade */
   const slideVariants: Variants = {
     initial: {
       opacity: 0,
-      scale: 1.08,
-      filter: "blur(4px)",
     },
     animate: {
       opacity: 1,
-      scale: 1,
-      filter: "blur(0px)",
       transition: {
-        opacity: { duration: 0.8, ease: "easeInOut" },
-        scale: { duration: 1.2, ease: "easeInOut" },
-        filter: { duration: 0.5 },
+        duration: 0.6,
+        ease: "easeInOut",
       },
     },
     exit: {
       opacity: 0,
-      scale: 1.02,
-      filter: "blur(2px)",
       transition: {
-        opacity: { duration: 0.6, ease: "easeInOut" },
-        filter: { duration: 0.4 },
+        duration: 0.5,
+        ease: "easeInOut",
       },
     },
   };
@@ -353,36 +346,33 @@ export default function HomePage() {
                     animate="animate"
                     exit="exit"
                     className="absolute inset-0"
-                    style={{ backfaceVisibility: "hidden" }}
                   >
                     <Image
                       src={sliders[currentSlide].imageUrl}
                       alt={sliders[currentSlide].imageAlt || sliders[currentSlide].name}
                       fill
                       priority
-                      quality={100}
-                      sizes="(max-width: 768px) 100vw, 100vw"
-                      className="object-cover object-center"
-                      style={{ imageRendering: "auto" }}
+                      unoptimized
+                      className="object-cover object-center hero-slider-image"
                     />
                   </motion.div>
                 </AnimatePresence>
-                {/* Preload next slide */}
+                {/* Preload next slide at full 4K directly into browser cache */}
                 {sliders.length > 1 && (
-                  <Image
-                    src={sliders[(currentSlide + 1) % sliders.length].imageUrl}
-                    alt=""
-                    fill
-                    priority
-                    quality={100}
-                    sizes="1px"
-                    className="opacity-0 pointer-events-none absolute"
-                    aria-hidden
-                  />
+                  <div className="hidden" aria-hidden="true">
+                    <Image
+                      src={sliders[(currentSlide + 1) % sliders.length].imageUrl}
+                      alt=""
+                      width={1}
+                      height={1}
+                      unoptimized
+                      priority
+                    />
+                  </div>
                 )}
 
-                {/* Gradient Overlay — Strong for readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-black/20" />
+                {/* Gradient Overlay — subtle for maximum image clarity, dark at bottom for caption legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/25 to-black/10 pointer-events-none" />
 
                 {/* Slide Caption / Tag */}
                 <AnimatePresence mode="wait">
@@ -449,14 +439,12 @@ export default function HomePage() {
             ) : (
               <>
                 <Image
-                  src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=3840&q=100"
+                  src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=3840&q=100&auto=format&fit=crop"
                   alt="Premium pastacılık ürünleri"
                   fill
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, 100vw"
-                  className="object-cover object-center"
                   priority
-                  style={{ imageRendering: "auto" }}
+                  unoptimized
+                  className="object-cover object-center hero-slider-image"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-transparent to-transparent" />
                 <div className="absolute bottom-8 left-6 right-6 sm:left-10 sm:right-10 z-10">

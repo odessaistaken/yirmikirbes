@@ -350,8 +350,13 @@ export async function compressImage(
         let width = img.naturalWidth || img.width;
         let height = img.naturalHeight || img.height;
 
-        // If image is already smaller than max dimensions and under 600KB WebP, keep as is
-        if (width <= maxWidth && height <= maxWidth && file.size < 600 * 1024 && file.type === "image/webp") {
+        // If image is already within max dimensions and reasonably sized, keep original without generation loss
+        if (
+          width <= maxWidth &&
+          height <= maxWidth &&
+          file.size < 8 * 1024 * 1024 &&
+          (file.type === "image/webp" || file.type === "image/jpeg" || file.type === "image/png")
+        ) {
           resolve(file);
           return;
         }
@@ -423,9 +428,12 @@ export async function uploadImage(
   folder: string,
   onProgress?: (percent: number) => void
 ): Promise<{ url: string; path: string }> {
-  // 1. Compress image to Ultra HD WebP (2048px max, 90% quality)
+  // 1. Image optimization: Sliders allow true 4K (3840px max) at 96% quality, other collections 2048px
   onProgress?.(10);
-  const file = await compressImage(rawFile, 2048, 0.90);
+  const isSlider = folder === "sliders";
+  const maxDim = isSlider ? 3840 : 2048;
+  const compQuality = isSlider ? 0.96 : 0.90;
+  const file = await compressImage(rawFile, maxDim, compQuality);
   onProgress?.(25);
 
   const path = `${folder}/${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`;

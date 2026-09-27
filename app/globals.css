@@ -569,3 +569,11 @@ img { max-width: 100%; height: auto; }
   transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
 }
+
+/* ─── Hero Slider Image Pristine 4K Sharpness ──────────────────────────────── */
+.hero-slider-image {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+  transform: none !important;
+  filter: none !important;
+}
