@@ -345,26 +345,41 @@ export default function HomePage() {
             {/* Image Slider */}
             {hasSliders ? (
               <>
-                <AnimatePresence initial={false} custom={direction} mode="popLayout">
+                <AnimatePresence initial={false} custom={direction} mode="sync">
                   <motion.div
                     key={`slide-${currentSlide}`}
                     variants={slideVariants}
                     initial="initial"
                     animate="animate"
                     exit="exit"
-                    className="absolute inset-0 will-change-transform will-change-[opacity]"
+                    className="absolute inset-0"
+                    style={{ backfaceVisibility: "hidden" }}
                   >
                     <Image
                       src={sliders[currentSlide].imageUrl}
                       alt={sliders[currentSlide].imageAlt || sliders[currentSlide].name}
                       fill
-                      priority={currentSlide === 0}
-                      quality={90}
-                      sizes="100vw"
-                      className="object-cover"
+                      priority
+                      quality={100}
+                      sizes="(max-width: 768px) 100vw, 100vw"
+                      className="object-cover object-center"
+                      style={{ imageRendering: "auto" }}
                     />
                   </motion.div>
                 </AnimatePresence>
+                {/* Preload next slide */}
+                {sliders.length > 1 && (
+                  <Image
+                    src={sliders[(currentSlide + 1) % sliders.length].imageUrl}
+                    alt=""
+                    fill
+                    priority
+                    quality={100}
+                    sizes="1px"
+                    className="opacity-0 pointer-events-none absolute"
+                    aria-hidden
+                  />
+                )}
 
                 {/* Gradient Overlay — Strong for readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-black/20" />
@@ -434,13 +449,14 @@ export default function HomePage() {
             ) : (
               <>
                 <Image
-                  src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=1600&q=90"
+                  src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=3840&q=100"
                   alt="Premium pastacılık ürünleri"
                   fill
-                  quality={95}
-                  sizes="100vw"
-                  className="object-cover"
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, 100vw"
+                  className="object-cover object-center"
                   priority
+                  style={{ imageRendering: "auto" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-transparent to-transparent" />
                 <div className="absolute bottom-8 left-6 right-6 sm:left-10 sm:right-10 z-10">
