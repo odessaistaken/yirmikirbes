@@ -478,11 +478,12 @@ export async function uploadImage(
       );
     });
 
+    const timeoutMs = isSlider ? 60000 : 20000;
     const timeoutPromise = new Promise<{ url: string; path: string }>((_, reject) =>
       setTimeout(() => {
         try { uploadTask.cancel(); } catch {}
         reject(new Error("Firebase Storage zaman aşımına uğradı"));
-      }, 3500)
+      }, timeoutMs)
     );
 
     const res = await Promise.race([storagePromise, timeoutPromise]);
@@ -501,7 +502,7 @@ export async function uploadImage(
     const res = await fetchWithTimeout(
       "https://api.imgbb.com/1/upload?key=6d257f6977e3292f5b356a1175329544",
       { method: "POST", body: formData },
-      4000
+      8000
     );
 
     if (res.ok) {
@@ -515,11 +516,12 @@ export async function uploadImage(
     // CDN fallback skipped
   }
 
-  // 4. Guaranteed Fallback: High Quality, Lightweight WebP Data URL (~35KB-60KB)
+  // 4. Guaranteed Fallback: High Quality WebP Data URL
   try {
     onProgress?.(80);
-    // Compress to 800px max, 0.72 quality for crystal-clear look at ultra-low byte size
-    const hdFallbackFile = await compressImage(rawFile, 800, 0.72);
+    const fallbackDim = isSlider ? 3840 : 1200;
+    const fallbackQuality = isSlider ? 0.95 : 0.80;
+    const hdFallbackFile = await compressImage(rawFile, fallbackDim, fallbackQuality);
     const dataUrl = await new Promise<string>((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = () => resolve(reader.result as string);

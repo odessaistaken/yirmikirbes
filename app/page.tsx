@@ -156,6 +156,23 @@ const DEFAULT_BRANDS: Brand[] = [
   },
 ];
 
+function toHighResUrl(url: string): string {
+  if (!url) return url;
+  if (url.includes("images.unsplash.com")) {
+    try {
+      const parsed = new URL(url);
+      parsed.searchParams.set("w", "3840");
+      parsed.searchParams.set("q", "100");
+      parsed.searchParams.set("auto", "format");
+      parsed.searchParams.set("fit", "crop");
+      return parsed.toString();
+    } catch {
+      return url.replace(/w=\d+/, "w=3840").replace(/q=\d+/, "q=100");
+    }
+  }
+  return url;
+}
+
 export default function HomePage() {
   const [sliders, setSliders] = useState<SliderItem[]>(DEFAULT_SLIDERS);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -182,8 +199,16 @@ export default function HomePage() {
         const b = results[2].status === "fulfilled" ? results[2].value : [];
         const p = results[3].status === "fulfilled" ? results[3].value : [];
 
-        if (s.length > 0) setSliders(s);
-        else setSliders(DEFAULT_SLIDERS);
+        if (s.length > 0) {
+          setSliders(
+            s.map((item) => ({
+              ...item,
+              imageUrl: toHighResUrl(item.imageUrl),
+            }))
+          );
+        } else {
+          setSliders(DEFAULT_SLIDERS);
+        }
 
         if (c.length > 0) {
           setCategories(
@@ -348,7 +373,7 @@ export default function HomePage() {
                     className="absolute inset-0"
                   >
                     <Image
-                      src={sliders[currentSlide].imageUrl}
+                      src={toHighResUrl(sliders[currentSlide].imageUrl)}
                       alt={sliders[currentSlide].imageAlt || sliders[currentSlide].name}
                       fill
                       priority
@@ -361,7 +386,7 @@ export default function HomePage() {
                 {sliders.length > 1 && (
                   <div className="hidden" aria-hidden="true">
                     <Image
-                      src={sliders[(currentSlide + 1) % sliders.length].imageUrl}
+                      src={toHighResUrl(sliders[(currentSlide + 1) % sliders.length].imageUrl)}
                       alt=""
                       width={1}
                       height={1}
