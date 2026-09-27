@@ -71,7 +71,6 @@ const CONTACT_ITEMS = [
 ];
 
 const SUBJECTS = [
-  "Toptan Ürün & Fiyat Teklifi",
   "B2B Tedarik Anlaşması",
   "Distribütörlük / Bayilik Başvurusu",
   "Özel Katalog Talebi",
