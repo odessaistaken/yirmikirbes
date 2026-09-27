@@ -557,45 +557,7 @@ export default function IletisimPage() {
         </div>
       </div>
 
-      {/* ══════════════════════════════════════════════════════
-          BOTTOM CTA BAND
-      ══════════════════════════════════════════════════════ */}
-      <Reveal>
-        <div className="bg-white border-t border-slate-100 py-14">
-          <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div>
-              <p className="text-[10px] font-bold tracking-[0.16em] uppercase text-gold mb-2">
-                Acil İhtiyaç?
-              </p>
-              <h3 className="font-heading font-bold text-slate-900 text-lg sm:text-xl">
-                Doğrudan Satış Temsilcimizle Görüşün
-              </h3>
-              <p className="text-slate-500 text-sm mt-1">
-                Mesai saatlerinde ortalama yanıt süresi&ensp;
-                <span className="font-semibold text-slate-700">5 dakikadır</span>.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-              <a
-                href="tel:+905010737113"
-                className="btn-secondary rounded-lg px-6 py-3 text-sm flex items-center gap-2"
-              >
-                <Phone size={15} />
-                0501 073 71 13
-              </a>
-              <a
-                href="https://wa.me/905010737113?text=Merhaba,%20sipari%C5%9F%20ve%20fiyat%20teklifi%20almak%20istiyorum."
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1eba58] text-white font-bold text-sm px-6 py-3 rounded-lg transition-all duration-150"
-              >
-                <MessageCircle size={15} />
-                WhatsApp&apos;tan Ulaş
-              </a>
-            </div>
-          </div>
-        </div>
-      </Reveal>
+
 
     </div>
   );
