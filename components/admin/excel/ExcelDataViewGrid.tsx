@@ -125,7 +125,7 @@ export default function ExcelDataViewGrid({
   onEditRow,
 }: ExcelDataViewGridProps) {
   const [page, setPage] = useState(0);
-  const [pageSize, setPageSize] = useState(24);
+  const [pageSize, setPageSize] = useState(25);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
   // Dynamic text columns excluding raw image columns
@@ -186,8 +186,8 @@ export default function ExcelDataViewGrid({
 
   return (
     <div className="space-y-6">
-      {/* Grid container */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 gap-5">
+      {/* Grid container: 5 cards per row on desktop */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-5">
         {pageRows.map(({ originalIndex, imgSrc, detected, raw }) => {
           // Identify price columns for this row
           const rawPriceAttrs = dynamicColumns.filter(
@@ -392,9 +392,9 @@ export default function ExcelDataViewGrid({
               }}
               className="bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 text-xs font-semibold text-slate-700 cursor-pointer"
             >
-              <option value={12}>12</option>
-              <option value={24}>24</option>
-              <option value={48}>48</option>
+              <option value={15}>15</option>
+              <option value={25}>25</option>
+              <option value={50}>50</option>
             </select>
           </div>
         </div>
