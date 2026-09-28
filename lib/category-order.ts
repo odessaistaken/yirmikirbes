@@ -207,3 +207,47 @@ export function sortChildCategories<T extends Partial<Category>>(
 ): T[] {
   return sortCategories(categories.filter((c) => c.parentId === parentId));
 }
+
+/**
+ * Bir ürünün kategori sıralama katsayısını döndürür.
+ */
+export function getProductCategoryRank(p: {
+  categorySlug?: string;
+  categoryId?: string;
+  categoryName?: string;
+}): number {
+  return getCategoryRank({
+    slug: p.categorySlug,
+    id: p.categoryId,
+    name: p.categoryName,
+  });
+}
+
+/**
+ * Ürün dizisini öncelikle 1-9 kategori sırasına,
+ * ardından kategori içindeki kendi 'order' değerine ve adına göre sıralar.
+ */
+export function sortProductsByCategoryOrder<
+  T extends {
+    categorySlug?: string;
+    categoryId?: string;
+    categoryName?: string;
+    order?: number;
+    name?: string;
+  }
+>(products: T[]): T[] {
+  return [...products].sort((a, b) => {
+    const rankA = getProductCategoryRank(a);
+    const rankB = getProductCategoryRank(b);
+    if (rankA !== rankB) {
+      return rankA - rankB;
+    }
+    const orderA = a.order ?? 0;
+    const orderB = b.order ?? 0;
+    if (orderA !== orderB) {
+      return orderA - orderB;
+    }
+    return (a.name || "").localeCompare(b.name || "", "tr");
+  });
+}
+

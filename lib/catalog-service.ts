@@ -15,7 +15,7 @@ import {
 } from "@/lib/firestore-collections";
 import { CATEGORIES as MOCK_CATEGORIES, PRODUCTS as MOCK_PRODUCTS } from "@/lib/mock-data";
 import type { Category, Product } from "@/lib/types";
-import { sortCategories } from "@/lib/category-order";
+import { sortCategories, sortProductsByCategoryOrder } from "@/lib/category-order";
 
 
 /* ─── Kullanıcı İsteğine Özel Veri Modeli ──────────────────────────────────── */
@@ -74,14 +74,12 @@ export async function getCatalogProducts(): Promise<Product[]> {
   try {
     const prods = await getProducts();
     if (prods && prods.length > 0) {
-      return prods
-        .filter((p) => p.isActive !== false)
-        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+      return sortProductsByCategoryOrder(prods.filter((p) => p.isActive !== false));
     }
-    return MOCK_PRODUCTS;
+    return sortProductsByCategoryOrder(MOCK_PRODUCTS);
   } catch (error) {
     console.warn("Firestore ürünleri çekilemedi, mock veriler kullanılıyor:", error);
-    return MOCK_PRODUCTS;
+    return sortProductsByCategoryOrder(MOCK_PRODUCTS);
   }
 }
 

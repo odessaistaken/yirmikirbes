@@ -32,6 +32,7 @@ import {
 } from "@/lib/presentation-catalog-service";
 import { downloadVectorCatalogPDF } from "@/lib/pdf-generator";
 import type { Category } from "@/lib/types";
+import { sortProductsByCategoryOrder } from "@/lib/category-order";
 
 const CATEGORY_BG_MAP: Record<string, string> = {
   "suruplar": "/resimler/katalog/suruplar.jpg",
@@ -148,13 +149,14 @@ function SunumKataloguInner() {
   const globalFilteredProducts = useMemo(() => {
     if (!searchQuery.trim() || activeGroup) return [];
     const q = searchQuery.toLowerCase().trim();
-    return products.filter(
+    const list = products.filter(
       (p) =>
         p.name.toLowerCase().includes(q) ||
         p.description.toLowerCase().includes(q) ||
         (p.categoryName && p.categoryName.toLowerCase().includes(q)) ||
         (p.code && p.code.toLowerCase().includes(q))
     );
+    return sortProductsByCategoryOrder(list);
   }, [searchQuery, activeGroup, products]);
 
   // Önceki ve Sonraki Kategori İndeksleri

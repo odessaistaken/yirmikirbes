@@ -10,7 +10,7 @@ import { CATEGORIES as MOCK_CATEGORIES, PRODUCTS as MOCK_PRODUCTS } from "@/lib/
 import { getActiveCategories, getProducts, getActiveBrands } from "@/lib/firestore-collections";
 import type { Category, Product, Brand } from "@/lib/types";
 import ProductCard from "@/components/ProductCard";
-import { sortCategories } from "@/lib/category-order";
+import { sortCategories, sortProductsByCategoryOrder } from "@/lib/category-order";
 
 /* ─── Subcategories & Brand links map ─────────────────────────────────────── */
 export const SUBCATEGORIES_MAP: Record<string, { name: string; query: string }[]> = {
@@ -114,7 +114,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
   const [searchQuery, setSearchQuery] = useState(initialSearch || initialBrand);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [categories, setCategories] = useState<Category[]>(() => sortCategories(MOCK_CATEGORIES));
-  const [products, setProducts] = useState<Product[]>(MOCK_PRODUCTS);
+  const [products, setProducts] = useState<Product[]>(() => sortProductsByCategoryOrder(MOCK_PRODUCTS));
   const [brands, setBrands] = useState<Brand[]>([]);
 
   useEffect(() => {
@@ -147,7 +147,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
           setCategories(sortCategories(cats.filter((c) => c.isActive !== false)));
         }
         if (prods && prods.length > 0) {
-          setProducts(prods.filter((p) => p.isActive !== false).sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
+          setProducts(sortProductsByCategoryOrder(prods.filter((p) => p.isActive !== false)));
         }
         if (brnds && brnds.length > 0) {
           setBrands(brnds);
@@ -181,7 +181,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
       ? categories.filter((c) => c.parentId === currentCategory.id).map((c) => c.slug.toLowerCase())
       : [];
 
-    return products.filter((p) => {
+    const list = products.filter((p) => {
       const matchCat =
         activeCategory === "all" ||
         p.categorySlug === activeCategory ||
@@ -203,6 +203,8 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
 
       return matchCat && matchSearch && p.isActive !== false;
     });
+
+    return sortProductsByCategoryOrder(list);
   }, [products, activeCategory, searchQuery, currentCategory, categories]);
 
   const getCategoryProductCount = (cat: Category) => {
@@ -452,6 +454,40 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
 
           {/* Products Column */}
           <div className="flex-1 min-w-0">
+            {/* "Tüm Ürünler" modundayken kategorileri kesin 1-9 sıralamasıyla hızlı filtre hapları olarak göster */}
+            {activeCategory === "all" && categories.length > 0 && (
+              <div className="mb-6 flex flex-wrap items-center gap-2 bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm">
+                <span className="text-amber-800 text-xs font-bold uppercase tracking-wider mr-1">
+                  Kategoriler:
+                </span>
+                <button
+                  onClick={() => {
+                    setActiveCategory("all");
+                    setSearchQuery("");
+                  }}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                    !searchQuery
+                      ? "bg-amber-600 text-white font-bold shadow-sm"
+                      : "bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200"
+                  }`}
+                >
+                  Tümü ({products.length})
+                </button>
+                {sortCategories(categories.filter((c) => !c.parentId && c.isActive !== false)).map((cat) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => {
+                      setActiveCategory(cat.slug || cat.id);
+                      setSearchQuery("");
+                    }}
+                    className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-amber-700 border border-slate-200"
+                  >
+                    {cat.name}
+                  </button>
+                ))}
+              </div>
+            )}
+
             {/* Subcategories / Brands Quick Pills Bar */}
             {currentSubItems.length > 0 && (
               <div className="mb-6 flex flex-wrap items-center gap-2 bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm">

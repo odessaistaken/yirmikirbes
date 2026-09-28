@@ -11,7 +11,7 @@
 import { getActiveCategories, getProducts, updateProduct as firestoreUpdateProduct } from "@/lib/firestore-collections";
 import { CATEGORIES as MOCK_CATEGORIES, PRODUCTS as MOCK_PRODUCTS } from "@/lib/mock-data";
 import type { Category, Product } from "@/lib/types";
-import { sortCategories } from "@/lib/category-order";
+import { sortCategories, sortProductsByCategoryOrder } from "@/lib/category-order";
 
 
 /* ─── 1. Temel Veri Modeli ───────────────────────────────────────────────── */
@@ -102,7 +102,7 @@ export async function fetchPresentationProducts(): Promise<PresentationProduct[]
     }
   }
 
-  return mapped;
+  return sortProductsByCategoryOrder(mapped);
 }
 
 /* ─── 3. Kategori Bazlı Gruplama Yardımcısı ───────────────────────────────── */
