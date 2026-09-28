@@ -26,8 +26,8 @@ export default function ExcelRowImage({
 
   const sizeClasses = {
     sm: "w-10 h-10 rounded-lg",
-    md: "w-14 h-14 rounded-xl",
-    lg: "w-20 h-20 rounded-2xl",
+    md: "w-24 h-24 rounded-xl",
+    lg: "w-32 h-32 rounded-2xl",
     full: "w-full aspect-square rounded-2xl",
   }[size];
 

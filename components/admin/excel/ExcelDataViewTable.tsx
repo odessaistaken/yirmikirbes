@@ -228,7 +228,7 @@ export default function ExcelDataViewTable({
               </th>
 
               {/* Pinned 2: Image Thumbnail */}
-              <th className="py-3.5 px-4 w-20 sticky left-14 z-20 bg-slate-50 border-r border-slate-200/60 shadow-xs">
+              <th className="py-3.5 px-4 w-28 sticky left-14 z-20 bg-slate-50 border-r border-slate-200/60 shadow-xs">
                 <div className="flex items-center gap-1.5 text-slate-700 font-bold">
                   <ImageIcon size={14} className="text-amber-500" />
                   <span>Görsel</span>

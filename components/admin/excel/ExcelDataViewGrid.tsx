@@ -94,6 +94,28 @@ export default function ExcelDataViewGrid({
             .filter((c) => c !== detected.keys.titleKey && String(raw[c] ?? "").trim() !== "")
             .slice(0, 4);
 
+          const PRICE_COLS = new Set([
+            "kutu satış fiyatı",
+            "dilim satış fiyatı",
+            "satış fiyatı",
+            "fiyat",
+            "birim fiyat",
+            "kutu fiyatı",
+            "dilim fiyatı",
+          ]);
+
+          const formatCellValue = (col: string, val: string) => {
+            if (!val) return val;
+            const colLower = col.toLowerCase().trim();
+            if (PRICE_COLS.has(colLower)) {
+              // Sayıyı ayıkla ve ₺ ekle
+              const num = parseFloat(val.replace(/[^0-9.,]/g, "").replace(",", "."));
+              if (!isNaN(num)) return `${num % 1 === 0 ? num : num.toFixed(2)}₺`;
+              return `${val}₺`;
+            }
+            return val;
+          };
+
           return (
             <div
               key={originalIndex}
@@ -158,7 +180,7 @@ export default function ExcelDataViewGrid({
                         <div key={col} className="flex items-center justify-between gap-1">
                           <span className="text-slate-400 truncate max-w-[110px]">{col}:</span>
                           <span className="text-slate-700 font-semibold truncate max-w-[120px]">
-                            {String(raw[col])}
+                            {formatCellValue(col, String(raw[col]))}
                           </span>
                         </div>
                       ))}

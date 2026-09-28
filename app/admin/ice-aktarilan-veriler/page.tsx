@@ -205,15 +205,40 @@ function ImportedDataContent() {
     );
   };
 
-  // Export to Excel file
+  // Export to Excel file (görsel URL'leri de dahil)
   const handleExportExcel = () => {
     if (!activeRecord || filteredRows.length === 0) return;
     try {
-      const ws = XLSX.utils.json_to_sheet(filteredRows);
+      // Her satıra Görsel sütununu (varsa) ekle
+      const exportRows = filteredRows.map((row) => {
+        const { detectRowFields: _det, ...rest } = { detectRowFields: null, ...row };
+        void _det;
+        const imgSrc = String(
+          row["Görsel"] || row["Resim"] || row["imageUrl"] || ""
+        ).trim();
+
+        // Görsel URL'yi ayrı sütun olarak garantile
+        const exportRow: Record<string, unknown> = { ...rest };
+        if (imgSrc && !exportRow["Görsel"] && !exportRow["Resim"]) {
+          exportRow["Görsel URL"] = imgSrc;
+        }
+        return exportRow;
+      });
+
+      const ws = XLSX.utils.json_to_sheet(exportRows);
+
+      // Görsel sütunlarını geniş yap (URL'ler uzun olabilir)
+      const range = XLSX.utils.decode_range(ws["!ref"] || "A1");
+      const colWidths: { wch: number }[] = [];
+      for (let c = range.s.c; c <= range.e.c; c++) {
+        colWidths.push({ wch: 32 });
+      }
+      ws["!cols"] = colWidths;
+
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, activeRecord.sheetName || "Veriler");
       XLSX.writeFile(wb, `${activeRecord.fileName.replace(/\.[^/.]+$/, "")}_düzenlenmiş.xlsx`);
-      toast.success("Excel dosyası başarıyla indirildi.");
+      toast.success("Excel dosyası (görsellerle) başarıyla indirildi.");
     } catch (err) {
       console.error("Excel indirme hatası:", err);
       toast.error("Excel oluşturulurken bir hata oluştu.");

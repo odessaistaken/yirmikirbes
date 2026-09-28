@@ -234,14 +234,22 @@ export default function Header() {
 
             {/* ── Sağ Taraf: Arama, Telefon, Giriş/Profil ─────────────────── */}
             <div className="flex-1 flex items-center justify-end gap-2 sm:gap-3">
-              {/* Search (desktop) */}
+              {/* Search (desktop) - expanded clickable bar */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="flex p-2.5 rounded-xl items-center gap-2 text-slate-700 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-gold/50 transition-colors"
-                title="Ürün ara (Ctrl+K)"
+                className="hidden lg:flex flex-1 max-w-xs xl:max-w-sm items-center gap-2.5 px-4 py-2.5 rounded-xl text-slate-400 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-gold/50 transition-colors text-sm"
+                title="Ürün ara"
+              >
+                <Search size={16} className="text-gold shrink-0" />
+                <span className="flex-1 text-left text-xs text-slate-400">Ürün, kod veya kategori ara…</span>
+              </button>
+              {/* Mobile search icon only */}
+              <button
+                onClick={() => setSearchOpen(true)}
+                className="lg:hidden p-2.5 rounded-xl text-slate-700 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-gold/50 transition-colors"
+                title="Ürün ara"
               >
                 <Search size={17} className="text-gold" />
-                <span className="text-xs text-slate-500 hidden xl:inline font-mono">Ctrl+K</span>
               </button>
 
               {/* Phone */}
