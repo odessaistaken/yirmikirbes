@@ -13,6 +13,106 @@ import toast from "react-hot-toast";
 import { detectRowFields } from "@/lib/excel-import-service";
 import ExcelRowImage from "./ExcelRowImage";
 
+// Helper to normalize Turkish strings for key matching
+const normalizeKey = (str: string) => {
+  return str
+    .toLocaleLowerCase("tr-TR")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/ı/g, "i")
+    .replace(/ğ/g, "g")
+    .replace(/ü/g, "u")
+    .replace(/ş/g, "s")
+    .replace(/ö/g, "o")
+    .replace(/ç/g, "c")
+    .trim();
+};
+
+// Check if a column represents a price / monetary value
+const isPriceColumn = (colName: string): boolean => {
+  const n = normalizeKey(colName);
+  return (
+    n.includes("fiyat") ||
+    n.includes("ucret") ||
+    n.includes("tutar") ||
+    n.includes("price") ||
+    (n.includes("satis") && !n.includes("tarih"))
+  );
+};
+
+// Format numeric price values with Turkish currency symbol ₺
+const formatPriceValue = (val: unknown): string => {
+  if (val === null || val === undefined || val === "") return "";
+  const str = String(val).trim();
+  if (
+    str.includes("₺") ||
+    str.includes("TL") ||
+    str.includes("$") ||
+    str.includes("€")
+  ) {
+    return str;
+  }
+  const cleaned = str.replace(/[^0-9.,]/g, "");
+  if (!cleaned) return str;
+
+  let num = NaN;
+  if (cleaned.includes(".") && cleaned.includes(",")) {
+    if (cleaned.lastIndexOf(",") > cleaned.lastIndexOf(".")) {
+      num = parseFloat(cleaned.replace(/\./g, "").replace(",", "."));
+    } else {
+      num = parseFloat(cleaned.replace(/,/g, ""));
+    }
+  } else if (cleaned.includes(",")) {
+    num = parseFloat(cleaned.replace(",", "."));
+  } else {
+    num = parseFloat(cleaned);
+  }
+
+  if (isNaN(num)) return `${str} ₺`;
+
+  const formatted = new Intl.NumberFormat("tr-TR", {
+    minimumFractionDigits: num % 1 === 0 ? 0 : 2,
+    maximumFractionDigits: 2,
+  }).format(num);
+
+  return `${formatted} ₺`;
+};
+
+// Format cell values (KDV, prices, standard text)
+const formatCellValue = (col: string, val: string) => {
+  if (!val && val !== "0") return val;
+  const colNorm = normalizeKey(col);
+  if (isPriceColumn(col)) {
+    return formatPriceValue(val);
+  }
+  if (colNorm.includes("kdv")) {
+    const num = parseFloat(val.replace(",", "."));
+    if (!isNaN(num)) {
+      if (num > 0 && num < 1) {
+        return `%${Math.round(num * 100)}`;
+      }
+      return `%${num}`;
+    }
+  }
+  return val;
+};
+
+// Concise, human-friendly price labels for card pills
+const getShortPriceLabel = (colName: string) => {
+  const n = normalizeKey(colName);
+  if (n.includes("kutu") && n.includes("satis")) return "Kutu Satış";
+  if (n.includes("dilim") && n.includes("satis")) return "Dilim Satış";
+  if (n.includes("kutu")) return "Kutu Fiyatı";
+  if (n.includes("dilim")) return "Dilim Fiyatı";
+  if (n.includes("koli") && n.includes("satis")) return "Koli Satış";
+  if (n.includes("koli")) return "Koli Fiyatı";
+  if (n.includes("adet") && n.includes("satis")) return "Adet Satış";
+  if (n.includes("adet")) return "Adet Fiyatı";
+  if (n.includes("birim")) return "Birim Fiyatı";
+  if (n.includes("satis")) return "Satış Fiyatı";
+  return colName;
+};
+
 interface ExcelDataViewGridProps {
   rows: Record<string, unknown>[];
   columns: string[];
@@ -89,32 +189,35 @@ export default function ExcelDataViewGrid({
       {/* Grid container */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 gap-5">
         {pageRows.map(({ originalIndex, imgSrc, detected, raw }) => {
-          // Dynamic attributes to show on card (show up to 4 key-values)
-          const visibleAttrs = dynamicColumns
-            .filter((c) => c !== detected.keys.titleKey && String(raw[c] ?? "").trim() !== "")
-            .slice(0, 4);
+          // Identify price columns for this row
+          const rawPriceAttrs = dynamicColumns.filter(
+            (c) => isPriceColumn(c) && String(raw[c] ?? "").trim() !== ""
+          );
 
-          const PRICE_COLS = new Set([
-            "kutu satış fiyatı",
-            "dilim satış fiyatı",
-            "satış fiyatı",
-            "fiyat",
-            "birim fiyat",
-            "kutu fiyatı",
-            "dilim fiyatı",
-          ]);
+          // Sort price attributes: Kutu/Koli first, Dilim/Adet second
+          const sortedPriceAttrs = [...rawPriceAttrs].sort((a, b) => {
+            const aNorm = normalizeKey(a);
+            const bNorm = normalizeKey(b);
+            const aBox = aNorm.includes("kutu") || aNorm.includes("koli");
+            const bBox = bNorm.includes("kutu") || bNorm.includes("koli");
+            const aSlice = aNorm.includes("dilim") || aNorm.includes("adet");
+            const bSlice = bNorm.includes("dilim") || bNorm.includes("adet");
+            if (aBox && !bBox) return -1;
+            if (!aBox && bBox) return 1;
+            if (aSlice && !bSlice) return -1;
+            if (!aSlice && bSlice) return 1;
+            return 0;
+          });
 
-          const formatCellValue = (col: string, val: string) => {
-            if (!val) return val;
-            const colLower = col.toLowerCase().trim();
-            if (PRICE_COLS.has(colLower)) {
-              // Sayıyı ayıkla ve ₺ ekle
-              const num = parseFloat(val.replace(/[^0-9.,]/g, "").replace(",", "."));
-              if (!isNaN(num)) return `${num % 1 === 0 ? num : num.toFixed(2)}₺`;
-              return `${val}₺`;
-            }
-            return val;
-          };
+          // Non-price specifications list (show up to 4 specs, or 6 if no prices)
+          const specAttrs = dynamicColumns
+            .filter(
+              (c) =>
+                c !== detected.keys.titleKey &&
+                !isPriceColumn(c) &&
+                String(raw[c] ?? "").trim() !== ""
+            )
+            .slice(0, sortedPriceAttrs.length > 0 ? 4 : 6);
 
           return (
             <div
@@ -165,7 +268,7 @@ export default function ExcelDataViewGrid({
 
               {/* Card Body */}
               <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <h4
                     className="font-bold text-slate-900 text-sm leading-snug line-clamp-2"
                     title={detected.title}
@@ -173,10 +276,10 @@ export default function ExcelDataViewGrid({
                     {detected.title || "İsimsiz Ürün"}
                   </h4>
 
-                  {/* Dynamic Excel Attributes list */}
-                  {visibleAttrs.length > 0 && (
+                  {/* Dynamic Excel Attributes list (Specs) */}
+                  {specAttrs.length > 0 && (
                     <div className="space-y-1 pt-1 border-t border-slate-100 text-[11px]">
-                      {visibleAttrs.map((col) => (
+                      {specAttrs.map((col) => (
                         <div key={col} className="flex items-center justify-between gap-1">
                           <span className="text-slate-400 truncate max-w-[110px]">{col}:</span>
                           <span className="text-slate-700 font-semibold truncate max-w-[120px]">
@@ -184,6 +287,69 @@ export default function ExcelDataViewGrid({
                           </span>
                         </div>
                       ))}
+                    </div>
+                  )}
+
+                  {/* Kutu, Dilim ve Satış Fiyatları Alanı */}
+                  {sortedPriceAttrs.length > 0 && (
+                    <div className="pt-1">
+                      {sortedPriceAttrs.length === 2 ? (
+                        <div className="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-2.5 grid grid-cols-2 gap-2 text-center shadow-2xs">
+                          <div className="min-w-0">
+                            <div
+                              className="text-[10px] font-bold text-amber-800 uppercase tracking-tight truncate"
+                              title={sortedPriceAttrs[0]}
+                            >
+                              {getShortPriceLabel(sortedPriceAttrs[0])}
+                            </div>
+                            <div className="text-xs sm:text-sm font-black text-amber-950 mt-0.5">
+                              {formatPriceValue(raw[sortedPriceAttrs[0]])}
+                            </div>
+                          </div>
+                          <div className="border-l border-amber-500/25 pl-2 min-w-0">
+                            <div
+                              className="text-[10px] font-bold text-amber-800 uppercase tracking-tight truncate"
+                              title={sortedPriceAttrs[1]}
+                            >
+                              {getShortPriceLabel(sortedPriceAttrs[1])}
+                            </div>
+                            <div className="text-xs sm:text-sm font-black text-amber-950 mt-0.5">
+                              {formatPriceValue(raw[sortedPriceAttrs[1]])}
+                            </div>
+                          </div>
+                        </div>
+                      ) : sortedPriceAttrs.length === 1 ? (
+                        <div className="bg-amber-500/10 border border-amber-500/20 rounded-2xl py-2 px-3 flex items-center justify-between gap-2 shadow-2xs">
+                          <span
+                            className="text-[11px] font-bold text-amber-800 uppercase tracking-wider truncate"
+                            title={sortedPriceAttrs[0]}
+                          >
+                            {getShortPriceLabel(sortedPriceAttrs[0])}:
+                          </span>
+                          <span className="text-xs sm:text-sm font-black text-amber-950">
+                            {formatPriceValue(raw[sortedPriceAttrs[0]])}
+                          </span>
+                        </div>
+                      ) : (
+                        <div className="space-y-1 bg-amber-500/10 border border-amber-500/20 rounded-2xl p-2 shadow-2xs">
+                          {sortedPriceAttrs.map((col) => (
+                            <div
+                              key={col}
+                              className="flex items-center justify-between gap-1 text-[11px]"
+                            >
+                              <span
+                                className="text-amber-800 font-bold uppercase tracking-wider truncate max-w-[110px]"
+                                title={col}
+                              >
+                                {getShortPriceLabel(col)}:
+                              </span>
+                              <span className="text-amber-950 font-black">
+                                {formatPriceValue(raw[col])}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
