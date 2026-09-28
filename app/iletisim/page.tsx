@@ -79,10 +79,10 @@ const SUBJECTS = [
 ];
 
 const CREDENTIALS = [
-  { Icon: Globe, title: "81 İl", sub: "Türkiye geneli teslimat ağı" },
-  { Icon: Truck, title: "Soğuk Zincir", sub: "Marmara lojistik altyapısı" },
-  { Icon: Building2, title: "B2B Odaklı", sub: "Kurumsal toptan tedarik" },
-  { Icon: ShieldCheck, title: "Güvenilir", sub: "Sektörde köklü tedarikçi" },
+  { Icon: Globe, title: "4 İl", sub: "" },
+  { Icon: Truck, title: "Soğuk Zincir", sub: "" },
+  { Icon: Building2, title: "B2B Odaklı", sub: "" },
+  { Icon: ShieldCheck, title: "Güvenilir", sub: "" },
 ];
 
 const WORKING_HOURS = [
@@ -159,10 +159,9 @@ function FormField({
 }
 
 const fieldCls = (hasError?: boolean) =>
-  `w-full px-3.5 py-3 text-sm bg-white border rounded-lg text-slate-900 placeholder:text-slate-300 outline-none transition-all duration-150 ${
-    hasError
-      ? "border-red-300 focus:border-red-400 focus:ring-2 focus:ring-red-100"
-      : "border-slate-200 focus:border-gold focus:ring-2 focus:ring-gold/15"
+  `w-full px-3.5 py-3 text-sm bg-white border rounded-lg text-slate-900 placeholder:text-slate-300 outline-none transition-all duration-150 ${hasError
+    ? "border-red-300 focus:border-red-400 focus:ring-2 focus:ring-red-100"
+    : "border-slate-200 focus:border-gold focus:ring-2 focus:ring-gold/15"
   }`;
 
 /* ════════════════════════════════════════════════════════════

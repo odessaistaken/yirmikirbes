@@ -159,32 +159,29 @@ export default function AkademiPage() {
         <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
           <button
             onClick={() => setActiveTab("all")}
-            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all shadow-sm ${
-              activeTab === "all"
-                ? "bg-gold text-white shadow-gold"
-                : "bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200"
-            }`}
+            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all shadow-sm ${activeTab === "all"
+              ? "bg-gold text-white shadow-gold"
+              : "bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200"
+              }`}
           >
             Tüm Workshoplar
           </button>
           <button
             onClick={() => setActiveTab("serif")}
-            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 shadow-sm ${
-              activeTab === "serif"
-                ? "bg-gold text-white shadow-gold"
-                : "bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200"
-            }`}
+            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 shadow-sm ${activeTab === "serif"
+              ? "bg-gold text-white shadow-gold"
+              : "bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200"
+              }`}
           >
             <Coffee size={15} />
             Barista Şerif Yeğen
           </button>
           <button
             onClick={() => setActiveTab("neslihan")}
-            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 shadow-sm ${
-              activeTab === "neslihan"
-                ? "bg-gold text-white shadow-gold"
-                : "bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200"
-            }`}
+            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 shadow-sm ${activeTab === "neslihan"
+              ? "bg-gold text-white shadow-gold"
+              : "bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200"
+              }`}
           >
             <Flame size={15} />
             Şef Neslihan Demir

@@ -3,7 +3,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  ArrowRight,
   MessageCircle,
 } from "lucide-react";
 import Logo from "@/components/Logo";
@@ -23,38 +22,6 @@ export default async function Footer() {
 
   return (
     <footer className="bg-white text-slate-600 border-t border-slate-200">
-      {/* ── Top CTA Strip ─────────────────────────────────────────── */}
-      <div className="bg-gradient-to-r from-slate-50 via-amber-50/40 to-slate-50 border-b border-slate-200 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-full bg-gold/10 blur-3xl pointer-events-none" />
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
-          <div>
-            <p className="font-heading font-bold text-slate-900 text-2xl">
-              Toptan Sipariş & <span className="gold-text">Fiyat Teklifi</span>
-            </p>
-            <p className="text-slate-500 text-sm mt-1">
-              YKB Gıda & 20:45 Pastacılık B2B müşterileri için özel fiyatlandırma ve hızlı teslimat seçenekleri.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
-            <a
-              href="https://wa.me/905010737113?text=Merhaba,%20toptan%20sipari%C5%9F%20ve%20fiyat%20teklifi%20almak%20istiyorum."
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold px-5 py-3 rounded-xl transition-all duration-200 shadow-md hover:scale-105"
-            >
-              <MessageCircle size={18} />
-              WhatsApp&apos;tan Ulaşın
-            </a>
-            <Link
-              href="/iletisim"
-              className="flex items-center gap-2 bg-gold hover:bg-gold-600 text-white font-bold px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-gold hover:-translate-y-0.5"
-            >
-              Teklif Alın
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </div>
 
       {/* ── Main Footer ───────────────────────────────────────────── */}
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
