@@ -153,8 +153,8 @@ export const CATEGORIES: Category[] = [
     "icon": "🔧",
     "productCount": 0,
     "imageUrl": "/resimler/kategoriler/ekipmanlar.jpg",
-    "order": 13,
-    "isActive": true
+    "order": 14,
+    "isActive": false
   },
   {
     "id": "cat-kruvasan",
@@ -164,7 +164,18 @@ export const CATEGORIES: Category[] = [
     "icon": "🥐",
     "productCount": 0,
     "imageUrl": "/resimler/kategoriler/kruvasan.jpg",
-    "order": 14,
+    "order": 3,
+    "isActive": true
+  },
+  {
+    "id": "cat-kremalar",
+    "name": "Kremalar",
+    "slug": "kremalar",
+    "description": "Özel pastacılık, waffle ve tatlı kremaları, dolgu ve kaplama krema çeşitleri.",
+    "icon": "🧁",
+    "productCount": 18,
+    "imageUrl": "/resimler/p9/p9_1.png",
+    "order": 9,
     "isActive": true
   }
 ];

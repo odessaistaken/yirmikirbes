@@ -15,6 +15,8 @@ import {
 } from "@/lib/firestore-collections";
 import { CATEGORIES as MOCK_CATEGORIES, PRODUCTS as MOCK_PRODUCTS } from "@/lib/mock-data";
 import type { Category, Product } from "@/lib/types";
+import { sortCategories } from "@/lib/category-order";
+
 
 /* ─── Kullanıcı İsteğine Özel Veri Modeli ──────────────────────────────────── */
 export interface CatalogProduct {
@@ -56,14 +58,12 @@ export async function getCatalogCategories(): Promise<Category[]> {
   try {
     const cats = await getActiveCategories();
     if (cats && cats.length > 0) {
-      return cats
-        .filter((c) => c.isActive !== false)
-        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+      return sortCategories(cats.filter((c) => c.isActive !== false));
     }
-    return MOCK_CATEGORIES;
+    return sortCategories(MOCK_CATEGORIES.filter((c) => c.isActive !== false));
   } catch (error) {
     console.warn("Firestore kategorileri çekilemedi, mock veriler kullanılıyor:", error);
-    return MOCK_CATEGORIES;
+    return sortCategories(MOCK_CATEGORIES.filter((c) => c.isActive !== false));
   }
 }
 

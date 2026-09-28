@@ -25,6 +25,7 @@ import Logo from "@/components/Logo";
 import { CATEGORIES as MOCK_CATEGORIES, PRODUCTS as MOCK_PRODUCTS } from "@/lib/mock-data";
 import { getActiveCategories, getProducts, getActiveBrands } from "@/lib/firestore-collections";
 import type { Category, Product, Brand } from "@/lib/types";
+import { sortCategories } from "@/lib/category-order";
 
 /* ─── Navigation links ────────────────────────────────────────────────────── */
 const navLinks = [
@@ -73,19 +74,21 @@ export default function Header() {
               merged.push(mc);
             }
           }
-          setCategories(merged.sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
+          setCategories(sortCategories(merged));
         } else {
           setCategories(
-            MOCK_CATEGORIES.map((c, i) => ({
-              id: c.id,
-              name: c.name,
-              slug: c.slug,
-              parentId: c.parentId,
-              imageUrl: c.imageUrl || "",
-              order: c.order || i + 1,
-              isActive: true,
-              description: c.description,
-            }))
+            sortCategories(
+              MOCK_CATEGORIES.map((c, i) => ({
+                id: c.id,
+                name: c.name,
+                slug: c.slug,
+                parentId: c.parentId,
+                imageUrl: c.imageUrl || "",
+                order: c.order || i + 1,
+                isActive: true,
+                description: c.description,
+              }))
+            )
           );
         }
         if (prods.length > 0) setProducts(prods);
@@ -415,10 +418,9 @@ export default function Header() {
                   <p className="text-2xs text-gold-600 uppercase tracking-widest px-4 pb-2 font-bold">
                     Kategoriler
                   </p>
-                  {categories
-                    .filter((cat) => !cat.parentId)
+                  {sortCategories(categories.filter((cat) => !cat.parentId))
                     .map((parentCat) => {
-                      const children = categories.filter((c) => c.parentId === parentCat.id);
+                      const children = sortCategories(categories.filter((c) => c.parentId === parentCat.id));
                       return (
                         <div key={parentCat.id}>
                           {/* Ana kategori */}

@@ -11,6 +11,8 @@
 import { getActiveCategories, getProducts, updateProduct as firestoreUpdateProduct } from "@/lib/firestore-collections";
 import { CATEGORIES as MOCK_CATEGORIES, PRODUCTS as MOCK_PRODUCTS } from "@/lib/mock-data";
 import type { Category, Product } from "@/lib/types";
+import { sortCategories } from "@/lib/category-order";
+
 
 /* ─── 1. Temel Veri Modeli ───────────────────────────────────────────────── */
 export interface PresentationProduct {
@@ -37,14 +39,12 @@ export async function fetchPresentationCategories(): Promise<Category[]> {
   try {
     const cats = await getActiveCategories();
     if (cats && cats.length > 0) {
-      return cats
-        .filter((c) => c.isActive !== false)
-        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+      return sortCategories(cats.filter((c) => c.isActive !== false));
     }
-    return MOCK_CATEGORIES;
+    return sortCategories(MOCK_CATEGORIES.filter((c) => c.isActive !== false));
   } catch (err) {
     console.warn("Kategoriler Firestore'dan çekilemedi, mock veri kullanılıyor:", err);
-    return MOCK_CATEGORIES;
+    return sortCategories(MOCK_CATEGORIES.filter((c) => c.isActive !== false));
   }
 }
 
@@ -116,7 +116,7 @@ export function groupProductsByCategory(
   products: PresentationProduct[]
 ): CategoryProductGroup[] {
   // Yalnızca ana kategorileri ve çocuklarını hiyerarşik veya düz gruplar
-  return categories
+  return sortCategories(categories)
     .map((cat) => {
       const catProducts = products.filter(
         (p) =>

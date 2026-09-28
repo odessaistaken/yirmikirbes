@@ -11,6 +11,7 @@ import {
 } from "firebase/storage";
 import { requireDb, requireStorage } from "@/lib/firebase";
 import type { SliderItem, Category, Product, Brand, Inquiry } from "@/lib/types";
+import { sortCategories } from "@/lib/category-order";
 
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -120,13 +121,13 @@ export async function getCategories(): Promise<Category[]> {
   const snap = await getDocs(
     query(collection(requireDb(), "categories"), orderBy("order", "asc"))
   );
-  return snap.docs.map((d) => ({ id: d.id, ...d.data() } as Category));
+  return sortCategories(snap.docs.map((d) => ({ id: d.id, ...d.data() } as Category)));
 }
 
-/** Fetch only active categories (for frontend) */
+/** Fetch only active categories (for frontend) — sorted by global CATEGORY_ORDER */
 export async function getActiveCategories(): Promise<Category[]> {
   const cats = await getCategories();
-  return cats.filter((c) => c.isActive).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+  return sortCategories(cats.filter((c) => c.isActive));
 }
 
 /** Get a single category by slug */

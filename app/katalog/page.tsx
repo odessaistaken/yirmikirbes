@@ -10,6 +10,7 @@ import { CATEGORIES as MOCK_CATEGORIES, PRODUCTS as MOCK_PRODUCTS } from "@/lib/
 import { getActiveCategories, getProducts, getActiveBrands } from "@/lib/firestore-collections";
 import type { Category, Product, Brand } from "@/lib/types";
 import ProductCard from "@/components/ProductCard";
+import { sortCategories } from "@/lib/category-order";
 
 /* ─── Subcategories & Brand links map ─────────────────────────────────────── */
 export const SUBCATEGORIES_MAP: Record<string, { name: string; query: string }[]> = {
@@ -112,7 +113,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
   const [activeCategory, setActiveCategory] = useState<string>(initialCategory);
   const [searchQuery, setSearchQuery] = useState(initialSearch || initialBrand);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
-  const [categories, setCategories] = useState<Category[]>(MOCK_CATEGORIES);
+  const [categories, setCategories] = useState<Category[]>(() => sortCategories(MOCK_CATEGORIES));
   const [products, setProducts] = useState<Product[]>(MOCK_PRODUCTS);
   const [brands, setBrands] = useState<Brand[]>([]);
 
@@ -143,7 +144,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
         const brnds = results[2].status === "fulfilled" ? results[2].value : [];
 
         if (cats && cats.length > 0) {
-          setCategories(cats.filter((c) => c.isActive !== false).sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
+          setCategories(sortCategories(cats.filter((c) => c.isActive !== false)));
         }
         if (prods && prods.length > 0) {
           setProducts(prods.filter((p) => p.isActive !== false).sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));

@@ -6,6 +6,7 @@ import { AlignLeft, ChevronRight, X } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import type { Category, Product } from "@/lib/types";
+import { sortCategories } from "@/lib/category-order";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(useGSAP);
@@ -70,7 +71,7 @@ export default function CategorySidebar({
     ).length;
   };
 
-  const parentCategories = categories.filter((cat) => !cat.parentId);
+  const parentCategories = sortCategories(categories.filter((cat) => !cat.parentId));
 
   return (
     <div
@@ -126,7 +127,7 @@ export default function CategorySidebar({
         </button>
 
         {parentCategories.map((parentCat) => {
-          const children = categories.filter((c) => c.parentId === parentCat.id);
+          const children = sortCategories(categories.filter((c) => c.parentId === parentCat.id));
           const parentCount = getCategoryProductCount(parentCat);
           const isParentActive =
             activeCategory === parentCat.slug || activeCategory === parentCat.id;

@@ -7,6 +7,7 @@ import ProductCard from "@/components/ProductCard";
 import { getBestSellerProducts, getProducts } from "@/lib/firestore-collections";
 import { PRODUCTS as MOCK_PRODUCTS } from "@/lib/mock-data";
 import type { Product } from "@/lib/types";
+import { sortCategories } from "@/lib/category-order";
 
 export default function CokSatanlarPage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -59,13 +60,16 @@ export default function CokSatanlarPage() {
   }, []);
 
   const categories = useMemo(() => {
-    const map = new Map<string, string>();
+    const map = new Map<string, { id: string; name: string; slug?: string }>();
     products.forEach((p) => {
       if (p.categoryName) {
-        map.set(p.categoryId || p.categorySlug || p.categoryName, p.categoryName);
+        const key = p.categoryId || p.categorySlug || p.categoryName;
+        if (!map.has(key)) {
+          map.set(key, { id: key, name: p.categoryName, slug: p.categorySlug });
+        }
       }
     });
-    return Array.from(map.entries()).map(([id, name]) => ({ id, name }));
+    return sortCategories(Array.from(map.values()));
   }, [products]);
 
   const filteredProducts = useMemo(() => {

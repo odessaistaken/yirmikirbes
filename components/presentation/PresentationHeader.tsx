@@ -2,6 +2,7 @@
 
 import { Search, LayoutGrid, BookOpen, X } from "lucide-react";
 import type { Category } from "@/lib/types";
+import { sortCategories } from "@/lib/category-order";
 
 interface PresentationHeaderProps {
   categories: Category[];
@@ -109,7 +110,7 @@ export default function PresentationHeader({
             Tüm Koleksiyon ({totalProductsCount})
           </button>
 
-          {categories.map((category) => {
+          {sortCategories(categories).map((category) => {
             const isSelected = selectedCategoryId === category.id || selectedCategoryId === category.slug;
             return (
               <button

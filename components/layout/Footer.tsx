@@ -8,15 +8,19 @@ import {
 import Logo from "@/components/Logo";
 import { CATEGORIES as MOCK_CATEGORIES } from "@/lib/mock-data";
 import { getActiveCategories } from "@/lib/firestore-collections";
+import { sortCategories } from "@/lib/category-order";
+
 
 export default async function Footer() {
   const year = new Date().getFullYear();
   let categories = [];
   try {
-    categories = await getActiveCategories();
-    if (categories.length === 0) categories = MOCK_CATEGORIES;
+    const fetched = await getActiveCategories();
+    categories = fetched.length > 0
+      ? sortCategories(fetched)
+      : sortCategories(MOCK_CATEGORIES.filter((c) => c.isActive !== false));
   } catch {
-    categories = MOCK_CATEGORIES;
+    categories = sortCategories(MOCK_CATEGORIES.filter((c) => c.isActive !== false));
   }
 
 
@@ -98,7 +102,10 @@ export default async function Footer() {
               Ürün Kategorileri
             </h3>
             <ul className="space-y-2.5">
-              {categories.slice(0, 8).map((cat: any) => (
+              {(categories.filter((c: any) => !c.parentId).length > 0
+                ? categories.filter((c: any) => !c.parentId)
+                : categories
+              ).slice(0, 9).map((cat: any) => (
                 <li key={cat.id}>
                   <Link
                     href={`/katalog/${cat.slug}`}

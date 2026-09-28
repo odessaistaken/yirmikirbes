@@ -12,6 +12,7 @@ import {
 import toast from "react-hot-toast";
 import { getProducts, updateProduct, getCategories } from "@/lib/firestore-collections";
 import type { Product, Category } from "@/lib/types";
+import { sortCategories } from "@/lib/category-order";
 
 export default function AdminCokSatanlar() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -27,7 +28,7 @@ export default function AdminCokSatanlar() {
       try {
         const [prods, cats] = await Promise.all([getProducts(), getCategories()]);
         setProducts(prods);
-        setCategories(cats);
+        setCategories(sortCategories(cats));
       } catch (err) {
         console.error("Çok Satanlar veri yükleme hatası:", err);
         toast.error("Ürünler yüklenirken bir hata oluştu.");

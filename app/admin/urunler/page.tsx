@@ -16,6 +16,7 @@ import {
   uploadImage, compressImage, deleteStoredImage,
 } from "@/lib/firestore-collections";
 import type { Product, Category } from "@/lib/types";
+import { sortCategories } from "@/lib/category-order";
 
 
 export default function AdminUrunler() {
@@ -88,7 +89,7 @@ export default function AdminUrunler() {
           fetchCategories(),
         ]);
         setProducts(firestoreProducts);
-        setCategories(firestoreCategories);
+        setCategories(sortCategories(firestoreCategories));
       } catch (err) {
         console.error("Firestore veri yükleme hatası:", err);
         toast.error("Veriler yüklenirken hata oluştu. Lütfen sayfayı yenileyin.");

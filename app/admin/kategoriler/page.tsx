@@ -15,6 +15,7 @@ import {
   uploadImage, compressImage, slugify, deleteStoredImage,
 } from "@/lib/firestore-collections";
 import type { Category } from "@/lib/types";
+import { sortCategories } from "@/lib/category-order";
 
 export default function AdminKategoriler() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -269,14 +270,14 @@ export default function AdminKategoriler() {
                   </td>
                 </tr>
               ) : (
-                [...categories]
-                  .filter((cat) =>
+                sortCategories(
+                  categories.filter((cat) =>
                     search
                       ? cat.name.toLowerCase().includes(search.toLowerCase()) ||
                         cat.slug.toLowerCase().includes(search.toLowerCase())
                       : true
                   )
-                  .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+                )
                   .map((cat) => (
                     <tr key={cat.id} className="hover:bg-slate-50 transition-colors">
                       <td className="py-3.5 px-5 text-slate-400">
@@ -574,9 +575,7 @@ export default function AdminKategoriler() {
                       className="input text-sm"
                     >
                       <option value="">— Ana Kategori (üst kategori yok)</option>
-                      {categories
-                        .filter((c) => !c.parentId && c.id !== editTarget?.id)
-                        .sort((a, b) => a.order - b.order)
+                      {sortCategories(categories.filter((c) => !c.parentId && c.id !== editTarget?.id))
                         .map((c) => (
                           <option key={c.id} value={c.id}>
                             {c.name}

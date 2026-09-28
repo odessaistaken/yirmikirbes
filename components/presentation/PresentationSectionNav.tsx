@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Search, X, ChevronDown, ArrowUp } from "lucide-react";
 import type { Category } from "@/lib/types";
+import { sortCategories } from "@/lib/category-order";
 
 interface PresentationSectionNavProps {
   categories: Category[];
@@ -60,7 +61,7 @@ export default function PresentationSectionNav({
               En Başa Dön
             </button>
 
-            {categories.map((cat) => {
+            {sortCategories(categories).map((cat) => {
               const isActive = activeSectionId === cat.id || activeSectionId === cat.slug;
               return (
                 <button
