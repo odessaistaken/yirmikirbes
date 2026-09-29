@@ -6,7 +6,7 @@
  * Fully optimized for responsive 5-column catalog grids.
  * Includes lightbox modal for full-size image preview.
  */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -25,7 +25,12 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
   const [inquiryOpen, setInquiryOpen] = useState(false);
   const [imgError, setImgError] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { currentUser } = useAuth();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <>
@@ -119,7 +124,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
             </p>
 
             {/* Price display (for logged-in users) */}
-            {currentUser && product.price > 0 && (
+            {mounted && currentUser && product.price > 0 && (
               <div className="mb-2">
                 <p className="font-heading font-bold text-slate-900 text-sm sm:text-base">
                   ₺{product.price.toFixed(2)}

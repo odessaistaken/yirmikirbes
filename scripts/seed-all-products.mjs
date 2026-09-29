@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, setDoc, doc, serverTimestamp, getDocs, collection, deleteDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyARd2f0Fea3_3Rie1BdNqg-oiFDUnMQP7Y",
@@ -7,78 +7,33 @@ const firebaseConfig = {
   projectId: "project-6884460393570611503",
   storageBucket: "project-6884460393570611503.firebasestorage.app",
   messagingSenderId: "897409225916",
-  appId: "1:897409225916:web:a982cd3bb5733befb22cb9",
+  appId: "1:897409225916:web:a982cd3bb5733befb22cb9"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export const CATEGORIES_DATA = [
-  {
-    "id": "cat-1",
-    "name": "Püreler",
-    "slug": "pureler",
-    "description": "Caffè NONNO Frozen püreleri, DaVinci Fruit Mix ve Krater meyve karışımlarından oluşan zengin bar ve pastacılık koleksiyonumuz.",
-    "icon": "🍓",
-    "productCount": 27,
-    "imageUrl": "/resimler/pt1/pt1_1.png",
-    "order": 1,
-    "isActive": true
-  },
-  {
-    "id": "cat-2",
-    "name": "Şuruplar",
-    "slug": "suruplar",
-    "description": "DaVinci Gourmet, Caffè NONNO ve Monte Cristo aromalı kahve, kokteyl ve barista şurupları.",
-    "icon": "🍯",
-    "productCount": 49,
-    "imageUrl": "/resimler/p4/p4_1.png",
-    "order": 2,
-    "isActive": true
-  },
-  {
-    "id": "cat-7",
-    "name": "Kokteyller",
-    "slug": "kokteyller",
-    "description": "EASY MIX doğal meyve ve botanik kokteyl premiksleri, bar kokteylleri için profesyonel karışımlar.",
-    "icon": "🍹",
-    "productCount": 18,
-    "imageUrl": "/resimler/pt1/pt1_10.png",
-    "order": 3,
-    "isActive": true,
-    "parentId": "cat-2"
-  },
-  {
-    "id": "cat-4",
-    "name": "Bar Sos",
-    "slug": "bar-sos",
-    "description": "DaVinci 2L ve Caffè NONNO 750g karamel, çikolata, beyaz çikolata ve meyve sosları.",
-    "icon": "🍫",
-    "productCount": 15,
-    "imageUrl": "/resimler/p6/p6_7.png",
-    "order": 4,
-    "isActive": true
-  },
+const CATEGORIES = [
   {
     "id": "cat-8",
     "name": "Pastalar",
     "slug": "pastalar",
-    "description": "Taze butik pastalar ve donuk pasta çeşitlerimizle profesyonel pastacılık koleksiyonu.",
+    "description": "Özenle seçilmiş malzemelerle hazırlanan el yapımı butik pastalar, donuk cheesecake'ler ve tek porsiyonluk gurme lezzetler.",
     "icon": "🎂",
-    "productCount": 121,
-    "imageUrl": "/resimler/pt12/pt12_14.png",
-    "order": 5,
+    "productCount": 129,
+    "imageUrl": "/resimler/pt13/pt13_1.png",
+    "order": 1,
     "isActive": true
   },
   {
     "id": "cat-9",
-    "name": "Taze - Butik Pastalar",
+    "name": "Butik Pastalar",
     "slug": "taze-butik-pastalar",
-    "description": "Günlük taze üretim, el yapımı butik pasta ve tatlı çeşitleri.",
+    "description": "Günlük taze üretim, el yapımı mono ve dilimli butik pasta ve tatlı çeşitleri.",
     "icon": "🍰",
     "productCount": 55,
-    "imageUrl": "/resimler/pt14/pt14_1.png",
-    "order": 6,
+    "imageUrl": "/resimler/pt14/pt14_2.png",
+    "order": 2,
     "isActive": true,
     "parentId": "cat-8"
   },
@@ -88,9 +43,33 @@ export const CATEGORIES_DATA = [
     "slug": "donuk-pasta",
     "description": "Kafeterya ve restoranlar için pratik, lezzetli donuk cheesecake'ler, tiramisu, mono kutu pastalar, dilimli pastalar ve unlu mamuller.",
     "icon": "❄️",
-    "productCount": 66,
-    "imageUrl": "/resimler/pt12/pt12_14.png",
-    "order": 7,
+    "productCount": 74,
+    "imageUrl": "/resimler/pt12/pt12_13.png",
+    "order": 3,
+    "isActive": true,
+    "parentId": "cat-8"
+  },
+  {
+    "id": "cat-butik-cup",
+    "name": "Butik Cup",
+    "slug": "butik-cup",
+    "description": "Bireysel servis ve sunumlar için özel tasarlanmış butik cup tatlı ve magnolia çeşitleri.",
+    "icon": "🧁",
+    "productCount": 0,
+    "imageUrl": "/resimler/pt15/pt15_1.png",
+    "order": 4,
+    "isActive": true,
+    "parentId": "cat-8"
+  },
+  {
+    "id": "cat-organizasyon",
+    "name": "Organizasyon Pastaları",
+    "slug": "organizasyon-pastalari",
+    "description": "Düğün, nişan, kutlama ve kurumsal etkinlikler için özel tasarım organizasyon pastaları.",
+    "icon": "🎊",
+    "productCount": 0,
+    "imageUrl": "/resimler/pt13/pt13_2.png",
+    "order": 5,
     "isActive": true,
     "parentId": "cat-8"
   },
@@ -98,11 +77,22 @@ export const CATEGORIES_DATA = [
     "id": "cat-3",
     "name": "Waffle Çikolataları",
     "slug": "waffle-malzemeleri",
-    "description": "CALLEI sürülebilir renkli kremalar, hazır waffle tozu, draje ve krokan süsleme çeşitleri.",
+    "description": "CALLEI sürülebilir renkli aromalı kremalar, çıtır pirinç patlakları, drajeler ve fındık krokan süsleme çeşitleri.",
     "icon": "🧇",
-    "productCount": 24,
-    "imageUrl": "/resimler/p10/p10_1.png",
-    "order": 8,
+    "productCount": 21,
+    "imageUrl": "/beyazresimler/karisik/karisik_081.png",
+    "order": 6,
+    "isActive": true
+  },
+  {
+    "id": "cat-kruvasan",
+    "name": "Kruvasan",
+    "slug": "kruvasan",
+    "description": "Taze ve donuk kruvasan çeşitleri, Fransız usulü tereyağlı hamur işleri ve New York roll.",
+    "icon": "🥐",
+    "productCount": 0,
+    "imageUrl": "/resimler/pt18/pt18_7.png",
+    "order": 7,
     "isActive": true
   },
   {
@@ -111,34 +101,55 @@ export const CATEGORIES_DATA = [
     "slug": "kremali-urunler",
     "description": "Chantilly, ganaj ve profesyonel pastacılık krema hammaddeleri.",
     "icon": "🍦",
-    "productCount": 1,
-    "imageUrl": "/resimler/p9/p9_1.png",
+    "productCount": 0,
+    "imageUrl": "/beyazresimler/karisik/karisik_021.png",
+    "order": 8,
+    "isActive": true
+  },
+  {
+    "id": "cat-2",
+    "name": "Şuruplar",
+    "slug": "suruplar",
+    "description": "DaVinci Gourmet, Caffè NONNO ve Monte Cristo aromalı kahve, kokteyl ve barista şurupları.",
+    "icon": "🍯",
+    "productCount": 51,
+    "imageUrl": "/beyazresimler/karisik/karisik_021.png",
     "order": 9,
     "isActive": true
   },
   {
-    "id": "cat-butik-cup",
-    "name": "Butik Cup",
-    "slug": "butik-cup",
-    "description": "Bireysel servis için hazırlanmış, özel sunum kaplarda butik cup pasta çeşitleri.",
-    "icon": "🧁",
-    "productCount": 0,
-    "imageUrl": "/resimler/pt14/pt14_1.png",
+    "id": "cat-7",
+    "name": "Kokteyller",
+    "slug": "kokteyller",
+    "description": "EASY MIX doğal meyve ve botanik kokteyl premiksleri, bar kokteylleri ve mocktailler için profesyonel karışımlar.",
+    "icon": "🍹",
+    "productCount": 18,
+    "imageUrl": "/beyazresimler/karisik/karisik_052.png",
     "order": 10,
     "isActive": true,
-    "parentId": "cat-8"
+    "parentId": "cat-2"
   },
   {
-    "id": "cat-organizasyon",
-    "name": "Organizasyon Pastaları",
-    "slug": "organizasyon-pastalari",
-    "description": "Düğün, nişan, doğum günü ve kurumsal etkinlikler için özel tasarım organizasyon pastaları.",
-    "icon": "🎊",
-    "productCount": 0,
-    "imageUrl": "/resimler/pt12/pt12_14.png",
+    "id": "cat-4",
+    "name": "Bar Sos",
+    "slug": "bar-sos",
+    "description": "DaVinci Gourmet ve Caffè NONNO karamel, çikolata, beyaz çikolata ve condensed milk gurme bar sosları.",
+    "icon": "🍫",
+    "productCount": 10,
+    "imageUrl": "/beyazresimler/karisik/karisik_004.png",
     "order": 11,
-    "isActive": true,
-    "parentId": "cat-8"
+    "isActive": true
+  },
+  {
+    "id": "cat-1",
+    "name": "Püreler",
+    "slug": "pureler",
+    "description": "DaVinci Fruit Mix ve Krater zengin meyve püreleri ile bar ve pastacılık meyve karışımları.",
+    "icon": "🍓",
+    "productCount": 31,
+    "imageUrl": "/beyazresimler/karisik/karisik_001.png",
+    "order": 12,
+    "isActive": true
   },
   {
     "id": "cat-kasa-onu",
@@ -147,3460 +158,48 @@ export const CATEGORIES_DATA = [
     "description": "Kasa önü atıştırmalıklar, ikramlık ve impuls ürün seçenekleri.",
     "icon": "🍬",
     "productCount": 0,
-    "imageUrl": "/resimler/kategoriler/kasa-onu-urunler.jpg",
-    "order": 12,
+    "imageUrl": "/beyazresimler/karisik/karisik_081.png",
+    "order": 13,
+    "isActive": true
+  },
+  {
+    "id": "cat-kremalar",
+    "name": "Kremalar",
+    "slug": "kremalar",
+    "description": "Özel pastacılık, waffle ve tatlı kremaları, dolgu ve kaplama krema çeşitleri.",
+    "icon": "🧁",
+    "productCount": 0,
+    "imageUrl": "/beyazresimler/karisik/karisik_081.png",
+    "order": 14,
     "isActive": true
   },
   {
     "id": "cat-ekipmanlar",
     "name": "Ekipmanlar",
     "slug": "ekipmanlar",
-    "description": "Profesyonel pastacılık ve barista ekipmanları, araç gereçler.",
+    "description": "Profesyonel pastacılık ve barista ekipmanları, servis ve mutfak araç gereçleri.",
     "icon": "🔧",
     "productCount": 0,
     "imageUrl": "/resimler/kategoriler/ekipmanlar.jpg",
-    "order": 13,
-    "isActive": true
-  },
-  {
-    "id": "cat-kruvasan",
-    "name": "Kruvasan",
-    "slug": "kruvasan",
-    "description": "Taze ve donuk kruvasan çeşitleri, Fransız usulü tereyağlı hamur işleri.",
-    "icon": "🥐",
-    "productCount": 0,
-    "imageUrl": "/resimler/kategoriler/kruvasan.jpg",
-    "order": 14,
-    "isActive": true
+    "order": 15,
+    "isActive": false
   }
 ];
-export const ALL_PRODUCTS = [
-  {
-    "id": "prod-p3-1",
-    "name": "Caffè NONNO Caramel Aromalı Şurup 750ml",
-    "code": "NON-CAR-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p3/p3_1.png",
-    "description": "Kahveler, sıcak ve soğuk içecekler için zengin ve kremsi karamel aromalı premium bar şurubu.",
-    "tags": [
-      "Caffè NONNO",
-      "Karamel",
-      "Şurup",
-      "Kahve",
-      "Barista"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Sıcak/Soğuk Kahve, Latte, Kokteyl",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p3-2",
-    "name": "Caffè NONNO Mint Aromalı Nane Şurubu 750ml",
-    "code": "NON-MNT-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p3/p3_2.png",
-    "description": "Ferahlatıcı nane lezzetiyle kokteyller, limonatalar ve soğuk içecekler için ferahlatıcı şurup.",
-    "tags": [
-      "Caffè NONNO",
-      "Nane",
-      "Mint",
-      "Şurup",
-      "Limonata",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Kokteyl, Mocktail, Limonata",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p3-3",
-    "name": "Caffè NONNO Raspberry Frozen Frambuaz Püresi 750ml",
-    "code": "NON-RAS-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/p3/p3_3.png",
-    "description": "Taze frambuaz tanelerinin yoğun lezzetini içeren özel akışkan kapaklı frozen ve smoothie püresi.",
-    "tags": [
-      "Caffè NONNO",
-      "Frambuaz",
-      "Ahududu",
-      "Püre",
-      "Frozen",
-      "Smoothie"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Frozen, Smoothie, Kokteyl, Pasta",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p3-4",
-    "name": "Caffè NONNO Mojito Aromalı Şurup 750ml",
-    "code": "NON-MOJ-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p3/p3_4.png",
-    "description": "Misket limonu ve taze nane uyumuyla mükemmel alkolsüz mojito ve kokteyl hazırlama şurubu.",
-    "tags": [
-      "Caffè NONNO",
-      "Mojito",
-      "Lime",
-      "Şurup",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Mojito, Kokteyl, Mocktail",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p3-5",
-    "name": "Caffè NONNO Hazelnut Fındık Aromalı Şurup 750ml",
-    "code": "NON-HAZ-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p3/p3_5.png",
-    "description": "Kavrulmuş fındık aromasıyla kahve ve sıcak çikolatalarınıza derinlik katan lezzet şurubu.",
-    "tags": [
-      "Caffè NONNO",
-      "Fındık",
-      "Hazelnut",
-      "Şurup",
-      "Kahve",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Espresso, Latte, Sıcak Çikolata",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p3-6",
-    "name": "Caffè NONNO Cool Berry Orman Meyveleri Şurubu 750ml",
-    "code": "NON-CBR-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p3/p3_6.png",
-    "description": "Böğürtlen, çilek ve yaban mersini aromalarının buzlu ferahlatıcı lezzet şurubu.",
-    "tags": [
-      "Caffè NONNO",
-      "Cool Berry",
-      "Orman Meyvesi",
-      "Şurup",
-      "İçecek"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Cool Berry, Buzlu İçecek, Soda",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p3-7",
-    "name": "Caffè NONNO Cool Lime Misket Limonu Şurubu 750ml",
-    "code": "NON-CLM-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p3/p3_7.png",
-    "description": "Yaz aylarının vazgeçilmezi buzlu Cool Lime içecekleri için özel formül konsantre şurup.",
-    "tags": [
-      "Caffè NONNO",
-      "Cool Lime",
-      "Misket Limonu",
-      "Şurup",
-      "Refresher"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Cool Lime, Buzlu İçecek, Mocktail",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p3-8",
-    "name": "Caffè NONNO Vanilla Vanilya Aromalı Şurup 750ml",
-    "code": "NON-VAN-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p3/p3_8.png",
-    "description": "Doğal Madagaskar vanilyası notalarıyla kahve ve tatlı tariflerini zenginleştiren klasik şurup.",
-    "tags": [
-      "Caffè NONNO",
-      "Vanilya",
-      "Vanilla",
-      "Şurup",
-      "Kahve",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Vanilla Latte, Frappe, Tatlı",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p3-9",
-    "name": "Caffè NONNO Chocolate Çikolata Aromalı Şurup 750ml",
-    "code": "NON-CHO-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p3/p3_9.png",
-    "description": "Yoğun kakao aroması ile mocha, sıcak çikolata ve milkshake yapımı için özel lezzet şurubu.",
-    "tags": [
-      "Caffè NONNO",
-      "Çikolata",
-      "Chocolate",
-      "Şurup",
-      "Mocha",
-      "Frappe"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Mocha, Milkshake, Sıcak Çikolata",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p3-10",
-    "name": "Caffè NONNO White Chocolate Beyaz Çikolata Şurubu 750ml",
-    "code": "NON-WCH-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p3/p3_10.png",
-    "description": "Kremsi beyaz çikolata lezzeti sunan White Mocha ve özel içecekler için gurme şurup.",
-    "tags": [
-      "Caffè NONNO",
-      "Beyaz Çikolata",
-      "White Mocha",
-      "Şurup",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "White Mocha, Kahve, Milkshake",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p4-1",
-    "name": "DaVinci Gourmet Blue Ocean Aromalı Şurup 750ml",
-    "code": "DVG-BOC-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p4/p4_1.png",
-    "description": "Tropikal portakal ve narenciye dokunuşlarıyla egzotik mavi kokteyller için DaVinci Blue Ocean.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Blue Ocean",
-      "Mavi Portakal",
-      "Şurup",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Mocktail, Kokteyl, Limonata",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p4-2",
-    "name": "DaVinci Gourmet Lemon Tea Aromalı Şurup 750ml",
-    "code": "DVG-LTE-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p4/p4_2.png",
-    "description": "Geleneksel demlenmiş çay ve ferahlatıcı limon lezzetini bir araya getiren gurme buzlu çay şurubu.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Limon Çayı",
-      "Ice Tea",
-      "Şurup",
-      "Soğuk Çay"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Ice Tea, Soğuk İçecek",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p4-3",
-    "name": "DaVinci Gourmet Classic Vanilla Aromalı Şurup 750ml",
-    "code": "DVG-VAN-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p4/p4_3.png",
-    "description": "Dünya standartlarında saf vanilya çekirdeği aroması sunan DaVinci Classic Vanilla şurubu.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Vanilla",
-      "Vanilya",
-      "Şurup",
-      "Kahve",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Kahve, Latte, Cappuccino, Frappe",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p4-4",
-    "name": "DaVinci Gourmet Shortbread Cookies Aromalı Şurup 750ml",
-    "code": "DVG-SBC-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p4/p4_4.png",
-    "description": "Taze fırından çıkmış tereyağlı İskoç kurabiyesi lezzeti sunan özel DaVinci kurabiye şurubu.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Kurabiye",
-      "Shortbread Cookies",
-      "Şurup",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Latte, Frappe, Milkshake",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p4-5",
-    "name": "DaVinci Gourmet Menta Cubano Aromalı Şurup 750ml",
-    "code": "DVG-MCU-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p4/p4_1.png",
-    "description": "Küba nanesinin doğal ferahlığıyla hazırlanan otantik mojito ve kokteyl şurubu.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Menta Cubano",
-      "Nane",
-      "Mojito",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Mojito, Kokteyl, Soda",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p4-6",
-    "name": "DaVinci Gourmet Classic Strawberry Çilek Şurubu 750ml",
-    "code": "DVG-STR-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p4/p4_6.png",
-    "description": "Olgun bahçe çileklerinin tatlı ve ferah aromasıyla hazırlanan DaVinci gurme şurup.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Çilek",
-      "Strawberry",
-      "Şurup",
-      "Limonata",
-      "Milkshake"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Milkshake, Smoothie, Limonata, Kokteyl",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p4-7",
-    "name": "DaVinci Gourmet Peach Garden Şeftali Şurubu 750ml",
-    "code": "DVG-PGA-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p4/p4_7.png",
-    "description": "Yaz şeftalisinin sulu ve tatlı lezzetiyle buzlu çaylar ve ferahlatıcı içecekler için DaVinci şurup.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Şeftali",
-      "Peach",
-      "Ice Tea",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Peach Ice Tea, Limonata, Kokteyl",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p4-8",
-    "name": "DaVinci Gourmet Classic Hazelnut Fındık Şurubu 750ml",
-    "code": "DVG-HAZ-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p4/p4_8.png",
-    "description": "Zengin kavrulmuş fındık aromasıyla kahve zincirlerinin bir numaralı tercihi DaVinci Classic Hazelnut.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Fındık",
-      "Hazelnut",
-      "Kahve Şurubu",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Latte, Cappuccino, Sıcak Çikolata",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p4-9",
-    "name": "DaVinci Gourmet Pecan Praline Aromalı Şurup 750ml",
-    "code": "DVG-PPR-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p4/p4_9.png",
-    "description": "Pekan cevizi ve karamelize pralin notalarıyla zenginleştirilmiş özel gurme kahve şurubu.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Pecan Praline",
-      "Pekan Cevizi",
-      "Şurup",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Özel Kahve Reçeteleri, Frappe",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p4-10",
-    "name": "DaVinci Gourmet Forest Berries Orman Meyveleri Şurubu 750ml",
-    "code": "DVG-FBR-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p4/p4_10.png",
-    "description": "Böğürtlen, frambuaz ve ahududu meyve kombinasyonuyla zengin lezzet profili sunar.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Forest Berries",
-      "Orman Meyvesi",
-      "Şurup",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Ice Tea, Limonata, Kokteyl",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p5-1",
-    "name": "DaVinci Gourmet Classic Caramel Şurubu 750ml",
-    "code": "DVG-CAR-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p5/p5_1.png",
-    "description": "Karamelize şeker ve hafif vanilya tonlarının dengeli uyumuyla üretilen en popüler kahve şurubu.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Caramel",
-      "Karamel",
-      "Şurup",
-      "Caramel Macchiato"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Caramel Macchiato, Latte, Frappe",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p5-2",
-    "name": "DaVinci Gourmet Butterscotch Aromalı Sos 2L",
-    "code": "DVG-BSC-2000",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/p5/p5_2.png",
-    "description": "Eski usul tereyağı ve esmer şekerin karamelize lezzetini sunan yoğun kıvamlı DaVinci Butterscotch sos.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Butterscotch",
-      "Karamel Sos",
-      "Kahve Sosu",
-      "Dondurma Sosu"
-    ],
-    "specs": {
-      "Hacim": "2 Litre",
-      "Kullanım": "Kahve Üstü Süsleme, Waffle, Dondurma, Pasta",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p5-3",
-    "name": "DaVinci Gourmet Classic Blueberry Şurubu 750ml",
-    "code": "DVG-BLU-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p5/p5_3.png",
-    "description": "Doğal yaban mersini aromasıyla soğuk çaylar, limonatalar ve kokteyller için mor renkli şurup.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Blueberry",
-      "Yaban Mersini",
-      "Şurup",
-      "Limonata"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Limonata, Kokteyl, Mocktail",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p5-4",
-    "name": "DaVinci Gourmet Classic Roasted Almond Şurubu 750ml",
-    "code": "DVG-ALM-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p5/p5_4.png",
-    "description": "Fırınlanmış acıbadem ve tatlı badem aromalarının harmanlandığı özel kahve şurubu.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Badem",
-      "Roasted Almond",
-      "Şurup",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Latte, Sıcak Çikolata, Kokteyl",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p5-5",
-    "name": "DaVinci Gourmet White Chocolate Şurubu 750ml",
-    "code": "DVG-WCH-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p5/p5_5.png",
-    "description": "Kakao yağı ve vanilyanın pürüzsüz karışımıyla White Chocolate Mocha tutkunları için ideal şurup.",
-    "tags": [
-      "DaVinci Gourmet",
-      "White Chocolate",
-      "Beyaz Çikolata",
-      "Şurup",
-      "Mocha"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "White Mocha, Frappe, Sıcak Süt",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p5-6",
-    "name": "DaVinci Gourmet Toffeenut Aromalı Şurup 750ml",
-    "code": "DVG-TOF-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p5/p5_6.png",
-    "description": "Tereyağlı tofi şekeri ve kavrulmuş fındık tanelerinin muazzam buluşmasıyla kış aylarının favorisi.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Toffeenut",
-      "Tofi",
-      "Fındık",
-      "Şurup",
-      "Toffee Nut Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Toffee Nut Latte, Frappe, Mocha",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p5-7",
-    "name": "DaVinci Gourmet Classic Coconut Şurubu 750ml",
-    "code": "DVG-COC-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p5/p5_7.png",
-    "description": "Tropikal hindistan cevizinin egzotik aromasıyla Pina Colada ve özel kahve tarifleri için şurup.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Hindistan Cevizi",
-      "Coconut",
-      "Şurup",
-      "Pina Colada"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Tropikal Kokteyl, Mocha, Frappe",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p5-8",
-    "name": "DaVinci Gourmet Juicy Lime Aromalı Şurup 750ml",
-    "code": "DVG-JLM-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p5/p5_8.png",
-    "description": "Taze sıkılmış misket limonu suyu tazeliği sunan kokteyl ve soğuk meşrubat şurubu.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Juicy Lime",
-      "Misket Limonu",
-      "Şurup",
-      "Limonata"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Limonata, Kokteyl, Soda",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p5-9",
-    "name": "DaVinci Gourmet Spiced Chai Tea Konsantre Şurup 750ml",
-    "code": "DVG-CHA-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p5/p5_9.png",
-    "description": "Tarçın, kakule, zencefil ve karanfil baharatlarıyla harmanlanmış otantik Chai Tea Latte konsantresi.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Chai Tea",
-      "Baharatlı Çay",
-      "Chai Latte",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Chai Tea Latte, Sıcak/Soğuk Sütlü Çay",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p5-10",
-    "name": "DaVinci Gourmet Classic Chocolate Şurubu 750ml",
-    "code": "DVG-CHO-750",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p5/p5_10.png",
-    "description": "Koyu kakao çekirdeklerinin yoğun aromasıyla sıcak ve soğuk kahvelerde mükemmel çikolata lezzeti.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Çikolata",
-      "Chocolate",
-      "Mocha",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Caffè Mocha, Milkshake, Frappe",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p6-1",
-    "name": "Caffè NONNO Blue Curacao Bar Sosu 750g",
-    "code": "NON-BCS-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/p6/p6_1.png",
-    "description": "Canlı mavi rengi ve narenciye aromasıyla bar sunumları, tatlılar ve kokteyller için özel sıkma sos.",
-    "tags": [
-      "Caffè NONNO",
-      "Blue Curacao",
-      "Bar Sosu",
-      "Tatlı Sosu",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Gramaj": "750 g",
-      "Kullanım": "Bar Süsleme, Tatlı Tabağı Dekoru, Kokteyl",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p6-2",
-    "name": "Caffè NONNO Muz Aromalı Bar Sosu 750g",
-    "code": "NON-BNS-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/p6/p6_2.png",
-    "description": "Sarı muz aromalı akışkan dekor sosu; dondurma, waffle ve pastacılık tabaklarında harika sunum sağlar.",
-    "tags": [
-      "Caffè NONNO",
-      "Muz",
-      "Muz Sosu",
-      "Tatlı Sosu",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "750 g",
-      "Kullanım": "Waffle, Dondurma, Pasta Süsleme",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p6-3",
-    "name": "EASY MIX Orange Mango Kokteyl Premiksi 1000ml",
-    "code": "EMX-OMG-1000",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p6/p6_3.png",
-    "description": "Portakal ve mango meyvelerinin mükemmel dengesiyle hızlı ve pratik kokteyl & mocktail miksi.",
-    "tags": [
-      "EASY MIX",
-      "Portakal",
-      "Mango",
-      "Kokteyl Premiksi",
-      "Barista"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Kokteyl, Mocktail, Frozen",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p6-4",
-    "name": "EASY MIX Bodrum Mandalin Kokteyl Premiksi 1000ml",
-    "code": "EMX-BDR-1000",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p6/p6_4.png",
-    "description": "Coğrafi işaretli Bodrum mandalinasının eşsiz kokusu ve tadıyla profesyonel barlar için hazır premiks.",
-    "tags": [
-      "EASY MIX",
-      "Bodrum Mandalina",
-      "Kokteyl Miksi",
-      "Premix"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Kokteyl, Mocktail, Limonata",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p6-5",
-    "name": "DaVinci Gourmet Cheese Cake Aromalı Sos 2L",
-    "code": "DVG-CHK-2000",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/p6/p6_5.png",
-    "description": "Kremamsı New York cheesecake lezzetini kahvelere, frappeler ve tatlı tabaklarına taşıyan özel 2L sos.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Cheesecake Sos",
-      "Tatlı Sosu",
-      "Kahve Sosu",
-      "Frappe"
-    ],
-    "specs": {
-      "Hacim": "2 Litre",
-      "Kullanım": "Cheesecake Latte, Frappe, Dondurma, Pasta",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p6-6",
-    "name": "DaVinci Gourmet White Chocolate Aromalı Sos 2L",
-    "code": "DVG-WCS-2000",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/p6/p6_6.png",
-    "description": "İpeksi beyaz çikolata dokusu ve zengin süt aromasıyla baristaların vazgeçilmezi 2 litrelik sos.",
-    "tags": [
-      "DaVinci Gourmet",
-      "White Chocolate",
-      "Beyaz Çikolata Sosu",
-      "Mocha"
-    ],
-    "specs": {
-      "Hacim": "2 Litre",
-      "Kullanım": "White Mocha, Sıcak Çikolata, Waffle, Dondurma",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p6-7",
-    "name": "DaVinci Gourmet Caramel Aromalı Sos 2L",
-    "code": "DVG-CRS-2000",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/p6/p6_7.png",
-    "description": "Geleneksel tereyağlı karamel kıvamı ve parlak dokusuyla kahve ve tatlı sunumlarında lider sos.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Karamel Sos",
-      "Caramel Drizzle",
-      "Kahve Sosu"
-    ],
-    "specs": {
-      "Hacim": "2 Litre",
-      "Kullanım": "Caramel Macchiato, Waffle, Pasta, Dondurma",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p6-8",
-    "name": "DaVinci Gourmet Chocolate Aromalı Sos 2L",
-    "code": "DVG-CHS-2000",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/p6/p6_8.png",
-    "description": "Zengin kakao çekirdeklerinden üretilen koyu çikolata sosu; sıcak ve soğuk içeceklerde kusursuz erir.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Çikolata Sosu",
-      "Mocha Sos",
-      "Waffle",
-      "Pasta"
-    ],
-    "specs": {
-      "Hacim": "2 Litre",
-      "Kullanım": "Caffè Mocha, Dondurma, Waffle, Pancake",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p6-9",
-    "name": "Caffè NONNO White Chocolate Bar Sosu 750g",
-    "code": "NON-WCS-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/p6/p6_9.png",
-    "description": "Özel ince uçlu sıkma şişesiyle pasta, waffle ve kahve üzeri desenler için beyaz çikolata dekor sosu.",
-    "tags": [
-      "Caffè NONNO",
-      "Beyaz Çikolata Sosu",
-      "Dekor Sos",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "750 g",
-      "Kullanım": "Kahve Süsleme, Waffle, Tabak Dekoru",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p6-10",
-    "name": "Caffè NONNO Blue Curacao Bar & Tatlı Sosu 750g",
-    "code": "NON-BCS-750B",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/p6/p6_10.png",
-    "description": "Kokteyl ve tatlı sunumlarına derin mavi ton ve tatlı portakal lezzeti kazandıran özel dekor sos.",
-    "tags": [
-      "Caffè NONNO",
-      "Blue Curacao",
-      "Dekor Sos",
-      "Barista"
-    ],
-    "specs": {
-      "Gramaj": "750 g",
-      "Kullanım": "Bardak Süsleme, Kokteyl, Tatlı Tabağı",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p7-1",
-    "name": "EASY MIX Citrus Blend Kokteyl Premiksi 1000ml",
-    "code": "EMX-CIT-1000",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p7/p7_1.png",
-    "description": "Limon, misket limonu ve portakalın ferahlatıcı dengesiyle sour kokteyllerin temel harcı.",
-    "tags": [
-      "EASY MIX",
-      "Citrus Blend",
-      "Narenciye",
-      "Kokteyl Premiksi",
-      "Sour"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Sour Kokteyller, Limonata, Mocktail",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p7-2",
-    "name": "EASY MIX Pitaya Refresher İçecek 700ml",
-    "code": "EMX-PIT-700",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p7/p7_2.png",
-    "description": "Ejder meyvesi (Pitaya) ve yeşil çay bazıyla pembe renkli tropikal ferahlık sunan konsantre içecek.",
-    "tags": [
-      "EASY MIX",
-      "Pitaya",
-      "Ejder Meyvesi",
-      "Refresher",
-      "Buzlu İçecek"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Buzlu Refresher, Mocktail, Kokteyl",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p7-3",
-    "name": "EASY MIX Cherry & Chocolate Kokteyl Premiksi 500ml",
-    "code": "EMX-CCH-500",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p7/p7_3.png",
-    "description": "Koyu kiraz ve bitter çikolata uyumuyla gurme kokteyller ve tatlı içecekler için premiks.",
-    "tags": [
-      "EASY MIX",
-      "Kiraz Çikolata",
-      "Cherry Chocolate",
-      "Kokteyl Miksi"
-    ],
-    "specs": {
-      "Hacim": "500 ml",
-      "Kullanım": "Gurme Kokteyl, Tatlı İçecek",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p7-4",
-    "name": "EASY MIX Rooibos Peach Refresher İçecek 700ml",
-    "code": "EMX-RBP-700",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p7/p7_4.png",
-    "description": "Güney Afrika Rooibos çayı ve tatlı şeftali harmanıyla kafeinsiz doğal buzlu içecek bazı.",
-    "tags": [
-      "EASY MIX",
-      "Rooibos",
-      "Şeftali",
-      "Refresher",
-      "Ice Tea"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Buzlu Çay, Refresher, Kokteyl",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p7-5",
-    "name": "EASY MIX Tuxedo Çikolata & Vanilya Premiksi 1000ml",
-    "code": "EMX-TUX-1000",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p7/p7_5.png",
-    "description": "Siyah ve beyaz çikolatanın vanilya ile mükemmel dengesiyle lüks kokteyl bazı.",
-    "tags": [
-      "EASY MIX",
-      "Tuxedo",
-      "Çikolata",
-      "Vanilya",
-      "Premix"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Tatlı Kokteyller, Barista İçecekleri",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p7-6",
-    "name": "EASY MIX Passion Martini Kokteyl Premiksi 1000ml",
-    "code": "EMX-PSM-1000",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p7/p7_6.png",
-    "description": "Çarkıfelek meyvesi, vanilya ve narenciye notalarıyla dünyaca ünlü Passion Martini hazırlama miksi.",
-    "tags": [
-      "EASY MIX",
-      "Passion Martini",
-      "Çarkıfelek",
-      "Kokteyl Premiksi"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Pornstar Martini, Passion Mocktail, Frozen",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p7-7",
-    "name": "EASY MIX Passion Martini Kokteyl Miksi 1000ml",
-    "code": "EMX-PSM-1000B",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p7/p7_7.png",
-    "description": "Barlar ve restoranlar için standart reçeteli yoğun çarkıfelek meyveli kokteyl bazı.",
-    "tags": [
-      "EASY MIX",
-      "Passion Fruit",
-      "Martini Miksi",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Kokteyl, Mocktail, Frozen",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p7-8",
-    "name": "EASY MIX Chili Mango Kokteyl Premiksi 1000ml",
-    "code": "EMX-CHM-1000",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p7/p7_8.png",
-    "description": "Tatlı tropikal mango ile hafif acı acı biberin heyecan verici ve cüretkar kokteyl kombinasyonu.",
-    "tags": [
-      "EASY MIX",
-      "Chili Mango",
-      "Acılı Mango",
-      "Kokteyl Premiksi",
-      "Margarita"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Spicy Mango Margarita, Frozen, Kokteyl",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p7-9",
-    "name": "EASY MIX Purple Basil Limon & Reyhan Premiksi 1000ml",
-    "code": "EMX-PRB-1000",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p7/p7_9.png",
-    "description": "Mor reyhanın aromatik yapısı ve taze limon suyuyla hazırlanan otantik gurme kokteyl premiksi.",
-    "tags": [
-      "EASY MIX",
-      "Mor Reyhan",
-      "Purple Basil",
-      "Reyhan Şerbeti",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Reyhan Kokteyli, Gurme Limonata",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p7-10",
-    "name": "EASY MIX Sorrel & Green Plum Refresher 700ml",
-    "code": "EMX-SGP-700",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p7/p7_10.png",
-    "description": "Ekşi yeşil erik ve taze kuzu kulağının ferahlatıcı yeşil çay bazıyla eşsiz uyumu.",
-    "tags": [
-      "EASY MIX",
-      "Yeşil Erik",
-      "Kuzukulağı",
-      "Refresher",
-      "Ekşi İçecek"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Buzlu Refresher, Ekşi Kokteyl",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p8-1",
-    "name": "Caffè NONNO Tiramisu Aromalı Şurup 750ml",
-    "code": "NON-TIR-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p8/p8_1.png",
-    "description": "İtalyan maskarpone peyniri, bisküvi ve kahve notalarıyla zenginleştirilmiş özel tiramisu şurubu.",
-    "tags": [
-      "Caffè NONNO",
-      "Tiramisu",
-      "Şurup",
-      "Kahve",
-      "Tatlı"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Tiramisu Latte, Sıcak İçecekler, Frappe",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p8-2",
-    "name": "Caffè NONNO Toffee Nut Aromalı Şurup 750ml",
-    "code": "NON-TFN-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p8/p8_2.png",
-    "description": "Karamelize tereyağı ve fındık tanelerinin buluşmasıyla kış kahvelerinin vazgeçilmezi.",
-    "tags": [
-      "Caffè NONNO",
-      "Toffee Nut",
-      "Fındık Şurubu",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Toffee Nut Latte, Cappuccino",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p8-3",
-    "name": "Caffè NONNO Toffee Nut Gourmet Şurup 750ml",
-    "code": "NON-TFN-750B",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p8/p8_3.png",
-    "description": "Yoğun tofi şekeri ve kavrulmuş kuruyemiş profili sunan gurme seri kahve şurubu.",
-    "tags": [
-      "Caffè NONNO",
-      "Toffee Nut",
-      "Gourmet Şurup",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Kahve, Sıcak Süt, Frappe",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p8-4",
-    "name": "EASY MIX Watermelon Margarita Kokteyl Premiksi 500ml",
-    "code": "EMX-WMM-500",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p8/p8_4.png",
-    "description": "Sulu karpuz ve misket limonunun dengeli formülüyle mükemmel Watermelon Margarita bazı.",
-    "tags": [
-      "EASY MIX",
-      "Karpuz",
-      "Margarita",
-      "Kokteyl Premiksi"
-    ],
-    "specs": {
-      "Hacim": "500 ml",
-      "Kullanım": "Karpuz Margarita, Frozen, Mocktail",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p8-5",
-    "name": "EASY MIX Libido Orman Meyveli Kokteyl Premiksi 1000ml",
-    "code": "EMX-LBD-1000",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p8/p8_5.png",
-    "description": "Kırmızı orman meyveleri ve Bodrum mandalinasının canlı rengi ve lezzetiyle özel parti miksi.",
-    "tags": [
-      "EASY MIX",
-      "Orman Meyvesi",
-      "Mandalina",
-      "Kokteyl Premiksi"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Kullanım": "Kokteyl, Mocktail, Shot",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p8-6",
-    "name": "EASY MIX Ocean Karadut & Narenciye Refresher 700ml",
-    "code": "EMX-OCN-700",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p8/p8_6.png",
-    "description": "Portakal, greyfurt ve karadut meyvelerinin berrak mavi okyanus tonuyla buluştuğu refresher.",
-    "tags": [
-      "EASY MIX",
-      "Ocean",
-      "Karadut",
-      "Refresher",
-      "Mavi İçecek"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Buzlu Refresher, Okyanus Kokteyli",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p8-7",
-    "name": "EASY MIX Yeşil Çay & Kavun Kokteyl Premiksi 700ml",
-    "code": "EMX-MLN-700",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p8/p8_7.png",
-    "description": "Antioksidan zengini yeşil çay özü ve tatlı yaz kavunu harmanı.",
-    "tags": [
-      "EASY MIX",
-      "Kavun",
-      "Yeşil Çay",
-      "Kokteyl Premiksi",
-      "Refresher"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Kavunlu Ice Tea, Kokteyl, Mocktail",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p8-8",
-    "name": "EASY MIX Beyaz Çay & Şeftali Kokteyl Premiksi 700ml",
-    "code": "EMX-WPC-700",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p8/p8_8.png",
-    "description": "Hafif beyaz çay yaprakları ve taze sulu şeftali aromasıyla zarif bir içecek bazı.",
-    "tags": [
-      "EASY MIX",
-      "Beyaz Çay",
-      "Şeftali",
-      "Ice Tea",
-      "Premix"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Beyaz Çaylı İçecek, Kokteyl",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p8-9",
-    "name": "EASY MIX Frambuaz Artisan Bar Şurubu 700ml",
-    "code": "EMX-RAS-700",
-    "codeGroup": "EASY MIX",
-    "categoryId": "cat-7",
-    "categoryName": "Kokteyller",
-    "categorySlug": "kokteyller",
-    "imageUrl": "/resimler/p8/p8_9.png",
-    "description": "The Pumps serisi özel basmalı başlığıyla barlar ve kafeler için pratik frambuaz şurubu.",
-    "tags": [
-      "EASY MIX",
-      "Frambuaz",
-      "Artisan Şurup",
-      "Barista"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Kokteyl, Kahve, Limonata",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p8-10",
-    "name": "Caffè NONNO Nar Aromalı Şurup 750ml",
-    "code": "NON-POM-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p8/p8_10.png",
-    "description": "Tatlı ve mayhoş nar lezzetiyle limonatalar, mocktail ve sıcak kış çayları için özel şurup.",
-    "tags": [
-      "Caffè NONNO",
-      "Nar",
-      "Pomegranate",
-      "Şurup",
-      "Limonata"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Limonata, Kokteyl, Sıcak Meyve Çayı",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p8-11",
-    "name": "Caffè NONNO Muz Aromalı Şurup 750ml",
-    "code": "NON-BAN-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p8/p8_11.png",
-    "description": "Tropikal muz lezzetiyle sütlü kahveler, milkshake ve frappe çeşitlerine tatlılık katar.",
-    "tags": [
-      "Caffè NONNO",
-      "Muz",
-      "Banana",
-      "Şurup",
-      "Milkshake"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Milkshake, Muzlu Latte, Frappe",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p9-1",
-    "name": "CALLEI Bitter Çikolatalı Waffle & Krep Kreması 1kg",
-    "code": "CAL-BIT-1000",
-    "codeGroup": "CALLEI",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p9/p9_1.png",
-    "description": "Zengin bitter kakao içeriği ve pürüzsüz sürülebilir kıvamıyla profesyonel waffle ve krep kreması.",
-    "tags": [
-      "CALLEI",
-      "Bitter Çikolata",
-      "Waffle Kreması",
-      "Krep",
-      "Sürülebilir Çikolata"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Pancake, Kruvasan Dolgusu",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p9-2",
-    "name": "Renkli Granül Pasta & Waffle Süsleme Şekeri 1kg",
-    "code": "TOP-SPR-1000",
-    "codeGroup": "Pastacılık Süsleme",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p9/p9_2.png",
-    "description": "Waffle, dondurma, pasta ve cupcake sunumları için renkli granül süsleme şekerlemeleri.",
-    "tags": [
-      "Granül Şeker",
-      "Renkli Pasta Süsü",
-      "Waffle Topping",
-      "Süsleme"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Dondurma, Cupcake, Pasta",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p9-3",
-    "name": "Karamelize Fındık Krokan Parçacıkları 1kg",
-    "code": "TOP-CRK-1000",
-    "codeGroup": "Pastacılık Süsleme",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p9/p9_3.png",
-    "description": "Çıtır karamel ve fındık parçacıklarının harmanıyla waffle ve pasta üstü için gurme krokan.",
-    "tags": [
-      "Krokan",
-      "Fındık Krokan",
-      "Waffle Süsleme",
-      "Çıtır Topping"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Pasta, Dondurma, Tatlı",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p9-4",
-    "name": "Renkli Mini Bonibon Draje Çikolata 1kg",
-    "code": "TOP-BNB-1000",
-    "codeGroup": "Pastacılık Süsleme",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p9/p9_4.png",
-    "description": "Çıtır şeker kaplamalı renkli mini sütlü çikolata drajeleri.",
-    "tags": [
-      "Bonibon",
-      "Renkli Draje",
-      "Waffle Süsleme",
-      "Çikolata Draje"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Dondurma, Pasta",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p9-5",
-    "name": "Sütlü Damla Çikolata Drops 1kg",
-    "code": "TOP-MDC-1000",
-    "codeGroup": "Pastacılık Hammadde",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p9/p9_5.png",
-    "description": "Fırına ve eritmeye dayanıklı kaliteli sütlü damla çikolata; kurabiye, kek ve waffle için.",
-    "tags": [
-      "Sütlü Damla Çikolata",
-      "Çikolata Drops",
-      "Kurabiye Çikolatası",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Kurabiye, Kek, Waffle, Dondurma",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p9-6",
-    "name": "Renkli Çakıl Taşı Draje Çikolata 1kg",
-    "code": "TOP-CKL-1000",
-    "codeGroup": "Pastacılık Süsleme",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p9/p9_6.png",
-    "description": "Doğal taş görünümünde renkli şeker kaplı sütlü çikolata taneleri.",
-    "tags": [
-      "Çakıl Taşı Çikolata",
-      "Draje",
-      "Waffle Süsü",
-      "Pasta Süsleme"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Dondurma, Pasta",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p9-7",
-    "name": "Bitter Damla Çikolata Drops 1kg",
-    "code": "TOP-BDC-1000",
-    "codeGroup": "Pastacılık Hammadde",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p9/p9_7.png",
-    "description": "Yüksek kakao oranlı ısıya dayanıklı bitter damla çikolata parçaları.",
-    "tags": [
-      "Bitter Damla Çikolata",
-      "Kakao Drops",
-      "Kurabiye",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Kurabiye, Muffin, Waffle",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p9-8",
-    "name": "Beyaz Damla Çikolata Drops 1kg",
-    "code": "TOP-WDC-1000",
-    "codeGroup": "Pastacılık Hammadde",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p9/p9_8.png",
-    "description": "Kakao yağı ve vanilyalı beyaz damla çikolata; kurabiye ve pasta süslemelerinde estetik dokunuş.",
-    "tags": [
-      "Beyaz Damla Çikolata",
-      "White Drops",
-      "Kurabiye",
-      "Pasta"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Kurabiye, Pasta Süsleme, Waffle",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p9-9",
-    "name": "CALLEI Hazır Waffle, Krep & Pancake Toz Karışımı 1kg",
-    "code": "CAL-WFX-1000",
-    "codeGroup": "CALLEI",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p9/p9_9.png",
-    "description": "Su ve yağ ilavesiyle dakikalar içinde dışı çıtır, içi yumuşacık altın sarısı waffle, krep ve pankek harcı.",
-    "tags": [
-      "CALLEI",
-      "Waffle Tozu",
-      "Waffle Mix",
-      "Krep Harcı",
-      "Pancake Tozu"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Karışım": "1kg Mix + 1.25L Su + 200g Sıvı Yağ",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p9-10",
-    "name": "Kavrulmuş Pirinç Fındık Parçacıkları 1kg",
-    "code": "TOP-FND-1000",
-    "codeGroup": "Pastacılık Süsleme",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p9/p9_10.png",
-    "description": "Özenle kavrulmuş ve elenmiş pirinç fındık taneleri; waffle, çikolata ve pastalara eşsiz çıtırlık katar.",
-    "tags": [
-      "Pirinç Fındık",
-      "Kavrulmuş Fındık",
-      "Waffle Süsü",
-      "Pasta Topping"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Pasta, Dondurma",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p10-1",
-    "name": "CALLEI Speculoos Bisküvili Waffle & Krep Kreması 1kg",
-    "code": "CAL-SPC-1000",
-    "codeGroup": "CALLEI",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p10/p10_1.png",
-    "description": "Orijinal karamelize Belçika Speculoos bisküvisi parçacıklı lüks sürülebilir krema.",
-    "tags": [
-      "CALLEI",
-      "Speculoos",
-      "Bisküvi Kreması",
-      "Lotus",
-      "Waffle Kreması"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Kruvasan Dolgusu, Cheesecake",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p10-2",
-    "name": "CALLEI Çilek Aromalı Pembe Waffle & Krep Kreması 1kg",
-    "code": "CAL-STR-1000",
-    "codeGroup": "CALLEI",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p10/p10_2.png",
-    "description": "Canlı pembe rengi ve tatlı çilek aromasıyla dikkat çeken özel sürülebilir krema.",
-    "tags": [
-      "CALLEI",
-      "Çilek Kreması",
-      "Pembe Çikolata",
-      "Waffle",
-      "Krep"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Pasta Kaplama",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p10-3",
-    "name": "CALLEI Beyaz Çikolatalı Waffle & Krep Kreması 1kg",
-    "code": "CAL-WHT-1000",
-    "codeGroup": "CALLEI",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p10/p10_3.png",
-    "description": "Kremsi dokusu ve yoğun sütlü beyaz çikolata lezzetiyle vazgeçilmez waffle kreması.",
-    "tags": [
-      "CALLEI",
-      "Beyaz Çikolata",
-      "Sürülebilir Krema",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Profiterol Dolgusu",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p10-4",
-    "name": "CALLEI Sütlü Çikolatalı Waffle & Krep Kreması 1kg",
-    "code": "CAL-MLK-1000",
-    "codeGroup": "CALLEI",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p10/p10_4.png",
-    "description": "Bol sütlü ve fındıklı geleneksel çikolata kreması; profesyonel işletmeler için 1 kg ambalajda.",
-    "tags": [
-      "CALLEI",
-      "Sütlü Çikolata",
-      "Fındık Kreması",
-      "Waffle",
-      "Krep"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Pancake, Kruvasan",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p10-5",
-    "name": "CALLEI Frambuaz Aromalı Waffle & Krep Kreması 1kg",
-    "code": "CAL-RAS-1000",
-    "codeGroup": "CALLEI",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p10/p10_5.png",
-    "description": "Frambuaz meyvesinin mayhoş tatlı aromasıyla tatlı tabaklarına renk katan krema.",
-    "tags": [
-      "CALLEI",
-      "Frambuaz Kreması",
-      "Ahududu",
-      "Waffle",
-      "Krep"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Tatlı Dolgusu",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p10-6",
-    "name": "CALLEI Bubble Gum Aromalı Mavi Waffle Kreması 1kg",
-    "code": "CAL-BBG-1000",
-    "codeGroup": "CALLEI",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p10/p10_6.png",
-    "description": "Eğlenceli sakız aroması ve göz alıcı turkuaz mavi rengiyle çocukların ve gençlerin gözdesi.",
-    "tags": [
-      "CALLEI",
-      "Bubble Gum",
-      "Sakız Aromalı",
-      "Mavi Krema",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Milkshake, Dondurma",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p10-7",
-    "name": "CALLEI Antep Fıstıklı Yeşil Waffle & Krep Kreması 1kg",
-    "code": "CAL-PST-1000",
-    "codeGroup": "CALLEI",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p10/p10_7.png",
-    "description": "Gerçek Antep fıstığı ezmesi içeren zengin yeşil renkli ve gurme lezzetli sürülebilir krema.",
-    "tags": [
-      "CALLEI",
-      "Antep Fıstığı",
-      "Fıstık Kreması",
-      "Dubai Çikolatası",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Dubai Çikolatası, Krep, Kruvasan",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p10-8",
-    "name": "CALLEI Karamel Aromalı Sürülebilir Krema 1kg",
-    "code": "CAL-CAR-1000",
-    "codeGroup": "CALLEI",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/p10/p10_8.png",
-    "description": "Koyu altın rengi ve karamelize şeker tadıyla krep, waffle ve pasta aralarında eşsiz tat.",
-    "tags": [
-      "CALLEI",
-      "Karamel Kreması",
-      "Dulce de Leche",
-      "Waffle",
-      "Krep"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Kullanım": "Waffle, Krep, Kek Dolgusu",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p12-1",
-    "name": "Caffè NONNO Passion Fruit Çarkıfelek Püresi 750ml",
-    "code": "NON-PAS-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/p12/p12_1.png",
-    "description": "Tropikal çarkıfelek meyvesi çekirdekleri ve püresi içeren yoğun meyve konsantresi.",
-    "tags": [
-      "Caffè NONNO",
-      "Passion Fruit",
-      "Çarkıfelek",
-      "Püre",
-      "Frozen"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Frozen, Smoothie, Kokteyl, Pasta",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p12-2",
-    "name": "Monte Cristo Speculaas Bisküvi Aromalı Şurup 700ml",
-    "code": "MTC-SPC-700",
-    "codeGroup": "Monte Cristo",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p12/p12_2.png",
-    "description": "Tarçın, zencefil ve karamelize bisküvi lezzetini kahveye taşıyan otantik Monte Cristo Speculaas şurubu.",
-    "tags": [
-      "Monte Cristo",
-      "Speculaas",
-      "Bisküvi Şurubu",
-      "Kahve",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Speculaas Latte, Frappe, Sıcak Süt",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p12-3",
-    "name": "Caffè NONNO Kivi Aromalı Frozen Püre 750ml",
-    "code": "NON-KIW-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/p12/p12_3.png",
-    "description": "Doğal yeşil rengi ve kivi taneleriyle frozen ve kokteyller için ferahlatıcı ekşi-tatlı püre.",
-    "tags": [
-      "Caffè NONNO",
-      "Kivi",
-      "Kiwi Frozen",
-      "Püre",
-      "Smoothie"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Frozen, Smoothie, Kokteyl",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p12-4",
-    "name": "Krater Elmalı Meyve Karışımı 1000g",
-    "code": "KRT-APL-1000",
-    "codeGroup": "Krater",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/p12/p12_4.png",
-    "description": "Maestro del Gelato serisi ekşi yeşil elma harcı; dondurma, pasta ve frozen yapımında üstün lezzet.",
-    "tags": [
-      "Krater",
-      "Elma",
-      "Yeşil Elma",
-      "Dondurma",
-      "Meyve Karışımı"
-    ],
-    "specs": {
-      "Gramaj": "1000 g",
-      "Kullanım": "Gelato, Dondurma, Frozen, Pasta",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p12-5",
-    "name": "Krater Ananaslı Meyve Karışımı 1000g",
-    "code": "KRT-PIN-1000",
-    "codeGroup": "Krater",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/p12/p12_5.png",
-    "description": "Tropikal ananas lezzeti ve kokusunu dondurma ve tatlılarınıza kazandıran profesyonel meyve sosu.",
-    "tags": [
-      "Krater",
-      "Ananas",
-      "Pineapple",
-      "Gelato",
-      "Dondurma Harcı"
-    ],
-    "specs": {
-      "Gramaj": "1000 g",
-      "Kullanım": "Gelato, Frozen, Dondurma, Pasta",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p12-6",
-    "name": "Monte Cristo Badem Aromalı Şurup 700ml",
-    "code": "MTC-ALM-700",
-    "codeGroup": "Monte Cristo",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p12/p12_6.png",
-    "description": "Doğal kavrulmuş badem ve acıbadem dokunuşuyla kahveler ve sıcak içecekler için Monte Cristo şurubu.",
-    "tags": [
-      "Monte Cristo",
-      "Badem",
-      "Almond",
-      "Şurup",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Almond Latte, Sıcak İçecekler",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p12-7",
-    "name": "Monte Cristo Chai Tea Baharatlı Şurup 700ml",
-    "code": "MTC-CHT-700",
-    "codeGroup": "Monte Cristo",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p12/p12_7.png",
-    "description": "Geleneksel Hint baharatları karanfil, tarçın ve kakule özüyle Chai Tea Latte hazırlama şurubu.",
-    "tags": [
-      "Monte Cristo",
-      "Chai Tea",
-      "Baharatlı Şurup",
-      "Chai Latte"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Chai Latte, Sıcak Süt, Çay",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p12-8",
-    "name": "Monte Cristo Antep Fıstığı Aromalı Şurup 700ml",
-    "code": "MTC-PST-700",
-    "codeGroup": "Monte Cristo",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p12/p12_8.png",
-    "description": "Göz alıcı zümrüt yeşili rengi ve yoğun Antep fıstığı aromasıyla özel kahveler ve kokteyller için.",
-    "tags": [
-      "Monte Cristo",
-      "Antep Fıstığı",
-      "Pistachio",
-      "Şurup",
-      "Pistachio Latte"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Pistachio Latte, Frappe, Mocktail",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p12-9",
-    "name": "Monte Cristo Çikolata Aromalı Şurup 700ml",
-    "code": "MTC-CHO-700",
-    "codeGroup": "Monte Cristo",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p12/p12_9.png",
-    "description": "Koyu İsviçre çikolatası aromasıyla mocha ve sıcak tatlı içeceklerinize lezzet katar.",
-    "tags": [
-      "Monte Cristo",
-      "Çikolata",
-      "Chocolate",
-      "Mocha",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Mocha, Milkshake, Frappe",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-p12-10",
-    "name": "Monte Cristo Pumpkin Spice Balkabağı Şurubu 700ml",
-    "code": "MTC-PMP-700",
-    "codeGroup": "Monte Cristo",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/p12/p12_10.png",
-    "description": "Sonbahar klasiği balkabağı püresi, tarçın ve muskat baharatı uyumuyla Pumpkin Spice Latte şurubu.",
-    "tags": [
-      "Monte Cristo",
-      "Pumpkin Spice",
-      "Balkabağı",
-      "Latte",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Kullanım": "Pumpkin Spice Latte, Frappe",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt1-1",
-    "name": "Krater Çilekli Meyve Karışımı 1000g",
-    "code": "KRT-STR-1000",
-    "codeGroup": "Krater",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt1/pt1_1.png",
-    "description": "Doğal çilek püresi içeren altın ambalajlı dondurma, pasta ve bar sos & püre karışımı.",
-    "tags": [
-      "Krater",
-      "Çilek",
-      "Püre",
-      "Gelato",
-      "Dondurma"
-    ],
-    "specs": {
-      "Gramaj": "1000 g",
-      "Kullanım": "Dondurma, Pasta, Frozen, Tatlı",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt1-2",
-    "name": "Krater Frambuazlı Meyve Karışımı 1000g",
-    "code": "KRT-RAS-1000",
-    "codeGroup": "Krater",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt1/pt1_2.png",
-    "description": "Taze frambuaz taneleriyle zenginleştirilmiş yoğun lezzetli gelato ve pastacılık meyve miksi.",
-    "tags": [
-      "Krater",
-      "Frambuaz",
-      "Ahududu",
-      "Püre",
-      "Dondurma"
-    ],
-    "specs": {
-      "Gramaj": "1000 g",
-      "Kullanım": "Dondurma, Pasta, Cheesecake",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt1-3",
-    "name": "Krater Kavunlu Meyve Karışımı 1000g",
-    "code": "KRT-MEL-1000",
-    "codeGroup": "Krater",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt1/pt1_3.png",
-    "description": "Mis kokulu sarı kavun püresi; dondurma ve soğuk içecek reçetelerinde taze yaz esintisi.",
-    "tags": [
-      "Krater",
-      "Kavun",
-      "Melon",
-      "Püre",
-      "Gelato"
-    ],
-    "specs": {
-      "Gramaj": "1000 g",
-      "Kullanım": "Gelato, Frozen, Dondurma",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt1-4",
-    "name": "Krater Elmalı Meyve Karışımı Gold 1000g",
-    "code": "KRT-APG-1000",
-    "codeGroup": "Krater",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt1/pt1_4.png",
-    "description": "Yeşil elmanın ferahlatıcı ekşiliğiyle donatılmış profesyonel pastacılık ve dondurma bazı.",
-    "tags": [
-      "Krater",
-      "Yeşil Elma",
-      "Apple Mix",
-      "Püre",
-      "Tatlı"
-    ],
-    "specs": {
-      "Gramaj": "1000 g",
-      "Kullanım": "Dondurma, Pasta, Frozen",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt1-5",
-    "name": "DaVinci Gourmet Condensed Milk Koyulaştırılmış Süt Sosu 1L",
-    "code": "DVG-CND-1000",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/pt1/pt1_5.png",
-    "description": "İspanyol kahvesi, Vietnam kahvesi ve özel tatlılar için yoğunlaştırılmış süt lezzeti sunan 1L sos.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Condensed Milk",
-      "Koyulaştırılmış Süt",
-      "Süt Sosu",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "1 Litre",
-      "Kullanım": "Spanish Latte, Vietnam Kahvesi, Tatlı",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt1-6",
-    "name": "Krater Şeftalili Meyve Karışımı 1000g",
-    "code": "KRT-PCH-1000",
-    "codeGroup": "Krater",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt1/pt1_6.png",
-    "description": "Olgun bahçe şeftalilerinin doğal tadını barındıran altın şişeli gurme meyve karışımı.",
-    "tags": [
-      "Krater",
-      "Şeftali",
-      "Peach",
-      "Püre",
-      "Dondurma"
-    ],
-    "specs": {
-      "Gramaj": "1000 g",
-      "Kullanım": "Gelato, Dondurma, Frozen, Pasta",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt1-7",
-    "name": "DaVinci Gourmet Yoğunlaştırılmış Süt Aromalı Sos 1L",
-    "code": "DVG-CND-1000B",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/pt1/pt1_7.png",
-    "description": "Kahve zincirleri için özel tasarlanmış ipeksi kıvamlı koyulaştırılmış süt sosu.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Condensed Milk",
-      "Barista Sosu",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "1 Litre",
-      "Kullanım": "Kahve, Latte, Bubble Tea",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt1-8",
-    "name": "DaVinci Gourmet Mango Fruit Beverage Mix 1L",
-    "code": "DVG-MNG-1000",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt1/pt1_8.png",
-    "description": "Egzotik Alfonso mangolarının bol etli püresiyle hazırlanan premium smoothie ve kokteyl bazı.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Mango Püresi",
-      "Fruit Mix",
-      "Smoothie",
-      "Frozen"
-    ],
-    "specs": {
-      "Hacim": "1 Litre",
-      "Kullanım": "Mango Smoothie, Frozen, Kokteyl",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt1-9",
-    "name": "DaVinci Gourmet Strawberry Fruit Beverage Mix 1L",
-    "code": "DVG-STR-1000",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt1/pt1_9.png",
-    "description": "Doğal çilek parçacıklı kıvamıyla milkshake, smoothie ve kokteyller için vazgeçilmez içecek miksi.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Çilek Püresi",
-      "Strawberry Mix",
-      "Smoothie"
-    ],
-    "specs": {
-      "Hacim": "1 Litre",
-      "Kullanım": "Çilek Smoothie, Frozen, Kokteyl",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt1-10",
-    "name": "DaVinci Gourmet Mixed Berry Fruit Beverage Mix 1L",
-    "code": "DVG-MXB-1000",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt1/pt1_10.png",
-    "description": "Ahududu, böğürtlen, çilek ve yaban mersininin muazzam birleşimiyle antioksidan dolu meyve püresi.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Mixed Berry",
-      "Orman Meyvesi Püresi",
-      "Smoothie"
-    ],
-    "specs": {
-      "Hacim": "1 Litre",
-      "Kullanım": "Berry Smoothie, Frozen, Kokteyl",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt2-1",
-    "name": "Caffè NONNO Coconut Hindistan Cevizi Frozen Püre 750ml",
-    "code": "NON-COC-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt2/pt2_1.png",
-    "description": "Egzotik hindistan cevizi sütü ve püresi; Pina Colada ve tropikal içecekler için mükemmel kıvam.",
-    "tags": [
-      "Caffè NONNO",
-      "Hindistan Cevizi",
-      "Coconut Frozen",
-      "Püre",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Pina Colada, Smoothie, Frappe, Tatlı",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt2-2",
-    "name": "Caffè NONNO Karpuz Aromalı Frozen Püre 750ml",
-    "code": "NON-WTR-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt2/pt2_2.png",
-    "description": "Ferahlatıcı yaz karpuzunun taze tadıyla buz gibi frozen ve frozen margarita tarifleri için püre.",
-    "tags": [
-      "Caffè NONNO",
-      "Karpuz",
-      "Watermelon Frozen",
-      "Püre",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Karpuz Frozen, Kokteyl, Mocktail",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt2-3",
-    "name": "Caffè NONNO Red Forest Kırmızı Orman Meyveli Frozen 750ml",
-    "code": "NON-ROF-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt2/pt2_3.png",
-    "description": "Kırmızı frenk üzümü, çilek ve ahududu harmanıyla canlı kırmızı renkte ferahlatıcı meyve püresi.",
-    "tags": [
-      "Caffè NONNO",
-      "Red Forest",
-      "Kırmızı Orman Meyvesi",
-      "Püre",
-      "Smoothie"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Frozen, Smoothie, Kokteyl, Pasta",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt2-4",
-    "name": "Caffè NONNO Kavun Aromalı Frozen Püre 750ml",
-    "code": "NON-MEL-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt2/pt2_4.png",
-    "description": "Yoğun kokulu yaz kavunu aromasıyla kafeler ve barlar için pratik sıkmalı frozen püresi.",
-    "tags": [
-      "Caffè NONNO",
-      "Kavun",
-      "Melon Frozen",
-      "Püre",
-      "İçecek"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Kavun Frozen, Smoothie, Kokteyl",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt2-5",
-    "name": "Caffè NONNO Karadut Aromalı Frozen Püre 750ml",
-    "code": "NON-BKM-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt2/pt2_5.png",
-    "description": "Ege karadutunun zengin koyu mor rengi ve aromasıyla buzlu içeceklerinize doğal dokunuş.",
-    "tags": [
-      "Caffè NONNO",
-      "Karadut",
-      "Black Mulberry",
-      "Püre",
-      "Frozen"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Karadut Frozen, Limonata, Kokteyl",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt2-6",
-    "name": "Caffè NONNO Çilek Aromalı Frozen Püre 750ml",
-    "code": "NON-STR-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt2/pt2_6.png",
-    "description": "Taze hasat bahçe çileklerinden elde edilen pürüzsüz ve lezzetli frozen içecek püresi.",
-    "tags": [
-      "Caffè NONNO",
-      "Çilek",
-      "Strawberry Frozen",
-      "Püre",
-      "Smoothie"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Çilek Frozen, Smoothie, Milkshake",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt2-7",
-    "name": "Caffè NONNO Şeftali Aromalı Frozen Püre 750ml",
-    "code": "NON-PCH-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt2/pt2_7.png",
-    "description": "Bursa şeftalisinin tatlı aromasıyla hazırlanan yoğun kıvamlı ve ferahlatıcı püre.",
-    "tags": [
-      "Caffè NONNO",
-      "Şeftali",
-      "Peach Frozen",
-      "Püre",
-      "Ice Tea"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Şeftali Frozen, Smoothie, Kokteyl",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt2-8",
-    "name": "Caffè NONNO Mango & Maracuja Frozen Püre 750ml",
-    "code": "NON-MNG-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt2/pt2_8.png",
-    "description": "Egzotik mango ve marakuya meyvelerinin mükemmel birleşimiyle tropikal tat deneyimi.",
-    "tags": [
-      "Caffè NONNO",
-      "Mango",
-      "Maracuja",
-      "Tropikal Püre",
-      "Frozen"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Mango Frozen, Tropikal Kokteyl, Smoothie",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt2-9",
-    "name": "DaVinci Gourmet Mixed Berry Orman Meyveli Mix 1L",
-    "code": "DVG-MXB-1000B",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt2/pt2_9.png",
-    "description": "Yaban mersini, nar, böğürtlen ve ahududu harmanıyla hazırlanmış profesyonel meyve karışımı.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Mixed Berry",
-      "Meyve Miksi",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "1 Litre",
-      "Kullanım": "Kokteyl, Smoothie, Frozen",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt2-10",
-    "name": "DaVinci Gourmet Passionfruit Çarkıfelek Mix 1L",
-    "code": "DVG-PAS-1000",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt2/pt2_10.png",
-    "description": "Tropikaların vazgeçilmezi marakuya çarkıfelek meyvesi özüyle hazırlanan konsantre içecek harcı.",
-    "tags": [
-      "DaVinci Gourmet",
-      "Passionfruit",
-      "Çarkıfelek",
-      "Püre",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "1 Litre",
-      "Kullanım": "Passion Smoothie, Kokteyl, Mocktail",
-      "Menşei": "Malezya / ABD"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt11-1",
-    "name": "Donuk Çörek Otlu & Susamlı Mini Tuzlu Kurabiye",
-    "code": "DNK-KRB-001",
-    "codeGroup": "Donuk Pastacılık",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/pt11/pt11_1.png",
-    "description": "Ağızda dağılan çıtır yapısı, bol susam ve çörek otu aromasıyla çay saatlerinin vazgeçilmez mini kurabiyesi.",
-    "tags": [
-      "Donuk Kurabiye",
-      "Tuzlu Kurabiye",
-      "Çörek Otlu",
-      "Unlu Mamul",
-      "Kafeterya"
-    ],
-    "specs": {
-      "Muhafaza": "-18°C",
-      "Hazırlık": "Oda sıcaklığında 20 dk çözünme / 180°C 5 dk ısıtma",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt11-2",
-    "name": "Donuk Gurme Susamlı Tuzlu Atıştırmalık Tabağı",
-    "code": "DNK-KRB-002",
-    "codeGroup": "Donuk Pastacılık",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/pt11/pt11_2.png",
-    "description": "Kafeler ve oteller için pratik porsiyonlanan tereyağlı çıtır tuzlu kurabiye atıştırmalığı.",
-    "tags": [
-      "Donuk Kurabiye",
-      "Tuzlu Atıştırmalık",
-      "İkramlık",
-      "Kafeterya"
-    ],
-    "specs": {
-      "Muhafaza": "-18°C",
-      "Kullanım": "Çözündür ve Servis Et",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt11-3",
-    "name": "Caffè NONNO Ananas Aromalı Frozen Püre 750ml",
-    "code": "NON-PIN-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt11/pt11_3.png",
-    "description": "Taze tropikal ananas aromasıyla ferahlatıcı smoothie ve kokteyller için püre.",
-    "tags": [
-      "Caffè NONNO",
-      "Ananas",
-      "Pineapple Frozen",
-      "Püre"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Ananas Frozen, Smoothie, Kokteyl",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt11-4",
-    "name": "Caffè NONNO Cool Poka Portakallı Şurup 750ml",
-    "code": "NON-CPK-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/pt11/pt11_4.png",
-    "description": "Buzlu narenciye ve tatlı portakal aromasıyla Cool Poka yaz içecekleri için özel şurup.",
-    "tags": [
-      "Caffè NONNO",
-      "Cool Poka",
-      "Portakal",
-      "Şurup",
-      "Soğuk İçecek"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Cool Poka, Buzlu İçecek, Soda",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt11-5",
-    "name": "Caffè NONNO Çikolatalı Kurabiye Şurubu 750ml",
-    "code": "NON-CKY-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/pt11/pt11_5.png",
-    "description": "Çikolata parçacıklı Amerikan kurabiyesi lezzetiyle kahve ve frappeler için özel şurup.",
-    "tags": [
-      "Caffè NONNO",
-      "Çikolata Kurabiye",
-      "Cookie Şurubu",
-      "Kahve",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Cookie Latte, Frappe, Milkshake",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt11-6",
-    "name": "Caffè NONNO Vişne Aromalı Frozen Püre 750ml",
-    "code": "NON-CHR-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt11/pt11_6.png",
-    "description": "Koyu kırmızı vişne ekşiliği ve tatlılığıyla mükemmel dengeli frozen meyve püresi.",
-    "tags": [
-      "Caffè NONNO",
-      "Vişne",
-      "Cherry Frozen",
-      "Püre",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Vişne Frozen, Kokteyl, Pasta",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt11-7",
-    "name": "Caffè NONNO Muz Aromalı Frozen Püre 750ml",
-    "code": "NON-BNF-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt11/pt11_7.png",
-    "description": "Doğal muz püresi dokusuyla milkshake ve smoothie çeşitlerine dolgunluk kazandırır.",
-    "tags": [
-      "Caffè NONNO",
-      "Muz",
-      "Banana Frozen",
-      "Püre",
-      "Milkshake"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Muzlu Smoothie, Frozen, Milkshake",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt11-8",
-    "name": "Donuk Peynirli Mini Poğaça Topları",
-    "code": "DNK-PGC-001",
-    "codeGroup": "Donuk Pastacılık",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/pt11/pt11_8.png",
-    "description": "Mayalı yumuşacık hamur içerisinde leziz peynir dolgusu; fırında 10 dakikada servise hazır.",
-    "tags": [
-      "Donuk Poğaça",
-      "Peynirli Poğaça",
-      "Unlu Mamul",
-      "Kahvaltı"
-    ],
-    "specs": {
-      "Muhafaza": "-18°C",
-      "Pişirme": "180°C önceden ısıtılmış fırında 10-12 dk",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt11-9",
-    "name": "Caffè NONNO Yeşil Elma Frozen Püre 750ml",
-    "code": "NON-GAP-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "imageUrl": "/resimler/pt11/pt11_9.png",
-    "description": "Canlandırıcı ekşi Granny Smith yeşil elma aromasıyla serinletici frozen püresi.",
-    "tags": [
-      "Caffè NONNO",
-      "Yeşil Elma",
-      "Green Apple",
-      "Püre",
-      "Frozen"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Kullanım": "Elma Frozen, Kokteyl, Limonata",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt11-10",
-    "name": "Donuk Mini Ekmek & Sandviç Hamur Topu",
-    "code": "DNK-EKM-001",
-    "codeGroup": "Donuk Pastacılık",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "imageUrl": "/resimler/pt11/pt11_10.png",
-    "description": "Çıtır kabuklu, içi gözenekli mini gurme ekmek ve sandviç hamuru.",
-    "tags": [
-      "Donuk Ekmek",
-      "Sandviç Ekmeği",
-      "Gurme Ekmek",
-      "Unlu Mamul"
-    ],
-    "specs": {
-      "Muhafaza": "-18°C",
-      "Pişirme": "200°C fırında 8-10 dk",
-      "Menşei": "Türkiye"
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt12-1",
-    "name": "Monte Cristo Tarçın Aromalı Şurup 700 ml",
-    "code": "MC-SYR-CIN-700",
-    "codeGroup": "Monte Cristo",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/pt12/pt12_1.png",
-    "description": "Sıcak ve soğuk kahve çeşitlerinde, kokteyllerde ve tatlılarda yoğun aromatik tarçın lezzeti sağlayan premium gurme bar şurubu.",
-    "tags": [
-      "Monte Cristo",
-      "Tarçın",
-      "Şurup",
-      "Kahve",
-      "Barista",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Ambalaj": "Cam Şişe",
-      "Menşei": "Türkiye",
-      "Kullanım Alanı": "Kahve, Sıcak Çikolata, Kokteyller, Tatlılar",
-      "Saklama Koşulu": "Oda sıcaklığında, kuru ve serin yerde saklayınız."
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt12-2",
-    "name": "Monte Cristo Nar Aromalı Şurup 700 ml",
-    "code": "MC-SYR-POM-700",
-    "codeGroup": "Monte Cristo",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/pt12/pt12_2.png",
-    "description": "Taze mayhoş nar tadıyla kokteyller, mocktailler, limonatalar ve frozen içecekler için özel gurme şurup.",
-    "tags": [
-      "Monte Cristo",
-      "Nar",
-      "Şurup",
-      "Kokteyl",
-      "Limonata",
-      "Frozen"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Ambalaj": "Cam Şişe",
-      "Menşei": "Türkiye",
-      "Kullanım Alanı": "Kokteyller, Limonata, Frozen, Soğuk Çaylar",
-      "Saklama Koşulu": "Güneş ışığından uzak, serin yerde muhafaza ediniz."
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt12-3",
-    "name": "Monte Cristo Hindistan Cevizi Aromalı Şurup 700 ml",
-    "code": "MC-SYR-COC-700",
-    "codeGroup": "Monte Cristo",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/pt12/pt12_3.png",
-    "description": "Egzotik hindistan cevizi lezzeti sunan, latte, kokteyl ve soğuk içecekler için mükemmel kıvamlı bar şurubu.",
-    "tags": [
-      "Monte Cristo",
-      "Hindistan Cevizi",
-      "Şurup",
-      "Latte",
-      "Kokteyl",
-      "Egzotik"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Ambalaj": "Cam Şişe",
-      "Menşei": "Türkiye",
-      "Kullanım Alanı": "Kahve Çeşitleri, Pina Colada, Mocktail, Milkshake",
-      "Saklama Koşulu": "Kapağı kapalı olarak serin ortamda saklayınız."
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt12-4",
-    "name": "Monte Cristo Fındık Aromalı Şurup 700 ml",
-    "code": "MC-SYR-HAZ-700",
-    "codeGroup": "Monte Cristo",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/pt12/pt12_4.png",
-    "description": "Kavrulmuş fındık notalarıyla kahve ve sıcak içecek menülerinin vazgeçilmezi gurme bar şurubu.",
-    "tags": [
-      "Monte Cristo",
-      "Fındık",
-      "Şurup",
-      "Kahve",
-      "Barista",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Ambalaj": "Cam Şişe",
-      "Menşei": "Türkiye",
-      "Kullanım Alanı": "Filtre Kahve, Espresso, Latte, Sıcak İçecekler",
-      "Saklama Koşulu": "Oda sıcaklığında kuru yerde saklayınız."
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt12-5",
-    "name": "Monte Cristo Karpuz Aromalı Şurup 700 ml",
-    "code": "MC-SYR-WAT-700",
-    "codeGroup": "Monte Cristo",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/pt12/pt12_5.png",
-    "description": "Yaz içecekleri, ferahlatıcı frozen ve soğuk kokteyller için yoğun taze karpuz aromalı şurup.",
-    "tags": [
-      "Monte Cristo",
-      "Karpuz",
-      "Şurup",
-      "Frozen",
-      "Kokteyl",
-      "Soğuk İçecek"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Ambalaj": "Cam Şişe",
-      "Menşei": "Türkiye",
-      "Kullanım Alanı": "Frozen İçecekler, Limonata, Kokteyller, Smoothie",
-      "Saklama Koşulu": "Serin ve kuru yerde muhafaza ediniz."
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt12-6",
-    "name": "Monte Cristo Misket Limonu (Lime) Aromalı Şurup 700 ml",
-    "code": "MC-SYR-LIM-700",
-    "codeGroup": "Monte Cristo",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/pt12/pt12_6.png",
-    "description": "Mojito, limonata ve narenciye bazlı bar miksleri için taze misket limonu (lime) aromalı şurup.",
-    "tags": [
-      "Monte Cristo",
-      "Lime",
-      "Misket Limonu",
-      "Şurup",
-      "Mojito",
-      "Barista"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Ambalaj": "Cam Şişe",
-      "Menşei": "Türkiye",
-      "Kullanım Alanı": "Mojito, Kokteyl, Soğuk Çay, Limonata Çeşitleri",
-      "Saklama Koşulu": "Güneş görmeyen serin yerde muhafaza ediniz."
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt12-7",
-    "name": "CALLEI Beyaz Çikolatalı Çıtır Pirinç Patlağı Draje (İnci Topping)",
-    "code": "CAL-TOP-WHT-1K",
-    "codeGroup": "CALLEI Chocolate",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/pt12/pt12_7.png",
-    "description": "Waffle, dondurma, krep ve pastacılık süslemeleri için çıtır dokulu beyaz çikolatalı inci patlak.",
-    "tags": [
-      "CALLEI Chocolate",
-      "Beyaz Çikolata",
-      "Pirinç Patlağı",
-      "Draje",
-      "Waffle",
-      "Topping"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Ambalaj": "Kilitli Doypack / Kova",
-      "Çikolata Türü": "Beyaz Çikolata Kaplama",
-      "Kullanım Alanı": "Waffle, Krep, Dondurma, Pasta ve Tatlı Süslemeleri",
-      "Saklama Koşulu": "15-20°C sıcaklıkta, nemsiz ortamda saklayınız."
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt12-8",
-    "name": "Monte Cristo Yeşil Limon (Lime) Kokteyl Şurubu 700 ml",
-    "code": "MC-SYR-LIM2-700",
-    "codeGroup": "Monte Cristo",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "imageUrl": "/resimler/pt12/pt12_8.png",
-    "description": "Barlarda ve kafelerde kokteyl ve soğuk çay hazırlığı için dengeli asiditeye sahip ferahlatıcı lime şurubu.",
-    "tags": [
-      "Monte Cristo",
-      "Yeşil Limon",
-      "Lime",
-      "Kokteyl",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Ambalaj": "Cam Şişe",
-      "Menşei": "Türkiye",
-      "Kullanım Alanı": "Barista Miksleri, Kokteyller, Limonata",
-      "Saklama Koşulu": "Kuru ve serin ortamda saklayınız."
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt12-9",
-    "name": "CALLEI Pembe Çıtır Pirinç Patlağı Süsleme Drajesi (Fuşya İnci)",
-    "code": "CAL-TOP-PNK-1K",
-    "codeGroup": "CALLEI Chocolate",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/pt12/pt12_9.png",
-    "description": "Waffle, donut ve pasta süslemelerinde görsel canlılık ve çıtırlık katan pembe çikolatalı inci draje.",
-    "tags": [
-      "CALLEI Chocolate",
-      "Pembe",
-      "Pirinç Patlağı",
-      "Draje",
-      "Süsleme",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Ambalaj": "Kilitli Ambalaj",
-      "Kullanım Alanı": "Waffle, Donut, Cupcake, Pasta Dekorasyonu",
-      "Saklama Koşulu": "18-22°C oda sıcaklığında saklayınız."
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt12-10",
-    "name": "CALLEI Sütlü Çikolatalı Çıtır Pirinç Patlağı Draje Topping",
-    "code": "CAL-TOP-MLK-1K",
-    "codeGroup": "CALLEI Chocolate",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/pt12/pt12_10.png",
-    "description": "Waffle, krep ve dondurma üzeri için gerçek sütlü çikolata kaplı çıtır pirinç draje.",
-    "tags": [
-      "CALLEI Chocolate",
-      "Sütlü Çikolata",
-      "Pirinç Patlağı",
-      "Draje",
-      "Waffle",
-      "Krep"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Ambalaj": "Kilitli Ambalaj",
-      "Çikolata Türü": "Sütlü Çikolata Kaplama",
-      "Kullanım Alanı": "Waffle, Krep, Pancake, Dondurma, Pasta",
-      "Saklama Koşulu": "Kuru ve serin ortamda muhafaza ediniz."
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt12-11",
-    "name": "CALLEI Canlı Fuşya Çıtır Pirinç Patlağı Pasta & Waffle Drajesi",
-    "code": "CAL-TOP-FUS-1K",
-    "codeGroup": "CALLEI Chocolate",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/pt12/pt12_11.png",
-    "description": "Pasta, kek ve tatlı sunumlarına canlılık ve çıtırlık katan parlak fuşya renkli çıtır pirinç süslemesi.",
-    "tags": [
-      "CALLEI Chocolate",
-      "Fuşya",
-      "Pirinç Patlağı",
-      "Pasta",
-      "Waffle",
-      "Dekor"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Ambalaj": "Kilitli Ambalaj",
-      "Kullanım Alanı": "Waffle, Pasta, Dondurma, Butik Tatlılar",
-      "Saklama Koşulu": "Güneş görmeyen serin yerde saklayınız."
-    },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
-  },
-  {
-    "id": "prod-pt12-12",
-    "name": "CALLEI Bitter Çikolatalı Çıtır Pirinç Patlağı Draje Topping",
-    "code": "CAL-TOP-DRK-1K",
-    "codeGroup": "CALLEI Chocolate",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/pt12/pt12_12.png",
-    "description": "Yoğun kakao lezzeti ve çıtır yapısıyla profesyonel pastacılık ve waffle süsleme drajesi.",
-    "tags": [
-      "CALLEI Chocolate",
-      "Bitter Çikolata",
-      "Pirinç Patlağı",
-      "Draje",
-      "Waffle",
-      "Pasta"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Ambalaj": "Kilitli Ambalaj",
-      "Çikolata Türü": "Bitter Çikolata Kaplama",
-      "Kullanım Alanı": "Waffle, Profiterol, Pasta, Tatlı Sunumları",
-      "Saklama Koşulu": "15-20°C nemsiz ortamda muhafaza ediniz."
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
-  },
+const PRODUCTS = [
   {
     "id": "prod-pt12-13",
-    "name": "Donuk Mangolu & Chia Tohumlu Dilimli Cheesecake",
+    "name": "Mangolu & Chia Tohumlu Dilimli Cheesecake",
     "code": "PST-DNK-MNG-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Altında altın sarısı tereyağlı bisküvi tabanı, ortasında fırınlanmış kadifemsi peynir kreması ve üzerinde taze mango püresi ile harmanlanmış süper besin chia taneleri. Tropikal ferahlığın zarif dengesi.",
     "imageUrl": "/resimler/pt12/pt12_13.png",
-    "description": "Kremamsı peynir dolgusu, tereyağlı bisküvi tabanı ve egzotik mango-chia jölesi ile porsiyonluk donuk cheesecake (10-12 dilim).",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 220,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cheesecake",
@@ -3612,24 +211,26 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "10-12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 3-4 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 3-4 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Kullanım": "Çözündükten sonra servise hazırdır, tekrar dondurmayınız."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 1
   },
   {
     "id": "prod-pt12-14",
-    "name": "Donuk İtalyan Tiramisu Dilimli Pasta",
+    "name": "İtalyan Tiramisu Dilimli Pasta",
     "code": "PST-DNK-TIR-10D",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Özel espresso şurubuyla nemlendirilmiş savoiardi bisküvileri, yoğun İtalyan mascarpone kreması ve üzerinde zengin Valrhona kakao tozu örtüsüyle otantik bir İtalyan klasiği.",
     "imageUrl": "/resimler/pt12/pt12_14.png",
-    "description": "Orijinal kedidili bisküvi, espresso şurubu ve zengin mascarpone kreması ile hazırlanmış porsiyonluk İtalyan tiramisu.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 210,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Tiramisu",
@@ -3641,24 +242,26 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "10-12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Kullanım": "Servis öncesi buzdolabında dinlendiriniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 2
   },
   {
     "id": "prod-pt12-15",
-    "name": "Donuk Antep Fıstıklı & Çikolatalı Mono Kutu Pasta (Dubai Pasta)",
+    "name": "Antep Fıstıklı & Çikolatalı Mono Kutu Pasta (Dubai Pasta)",
     "code": "PST-DNK-DUB-BOX",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Kıtır kavrulmuş tereyağlı tel kadayıf ve saf Antep fıstığı ezmesinin büyüleyici buluşması; akışkan Belçika sütlü çikolatası kabuğuyla kaplı trend belirleyen lüks bir deneyim.",
     "imageUrl": "/resimler/pt12/pt12_15.png",
-    "description": "Şeffaf monobox ambalajında, çıtır kadayıf, yoğun Antep fıstığı ezmesi ve akışkan çikolata ganajlı mono pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 280,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Antep Fıstığı",
@@ -3670,24 +273,26 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "12 Adet Bireysel Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Kullanım": "Kendi özel kutusunda pratik paket ve masa servisi."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 3
   },
   {
     "id": "prod-pt12-16",
-    "name": "Donuk Lotus Bisküvili & Yaban Mersinli Bütün Pasta (Dilimli)",
+    "name": "Lotus Bisküvili & Yaban Mersinli Bütün Pasta (Dilimli)",
     "code": "PST-DNK-LOT-BLU",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Karamelize Lotus bisküvi ezmesiyle harmanlanmış yumuşak cheesecake dolgusu, taze yaban mersini taneleri ve çıtır bisküvi katmanlarıyla iştah kabartan bütün dilimli şölen.",
     "imageUrl": "/resimler/pt12/pt12_16.png",
-    "description": "Lotus karamel bisküvisi, yoğun çikolata tabanı ve taze yaban mersini taneleriyle süslenmiş hazır dilimli bütün pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 230,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Lotus",
@@ -3699,24 +304,26 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "12 Dilim Bütün Pasta",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 4 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 4 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Kullanım": "Dilim bazlı veya bütün olarak servis edilebilir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 4
   },
   {
     "id": "prod-pt12-17",
-    "name": "Donuk Yoğun Çikolatalı & Fıstık Ezmeli Dilim Pasta",
+    "name": "Yoğun Çikolatalı & Fıstık Ezmeli Dilim Pasta",
     "code": "PST-DNK-PNT-CHOC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Yoğun kakao oranına sahip nemli çikolatalı kek katları arasında tuzlu fıstık ezmesi kreması ve ipeksi bitter ganaj örtüsü. Tatlı ve tuzlu notaların kusursuz harmonisi.",
     "imageUrl": "/resimler/pt12/pt12_17.png",
-    "description": "Nemli kakaolu pandispanya, fıstık ezmeli krema dolgusu ve bitter çikolata ganajlı dilim pasta.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 215,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Çikolata",
@@ -3728,24 +335,26 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "10-12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Kullanım": "Servis öncesi +4°C'de çözündürünüz."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 5
   },
   {
     "id": "prod-pt12-18",
-    "name": "Donuk Karamelli & Fındık Parçacıklı Mono Pasta",
+    "name": "Karamelli & Fındık Parçacıklı Mono Pasta",
     "code": "PST-DNK-CRM-MONO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Ağır ateşte karamelize edilmiş süt karameli mousse, çıtır Karadeniz fındığı krokanı ve parlak karamel ayna glazürüyle kaplı tek porsiyonluk gurme lezzet.",
     "imageUrl": "/resimler/pt12/pt12_18.png",
-    "description": "Karamel sos kaplamalı, kavrulmuş fındık krokantlı ve vanilyalı mus dolgulu tek kişilik mono pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 225,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Mono Pasta",
@@ -3757,24 +366,26 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "12 Adet Tek Kişilik Mono",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Kullanım": "Tabakta şık sunumlar için ideal tek kişilik porsiyon."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 6
   },
   {
     "id": "prod-pt12-19",
-    "name": "Donuk Kuruyemişli & Kırmızı Meyveli Fudgy Brownie Dilim",
+    "name": "Kuruyemişli & Kırmızı Meyveli Fudgy Brownie Dilim",
     "code": "PST-DNK-BRW-NUT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Hakiki eritilmiş Belçika bitter çikolatasıyla hazırlanan yoğun, sakızımsı fudgy brownie dokusu; üzerinde taze ahududu ve ceviz parçalarıyla unutulmaz bir lezzet patlaması.",
     "imageUrl": "/resimler/pt12/pt12_19.png",
-    "description": "Fındık, ceviz ve kurutulmuş kırmızı meyvelerle zenginleştirilmiş, yoğun çikolatalı fudgy brownie dilimi.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 195,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Brownie",
@@ -3786,24 +397,26 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "12-16 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 2 saat veya ılık servis",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 2 saat veya ılık servis",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Kullanım": "Ilık servis edilerek dondurma eşliğinde sunulabilir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 7
   },
   {
     "id": "prod-pt12-20",
-    "name": "Donuk Antep Fıstıklı & Ahududu Katmanlı Dilim Pasta",
+    "name": "Antep Fıstıklı & Ahududu Katmanlı Dilim Pasta",
     "code": "PST-DNK-PST-RAS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Hakiki boz fıstık unundan pişirilen hafif sünger kek katmanları arasında mayhoş taze ahududu marmelatı ve beyaz çikolatalı kadife krema. Göz alıcı renk kontrastı ve asil lezzet.",
     "imageUrl": "/resimler/pt12/pt12_20.png",
-    "description": "Yoğun Antep fıstıklı pandispanya katmanları arasında mayhoş ahududu marmelatı ve beyaz çikolata kreması.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 240,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Antep Fıstığı",
@@ -3815,24 +428,26 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "10-12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 3 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 3 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Kullanım": "Servis öncesi buzdolabında çözündürünüz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 8
   },
   {
     "id": "prod-pt13-1",
-    "name": "Donuk Çikolata Kaplı Çilekli Mono Pasta",
+    "name": "Çikolata Kaplı Çilekli Mono Pasta",
     "code": "PST-DNK-MN-CHOC-STR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Doğal dağ yaban mersinlerinin taze aroması, yumuşacık vanilyalı pandispanya ve hafifletilmiş beyaz çikolata kremasının kare porsiyondaki zarafeti.",
     "imageUrl": "/resimler/pt13/pt13_1.png",
-    "description": "Parlak çikolata glazür kaplaması, ipeksi krema dolgusu ve üzerinde taze çilek dilimi ile şık sunumlu bireysel mono pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 195,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Mono Pasta",
@@ -3845,25 +460,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
       "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 9
   },
   {
     "id": "prod-pt13-2",
-    "name": "Donuk Antep Fıstıklı Mono Pasta (Fıstık Rüyası)",
+    "name": "Antep Fıstıklı Mono Pasta (Fıstık Rüyası)",
     "code": "PST-DNK-MN-PST",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Taze çekilmiş Arabica kahvesi esansı, yoğun Belçika çikolatalı kek ve üzerinde çıtır kahve çekirdeği çikolataları ile kahve molalarının vazgeçilmez eşlikçisi.",
     "imageUrl": "/resimler/pt13/pt13_2.png",
-    "description": "Yoğun Antep fıstıklı ganaj kaplama, hafif bisküvi tabanı ve fıstık taneleriyle süslenmiş gurme tek kişilik pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 190,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Mono Pasta",
@@ -3875,25 +492,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
       "Servis Tavsiyesi": "Taze kahve ve çay ile mükemmel uyum."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 10
   },
   {
     "id": "prod-pt13-3",
-    "name": "Donuk Limonlu & Glazürlü Mono Kubbe Pasta",
+    "name": "Limonlu & Glazürlü Mono Kubbe Pasta",
     "code": "PST-DNK-MN-LIM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Geleneksel tarife sadık kalınarak hazırlanan yumuşak mascarpone dolgusu ve kahve şuruplu pandispanyanın narin dengesi.",
     "imageUrl": "/resimler/pt13/pt13_3.png",
-    "description": "Ferahlatıcı limon kreması, parlak sarı ayna glazür kaplama ve nane yaprağı süslemesiyle hafif narenciye mono tatlısı.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 200,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Mono Pasta",
@@ -3905,25 +524,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C'de saklayınız.",
       "Servis Tavsiyesi": "Soğuk servis önerilir."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 11
   },
   {
     "id": "prod-pt13-4",
-    "name": "Donuk Orman Meyveli & Ahududulu Mono Pasta (Red Berry)",
+    "name": "Orman Meyveli & Ahududulu Mono Pasta (Red Berry)",
     "code": "PST-DNK-MN-RED",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Hafif kakao dokunuşlu kadifemsi kırmızı kek katmanları ve hafif limon notaları taşıyan orijinal peynir kreması dolgusuyla romantik bir klasik.",
     "imageUrl": "/resimler/pt13/pt13_4.png",
-    "description": "Canlı kırmızı glazür kaplı, taze ahududu meyvesi ve fındık tabanlı mayhoş orman meyveli bireysel mono pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 205,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Mono Pasta",
@@ -3935,25 +556,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
       "Servis Tavsiyesi": "Çözündükten sonra tabak sunumuna hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 12
   },
   {
     "id": "prod-pt13-5",
-    "name": "Donuk Lotus Bisküvili Karamel Mono Pasta",
+    "name": "Lotus Bisküvili Karamel Mono Pasta",
     "code": "PST-DNK-MN-LOT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Geleneksel taş fırın tekniğiyle pişirilen, pürüzsüz dokulu yoğun peynir kreması ve tereyağlı sable tabanı ile yalın bir başyapıt.",
     "imageUrl": "/resimler/pt13/pt13_5.png",
-    "description": "Orijinal Lotus Biscoff karamel ezmesi, baharatlı bisküvi parçaları ve vanilyalı mus dolgulu mono kubbe pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 190,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Mono Pasta",
@@ -3965,25 +588,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C donuk",
       "Servis Tavsiyesi": "Espresso ve filtre kahve yanına tavsiye edilir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 13
   },
   {
     "id": "prod-pt13-6",
-    "name": "Donuk Rocher Fındıklı & Çikolatalı Mono Pasta",
+    "name": "Rocher Fındıklı & Çikolatalı Mono Pasta",
     "code": "PST-DNK-MN-ROC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Kusursuz kubbe formunda beyaz çikolatalı parlak glazürün altında gizlenen taze mango-çarkıfelek meyvesi püresi ve hafif mousse dolgusu.",
     "imageUrl": "/resimler/pt13/pt13_6.png",
-    "description": "Kavrulmuş fındık parçacıklı çıtır sütlü çikolata kabuğu, akışkan pralin ve fındık krema dolgulu lüks mono tatlı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 230,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Mono Pasta",
@@ -3995,25 +620,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C muhafaza ediniz.",
       "Servis Tavsiyesi": "Oda sıcaklığına yakın kıvamda tüketilmesi önerilir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 14
   },
   {
     "id": "prod-pt13-7",
-    "name": "Donuk Karamel Soslu & Kremalı Katlı Dilim Pasta",
+    "name": "Karamel Soslu & Kremalı Katlı Dilim Pasta",
     "code": "PST-DNK-DL-CRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Dışı çıtır fındıklı bitter çikolata zırhı, içi ipeksi akışkan çikolatalı truffle kremasıyla dolu, gerçek çikolata tutkunlarına özel tek porsiyonluk lüks.",
     "imageUrl": "/resimler/pt13/pt13_7.png",
-    "description": "Tereyağlı bisküvi tabanı, kat kat ipeksi pastacı kreması ve yoğun akışkan karamel sos kaplamalı hazır dilimli pasta.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 245,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilimli Pasta",
@@ -4025,25 +652,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C muhafaza",
       "Servis Tavsiyesi": "+4°C'de çözündürünüz."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 15
   },
   {
     "id": "prod-pt13-8",
-    "name": "Donuk Antep Fıstıklı & Çikolatalı Katlı Dilim Pasta",
+    "name": "Antep Fıstıklı & Çikolatalı Katlı Dilim Pasta",
     "code": "PST-DNK-DL-PSTC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Kavrulmuş fındık parçacıkları, çift kat çikolata dolgusu ve nemli fırınlanmış dokusuyla her lokmada mutluluk veren zengin brownie.",
     "imageUrl": "/resimler/pt13/pt13_8.png",
-    "description": "Zengin Antep fıstığı kreması ve nemli kakaolu pandispanya katmanlarının uyumuyla hazırlanan dilim pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 195,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilimli Pasta",
@@ -4055,25 +684,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C donuk",
       "Servis Tavsiyesi": "Çözündükten sonra servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 16
   },
   {
     "id": "prod-pt13-9",
-    "name": "Donuk Moka Kahveli & Fındıklı Dilim Pasta",
+    "name": "Moka Kahveli & Fındıklı Dilim Pasta",
     "code": "PST-DNK-DL-MOK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Kremamsı Hindistan cevizi sütüyle hazırlanan beyaz mousse, çıtır bademli taban ve bembeyaz kar tanesi dokusuyla hafif ve egzotik.",
     "imageUrl": "/resimler/pt13/pt13_9.png",
-    "description": "Aromatik kahve dolgusu, kavrulmuş fındık parçaları ve yumuşak kahveli pandispanya katmanları içeren dilim pasta.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 220,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilimli Pasta",
@@ -4085,25 +716,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Sıcak içecekler eşliğinde servis ediniz."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 17
   },
   {
     "id": "prod-pt13-10",
-    "name": "Donuk Karaorman Meyveli (Schwarzwalder) Dilim Pasta",
+    "name": "Karaorman Meyveli (Schwarzwalder) Dilim Pasta",
     "code": "PST-DNK-DL-BLF",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Şeffaf cam kadehte taze mango kompostosu, savoiardi katmanları ve havalandırılmış İtalyan mascarpone kremasının ferahlatıcı dansı.",
     "imageUrl": "/resimler/pt13/pt13_10.png",
-    "description": "Klasik Alman Karaorman pastası; yoğun bitter kakaolu pandispanya, vişne sosu ve beyaz krema katmanları.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 185,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilimli Pasta",
@@ -4115,25 +748,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Servis öncesi +4°C'de dinlendiriniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 18
   },
   {
     "id": "prod-pt13-11",
-    "name": "Donuk Çikolatalı & Fındık Parçacıklı Dilim Kek",
+    "name": "Çikolatalı & Fındık Parçacıklı Dilim Kek",
     "code": "PST-DNK-DL-CHK-KEK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "%70 kakao oranlı Belçika bitter çikolatasının fırından yeni çıkmış akışkan kalbi; her kaşıkta sıcak ve karşı konulamaz lezzet yoğunluğu.",
     "imageUrl": "/resimler/pt13/pt13_11.png",
-    "description": "Yoğun kakaolu kek tabanı, kremamsı çikolata dolgusu ve kıtır fındık kaplamasıyla porsiyonluk hazır dilim kek.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 190,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilimli Kek",
@@ -4145,25 +780,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Oda sıcaklığına gelince servis ediniz."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 19
   },
   {
     "id": "prod-pt13-12",
-    "name": "Donuk Geleneksel Çikolatalı Mozaik Pasta Dilimi",
+    "name": "Geleneksel Çikolatalı Mozaik Pasta Dilimi",
     "code": "PST-DNK-DL-MOZ",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Esnek kakaolu sünger kek içerisine sarılmış taze orman meyveli pastacı kreması ve bitter çikolata ganajı dokunuşu.",
     "imageUrl": "/resimler/pt13/pt13_12.png",
-    "description": "Geleneksel lezzetiyle tereyağlı bisküvi parçaları ve hakiki kakao ganajından üretilen pratik mozaik pasta dilimi.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 210,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Mozaik Pasta",
@@ -4175,25 +812,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis edilir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 20
   },
   {
     "id": "prod-pt13-13",
-    "name": "Taze Butik Çilekli Mono Box Magnolia & Kutu Pasta",
+    "name": "Çilekli Mono Box Magnolia & Kutu Pasta",
     "code": "PST-DNK-BX-STR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Karakteristik Antep fıstığı aromasıyla bezenmiş üçgen formda hafif pandispanya ve fıstık pralini dolgulu kremalı lezzet.",
     "imageUrl": "/resimler/pt13/pt13_13.png",
-    "description": "Özel şeffaf kutusunda, taze çilek sosu, ufalanmış bebe bisküvisi ve kadife magnolia kreması içeren kutu tatlısı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 225,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -4206,25 +845,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box (Kutulu)",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kutusunda pratik kaşıkla tüketime hazır.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 21
   },
   {
     "id": "prod-pt13-14",
-    "name": "Donuk Oreo & Çikolatalı Mono Box Kutu Pasta",
+    "name": "Oreo & Çikolatalı Mono Box Kutu Pasta",
     "code": "PST-DNK-BX-OREO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Pratik sunumlu kup içerisinde taze çekilmiş kahveyle ıslatılmış savoiardi ve yoğun mascarpone kreması.",
     "imageUrl": "/resimler/pt13/pt13_14.png",
-    "description": "Şeffaf kutuda Oreo bisküvi kırıntıları, çift katmanlı çikolata ganajı ve vanilyalı pürüzsüz krema.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 185,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Kutu Pasta",
@@ -4236,25 +877,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis yapınız."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 22
   },
   {
     "id": "prod-pt13-15",
-    "name": "Donuk Lotus Biscoff Mono Box Kutu Pasta",
+    "name": "Lotus Biscoff Mono Box Kutu Pasta",
     "code": "PST-DNK-BX-LOT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Kat kat çıtır Lotus bisküvi kırıkları, sıcak baharat notaları ve kadifemsi krema dolgusunun bardakta şık sunumu.",
     "imageUrl": "/resimler/pt13/pt13_15.png",
-    "description": "Bütün Lotus bisküvi taçlandırması, karamelize bisküvi ezmesi ve ipeksi tatlı kremasıyla hazırlanan popüler kutu tatlı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 190,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Kutu Pasta",
@@ -4266,25 +909,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kendi kutusunda veya tabakta sunulabilir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 23
   },
   {
     "id": "prod-pt13-16",
-    "name": "Taze Butik Çikolatalı Kubbe Rulo Dilim Pasta (D-Kek)",
+    "name": "Çikolatalı Kubbe Rulo Dilim Pasta (D-Kek)",
     "code": "PST-DNK-DL-KUB",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Zarif yarım ay silueti, aynalı siyah çikolata glazürü ve yoğun çikolata mousse dolgusuyla modern pastacılık tasarımı.",
     "imageUrl": "/resimler/pt13/pt13_16.png",
-    "description": "Kubbe formunda yoğun kakaolu nemli kek, çikolata kaplama ve rende çikolata talaşlarıyla bezenmiş porsiyonluk pasta.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 225,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -4297,25 +942,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Porsiyonluk Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kahve eşliğinde servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 24
   },
   {
     "id": "prod-pt13-17",
-    "name": "Donuk Orman Meyveli & Crumble Cheesecake Dilimi",
+    "name": "Orman Meyveli & Crumble Cheesecake Dilimi",
     "code": "PST-DNK-DL-CRM-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Çıtır fırınlanmış tereyağlı tart hamuru tabanında mayhoş yaban mersini dolgusu ve üzerinde altın sarısı ufalanmış crumble kırıntıları.",
     "imageUrl": "/resimler/pt13/pt13_17.png",
-    "description": "Fırınlanmış tereyağlı çıtır crumble (kırıntı) üst katmanı, taze yaban mersini dolgusu ve kremsi cheesecake dokusu.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 200,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cheesecake",
@@ -4327,25 +974,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 3 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 3 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "+4°C dolapta çözündükten sonra servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 25
   },
   {
     "id": "prod-pt13-18",
-    "name": "Donuk Çikolata Dolgulu Cookie Turta (Cookie Pie) Dilimi",
+    "name": "Çikolata Dolgulu Cookie Turta (Cookie Pie) Dilimi",
     "code": "PST-DNK-DL-CKP",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Amerikan cookie hamurunun fırında tart formunda pişirilmesiyle elde edilen çıtır dış kabuk ve yumuşacık çikolata damlalı iç doku.",
     "imageUrl": "/resimler/pt13/pt13_18.png",
-    "description": "Amerikan tarzı dev kurabiye hamuru arasında akışkan çikolata kreması dolgulu gurme Cookie Pie dilimi.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 190,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cookie Pie",
@@ -4357,25 +1006,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "Mikrodalgada 20-30 sn veya +4°C dolapta 1 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "Mikrodalgada 20-30 sn veya +4°C dolapta 1 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Hafif ısıtılarak vanilyalı dondurma ile servis önerilir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 26
   },
   {
     "id": "prod-pt13-19",
-    "name": "Donuk Çilekli & Antep Fıstıklı Mono Cheesecake",
+    "name": "Çilekli & Antep Fıstıklı Mono Cheesecake",
     "code": "PST-DNK-MN-STR-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Doğal çilek taneleri, parlak meyve sosu ve fırınlanmış pürüzsüz cheesecake gövdesiyle klasik lezzetin en taze hali.",
     "imageUrl": "/resimler/pt13/pt13_19.png",
-    "description": "Bireysel yuvarlak formda bisküvi tabanı, fırın cheesecake dolgusu, çilek marmelatı ve beyaz çikolata süslemesi.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 210,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Mono Pasta",
@@ -4387,25 +1038,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Cheesecake",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 27
   },
   {
     "id": "prod-pt13-20",
-    "name": "Taze Butik Dubai Kadayıflı & Fıstıklı Mono Küre Pasta",
+    "name": "Dubai Kadayıflı & Fıstıklı Mono Küre Pasta",
     "code": "PST-DNK-MN-DUB-KAD",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Tümüyle kavrulmuş Antep fıstığı parçalarıyla kaplanmış küre gövde ve içinde yoğun beyaz çikolatalı fıstık ganajı.",
     "imageUrl": "/resimler/pt13/pt13_20.png",
-    "description": "Dışı tereyağında kavrulmuş çıtır tel kadayıfla kaplı, içi yoğun Antep fıstığı ezmeli krema ve çikolata dolgulu trend Dubai küre pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 260,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -4419,25 +1072,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Küre",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Özel altın altlığı ile doğrudan servise hazırdır.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 28
   },
   {
     "id": "prod-pt14-1",
-    "name": "Donuk İtalyan Tiramisu Üçgen Dilim Pasta",
+    "name": "İtalyan Tiramisu Üçgen Dilim Pasta",
     "code": "PST-DNK-DL-TIR-TRI",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Klasik İtalyan kafe kültürünün başyapıtı; yumuşak savoiardi bisküvileri, yoğun mascarpone kreması ve zarif üçgen dilim sunumu.",
     "imageUrl": "/resimler/pt14/pt14_1.png",
-    "description": "Espresso şurubuyla ıslatılmış yumuşacık pandispanya katları, zengin mascarpone peynirli krema ve yoğun kakao tozu.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 210,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Tiramisu",
@@ -4449,25 +1104,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Üçgen Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 29
   },
   {
     "id": "prod-pt14-2",
-    "name": "Taze Butik Frambuazlı & Beyaz Çikolatalı Dilim Pasta",
+    "name": "Frambuazlı & Beyaz Çikolatalı Dilim Pasta",
     "code": "PST-DNK-DL-FRM-WHT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Hafif beyaz çikolata kreması, taze böğürtlen ve frenk üzümü katmanlarıyla hafif ve ferahlatıcı meyve şöleni.",
     "imageUrl": "/resimler/pt14/pt14_2.png",
-    "description": "Kakaolu pandispanya katları arasında ipeksi beyaz çikolata kreması ve üstte bol taze frambuaz jölesi.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 215,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -4480,25 +1137,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Çözündükten sonra servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 30
   },
   {
     "id": "prod-pt14-3",
-    "name": "Taze Butik Böğürtlenli & Mor Glazürlü Mono Kubbe Pasta",
+    "name": "Böğürtlenli & Mor Glazürlü Mono Kubbe Pasta",
     "code": "PST-DNK-MN-BGR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Aynalı mor glazür örtüsü altında yaban mersini ve böğürtlen püreli mousse; tabanında çıtır fındıklı dacquoise.",
     "imageUrl": "/resimler/pt14/pt14_3.png",
-    "description": "Mor orman meyveli ayna glazür kaplama, hindistan cevizi işlemeli etek, böğürtlen mus dolgulu tek kişilik zarif kubbe pasta.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 235,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -4511,25 +1170,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Kubbe",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis önerilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 31
   },
   {
     "id": "prod-pt14-4",
-    "name": "Donuk Kare Porsiyon İtalyan Tiramisu",
+    "name": "Kare Porsiyon İtalyan Tiramisu",
     "code": "PST-DNK-SQ-TIR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Düzgün katmanlarıyla görsel zarafet sunan, kakao tozuyla taçlandırılmış porsiyonluk tiramisu karesi.",
     "imageUrl": "/resimler/pt14/pt14_4.png",
-    "description": "Kare kesim modern formuyla espresso aromalı kedidili bisküvi, mascarpone mus ve kakao örtüsüyle hazırlanmış tiramisu.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 205,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Tiramisu",
@@ -4541,25 +1202,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Bireysel Kare Porsiyon",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "+4°C dolapta dinlendirip servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 32
   },
   {
     "id": "prod-pt14-5",
-    "name": "Donuk Geleneksel Ballı Medovik Dilim Pasta",
+    "name": "Geleneksel Ballı Medovik Dilim Pasta",
     "code": "PST-DNK-DL-MED",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Özel karamelize çiçek balı ile tek tek açılan incecik 8 kat bisküvi yaprağı ve aralarındaki hafif ekşi kremalı dolgu.",
     "imageUrl": "/resimler/pt14/pt14_5.png",
-    "description": "Geleneksel Rus tarifine sadık, incecik karamelize ballı bisküvi yaprakları ve hafif ekşi krema katmanlı gurme Medovik pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 230,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Medovik",
@@ -4571,25 +1234,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 3 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 3 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Sıcak çay veya filtre kahve eşliğinde mükemmel lezzet."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 33
   },
   {
     "id": "prod-pt14-6",
-    "name": "Taze Butik Frambuazlı & Egzotik Meyveli Mono Parfe",
+    "name": "Frambuazlı & Egzotik Meyveli Mono Parfe",
     "code": "PST-DNK-MN-PRF-1",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Özel kalıpta pileli heykel formunda dökülen pembe ahududu mousse, narenciye dolgusu ve altın yaldızlı süsleme.",
     "imageUrl": "/resimler/pt14/pt14_6.png",
-    "description": "Yivli pembe parfe gövdesi, üzerinde taze böğürtlen, frambuaz ve mango küpleri bulunan ferahlatıcı dondurmalı tatlı.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 250,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -4602,25 +1267,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Parfe",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C donuk muhafaza",
       "Servis Tavsiyesi": "Yarı donuk (semifreddo) olarak servis edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 34
   },
   {
     "id": "prod-pt14-7",
-    "name": "Taze Butik Orman Meyveli Çiçek Desenli Mono Parfe",
+    "name": "Orman Meyveli Çiçek Desenli Mono Parfe",
     "code": "PST-DNK-MN-PRF-2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Zarif gül yaprağı esansı, fildişi beyaz çikolata ganajı ve kadife püskürtme dokusuyla büyüleyici bir zarafet.",
     "imageUrl": "/resimler/pt14/pt14_7.png",
-    "description": "Kristalize orman meyveleriyle taçlandırılmış, pembe meyve kremalı özel formlu mono parfe tatlısı.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 245,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -4633,25 +1300,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Parfe",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Yarı donuk servis tavsiye edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 35
   },
   {
     "id": "prod-pt14-8",
-    "name": "Taze Butik Karışık Meyveli Silindir Mono Parfe",
+    "name": "Karışık Meyveli Silindir Mono Parfe",
     "code": "PST-DNK-MN-PRF-3",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Derin meyve asiditesi, ipeksi böğürtlen kremi ve sanatsal pileli dış kabuğuyla görsel bir şaheser.",
     "imageUrl": "/resimler/pt14/pt14_8.png",
-    "description": "Meyve taneleri, taze süt kreması ve frambuaz püresiyle hazırlanan silindirik formlu soğuk mono parfe.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 240,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -4663,25 +1332,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk / donuk tüketim.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 36
   },
   {
     "id": "prod-pt14-9",
-    "name": "Donuk Yaban Mersinli (Blueberry) Cheesecake Dilimi",
+    "name": "Yaban Mersinli (Blueberry) Cheesecake Dilimi",
     "code": "PST-DNK-DL-BLU-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Kıtır bisküvi tabanı üzerinde zengin krem peynir dolgusu ve bol taze yaban mersini sosuyla kusursuz cheesecake dilimi.",
     "imageUrl": "/resimler/pt14/pt14_9.png",
-    "description": "New York stili fırınlanmış peynir dolgusu, tereyağlı bisküvi tabanı ve üstte tane yaban mersini soslu nefis cheesecake dilimi.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 220,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cheesecake",
@@ -4693,25 +1364,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 3-4 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 3-4 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "+4°C'de çözündürerek soğuk servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 37
   },
   {
     "id": "prod-pt14-10",
-    "name": "Donuk Kahve Çekirdeği Şekilli Mono Mousse Pasta",
+    "name": "Kahve Çekirdeği Şekilli Mono Mousse Pasta",
     "code": "PST-DNK-MN-COF-BEAN",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Yoğun espresso ve bitter çikolata ganajının birleştiği, kahve tutkunlarına özel parlak kubbe mono.",
     "imageUrl": "/resimler/pt14/pt14_10.png",
-    "description": "Gerçek kahve çekirdeği görünümünde, espresso aromalı bitter çikolata ganajı ve kahveli mus dolgulu özel tasarım mono tatlı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 230,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Mono Pasta",
@@ -4724,25 +1397,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Özel Mono",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Nitelikli kahve sunumları için idealdir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 38
   },
   {
     "id": "prod-pt14-11",
-    "name": "Taze Butik Bitter Çikolata & Fıstık Kaplı Baton Mono Kek",
+    "name": "Bitter Çikolata & Fıstık Kaplı Baton Mono Kek",
     "code": "PST-DNK-MN-BAT-CHOC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Fransız usulü kusursuz parlak ayna çikolata kaplaması altında yoğun kakao nemli kek ve fındık pralini.",
     "imageUrl": "/resimler/pt14/pt14_11.png",
-    "description": "Rocher çikolata kaplamalı, fıstık dokunuşlu, içi nemli çikolatalı brownie ve krema dolgulu dikdörtgen baton mono kek.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 210,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -4755,25 +1430,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Baton Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Doğrudan servise uygundur.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 39
   },
   {
     "id": "prod-pt14-12",
-    "name": "Taze Butik Gökkuşağı (Rainbow) Katlı Dilim Pasta",
+    "name": "Gökkuşağı (Rainbow) Katlı Dilim Pasta",
     "code": "PST-DNK-DL-RNB",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Yedi farklı renkte doğal meyve özleriyle renklendirilmiş yumuşak pandispanya katları ve hafif vanilyalı süt kreması.",
     "imageUrl": "/resimler/pt14/pt14_12.png",
-    "description": "Rengarenk pandispanya katları, hafif vanilyalı süt kreması ve üzeri fıstık-bisküvi kırıntılarıyla neşeli dilim pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 215,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -4786,25 +1463,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Servis öncesi +4°C'de dinlendiriniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 40
   },
   {
     "id": "prod-pt14-13",
-    "name": "Taze Butik Karamelli & Krokantlı Dilim Pasta",
+    "name": "Karamelli & Krokantlı Dilim Pasta",
     "code": "PST-DNK-DL-CRM-KROK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Kavrulmuş karamel kreması, altın fındık krokanları ve çikolatalı pandispanyanın dayanılmaz çıtırlığı.",
     "imageUrl": "/resimler/pt14/pt14_13.png",
-    "description": "Karamel kreması, çıtır fındık krokant parçacıkları ve yumuşacık pandispanya katmanlarıyla zengin dilim pasta.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 220,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -4817,25 +1496,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "+4°C'de çözündükten sonra servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 41
   },
   {
     "id": "prod-pt14-14",
-    "name": "Taze Butik Oreo & Karamel Kremalı Mono Pasta",
+    "name": "Oreo & Karamel Kremalı Mono Pasta",
     "code": "PST-DNK-MN-OREO-CRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Koyu kakao bisküvi tabanı, akışkan tuzlu karamel kalbi ve ipeksi sütlü çikolata kaplamasıyla modern mono.",
     "imageUrl": "/resimler/pt14/pt14_14.png",
-    "description": "Siyah Oreo bisküvi tabanı, karamel mousse, çırpılmış vanilya kreması ve bütün Oreo bisküvisiyle tek kişilik mono tatlı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 230,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -4848,25 +1529,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Yuvarlak Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis önerilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 42
   },
   {
     "id": "prod-pt14-15",
-    "name": "Taze Butik Antep Fıstıklı & Ganajlı Mono Pasta",
+    "name": "Antep Fıstıklı & Ganajlı Mono Pasta",
     "code": "PST-DNK-MN-PST-GNJ",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Saf Antep fıstığı ezmesinden hazırlanan silindirik gövde, beyaz çikolatalı fıstık ganajı ve fıstık tozu kaplaması.",
     "imageUrl": "/resimler/pt14/pt14_15.png",
-    "description": "Doğal yeşil fıstıklı pandispanya, yoğun çikolata ganaj tabakası ve fıstıklı krem şantiyle süslenmiş mono pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 260,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -4879,25 +1562,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Pasta",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kahve yanına servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 43
   },
   {
     "id": "prod-pt14-16",
-    "name": "Taze Butik Fıstıklı & Çikolata Kremalı Mini Mono Pasta",
+    "name": "Fıstıklı & Çikolata Kremalı Mini Mono Pasta",
     "code": "PST-DNK-MN-PST-MINI",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Pırlanta kesim üst yüzeyi, zümrüt yeşili parlak fıstık sosu ve fıstıklı dacquoise tabanı ile elit bir tat.",
     "imageUrl": "/resimler/pt14/pt14_16.png",
-    "description": "Fıstık tozu kaplamalı kenarlar, çikolatalı ipeksi mousse ve fıstık draje detaylı butik mono tatlı.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 265,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -4910,25 +1595,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Butik Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "+4°C'de servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 44
   },
   {
     "id": "prod-pt14-17",
-    "name": "Donuk Çikolatalı Kadife Mousse Dilim Pasta",
+    "name": "Çikolatalı Kadife Mousse Dilim Pasta",
     "code": "PST-DNK-DL-CHOC-VLV",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "%72 São Tomé kakaolu bitter mousse, ince kakao pandispanyası ve kadife çikolata dokusuyla saf lezzet.",
     "imageUrl": "/resimler/pt14/pt14_17.png",
-    "description": "Kadife kakaolu sünger katmanları, yoğun çikolatalı ipeksi mousse dolgusu ve toz çikolata örtülü dilim pasta.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 225,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilimli Pasta",
@@ -4940,25 +1627,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Hazır Porsiyon Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Servis öncesi dolapta dinlendiriniz."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 45
   },
   {
     "id": "prod-pt14-18",
-    "name": "Donuk Yoğun Çikolatalı Mono Box Mousse Tatlısı",
+    "name": "Yoğun Çikolatalı Mono Box Mousse Tatlısı",
     "code": "PST-DNK-BX-CHOC-MSS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Kat kat akışkan çikolata sosu, çikolatalı kek küpleri ve hafif köpük kremanın kadeh sunumu.",
     "imageUrl": "/resimler/pt14/pt14_18.png",
-    "description": "Özel şeffaf kutusunda, çift kademeli bitter ve sütlü çikolata mus, akışkan ganaj ve rende çikolata talaşları.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 185,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Kutu Tatlısı",
@@ -4970,25 +1659,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kutusunda pratik kaşık servisine uygundur."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 46
   },
   {
     "id": "prod-pt14-19",
-    "name": "Donuk Orman Meyveli & Kadife Mono Box Kutu Pasta",
+    "name": "Orman Meyveli & Kadife Mono Box Kutu Pasta",
     "code": "PST-DNK-BX-FRM-MSS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Kırmızı kadife kek kırıntıları, taze ahududu sosu ve mascarpone kremasının bardaktaki ferah buluşması.",
     "imageUrl": "/resimler/pt14/pt14_19.png",
-    "description": "Red velvet kek kırıntıları, taze orman meyvesi marmelatı ve beyaz vanilyalı krema katmanlı kutu mono tatlı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 190,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Kutu Pasta",
@@ -5000,25 +1691,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 47
   },
   {
     "id": "prod-pt14-20",
-    "name": "Donuk Profiterollü & Supangle Mono Box Tatlısı",
+    "name": "Profiterollü & Supangle Mono Box Tatlısı",
     "code": "PST-DNK-BX-PRO-SUP",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Özel tereyağlı choux hamuru topları içerisinde taze pastacı kreması ve üzerinde bol sıcak eritilmiş Belçika çikolatası sosu.",
     "imageUrl": "/resimler/pt14/pt14_20.png",
-    "description": "Kutu içerisinde geleneksel vanilya kreması, koyu çikolatalı supangle sosu, çıtır fıstık ve çikolata rendeli tatlı şöleni.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 240,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Kutu Tatlısı",
@@ -5030,25 +1723,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kendi kutusunda kaşıkla servise hazır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 48
   },
   {
     "id": "prod-pt15-1",
-    "name": "Taze Butik Antep Fıstıklı Magnolia Mono Box Tatlısı",
+    "name": "Antep Fıstıklı Magnolia Mono Box Tatlısı",
     "code": "PST-DNK-BX-PST",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "İpeksi vanilyalı pastacı kreması, bebe bisküvisi kırıntıları ve bolca taze çekilmiş Antep fıstığı ezmesi.",
     "imageUrl": "/resimler/pt15/pt15_1.png",
-    "description": "Özel Antep fıstığı kreması, ipeksi pastacı vanilyası ve üzeri iri fıstık parçacıklarıyla zenginleştirilmiş tek kişilik mono box kutu tatlı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 210,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5061,25 +1756,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Box",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kutusunda pratik kaşık servisine uygundur.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 49
   },
   {
     "id": "prod-pt15-2",
-    "name": "Taze Butik Yaban Mersinli & Böğürtlenli Dilim Pasta",
+    "name": "Yaban Mersinli & Böğürtlenli Dilim Pasta",
     "code": "PST-DNK-DLM-BLU",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Göz alıcı mor rengiyle büyüleyen böğürtlenli pandispanya, beyaz çikolata kreması ve taze dağ meyveleri.",
     "imageUrl": "/resimler/pt15/pt15_2.png",
-    "description": "Yumuşak kakaolu pandispanya katları arasında mayhoş yaban mersini ve böğürtlenli hafif mus krema, üzerinde parlak meyve glazürü.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 215,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5092,25 +1789,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis (Tek Kişilik)",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 50
   },
   {
     "id": "prod-pt15-3",
-    "name": "Donuk İtalyan Tiramisu & Kakaolu Mousse Dilim Pasta",
+    "name": "İtalyan Tiramisu & Kakaolu Mousse Dilim Pasta",
     "code": "PST-DNK-DLM-TIR-CHOC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "İki kalın nemli çikolatalı kek katı arasında havalandırılmış bitter çikolata kreması dolgusu.",
     "imageUrl": "/resimler/pt15/pt15_3.png",
-    "description": "Espresso aromalı yumuşak kek tabanı, kadifemsi mascarpone vanilya dolgusu ve yoğun çikolata mousse katmanı, üzeri bol kakao tozlu.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 210,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilim Pasta",
@@ -5122,25 +1821,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Taze çekilmiş espresso eşliğinde servis önerilir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 51
   },
   {
     "id": "prod-pt15-4",
-    "name": "Taze Butik Frambuazlı & Çikolatalı Parfe Kup Tatlısı",
+    "name": "Frambuazlı & Çikolatalı Parfe Kup Tatlısı",
     "code": "PST-DNK-KP-FRM-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Hakiki Madagaskar vanilyasıyla demlenmiş süt kreması panna cotta ve üzerinde taze orman meyvesi jölesi.",
     "imageUrl": "/resimler/pt15/pt15_4.png",
-    "description": "Bireysel sunum bardağında kremsi çikolata ve moka musu, taze bütün frambuaz meyveleri ve pudra şekeri serpiştirmeli nefis parfe kup.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 185,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5153,25 +1854,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kup Bardak",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Bardağında doğrudan servis edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 52
   },
   {
     "id": "prod-pt15-5",
-    "name": "Taze Butik Karamelize Fındık & Krokanlı Mono Pasta",
+    "name": "Karamelize Fındık & Krokanlı Mono Pasta",
     "code": "PST-DNK-MN-KRO-CAR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Giresun tombul fındığı krokanıyla kaplanmış çıtır dış kabuk ve pralin kremalı iç dolgu.",
     "imageUrl": "/resimler/pt15/pt15_5.png",
-    "description": "Karamelli ve fındıklı çift katmanlı krema, yumuşak kek tabanı ve üzerinde sıkma karamel kreması ile çıtır karamelize fındık krokanları.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 235,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5184,25 +1887,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 53
   },
   {
     "id": "prod-pt15-6",
-    "name": "Donuk Bol Çikolata Parçacıklı Gurme Amerikan Cookie (2'li / Koli)",
+    "name": "Bol Çikolata Parçacıklı Gurme Amerikan Cookie (2'li / Koli)",
     "code": "PST-DNK-CKI-CHOC-2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Geleneksel Amerikan reçetesiyle fırınlanan, kenarları çıtır merkezi yumuşacık kalan bol parça çikolatalı kurabiye.",
     "imageUrl": "/resimler/pt15/pt15_6.png",
-    "description": "Dışı hafif kıtır, içi yumuşacık ve akışkan bitter & sütlü Belçika çikolatası parçacıklı Amerikan tipi jumbo boy gurme kurabiye.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 130,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Unlu Mamuller",
@@ -5215,24 +1920,26 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "2'li Porsiyon / Koli",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya fırında 160°C'de 3-4 dk",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Ilık servis edildiğinde çikolata akışkanlaşır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 54
   },
   {
     "id": "prod-pt15-7",
-    "name": "Donuk Klasik Vanilyalı & Çikolata Taneli Jumbo Cookie (3'lü Sunum)",
+    "name": "Klasik Vanilyalı & Çikolata Taneli Jumbo Cookie (3'lü Sunum)",
     "code": "PST-DNK-CKI-JUMBO-3",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Dev boyutuyla doyurucu, esmer şeker ve birinci sınıf tereyağı ile yoğrulmuş lezzet klasiği.",
     "imageUrl": "/resimler/pt15/pt15_7.png",
-    "description": "Hakiki tereyağı ve vanilya aromasıyla harmanlanmış, yoğun çikolata dolgulu jumbo boy kafe tipi fırınlanmaya hazır gurme cookie.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 130,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Unlu Mamuller",
@@ -5245,24 +1952,26 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "3'lü Sunum Tabağı / Koli",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya fırında 160°C'de 3-4 dk",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Filtre kahve ve latte yanında idealdir."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 55
   },
   {
     "id": "prod-pt15-8",
-    "name": "Taze Butik Mavi Haşhaşlı & Limonlu Baton Dilim Kek",
+    "name": "Mavi Haşhaşlı & Limonlu Baton Dilim Kek",
     "code": "PST-DNK-KEK-HSH-LIM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Taze sıkılmış limon suyu ve rendesiyle aromalandırılmış, çıtır mavi haşhaş taneleriyle zenginleşmiş tereyağlı baton kek.",
     "imageUrl": "/resimler/pt15/pt15_8.png",
-    "description": "Ferahlatıcı limon kabuğu rendesi ve çıtır mavi haşhaş tohumları ile kabarmış, kahve yanı servisleri için kalın dilimli nefis baton kek.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 140,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5275,25 +1984,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Kalın Baton Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Çay ve kahve sunumlarına uygundur.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 56
   },
   {
     "id": "prod-pt15-9",
-    "name": "Donuk Fırın Tipi Çift Çikolatalı Gurme Cookie (2'li Paket)",
+    "name": "Fırın Tipi Çift Çikolatalı Gurme Cookie (2'li Paket)",
     "code": "PST-DNK-CKI-DBL-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Kakaolu hamur içine gömülmüş iri bitter çikolata parçalarıyla çikolataseverlerin favorisi.",
     "imageUrl": "/resimler/pt15/pt15_9.png",
-    "description": "Bol bitter çikolata parçaları ve altın sarısı pişmiş gevrek dokusuyla çay-kahve saatlerine özel porsiyonluk hazır donuk cookie.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 135,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cookie",
@@ -5305,24 +2016,26 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "2'li Paket / Koli",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk çözündürünüz.",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Ilık servis edilebilir."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 57
   },
   {
     "id": "prod-pt15-10",
-    "name": "Taze Butik Mozaik (Ebruli) Kakaolu & Sade Baton Dilim Kek",
+    "name": "Mozaik (Ebruli) Kakaolu & Sade Baton Dilim Kek",
     "code": "PST-DNK-KEK-MOZ-BAT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Sade vanilyalı ve yoğun kakaolu kek harcının sanatsal ebruli deseniyle fırınlanmış yumuşacık çay saati keki.",
     "imageUrl": "/resimler/pt15/pt15_10.png",
-    "description": "Geleneksel lezzette kakaolu ve vanilyalı hamurun ebruli kıvrımlarıyla harmanlandığı, porsiyonluk dilimli yumuşacık mozaik baton kek.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 135,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5335,25 +2048,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Baton Dilim (Tek Porsiyon)",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Sıcak içecekler ile mükemmel uyum sağlar.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 58
   },
   {
     "id": "prod-pt15-11",
-    "name": "Taze Butik Havuçlu, Tarçınlı & Cevizli Gurme Baton Dilim Kek",
+    "name": "Havuçlu, Tarçınlı & Cevizli Gurme Baton Dilim Kek",
     "code": "PST-DNK-KEK-HVC-TRC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Taze rendelenmiş havuç, Seylan tarçını ve iri kıyılmış ceviz içiyle hazırlanan sıcacık kış lezzeti.",
     "imageUrl": "/resimler/pt15/pt15_11.png",
-    "description": "Taze rendelenmiş havuç, aromatik Seylan tarçını ve dövülmüş ceviz parçalarıyla zenginleştirilmiş, nemli dokulu klasik havuçlu kek dilimi.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 145,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5366,25 +2081,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Gurme Baton Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kahve yanı menülerinde en çok tercih edilen lezzet.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 59
   },
   {
     "id": "prod-pt15-12",
-    "name": "Taze Butik Çikolata Ganajlı & Vanilyalı Kare Mono Kup Tatlısı",
+    "name": "Çikolata Ganajlı & Vanilyalı Kare Mono Kup Tatlısı",
     "code": "PST-DNK-KP-VAN-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Küp formda porsiyonluk vanilya mousse ve yoğun bitter ganaj tabakasının uyumu.",
     "imageUrl": "/resimler/pt15/pt15_12.png",
-    "description": "Şeffaf kare sunum kabında kat kat vanilya kreması, yumuşak pandispanya ve üzerinde kavrulmuş fındıklı akışkan çikolata ganajı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 185,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5397,25 +2114,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kare Mono Kup",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kendi şık kabında kaşıkla pratik servis.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 60
   },
   {
     "id": "prod-pt15-13",
-    "name": "Taze Butik Red Velvet Kalp Mono Pasta",
+    "name": "Red Velvet Kalp Mono Pasta",
     "code": "PST-DNK-MN-RED-HRT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Aşkın ve tutkunun sembolü; kadife kırmızı pürüzsüz dış doku, hafif peynir kreması ve vişne dolgulu kalp mono.",
     "imageUrl": "/resimler/pt15/pt15_13.png",
-    "description": "Romantik kalp formunda, kadifemsi kırmızı kek kırıntılarıyla kaplanmış, içi yumuşacık peynirli vanilya kremalı özel mono pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 250,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5428,25 +2147,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kalp Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Tabak sunumunda nane yaprağı ve taze meyveyle süslenebilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 61
   },
   {
     "id": "prod-pt15-14",
-    "name": "Donuk Boston Kremalı & Çikolata Soslu Dilim Pasta",
+    "name": "Boston Kremalı & Çikolata Soslu Dilim Pasta",
     "code": "PST-DNK-DLM-BST-CRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "İpeksi sarı pastacı kreması dolgulu sünger kek üzeri kalın parlak bitter çikolata ganajı.",
     "imageUrl": "/resimler/pt15/pt15_14.png",
-    "description": "Altın sarısı sünger pandispanya arasında yoğun çikolata mousse dolgusu, üzeri vanilyalı beyaz krema ve zikzak çikolata çizgili zarif dilim pasta.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 210,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilim Pasta",
@@ -5457,25 +2178,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 62
   },
   {
     "id": "prod-pt15-15",
-    "name": "Donuk Yulaflı & Damla Çikolatalı Gurme Cookie (2'li)",
+    "name": "Yulaflı & Damla Çikolatalı Gurme Cookie (2'li)",
     "code": "PST-DNK-CKI-OAT-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Doğal yulaf ezmesi, kuru üzüm ve tarçınla zenginleştirilmiş dengeli ve doyurucu fırın kurabiyesi.",
     "imageUrl": "/resimler/pt15/pt15_15.png",
-    "description": "Besleyici yulaf ezmesi ve yoğun kakao taneleriyle harmanlanmış, çıtır kenarlı ve tok dokulu gurme fırın cookie.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 125,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cookie",
@@ -5487,24 +2210,26 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "2'li Porsiyon / Koli",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya 160°C fırında 3 dk",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Sıcak veya soğuk içeceklerle ikram edilebilir."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 63
   },
   {
     "id": "prod-pt15-16",
-    "name": "Taze Butik Limonlu Kadife Kubbe (Lemon Dome) Mono Pasta",
+    "name": "Limonlu Kadife Kubbe (Lemon Dome) Mono Pasta",
     "code": "PST-DNK-MN-LIM-DOM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Canlandırıcı Akdeniz limon kreması, kadife sarı dış yüzey ve bademli bisküvi tabanıyla ferahlık timsali.",
     "imageUrl": "/resimler/pt15/pt15_16.png",
-    "description": "Kadife sarı püskürtme dokusuyla göz alıcı kubbe şeklinde, içi ferah limon dolgusu ve hafif bisküvi tabanlı porsiyonluk mono pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 235,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5517,25 +2242,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Tabak sunumunda şık bir tatlı alternatifi.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 64
   },
   {
     "id": "prod-pt15-17",
-    "name": "Taze Butik Tropikal Mango & Çarkıfelek Kubbe Mono Pasta",
+    "name": "Tropikal Mango & Çarkıfelek Kubbe Mono Pasta",
     "code": "PST-DNK-MN-MNG-PAS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Mango ve passion fruit'in egzotik birlikteliği; damağı tazeleyen hafif meyveli köpük dolgu.",
     "imageUrl": "/resimler/pt15/pt15_17.png",
-    "description": "Tropikal mango ve passion fruit pürelerinin ferahlatıcı ekşi-tatlı dengesi ile hazırlanan sarı kubbe mono tatlı.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 240,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5548,25 +2275,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 65
   },
   {
     "id": "prod-pt15-18",
-    "name": "Taze Butik Karamelli & Fıstıklı Snickers Mono Pasta",
+    "name": "Karamelli & Fıstıklı Snickers Mono Pasta",
     "code": "PST-DNK-MN-SNK-CAR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Akışkan süt karameli, tuzlu kavrulmuş yer fıstıkları ve kalın sütlü çikolata kaplamasıyla enerji bombası.",
     "imageUrl": "/resimler/pt15/pt15_18.png",
-    "description": "Kakaolu kek tabanı, fıstık ezmeli krema katmanı, akışkan sütlü karamel sosu ve bol kavrulmuş yer fıstığı kaplı gurme mono pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 245,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5579,25 +2308,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 66
   },
   {
     "id": "prod-pt15-19",
-    "name": "Taze Butik Red Velvet & Antep Fıstıklı Gurme Dilim Pasta",
+    "name": "Red Velvet & Antep Fıstıklı Gurme Dilim Pasta",
     "code": "PST-DNK-DLM-RED-PST",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Kırmızı kadife kek ve yeşil Antep fıstığı pralini katmanlarının göz alıcı kontrastı.",
     "imageUrl": "/resimler/pt15/pt15_19.png",
-    "description": "Kırmızı kadife kek tabanı üzerinde kadifemsi peynir kreması, üzeri bol kırmızı kek tozu ve kırık Antep fıstığı süslemeli şık dilim pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 225,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5610,25 +2341,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 67
   },
   {
     "id": "prod-pt15-20",
-    "name": "Donuk Red Velvet Cheesecake Dilim Pasta",
+    "name": "Red Velvet Cheesecake Dilim Pasta",
     "code": "PST-DNK-DLM-RED-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Red velvet kek tabanı üzerinde fırınlanmış kadife peynir kreması ve hafif meyve süslemesi.",
     "imageUrl": "/resimler/pt15/pt15_20.png",
-    "description": "New York usulü fırınlanmış yoğun peynir dolgusu, kırmızı kadife bisküvi tabanı ve fıstıklı kırmızı kadife kaplama ile mükemmel uyum.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 230,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cheesecake",
@@ -5639,25 +2372,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Meyve sosu eşliğinde servis edilebilir."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 68
   },
   {
     "id": "prod-pt15-21",
-    "name": "Taze Butik Yoğun Bitter Çikolatalı & Deniz Tuzlu Gurme Tartlet",
+    "name": "Yoğun Bitter Çikolatalı & Deniz Tuzlu Gurme Tartlet",
     "code": "PST-DNK-TRT-BIT-CHOC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Çıtır tereyağlı tart kabuğunda %70 bitter çikolata ganajı ve üzerinde hafif deniz tuzu kristalleri.",
     "imageUrl": "/resimler/pt15/pt15_21.png",
-    "description": "Gevrek kakaolu tart hamuru içerisinde akışkan ve yoğun bitter Belçika çikolatası ganajı, hafif pudra şekeri ve deniz tuzu dokunuşlu.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 200,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5670,25 +2405,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Gurme Tartlet",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Hafif ısıtıldığında akışkan sufle kıvamına gelir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 69
   },
   {
     "id": "prod-pt15-22",
-    "name": "Taze Butik Çıtır Kıtır Craquelin Ekler Kabuğu & Dolgulu Ekler",
+    "name": "Çıtır Kıtır Craquelin Ekler Kabuğu & Dolgulu Ekler",
     "code": "PST-DNK-EKL-CRQ-10",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Üzeri kıtır kurabiye kabuğuyla fırınlanmış choux hamuru içinde ipeksi Madagaskar vanilyalı pastacı kreması.",
     "imageUrl": "/resimler/pt15/pt15_22.png",
-    "description": "Fransız usulü craquelin kıtır kaplamalı şu hamuru, vanilyalı pastacı kreması dolgulu veya dolgusuz servise hazır çıtır ekler.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 175,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5702,25 +2439,27 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "Tekli / Koli İçi Çoklu",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Çözünme / Servis": "+4°C dolapta 1 saatte servise hazır hale gelir.",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Üzerine çikolata ganaj veya pudra şekeri ile servis edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 70
   },
   {
     "id": "prod-pt16-1",
-    "name": "Taze Butik Mango Trompe-l'œil Gurme Mono Pasta",
+    "name": "Mango Trompe-l'œil Gurme Mono Pasta",
     "code": "PST-DNK-MN-MNG-TRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Gerçek bir dalından yeni koparılmış mango görünümünde sanatsal illüzyon mono; ince çıtır çikolata kabuğu altında taze mango püresi.",
     "imageUrl": "/resimler/pt16/pt16_1.png",
-    "description": "Usta pastacılık tekniğiyle gerçek mango formunda şekillendirilmiş, doğal meyve renk geçişli kadife kabuklu, içi tropikal mango mousse ve taze meyve kompostosu dolgulu Fransız usulü illüzyon mono pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 290,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5734,25 +2473,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Gurme Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Çözündükten sonra doğrudan tabak sunumu yapılır.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 71
   },
   {
     "id": "prod-pt16-2",
-    "name": "Taze Butik Tropikal Mango Mousse İllüzyon Mono Pasta",
+    "name": "Tropikal Mango Mousse İllüzyon Mono Pasta",
     "code": "PST-DNK-MN-MNG-V2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Fransız trompe-l'œil tekniğiyle şekillendirilmiş, taze mango kalbi ve hafifletilmiş tropikal mousse.",
     "imageUrl": "/resimler/pt16/pt16_2.png",
-    "description": "Taze mango püresi ile hazırlanan hafif meyve köpüğü kreması ve vanilyalı sünger pandispanya çekirdeği, menülerde fark yaratan gerçekçi mango görünümü.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 285,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5764,25 +2505,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 72
   },
   {
     "id": "prod-pt16-3",
-    "name": "Taze Butik Antep Fıstığı Görünümlü Trompe-l'œil Mono Pasta",
+    "name": "Antep Fıstığı Görünümlü Trompe-l'œil Mono Pasta",
     "code": "PST-DNK-MN-PST-TRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Birebir Antep fıstığı formunda şekillendirilmiş illüzyon pasta; içi saf fıstık pralini ve beyaz çikolata kremasıyla dolu.",
     "imageUrl": "/resimler/pt16/pt16_3.png",
-    "description": "Antep fıstığı kabuğu formunda özel kalıplanmış, hafif ebruli fıstık yeşili glazür kaplama ve yoğun kavrulmuş Antep fıstığı ezmeli krema dolgusuyla gurme lezzet.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 295,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5795,25 +2538,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Gurme Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Özel tabak sunumları için mükemmeldir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 73
   },
   {
     "id": "prod-pt16-4",
-    "name": "Taze Butik Fıstık Rüyası Gurme Mono İllüzyon Pasta",
+    "name": "Fıstık Rüyası Gurme Mono İllüzyon Pasta",
     "code": "PST-DNK-MN-PST-V2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Büyüleyici fıstık yeşili kabuk altında akışkan fıstık ezmesi ve fıstıklı dacquoise keki.",
     "imageUrl": "/resimler/pt16/pt16_4.png",
-    "description": "Çıtır fıstıklı pralin tabanı, ipeksi fıstık ganajı ve gerçek Antep fıstığı aromalı dolgusuyla üst düzey gastronomi sunumu sunan illüzyon pasta.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 290,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5825,25 +2570,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 74
   },
   {
     "id": "prod-pt16-5",
-    "name": "Donuk Yoğun Bitter Çikolatalı Devil's Dilim Pasta",
+    "name": "Yoğun Bitter Çikolatalı Devil's Dilim Pasta",
     "code": "PST-DNK-DLM-DEV-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Ekstra koyu kakao ile pişirilen ıslak dokulu nemli çikolatalı pandispanya ve zengin fudge kreması.",
     "imageUrl": "/resimler/pt16/pt16_5.png",
-    "description": "Kat kat nemli kakaolu pandispanya, zengin bitter çikolatalı ganaj krema katmanları ve üzeri parlak çikolata sosu kaplamalı klasik Amerikan Devil's Food cake.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 225,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilim Pasta",
@@ -5854,25 +2601,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kahve sunumları eşliğinde soğuk servis önerilir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 75
   },
   {
     "id": "prod-pt16-6",
-    "name": "Taze Butik Fransız Usulü Çıtır Craquelin Kremalı Choux Halka Pasta",
+    "name": "Fransız Usulü Çıtır Craquelin Kremalı Choux Halka Pasta",
     "code": "PST-DNK-MN-CHX-PRS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Halka şeklinde pişirilmiş çıtır craquelin choux hamuru arasında bol kavrulmuş fındık pralinli krem şanti.",
     "imageUrl": "/resimler/pt16/pt16_6.png",
-    "description": "Üzeri çıtır kıtır craquelin kabuklu pişmiş şu hamuru halkası içinde ipeksi vanilyalı pastacı kreması dolgulu nefis Paris-Brest yorumu mono tatlı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 235,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5885,25 +2634,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Mono Porsiyon",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 76
   },
   {
     "id": "prod-pt16-7",
-    "name": "Donuk Geleneksel Çikolatalı Bisküvili Mozaik Dilim Pasta",
+    "name": "Geleneksel Çikolatalı Bisküvili Mozaik Dilim Pasta",
     "code": "PST-DNK-DLM-MOZ-CLS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Çocukluk anılarını canlandıran hakiki tereyağlı bisküviler ve yoğun bitter çikolata ganajından geleneksel mozaik pasta.",
     "imageUrl": "/resimler/pt16/pt16_7.png",
-    "description": "Çıtır petibör bisküvileri, yoğun kakao ve tereyağlı çikolata harcı, üzeri bitter çikolata kaplama ve Antep fıstığı taneli nostaljik mozaik pasta dilimi.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 180,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilim Pasta",
@@ -5915,25 +2666,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Porsiyon",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 30-45 dk",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 30-45 dk",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Çay saatlerinin vazgeçilmez ikramlığı."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 77
   },
   {
     "id": "prod-pt16-8",
-    "name": "Donuk Orijinal San Sebastian Yanık Cheesecake Dilim Pasta",
+    "name": "Orijinal San Sebastian Yanık Cheesecake Dilim Pasta",
     "code": "PST-DNK-DLM-SAN-SEB",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Bask bölgesinin dünyaca ünlü tarifi; karamelize yanık üst kabuk ve içi akışkan, kremsi lav peynir dokusu.",
     "imageUrl": "/resimler/pt16/pt16_8.png",
-    "description": "İçi akışkan ve kremsi dokuda, üzeri hafif karamelize yanık kabuklu, katkısız taze peynirle fırınlanmış İspanyol Bask usulü meşhur San Sebastian cheesecake.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 240,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cheesecake",
@@ -5945,25 +2698,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat veya oda sıcaklığında 30 dk",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat veya oda sıcaklığında 30 dk",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Sıcak eritilmiş Belçika çikolatası sosu ile servis önerilir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 78
   },
   {
     "id": "prod-pt16-9",
-    "name": "Taze Butik Bol Antep Fıstığı Kaplı Kubbe Mono Pasta",
+    "name": "Bol Antep Fıstığı Kaplı Kubbe Mono Pasta",
     "code": "PST-DNK-MN-PST-DOM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Dışı tamamen kıyılmış taze Antep fıstıklarıyla kaplı, içi hafif vanilyalı mousse ve fıstık dolgulu kubbe.",
     "imageUrl": "/resimler/pt16/pt16_9.png",
-    "description": "İçi ipeksi pastacı kreması ve fıstık ezmesi dolgulu, dışı tamamen toz ve parça Antep fıstıklarıyla kaplanmış şık porsiyonluk kubbe pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 260,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -5975,25 +2730,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 79
   },
   {
     "id": "prod-pt16-10",
-    "name": "Donuk Lotus Biscoff Karamel Bisküvili Cheesecake Dilim",
+    "name": "Lotus Biscoff Karamel Bisküvili Cheesecake Dilim",
     "code": "PST-DNK-DLM-CHK-LOT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Fırınlanmış cheesecake tabanında ve üzerinde erimiş sıcak Lotus kreması ve çıtır bisküvi parçaları.",
     "imageUrl": "/resimler/pt16/pt16_10.png",
-    "description": "Çıtır karamelize bisküvi tabanı, kadifemsi cheesecake kreması ve üzerinde akışkan Lotus kreması ile orijinal Lotus bisküvisi dekorlu enfes dilim.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 230,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cheesecake",
@@ -6005,25 +2762,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 80
   },
   {
     "id": "prod-pt16-11",
-    "name": "Taze Butik Vişneli Kara Orman Meyveli Çikolatalı Dilim Pasta",
+    "name": "Vişneli Kara Orman Meyveli Çikolatalı Dilim Pasta",
     "code": "PST-DNK-DLM-BLK-FOR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Kakaolu nemli pandispanya, mayhoş vişne taneleri, hafif çırpılmış krema ve üzerinde bitter çikolata bukleleri.",
     "imageUrl": "/resimler/pt16/pt16_11.png",
-    "description": "Yumuşacık kakaolu pandispanya, taze sütlü krema, mayhoş ekşi vişne taneleri ve bol çikolata rendesiyle süslenmiş klasik Black Forest dilim pasta.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 220,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6036,25 +2795,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 81
   },
   {
     "id": "prod-pt16-12",
-    "name": "Taze Butik Fransız Usulü Çıtır Craquelin Kremalı Gurme Ekler",
+    "name": "Fransız Usulü Çıtır Craquelin Kremalı Gurme Ekler",
     "code": "PST-DNK-EKL-CRQ-LNG",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Üzerinde altın karamel glazürü ve çıtır kabuğuyla pürüzsüz karamelli pastacı kreması dolgulu ekler.",
     "imageUrl": "/resimler/pt16/pt16_12.png",
-    "description": "Fırınlanmış çıtır craquelin kabuklu uzun şu hamuru arasında taşan lezzette yoğun vanilyalı pastacı kreması dolgulu kafe ekleri.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 175,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6066,25 +2827,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Uzun Ekler",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Pudra şekeri serpilerek servis edilebilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 82
   },
   {
     "id": "prod-pt16-13",
-    "name": "Taze Butik Orman Meyveli & Makaronlu Glazür Kubbe Mono Pasta",
+    "name": "Orman Meyveli & Makaronlu Glazür Kubbe Mono Pasta",
     "code": "PST-DNK-MN-FRT-DOM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Aynalı kırmızı meyve glazürü ile kaplanmış, üzerinde taze ahududulu makaron ile süslenmiş zarif kubbe.",
     "imageUrl": "/resimler/pt16/pt16_13.png",
-    "description": "Bordo renkli parlak ayna glazür kaplama, alt çeperinde hindistan cevizi kırıntıları, tepesinde çıtır mini makaron ve içi orman meyveli mousse dolgulu mono tatlı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 255,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6097,25 +2860,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 83
   },
   {
     "id": "prod-pt16-14",
-    "name": "Taze Butik Beyaz Çikolata Parçacıklı Profiterollü Polka Mono Pasta",
+    "name": "Beyaz Çikolata Parçacıklı Profiterollü Polka Mono Pasta",
     "code": "PST-DNK-MN-WHT-POL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Yumuşacık taban üzerinde dizili mini profiterol topları ve ipeksi beyaz çikolata kreması örtüsü.",
     "imageUrl": "/resimler/pt16/pt16_14.png",
-    "description": "Üzerinde krema dolgulu şu topları, bol beyaz çikolata rendesi ve çikolata çizgileriyle kaplı kare porsiyonluk Polka mono pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 245,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6128,25 +2893,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kare Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 84
   },
   {
     "id": "prod-pt16-15",
-    "name": "Donuk Klasik Red Velvet (Kırmızı Kadife) Dilim Pasta",
+    "name": "Klasik Red Velvet (Kırmızı Kadife) Dilim Pasta",
     "code": "PST-DNK-DLM-RED-VEL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Kadife kırmızı kek katları ve orijinal Philadelphia peyniriyle hazırlanan pürüzsüz krema katmanları.",
     "imageUrl": "/resimler/pt16/pt16_15.png",
-    "description": "4 kat kadifemsi kırmızı pandispanya arasında ipeksi vanilyalı labne peynirli krema ve kırmızı kek kırıntıları kaplı Amerikan klasiği.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 215,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilim Pasta",
@@ -6157,25 +2924,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 85
   },
   {
     "id": "prod-pt16-16",
-    "name": "Taze Butik Vişneli & Beyaz Kremalı Dikdörtgen Dilim Pasta",
+    "name": "Vişneli & Beyaz Kremalı Dikdörtgen Dilim Pasta",
     "code": "PST-DNK-DLM-OPR-BER",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Taze vişnelerin mayhoş aroması ve hafif beyaz pastacı kremasının ferahlatıcı katlı buluşması.",
     "imageUrl": "/resimler/pt16/pt16_16.png",
-    "description": "Kakaolu pandispanya, pembe meyveli krema, beyaz pastacı kreması ve üzerinde parıltılı vişne/frambuaz jeli ile beyaz çikolata pirinçleri.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 210,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6187,25 +2956,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dikdörtgen Dilim Servis",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 86
   },
   {
     "id": "prod-pt16-17",
-    "name": "Donuk Mocha & Karamel Glazürlü Çok Katlı Opera Dilim Pasta",
+    "name": "Mocha & Karamel Glazürlü Çok Katlı Opera Dilim Pasta",
     "code": "PST-DNK-DLM-OPR-MCH",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "İncecik bademli Joconde pandispanyası, espresso şurubu, kahveli tereyağı kreması ve karamel çikolata ganajının çok katlı uyumu.",
     "imageUrl": "/resimler/pt16/pt16_17.png",
-    "description": "Kahve şurubuyla ıslatılmış ince pandispanya katları, aromatik kahveli tereyağlı krema ve yanık desenli karamel glazür üst katmanı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 240,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Opera Pasta",
@@ -6217,25 +2988,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Opera Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Filtre kahve veya espresso yanında servis edilir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 87
   },
   {
     "id": "prod-pt16-18",
-    "name": "Donuk Kahveli & Fırınlanmış Karamel Opera Dilim Pasta",
+    "name": "Kahveli & Fırınlanmış Karamel Opera Dilim Pasta",
     "code": "PST-DNK-DLM-OPR-ESP",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Derin espresso ve süt karameli notalarının zarif katmanlarda birleştiği asil bir Fransız pastane klasiği.",
     "imageUrl": "/resimler/pt16/pt16_18.png",
-    "description": "Zengin espresso aroması, karamel jeli ve çok katlı Fransız opera mimarisiyle kahve menülerine eşlik eden enfes dilim.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 240,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Opera Pasta",
@@ -6246,25 +3019,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Opera Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 88
   },
   {
     "id": "prod-pt16-19",
-    "name": "Taze Butik Kremalı Havuçlu, Tarçınlı & Bol Cevizli Dilim Pasta",
+    "name": "Kremalı Havuçlu, Tarçınlı & Bol Cevizli Dilim Pasta",
     "code": "PST-DNK-DLM-HVC-CRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Zencefil ve tarçın baharatlı havuçlu kek katları arasında labneli kadife krema dolgusu.",
     "imageUrl": "/resimler/pt16/pt16_19.png",
-    "description": "Taze havuç rendesi, tarçın ve cevizli nemli kek katmanları, arasında ve üzerinde hafif labne kreması ile ceviz kırıntıları kaplaması.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 205,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6277,25 +3052,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Sıcak çay ve kahve eşliğinde ikram edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 89
   },
   {
     "id": "prod-pt16-20",
-    "name": "Taze Butik Çikolatalı, Fındıklı & Hindistan Cevizli Kubbe Mono Pasta",
+    "name": "Çikolatalı, Fındıklı & Hindistan Cevizli Kubbe Mono Pasta",
     "code": "PST-DNK-MN-CHO-FND",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Dışı çıtır fındık ve Hindistan cevizi kaplı, içi yoğun beyaz ve sütlü çikolata ganajı.",
     "imageUrl": "/resimler/pt16/pt16_20.png",
-    "description": "Parlak çikolata sosu, pirinç fındık taneleri, alt bordürde hindistan cevizi ve içi yoğun Belçika çikolata muslu porsiyonluk kubbe tatlı.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 235,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6308,25 +3085,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 90
   },
   {
     "id": "prod-pt17-1",
-    "name": "Donuk Belçika Çikolatalı Yoğun Mousse Dilim Pasta",
+    "name": "Belçika Çikolatalı Yoğun Mousse Dilim Pasta",
     "code": "PST-DNK-DLM-BEL-MOU",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "%70 Callebaut bitter çikolatasıyla hazırlanan ipeksi mousse dolgusu ve nemli kakaolu pandispanya tabanı.",
     "imageUrl": "/resimler/pt17/pt17_1.png",
-    "description": "Çikolatalı bisküvi tabanı, kat kat ipeksi Belçika çikolatası musu, parlak ayna ganaj ve beyaz çikolata madalyon süslemesi.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 230,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilim Pasta",
@@ -6337,25 +3116,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 91
   },
   {
     "id": "prod-pt17-2",
-    "name": "Taze Butik Bitter Çikolata Kaplı Profiterollü Polka Mono Pasta",
+    "name": "Bitter Çikolata Kaplı Profiterollü Polka Mono Pasta",
     "code": "PST-DNK-MN-BIT-POL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Kadifemsi kırmızı kalp formunda, içinde taze çilek ve ahududu peltesi gizlenen romantik ve lüks bir şaheser.",
     "imageUrl": "/resimler/pt17/pt17_2.png",
-    "description": "Üzerinde çikolata dolgulu şu topları, dış çeperinde bol bitter çikolata rendesi ve çikolata dolgulu kare mono pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 260,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6367,25 +3148,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kare Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 92
   },
   {
     "id": "prod-pt17-3",
-    "name": "Donuk Limon Soslu Klasik New York Cheesecake Dilim",
+    "name": "Limon Soslu Klasik New York Cheesecake Dilim",
     "code": "PST-DNK-DLM-CHK-LIM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Taş fırında pürüzsüz kıvamda pişmiş cheesecake üzerinde taze sıkılmış limon sosu ve narenciye ferahlığı.",
     "imageUrl": "/resimler/pt17/pt17_3.png",
-    "description": "Fırınlanmış zengin peynir dolgusu, tereyağlı bisküvi tabanı ve üzerinde ferahlatıcı ekşi-tatlı limon peltesi glazürü.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 220,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cheesecake",
@@ -6396,25 +3179,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 93
   },
   {
     "id": "prod-pt17-4",
-    "name": "Donuk Sicilya Limonlu Gurme Cheesecake Dilim",
+    "name": "Sicilya Limonlu Gurme Cheesecake Dilim",
     "code": "PST-DNK-DLM-CHK-LM2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Sicilya limonlarının eşsiz kokusu, badem unlu sable tabanı ve hafif ekşi krema katmanı.",
     "imageUrl": "/resimler/pt17/pt17_4.png",
-    "description": "Kadifemsi pürüzsüz peynir kreması ve taze limon kabuğu aromasıyla dengelenmiş, parlak limon soslu porsiyonluk cheesecake.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 225,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cheesecake",
@@ -6424,25 +3209,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 94
   },
   {
     "id": "prod-pt17-5",
-    "name": "Taze Butik Çikolatalı & Bol Hindistan Cevizli Kartopu Mono Pasta",
+    "name": "Çikolatalı & Bol Hindistan Cevizli Kartopu Mono Pasta",
     "code": "PST-DNK-MN-COC-BAL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Bembeyaz kar görünümünde Hindistan cevizi rendesi altında gizlenen çıtır bademli beyaz çikolata dolgusu.",
     "imageUrl": "/resimler/pt17/pt17_5.png",
-    "description": "Dışı tamamen ince rendelenmiş kar beyazı hindistan cevizi ile kaplı, içi akışkan çikolata kreması ve yumuşak kek dolgulu kubbe tatlı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 220,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6454,25 +3241,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 95
   },
   {
     "id": "prod-pt17-6",
-    "name": "Taze Butik Kavrulmuş Fındık Kaplı Karamel Kare Mono Pasta",
+    "name": "Kavrulmuş Fındık Kaplı Karamel Kare Mono Pasta",
     "code": "PST-DNK-MN-KRO-FND",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Hakiki eritme çikolatayla pişen nemli brownie gövdesi ve üzerinde çıtır Karadeniz fındığı taneleri.",
     "imageUrl": "/resimler/pt17/pt17_6.png",
-    "description": "Dört bir yanı altın kavrulmuş çıtır fındık kırıklarıyla kaplı, üzerinde zikzak çikolata çizgileri ve içi fındıklı karamel kremalı kare pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 195,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6484,25 +3273,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kare Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 96
   },
   {
     "id": "prod-pt17-7",
-    "name": "Taze Butik Süt Karamel & Dulce de Leche Kubbe Mono Pasta",
+    "name": "Süt Karamel & Dulce de Leche Kubbe Mono Pasta",
     "code": "PST-DNK-MN-DUL-CAR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Geleneksel Latin Amerika dulce de leche süt karameli ve hafif vanilyalı mousse kubbesi.",
     "imageUrl": "/resimler/pt17/pt17_7.png",
-    "description": "İpeksi süt reçeli/karamel kaplama, halka rölyef desenleri ve içi zengin karamel mousse dolgulu enfes porsiyonluk kubbe pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 235,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6514,25 +3305,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 97
   },
   {
     "id": "prod-pt17-8",
-    "name": "Taze Butik Çikolata Mousse & Beyaz Çikolata Bukleli Kubbe Mono",
+    "name": "Çikolata Mousse & Beyaz Çikolata Bukleli Kubbe Mono",
     "code": "PST-DNK-MN-CHO-WTR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Aynalı çikolata zırhı üzerinde el yapımı beyaz çikolata bukleleri ve akışkan bitter kalbi.",
     "imageUrl": "/resimler/pt17/pt17_8.png",
-    "description": "Kakao kaplı kubbe, tepesinde sıkma krema rozeti ve beyaz Belçika çikolatası bukleleri, alt bordüründe çıtır fındıklı hindistan cevizi.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 240,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6544,25 +3337,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 98
   },
   {
     "id": "prod-pt17-9",
-    "name": "Donuk Frambuaz Soslu Klasik New York Cheesecake Dilim",
+    "name": "Frambuaz Soslu Klasik New York Cheesecake Dilim",
     "code": "PST-DNK-DLM-CHK-FRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Taze frambuaz tanelerinin hafif mayhoş asiditesiyle taçlandırılmış pürüzsüz New York cheesecake.",
     "imageUrl": "/resimler/pt17/pt17_9.png",
-    "description": "Gevrek bisküvi tabanı, fırınlanmış yoğun peynir dolgusu ve üzerinde doğal tane frambuaz peltesi ile mayhoş meyve lezzeti.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 225,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cheesecake",
@@ -6573,25 +3368,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 99
   },
   {
     "id": "prod-pt17-10",
-    "name": "Donuk Orijinal İtalyan Usulü Tiramisu Dilim Pasta",
+    "name": "Orijinal İtalyan Usulü Tiramisu Dilim Pasta",
     "code": "PST-DNK-DLM-TIR-ITA",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Mascarpone peynirinin zarafeti ve espresso batırılmış savoiardilerin geleneksel İtalyan sunumu.",
     "imageUrl": "/resimler/pt17/pt17_10.png",
-    "description": "Espresso kahveyle demlenmiş kedi dili pandispanya katları, zengin mascarpone peynir kreması ve üzeri bol elenmiş saf kakao tozu.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 215,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilim Pasta",
@@ -6603,25 +3400,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Espresso veya cappuccino yanında servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 100
   },
   {
     "id": "prod-pt17-11",
-    "name": "Donuk Çikolata Glazürlü & Mascarpone Tiramisu Dilim Pasta",
+    "name": "Çikolata Glazürlü & Mascarpone Tiramisu Dilim Pasta",
     "code": "PST-DNK-DLM-TIR-GLZ",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Tiramisu dokusunun üzerine eklenen ince çıtır bitter çikolata katmanı ile lezzet derinliği.",
     "imageUrl": "/resimler/pt17/pt17_11.png",
-    "description": "Mascarpone krema katı üzerinde parlak çikolata aynası ve çikolata rendesi dokunuşuyla zenginleştirilmiş modern tiramisu dilimi.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 220,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilim Pasta",
@@ -6632,25 +3431,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 101
   },
   {
     "id": "prod-pt17-12",
-    "name": "Donuk Espresso Aromalı Mascarpone Tiramisu Dilim",
+    "name": "Espresso Aromalı Mascarpone Tiramisu Dilim",
     "code": "PST-DNK-DLM-TIR-ESP",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Koyu kavrum kahve aromasıyla zenginleştirilmiş porsiyonluk tiramisu klasiği.",
     "imageUrl": "/resimler/pt17/pt17_12.png",
-    "description": "Kahve severlerin vazgeçilmezi; dengeli tatlılık, hafif kahve notası ve kadifemsi krema yapısıyla kafe menüleri için ideal dilim pasta.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 210,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Dilim Pasta",
@@ -6661,25 +3462,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 102
   },
   {
     "id": "prod-pt17-13",
-    "name": "Taze Butik Frambuazlı & Kırmızı Kadife 'Love' Kalp Mono Pasta",
+    "name": "Frambuazlı & Kırmızı Kadife 'Love' Kalp Mono Pasta",
     "code": "PST-DNK-MN-HRT-LOV",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Kadife kırmızı kek zemininde zümrüt fıstık kreması ve altın yaldızlı şık pasta.",
     "imageUrl": "/resimler/pt17/pt17_13.png",
-    "description": "Şık kalp formunda, alt katı nefis frambuaz püresi dolgusu, üst katı peynirli krema ve kırmızı kadife tozu üzerinde 'Love' çikolata madalyonlu özel pasta.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 250,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6692,25 +3495,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kalp Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Özel gün menüleri için idealdir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 103
   },
   {
     "id": "prod-pt17-14",
-    "name": "Donuk Red Velvet & Beyaz Çikolata Parçacıklı Gurme Cookie (2'li)",
+    "name": "Red Velvet & Beyaz Çikolata Parçacıklı Gurme Cookie (2'li)",
     "code": "PST-DNK-CKI-RED-WHT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Kırmızı kadife kurabiye hamuru içine gömülü iri beyaz çikolata parçacıkları.",
     "imageUrl": "/resimler/pt17/pt17_14.png",
-    "description": "Canlı kırmızı kadife renginde, bol fildişi beyaz çikolata damlalarıyla pişirilmeye/çözünmeye hazır yumuşak Amerikan kafe kurabiyesi.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 135,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cookie",
@@ -6723,24 +3528,26 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "2'li Porsiyon / Koli",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya fırında 160°C'de 3 dk",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Ilık servis edildiğinde çikolatalar yumuşar."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 104
   },
   {
     "id": "prod-pt17-15",
-    "name": "Donuk Orman Meyveli & Böğürtlenli Cheesecake Dilim",
+    "name": "Orman Meyveli & Böğürtlenli Cheesecake Dilim",
     "code": "PST-DNK-DLM-CHK-BER",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Doğal böğürtlen taneleri ve zengin meyve sosuyla süslenmiş fırın cheesecake dilimi.",
     "imageUrl": "/resimler/pt17/pt17_15.png",
-    "description": "Fırınlanmış pürüzsüz peynir tabakası ve üstünde yoğun orman meyveleri / vişne-frambuaz püreli parlak sos kaplaması.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 225,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cheesecake",
@@ -6751,25 +3558,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 105
   },
   {
     "id": "prod-pt17-16",
-    "name": "Donuk Karamel Soslu & File Bademli Cheesecake Dilim",
+    "name": "Karamel Soslu & File Bademli Cheesecake Dilim",
     "code": "PST-DNK-DLM-CHK-ALM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Kavrulmuş ince file bademler ve ev yapımı sıcak karamel sosuyla lezzetlenen cheesecake.",
     "imageUrl": "/resimler/pt17/pt17_16.png",
-    "description": "Oluklu sıkılmış akışkan karamel sosu ve üzerinde kavrulmuş çıtır file badem taneleriyle taçlandırılmış gurme cheesecake dilimi.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 220,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cheesecake",
@@ -6781,25 +3590,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 106
   },
   {
     "id": "prod-pt17-17",
-    "name": "Taze Butik Çilekli & Ruby Magnolia Parfe Kup Tatlısı",
+    "name": "Çilekli & Ruby Magnolia Parfe Kup Tatlısı",
     "code": "PST-DNK-KP-STR-RUB",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Doğal pembe Ruby kakaosu, taze bahçe çilekleri ve hafifletilmiş kremanın büyüleyici kup sunumu.",
     "imageUrl": "/resimler/pt17/pt17_17.png",
-    "description": "Pembe kadife çilek/ruby kreması, dipte bisküvi kırıntıları ve üzerinde beyaz çikolata kıtırlarıyla şeffaf kasede pratik tek kişilik kup tatlısı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 195,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6812,25 +3623,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kup Kase",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kendi şık kasesinde kaşıkla servis edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 107
   },
   {
     "id": "prod-pt17-18",
-    "name": "Taze Butik Süt Karamel & Bitter Ganajlı Gurme Kup Tatlısı",
+    "name": "Süt Karamel & Bitter Ganajlı Gurme Kup Tatlısı",
     "code": "PST-DNK-KP-DUL-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Alt katında yoğun süt karameli, üstünde kadife bitter çikolata ganajı ve çıtır bisküvi kırıntıları.",
     "imageUrl": "/resimler/pt17/pt17_18.png",
-    "description": "Çift katmanlı lezzet; alt katta kadifemsi karamel kreması, üst katta akışkan çikolata ganajı ve krokan serpintili tek kişilik kutu tatlı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 190,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6843,25 +3656,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kup Kase",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Doğrudan kasesinde servis edilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 108
   },
   {
     "id": "prod-pt17-19",
-    "name": "Donuk Limonlu & Karamel Katmanlı Oval Mono Box Tatlısı",
+    "name": "Limonlu & Karamel Katmanlı Oval Mono Box Tatlısı",
     "code": "PST-DNK-BX-LIM-OVL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Oval şık kutusunda limon kreması ve karamel jölesinin dengeli birleşimi.",
     "imageUrl": "/resimler/pt17/pt17_19.png",
-    "description": "Şeffaf oval sunum kutusunda sünger kek, karamel katmanı, hafif pastacı vanilyası ve üzerinde hindistan cevizi süslemeli ferah limon sosu.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 195,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Mono Box",
@@ -6873,25 +3688,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Oval Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kutusunda pratik kaşık servisine uygundur."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 109
   },
   {
     "id": "prod-pt17-20",
-    "name": "Donuk Çikolata Ganajlı & Bisküvili Dikdörtgen Mono Box Tatlısı",
+    "name": "Çikolata Ganajlı & Bisküvili Dikdörtgen Mono Box Tatlısı",
     "code": "PST-DNK-BX-CHO-REC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Bisküvi katmanları ve yoğun Belçika çikolatası ganajının pratik kutu sunumu.",
     "imageUrl": "/resimler/pt17/pt17_20.png",
-    "description": "Kakaolu çıtır taban, ipeksi vanilya mousse, yoğun parlak çikolata ganajı ve üstünde fındıklı çıtır bisküvi kırıntılı kutu tatlı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 195,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Mono Box",
@@ -6902,25 +3719,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Dikdörtgen Mono Box",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kutusunda pratik servis."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 110
   },
   {
     "id": "prod-pt18-1",
-    "name": "Taze Butik Red Velvet & Antep Fıstıklı Dikdörtgen Mono Pasta",
+    "name": "Red Velvet & Antep Fıstıklı Dikdörtgen Mono Pasta",
     "code": "PST-DNK-MN-RED-PST-REC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Zümrüt Antep fıstığı kaplaması ve kadifemsi kırmızı dolgusuyla tek porsiyonluk gurme lezzet.",
     "imageUrl": "/resimler/pt18/pt18_1.png",
-    "description": "Kırmızı kadife pandispanya katları, labneli beyaz krema, ara katmanda gizli Antep fıstıkları ve üzeri yoğun kırmızı kek tozu kaplı şık mono dilim.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 240,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6932,25 +3751,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Dikdörtgen Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 111
   },
   {
     "id": "prod-pt18-2",
-    "name": "Taze Butik Çilek & Frambuaz Dolgulu Kalp Mono Aşk Pastası",
+    "name": "Çilek & Frambuaz Dolgulu Kalp Mono Aşk Pastası",
     "code": "PST-DNK-MN-HRT-LOV-2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Doğal meyve asiditesi, beyaz çikolata kreması ve pürüzsüz kalp formundaki sunumu.",
     "imageUrl": "/resimler/pt18/pt18_2.png",
-    "description": "Sevgililer günü, yıl dönümü ve özel kutlamalar için tasarlanmış, meyve jölesi ve peynir kremalı kalp formunda mono pasta.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 255,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6963,25 +3784,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kalp Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 112
   },
   {
     "id": "prod-pt18-3",
-    "name": "Taze Butik Çikolata Kaplamalı Orman Meyveli Rulo Mono Pasta",
+    "name": "Çikolata Kaplamalı Orman Meyveli Rulo Mono Pasta",
     "code": "PST-DNK-MN-RUL-FRT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "İncecik kakaolu rulo kek içinde orman meyveli mus ve üzerinde çıtır çikolata kaplaması.",
     "imageUrl": "/resimler/pt18/pt18_3.png",
-    "description": "Kakaolu pandispanya rulosu içinde orman meyveli kremamsı dolgu, dışı çıtır bitter çikolata kaplama ve kurutulmuş meyve parçacıkları.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 220,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -6993,25 +3816,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Rulo Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 113
   },
   {
     "id": "prod-pt18-4",
-    "name": "Taze Butik Yoğun Fındıklı & Kuru Meyveli Kare Brownie Dilim Pasta",
+    "name": "Yoğun Fındıklı & Kuru Meyveli Kare Brownie Dilim Pasta",
     "code": "PST-DNK-DLM-BRW-FND",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Fırından yeni çıkmış kıvamda içi nemli çikolata, fındık ve turna yemişi taneleri.",
     "imageUrl": "/resimler/pt18/pt18_4.png",
-    "description": "Nemli ve yoğun kakao dokulu çift kat brownie, çikolatalı fudge kreması ve üzerinde kavrulmuş fındık ile kuru meyve parçacıkları.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 195,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -7024,25 +3849,27 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "Kare Dilim Porsiyon",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya mikrodalgada 15-20 sn hafif ılık",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Ilık servis edildiğinde yanında vanilyalı dondurma önerilir.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 114
   },
   {
     "id": "prod-pt18-5",
-    "name": "Taze Butik Narenciye & Antep Fıstıklı Sarı Glazür Kubbe Mono Pasta",
+    "name": "Narenciye & Antep Fıstıklı Sarı Glazür Kubbe Mono Pasta",
     "code": "PST-DNK-MN-LIM-PST-DOM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
-    "categoryName": "Taze - Butik Pastalar",
+    "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
+    "description": "Limon ve portakal ferahlığı, fıstıklı dacquoise tabanı ve parlak sarı kubbe formu.",
     "imageUrl": "/resimler/pt18/pt18_5.png",
-    "description": "Fıstık parçacıklı sarı çikolata/glazür kabuk, tepesinde karamelize kuru limon dilimi ve içi ferahlatıcı narenciye muslu gurme kubbe tatlı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 235,
+    "vatRate": 20,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -7055,25 +3882,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Tek Kişilik Kubbe Mono",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz.",
       "Tüketim": "Günlük taze üretimdir, servise hazırdır."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 115
   },
   {
     "id": "prod-pt18-6",
-    "name": "Donuk Tane Yaban Mersinli & Krokan Kenarlı Cheesecake Dilim",
+    "name": "Tane Yaban Mersinli & Krokan Kenarlı Cheesecake Dilim",
     "code": "PST-DNK-DLM-CHK-BLU-TN",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Taze yaban mersinleri, çıtır krokan kenarları ve fırınlanmış dolgun peynir harcı.",
     "imageUrl": "/resimler/pt18/pt18_6.png",
-    "description": "Fırınlanmış New York cheesecake üzerinde bol bütün yaban mersini taneleri ve arka bordüründe ince fındık krokan süslemesi.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 225,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Cheesecake",
@@ -7085,25 +3914,27 @@ export const ALL_PRODUCTS = [
     "specs": {
       "Porsiyon": "Dilimli Servis",
       "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözülme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "3 gün",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Soğuk servis ediniz."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 116
   },
   {
     "id": "prod-pt18-7",
-    "name": "Donuk Fransız Tereyağlı Sade Klasik Kruvasan (Pişmeye / Servise Hazır)",
+    "name": "Fransız Tereyağlı Sade Klasik Kruvasan (Pişmeye / Servise Hazır)",
     "code": "PST-DNK-UNL-KRV-SAD",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Saf Fransız tereyağı ile 27 kat katlanarak açılan, dışı pul pul dökülen çıtır, içi petek dokulu otantik kruvasan.",
     "imageUrl": "/resimler/pt18/pt18_7.png",
-    "description": "%100 saf tereyağı ile kat kat açılmış, dışı çıtır lamine katmanlı, içi petek dokulu yumuşacık geleneksel Fransız kruvasanı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 120,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Unlu Mamuller",
@@ -7116,24 +3947,26 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "Tek Kişilik Adet",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Önceden ısıtılmış 180°C fırında 3-4 dakika çıtırlaştırınız.",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Sıcak servis ediniz, reçel veya çikolata ezmesi ile sunulabilir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 117
   },
   {
     "id": "prod-pt18-8",
-    "name": "Donuk New York Roll Spiral Kat Kat Kruvasan Çöreği",
+    "name": "New York Roll Spiral Kat Kat Kruvasan Çöreği",
     "code": "PST-DNK-UNL-NY-ROLL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Dairesel spiral kruvasan hamurunun altın sarısı fırınlanması, içi akışkan vanilya kreması ve üzeri çikolata kaplı trend çörek.",
     "imageUrl": "/resimler/pt18/pt18_8.png",
-    "description": "Trend New York usulü yuvarlak spiral formda sarılmış, altın sarısı karamelize dış kabuk ve çıtır tereyağlı lamine hamur yapısı.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 160,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Unlu Mamuller",
@@ -7146,24 +3979,26 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "Tek Kişilik Roll Porsiyon",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Fırında 170°C'de 3-4 dk ısıtıldığında ekstra çıtırlaşır.",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "İçi krema dolgulanabilir veya üzeri ganajla kaplanabilir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 118
   },
   {
     "id": "prod-pt18-9",
-    "name": "Donuk Çikolata Dolgulu & Kavrulmuş Fındıklı Gurme Kruvasan",
+    "name": "Çikolata Dolgulu & Kavrulmuş Fındıklı Gurme Kruvasan",
     "code": "PST-DNK-UNL-KRV-CHO-FND",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Kruvasan hamuru içerisine gömülü yoğun çikolata dolgusu ve üzerinde kavrulmuş fındık parçacıkları.",
     "imageUrl": "/resimler/pt18/pt18_9.png",
-    "description": "İçi akışkan fındıklı çikolata kreması dolgulu, üzerinde çıtır fındık parçacıkları ve fırından yeni çıkmış gibi kabarık tereyağlı kruvasan.",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 150,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Unlu Mamuller",
@@ -7175,24 +4010,26 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "Tek Kişilik Adet",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Fırında 170°C'de 3-4 dk ısıtınız.",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Ilık servis yapıldığında iç dolgusu akışkan hale gelir."
     },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "order": 119
   },
   {
     "id": "prod-pt18-10",
-    "name": "Donuk Fransız Pain au Chocolat (Çift Çikolata Çubuklu Çörek)",
+    "name": "Fransız Pain au Chocolat (Çift Çikolata Çubuklu Çörek)",
     "code": "PST-DNK-UNL-PAIN-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Orijinal Fransız fırıncılık klasiği; tereyağlı kat kat hamur arasına sarılmış iki adet bitter çikolata çubuğu.",
     "imageUrl": "/resimler/pt18/pt18_10.png",
-    "description": "İki sıra fırına dayanıklı bitter Belçika çikolata çubuğu içeren, kare formlu, lamine tereyağlı çıtır Fransız kahvaltı çöreği.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 135,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Unlu Mamuller",
@@ -7204,24 +4041,26 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "Tek Kişilik Adet",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Fırında 175°C'de 3-4 dk ısıtınız.",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kahve yanında sıcak servis edilir."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 120
   },
   {
     "id": "prod-pt18-11",
-    "name": "Donuk Gurme Tost & Sandviç Ekmeği Kalın Dilim (2'li Servis)",
+    "name": "Gurme Tost & Sandviç Ekmeği Kalın Dilim (2'li Servis)",
     "code": "PST-DNK-UNL-TST-EKM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
-    "categoryName": "Donuk Pastalar",
+    "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
+    "description": "Yüksek tereyağı ve yumurta içeriğiyle yumuşacık altın sarısı dokulu gurme brioche ekmek dilimi.",
     "imageUrl": "/resimler/pt18/pt18_11.png",
-    "description": "Kafeterya ve bistrolar için ideal kalınlıkta kesilmiş, yumuşak süngerimsi dokulu, ızgarada mükemmel kızaran gurme tost ekmeği.",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 95,
+    "vatRate": 20,
     "tags": [
       "Donuk Pasta",
       "Unlu Mamuller",
@@ -7233,192 +4072,3936 @@ export const ALL_PRODUCTS = [
       "Porsiyon": "2 Dilim / Paket",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Kullanım": "Tost makinesinde doğrudan kızartılabilir.",
-      "Raf Ömrü": "3 gün",
+      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C",
       "Servis Tavsiyesi": "Kaşarlı, avokadolu veya gurme sandviç yapımına uygundur."
     },
-    "isFeatured": false,
-    "price": 0,
-    "vatRate": 20
+    "order": 121
   },
   {
-    "id": "prod-pt18-12",
-    "name": "Donuk Dikdörtgen Belçika Waffle Ekmeği (Brüksel Tipi Hazır Pişmiş)",
-    "code": "WFL-DNK-BEL-BRX-1",
-    "codeGroup": "CALLEI",
+    "id": "prod-byz-001",
+    "name": "Krater Çilekli Meyve Karışımı 1kg",
+    "code": "KRT-CLK-1000",
+    "codeGroup": "Krater",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Olgun taze çileklerin eşsiz aroması ve pürüzsüz kıvamıyla dondurma, kokteyl, smoothie ve pasta dolgularında benzersiz meyve lezzeti sunar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_001.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 320,
+    "vatRate": 20,
+    "order": 122,
+    "tags": [
+      "Krater",
+      "Çilek",
+      "Meyve Karışımı",
+      "Püre",
+      "Smoothie",
+      "Kokteyl"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Aroma": "Çilek (Strawberry)",
+      "Kullanım": "Kokteyl, Smoothie, Dondurma, Pasta",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-002",
+    "name": "Krater Kavunlu Meyve Karışımı 1kg",
+    "code": "KRT-KVN-1000",
+    "codeGroup": "Krater",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Yaz aylarının vazgeçilmezi tatlı kavun aromasıyla zenginleştirilmiş, ferahlatıcı kokteyl, frozen ve dondurma hazırlıkları için ideal meyve karışımı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_002.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 320,
+    "vatRate": 20,
+    "order": 123,
+    "tags": [
+      "Krater",
+      "Kavun",
+      "Meyve Karışımı",
+      "Püre",
+      "Frozen"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Aroma": "Kavun (Melon)",
+      "Kullanım": "Frozen, Kokteyl, Smoothie, Gelato",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-003",
+    "name": "Krater Maestro del Gelato Elmalı Meyve Karışımı 1kg",
+    "code": "KRT-ELM-1000",
+    "codeGroup": "Krater",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Kıtır ve ferahlatıcı yeşil elma özleriyle hazırlanmış profesyonel dondurma ve bar miksoloji meyve bazı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_003.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 320,
+    "vatRate": 20,
+    "order": 124,
+    "tags": [
+      "Krater",
+      "Yeşil Elma",
+      "Maestro del Gelato",
+      "Püre",
+      "Dondurma"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Aroma": "Yeşil Elma (Apple)",
+      "Kullanım": "Gelato, Dondurma, Frozen, Mocktail",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-004",
+    "name": "DaVinci Gourmet Condensed Milk Aromalı Bar Sosu 1L",
+    "code": "DVG-CDL-1000",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "Yoğunlaştırılmış süt kıvamı ve karamelize süt tatlılığıyla İspanyol latte, frappé, tatlı ve pasta sunumları için lüks kıvam artırıcı sos.",
+    "imageUrl": "/beyazresimler/karisik/karisik_004.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 420,
+    "vatRate": 20,
+    "order": 125,
+    "tags": [
+      "DaVinci Gourmet",
+      "Condensed Milk",
+      "Süt Sosu",
+      "Spanish Latte",
+      "Bar Sos"
+    ],
+    "specs": {
+      "Hacim": "1 L",
+      "Aroma": "Koyulaştırılmış Süt (Condensed Milk)",
+      "Kullanım": "Spanish Latte, Frappé, Tatlı Süsleme",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-005",
+    "name": "Krater Şeftalili Meyve Karışımı 1kg",
+    "code": "KRT-SFT-1000",
+    "codeGroup": "Krater",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Güneşte olgunlaşmış sulu şeftalilerin kadifemsi püre dokusu; buzlu çay, frozen, kokteyl ve dondurma tariflerinde doğal şeftali lezzeti sağlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_005.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 320,
+    "vatRate": 20,
+    "order": 126,
+    "tags": [
+      "Krater",
+      "Şeftali",
+      "Meyve Karışımı",
+      "Ice Tea",
+      "Püre"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Aroma": "Şeftali (Peach)",
+      "Kullanım": "Ice Tea, Frozen, Smoothie, Pasta Dolgusu",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-006",
+    "name": "DaVinci Gourmet Çilek Fruit Beverage Mix 1L",
+    "code": "DVG-FBM-STW-1000",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Yüksek meyve konsantrasyonuna sahip DaVinci Gourmet çilek meyveli içecek bazı; smoothie, frozen ve imza kokteyller için barista standardı lezzet.",
+    "imageUrl": "/beyazresimler/karisik/karisik_006.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 490,
+    "vatRate": 20,
+    "order": 127,
+    "tags": [
+      "DaVinci Gourmet",
+      "Çilek",
+      "Fruit Mix",
+      "Smoothie",
+      "Kokteyl"
+    ],
+    "specs": {
+      "Hacim": "1 L",
+      "Aroma": "Çilek (Strawberry)",
+      "Kullanım": "Smoothie, Frozen Kokteyl, Limonata",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-007",
+    "name": "DaVinci Gourmet Condensed Milk Aromalı Gurme Sos 1L (Varyant)",
+    "code": "DVG-CDL-1000-B",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "Yoğunlaştırılmış süt aromasıyla tatlı, waffle, pancake ve özel kahve reçetelerine zengin kremsi gövde kazandıran DaVinci gurme sos.",
+    "imageUrl": "/beyazresimler/karisik/karisik_007.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 420,
+    "vatRate": 20,
+    "order": 128,
+    "tags": [
+      "DaVinci Gourmet",
+      "Condensed Milk",
+      "Bar Sos",
+      "Latte",
+      "Kahve"
+    ],
+    "specs": {
+      "Hacim": "1 L",
+      "Aroma": "Koyulaştırılmış Süt (Condensed Milk)",
+      "Kullanım": "Kahve Barı, Tatlılar, Waffle",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-008",
+    "name": "DaVinci Gourmet Mango Fruit Beverage Mix 1L",
+    "code": "DVG-FBM-MNG-1000",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Tropikal Alfonso mangolarının yoğun tatlılığı ve dolgun meyve lifleriyle hazırlanan premium mango meyve miksi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_008.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 490,
+    "vatRate": 20,
+    "order": 129,
+    "tags": [
+      "DaVinci Gourmet",
+      "Mango",
+      "Fruit Mix",
+      "Tropikal",
+      "Smoothie"
+    ],
+    "specs": {
+      "Hacim": "1 L",
+      "Aroma": "Mango",
+      "Kullanım": "Mango Frozen, Smoothie, Tropikal Kokteyl",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-009",
+    "name": "DaVinci Gourmet Mixed Berry Fruit Beverage Mix 1L",
+    "code": "DVG-FBM-MBR-1000",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Böğürtlen, yaban mersini, ahududu ve frenk üzümünün mükemmel dengesi; hafif ekşimsi ve ferahlatıcı meyve miksi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_009.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 490,
+    "vatRate": 20,
+    "order": 130,
+    "tags": [
+      "DaVinci Gourmet",
+      "Orman Meyveleri",
+      "Mixed Berry",
+      "Smoothie",
+      "Fruit Mix"
+    ],
+    "specs": {
+      "Hacim": "1 L",
+      "Aroma": "Orman Meyveleri (Mixed Berry)",
+      "Kullanım": "Berry Frozen, Smoothie, Kokteyl",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-010",
+    "name": "Krater Maestro del Gelato Frambuazlı Meyve Karışımı 1kg",
+    "code": "KRT-FRM-1000",
+    "codeGroup": "Krater",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Canlı kırmızı rengi ve yoğun frambuaz asiditesiyle dondurma, sorbe, pastacılık sosları ve kokteyller için profesyonel meyve konsantresi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_010.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 320,
+    "vatRate": 20,
+    "order": 131,
+    "tags": [
+      "Krater",
+      "Frambuaz",
+      "Maestro del Gelato",
+      "Püre",
+      "Sorbe"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Aroma": "Frambuaz (Raspberry)",
+      "Kullanım": "Sorbe, Gelato, Pasta Sosu, Kokteyl",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-011",
+    "name": "Caffè NONNO Hindistan Cevizi Frozen Meyve Püresi 750ml",
+    "code": "NON-FRZ-COC-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Egzotik Hindistan cevizinin kremsi dokusu ve yoğun aroması; Piña Colada, smoothie, milkshake ve buzlu içecekler için hazır püre.",
+    "imageUrl": "/beyazresimler/karisik/karisik_011.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 310,
+    "vatRate": 20,
+    "order": 132,
+    "tags": [
+      "Caffè NONNO",
+      "Hindistan Cevizi",
+      "Frozen Püre",
+      "Piña Colada",
+      "Kokteyl"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Hindistan Cevizi (Coconut)",
+      "Kullanım": "Piña Colada, Frozen, Milkshake",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-012",
+    "name": "Caffè NONNO Red Forest (Kırmızı Meyveler) Frozen Püre 750ml",
+    "code": "NON-FRZ-RDF-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Kırmızı dağ meyvelerinin cezbedici yakut kırmızısı rengi ve mayhoş lezzetiyle ferahlatıcı frozen ve kokteyl bazı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_012.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 133,
+    "tags": [
+      "Caffè NONNO",
+      "Red Forest",
+      "Kırmızı Meyveler",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Kırmızı Orman Meyveleri",
+      "Kullanım": "Frozen, Kokteyl, Limonata",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-013",
+    "name": "Caffè NONNO Kavun (Melon) Frozen Meyve Püresi 750ml",
+    "code": "NON-FRZ-MLN-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Yaz güneşini yansıtan mis kokulu kavun aromasıyla buzlu içeceklerde yoğun meyve hissi veren pratik bar püresi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_013.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 134,
+    "tags": [
+      "Caffè NONNO",
+      "Kavun",
+      "Frozen Püre",
+      "Smoothie"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Kavun (Melon)",
+      "Kullanım": "Kavun Frozen, Smoothie, Kokteyl",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-014",
+    "name": "Caffè NONNO Karadut (Black Mulberry) Frozen Püre 750ml",
+    "code": "NON-FRZ-MUL-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Ege karadutunun benzersiz tatlı-ekşi dengesi ve mor rengi; karadutlu limonata, frozen ve pastacılık için ideal.",
+    "imageUrl": "/beyazresimler/karisik/karisik_014.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 135,
+    "tags": [
+      "Caffè NONNO",
+      "Karadut",
+      "Frozen Püre",
+      "Limonata"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Karadut (Black Mulberry)",
+      "Kullanım": "Karadut Limonata, Frozen, Smoothie",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-015",
+    "name": "Caffè NONNO Çilek (Strawberry) Frozen Meyve Püresi 750ml",
+    "code": "NON-FRZ-STW-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "En sevilen yaz klasiği; taze çilek aroması ve pürüzsüz dokusuyla çilekli margarita, frozen ve sütlü içeceklere lezzet katar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_015.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 310,
+    "vatRate": 20,
+    "order": 136,
+    "tags": [
+      "Caffè NONNO",
+      "Çilek",
+      "Frozen Püre",
+      "Margarita"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Çilek (Strawberry)",
+      "Kullanım": "Strawberry Frozen, Çilekli Milkshake, Smoothie",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-016",
+    "name": "Caffè NONNO Şeftali (Peach) Frozen Meyve Püresi 750ml",
+    "code": "NON-FRZ-PCH-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Bursa şeftalisinin buram buram aroması; Bellini kokteylleri, buzlu şeftali çayları ve frozen içecekler için mükemmel.",
+    "imageUrl": "/beyazresimler/karisik/karisik_016.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 137,
+    "tags": [
+      "Caffè NONNO",
+      "Şeftali",
+      "Frozen Püre",
+      "Bellini",
+      "Ice Tea"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Şeftali (Peach)",
+      "Kullanım": "Bellini, Peach Ice Tea, Frozen",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-017",
+    "name": "Caffè NONNO Mango Frozen Meyve Püresi 750ml",
+    "code": "NON-FRZ-MNG-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Egzotik sarı mango lezzetiyle bar menülerine tropikal canlılık kazandıran frozen meyve püresi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_017.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 138,
+    "tags": [
+      "Caffè NONNO",
+      "Mango",
+      "Frozen Püre",
+      "Tropikal"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Mango",
+      "Kullanım": "Mango Frozen, Tropikal Kokteyl, Smoothie",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-018",
+    "name": "DaVinci Gourmet Mixed Berry Fruit Beverage Mix 1L (Gurme Şişe)",
+    "code": "DVG-FBM-MBR-1000-B",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Dengeli böğürtlen, çilek ve yaban mersini harmanı; buz ve sütle kolay karışan profesyonel meyve bazı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_018.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 490,
+    "vatRate": 20,
+    "order": 139,
+    "tags": [
+      "DaVinci Gourmet",
+      "Orman Meyveleri",
+      "Fruit Mix"
+    ],
+    "specs": {
+      "Hacim": "1 L",
+      "Aroma": "Orman Meyveleri (Mixed Berry)",
+      "Kullanım": "Smoothie, Frozen, Kokteyl",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-019",
+    "name": "Caffè NONNO Karpuz (Watermelon) Frozen Meyve Püresi 750ml",
+    "code": "NON-FRZ-WTR-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Yaz sıcağında serinletici karpuz tadı; frozen, karpuzlu kokteyl ve slush hazırlıkları için yoğun meyve konsantresi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_019.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 140,
+    "tags": [
+      "Caffè NONNO",
+      "Karpuz",
+      "Frozen Püre",
+      "Yaz İçeceği"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Karpuz (Watermelon)",
+      "Kullanım": "Karpuz Frozen, Frozen Margarita",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-020",
+    "name": "DaVinci Gourmet Passionfruit Fruit Beverage Mix 1L",
+    "code": "DVG-FBM-PAS-1000",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Çarkıfelek meyvesinin cezbedici egzotik kokusu ve asiditesi; Pornstar Martini, tropikal limonata ve frozenlar için benzersiz.",
+    "imageUrl": "/beyazresimler/karisik/karisik_020.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 490,
+    "vatRate": 20,
+    "order": 141,
+    "tags": [
+      "DaVinci Gourmet",
+      "Passionfruit",
+      "Çarkıfelek",
+      "Fruit Mix"
+    ],
+    "specs": {
+      "Hacim": "1 L",
+      "Aroma": "Çarkıfelek (Passionfruit)",
+      "Kullanım": "Pornstar Martini, Tropikal Limonata, Frozen",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-021",
+    "name": "Caffè NONNO Karamel Aromalı Kahve Şurubu 750ml",
+    "code": "NON-SYR-CAR-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Kavrulmuş tereyağlı şeker lezzeti; sıcak ve soğuk latte, macchiato ve frappelerde zengin karamel tadı sunar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_021.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 270,
+    "vatRate": 20,
+    "order": 142,
+    "tags": [
+      "Caffè NONNO",
+      "Karamel",
+      "Kahve Şurubu",
+      "Barista"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Karamel (Caramel)",
+      "Kullanım": "Caramel Latte, Macchiato, Frappe",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-022",
+    "name": "Caffè NONNO Ahududu (Raspberry) Frozen Meyve Püresi 750ml",
+    "code": "NON-FRZ-RAS-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Taptaze ahududuların yoğun aroması ve kırmızı rengiyle kokteyl, frozen ve pastacılık soslarında birinci sınıf performans.",
+    "imageUrl": "/beyazresimler/karisik/karisik_022.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 143,
+    "tags": [
+      "Caffè NONNO",
+      "Ahududu",
+      "Frambuaz",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Ahududu (Raspberry)",
+      "Kullanım": "Frozen, Smoothie, Kokteyl, Tatlı Sosu",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-023",
+    "name": "Caffè NONNO Mojito Aromalı Kokteyl Şurubu 750ml",
+    "code": "NON-SYR-MOJ-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Ferahlatıcı nane yaprakları ve taze misket limonu dengesi; alkollü ve alkolsüz Mojito tariflerini saniyeler içinde hazırlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_023.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 144,
+    "tags": [
+      "Caffè NONNO",
+      "Mojito",
+      "Nane",
+      "Kokteyl Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Mojito (Nane & Misket Limonu)",
+      "Kullanım": "Virgin Mojito, Kokteyl, Soğuk Çay",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-024",
+    "name": "Caffè NONNO Fındık (Hazelnut) Aromalı Kahve Şurubu 750ml",
+    "code": "NON-SYR-HAZ-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Kavrulmuş Karadeniz fındığı aroması; espresso bazlı içeceklere derinlik katan klasik barista şurubu.",
+    "imageUrl": "/beyazresimler/karisik/karisik_024.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 145,
+    "tags": [
+      "Caffè NONNO",
+      "Fındık",
+      "Kahve Şurubu",
+      "Barista"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Fındık (Hazelnut)",
+      "Kullanım": "Hazelnut Latte, Cappuccino, Soğuk Kahve",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-025",
+    "name": "Caffè NONNO Cool Berry Aromalı Bar Şurubu 750ml",
+    "code": "NON-SYR-CBY-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Orman meyveleri ve serinletici ferahlık notalarının harmanı; yaz menülerinin gözdesi buzlu berry içecekler için ideal.",
+    "imageUrl": "/beyazresimler/karisik/karisik_025.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 146,
+    "tags": [
+      "Caffè NONNO",
+      "Cool Berry",
+      "Soğuk İçecek",
+      "Bar Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Cool Berry",
+      "Kullanım": "Cooler, Soğuk İçecek, Limonata",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-026",
+    "name": "Caffè NONNO Cool Lime Aromalı Bar Şurubu 750ml",
+    "code": "NON-SYR-CLM-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Ekstra ferah nane ve yeşil misket limonu esansı; kafelerin en çok satan buzlu Cool Lime içeceğini kolayca üretmenizi sağlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_026.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 147,
+    "tags": [
+      "Caffè NONNO",
+      "Cool Lime",
+      "Misket Limonu",
+      "Refresher"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Cool Lime",
+      "Kullanım": "Cool Lime Refresher, Buzlu İçecek",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-027",
+    "name": "Caffè NONNO Vanilya Aromalı Kahve Şurubu 750ml",
+    "code": "NON-SYR-VAN-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Madagaskar vanilyasının tatlı, yumuşak ve yuvarlak tat profili; kahvenin asiditesini mükemmel yumuşatır.",
+    "imageUrl": "/beyazresimler/karisik/karisik_027.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 148,
+    "tags": [
+      "Caffè NONNO",
+      "Vanilya",
+      "Kahve Şurubu",
+      "Latte"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Vanilya (Vanilla)",
+      "Kullanım": "Vanilla Latte, Frappe, Milkshake",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-028",
+    "name": "Caffè NONNO Beyaz Çikolata Aromalı Kahve Şurubu 750ml",
+    "code": "NON-SYR-WCH-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Kakao yağı ve vanilya kremsiliği; White Chocolate Mocha ve sıcak sütlü spesiyaller için vazgeçilmez barista aroması.",
+    "imageUrl": "/beyazresimler/karisik/karisik_028.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 149,
+    "tags": [
+      "Caffè NONNO",
+      "Beyaz Çikolata",
+      "White Mocha",
+      "Şurup"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Beyaz Çikolata (White Chocolate)",
+      "Kullanım": "White Mocha, Sıcak Çikolata, Frappe",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-029",
+    "name": "Caffè NONNO Nane (Mint) Aromalı Kokteyl Şurubu 750ml",
+    "code": "NON-SYR-MNT-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Doğal nane yapraklarının keskin ferahlığı; çikolatalı kahvelere nane dokunuşu veya ferahlatıcı kokteyller için.",
+    "imageUrl": "/beyazresimler/karisik/karisik_029.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 150,
+    "tags": [
+      "Caffè NONNO",
+      "Nane",
+      "Mint",
+      "Kokteyl Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Nane (Mint)",
+      "Kullanım": "Kokteyl, Nane Çikolata Kahve, Limonata",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-030",
+    "name": "Caffè NONNO Çikolata Aromalı Kahve Şurubu 750ml",
+    "code": "NON-SYR-CHO-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Koyu kakao lezzeti; Caffe Mocha, sıcak çikolata zenginleştirme ve aromalı soğuk kahvelerde dengeli tat sağlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_030.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 151,
+    "tags": [
+      "Caffè NONNO",
+      "Çikolata",
+      "Mocha",
+      "Kahve Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Çikolata (Chocolate)",
+      "Kullanım": "Mocha, Sıcak Çikolata, Buzlu Kahve",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-031",
+    "name": "DaVinci Gourmet Blue Ocean Aromalı Bar Şurubu 750ml",
+    "code": "DVG-SYR-BOC-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Curaçao turunç narenciye tat profili ve büyüleyici elektrik mavisi rengiyle miksolojide imza sunumlar yaratır.",
+    "imageUrl": "/beyazresimler/karisik/karisik_031.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 380,
+    "vatRate": 20,
+    "order": 152,
+    "tags": [
+      "DaVinci Gourmet",
+      "Blue Ocean",
+      "Mavi Şurup",
+      "Kokteyl"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Blue Ocean / Turunç",
+      "Kullanım": "Mavi Kokteyller, Mocktail, Tropikal Limonata",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-032",
+    "name": "DaVinci Gourmet Classic Vanilla Aromalı Şurup 750ml",
+    "code": "DVG-SYR-VAN-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Dünya baristalarının 1 numaralı tercihi; saf şeker kamışından üretilen, sıcak sütle ayrışmayan gerçek vanilya lezzeti.",
+    "imageUrl": "/beyazresimler/karisik/karisik_032.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 380,
+    "vatRate": 20,
+    "order": 153,
+    "tags": [
+      "DaVinci Gourmet",
+      "Vanilya",
+      "Barista",
+      "Classic Syrup"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Klasik Vanilya (Classic Vanilla)",
+      "Kullanım": "Latte, Flat White, Cold Brew, Milkshake",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-033",
+    "name": "DaVinci Gourmet Shortbread Cookies Aromalı Şurup 750ml",
+    "code": "DVG-SYR-SBC-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Geleneksel tereyağlı İskoç kurabiyesi lezzeti; kahvelere ve sıcak içeceklere fırından yeni çıkmış kurabiye hissi verir.",
+    "imageUrl": "/beyazresimler/karisik/karisik_033.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 154,
+    "tags": [
+      "DaVinci Gourmet",
+      "Kurabiye",
+      "Shortbread",
+      "Kahve Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Shortbread Cookies (Tereyağlı Kurabiye)",
+      "Kullanım": "Kurabiyeli Latte, Frappe, Sıcak Süt",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-034",
+    "name": "DaVinci Gourmet Classic Strawberry Aromalı Şurup 750ml",
+    "code": "DVG-SYR-STW-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Doğal çilek lezzeti; soğuk çaylar, limonatalar, soda miksleri ve İtalyan sodalarında berrak ve canlı tat sunar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_034.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 155,
+    "tags": [
+      "DaVinci Gourmet",
+      "Çilek",
+      "İtalyan Sodası",
+      "Limonata"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Klasik Çilek (Strawberry)",
+      "Kullanım": "Limonata, İtalyan Sodası, Kokteyl, Soğuk Çay",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-035",
+    "name": "DaVinci Gourmet Menta Cubano Aromalı Şurup 750ml",
+    "code": "DVG-SYR-MCU-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Otantik Küba nanesinin doğal yeşil aroması ve tatlı narenciye dokunuşu; ferahlatıcı Mojito ve yaz kokteylleri için.",
+    "imageUrl": "/beyazresimler/karisik/karisik_035.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 156,
+    "tags": [
+      "DaVinci Gourmet",
+      "Menta Cubano",
+      "Nane",
+      "Mojito"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Menta Cubano (Küba Nanesi)",
+      "Kullanım": "Mojito, Frozen, Soğuk İçecekler",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-036",
+    "name": "DaVinci Gourmet Peach Garden Aromalı Şurup 750ml",
+    "code": "DVG-SYR-PGD-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Taze bahçe şeftalilerinin kokusu; buzlu yeşil ve siyah çaylara, artisan gazozlara meyvemsi bir zenginlik katar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_036.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 157,
+    "tags": [
+      "DaVinci Gourmet",
+      "Peach Garden",
+      "Şeftali",
+      "Ice Tea"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Peach Garden (Şeftali Bahçesi)",
+      "Kullanım": "Peach Ice Tea, Artisan Soda, Kokteyl",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-037",
+    "name": "DaVinci Gourmet Classic Hazelnut Aromalı Şurup 750ml",
+    "code": "DVG-SYR-HAZ-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Zengin ve kavruk fındık notaları; espresso ile kusursuz birleşerek kadifemsi ve fındıklı içecekler yaratır.",
+    "imageUrl": "/beyazresimler/karisik/karisik_037.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 158,
+    "tags": [
+      "DaVinci Gourmet",
+      "Fındık",
+      "Hazelnut",
+      "Barista"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Klasik Fındık (Hazelnut)",
+      "Kullanım": "Hazelnut Latte, Americano, Frappe",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-038",
+    "name": "DaVinci Gourmet Pecan Praline Aromalı Şurup 750ml",
+    "code": "DVG-SYR-PPR-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Pekan cevizi ve karamelize şeker pralinlerinin harika uyumu; gurme kahve menülerine lüks bir tat profili kazandırır.",
+    "imageUrl": "/beyazresimler/karisik/karisik_038.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 159,
+    "tags": [
+      "DaVinci Gourmet",
+      "Pecan Praline",
+      "Pekan Cevizi",
+      "Gurme Şurup"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Pecan Praline (Pekan Cevizi & Pralin)",
+      "Kullanım": "Gurme Latte, Macchiato, Frappe",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-039",
+    "name": "DaVinci Gourmet Lemon Tea Aromalı Şurup 750ml",
+    "code": "DVG-SYR-LTE-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Doğal çay ekstraktı ve ferah limon suyu dengesi; sadece su ve buz ekleyerek barista standardında soğuk çay servisi sağlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_039.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 160,
+    "tags": [
+      "DaVinci Gourmet",
+      "Lemon Tea",
+      "Soğuk Çay",
+      "Limonata"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Lemon Tea (Limonlu Çay)",
+      "Kullanım": "Limonlu Soğuk Çay, Kokteyl bazı",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-040",
+    "name": "DaVinci Gourmet Forest Berries Aromalı Şurup 750ml",
+    "code": "DVG-SYR-FBR-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Yaban mersini, ahududu ve böğürtlen notalarının harmanı; ferahlatıcı renk ve meyve aromasıyla parıldayan içecekler.",
+    "imageUrl": "/beyazresimler/karisik/karisik_040.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 161,
+    "tags": [
+      "DaVinci Gourmet",
+      "Forest Berries",
+      "Orman Meyveleri",
+      "Kokteyl"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Forest Berries (Orman Meyveleri)",
+      "Kullanım": "Ice Tea, Limonata, Kokteyl, Soda",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-041",
+    "name": "DaVinci Gourmet Classic Caramel Aromalı Şurup 750ml",
+    "code": "DVG-SYR-CAR-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Erimiş esmer şeker ve kremsi tereyağ aroması; kahve profesyonellerinin vazgeçilmez premium karamel bazı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_041.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 380,
+    "vatRate": 20,
+    "order": 162,
+    "tags": [
+      "DaVinci Gourmet",
+      "Karamel",
+      "Caramel",
+      "Barista"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Klasik Karamel (Classic Caramel)",
+      "Kullanım": "Caramel Macchiato, Latte, Frappe",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-042",
+    "name": "DaVinci Gourmet Roasted Almond Aromalı Şurup 750ml",
+    "code": "DVG-SYR-RAL-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Kavrulmuş bademin hafif odunsu ve tatlı lezzeti; özellikle badem sütlü veya yulaf sütlü kahvelerle olağanüstü uyum yakalar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_042.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 163,
+    "tags": [
+      "DaVinci Gourmet",
+      "Badem",
+      "Roasted Almond",
+      "Kahve Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Kavrulmuş Badem (Roasted Almond)",
+      "Kullanım": "Bademli Latte, Sıcak İçecekler, Kokteyl",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-043",
+    "name": "DaVinci Gourmet Blueberry Aromalı Şurup 750ml",
+    "code": "DVG-SYR-BLB-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Taze yaban mersini meyvesinin asil mor rengi ve tatlı ekşiliği; smoothie, milkshake ve imza mocktaillere benzersiz dokunuş.",
+    "imageUrl": "/beyazresimler/karisik/karisik_043.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 164,
+    "tags": [
+      "DaVinci Gourmet",
+      "Yaban Mersini",
+      "Blueberry",
+      "Şurup"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Yaban Mersini (Blueberry)",
+      "Kullanım": "Blueberry Lemonade, Mocktail, Smoothie",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-044",
+    "name": "DaVinci Gourmet White Chocolate Aromalı Şurup 750ml",
+    "code": "DVG-SYR-WCH-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Zengin kakao yağı ve süt kreması lezzeti; White Chocolate Mocha içeceklerinde ayrışmadan homojen çözünür.",
+    "imageUrl": "/beyazresimler/karisik/karisik_044.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 165,
+    "tags": [
+      "DaVinci Gourmet",
+      "Beyaz Çikolata",
+      "White Mocha",
+      "Barista"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Beyaz Çikolata (White Chocolate)",
+      "Kullanım": "White Mocha, Sıcak Çikolata, Frappe",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-045",
+    "name": "DaVinci Gourmet Toffee Nut Aromalı Şurup 750ml",
+    "code": "DVG-SYR-TFN-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "İngiliz karameli (toffee) ile kavruk fındığın sıcacık uyumu; kış menülerinin en çok satan latte şurubu.",
+    "imageUrl": "/beyazresimler/karisik/karisik_045.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 166,
+    "tags": [
+      "DaVinci Gourmet",
+      "Toffee Nut",
+      "Karamel",
+      "Fındık"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Toffee Nut (Karamelli Fındık)",
+      "Kullanım": "Toffee Nut Latte, Frappé, Sıcak Kahve",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-046",
+    "name": "DaVinci Gourmet Coconut Aromalı Şurup 750ml",
+    "code": "DVG-SYR-COC-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Hindistan cevizinin taze sütlü egzotik tadı; tropikal mocktail, buzlu latte ve frappe reçetelerinin başrol oyuncusu.",
+    "imageUrl": "/beyazresimler/karisik/karisik_046.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 167,
+    "tags": [
+      "DaVinci Gourmet",
+      "Hindistan Cevizi",
+      "Coconut",
+      "Tropikal"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Hindistan Cevizi (Coconut)",
+      "Kullanım": "Coconut Latte, Piña Colada, Kokteyl",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-047",
+    "name": "DaVinci Gourmet Juicy Lime Aromalı Şurup 750ml",
+    "code": "DVG-SYR-JLM-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Taze sıkılmış sulu misket limonu suyu aroması; içeceklerde keskin narenciye canlılığı ve ferahlık yaratır.",
+    "imageUrl": "/beyazresimler/karisik/karisik_047.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 168,
+    "tags": [
+      "DaVinci Gourmet",
+      "Juicy Lime",
+      "Misket Limonu",
+      "Narenciye"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Juicy Lime (Misket Limonu)",
+      "Kullanım": "Margarita, Kokteyl Miksi, Limonata",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-048",
+    "name": "DaVinci Gourmet Spiced Chai Aromalı Barista Şurubu 750ml",
+    "code": "DVG-SYR-SCH-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Tarçın, kakule, zencefil ve karanfil baharatlarının otantik harmanı; sütle kolayca hazırlanan leziz Chai Tea Latte deneyimi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_048.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 169,
+    "tags": [
+      "DaVinci Gourmet",
+      "Spiced Chai",
+      "Chai Tea",
+      "Baharat"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Spiced Chai (Baharatlı Çay)",
+      "Kullanım": "Chai Tea Latte, Sıcak Baharatlı İçecekler",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-049",
+    "name": "DaVinci Gourmet Chocolate Aromalı Şurup 750ml",
+    "code": "DVG-SYR-CHO-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Saf kakao çekirdeklerinin derin çikolata lezzeti; Caffe Mocha ve çikolatalı içeceklerde pürüzsüz ve kalıcı tat bırakır.",
+    "imageUrl": "/beyazresimler/karisik/karisik_049.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 170,
+    "tags": [
+      "DaVinci Gourmet",
+      "Çikolata",
+      "Mocha",
+      "Kahve Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Çikolata (Chocolate)",
+      "Kullanım": "Mocha, Buzlu Çikolata, Frappuccino",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-050",
+    "name": "DaVinci Gourmet Butterscotch Aromalı Şurup 750ml",
+    "code": "DVG-SYR-BSC-750",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Kavrulmuş tereyağı, esmer şeker ve vanilya kremasının gurme uyumu; sıcak kahvelere nostaljik şekerleme lezzeti kazandırır.",
+    "imageUrl": "/beyazresimler/karisik/karisik_050.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 171,
+    "tags": [
+      "DaVinci Gourmet",
+      "Butterscotch",
+      "Karamel",
+      "Gurme Şurup"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Butterscotch (Tereyağlı Şekerleme)",
+      "Kullanım": "Butterscotch Latte, Sıcak İçecekler",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-051",
+    "name": "Caffè NONNO Blue Curacao Bar & Dekor Sosu 750g",
+    "code": "NON-SOS-BCU-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "Elektrik mavisi rengi ve portakal kabuğu turunç aromasıyla bardak içi süsleme, kokteyl dekorasyonu ve tatlı tabakları için özel kıvamlı sos.",
+    "imageUrl": "/beyazresimler/karisik/karisik_051.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 172,
+    "tags": [
+      "Caffè NONNO",
+      "Blue Curacao",
+      "Bar Sos",
+      "Dekor Sosu"
+    ],
+    "specs": {
+      "Gramaj": "750 g",
+      "Aroma": "Blue Curacao (Turunç)",
+      "Kullanım": "Bardak İçi Süsleme, Kokteyl Sunumu, Dondurma",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-052",
+    "name": "EASY MIX Refresher Orange Mango 700ml",
+    "code": "EMX-REF-OMG-700",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Akdeniz portakalları ve egzotik mango püresinin birleşimi; sadece soda veya buzlu su ilave edilerek saniyeler içinde hazırlanan gurme refresher.",
+    "imageUrl": "/beyazresimler/karisik/karisik_052.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 350,
+    "vatRate": 20,
+    "order": 173,
+    "tags": [
+      "EASY MIX",
+      "Orange Mango",
+      "Refresher",
+      "Kokteyl Premiksi"
+    ],
+    "specs": {
+      "Hacim": "700 ml",
+      "Aroma": "Portakal & Mango",
+      "Kullanım": "Buzlu Refresher, Alkolsüz Mocktail, Kokteyl",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-053",
+    "name": "EASY MIX Bodrum Mandarin Kokteyl Premiksi 700ml",
+    "code": "EMX-PRM-MND-700",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Coğrafi işaretli Bodrum mandalinasının taze uçucu yağları ve sulu lezzeti; cin, votka veya soda ile kusursuz uyumlu kokteyl bazı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_053.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 360,
+    "vatRate": 20,
+    "order": 174,
+    "tags": [
+      "EASY MIX",
+      "Bodrum Mandalina",
+      "Kokteyl Premiksi",
+      "Spritz"
+    ],
+    "specs": {
+      "Hacim": "700 ml",
+      "Aroma": "Bodrum Mandalinası",
+      "Kullanım": "Mandarin Spritz, Gin Mandarin, Mocktail",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-054",
+    "name": "DaVinci Gourmet Cheesecake Flavoured Sauce 2L",
+    "code": "DVG-SOS-CHK-2000",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "New York cheesecake lezzeti; pürüzsüz krem peynir ve hafif vanilya tatlılığıyla frappe, milkshake ve pasta süslemelerinde rakipsiz 2 litrelik profesyonel sos.",
+    "imageUrl": "/beyazresimler/karisik/karisik_054.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 750,
+    "vatRate": 20,
+    "order": 175,
+    "tags": [
+      "DaVinci Gourmet",
+      "Cheesecake",
+      "Bar Sos",
+      "2 Litre",
+      "Frappe"
+    ],
+    "specs": {
+      "Hacim": "2 L",
+      "Aroma": "Cheesecake",
+      "Kullanım": "Frappe, Milkshake, Pasta Kaplama, Dondurma",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-055",
+    "name": "DaVinci Gourmet White Chocolate Flavoured Sauce 2L",
+    "code": "DVG-SOS-WCH-2000",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "Hakiki kakao yağı içeren kadifemsi beyaz çikolata sosu; White Mocha, sıcak çikolata ve tatlı tabaklarında parlak kıvam sunar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_055.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 750,
+    "vatRate": 20,
+    "order": 176,
+    "tags": [
+      "DaVinci Gourmet",
+      "Beyaz Çikolata",
+      "Bar Sos",
+      "White Mocha"
+    ],
+    "specs": {
+      "Hacim": "2 L",
+      "Aroma": "Beyaz Çikolata (White Chocolate)",
+      "Kullanım": "White Mocha, Sıcak Çikolata, Tatlı Süsleme",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-056",
+    "name": "DaVinci Gourmet Caramel Flavoured Sauce 2L",
+    "code": "DVG-SOS-CAR-2000",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "Geleneksel karamelize şeker ve tereyağı lezzeti; sıcak kahvelerde mükemmel akışkanlık ve soğuk içeceklerde yoğun gövde sağlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_056.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 750,
+    "vatRate": 20,
+    "order": 177,
+    "tags": [
+      "DaVinci Gourmet",
+      "Karamel",
+      "Bar Sos",
+      "Caramel Macchiato"
+    ],
+    "specs": {
+      "Hacim": "2 L",
+      "Aroma": "Karamel (Caramel)",
+      "Kullanım": "Caramel Macchiato, Frappe, Waffle, Dondurma",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-057",
+    "name": "DaVinci Gourmet Chocolate Flavoured Sauce 2L",
+    "code": "DVG-SOS-CHO-2000",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "Derin bitter kakao lezzeti ve parlak siyah dokusuyla Caffe Mocha, sıcak çikolata, profiterol ve waffle sunumları için 2L dev ambalaj.",
+    "imageUrl": "/beyazresimler/karisik/karisik_057.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 750,
+    "vatRate": 20,
+    "order": 178,
+    "tags": [
+      "DaVinci Gourmet",
+      "Çikolata",
+      "Bar Sos",
+      "Mocha",
+      "2 Litre"
+    ],
+    "specs": {
+      "Hacim": "2 L",
+      "Aroma": "Yoğun Çikolata (Chocolate)",
+      "Kullanım": "Mocha, Sıcak Çikolata, Tatlı, Waffle",
+      "Menşei": "Malezya"
+    }
+  },
+  {
+    "id": "prod-byz-058",
+    "name": "Caffè NONNO Beyaz Çikolata Bar & Dekor Sosu 750g",
+    "code": "NON-SOS-WCH-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "Tatlı tabakları, kahve köpükleri ve dondurma üzerinde parlak beyaz hatlar çizen pratik sıkma kapaklı beyaz çikolata sosu.",
+    "imageUrl": "/beyazresimler/karisik/karisik_058.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 290,
+    "vatRate": 20,
+    "order": 179,
+    "tags": [
+      "Caffè NONNO",
+      "Beyaz Çikolata",
+      "Dekor Sosu",
+      "Latte Art"
+    ],
+    "specs": {
+      "Gramaj": "750 g",
+      "Aroma": "Beyaz Çikolata (White Chocolate)",
+      "Kullanım": "Latte Art Süsleme, Tatlı Tabağı, Dondurma",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-059",
+    "name": "Caffè NONNO Muz Aromalı Bar & Dekor Sosu 750g",
+    "code": "NON-SOS-BAN-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "Sarı rengi ve yoğun muz lezzetiyle milkshake, waffle, krep ve dondurma sunumlarına neşeli ve lezzetli bir hava katar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_059.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 290,
+    "vatRate": 20,
+    "order": 180,
+    "tags": [
+      "Caffè NONNO",
+      "Muz",
+      "Dekor Sosu",
+      "Waffle",
+      "Milkshake"
+    ],
+    "specs": {
+      "Gramaj": "750 g",
+      "Aroma": "Muz (Banana)",
+      "Kullanım": "Milkshake, Waffle, Dondurma Süsleme",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-060",
+    "name": "Caffè NONNO Blue Curacao Bar & Dekor Sosu 750g (Açı 2)",
+    "code": "NON-SOS-BCU-750-B",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "Mavi renkli turunç sosu; akışkan kıvamı sayesinde bardak kenarlarında şık dalga efektleri oluşturur.",
+    "imageUrl": "/beyazresimler/karisik/karisik_060.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 181,
+    "tags": [
+      "Caffè NONNO",
+      "Blue Curacao",
+      "Dekor Sosu"
+    ],
+    "specs": {
+      "Gramaj": "750 g",
+      "Aroma": "Blue Curacao (Turunç)",
+      "Kullanım": "Kokteyl Dekoru, Dondurma, Frozen",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-061",
+    "name": "EASY MIX Citrus Blend Narenciye Kokteyl Premiksi 1000ml",
+    "code": "EMX-PRM-CTR-1000",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Limon, misket limonu, portakal ve greyfurtun taze dengesi; ekşi-tatlı miks gerektiren tüm kokteyller için temel asidite bazı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_061.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 440,
+    "vatRate": 20,
+    "order": 182,
+    "tags": [
+      "EASY MIX",
+      "Citrus Blend",
+      "Narenciye",
+      "Kokteyl Premiksi"
+    ],
+    "specs": {
+      "Hacim": "1000 ml",
+      "Aroma": "Citrus Blend (Narenciye Karışımı)",
+      "Kullanım": "Sour Kokteyller, Collins, Gin Fizz",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-062",
+    "name": "EASY MIX Cherry & Chocolate Kokteyl Premiksi 500ml",
+    "code": "EMX-PRM-CCH-500",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Ekşi vişne, yabani orman meyveleri ve zengin bitter çikolata harmonisi; Black Forest esintili gurme kokteyller sunar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_062.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 340,
+    "vatRate": 20,
+    "order": 183,
+    "tags": [
+      "EASY MIX",
+      "Vişne",
+      "Çikolata",
+      "Kokteyl Premiksi"
+    ],
+    "specs": {
+      "Hacim": "500 ml",
+      "Aroma": "Vişne, Orman Meyveleri & Çikolata",
+      "Kullanım": "Gurme Kokteyl, Viski / Rom Eşleşmeleri",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-063",
+    "name": "EASY MIX Refresher Rooibos Peach 700ml",
+    "code": "EMX-REF-RBP-700",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Güney Afrika Rooibos çayı ve sulu şeftalinin kafeinsiz doğal birleşimi; ferahlatıcı botanik buzlu çay deneyimi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_063.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 350,
+    "vatRate": 20,
+    "order": 184,
+    "tags": [
+      "EASY MIX",
+      "Rooibos Peach",
+      "Şeftali",
+      "Botanik Çay"
+    ],
+    "specs": {
+      "Hacim": "700 ml",
+      "Aroma": "Rooibos Çayı & Şeftali",
+      "Kullanım": "Botanik Ice Tea, Mocktail, Refresher",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-064",
+    "name": "EASY MIX Tuxedo Kokteyl Premiksi 1000ml",
+    "code": "EMX-PRM-TUX-1000",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Şık davetler ve gece menüleri için tasarlanmış; zarif narenciye ve botanik baharat karışımı imza kokteyl miksi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_064.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 440,
+    "vatRate": 20,
+    "order": 185,
+    "tags": [
+      "EASY MIX",
+      "Tuxedo",
+      "İmza Kokteyl",
+      "Premix"
+    ],
+    "specs": {
+      "Hacim": "1000 ml",
+      "Aroma": "Tuxedo Signature Blend",
+      "Kullanım": "İmza Kokteyller, Şampanya Kokteyli",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-065",
+    "name": "EASY MIX Passion Martini Kokteyl Premiksi 1000ml",
+    "code": "EMX-PRM-PSN-1000",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Dünyanın en popüler kokteyli Passion Fruit / Pornstar Martini için vanilya ve çarkıfelek meyvesiyle dengelenmiş hazır profesyonel karışım.",
+    "imageUrl": "/beyazresimler/karisik/karisik_065.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 440,
+    "vatRate": 20,
+    "order": 186,
+    "tags": [
+      "EASY MIX",
+      "Passion Martini",
+      "Çarkıfelek",
+      "Pornstar Martini"
+    ],
+    "specs": {
+      "Hacim": "1000 ml",
+      "Aroma": "Passion Martini (Çarkıfelek & Vanilya)",
+      "Kullanım": "Passion Fruit Martini, Votka Kokteylleri",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-066",
+    "name": "EASY MIX Passion Martini Kokteyl Premiksi 1000ml (Açı 2)",
+    "code": "EMX-PRM-PSN-1000-B",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Barlarda servis hızını artıran, her kadehte standart reçete kalitesi sunan çarkıfelek kokteyl premiksi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_066.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 440,
+    "vatRate": 20,
+    "order": 187,
+    "tags": [
+      "EASY MIX",
+      "Passion Martini",
+      "Kokteyl"
+    ],
+    "specs": {
+      "Hacim": "1000 ml",
+      "Aroma": "Passion Martini",
+      "Kullanım": "Martini, Spritz, Mocktail",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-067",
+    "name": "EASY MIX Chili Mango Kokteyl Premiksi 1000ml",
+    "code": "EMX-PRM-CHM-1000",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Tatlı tropikal mangonun damağı gıdıklayan tatlı acı kırmızı biber dokunuşuyla buluşması; tekila ve mezcal kokteyllerine mükemmel eşlikçi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_067.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 440,
+    "vatRate": 20,
+    "order": 188,
+    "tags": [
+      "EASY MIX",
+      "Chili Mango",
+      "Acılı Mango",
+      "Margarita"
+    ],
+    "specs": {
+      "Hacim": "1000 ml",
+      "Aroma": "Chili Mango (Acılı Mango)",
+      "Kullanım": "Spicy Margarita, Mezcalita, Kokteyl",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-068",
+    "name": "EASY MIX Purple Basil (Mor Fesleğen) Kokteyl Premiksi 1000ml",
+    "code": "EMX-PRM-PBS-1000",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Taze mor fesleğenin aromatik kokusu ve göz alıcı mor rengi; cin kokteylleri ve ferahlatıcı spritz reçeteleri için.",
+    "imageUrl": "/beyazresimler/karisik/karisik_068.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 440,
+    "vatRate": 20,
+    "order": 189,
+    "tags": [
+      "EASY MIX",
+      "Mor Fesleğen",
+      "Purple Basil",
+      "Gin Kokteyl"
+    ],
+    "specs": {
+      "Hacim": "1000 ml",
+      "Aroma": "Mor Fesleğen (Purple Basil)",
+      "Kullanım": "Basil Smash, Gin Basil, Mocktail",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-069",
+    "name": "EASY MIX Refresher Pitaya (Ejder Meyvesi) 700ml",
+    "code": "EMX-REF-PIT-700",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Göz alıcı fuşya rengi ve antioksidan zengini ejder meyvesi lezzeti; kafelerde trend olan Dragonfruit Refresher içecekleri için.",
+    "imageUrl": "/beyazresimler/karisik/karisik_069.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 350,
+    "vatRate": 20,
+    "order": 190,
+    "tags": [
+      "EASY MIX",
+      "Pitaya",
+      "Ejder Meyvesi",
+      "Refresher"
+    ],
+    "specs": {
+      "Hacim": "700 ml",
+      "Aroma": "Pitaya / Ejder Meyvesi",
+      "Kullanım": "Dragon Drink, Buzlu Refresher, Soda Miksi",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-070",
+    "name": "EASY MIX Refresher Sorrel & Green Plum 700ml",
+    "code": "EMX-REF-SGP-700",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Kuzukulağı yapraklarının doğal ekşiliği ile kütür yeşil erik ferahlığı; benzersiz gurme Anadolu lezzeti.",
+    "imageUrl": "/beyazresimler/karisik/karisik_070.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 350,
+    "vatRate": 20,
+    "order": 191,
+    "tags": [
+      "EASY MIX",
+      "Yeşil Erik",
+      "Kuzukulağı",
+      "Refresher"
+    ],
+    "specs": {
+      "Hacim": "700 ml",
+      "Aroma": "Kuzukulağı & Yeşil Erik",
+      "Kullanım": "Yeşil Erik Refresher, Gurme Mocktail",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-071",
+    "name": "Caffè NONNO Toffee Nut Aromalı Kahve Şurubu 750ml",
+    "code": "NON-SYR-TFN-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Kavrulmuş fındık ve karamel lezzetinin kremsi birleşimi; kış sıcak kahve menülerinin vazgeçilmezi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_071.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 192,
+    "tags": [
+      "Caffè NONNO",
+      "Toffee Nut",
+      "Karamel",
+      "Fındık"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Toffee Nut (Karamelli Fındık)",
+      "Kullanım": "Toffee Nut Latte, Macchiato, Frappe",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-072",
+    "name": "EASY MIX Watermelon Margarita Kokteyl Premiksi 500ml",
+    "code": "EMX-PRM-WMR-500",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Sulu karpuz ve ferahlatıcı misket limonu suyu dengesi; tuzlu kenarlı bardakta buz gibi yaz margaritaları için hazır premiks.",
+    "imageUrl": "/beyazresimler/karisik/karisik_072.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 340,
+    "vatRate": 20,
+    "order": 193,
+    "tags": [
+      "EASY MIX",
+      "Watermelon Margarita",
+      "Karpuz",
+      "Margarita"
+    ],
+    "specs": {
+      "Hacim": "500 ml",
+      "Aroma": "Karpuz & Misket Limonu",
+      "Kullanım": "Watermelon Margarita, Buzlu Kokteyl",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-073",
+    "name": "EASY MIX Libido Egzotik Meyve Kokteyl Premiksi 1000ml",
+    "code": "EMX-PRM-LBD-1000",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Tropikal meyveler, nar ve enerji veren botanik aromaların baştan çıkarıcı miksi; parti kokteyllerinin gözdesi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_073.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 440,
+    "vatRate": 20,
+    "order": 194,
+    "tags": [
+      "EASY MIX",
+      "Libido",
+      "Tropikal",
+      "Kokteyl Premiksi"
+    ],
+    "specs": {
+      "Hacim": "1000 ml",
+      "Aroma": "Libido Tropikal Miks",
+      "Kullanım": "Gece Kokteylleri, Parti İçecekleri",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-074",
+    "name": "EASY MIX Refresher Ocean 700ml",
+    "code": "EMX-REF-OCN-700",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Turkuaz deniz ferahlığı; narenciye ve tropikal meyve aromalarıyla buz gibi serinletici mavi refresher içecekleri sunar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_074.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 350,
+    "vatRate": 20,
+    "order": 195,
+    "tags": [
+      "EASY MIX",
+      "Ocean",
+      "Mavi Refresher",
+      "Serinletici"
+    ],
+    "specs": {
+      "Hacim": "700 ml",
+      "Aroma": "Ocean / Mavi Narenciye",
+      "Kullanım": "Ocean Refresher, Mocktail, Mavi Limonata",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-075",
+    "name": "EASY MIX Melon (Kavun) Kokteyl Premiksi 700ml",
+    "code": "EMX-PRM-MLN-700",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Yoğun kokulu bal kavunu aroması; Midori sour tarzı kokteyller veya kavunlu ferahlatıcı yaz miksleri için.",
+    "imageUrl": "/beyazresimler/karisik/karisik_075.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 360,
+    "vatRate": 20,
+    "order": 196,
+    "tags": [
+      "EASY MIX",
+      "Kavun",
+      "Melon",
+      "Kokteyl Premiksi"
+    ],
+    "specs": {
+      "Hacim": "700 ml",
+      "Aroma": "Kavun (Melon)",
+      "Kullanım": "Melon Sour, Kokteyl, Frozen",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-076",
+    "name": "EASY MIX White Peach (Beyaz Şeftali) Kokteyl Premiksi 700ml",
+    "code": "EMX-PRM-WPC-700",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Nadir bulunan aromatik beyaz şeftali özleri; Bellini ve zarif şampanya kokteyllerine ipeksi meyve lezzeti sağlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_076.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 360,
+    "vatRate": 20,
+    "order": 197,
+    "tags": [
+      "EASY MIX",
+      "Beyaz Şeftali",
+      "White Peach",
+      "Bellini"
+    ],
+    "specs": {
+      "Hacim": "700 ml",
+      "Aroma": "Beyaz Şeftali (White Peach)",
+      "Kullanım": "Bellini, White Peach Spritz, Mocktail",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-077",
+    "name": "EASY MIX Raspberry (Frambuaz) Kokteyl Premiksi 700ml",
+    "code": "EMX-PRM-RAS-700",
+    "codeGroup": "EASY MIX",
+    "categoryId": "cat-7",
+    "categoryName": "Kokteyller",
+    "categorySlug": "kokteyller",
+    "description": "Canlı ahududu asiditesi ve aromatik zenginliği; Clover Club, Raspberry Collins ve meyveli mocktailler için ideal.",
+    "imageUrl": "/beyazresimler/karisik/karisik_077.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 360,
+    "vatRate": 20,
+    "order": 198,
+    "tags": [
+      "EASY MIX",
+      "Frambuaz",
+      "Raspberry",
+      "Kokteyl Premiksi"
+    ],
+    "specs": {
+      "Hacim": "700 ml",
+      "Aroma": "Frambuaz (Raspberry)",
+      "Kullanım": "Clover Club, Raspberry Collins, Frozen",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-078",
+    "name": "Caffè NONNO Nar (Pomegranate) Aromalı Kokteyl Şurubu 750ml",
+    "code": "NON-SYR-POM-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Grena yakut kırmızısı rengi ve mayhoş nar lezzeti; barlarda nar ekşisi dengeli kokteyller ve limonatalar için.",
+    "imageUrl": "/beyazresimler/karisik/karisik_078.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 199,
+    "tags": [
+      "Caffè NONNO",
+      "Nar",
+      "Pomegranate",
+      "Kokteyl Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Nar (Pomegranate)",
+      "Kullanım": "Nar Kokteyli, Grenadine alternatifi, Limonata",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-079",
+    "name": "Caffè NONNO Muz (Banana) Aromalı Bar Şurubu 750ml",
+    "code": "NON-SYR-BAN-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Tropikal muz aroması; milkshake, buzlu kahve ve meyveli kokteyl reçetelerinde tatlı bir muz dokunuşu.",
+    "imageUrl": "/beyazresimler/karisik/karisik_079.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 200,
+    "tags": [
+      "Caffè NONNO",
+      "Muz",
+      "Banana",
+      "Bar Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Muz (Banana)",
+      "Kullanım": "Muzlu Milkshake, Muzlu Latte, Kokteyl",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-080",
+    "name": "Caffè NONNO Tiramisu Aromalı Kahve Şurubu 750ml",
+    "code": "NON-SYR-TRM-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Maskarpone peyniri, kedi dili bisküvi ve kakao notaları; kahvelere İtalyan tiramisu tatlısı lezzeti kazandırır.",
+    "imageUrl": "/beyazresimler/karisik/karisik_080.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 201,
+    "tags": [
+      "Caffè NONNO",
+      "Tiramisu",
+      "İtalyan Kahvesi",
+      "Şurup"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Tiramisu",
+      "Kullanım": "Tiramisu Latte, Soğuk Kahve, Frappe",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-081",
+    "name": "CALLEI Bitter Çikolatalı Sürülebilir Waffle & Krep Kreması 1kg",
+    "code": "CAL-WFL-BIT-1000",
+    "codeGroup": "CALLEI Chocolate",
     "categoryId": "cat-3",
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
-    "imageUrl": "/resimler/pt18/pt18_12.png",
-    "description": "Derin petekli Brüksel usulü formunda, dışı çıtır içi hafif ve havadar, tost makinesi veya fırında 2 dakikada servise hazır donuk waffle ekmeği.",
+    "description": "Yoğun kakao aroması ve akışkan sürülebilir ipeksi dokusuyla sıcak waffle ve kreplerin üzerinde eriyen gurme bitter çikolata kreması.",
+    "imageUrl": "/beyazresimler/karisik/karisik_081.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 320,
+    "vatRate": 20,
+    "order": 202,
     "tags": [
+      "CALLEI",
+      "Bitter Çikolata",
+      "Waffle Kreması",
+      "Krep"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Aroma": "Bitter Çikolata",
+      "Kullanım": "Waffle, Krep, Pankek, Kruvasan Dolgusu",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-082",
+    "name": "CALLEI Fındık Krokan Pasta & Waffle Süsleme 1kg",
+    "code": "CAL-SUS-KRK-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Karamelize şekerle kaplanmış çıtır fındık parçacıkları; pasta kenarları, waffle ve dondurma üzerinde eşsiz çıtırlık sunar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_082.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 290,
+    "vatRate": 20,
+    "order": 203,
+    "tags": [
+      "CALLEI",
+      "Fındık Krokan",
+      "Pasta Süsleme",
+      "Çıtır Topping"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Çeşit": "Fındık Krokan",
+      "Kullanım": "Waffle Süsleme, Pasta Sıvama, Dondurma Topping",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-083",
+    "name": "CALLEI Renkli Mini Draje Bonibon Pasta & Waffle Süsleme 1kg",
+    "code": "CAL-SUS-DRJ-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Çıtır şeker kaplamalı rengarenk sütlü çikolata drajeleri; waffle, krep ve butik pasta tasarımlarına neşeli renk katar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_083.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 280,
+    "vatRate": 20,
+    "order": 204,
+    "tags": [
+      "CALLEI",
+      "Bonibon",
+      "Draje",
+      "Renkli Şeker",
+      "Waffle Süsleme"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Çeşit": "Renkli Mini Draje (Bonibon)",
+      "Kullanım": "Waffle, Cupcake, Pasta Dekorasyonu",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-084",
+    "name": "CALLEI Sütlü Damla Çikolata Süsleme 1kg",
+    "code": "CAL-SUS-SML-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Fırınlanmaya dayanıklı, eridiğinde kremsi doku kazanan gerçek sütlü çikolata damlaları; kurabiye, muffin ve waffle için.",
+    "imageUrl": "/beyazresimler/karisik/karisik_084.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 310,
+    "vatRate": 20,
+    "order": 205,
+    "tags": [
+      "CALLEI",
+      "Sütlü Damla Çikolata",
+      "Damla Çikolata",
+      "Pastacılık"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Çeşit": "Sütlü Damla Çikolata",
+      "Kullanım": "Kurabiye, Muffin, Waffle Topping, Kek",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-085",
+    "name": "CALLEI Karışık Renkli Pasta & Waffle Şekerlemesi (Vermicelli) 1kg",
+    "code": "CAL-SUS-VRM-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Rengarenk pirinç formlu pasta süsleme şekerleri; dondurma külahları, donutlar ve waffle tabaklarında göz alıcı sunumlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_085.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 260,
+    "vatRate": 20,
+    "order": 206,
+    "tags": [
+      "CALLEI",
+      "Pasta Şekeri",
+      "Vermicelli",
+      "Renkli Süsleme"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Çeşit": "Renkli Vermicelli Şekerleme",
+      "Kullanım": "Donut, Waffle, Dondurma, Pasta",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-086",
+    "name": "CALLEI Renkli Çakıltaşı Çikolata Draje 1kg",
+    "code": "CAL-SUS-CKL-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Gerçek dere çakıltaşları görünümünde şeker kaplı lezzetli çikolata drajeleri; çocuk ve genç menülerinin favori süslemesi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_086.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 290,
+    "vatRate": 20,
+    "order": 207,
+    "tags": [
+      "CALLEI",
+      "Çakıltaşı Draje",
+      "Çikolata Draje",
+      "Waffle"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Çeşit": "Renkli Çakıltaşı Çikolata",
+      "Kullanım": "Waffle, Pasta, Kahve Yanı İkramlık",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-087",
+    "name": "CALLEI Bitter Damla Çikolata Süsleme 1kg",
+    "code": "CAL-SUS-DBT-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "%54 kakao oranıyla parlak yapısını koruyan profesyonel bitter damla çikolata; kurabiye ve pastacılık uygulamalarında fırın sıcaklığına dirençli.",
+    "imageUrl": "/beyazresimler/karisik/karisik_087.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 208,
+    "tags": [
+      "CALLEI",
+      "Bitter Damla Çikolata",
+      "Damla Çikolata",
+      "Kakao"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Çeşit": "Bitter Damla Çikolata",
+      "Kullanım": "Kurabiye, Kek, Waffle, Sıcak Çikolata",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-088",
+    "name": "CALLEI Kavrulmuş Kıyılmış Fındık Parçaları 1kg",
+    "code": "CAL-SUS-FND-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Özel fırınlanmış çıtır Giresun fındığı taneleri; waffle, krep, pasta ve dondurma üzerine doğal fındık zenginliği.",
+    "imageUrl": "/beyazresimler/karisik/karisik_088.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 380,
+    "vatRate": 20,
+    "order": 209,
+    "tags": [
+      "CALLEI",
+      "Kavrulmuş Fındık",
+      "Fındık Parça",
+      "Waffle Süsleme"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Çeşit": "Kavrulmuş Kıyılmış Fındık",
+      "Kullanım": "Waffle Topping, Pasta Dekorasyonu, Dondurma",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-089",
+    "name": "CALLEI Beyaz Damla Çikolata Süsleme 1kg",
+    "code": "CAL-SUS-DBY-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Zengin süt ve vanilya aromalı beyaz çikolata damlaları; kırmızı kadife (red velvet) kekler ve waffle sunumları için mükemmel kontrast.",
+    "imageUrl": "/beyazresimler/karisik/karisik_089.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 210,
+    "tags": [
+      "CALLEI",
+      "Beyaz Damla Çikolata",
+      "Pastacılık",
+      "Waffle"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Çeşit": "Beyaz Damla Çikolata",
+      "Kullanım": "Red Velvet, Kurabiye, Waffle, Pasta",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-090",
+    "name": "CALLEI Profesyonel Hazır Waffle Tozu (Waffle Mix) 1kg",
+    "code": "CAL-WFL-MIX-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Dışı çıtır çıtır, içi pamuk gibi yumuşak Belçika usulü waffle hazırlamak için sadece su ve yağ ile çırpılan profesyonel waffle harcı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_090.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 180,
+    "vatRate": 20,
+    "order": 211,
+    "tags": [
+      "CALLEI",
+      "Waffle Tozu",
+      "Waffle Mix",
+      "Belçika Waffle"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Çeşit": "Hazır Waffle Karışımı",
+      "Kullanım": "Waffle Makinesi, Belçika Waffle, Bubble Waffle",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-091",
+    "name": "Caffè NONNO Toffee Nut Aromalı Şurup 750ml (Açı 2)",
+    "code": "NON-SYR-TFN-750-B",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Karamel ve fındık notalarını dengeli sunan barista kalitesinde kahve şurubu.",
+    "imageUrl": "/beyazresimler/karisik/karisik_091.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 212,
+    "tags": [
+      "Caffè NONNO",
+      "Toffee Nut",
+      "Kahve Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Toffee Nut",
+      "Kullanım": "Sıcak/Soğuk Latte, Frappe",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-092",
+    "name": "CALLEI Speculoos (Bisküvi Aromalı) Sürülebilir Waffle Kreması 1kg",
+    "code": "CAL-WFL-SPC-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Tarçın ve karamelize Belçika bisküvisi aromalı sürülebilir krema; waffle ve kreplere sofistike Lotus esintisi katar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_092.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 340,
+    "vatRate": 20,
+    "order": 213,
+    "tags": [
+      "CALLEI",
+      "Speculoos",
+      "Bisküvi Kreması",
       "Waffle",
-      "Belçika Waffle",
-      "Brüksel Waffle",
-      "Waffle Ekmeği",
-      "Donuk Waffle",
-      "CALLEI"
+      "Lotus"
     ],
     "specs": {
-      "Porsiyon": "1 Adet Dikdörtgen Waffle",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme / Isıtma": "Tost makinesi veya fırında 180°C'de 2-3 dakika",
-      "Raf Ömrü": "3 gün",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "CALLEI sürülebilir kremalar ve taze meyvelerle süsleyiniz."
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+      "Gramaj": "1 kg",
+      "Aroma": "Speculoos (Karamelli Bisküvi)",
+      "Kullanım": "Waffle, Krep, Cheesecake Dolgusu",
+      "Menşei": "Türkiye"
+    }
   },
   {
-    "id": "prod-pt18-13",
-    "name": "SAMARA Barista Sprey Krem Şanti 250ml (Whipped Cream)",
-    "code": "KRM-SAM-SPR-250",
-    "codeGroup": "SAMARA",
-    "categoryId": "cat-6",
-    "categoryName": "Kremalı Ürünler & Pastacılık",
-    "categorySlug": "kremali-urunler",
-    "imageUrl": "/resimler/pt18/pt18_13.png",
-    "description": "Kahveler, sıcak çikolata, waffle, dondurma ve tatlı sunumları için yüksek hacimli, sönmeyen, pratik kullanımlı profesyonel sprey krem şanti.",
+    "id": "prod-byz-093",
+    "name": "CALLEI Bueno (Fındıklı Sütlü) Sürülebilir Waffle Kreması 1kg",
+    "code": "CAL-WFL-BNO-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Yoğun fındık ezmesi ve beyaz kremanın efsanevi buluşması; Kinder Bueno lezzetini waffle ve kreplere taşıyan favori ürün.",
+    "imageUrl": "/beyazresimler/karisik/karisik_093.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 340,
+    "vatRate": 20,
+    "order": 214,
     "tags": [
-      "Kremalı Ürünler",
-      "Sprey Şanti",
-      "Krem Şanti",
-      "Whipped Cream",
-      "Barista",
-      "SAMARA"
+      "CALLEI",
+      "Bueno",
+      "Fındık Kreması",
+      "Waffle Kreması"
     ],
     "specs": {
-      "Hacim": "250 ml",
-      "Ambalaj": "Basınçlı Sprey Teneke Kutu",
-      "Kullanım Şekli": "Kullanmadan önce çalkalayınız, dik tutarak sıkınız.",
-      "Saklama Koşulu": "+4°C / Oda Sıcaklığı (Açıldıktan sonra buzdolabında saklayınız)",
-      "Servis Tavsiyesi": "Waffle, pasta ve frappe üzeri süslemelerde kullanılır."
-    },
-    "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+      "Gramaj": "1 kg",
+      "Aroma": "Bueno Fındık & Süt Kreması",
+      "Kullanım": "Waffle, Krep, Kruvasan, Pankek",
+      "Menşei": "Türkiye"
+    }
   },
   {
-    "id": "prod-pt18-14",
-    "name": "Monte Cristo Cool Lime Base Aromalı Barista Şurubu 1000ml",
-    "code": "MNT-CLM-1000",
+    "id": "prod-byz-094",
+    "name": "CALLEI Beyaz Çikolatalı Sürülebilir Waffle & Krep Kreması 1kg",
+    "code": "CAL-WFL-WHT-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "İpeksi sürülebilirliği ve saf kakao yağı tadıyla meyveli waffle tabaklarında çilek ve muz ile mükemmel lezzet uyumu.",
+    "imageUrl": "/beyazresimler/karisik/karisik_094.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 320,
+    "vatRate": 20,
+    "order": 215,
+    "tags": [
+      "CALLEI",
+      "Beyaz Çikolata",
+      "Waffle Kreması",
+      "Krep"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Aroma": "Beyaz Çikolata",
+      "Kullanım": "Waffle, Krep, Tatlı Dolgusu",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-095",
+    "name": "CALLEI Sütlü Çikolatalı Sürülebilir Waffle & Krep Kreması 1kg",
+    "code": "CAL-WFL-MLK-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Geleneksel lezzet; yüksek kaliteli süt tozu ve kakao ile hazırlanan akışkan kıvamlı klasik waffle çikolatası.",
+    "imageUrl": "/beyazresimler/karisik/karisik_095.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 320,
+    "vatRate": 20,
+    "order": 216,
+    "tags": [
+      "CALLEI",
+      "Sütlü Çikolata",
+      "Waffle Çikolatası",
+      "Krep"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Aroma": "Sütlü Çikolata",
+      "Kullanım": "Klasik Waffle, Krep, Tost Çikolatası",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-096",
+    "name": "CALLEI Frambuaz Aromalı Pembe Sürülebilir Waffle Kreması 1kg",
+    "code": "CAL-WFL-RAS-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Göz alıcı pembe rengi ve hafif mayhoş frambuaz aromasıyla çocuk ve gençlerin bayıldığı eğlenceli waffle kreması.",
+    "imageUrl": "/beyazresimler/karisik/karisik_096.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 330,
+    "vatRate": 20,
+    "order": 217,
+    "tags": [
+      "CALLEI",
+      "Pembe Krema",
+      "Frambuaz",
+      "Renkli Waffle"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Aroma": "Frambuaz (Pembe Krema)",
+      "Kullanım": "Renkli Waffle, Krep, Cupcake Süsleme",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-097",
+    "name": "CALLEI Bubble Gum Aromalı Mavi Sürülebilir Waffle Kreması 1kg",
+    "code": "CAL-WFL-BBG-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Canlı gök mavisi rengi ve nostaljik sakız lezzeti; sosyal medyada fotoğrafı en çok paylaşılan çılgın waffle tasarımları için.",
+    "imageUrl": "/beyazresimler/karisik/karisik_097.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 330,
+    "vatRate": 20,
+    "order": 218,
+    "tags": [
+      "CALLEI",
+      "Bubble Gum",
+      "Mavi Waffle",
+      "Sakız Aromalı"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Aroma": "Bubble Gum (Mavi Krema)",
+      "Kullanım": "Mavi Waffle, Krep, Donut Dolgusu",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-098",
+    "name": "CALLEI Antep Fıstıklı Yeşil Sürülebilir Waffle Kreması 1kg",
+    "code": "CAL-WFL-PST-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Hakiki Antep fıstığı ezmesiyle zenginleştirilmiş fıstık yeşili gurme krema; Dubai çikolatası esintili lüks waffle menüleri için.",
+    "imageUrl": "/beyazresimler/karisik/karisik_098.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 390,
+    "vatRate": 20,
+    "order": 219,
+    "tags": [
+      "CALLEI",
+      "Antep Fıstığı",
+      "Dubai Waffle",
+      "Yeşil Krema",
+      "Gurme"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Aroma": "Antep Fıstığı (Yeşil Krema)",
+      "Kullanım": "Dubai Waffle, Gurme Krep, Kruvasan",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-099",
+    "name": "CALLEI Karamel Aromalı Sürülebilir Waffle & Krep Kreması 1kg",
+    "code": "CAL-WFL-CAR-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Kavrulmuş karamel rengi ve yoğun karamel tadı; elma ve cevizli waffle kombinasyonlarında rakipsiz tat uyumu.",
+    "imageUrl": "/beyazresimler/karisik/karisik_099.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 330,
+    "vatRate": 20,
+    "order": 220,
+    "tags": [
+      "CALLEI",
+      "Karamel",
+      "Karamel Kreması",
+      "Waffle"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Aroma": "Karamel",
+      "Kullanım": "Karamelli Waffle, Krep, Pankek",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-100",
+    "name": "20:45 Donuk Dereotlu & Çörekotlu Mini Tuzlu Kurabiye (Tekli Gurme Sunum)",
+    "code": "YKB-DNK-TKR-001",
+    "codeGroup": "20:45 Unlu Mamuller",
+    "categoryId": "cat-5",
+    "categoryName": "Pastalar",
+    "categorySlug": "donuk-pasta",
+    "description": "Ağızda dağılan kıyır kıyır tereyağlı dokusu, taze dereotu ve çörekotu aromasıyla çay saatlerinin vazgeçilmez ikramlığı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_100.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 240,
+    "vatRate": 20,
+    "order": 221,
+    "tags": [
+      "20:45",
+      "Tuzlu Kurabiye",
+      "Dereotlu",
+      "Donuk Unlu Mamul",
+      "Çay Saati"
+    ],
+    "specs": {
+      "Gramaj": "1 kg Koli",
+      "Çeşit": "Dereotlu Çörekotlu Tuzlu Kurabiye",
+      "Kullanım": "Çözündür Servis Et / Fırınlanabilir",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-101",
+    "name": "20:45 Donuk Dereotlu & Çörekotlu Mini Tuzlu Kurabiye Porsiyon Tabağı",
+    "code": "YKB-DNK-TKR-002",
+    "codeGroup": "20:45 Unlu Mamuller",
+    "categoryId": "cat-5",
+    "categoryName": "Pastalar",
+    "categorySlug": "donuk-pasta",
+    "description": "Kafeterya ve otel açık büfelerinde hızlı servis için porsiyonlanmış, taze pişmiş lezzetinde tuzlu mini kurabiye.",
+    "imageUrl": "/beyazresimler/karisik/karisik_101.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 240,
+    "vatRate": 20,
+    "order": 222,
+    "tags": [
+      "20:45",
+      "Kurabiye Tabağı",
+      "Tuzlu Kurabiye",
+      "Donuk Unlu Mamul"
+    ],
+    "specs": {
+      "Gramaj": "1 kg Koli",
+      "Çeşit": "Dereotlu Çörekotlu Mini Kurabiye Tabağı",
+      "Kullanım": "Otel Büfe, Kafe Servisi",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-102",
+    "name": "Caffè NONNO Ananas (Pineapple) Frozen Meyve Püresi 750ml",
+    "code": "NON-FRZ-PIN-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Altın sarısı olgun ananasların canlı tropikal aroması; Piña Colada, ananaslı smoothie ve buzlu içeceklerin vazgeçilmezi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_102.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 223,
+    "tags": [
+      "Caffè NONNO",
+      "Ananas",
+      "Frozen Püre",
+      "Piña Colada"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Ananas (Pineapple)",
+      "Kullanım": "Piña Colada, Tropikal Frozen, Smoothie",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-103",
+    "name": "Caffè NONNO Cool Poka Aromalı Bar Şurubu 750ml",
+    "code": "NON-SYR-CPK-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Ferahlatıcı narenciye ve tropikal botanik bileşenlerin özel harmanı; buz gibi yaz kokteylleri ve artisan sodalar için.",
+    "imageUrl": "/beyazresimler/karisik/karisik_103.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 224,
+    "tags": [
+      "Caffè NONNO",
+      "Cool Poka",
+      "Bar Şurubu",
+      "Refresher"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Cool Poka",
+      "Kullanım": "Buzlu İçecek, Artisan Soda, Kokteyl",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-104",
+    "name": "Caffè NONNO Chocolate Cookies Aromalı Şurup 750ml",
+    "code": "NON-SYR-CCK-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Kakaolu çıtır kurabiye aroması; latte ve frappelere Oreo / çikolatalı bisküvi lezzeti kazandırır.",
+    "imageUrl": "/beyazresimler/karisik/karisik_104.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 225,
+    "tags": [
+      "Caffè NONNO",
+      "Chocolate Cookies",
+      "Kurabiye Şurubu",
+      "Kahve"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Chocolate Cookies (Kakaolu Kurabiye)",
+      "Kullanım": "Kurabiyeli Latte, Frappe, Milkshake",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-105",
+    "name": "Caffè NONNO Vişne (Cherry) Frozen Meyve Püresi 750ml",
+    "code": "NON-FRZ-CHR-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Koyu kırmızı Kütahya vişnelerinin dolgun mayhoş lezzeti; vişneli frozen, soda miksi ve kokteyller için zengin meyve tabanı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_105.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 226,
+    "tags": [
+      "Caffè NONNO",
+      "Vişne",
+      "Cherry",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Vişne (Cherry)",
+      "Kullanım": "Vişneli Frozen, Smoothie, Kokteyl",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-106",
+    "name": "Caffè NONNO Muz (Banana) Frozen Meyve Püresi 750ml",
+    "code": "NON-FRZ-BAN-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Gerçek muz püresi kıvamı ve tatlı aroması; muzlu frozen, milkshake ve meyveli smoothie içeceklerinde kremsi yapı oluşturur.",
+    "imageUrl": "/beyazresimler/karisik/karisik_106.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 227,
+    "tags": [
+      "Caffè NONNO",
+      "Muz",
+      "Frozen Püre",
+      "Smoothie"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Muz (Banana)",
+      "Kullanım": "Muz Frozen, Smoothie, Milkshake",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-107",
+    "name": "Caffè NONNO Yeşil Elma (Green Apple) Frozen Püre 750ml",
+    "code": "NON-FRZ-GAP-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Granny Smith elmasının ferahlatıcı ekşi-tatlı tadı; yeşil elmalı frozen, ekşi kokteyller ve buzlu içeceklerde yüksek verim sağlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_107.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 228,
+    "tags": [
+      "Caffè NONNO",
+      "Yeşil Elma",
+      "Green Apple",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Yeşil Elma (Green Apple)",
+      "Kullanım": "Apple Frozen, Apple Sour, Smoothie",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-108",
+    "name": "20:45 Donuk Peynirli & Kaşarlı Mini Top Poğaça Porsiyon Tabağı",
+    "code": "YKB-DNK-POG-001",
+    "codeGroup": "20:45 Unlu Mamuller",
+    "categoryId": "cat-5",
+    "categoryName": "Pastalar",
+    "categorySlug": "donuk-pasta",
+    "description": "İçi lezzetli kaşar ve beyaz peynir dolgulu, puf puf kabaran mini top poğaçalar; kahvaltı büfeleri ve atıştırmalık saatleri için.",
+    "imageUrl": "/beyazresimler/karisik/karisik_108.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 250,
+    "vatRate": 20,
+    "order": 229,
+    "tags": [
+      "20:45",
+      "Mini Poğaça",
+      "Peynirli Poğaça",
+      "Kahvaltı",
+      "Donuk Unlu Mamul"
+    ],
+    "specs": {
+      "Gramaj": "1 kg Koli",
+      "Çeşit": "Peynirli Kaşarlı Mini Poğaça Tabağı",
+      "Kullanım": "Isıt ve Servis Et / Fırınlanabilir",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-109",
+    "name": "20:45 Donuk Peynirli & Kaşarlı Mini Top Poğaça (Tekli Gurme Sunum)",
+    "code": "YKB-DNK-POG-002",
+    "codeGroup": "20:45 Unlu Mamuller",
+    "categoryId": "cat-5",
+    "categoryName": "Pastalar",
+    "categorySlug": "donuk-pasta",
+    "description": "Altın sarısı fırınlanmış kabuğu ve eriyen peynir dolgusuyla tek lokmalık gurme lezzet.",
+    "imageUrl": "/beyazresimler/karisik/karisik_109.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 250,
+    "vatRate": 20,
+    "order": 230,
+    "tags": [
+      "20:45",
+      "Top Poğaça",
+      "Kaşarlı",
+      "Donuk Unlu Mamul"
+    ],
+    "specs": {
+      "Gramaj": "1 kg Koli",
+      "Çeşit": "Peynirli Mini Top Poğaça",
+      "Kullanım": "Kafe İkramı, Sıcak Servis",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-110",
+    "name": "Caffè NONNO Çarkıfelek (Passion Fruit) Frozen Püre 750ml",
+    "code": "NON-FRZ-PAS-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Egzotik çarkıfelek meyvesinin cezbedici kokusu ve mayhoş asiditesi; kokteyl barlarının en çok talep gören püre çeşidi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_110.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 231,
+    "tags": [
+      "Caffè NONNO",
+      "Çarkıfelek",
+      "Passion Fruit",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Çarkıfelek (Passion Fruit)",
+      "Kullanım": "Passion Frozen, Tropikal Kokteyl, Limonata",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-111",
+    "name": "Caffè NONNO Kivi (Kiwi) Frozen Meyve Püresi 750ml",
+    "code": "NON-FRZ-KIW-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Taze kivi çekirdekleri dokusu ve zümrüt yeşili rengi; ferahlatıcı yeşil detoks kokteylleri ve frozen içecekler için mükemmel.",
+    "imageUrl": "/beyazresimler/karisik/karisik_111.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 232,
+    "tags": [
+      "Caffè NONNO",
+      "Kivi",
+      "Kiwi",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Kivi (Kiwi)",
+      "Kullanım": "Kiwi Frozen, Detoks İçecek, Smoothie",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-112",
+    "name": "Krater Maestro del Gelato Yeşil Elmalı Meyve Karışımı 1kg (Varyant)",
+    "code": "KRT-ELM-1000-B",
+    "codeGroup": "Krater",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Doğal yeşil elma asitleri içeren dondurma ve tatlı preparatı; gelato ustaları için özel yoğun formül.",
+    "imageUrl": "/beyazresimler/karisik/karisik_112.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 320,
+    "vatRate": 20,
+    "order": 233,
+    "tags": [
+      "Krater",
+      "Yeşil Elma",
+      "Gelato",
+      "Meyve Karışımı"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Aroma": "Yeşil Elma",
+      "Kullanım": "Gelato, Dondurma, Pasta İçi Meyve Sosu",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-113",
+    "name": "Krater Maestro del Gelato Ananaslı Meyve Karışımı 1kg",
+    "code": "KRT-PIN-1000",
+    "codeGroup": "Krater",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Tropikal ananas parçacıkları ve nektarı içeren profesyonel dondurma ve bar miksoloji karışımı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_113.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 320,
+    "vatRate": 20,
+    "order": 234,
+    "tags": [
+      "Krater",
+      "Ananas",
+      "Maestro del Gelato",
+      "Püre"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Aroma": "Ananas (Pineapple)",
+      "Kullanım": "Ananas Gelato, Sorbe, Frozen, Tatlı Sosu",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-114",
+    "name": "Monte Cristo Badem (Almond) Aromalı Barista Şurubu 750ml",
+    "code": "MCR-SYR-ALM-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
-    "imageUrl": "/resimler/pt18/pt18_14.png",
-    "description": "Ferahlatıcı yeşil misket limonu (lime) ve taze nane esansları içeren, yaz içecekleri ve popüler Cool Lime kokteylleri için özel şurup bazı.",
+    "description": "Kavrulmuş acıbadem ve tatlı badem dengesi; kahveye ve Orgeat tarzı kokteyllere asil bir kuruyemiş aroması katar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_114.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 280,
+    "vatRate": 20,
+    "order": 235,
     "tags": [
-      "Şuruplar",
       "Monte Cristo",
-      "Cool Lime",
-      "Lime Şurubu",
-      "Barista",
-      "Kokteyl Şurubu",
-      "Mocktail"
+      "Badem",
+      "Almond",
+      "Orgeat",
+      "Barista Şurubu"
     ],
     "specs": {
-      "Hacim": "1000 ml (Cam / PET Şişe)",
-      "Kullanım Oranı": "1:7 veya 1:8 oranında su ve buz ile seyreltiniz.",
-      "Kullanım Alanı": "Cool Lime içecekleri, limonatalar, ferahlatıcı kokteyller.",
-      "Raf Ömrü": "3 gün",
-      "Saklama Koşulu": "Oda sıcaklığında, güneş ışığından uzakta muhafaza ediniz."
-    },
+      "Hacim": "750 ml",
+      "Aroma": "Badem (Almond)",
+      "Kullanım": "Almond Latte, Mai Tai, Sıcak Çikolata",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-115",
+    "name": "Monte Cristo Chai Tea Aromalı Barista Şurubu 750ml",
+    "code": "MCR-SYR-CHT-750",
+    "codeGroup": "Monte Cristo",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Kakule, tarçın, zencefil ve karanfil baharatlarının mistik Doğu harmanı; saniyeler içinde sıcacık Chai Latte hazırlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_115.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 280,
+    "vatRate": 20,
+    "order": 236,
+    "tags": [
+      "Monte Cristo",
+      "Chai Tea",
+      "Baharatlı Şurup",
+      "Latte"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Chai Tea (Baharatlı Çay)",
+      "Kullanım": "Chai Tea Latte, Baharatlı Sıcak Süt",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-116",
+    "name": "Monte Cristo Antep Fıstığı (Pistachio) Aromalı Barista Şurubu 750ml",
+    "code": "MCR-SYR-PST-750",
+    "codeGroup": "Monte Cristo",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Yeşil Antep fıstığının zarif ve zengin aroması; Pistachio Latte ve gurme kahve spesiyallerinin vazgeçilmezi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_116.png",
+    "isActive": true,
     "isFeatured": true,
-    "price": 0,
-    "vatRate": 20
+    "price": 280,
+    "vatRate": 20,
+    "order": 237,
+    "tags": [
+      "Monte Cristo",
+      "Antep Fıstığı",
+      "Pistachio",
+      "Gurme Şurup"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Antep Fıstığı (Pistachio)",
+      "Kullanım": "Pistachio Latte, Frappe, Soğuk Kahve",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-117",
+    "name": "Monte Cristo Çikolata (Chocolate) Aromalı Barista Şurubu 750ml",
+    "code": "MCR-SYR-CHO-750",
+    "codeGroup": "Monte Cristo",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Koyu çikolata ve kavruk kakao çekirdeği zenginliği; kahve içeceklerinde dengeli ve kalıcı tatlılık.",
+    "imageUrl": "/beyazresimler/karisik/karisik_117.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 280,
+    "vatRate": 20,
+    "order": 238,
+    "tags": [
+      "Monte Cristo",
+      "Çikolata",
+      "Mocha",
+      "Kahve Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Çikolata (Chocolate)",
+      "Kullanım": "Mocha, Çikolatalı Frappe, Sıcak Süt",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-118",
+    "name": "Monte Cristo Balkabağı Baharatı (Pumpkin Spice) Aromalı Şurup 750ml",
+    "code": "MCR-SYR-PMP-750",
+    "codeGroup": "Monte Cristo",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Sonbaharın en popüler içeceği Pumpkin Spice Latte için tarçın, hindistan cevizi cevizi (muskat), karanfil ve tatlı balkabağı miksi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_118.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 280,
+    "vatRate": 20,
+    "order": 239,
+    "tags": [
+      "Monte Cristo",
+      "Pumpkin Spice",
+      "Balkabağı",
+      "Sonbahar"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Pumpkin Spice (Balkabağı Baharatı)",
+      "Kullanım": "Pumpkin Spice Latte, Soğuk Köpük, Sıcak Kahve",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-119",
+    "name": "Monte Cristo Speculaas (Karamelli Bisküvi) Aromalı Şurup 750ml",
+    "code": "MCR-SYR-SPC-750",
+    "codeGroup": "Monte Cristo",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Geleneksel Hollanda/Belçika baharatlı bisküvisi lezzeti; kahvelere tereyağlı tarçınlı çıtır bisküvi hissi verir.",
+    "imageUrl": "/beyazresimler/karisik/karisik_119.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 280,
+    "vatRate": 20,
+    "order": 240,
+    "tags": [
+      "Monte Cristo",
+      "Speculaas",
+      "Bisküvi Şurubu",
+      "Lotus"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Speculaas (Karamelli Bisküvi)",
+      "Kullanım": "Speculaas Latte, Frappe, Sıcak Çikolata",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-120",
+    "name": "20:45 Donuk Dereotlu & Çörekotlu Mini Tuzlu Kurabiye (Gurme Sunum 2)",
+    "code": "YKB-DNK-TKR-003",
+    "codeGroup": "20:45 Unlu Mamuller",
+    "categoryId": "cat-5",
+    "categoryName": "Pastalar",
+    "categorySlug": "donuk-pasta",
+    "description": "Çörekotu taneleriyle süslenmiş gevrek mini tuzlu kurabiye; toplantı araları ve çay ikramlarında profesyonel çözüm.",
+    "imageUrl": "/beyazresimler/karisik/karisik_120.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 240,
+    "vatRate": 20,
+    "order": 241,
+    "tags": [
+      "20:45",
+      "Tuzlu Kurabiye",
+      "Donuk Unlu Mamul"
+    ],
+    "specs": {
+      "Gramaj": "1 kg Koli",
+      "Çeşit": "Dereotlu Tuzlu Kurabiye",
+      "Kullanım": "İkramlık, Çay Saati",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-121",
+    "name": "20:45 Donuk Dereotlu & Çörekotlu Mini Tuzlu Kurabiye Tabağı (Gurme Porsiyon 2)",
+    "code": "YKB-DNK-TKR-004",
+    "codeGroup": "20:45 Unlu Mamuller",
+    "categoryId": "cat-5",
+    "categoryName": "Pastalar",
+    "categorySlug": "donuk-pasta",
+    "description": "Servise hazır porsiyon sunumuyla kafe ve restoran operasyonlarında zamandan tasarruf sağlayan pratik unlu mamul.",
+    "imageUrl": "/beyazresimler/karisik/karisik_121.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 240,
+    "vatRate": 20,
+    "order": 242,
+    "tags": [
+      "20:45",
+      "Kurabiye Tabağı",
+      "Donuk Unlu Mamul"
+    ],
+    "specs": {
+      "Gramaj": "1 kg Koli",
+      "Çeşit": "Mini Tuzlu Kurabiye Porsiyon",
+      "Kullanım": "Kafe Menüsü, Kahve Yanı",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-122",
+    "name": "Caffè NONNO Ananas Frozen Meyve Püresi 750ml (Açı 2)",
+    "code": "NON-FRZ-PIN-750-B",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Yoğun meyve oranıyla hazırlanan tropikal ananas püresi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_122.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 243,
+    "tags": [
+      "Caffè NONNO",
+      "Ananas",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Ananas",
+      "Kullanım": "Frozen, Kokteyl, Smoothie",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-123",
+    "name": "Caffè NONNO Cool Poka Aromalı Şurup 750ml (Açı 2)",
+    "code": "NON-SYR-CPK-750-B",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Serinletici aromatik meyve ve botanik şurup bazı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_123.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 244,
+    "tags": [
+      "Caffè NONNO",
+      "Cool Poka",
+      "Bar Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Cool Poka",
+      "Kullanım": "Buzlu İçecek, Soda",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-124",
+    "name": "Caffè NONNO Chocolate Cookies Aromalı Şurup 750ml (Açı 2)",
+    "code": "NON-SYR-CCK-750-B",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Kakaolu çikolatalı kurabiye tadıyla zenginleştirilmiş kahve şurubu.",
+    "imageUrl": "/beyazresimler/karisik/karisik_124.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 270,
+    "vatRate": 20,
+    "order": 245,
+    "tags": [
+      "Caffè NONNO",
+      "Kurabiye Şurubu",
+      "Kahve"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Chocolate Cookies",
+      "Kullanım": "Latte, Frappe, Milkshake",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-125",
+    "name": "Caffè NONNO Vişne Frozen Meyve Püresi 750ml (Açı 2)",
+    "code": "NON-FRZ-CHR-750-B",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Doğal vişne mayhoşluğu içeren profesyonel frozen meyve püresi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_125.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 246,
+    "tags": [
+      "Caffè NONNO",
+      "Vişne",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Vişne",
+      "Kullanım": "Frozen, Kokteyl",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-126",
+    "name": "20:45 Donuk Peynirli Mini Top Poğaça (Tekli Gurme Sunum 2)",
+    "code": "YKB-DNK-POG-003",
+    "codeGroup": "20:45 Unlu Mamuller",
+    "categoryId": "cat-5",
+    "categoryName": "Pastalar",
+    "categorySlug": "donuk-pasta",
+    "description": "Fırından yeni çıkmış sıcaklığıyla leziz peynirli mini top poğaça.",
+    "imageUrl": "/beyazresimler/karisik/karisik_126.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 250,
+    "vatRate": 20,
+    "order": 247,
+    "tags": [
+      "20:45",
+      "Mini Poğaça",
+      "Donuk Unlu Mamul"
+    ],
+    "specs": {
+      "Gramaj": "1 kg Koli",
+      "Çeşit": "Peynirli Poğaça",
+      "Kullanım": "Kahvaltı, Sıcak Servis",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-127",
+    "name": "Caffè NONNO Muz Frozen Meyve Püresi 750ml (Açı 2)",
+    "code": "NON-FRZ-BAN-750-B",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Tatlı muz lezzeti ve kremsi doku sağlayan meyve püresi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_127.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 248,
+    "tags": [
+      "Caffè NONNO",
+      "Muz",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Muz",
+      "Kullanım": "Smoothie, Milkshake, Frozen",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-128",
+    "name": "Caffè NONNO Yeşil Elma Frozen Meyve Püresi 750ml (Açı 2)",
+    "code": "NON-FRZ-GAP-750-B",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Ferahlatıcı kütür ekşi elma tadı içeren frozen püresi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_128.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 310,
+    "vatRate": 20,
+    "order": 249,
+    "tags": [
+      "Caffè NONNO",
+      "Yeşil Elma",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Yeşil Elma",
+      "Kullanım": "Frozen, Kokteyl, Soda",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-129",
+    "name": "20:45 Donuk Peynirli Mini Top Poğaça Tabağı (Gurme Porsiyon 2)",
+    "code": "YKB-DNK-POG-004",
+    "codeGroup": "20:45 Unlu Mamuller",
+    "categoryId": "cat-5",
+    "categoryName": "Pastalar",
+    "categorySlug": "donuk-pasta",
+    "description": "Peynir dolgulu mini poğaçaların porsiyonluk gurme sunumu.",
+    "imageUrl": "/beyazresimler/karisik/karisik_129.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 250,
+    "vatRate": 20,
+    "order": 250,
+    "tags": [
+      "20:45",
+      "Poğaça Tabağı",
+      "Donuk Unlu Mamul"
+    ],
+    "specs": {
+      "Gramaj": "1 kg Koli",
+      "Çeşit": "Mini Poğaça Tabağı",
+      "Kullanım": "Otel Büfe, Kafe Menüsü",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-130",
+    "name": "CALLEI Pembe İncili Şekerleme Draje 1kg",
+    "code": "CAL-SUS-PIN-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Sedefli pembe inci görünümünde parlak şekerleme drajeleri; butik pastalar, nişan-düğün tatlıları ve şık waffle tabakları için zarif süsleme.",
+    "imageUrl": "/beyazresimler/karisik/karisik_130.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 290,
+    "vatRate": 20,
+    "order": 251,
+    "tags": [
+      "CALLEI",
+      "İnci Draje",
+      "Pembe Şekerleme",
+      "Pasta Süsleme"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Çeşit": "Pembe İnci Draje",
+      "Kullanım": "Butik Pasta, Özel Gün Pastaları, Waffle",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-131",
+    "name": "Monte Cristo Tarçın (Cinnamon) Aromalı Barista Şurubu 750ml",
+    "code": "MCR-SYR-CIN-750",
+    "codeGroup": "Monte Cristo",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Seylan tarçınının sıcacık odunsu ve baharatlı aroması; kış kahveleri, elmalı sıcak içecekler ve salep zenginleştirmede mükemmel.",
+    "imageUrl": "/beyazresimler/karisik/karisik_131.png",
+    "isActive": true,
+    "isFeatured": true,
+    "price": 280,
+    "vatRate": 20,
+    "order": 252,
+    "tags": [
+      "Monte Cristo",
+      "Tarçın",
+      "Cinnamon",
+      "Barista Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Tarçın (Cinnamon)",
+      "Kullanım": "Cinnamon Latte, Sıcak Elma Çayı, Kahve",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-132",
+    "name": "CALLEI Bitter Çıtır Pirinç Patlaklı Çikolata Draje (Crispy Pearl) 1kg",
+    "code": "CAL-SUS-BCP-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "İçi çıtır çıtır kavrulmuş pirinç patlağı, dışı kaliteli bitter çikolata kaplı minik inciler; mus, tatlı ve waffle üzerinde hafif çıtır doku sağlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_132.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 320,
+    "vatRate": 20,
+    "order": 253,
+    "tags": [
+      "CALLEI",
+      "Pirinç Patlağı",
+      "Crispy Pearl",
+      "Bitter Çikolata",
+      "Draje"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Çeşit": "Bitter Crispy Pearl (Pirinç Patlaklı Draje)",
+      "Kullanım": "Pasta, Mus, Waffle, Dondurma Topping",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-133",
+    "name": "Monte Cristo Nar (Pomegranate) Aromalı Barista Şurubu 750ml",
+    "code": "MCR-SYR-POM-750",
+    "codeGroup": "Monte Cristo",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Olgun narların yakut kırmızısı rengi ve ferahlatıcı mayhoşluğu; kokteyl barlarında renklendirme ve meyve tadı için tercih edilir.",
+    "imageUrl": "/beyazresimler/karisik/karisik_133.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 280,
+    "vatRate": 20,
+    "order": 254,
+    "tags": [
+      "Monte Cristo",
+      "Nar",
+      "Pomegranate",
+      "Bar Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Nar (Pomegranate)",
+      "Kullanım": "Grenadine İçecekler, Limonata, Kokteyl",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-134",
+    "name": "Monte Cristo Hindistan Cevizi (Coconut) Aromalı Barista Şurubu 750ml",
+    "code": "MCR-SYR-COC-750",
+    "codeGroup": "Monte Cristo",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Taze tropikal Hindistan cevizinin sütlü aroması; buzlu kahveler, soğuk köpükler ve egzotik kokteyllere zenginlik katar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_134.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 280,
+    "vatRate": 20,
+    "order": 255,
+    "tags": [
+      "Monte Cristo",
+      "Hindistan Cevizi",
+      "Coconut",
+      "Tropikal Şurup"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Hindistan Cevizi (Coconut)",
+      "Kullanım": "Coconut Cold Brew, Latte, Piña Colada",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-135",
+    "name": "Monte Cristo Misket Limonu (Lime) Aromalı Barista Şurubu 750ml",
+    "code": "MCR-SYR-LIM-750",
+    "codeGroup": "Monte Cristo",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Yeşil lime narenciyesinin canlandırıcı ekşiliği; barlarda hızlı ve dengeli Margarita, Mojito ve limonata hazırlığı sağlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_135.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 280,
+    "vatRate": 20,
+    "order": 256,
+    "tags": [
+      "Monte Cristo",
+      "Lime",
+      "Misket Limonu",
+      "Kokteyl Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Lime (Misket Limonu)",
+      "Kullanım": "Margarita, Mojito, Soğuk Soda, Limonata",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-136",
+    "name": "CALLEI Beyaz Çıtır Pirinç Patlaklı Çikolata Draje (White Crispy Pearl) 1kg",
+    "code": "CAL-SUS-WCP-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "İçi gevrek pirinç patlağı, dışı kremsi beyaz çikolata kaplı sedef görünümlü drajeler; pastacılık ve tatlı sunumlarında şıklık yaratır.",
+    "imageUrl": "/beyazresimler/karisik/karisik_136.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 320,
+    "vatRate": 20,
+    "order": 257,
+    "tags": [
+      "CALLEI",
+      "Beyaz Çikolata",
+      "Crispy Pearl",
+      "Pirinç Patlağı",
+      "Draje"
+    ],
+    "specs": {
+      "Gramaj": "1 kg",
+      "Çeşit": "Beyaz Crispy Pearl (Pirinç Patlaklı Draje)",
+      "Kullanım": "Tatlı Süsleme, Waffle, Pasta, Dondurma",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-137",
+    "name": "Monte Cristo Misket Limonu Aromalı Barista Şurubu 750ml (Açı 2)",
+    "code": "MCR-SYR-LIM-750-B",
+    "codeGroup": "Monte Cristo",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Yeşil misket limonu notalarıyla zenginleştirilmiş barmen ve barista şurubu.",
+    "imageUrl": "/beyazresimler/karisik/karisik_137.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 280,
+    "vatRate": 20,
+    "order": 258,
+    "tags": [
+      "Monte Cristo",
+      "Lime",
+      "Misket Limonu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Lime",
+      "Kullanım": "Kokteyl, Mocktail, Limonata",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-138",
+    "name": "Monte Cristo Karpuz (Watermelon) Aromalı Barista Şurubu 750ml",
+    "code": "MCR-SYR-WTR-750",
+    "codeGroup": "Monte Cristo",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Ferahlatıcı yaz karpuzunun tatlı meyve aroması ve canlı kırmızı tonu; buzlu içecek ve frozen reçetelerinde serinlik fırtınası.",
+    "imageUrl": "/beyazresimler/karisik/karisik_138.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 280,
+    "vatRate": 20,
+    "order": 259,
+    "tags": [
+      "Monte Cristo",
+      "Karpuz",
+      "Watermelon",
+      "Bar Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Karpuz (Watermelon)",
+      "Kullanım": "Karpuzlu Soda, Frozen, Yaz Kokteylleri",
+      "Menşei": "Türkiye"
+    }
+  },
+  {
+    "id": "prod-byz-139",
+    "name": "Monte Cristo Fındık (Hazelnut) Aromalı Barista Şurubu 750ml",
+    "code": "MCR-SYR-HAZ-750",
+    "codeGroup": "Monte Cristo",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Kavrulmuş fındık tanelerinin dolgun aroması; espresso ve filtre kahveye sıcacık fındık lezzeti katar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_139.png",
+    "isActive": true,
+    "isFeatured": false,
+    "price": 280,
+    "vatRate": 20,
+    "order": 260,
+    "tags": [
+      "Monte Cristo",
+      "Fındık",
+      "Hazelnut",
+      "Kahve Şurubu"
+    ],
+    "specs": {
+      "Hacim": "750 ml",
+      "Aroma": "Fındık (Hazelnut)",
+      "Kullanım": "Hazelnut Latte, Americano, Frappe",
+      "Menşei": "Türkiye"
+    }
   }
-];
-
-export const BRANDS_DATA = [
-  { name: "DaVinci Gourmet", subtitle: "Dünya Standartlarında Barista Şurupları & Püreler", order: 1, targetUrl: "/katalog?search=davinci", imageUrl: "/brands/davinci-gourmet.png", isActive: true },
-  { name: "Caffè NONNO", subtitle: "İtalyan Reçeteli Kahve Şurupları & Frozen Püreleri", order: 2, targetUrl: "/katalog?search=nonno", imageUrl: "/brands/caffe-nonno.png", isActive: true },
-  { name: "Monte Cristo", subtitle: "Gurme Bar Şurupları & Profesyonel Dekor Sosları", order: 3, targetUrl: "/katalog?search=monte-cristo", imageUrl: "/brands/monte-cristo.png", isActive: true },
-  { name: "CALLEI Chocolate", subtitle: "Waffle, Krep & Dondurma Çikolata Kremaları & Waffle Mix", order: 4, targetUrl: "/katalog?search=callei", imageUrl: "/brands/callei-chocolate.png", isActive: true },
-  { name: "EASY MIX Premixes", subtitle: "Doğal Meyve & Botanik Kokteyl Premiksleri", order: 5, targetUrl: "/katalog?search=easy%20mix", imageUrl: "/brands/easy-mix.png", isActive: true },
-  { name: "Krater", subtitle: "Maestro del Gelato Pastacılık & Dondurma Meyve Karışımları", order: 6, targetUrl: "/katalog?search=krater", imageUrl: "/brands/krater.png", isActive: true }
 ];
 
 async function seed() {
-  console.log("Seeding categories...");
-  const catSnap = await getDocs(collection(db, "categories"));
-  for (const docSnap of catSnap.docs) {
-    await deleteDoc(doc(db, "categories", docSnap.id));
-  }
-  for (const c of CATEGORIES_DATA) {
-    await setDoc(doc(db, "categories", c.id), {
-      name: c.name,
-      slug: c.slug,
-      description: c.description || "",
-      icon: c.icon || "",
-      productCount: c.productCount || 0,
-      imageUrl: c.imageUrl || "",
-      order: c.order || 1,
-      isActive: c.isActive !== false,
-      ...(c.parentId ? { parentId: c.parentId } : {}),
-      createdAt: serverTimestamp(),
-      updatedAt: serverTimestamp(),
+  console.log("Seeding", CATEGORIES.length, "categories and", PRODUCTS.length, "products...");
+  for (const cat of CATEGORIES) {
+    await setDoc(doc(db, "categories", cat.id), {
+      ...cat,
+      updatedAt: serverTimestamp()
     });
-    console.log(`✓ Category: ${c.name} (${c.slug})${c.parentId ? ` [alt: ${c.parentId}]` : ``}`);
   }
+  console.log("Categories seeded!");
 
-  console.log("\nSeeding brands...");
-  const brandSnap = await getDocs(collection(db, "brands"));
-  for (const docSnap of brandSnap.docs) {
-    await deleteDoc(doc(db, "brands", docSnap.id));
-  }
-  for (let i = 0; i < BRANDS_DATA.length; i++) {
-    const b = BRANDS_DATA[i];
-    const id = `brand-${i + 1}`;
-    await setDoc(doc(db, "brands", id), {
-      ...b,
-      createdAt: serverTimestamp(),
-      updatedAt: serverTimestamp(),
+  for (const prod of PRODUCTS) {
+    await setDoc(doc(db, "products", prod.id), {
+      ...prod,
+      updatedAt: serverTimestamp()
     });
-    console.log(`✓ Brand: ${b.name}`);
   }
-
-  console.log(`\nSeeding ${ALL_PRODUCTS.length} products...`);
-  const prodSnap = await getDocs(collection(db, "products"));
-  for (const docSnap of prodSnap.docs) {
-    await deleteDoc(doc(db, "products", docSnap.id));
-  }
-
-  for (let i = 0; i < ALL_PRODUCTS.length; i++) {
-    const p = ALL_PRODUCTS[i];
-    const id = p.id || `prod-${p.code.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-${i + 1}`;
-
-    const productDoc = {
-      name: p.name,
-      code: p.code,
-      codeGroup: p.codeGroup,
-      categoryId: p.categoryId,
-      categoryName: p.categoryName,
-      categorySlug: p.categorySlug,
-      price: p.price ?? 0,
-      vatRate: p.vatRate ?? 20,
-      order: i + 1,
-      description: p.description,
-      imageUrl: p.imageUrl,
-      isActive: true,
-      isFeatured: p.isFeatured || false,
-      tags: p.tags,
-      specs: p.specs || {},
-      createdAt: serverTimestamp(),
-      updatedAt: serverTimestamp(),
-    };
-
-    await setDoc(doc(db, "products", id), productDoc);
-    if ((i + 1) % 25 === 0 || i === ALL_PRODUCTS.length - 1) {
-      console.log(`[${i + 1}/${ALL_PRODUCTS.length}] ✓ ${p.name} (${p.categoryName})`);
-    }
-  }
-
-  console.log("\n🎉 All ${ALL_PRODUCTS.length} products, categories and brands successfully seeded into Firestore!");
+  console.log("Products seeded successfully!");
+  process.exit(0);
 }
 
-seed().catch(console.error);
-
-
+seed().catch(err => {
+  console.error("Seeding error:", err);
+  process.exit(1);
+});

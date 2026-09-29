@@ -79,6 +79,17 @@ export const SUBCATEGORIES_MAP: Record<string, { name: string; query: string }[]
     { name: "Özel Tasarım", query: "özel" },
     { name: "Kurumsal", query: "kurumsal" },
   ],
+  "pasta-susleme-draje": [
+    { name: "Damla Çikolatalar", query: "damla" },
+    { name: "Fındık Krokan & Fındık", query: "krokan" },
+    { name: "Çakıltaşı & Bonibon", query: "draje" },
+    { name: "Pirinç Patlaklı İnci", query: "pearl" },
+    { name: "Pasta Süsleme Şekeri", query: "şeker" },
+  ],
+  "donuk-unlu-mamuller": [
+    { name: "Dereotlu Tuzlu Kurabiyeler", query: "kurabiye" },
+    { name: "Peynirli Mini Poğaçalar", query: "poğaça" },
+  ],
   "kasa-onu-urunler": [
     { name: "Atıştırmalıklar", query: "atıştırmalık" },
     { name: "İkramlık & Mini", query: "ikramlık" },
