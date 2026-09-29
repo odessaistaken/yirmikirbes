@@ -181,7 +181,8 @@ export function getCategoryRank(cat: Partial<Category> | null | undefined): numb
  * Orijinal diziyi bozmaz (immutable).
  */
 export function sortCategories<T extends Partial<Category>>(categories: T[]): T[] {
-  return [...categories].sort((a, b) => {
+  // Sort first so canonical categories (e.g. cat-1..9) have priority rank
+  const sorted = [...categories].sort((a, b) => {
     const rankA = getCategoryRank(a);
     const rankB = getCategoryRank(b);
     if (rankA !== rankB) {
@@ -189,6 +190,28 @@ export function sortCategories<T extends Partial<Category>>(categories: T[]): T[
     }
     return (a.order ?? 0) - (b.order ?? 0);
   });
+
+  // Deduplicate by slug and id to prevent duplicate categories from appearing
+  const seen = new Set<string>();
+  const unique: T[] = [];
+
+  for (const cat of sorted) {
+    const slugKey = (cat.slug || "").toLowerCase().trim();
+    const idKey = (cat.id || "").toLowerCase().trim();
+    const key = slugKey || idKey;
+
+    if (key) {
+      if (!seen.has(key)) {
+        seen.add(key);
+        if (idKey) seen.add(idKey);
+        unique.push(cat);
+      }
+    } else {
+      unique.push(cat);
+    }
+  }
+
+  return unique;
 }
 
 /**
