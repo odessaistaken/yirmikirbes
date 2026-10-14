@@ -22,21 +22,24 @@ export default function Logo({
   const imgWidth  = Math.round(imgHeight * 0.901);
   const logoSrc   = variant === "dark" ? "/logo.png" : "/logo-light.png";
 
-  // HORECA font size proportional to logo height
-  const horecaFontSize = Math.round(imgHeight * 0.36);
+  // ── HORECA sizing ───────────────────────────────────────────────────────────
+  // "biraz büyük": 42% of logo height gives a prominent, logo-proportional size
+  const horecaFontSize = Math.round(imgHeight * 0.42);
 
-  // Guaranteed horizontal gap between logo image and HORECA (min 5 px)
-  const gap = Math.max(5, Math.round(imgHeight * 0.07));
+  // ── Positioning ─────────────────────────────────────────────────────────────
+  // "45" starts at ~46% from left edge of the logo image.
+  // Placing HORECA below the image row means it can NEVER touch the red lines
+  // inside the image — only the left-offset matters for visual alignment.
+  const horecaLeft = Math.round(imgWidth * 0.46);
 
-  // How much to lift HORECA off the very bottom baseline (always ≥ 2 px)
-  const bottomLift = Math.max(2, Math.round(imgHeight * 0.04));
+  // Vertical gap between bottom of logo image and top of HORECA (clearance)
+  const gap = Math.max(1, Math.round(imgHeight * 0.02));
 
   return (
     <div
-      className={`inline-flex items-end select-none ${className}`}
-      style={{ gap: `${gap}px` }}
+      className={`inline-flex flex-col select-none ${className}`}
     >
-      {/* ── Logo image ────────────────────────────────────────────────────── */}
+      {/* ── Logo image ──────────────────────────────────────────────────────── */}
       <div
         className="relative shrink-0 transition-transform duration-200 hover:scale-105"
         style={{ width: `${imgWidth}px`, height: `${imgHeight}px` }}
@@ -51,21 +54,22 @@ export default function Logo({
         />
       </div>
 
-      {/* ── HORECA — bottom-right of logo, never touching ─────────────────── */}
+      {/* ── HORECA — below "45", never touching red lines ───────────────────── */}
       {showText && (
         <span
           aria-hidden="true"
           style={{
             display: "block",
-            fontSize: `${horecaFontSize}px`,
-            fontWeight: 900,
-            color: "#D4AF37",
-            fontFamily: "var(--font-heading), 'Montserrat', sans-serif",
-            letterSpacing: "0.04em",
-            lineHeight: 1,
-            whiteSpace: "nowrap",
-            userSelect: "none",
-            paddingBottom: `${bottomLift}px`,
+            paddingLeft: `${horecaLeft}px`,
+            marginTop:   `${gap}px`,
+            fontSize:    `${horecaFontSize}px`,
+            fontWeight:  900,
+            color:       "#D4AF37",
+            fontFamily:  "var(--font-heading), 'Montserrat', sans-serif",
+            letterSpacing: "0.05em",
+            lineHeight:  1,
+            whiteSpace:  "nowrap",
+            userSelect:  "none",
           }}
         >
           HORECA
