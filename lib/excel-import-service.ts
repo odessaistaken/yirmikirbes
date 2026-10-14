@@ -69,6 +69,14 @@ const COLLECTION = "excelImports";
 
 // ── Helper: Intelligently detect product fields from dynamic Excel row ──────────
 
+function normalizeKey(str: string): string {
+  return str
+    .replace(/İ/g, "i")
+    .replace(/I/g, "ı")
+    .trim()
+    .toLowerCase();
+}
+
 export function detectRowFields(
   row: Record<string, unknown>,
   columns: string[] = []
@@ -76,13 +84,14 @@ export function detectRowFields(
   const rowKeys = Object.keys(row);
   const allKeys = columns.length > 0 ? columns : rowKeys;
 
-  // Helper matcher
+  // Helper matcher with Turkish character normalization
   const findKey = (patterns: (string | RegExp)[]): string => {
     for (const pat of patterns) {
       for (const k of allKeys) {
-        const lower = k.trim().toLowerCase();
+        const lower = normalizeKey(k);
         if (typeof pat === "string") {
-          if (lower === pat.toLowerCase()) return k;
+          const patLower = normalizeKey(pat);
+          if (lower === patLower) return k;
         } else if (pat.test(lower)) {
           return k;
         }
@@ -113,16 +122,17 @@ export function detectRowFields(
     /foto/i,
   ]);
 
-  // If no explicit image column name found, check if any column value looks like an image URL/path
+  // If no explicit image column name found, check if any column value looks like an image URL/path/base64
   if (!imageKey) {
     for (const k of rowKeys) {
       const val = String(row[k] ?? "").trim();
       if (
-        (val.startsWith("http://") ||
+        val.startsWith("data:image/") ||
+        ((val.startsWith("http://") ||
           val.startsWith("https://") ||
           val.startsWith("/resimler/") ||
           val.startsWith("/")) &&
-        /\.(png|jpe?g|webp|svg|gif|avif)(\?.*)?$/i.test(val)
+          /\.(png|jpe?g|webp|svg|gif|avif)(\?.*)?$/i.test(val))
       ) {
         imageKey = k;
         break;
@@ -131,7 +141,7 @@ export function detectRowFields(
   }
 
   // 2. Title / Name Key
-  const titleKey = findKey([
+  let titleKey = findKey([
     "ürün adı",
     "urun adi",
     "ürünadı",
@@ -144,17 +154,59 @@ export function detectRowFields(
     "title",
     "ad",
     "isim",
+    "lezzet",
+    "çeşit",
+    "çeşidi",
+    "premixed",
+    "pumps",
+    "da vinci şurup",
+    "da vinci surup",
+    "monte cristo",
+    "nonno şurup",
+    "nonno surup",
+    "callei",
     /ad[ıi]?$/i,
     /isim$/i,
     /ürün/i,
+    /urun/i,
   ]);
+
+  // Fallback: If no explicit title key, find the first text column with meaningful string values
+  if (!titleKey) {
+    for (const k of allKeys) {
+      const kLower = normalizeKey(k);
+      // Skip numeric, price, code, unit, image columns
+      if (
+        /^(no|sira|sıra|kod|sku|fiyat|price|kdv|miktar|gr|gramaj|koli|kutu|görsel|resim)/i.test(kLower)
+      ) {
+        continue;
+      }
+      const val = String(row[k] ?? "").trim();
+      if (val && isNaN(Number(val)) && val.length > 2 && !val.startsWith("http")) {
+        titleKey = k;
+        break;
+      }
+    }
+  }
 
   // 3. Price Key
   const priceKey = findKey([
+    "kutu satış fiyatı",
+    "kutu satis fiyati",
+    "koli fiyatı",
+    "koli fiyati",
+    "adet fiyat",
+    "adet fiyatı",
+    "adet fiyati",
+    "satış fiyatı",
+    "satis fiyati",
+    "birim fiyat",
+    "birim fiyatı",
+    "birim fiyati",
+    "kdv dahil fiyat",
     "fiyat",
     "fiyatı",
     "fiyati",
-    "birim fiyat",
     "price",
     "tutar",
     "ücret",
@@ -167,6 +219,9 @@ export function detectRowFields(
     "kategori",
     "kategori adı",
     "kategoriadi",
+    "ürün ana grubu",
+    "urun ana grubu",
+    "ana grup",
     "category",
     "grup",
     "tür",
@@ -176,20 +231,24 @@ export function detectRowFields(
 
   // 5. Code / SKU Key
   const codeKey = findKey([
-    "kod",
     "ürün kodu",
     "urunkodu",
-    "code",
-    "sku",
+    "stok kodu",
+    "stokkodu",
     "barkod",
     "barcode",
-    "stok kodu",
+    "kod",
+    "code",
+    "sku",
+    "no",
     /kod/i,
     /sku/i,
   ]);
 
   // 6. Description Key
   const descriptionKey = findKey([
+    "hazırlanışı",
+    "hazirlanisi",
     "açıklama",
     "aciklama",
     "detay",
@@ -201,21 +260,33 @@ export function detectRowFields(
     /desc/i,
   ]);
 
-  const title = titleKey
-    ? String(row[titleKey] ?? "")
-    : String(
-        row["name"] ||
-          row["Ürün Adı"] ||
-          row["title"] ||
-          row[allKeys[0]] ||
-          "İsimsiz Ürün"
-      );
+  let title = titleKey ? String(row[titleKey] ?? "").trim() : "";
+  if (!title) {
+    // Check common fallbacks
+    for (const fallbackKey of ["Ürün Adı", "name", "title", "ÜRÜN ADI"]) {
+      if (row[fallbackKey]) {
+        title = String(row[fallbackKey]).trim();
+        break;
+      }
+    }
+    if (!title && allKeys.length > 0) {
+      // Pick first non-empty text value in the row
+      for (const k of allKeys) {
+        const val = String(row[k] ?? "").trim();
+        if (val && isNaN(Number(val)) && !val.startsWith("data:") && !val.startsWith("http")) {
+          title = val;
+          break;
+        }
+      }
+    }
+  }
+  if (!title) title = "İsimsiz Ürün";
 
   const imageUrl = imageKey ? String(row[imageKey] ?? "").trim() : "";
   const price = priceKey ? (row[priceKey] as string | number) : "";
-  const category = categoryKey ? String(row[categoryKey] ?? "") : "";
-  const code = codeKey ? String(row[codeKey] ?? "") : "";
-  const description = descriptionKey ? String(row[descriptionKey] ?? "") : "";
+  const category = categoryKey ? String(row[categoryKey] ?? "").trim() : "";
+  const code = codeKey ? String(row[codeKey] ?? "").trim() : "";
+  const description = descriptionKey ? String(row[descriptionKey] ?? "").trim() : "";
 
   return {
     id: (row["id"] as string | number) || code || title || Math.random(),

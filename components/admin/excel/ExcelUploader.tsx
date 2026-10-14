@@ -35,6 +35,55 @@ export default function ExcelUploader({ onParsed, disabled }: ExcelUploaderProps
   const [error, setError] = useState<string | null>(null);
   const [extractedImageCount, setExtractedImageCount] = useState<number>(0);
 
+  // ── Header scoring helper ────────────────────────────────────────────────────
+  const HEADER_KEYWORDS = [
+    "ürün", "urun", "adı", "adi", "fiyat", "fiyati", "kdv", "miktar",
+    "koli", "kutu", "dilim", "gramaj", "kod", "barkod", "stok",
+    "kategori", "açıklama", "aciklama", "detay", "no", "tutar", "birim",
+    "name", "price", "sku", "category", "code", "desc", "şurup", "surup", "sos", "püre", "pure", "hazırlanışı"
+  ];
+
+  const scoreHeaderRow = (row: unknown[]): number => {
+    const filled = row.filter((c) => c !== null && c !== undefined && String(c).trim() !== "");
+    if (filled.length === 0) return -100;
+
+    const firstStr = String(filled[0]).trim().toLowerCase();
+    if (
+      firstStr.startsWith("***") ||
+      firstStr.startsWith("not:") ||
+      firstStr.startsWith("uyarı:") ||
+      firstStr.startsWith("açıklama:")
+    ) {
+      return -100;
+    }
+
+    let score = 0;
+    let numericCount = 0;
+
+    for (const c of filled) {
+      const valStr = String(c).trim().toLowerCase();
+      const isNum = !isNaN(Number(valStr)) && valStr !== "";
+      if (isNum) {
+        numericCount++;
+        continue;
+      }
+
+      let matched = false;
+      for (const kw of HEADER_KEYWORDS) {
+        if (valStr.includes(kw)) {
+          score += 10;
+          matched = true;
+          break;
+        }
+      }
+      if (!matched) score += 1;
+    }
+
+    // Heavy penalty for rows containing numeric prices or quantities
+    score -= numericCount * 8;
+    return score;
+  };
+
   // ── Parse workbook for a specific sheet with image mapping ──────────────────
   const parseSheet = useCallback(
     async (
@@ -47,77 +96,141 @@ export default function ExcelUploader({ onParsed, disabled }: ExcelUploaderProps
       const ws = wb.Sheets[sheet];
       if (!ws) return;
 
-      // 1. Gömülü resimleri ZIP'ten çıkar
+      // 1. Gömülü resimleri bu sayfa için ZIP'ten çıkar
       let imagesByRow: Record<number, string> = {};
+      let imagesByCell: Record<string, string> = {};
       const activeBuf = buffer || fileBuffer;
 
       if (activeBuf && fname.match(/\.xlsx$/i)) {
         try {
-          const imgResult = await extractExcelEmbeddedImages(activeBuf);
+          const imgResult = await extractExcelEmbeddedImages(activeBuf, sheet);
           imagesByRow = imgResult.imagesByRow;
+          imagesByCell = imgResult.imagesByCell || {};
         } catch (imgErr) {
           console.warn("Gömülü resim çıkarma atlandı:", imgErr);
         }
       }
 
-      // 2. Ham satırları al ve en uygun başlık (header) satırını otomatik tespit et
+      // 2. Ham satırları al
       const rawRows = XLSX.utils.sheet_to_json<unknown[]>(ws, {
         header: 1,
         defval: "",
       });
 
-      let bestHeaderIdx = 0;
-      let maxFilled = 0;
+      if (rawRows.length === 0) {
+        setError("Seçilen sayfada veri bulunamadı.");
+        return;
+      }
 
-      for (let i = 0; i < Math.min(rawRows.length, 12); i++) {
-        const r = rawRows[i] || [];
-        const filled = r.filter((c) => String(c ?? "").trim() !== "").length;
-        if (filled > maxFilled) {
-          maxFilled = filled;
+      // 3. Akıllı Başlık (Header) Tespiti
+      let bestHeaderIdx = 0;
+      let bestScore = -999;
+      for (let i = 0; i < Math.min(15, rawRows.length); i++) {
+        const s = scoreHeaderRow(rawRows[i] || []);
+        if (s > bestScore) {
+          bestScore = s;
           bestHeaderIdx = i;
         }
       }
 
-      // 3. Sütun isimlerini normalize et (tekrarları ve boşlukları önle)
-      const rawHeaderRow = (rawRows[bestHeaderIdx] || []) as string[];
-      const seenHeaders = new Set<string>();
-      const columns: string[] = [];
+      const hasExplicitHeader = bestScore > 0;
+      const rawHeaderRow = (hasExplicitHeader ? (rawRows[bestHeaderIdx] || []) : []) as unknown[];
 
-      rawHeaderRow.forEach((h, colIdx) => {
-        let name = String(h ?? "").trim();
-        if (!name) {
-          name = `Kolon_${colIdx + 1}`;
+      // Başlıktan sonra verinin başladığı satır indeksi
+      let dataStartIdx = hasExplicitHeader ? bestHeaderIdx + 1 : 0;
+      if (!hasExplicitHeader) {
+        // Eğer 0. satır sadece 1-2 hücreli bir başlık afişiyse (örn: MONTE CRİSTO ŞURUPLAR)
+        const row0Filled = (rawRows[0] || []).filter((c) => String(c ?? "").trim() !== "").length;
+        if (row0Filled > 0 && row0Filled <= 2 && rawRows.length > 1) {
+          dataStartIdx = 1;
         }
+      }
+
+      // 4. Veri içeren aktif sütunları tespit et (tamamen boş hayalet sütunları eler)
+      const maxCols = Math.max(
+        rawHeaderRow.length,
+        ...rawRows.slice(dataStartIdx).map((r) => (r || []).length)
+      );
+
+      const activeColIndices: number[] = [];
+      for (let c = 0; c < maxCols; c++) {
+        const headerVal = String(rawHeaderRow[c] ?? "").trim();
+        const hasData = rawRows.slice(dataStartIdx).some((r) => {
+          const v = (r || [])[c];
+          return v !== null && v !== undefined && String(v).trim() !== "";
+        });
+        if (hasData || headerVal) {
+          activeColIndices.push(c);
+        }
+      }
+
+      // 5. Temiz ve benzersiz sütun adları üret
+      const columns: string[] = [];
+      const seenHeaders = new Set<string>();
+
+      activeColIndices.forEach((colIdx, position) => {
+        let name = String(rawHeaderRow[colIdx] ?? "").trim();
+        if (!name) {
+          // İlk sütun ardışık sıra numarası mı?
+          const isSequentialNumbers = rawRows.slice(dataStartIdx, dataStartIdx + 5).every((r) => {
+            const v = Number((r || [])[colIdx]);
+            return !isNaN(v) && v > 0;
+          });
+          if (position === 0 && isSequentialNumbers) {
+            name = "No";
+          } else {
+            name = `Sütun_${position + 1}`;
+          }
+        }
+
         let uniqueName = name;
         let counter = 2;
-        while (seenHeaders.has(uniqueName)) {
+        while (seenHeaders.has(uniqueName.toLowerCase())) {
           uniqueName = `${name}_${counter}`;
           counter++;
         }
-        seenHeaders.add(uniqueName);
+        seenHeaders.add(uniqueName.toLowerCase());
         columns.push(uniqueName);
       });
 
-      // 4. Veri satırlarını oluştur ve gömülü resimleri eşleştir
+      // 6. Veri satırlarını oluştur ve gömülü resimleri tam 1-e-1 eşleştir
       const parsedRows: Record<string, unknown>[] = [];
       let totalFoundImages = 0;
 
-      for (let i = bestHeaderIdx + 1; i < rawRows.length; i++) {
+      for (let i = dataStartIdx; i < rawRows.length; i++) {
         const r = (rawRows[i] || []) as unknown[];
-        // Tamamen boş satırları atla
-        if (!r.some((c) => String(c ?? "").trim() !== "")) continue;
+
+        // Aktif sütunlarda veri var mı kontrol et
+        const filledCells = activeColIndices.filter(
+          (c) => String(r[c] ?? "").trim() !== ""
+        );
+        if (filledCells.length === 0) continue;
+
+        // Dipnot satırlarını filtrele (örn: tek hücreli ***BUZDOLABINDA...)
+        if (filledCells.length === 1) {
+          const singleVal = String(r[filledCells[0]] ?? "").trim().toLowerCase();
+          if (
+            singleVal.startsWith("***") ||
+            singleVal.startsWith("not:") ||
+            singleVal.startsWith("uyarı:") ||
+            singleVal.startsWith("açıklama:")
+          ) {
+            continue;
+          }
+        }
 
         const rowObj: Record<string, unknown> = {};
-        columns.forEach((col, colIdx) => {
-          rowObj[col] = r[colIdx] !== undefined ? r[colIdx] : "";
+        activeColIndices.forEach((c, idx) => {
+          const colName = columns[idx];
+          let val = r[c] !== undefined ? r[c] : "";
+          if (typeof val === "string") val = val.trim();
+          rowObj[colName] = val;
         });
 
-        // Bu satıra ait gömülü resmi bul (tam satır veya 1 tolerans)
-        let foundImg =
-          imagesByRow[i] || imagesByRow[i + 1] || imagesByRow[i - 1] || "";
+        // Bu satıra ait gömülü resmi bul (1-e-1 kesin satır eşleşmesi, kayma olmadan)
+        const foundImg = imagesByRow[i] || "";
 
         if (foundImg) {
-          // Çok büyük base64 resimleri güvenli thumbnail boyutuna sıkıştır
           const compressed = await resizeImageBase64(foundImg, 320, 320, 0.82);
           rowObj["Görsel"] = compressed;
           totalFoundImages++;
@@ -126,10 +239,15 @@ export default function ExcelUploader({ onParsed, disabled }: ExcelUploaderProps
         parsedRows.push(rowObj);
       }
 
-      // "Görsel" sütununu sütun listesine ekle
+      // "Görsel" sütununu sütun listesine mantıklı bir konuma ekle
       let finalColumns = [...columns];
       if (totalFoundImages > 0 && !finalColumns.includes("Görsel")) {
-        finalColumns = ["Görsel", ...finalColumns];
+        const noIdx = finalColumns.findIndex((c) => /^no$/i.test(c.trim()));
+        if (noIdx !== -1) {
+          finalColumns.splice(noIdx + 1, 0, "Görsel");
+        } else {
+          finalColumns = ["Görsel", ...finalColumns];
+        }
       }
 
       setExtractedImageCount(totalFoundImages);

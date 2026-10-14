@@ -1,7 +1,7 @@
 "use client";
 
 export const dynamic = 'force-dynamic';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -40,19 +40,24 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const { currentUser, userRole, loading, logoutUser } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   /* Guard: only admin */
   useEffect(() => {
-    if (!loading) {
+    if (mounted && !loading) {
       if (!currentUser) {
         router.push("/giris");
       } else if (userRole && userRole !== "admin") {
         router.push("/hesap");
       }
     }
-  }, [currentUser, userRole, loading, router]);
+  }, [currentUser, userRole, loading, router, mounted]);
 
-  if (loading || !currentUser || userRole !== "admin") {
+  if (!mounted || loading || !currentUser || userRole !== "admin") {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin" />

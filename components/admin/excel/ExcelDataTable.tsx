@@ -14,8 +14,11 @@ import {
   ChevronLeft,
   ChevronRight,
   Maximize2,
+  Download,
 } from "lucide-react";
+import toast from "react-hot-toast";
 import type { ExcelImportRecord } from "@/lib/excel-import-service";
+import { exportToExcel } from "@/lib/excel-export";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
@@ -80,6 +83,29 @@ function RecordViewer({ record }: { record: ExcelImportRecord }) {
         <span className="text-xs text-slate-400">
           {filtered.length.toLocaleString("tr-TR")} satır gösteriliyor
         </span>
+
+        <button
+          type="button"
+          onClick={() => {
+            try {
+              exportToExcel({
+                fileName: record.fileName,
+                sheetName: record.sheetName || "Veriler",
+                columns: record.columns,
+                rows: filtered,
+              });
+              toast.success(`"${record.fileName}" (${filtered.length} satır) indirildi.`);
+            } catch (err) {
+              console.error(err);
+              toast.error("Excel indirilirken hata oluştu.");
+            }
+          }}
+          className="ml-auto flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 rounded-lg transition-colors"
+          title="Filtrelenmiş satırları Excel olarak indir"
+        >
+          <Download size={12} className="text-emerald-600" />
+          <span>Excel İndir</span>
+        </button>
       </div>
 
       {/* Table */}
@@ -109,11 +135,33 @@ function RecordViewer({ record }: { record: ExcelImportRecord }) {
               pageRows.map((row, i) => (
                 <tr key={i} className="hover:bg-slate-50 transition-colors">
                   <td className="px-3 py-2 text-slate-400">{page * PAGE_SIZE + i + 1}</td>
-                  {record.columns.map((col) => (
-                    <td key={col} className="px-3 py-2 text-slate-700 max-w-[220px] truncate">
-                      {String(row[col] ?? "")}
-                    </td>
-                  ))}
+                  {record.columns.map((col) => {
+                    const val = row[col];
+                    const isImgCol =
+                      col.toLowerCase().includes("görsel") ||
+                      col.toLowerCase().includes("resim");
+                    if (
+                      isImgCol &&
+                      typeof val === "string" &&
+                      (val.startsWith("data:image/") || val.startsWith("http"))
+                    ) {
+                      return (
+                        <td key={col} className="px-3 py-2 text-slate-700 w-12">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={val}
+                            alt="Önizleme"
+                            className="w-8 h-8 object-cover rounded border border-slate-200 inline-block bg-white"
+                          />
+                        </td>
+                      );
+                    }
+                    return (
+                      <td key={col} className="px-3 py-2 text-slate-700 max-w-[220px] truncate">
+                        {String(val ?? "")}
+                      </td>
+                    );
+                  })}
                 </tr>
               ))
             )}
@@ -236,6 +284,31 @@ export default function ExcelDataTable({
 
               {/* Actions */}
               <div className="flex items-center gap-2 shrink-0">
+                {/* Download Excel */}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    try {
+                      exportToExcel({
+                        fileName: record.fileName,
+                        sheetName: record.sheetName || "Veriler",
+                        columns: record.columns,
+                        rows: record.rows,
+                      });
+                      toast.success(`"${record.fileName}" Excel olarak indirildi.`);
+                    } catch (err) {
+                      console.error("Excel indirme hatası:", err);
+                      toast.error("Excel indirilirken bir hata oluştu.");
+                    }
+                  }}
+                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 rounded-xl transition-colors shadow-2xs"
+                  title="Bu tablonun Excel (.xlsx) dosyasını indir"
+                >
+                  <Download size={12} className="text-emerald-600" />
+                  <span className="hidden sm:inline">İndir</span>
+                </button>
+
                 {/* Wide View & Edit */}
                 <Link
                   href={`/admin/ice-aktarilan-veriler?id=${record.id}`}

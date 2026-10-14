@@ -25,8 +25,8 @@ import {
   ChevronDown,
 } from "lucide-react";
 import toast from "react-hot-toast";
-import * as XLSX from "xlsx";
 import { requireDb } from "@/lib/firebase";
+import { exportToExcel } from "@/lib/excel-export";
 import {
   getAllExcelImports,
   updateExcelImportRow,
@@ -205,40 +205,22 @@ function ImportedDataContent() {
     );
   };
 
-  // Export to Excel file (görsel URL'leri de dahil)
+  // Export to Excel file (güvenli, bozulmayan ve estetik formatlı)
   const handleExportExcel = () => {
-    if (!activeRecord || filteredRows.length === 0) return;
+    if (!activeRecord || filteredRows.length === 0) {
+      toast.error("Dışa aktarılacak veri bulunamadı.");
+      return;
+    }
     try {
-      // Her satıra Görsel sütununu (varsa) ekle
-      const exportRows = filteredRows.map((row) => {
-        const { detectRowFields: _det, ...rest } = { detectRowFields: null, ...row };
-        void _det;
-        const imgSrc = String(
-          row["Görsel"] || row["Resim"] || row["imageUrl"] || ""
-        ).trim();
-
-        // Görsel URL'yi ayrı sütun olarak garantile
-        const exportRow: Record<string, unknown> = { ...rest };
-        if (imgSrc && !exportRow["Görsel"] && !exportRow["Resim"]) {
-          exportRow["Görsel URL"] = imgSrc;
-        }
-        return exportRow;
+      exportToExcel({
+        fileName: activeRecord.fileName,
+        sheetName: activeRecord.sheetName || "Veriler",
+        columns: activeRecord.columns,
+        rows: filteredRows,
       });
-
-      const ws = XLSX.utils.json_to_sheet(exportRows);
-
-      // Görsel sütunlarını geniş yap (URL'ler uzun olabilir)
-      const range = XLSX.utils.decode_range(ws["!ref"] || "A1");
-      const colWidths: { wch: number }[] = [];
-      for (let c = range.s.c; c <= range.e.c; c++) {
-        colWidths.push({ wch: 32 });
-      }
-      ws["!cols"] = colWidths;
-
-      const wb = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(wb, ws, activeRecord.sheetName || "Veriler");
-      XLSX.writeFile(wb, `${activeRecord.fileName.replace(/\.[^/.]+$/, "")}_düzenlenmiş.xlsx`);
-      toast.success("Excel dosyası (görsellerle) başarıyla indirildi.");
+      toast.success(
+        `"${activeRecord.fileName}" (${filteredRows.length} satır) başarıyla Excel olarak indirildi.`
+      );
     } catch (err) {
       console.error("Excel indirme hatası:", err);
       toast.error("Excel oluşturulurken bir hata oluştu.");

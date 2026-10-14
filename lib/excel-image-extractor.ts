@@ -11,6 +11,8 @@ import JSZip from "jszip";
 export interface ExtractedExcelImages {
   /** 0-indexed Excel satır numarası -> Base64 Data URI */
   imagesByRow: Record<number, string>;
+  /** 0-indexed Excel "satır_sütun" koordinatı -> Base64 Data URI */
+  imagesByCell: Record<string, string>;
   /** Dosyadaki tüm çıkarılan resimlerin listesi (fallback için) */
   allMedia: string[];
 }
@@ -47,7 +49,7 @@ export async function resizeImageBase64(
   base64Str: string,
   maxWidth = 320,
   maxHeight = 320,
-  quality = 0.8
+  quality = 0.82
 ): Promise<string> {
   // Sadece browser ortamında çalıştır
   if (typeof window === "undefined" || !base64Str.startsWith("data:image")) {
@@ -62,7 +64,7 @@ export async function resizeImageBase64(
       let height = img.height;
 
       // Boyut zaten küçükse sıkıştırmaya gerek yok
-      if (width <= maxWidth && height <= maxHeight && base64Str.length < 50000) {
+      if (width <= maxWidth && height <= maxHeight && base64Str.length < 40000) {
         resolve(base64Str);
         return;
       }
@@ -80,8 +82,8 @@ export async function resizeImageBase64(
       }
 
       const canvas = document.createElement("canvas");
-      canvas.width = width;
-      canvas.height = height;
+      canvas.width = Math.max(1, width);
+      canvas.height = Math.max(1, height);
       const ctx = canvas.getContext("2d");
       if (!ctx) {
         resolve(base64Str);
@@ -89,7 +91,6 @@ export async function resizeImageBase64(
       }
 
       ctx.drawImage(img, 0, 0, width, height);
-      // JPEG olarak sıkıştırarak boyutu %80-90 oranında küçült
       const compressed = canvas.toDataURL("image/jpeg", quality);
       resolve(compressed);
     };
@@ -99,12 +100,16 @@ export async function resizeImageBase64(
 }
 
 /**
- * Bir .xlsx dosyasından (ArrayBuffer) tüm gömülü resimleri ve satır eşleşmelerini çıkarır.
+ * Bir .xlsx dosyasından (ArrayBuffer) tüm gömülü resimleri ve satır/hücre eşleşmelerini çıkarır.
+ * @param fileBuffer Excel dosyasının ArrayBuffer'ı
+ * @param targetSheetName İsteğe bağlı hedef sayfa adı (varsa sadece o sayfanın çizimleri eşlenir)
  */
 export async function extractExcelEmbeddedImages(
-  fileBuffer: ArrayBuffer
+  fileBuffer: ArrayBuffer,
+  targetSheetName?: string
 ): Promise<ExtractedExcelImages> {
   const imagesByRow: Record<number, string> = {};
+  const imagesByCell: Record<string, string> = {};
   const allMedia: string[] = [];
 
   try {
@@ -149,8 +154,56 @@ export async function extractExcelEmbeddedImages(
       relsByDrawing[drawingPath] = rels;
     }
 
-    // 3. Her drawing XML dosyasından anchor'ları (<xdr:from><xdr:row>) parse et
+    // 3. Eğer targetSheetName belirtilmişse bu sayfanın çizim dosyasını tespit et
+    let targetDrawingPath: string | null = null;
+    if (targetSheetName) {
+      const wbXml = await zip.file("xl/workbook.xml")?.async("string");
+      const wbRelsXml = await zip.file("xl/_rels/workbook.xml.rels")?.async("string");
+
+      if (wbXml && wbRelsXml) {
+        // Sheet name regex to find r:id
+        const sheetRegex = new RegExp(
+          `<sheet[^>]+name=["']${targetSheetName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}["'][^>]+r:id=["']([^"']+)["']`,
+          "i"
+        );
+        const sheetMatch = wbXml.match(sheetRegex);
+        if (sheetMatch) {
+          const rId = sheetMatch[1];
+          const relRegex = new RegExp(
+            `<Relationship[^>]+Id=["']${rId}["'][^>]+Target=["']([^"']+)["']`,
+            "i"
+          );
+          const relMatch = wbRelsXml.match(relRegex);
+          if (relMatch) {
+            let sheetPath = relMatch[1];
+            if (!sheetPath.startsWith("xl/")) {
+              sheetPath = "xl/" + sheetPath.replace(/^\//, "");
+            }
+            const sheetRelsPath = sheetPath.replace(
+              /worksheets\/(sheet\d+\.xml)$/i,
+              "worksheets/_rels/$1.rels"
+            );
+            const sheetRelsText = await zip.file(sheetRelsPath)?.async("string");
+            if (sheetRelsText) {
+              const drawMatch = sheetRelsText.match(
+                /Target=["'](\.\.\/drawings\/drawing\d+\.xml)["']/i
+              );
+              if (drawMatch) {
+                targetDrawingPath = "xl/drawings/" + drawMatch[1].split("/").pop();
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 4. Drawing XML dosyalarından anchor'ları parse et
     for (const [drawingPath, rels] of Object.entries(relsByDrawing)) {
+      // Eğer hedef sayfa çizimi biliniyorsa diğer sayfaların çizimlerini bu sayfaya karıştırma
+      if (targetDrawingPath && drawingPath !== targetDrawingPath) {
+        continue;
+      }
+
       const drawFile = zip.file(drawingPath);
       if (!drawFile) continue;
       const drawText = await drawFile.async("string");
@@ -164,6 +217,9 @@ export async function extractExcelEmbeddedImages(
         const rowMatch = anchorContent.match(
           /<xdr:from>[\s\S]*?<xdr:row>(\d+)<\/xdr:row>/i
         );
+        const colMatch = anchorContent.match(
+          /<xdr:from>[\s\S]*?<xdr:col>(\d+)<\/xdr:col>/i
+        );
         const blipMatch = anchorContent.match(
           /<a:blip[^>]+r:embed=["']([^"']+)["']/i
         );
@@ -176,12 +232,16 @@ export async function extractExcelEmbeddedImages(
 
           if (imageUri) {
             imagesByRow[excelRow] = imageUri;
+            if (colMatch) {
+              const excelCol = parseInt(colMatch[1], 10);
+              imagesByCell[`${excelRow}_${excelCol}`] = imageUri;
+            }
           }
         }
       }
     }
 
-    // 4. Excel 365 "Hücre İçine Yerleştir" (cellimages.xml) kontrolü
+    // 5. Excel 365 "Hücre İçine Yerleştir" (cellimages.xml) kontrolü
     const cellImagesRels = files.find((f) =>
       /xl\/_rels\/cellimages\.xml\.rels$/i.test(f)
     );
@@ -202,7 +262,6 @@ export async function extractExcelEmbeddedImages(
           ciRels[rm[1]] = target;
         }
 
-        // Cell image anchor'ları
         const picRegex =
           /<etc:cellImage[^>]*>[\s\S]*?<a:blip[^>]+r:embed=["']([^"']+)["'][\s\S]*?<\/etc:cellImage>/gi;
         let pm: RegExpExecArray | null;
@@ -211,7 +270,6 @@ export async function extractExcelEmbeddedImages(
           const rId = pm[1];
           const mediaPath = ciRels[rId];
           if (mediaPath && mediaCache[mediaPath]) {
-            // Hücre içi resim sırası
             if (!imagesByRow[idx]) {
               imagesByRow[idx] = mediaCache[mediaPath];
             }
@@ -226,6 +284,7 @@ export async function extractExcelEmbeddedImages(
 
   return {
     imagesByRow,
+    imagesByCell,
     allMedia,
   };
 }
