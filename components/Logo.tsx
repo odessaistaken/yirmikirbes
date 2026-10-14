@@ -23,8 +23,8 @@ export default function Logo({
   const width = Math.round(imgHeight * 0.901);
   const logoSrc = variant === "dark" ? "/logo.png" : "/logo-light.png";
 
-  // Extra width to reserve for the 2x enlarged HORECA text extending to the right
-  const extraRightPadding = showText ? Math.round(imgHeight * 0.22) : 0;
+  // Extra width to reserve for the HORECA text extending to the right
+  const extraRightPadding = showText ? Math.round(imgHeight * 0.42) : 0;
 
   return (
     <div
@@ -46,7 +46,7 @@ export default function Logo({
             className="object-contain"
           />
 
-          {/* HORECA directly under the '45' number - 2x enlarged and crystal clear */}
+          {/* HORECA directly under the '45' number - positioned with safe clearance from red line and zero */}
           {showText && (
             <svg
               viewBox="0 0 1058 1174"
@@ -54,14 +54,17 @@ export default function Logo({
               aria-hidden="true"
             >
               <text
-                x="555"
-                y="760"
+                x="590"
+                y="815"
                 textAnchor="start"
-                className="font-heading"
                 fill="#D4AF37"
                 fontWeight="900"
-                fontSize="260"
+                fontSize="215"
                 letterSpacing="1"
+                style={{
+                  fontFamily: "var(--font-heading), 'Montserrat', sans-serif",
+                  dominantBaseline: "alphabetic",
+                }}
               >
                 HORECA
               </text>
