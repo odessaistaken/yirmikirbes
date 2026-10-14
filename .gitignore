@@ -42,3 +42,8 @@ next-env.d.ts
 
 # local backups
 /public/resimler_karanlik_yedek/
+
+# temporary and scratch
+scratch/
+__pycache__/
+*.pyc
