@@ -6,7 +6,7 @@ import Image from "next/image";
 interface LogoProps {
   className?: string;
   variant?: "dark" | "light" | "gold";
-  size?: number; // base height in px (controls text size tier)
+  size?: number; // base height in px
   logoScale?: number; // multiplier for logo image size only (default 1.0)
   showText?: boolean;
 }
@@ -18,60 +18,59 @@ export default function Logo({
   logoScale = 1.0,
   showText = true,
 }: LogoProps) {
-  // Proportional width based on extracted logo dimensions (~0.901 aspect ratio)
   const imgHeight = Math.round(size * logoScale);
-  const width = Math.round(imgHeight * 0.901);
-  const logoSrc = variant === "dark" ? "/logo.png" : "/logo-light.png";
+  const imgWidth  = Math.round(imgHeight * 0.901);
+  const logoSrc   = variant === "dark" ? "/logo.png" : "/logo-light.png";
 
-  // Extra width to reserve for the HORECA text extending to the right
-  const extraRightPadding = showText ? Math.round(imgHeight * 0.42) : 0;
+  // HORECA font size proportional to logo height
+  const horecaFontSize = Math.round(imgHeight * 0.36);
+
+  // Guaranteed horizontal gap between logo image and HORECA (min 5 px)
+  const gap = Math.max(5, Math.round(imgHeight * 0.07));
+
+  // How much to lift HORECA off the very bottom baseline (always ≥ 2 px)
+  const bottomLift = Math.max(2, Math.round(imgHeight * 0.04));
 
   return (
     <div
-      className={`inline-flex items-center select-none ${className}`}
-      style={{ paddingRight: `${extraRightPadding}px` }}
+      className={`inline-flex items-end select-none ${className}`}
+      style={{ gap: `${gap}px` }}
     >
-      {/* Logo container */}
-      <div className="relative group flex items-center justify-center">
-        <div
-          className="relative shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-105"
-          style={{ width: `${width}px`, height: `${imgHeight}px` }}
-        >
-          <Image
-            src={logoSrc}
-            alt="20:45 Pastacılık Logo"
-            fill
-            priority
-            sizes={`${imgHeight * 2}px`}
-            className="object-contain"
-          />
-
-          {/* HORECA directly under the '45' number - positioned with safe clearance from red line and zero */}
-          {showText && (
-            <svg
-              viewBox="0 0 1058 1174"
-              className="absolute inset-0 w-full h-full pointer-events-none select-none overflow-visible"
-              aria-hidden="true"
-            >
-              <text
-                x="590"
-                y="815"
-                textAnchor="start"
-                fill="#D4AF37"
-                fontWeight="900"
-                fontSize="215"
-                letterSpacing="1"
-                style={{
-                  fontFamily: "var(--font-heading), 'Montserrat', sans-serif",
-                  dominantBaseline: "alphabetic",
-                }}
-              >
-                HORECA
-              </text>
-            </svg>
-          )}
-        </div>
+      {/* ── Logo image ────────────────────────────────────────────────────── */}
+      <div
+        className="relative shrink-0 transition-transform duration-200 hover:scale-105"
+        style={{ width: `${imgWidth}px`, height: `${imgHeight}px` }}
+      >
+        <Image
+          src={logoSrc}
+          alt="20:45 Pastacılık Logo"
+          fill
+          priority
+          sizes={`${imgHeight * 2}px`}
+          className="object-contain"
+        />
       </div>
+
+      {/* ── HORECA — bottom-right of logo, never touching ─────────────────── */}
+      {showText && (
+        <span
+          aria-hidden="true"
+          style={{
+            display: "block",
+            fontSize: `${horecaFontSize}px`,
+            fontWeight: 900,
+            color: "#D4AF37",
+            fontFamily: "var(--font-heading), 'Montserrat', sans-serif",
+            letterSpacing: "0.04em",
+            lineHeight: 1,
+            whiteSpace: "nowrap",
+            userSelect: "none",
+            paddingBottom: `${bottomLift}px`,
+          }}
+        >
+          HORECA
+        </span>
+      )}
     </div>
   );
 }
