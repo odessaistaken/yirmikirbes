@@ -10,7 +10,7 @@ export type { Category, Product };
 export const CATEGORIES: Category[] = [
   {
     "id": "cat-8",
-    "name": "Pastalar",
+    "name": "BELÇİKA ÇİKOLATALI",
     "slug": "pastalar",
     "description": "Özenle seçilmiş malzemelerle hazırlanan el yapımı butik pastalar, donuk cheesecake'ler ve tek porsiyonluk gurme lezzetler.",
     "icon": "🎂",
@@ -183,28 +183,27 @@ export const CATEGORIES: Category[] = [
 const RAW_PRODUCTS = [
   {
     "id": "prod-pt12-13",
-    "name": "Mangolu & Chia Tohumlu Dilimli Cheesecake",
+    "name": "BELÇİKA ÇİKOLATALI",
     "code": "PST-DNK-MNG-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Altında altın sarısı tereyağlı bisküvi tabanı, ortasında fırınlanmış kadifemsi peynir kreması ve üzerinde taze mango püresi ile harmanlanmış süper besin chia taneleri. Tropikal ferahlığın zarif dengesi.",
+    "description": "Zengin Belçika çikolatalı kadifemsi ganaj ve yumuşacık kek katmanlarıyla hazırlanan özel pasta.",
     "imageUrl": "/resimler/pt12/pt12_13.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 220,
+    "price": 1170,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
-      "Cheesecake",
-      "Mango",
-      "Chia",
+      "Çikolatalı",
+      "Belçika Çikolatası",
       "Dilimli",
       "Pastane"
     ],
     "specs": {
-      "Porsiyon": "10-12 Dilim",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 3-4 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -214,7 +213,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-14",
-    "name": "İtalyan Tiramisu Dilimli Pasta",
+    "name": "TİRAMİSU",
     "code": "PST-DNK-TIR-10D",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -224,7 +223,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt12/pt12_14.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 210,
+    "price": 875,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -235,7 +234,7 @@ const RAW_PRODUCTS = [
       "Kafe"
     ],
     "specs": {
-      "Porsiyon": "10-12 Dilim",
+      "Porsiyon": "10 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 2-3 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -245,7 +244,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-15",
-    "name": "Antep Fıstıklı & Çikolatalı Mono Kutu Pasta (Dubai Pasta)",
+    "name": "FISTIKLI ÇİKOLATALI MONO",
     "code": "PST-DNK-DUB-BOX",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -255,7 +254,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt12/pt12_15.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 280,
+    "price": 1085,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -266,7 +265,7 @@ const RAW_PRODUCTS = [
       "Çikolata"
     ],
     "specs": {
-      "Porsiyon": "12 Adet Bireysel Mono Box",
+      "Porsiyon": "10 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -276,7 +275,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-16",
-    "name": "Lotus Bisküvili & Yaban Mersinli Bütün Pasta (Dilimli)",
+    "name": "YABAN MERSİNLİ CHEESCAKE",
     "code": "PST-DNK-LOT-BLU",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -286,7 +285,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt12/pt12_16.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 230,
+    "price": 990,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -297,7 +296,7 @@ const RAW_PRODUCTS = [
       "Karamel"
     ],
     "specs": {
-      "Porsiyon": "12 Dilim Bütün Pasta",
+      "Porsiyon": "10 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 4 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -307,7 +306,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-17",
-    "name": "Yoğun Çikolatalı & Fıstık Ezmeli Dilim Pasta",
+    "name": "LİMONLU CHEESCAKE",
     "code": "PST-DNK-PNT-CHOC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -317,7 +316,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt12/pt12_17.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 215,
+    "price": 1020,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -328,7 +327,7 @@ const RAW_PRODUCTS = [
       "Pastane"
     ],
     "specs": {
-      "Porsiyon": "10-12 Dilim",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 2-3 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -338,7 +337,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-18",
-    "name": "Karamelli & Fındık Parçacıklı Mono Pasta",
+    "name": "LOTUS CHEESCAKE",
     "code": "PST-DNK-CRM-MONO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -348,7 +347,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt12/pt12_18.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 225,
+    "price": 1074,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -359,7 +358,7 @@ const RAW_PRODUCTS = [
       "Tek Kişilik"
     ],
     "specs": {
-      "Porsiyon": "12 Adet Tek Kişilik Mono",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -369,7 +368,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-19",
-    "name": "Kuruyemişli & Kırmızı Meyveli Fudgy Brownie Dilim",
+    "name": "BROWNİ",
     "code": "PST-DNK-BRW-NUT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -379,7 +378,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt12/pt12_19.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 195,
+    "price": 1170,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -390,7 +389,7 @@ const RAW_PRODUCTS = [
       "Çikolata"
     ],
     "specs": {
-      "Porsiyon": "12-16 Dilim",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 2 saat veya ılık servis",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -400,7 +399,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt12-20",
-    "name": "Antep Fıstıklı & Ahududu Katmanlı Dilim Pasta",
+    "name": "FRAMBUAZLI CHEESCAKE",
     "code": "PST-DNK-PST-RAS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -410,7 +409,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt12/pt12_20.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 240,
+    "price": 1020,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -421,7 +420,7 @@ const RAW_PRODUCTS = [
       "Gurme"
     ],
     "specs": {
-      "Porsiyon": "10-12 Dilim",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 3 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -431,7 +430,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-1",
-    "name": "Çikolata Kaplı Çilekli Mono Pasta",
+    "name": "BROWNİ",
     "code": "PST-DNK-MN-CHOC-STR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -441,7 +440,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_1.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 195,
+    "price": 1170,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -453,7 +452,7 @@ const RAW_PRODUCTS = [
       "Kafe Tatlısı"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -464,7 +463,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-2",
-    "name": "Antep Fıstıklı Mono Pasta (Fıstık Rüyası)",
+    "name": "SAN SEBASTİAN CHEESCAKE",
     "code": "PST-DNK-MN-PST",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -474,7 +473,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_2.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 190,
+    "price": 1420.2,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -485,7 +484,7 @@ const RAW_PRODUCTS = [
       "Tek Kişilik"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -496,7 +495,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-3",
-    "name": "Limonlu & Glazürlü Mono Kubbe Pasta",
+    "name": "YABAN MERSİNLİ CHEESCAKE",
     "code": "PST-DNK-MN-LIM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -506,7 +505,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_3.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 200,
+    "price": 990,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -517,7 +516,7 @@ const RAW_PRODUCTS = [
       "Narenciye"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
+      "Porsiyon": "10 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -528,7 +527,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-4",
-    "name": "Orman Meyveli & Ahududulu Mono Pasta (Red Berry)",
+    "name": "RED VELVET",
     "code": "PST-DNK-MN-RED",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -538,7 +537,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_4.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 205,
+    "price": 948,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -549,7 +548,7 @@ const RAW_PRODUCTS = [
       "Glazür"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -560,7 +559,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-5",
-    "name": "Lotus Bisküvili Karamel Mono Pasta",
+    "name": "BELÇİKA ÇİKOLATALI",
     "code": "PST-DNK-MN-LOT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -570,7 +569,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_5.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 190,
+    "price": 1170,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -581,7 +580,7 @@ const RAW_PRODUCTS = [
       "Bisküvili"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -592,7 +591,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-6",
-    "name": "Rocher Fındıklı & Çikolatalı Mono Pasta",
+    "name": "CRUMBLE CHEESCAKE",
     "code": "PST-DNK-MN-ROC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -602,7 +601,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_6.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 230,
+    "price": 1680,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -613,7 +612,7 @@ const RAW_PRODUCTS = [
       "Pralin"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -624,7 +623,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-7",
-    "name": "Karamel Soslu & Kremalı Katlı Dilim Pasta",
+    "name": "KUBBE FISTIKLI ÇİKOLATALI",
     "code": "PST-DNK-DL-CRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -634,7 +633,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_7.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 245,
+    "price": 1210,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -645,7 +644,7 @@ const RAW_PRODUCTS = [
       "Porsiyonluk"
     ],
     "specs": {
-      "Porsiyon": "Hazır Porsiyon Dilim",
+      "Porsiyon": "11 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 2-3 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -656,7 +655,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-8",
-    "name": "Antep Fıstıklı & Çikolatalı Katlı Dilim Pasta",
+    "name": "ŞEFTALİ SPONGE",
     "code": "PST-DNK-DL-PSTC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -666,7 +665,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_8.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 195,
+    "price": 840,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -677,7 +676,7 @@ const RAW_PRODUCTS = [
       "Gurme"
     ],
     "specs": {
-      "Porsiyon": "Hazır Porsiyon Dilim",
+      "Porsiyon": "6 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 2-3 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -688,7 +687,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-9",
-    "name": "Moka Kahveli & Fındıklı Dilim Pasta",
+    "name": "COCO STAR",
     "code": "PST-DNK-DL-MOK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -698,7 +697,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_9.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 220,
+    "price": 801,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -709,7 +708,7 @@ const RAW_PRODUCTS = [
       "Barista"
     ],
     "specs": {
-      "Porsiyon": "Hazır Porsiyon Dilim",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 2-3 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -720,7 +719,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-10",
-    "name": "Karaorman Meyveli (Schwarzwalder) Dilim Pasta",
+    "name": "PORTAKALLI CUP",
     "code": "PST-DNK-DL-BLF",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -730,7 +729,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_10.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 185,
+    "price": 1740,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -741,7 +740,7 @@ const RAW_PRODUCTS = [
       "Çikolata"
     ],
     "specs": {
-      "Porsiyon": "Hazır Porsiyon Dilim",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 2-3 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -752,7 +751,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-11",
-    "name": "Çikolatalı & Fındık Parçacıklı Dilim Kek",
+    "name": "KARA ORMAN MEYVELİ",
     "code": "PST-DNK-DL-CHK-KEK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -762,7 +761,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_11.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 190,
+    "price": 1020,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -773,7 +772,7 @@ const RAW_PRODUCTS = [
       "Porsiyonluk"
     ],
     "specs": {
-      "Porsiyon": "Hazır Porsiyon Dilim",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -784,7 +783,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-12",
-    "name": "Geleneksel Çikolatalı Mozaik Pasta Dilimi",
+    "name": "MOZAİK",
     "code": "PST-DNK-DL-MOZ",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -794,7 +793,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_12.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 210,
+    "price": 1264,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -805,7 +804,7 @@ const RAW_PRODUCTS = [
       "Dilimli"
     ],
     "specs": {
-      "Porsiyon": "Hazır Porsiyon Dilim",
+      "Porsiyon": "16 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -816,7 +815,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-13",
-    "name": "Çilekli Mono Box Magnolia & Kutu Pasta",
+    "name": "KUBBE ÇİLEKLİ",
     "code": "PST-DNK-BX-STR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -826,7 +825,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_13.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 225,
+    "price": 1210,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -838,7 +837,7 @@ const RAW_PRODUCTS = [
       "Paket Servis"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono Box (Kutulu)",
+      "Porsiyon": "11 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -849,7 +848,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-14",
-    "name": "Oreo & Çikolatalı Mono Box Kutu Pasta",
+    "name": "MONO OREO VELVET",
     "code": "PST-DNK-BX-OREO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -859,7 +858,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_14.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 185,
+    "price": 990,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -870,7 +869,7 @@ const RAW_PRODUCTS = [
       "Kafe Tatlısı"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono Box",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -881,7 +880,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-15",
-    "name": "Lotus Biscoff Mono Box Kutu Pasta",
+    "name": "LOTUS DOME",
     "code": "PST-DNK-BX-LOT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -891,7 +890,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_15.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 190,
+    "price": 945,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -902,7 +901,7 @@ const RAW_PRODUCTS = [
       "Magnolia"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono Box",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -913,7 +912,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-16",
-    "name": "Çikolatalı Kubbe Rulo Dilim Pasta (D-Kek)",
+    "name": "ORMAN MEYVELİ RULO",
     "code": "PST-DNK-DL-KUB",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -923,7 +922,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_16.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 225,
+    "price": 1200,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -935,7 +934,7 @@ const RAW_PRODUCTS = [
       "Rulo Pasta"
     ],
     "specs": {
-      "Porsiyon": "Porsiyonluk Dilim",
+      "Porsiyon": "8 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -946,7 +945,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-17",
-    "name": "Orman Meyveli & Crumble Cheesecake Dilimi",
+    "name": "CRUMBLE CHEESCAKE",
     "code": "PST-DNK-DL-CRM-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -956,7 +955,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_17.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 200,
+    "price": 1680,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -967,7 +966,7 @@ const RAW_PRODUCTS = [
       "Dilimli"
     ],
     "specs": {
-      "Porsiyon": "Hazır Porsiyon Dilim",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 3 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -978,7 +977,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-18",
-    "name": "Çikolata Dolgulu Cookie Turta (Cookie Pie) Dilimi",
+    "name": "COOKİE PİE",
     "code": "PST-DNK-DL-CKP",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -988,7 +987,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_18.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 190,
+    "price": 1440,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -999,7 +998,7 @@ const RAW_PRODUCTS = [
       "Kafe"
     ],
     "specs": {
-      "Porsiyon": "Hazır Porsiyon Dilim",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "Mikrodalgada 20-30 sn veya +4°C dolapta 1 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -1010,7 +1009,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-19",
-    "name": "Çilekli & Antep Fıstıklı Mono Cheesecake",
+    "name": "CHEESCAKE ÇİLEK",
     "code": "PST-DNK-MN-STR-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -1020,7 +1019,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_19.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 210,
+    "price": 1305,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -1031,7 +1030,7 @@ const RAW_PRODUCTS = [
       "Tek Kişilik"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono Cheesecake",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -1042,7 +1041,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt13-20",
-    "name": "Dubai Kadayıflı & Fıstıklı Mono Küre Pasta",
+    "name": "CEDRİC FISTIK",
     "code": "PST-DNK-MN-DUB-KAD",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1052,7 +1051,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt13/pt13_20.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 260,
+    "price": 1160,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1065,7 +1064,7 @@ const RAW_PRODUCTS = [
       "Trend"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono Küre",
+      "Porsiyon": "8 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1076,7 +1075,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-1",
-    "name": "İtalyan Tiramisu Üçgen Dilim Pasta",
+    "name": "TİRAMİSU",
     "code": "PST-DNK-DL-TIR-TRI",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -1086,7 +1085,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_1.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 210,
+    "price": 875,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -1097,7 +1096,7 @@ const RAW_PRODUCTS = [
       "Mascarpone"
     ],
     "specs": {
-      "Porsiyon": "Hazır Üçgen Dilim",
+      "Porsiyon": "10 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -1108,7 +1107,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-2",
-    "name": "Frambuazlı & Beyaz Çikolatalı Dilim Pasta",
+    "name": "FRAMBUAZLI CHEESCAKE",
     "code": "PST-DNK-DL-FRM-WHT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1118,7 +1117,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_2.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 215,
+    "price": 1020,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1130,7 +1129,7 @@ const RAW_PRODUCTS = [
       "Pastane"
     ],
     "specs": {
-      "Porsiyon": "Hazır Porsiyon Dilim",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1141,7 +1140,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-3",
-    "name": "Böğürtlenli & Mor Glazürlü Mono Kubbe Pasta",
+    "name": "MOR RÜYA",
     "code": "PST-DNK-MN-BGR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1151,7 +1150,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_3.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 235,
+    "price": 945,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1163,7 +1162,7 @@ const RAW_PRODUCTS = [
       "Orman Meyvesi"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono Kubbe",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1174,7 +1173,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-4",
-    "name": "Kare Porsiyon İtalyan Tiramisu",
+    "name": "LOTUS CHEESCAKE",
     "code": "PST-DNK-SQ-TIR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -1184,7 +1183,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_4.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 205,
+    "price": 1074,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -1195,7 +1194,7 @@ const RAW_PRODUCTS = [
       "Kafe"
     ],
     "specs": {
-      "Porsiyon": "Bireysel Kare Porsiyon",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -1206,7 +1205,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-5",
-    "name": "Geleneksel Ballı Medovik Dilim Pasta",
+    "name": "DEVİLS FOOD CAKE",
     "code": "PST-DNK-DL-MED",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -1216,7 +1215,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_5.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 230,
+    "price": 1020,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -1227,7 +1226,7 @@ const RAW_PRODUCTS = [
       "Dilimli"
     ],
     "specs": {
-      "Porsiyon": "Hazır Porsiyon Dilim",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 3 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -1238,7 +1237,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-6",
-    "name": "Frambuazlı & Egzotik Meyveli Mono Parfe",
+    "name": "KREMALI HAVUÇLU PASTA",
     "code": "PST-DNK-MN-PRF-1",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1248,7 +1247,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_6.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 250,
+    "price": 1038,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1260,7 +1259,7 @@ const RAW_PRODUCTS = [
       "Meyveli"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono Parfe",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C donuk muhafaza",
@@ -1271,7 +1270,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-7",
-    "name": "Orman Meyveli Çiçek Desenli Mono Parfe",
+    "name": "BELLA VİSTA",
     "code": "PST-DNK-MN-PRF-2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1281,7 +1280,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_7.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 245,
+    "price": 922.5,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1293,7 +1292,7 @@ const RAW_PRODUCTS = [
       "Taze Tatlı"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono Parfe",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1304,7 +1303,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-8",
-    "name": "Karışık Meyveli Silindir Mono Parfe",
+    "name": "MARLENKA CEVİZLİ",
     "code": "PST-DNK-MN-PRF-3",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1314,7 +1313,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_8.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 240,
+    "price": 1260,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1325,7 +1324,7 @@ const RAW_PRODUCTS = [
       "Taze Tatlı"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1336,7 +1335,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-9",
-    "name": "Yaban Mersinli (Blueberry) Cheesecake Dilimi",
+    "name": "MARLENKA FISTIKLI",
     "code": "PST-DNK-DL-BLU-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -1346,7 +1345,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_9.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 220,
+    "price": 1320,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -1357,7 +1356,7 @@ const RAW_PRODUCTS = [
       "Kafe"
     ],
     "specs": {
-      "Porsiyon": "Hazır Porsiyon Dilim",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 3-4 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -1368,7 +1367,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-10",
-    "name": "Kahve Çekirdeği Şekilli Mono Mousse Pasta",
+    "name": "MONO SİYAH PROFİTEROLLÜ",
     "code": "PST-DNK-MN-COF-BEAN",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -1378,7 +1377,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_10.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 230,
+    "price": 945,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -1390,7 +1389,7 @@ const RAW_PRODUCTS = [
       "Özel Tasarım"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Özel Mono",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -1401,7 +1400,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-11",
-    "name": "Bitter Çikolata & Fıstık Kaplı Baton Mono Kek",
+    "name": "MONO BEYAZ PROFİTEROLLÜ",
     "code": "PST-DNK-MN-BAT-CHOC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1411,7 +1410,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_11.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 210,
+    "price": 945,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1423,7 +1422,7 @@ const RAW_PRODUCTS = [
       "Snack Kek"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Baton Mono",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1434,7 +1433,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-12",
-    "name": "Gökkuşağı (Rainbow) Katlı Dilim Pasta",
+    "name": "MONO FISTIKLI VELVET",
     "code": "PST-DNK-DL-RNB",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1444,7 +1443,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_12.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 215,
+    "price": 990,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1456,7 +1455,7 @@ const RAW_PRODUCTS = [
       "Dilimli"
     ],
     "specs": {
-      "Porsiyon": "Hazır Porsiyon Dilim",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1467,7 +1466,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-13",
-    "name": "Karamelli & Krokantlı Dilim Pasta",
+    "name": "MONO MOR VELVET",
     "code": "PST-DNK-DL-CRM-KROK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1477,7 +1476,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_13.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 220,
+    "price": 990,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1489,7 +1488,7 @@ const RAW_PRODUCTS = [
       "Kafe Tatlısı"
     ],
     "specs": {
-      "Porsiyon": "Hazır Porsiyon Dilim",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1500,7 +1499,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-14",
-    "name": "Oreo & Karamel Kremalı Mono Pasta",
+    "name": "MUZLU ÇİKOLATALI",
     "code": "PST-DNK-MN-OREO-CRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1510,7 +1509,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_14.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 230,
+    "price": 875,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1522,7 +1521,7 @@ const RAW_PRODUCTS = [
       "Tek Kişilik"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Yuvarlak Mono",
+      "Porsiyon": "10 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1533,7 +1532,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-15",
-    "name": "Antep Fıstıklı & Ganajlı Mono Pasta",
+    "name": "MONO LATTE",
     "code": "PST-DNK-MN-PST-GNJ",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1543,7 +1542,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_15.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 260,
+    "price": 855,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1555,7 +1554,7 @@ const RAW_PRODUCTS = [
       "Gurme"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono Pasta",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1566,7 +1565,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-16",
-    "name": "Fıstıklı & Çikolata Kremalı Mini Mono Pasta",
+    "name": "ORMAN MEYVELİ",
     "code": "PST-DNK-MN-PST-MINI",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1576,7 +1575,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_16.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 265,
+    "price": 950,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1588,7 +1587,7 @@ const RAW_PRODUCTS = [
       "Butik"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Butik Mono",
+      "Porsiyon": "10 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1599,7 +1598,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-17",
-    "name": "Çikolatalı Kadife Mousse Dilim Pasta",
+    "name": "PARİS BREST",
     "code": "PST-DNK-DL-CHOC-VLV",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -1609,7 +1608,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_17.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 225,
+    "price": 850,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -1620,7 +1619,7 @@ const RAW_PRODUCTS = [
       "Kakaolu"
     ],
     "specs": {
-      "Porsiyon": "Hazır Porsiyon Dilim",
+      "Porsiyon": "10 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -1631,7 +1630,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-18",
-    "name": "Yoğun Çikolatalı Mono Box Mousse Tatlısı",
+    "name": "YER FISTIKLI MONO",
     "code": "PST-DNK-BX-CHOC-MSS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -1641,7 +1640,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_18.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 185,
+    "price": 1320,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -1652,7 +1651,7 @@ const RAW_PRODUCTS = [
       "Yoğun Lezzet"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono Box",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -1663,7 +1662,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-19",
-    "name": "Orman Meyveli & Kadife Mono Box Kutu Pasta",
+    "name": "SUFFLE PİŞMİŞ",
     "code": "PST-DNK-BX-FRM-MSS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -1673,7 +1672,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_19.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 190,
+    "price": 1485,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -1684,7 +1683,7 @@ const RAW_PRODUCTS = [
       "Magnolia"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono Box",
+      "Porsiyon": "15 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -1695,7 +1694,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt14-20",
-    "name": "Profiterollü & Supangle Mono Box Tatlısı",
+    "name": "TİRAMİSU KARE",
     "code": "PST-DNK-BX-PRO-SUP",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -1705,7 +1704,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt14/pt14_20.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 240,
+    "price": 855,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -1716,7 +1715,7 @@ const RAW_PRODUCTS = [
       "Çikolata Sos"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono Box",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -1727,7 +1726,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-1",
-    "name": "Antep Fıstıklı Magnolia Mono Box Tatlısı",
+    "name": "FISTIK (DUBAİ) CUP",
     "code": "PST-DNK-BX-PST",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1737,7 +1736,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_1.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 210,
+    "price": 1740,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1749,7 +1748,7 @@ const RAW_PRODUCTS = [
       "Magnolia"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono Box",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1760,7 +1759,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-2",
-    "name": "Yaban Mersinli & Böğürtlenli Dilim Pasta",
+    "name": "YABAN MERSİNLİ CHEESCAKE",
     "code": "PST-DNK-DLM-BLU",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1770,7 +1769,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_2.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 215,
+    "price": 990,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1782,7 +1781,7 @@ const RAW_PRODUCTS = [
       "Glazür"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis (Tek Kişilik)",
+      "Porsiyon": "10 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1793,7 +1792,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-3",
-    "name": "İtalyan Tiramisu & Kakaolu Mousse Dilim Pasta",
+    "name": "TİRAMİSU BUTİK",
     "code": "PST-DNK-DLM-TIR-CHOC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -1803,7 +1802,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_3.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 210,
+    "price": 2240,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -1814,7 +1813,7 @@ const RAW_PRODUCTS = [
       "Kakao"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "16 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -1825,7 +1824,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-4",
-    "name": "Frambuazlı & Çikolatalı Parfe Kup Tatlısı",
+    "name": "ÇİKOLATA CUP",
     "code": "PST-DNK-KP-FRM-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1835,7 +1834,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_4.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 185,
+    "price": 1120,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1847,7 +1846,7 @@ const RAW_PRODUCTS = [
       "Kafe Menüsü"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kup Bardak",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1858,7 +1857,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-5",
-    "name": "Karamelize Fındık & Krokanlı Mono Pasta",
+    "name": "MONO KROKAN KAHVELİ",
     "code": "PST-DNK-MN-KRO-CAR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1868,7 +1867,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_5.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 235,
+    "price": 990,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1880,7 +1879,7 @@ const RAW_PRODUCTS = [
       "Porsiyonluk Pasta"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1891,7 +1890,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-6",
-    "name": "Bol Çikolata Parçacıklı Gurme Amerikan Cookie (2'li / Koli)",
+    "name": "AMERİKAN SÜTLÜ COOKİE",
     "code": "PST-DNK-CKI-CHOC-2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -1901,7 +1900,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_6.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 130,
+    "price": 1300,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -1912,7 +1911,7 @@ const RAW_PRODUCTS = [
       "Amerikan Cookie"
     ],
     "specs": {
-      "Porsiyon": "2'li Porsiyon / Koli",
+      "Porsiyon": "20 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya fırında 160°C'de 3-4 dk",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -1923,7 +1922,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-7",
-    "name": "Klasik Vanilyalı & Çikolata Taneli Jumbo Cookie (3'lü Sunum)",
+    "name": "AMERİKAN SÜTLÜ COOKİE",
     "code": "PST-DNK-CKI-JUMBO-3",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -1933,7 +1932,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_7.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 130,
+    "price": 1300,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -1944,7 +1943,7 @@ const RAW_PRODUCTS = [
       "Kahve Yanı"
     ],
     "specs": {
-      "Porsiyon": "3'lü Sunum Tabağı / Koli",
+      "Porsiyon": "20 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya fırında 160°C'de 3-4 dk",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -1955,7 +1954,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-8",
-    "name": "Mavi Haşhaşlı & Limonlu Baton Dilim Kek",
+    "name": "COOKİE TART MİX",
     "code": "PST-DNK-KEK-HSH-LIM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -1965,7 +1964,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_8.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 140,
+    "price": 1448,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -1977,7 +1976,7 @@ const RAW_PRODUCTS = [
       "Kafe Keki"
     ],
     "specs": {
-      "Porsiyon": "Kalın Baton Dilim",
+      "Porsiyon": "8 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -1988,7 +1987,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-9",
-    "name": "Fırın Tipi Çift Çikolatalı Gurme Cookie (2'li Paket)",
+    "name": "BELLA VİSTA",
     "code": "PST-DNK-CKI-DBL-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -1998,7 +1997,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_9.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 135,
+    "price": 922.5,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -2008,7 +2007,7 @@ const RAW_PRODUCTS = [
       "Unlu Mamuller"
     ],
     "specs": {
-      "Porsiyon": "2'li Paket / Koli",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk çözündürünüz.",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -2019,7 +2018,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-10",
-    "name": "Mozaik (Ebruli) Kakaolu & Sade Baton Dilim Kek",
+    "name": "AMERİKAN SÜTLÜ COOKİE",
     "code": "PST-DNK-KEK-MOZ-BAT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2029,7 +2028,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_10.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 135,
+    "price": 1300,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2041,7 +2040,7 @@ const RAW_PRODUCTS = [
       "Unlu Mamuller"
     ],
     "specs": {
-      "Porsiyon": "Baton Dilim (Tek Porsiyon)",
+      "Porsiyon": "20 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2052,7 +2051,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-11",
-    "name": "Havuçlu, Tarçınlı & Cevizli Gurme Baton Dilim Kek",
+    "name": "RED VELVET BUTİK",
     "code": "PST-DNK-KEK-HVC-TRC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2062,7 +2061,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_11.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 145,
+    "price": 1500,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2074,7 +2073,7 @@ const RAW_PRODUCTS = [
       "Kafe Keki"
     ],
     "specs": {
-      "Porsiyon": "Gurme Baton Dilim",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2085,7 +2084,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-12",
-    "name": "Çikolata Ganajlı & Vanilyalı Kare Mono Kup Tatlısı",
+    "name": "DEVİLS FOOD CAKE",
     "code": "PST-DNK-KP-VAN-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2095,7 +2094,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_12.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 185,
+    "price": 1020,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2107,7 +2106,7 @@ const RAW_PRODUCTS = [
       "Mono Tatlı"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kare Mono Kup",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2118,7 +2117,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-13",
-    "name": "Red Velvet Kalp Mono Pasta",
+    "name": "MOZAİK",
     "code": "PST-DNK-MN-RED-HRT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2128,7 +2127,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_13.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 250,
+    "price": 1264,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2140,7 +2139,7 @@ const RAW_PRODUCTS = [
       "Özel Gün"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kalp Mono",
+      "Porsiyon": "16 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2151,7 +2150,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-14",
-    "name": "Boston Kremalı & Çikolata Soslu Dilim Pasta",
+    "name": "SAN SEBASTİAN CHEESCAKE",
     "code": "PST-DNK-DLM-BST-CRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -2161,7 +2160,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_14.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 210,
+    "price": 1420.2,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -2171,7 +2170,7 @@ const RAW_PRODUCTS = [
       "Kafeterya Tatlısı"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -2182,7 +2181,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-15",
-    "name": "Yulaflı & Damla Çikolatalı Gurme Cookie (2'li)",
+    "name": "LOTUS CHEESCAKE",
     "code": "PST-DNK-CKI-OAT-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -2192,7 +2191,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_15.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 125,
+    "price": 1074,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -2202,7 +2201,7 @@ const RAW_PRODUCTS = [
       "Unlu Mamuller"
     ],
     "specs": {
-      "Porsiyon": "2'li Porsiyon / Koli",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya 160°C fırında 3 dk",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -2213,7 +2212,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-16",
-    "name": "Limonlu Kadife Kubbe (Lemon Dome) Mono Pasta",
+    "name": "RED VELVET",
     "code": "PST-DNK-MN-LIM-DOM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2223,7 +2222,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_16.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 235,
+    "price": 948,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2235,7 +2234,7 @@ const RAW_PRODUCTS = [
       "Kadife Doku"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kubbe Mono",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2246,7 +2245,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-17",
-    "name": "Tropikal Mango & Çarkıfelek Kubbe Mono Pasta",
+    "name": "CEDRİC KAHVE MASALI",
     "code": "PST-DNK-MN-MNG-PAS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2256,7 +2255,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_17.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 240,
+    "price": 1560,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2268,7 +2267,7 @@ const RAW_PRODUCTS = [
       "Kubbe"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kubbe Mono",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2279,7 +2278,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-18",
-    "name": "Karamelli & Fıstıklı Snickers Mono Pasta",
+    "name": "CEDRİC KAHVE MASALI",
     "code": "PST-DNK-MN-SNK-CAR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2289,7 +2288,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_18.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 245,
+    "price": 1560,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2301,7 +2300,7 @@ const RAW_PRODUCTS = [
       "Çikolatalı"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Porsiyon (Mono)",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2312,7 +2311,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-19",
-    "name": "Red Velvet & Antep Fıstıklı Gurme Dilim Pasta",
+    "name": "BELÇİKA ÇİKOLATALI",
     "code": "PST-DNK-DLM-RED-PST",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2322,7 +2321,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_19.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 225,
+    "price": 1170,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2334,7 +2333,7 @@ const RAW_PRODUCTS = [
       "Kırmızı Kadife"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2345,7 +2344,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-20",
-    "name": "Red Velvet Cheesecake Dilim Pasta",
+    "name": "LİMONLU CHEESCAKE",
     "code": "PST-DNK-DLM-RED-CHK",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -2355,7 +2354,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_20.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 230,
+    "price": 1020,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -2365,7 +2364,7 @@ const RAW_PRODUCTS = [
       "Gurme Tatlı"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -2376,7 +2375,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-21",
-    "name": "Yoğun Bitter Çikolatalı & Deniz Tuzlu Gurme Tartlet",
+    "name": "CHESCAKE LİMON",
     "code": "PST-DNK-TRT-BIT-CHOC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2386,7 +2385,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_21.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 200,
+    "price": 2000,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2398,7 +2397,7 @@ const RAW_PRODUCTS = [
       "Gurme Tart"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Gurme Tartlet",
+      "Porsiyon": "16 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2409,7 +2408,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt15-22",
-    "name": "Çıtır Kıtır Craquelin Ekler Kabuğu & Dolgulu Ekler",
+    "name": "FRAMBUAZLI CHEESCAKE",
     "code": "PST-DNK-EKL-CRQ-10",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2419,7 +2418,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt15/pt15_22.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 175,
+    "price": 1020,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2431,7 +2430,7 @@ const RAW_PRODUCTS = [
       "Unlu Mamuller"
     ],
     "specs": {
-      "Porsiyon": "Tekli / Koli İçi Çoklu",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Çözünme / Servis": "+4°C dolapta 1 saatte servise hazır hale gelir.",
       "Raf Ömrü": "+4°C dolapta 3 gün",
@@ -2443,7 +2442,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-1",
-    "name": "Mango Trompe-l'œil Gurme Mono Pasta",
+    "name": "CEDRİC MANGO",
     "code": "PST-DNK-MN-MNG-TRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2453,7 +2452,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_1.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 290,
+    "price": 1800,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2466,7 +2465,7 @@ const RAW_PRODUCTS = [
       "Gurme Tatlı"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Gurme Mono",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2477,7 +2476,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-2",
-    "name": "Tropikal Mango Mousse İllüzyon Mono Pasta",
+    "name": "CEDRİC MANGO",
     "code": "PST-DNK-MN-MNG-V2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2487,7 +2486,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_2.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 285,
+    "price": 1800,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2498,7 +2497,7 @@ const RAW_PRODUCTS = [
       "Meyveli Pasta"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2509,7 +2508,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-3",
-    "name": "Antep Fıstığı Görünümlü Trompe-l'œil Mono Pasta",
+    "name": "CEDRİC FISTIK",
     "code": "PST-DNK-MN-PST-TRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2519,7 +2518,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_3.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 295,
+    "price": 1160,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2531,7 +2530,7 @@ const RAW_PRODUCTS = [
       "Gurme"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Gurme Mono",
+      "Porsiyon": "8 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2542,7 +2541,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-4",
-    "name": "Fıstık Rüyası Gurme Mono İllüzyon Pasta",
+    "name": "FISTIK DALGASI",
     "code": "PST-DNK-MN-PST-V2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2552,7 +2551,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_4.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 290,
+    "price": 1248,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2563,7 +2562,7 @@ const RAW_PRODUCTS = [
       "İllüzyon"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2574,7 +2573,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-5",
-    "name": "Yoğun Bitter Çikolatalı Devil's Dilim Pasta",
+    "name": "DEVİLS FOOD CAKE",
     "code": "PST-DNK-DLM-DEV-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -2584,7 +2583,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_5.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 225,
+    "price": 1020,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -2594,7 +2593,7 @@ const RAW_PRODUCTS = [
       "Çikolatalı Pasta"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -2605,7 +2604,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-6",
-    "name": "Fransız Usulü Çıtır Craquelin Kremalı Choux Halka Pasta",
+    "name": "PARİS BREST",
     "code": "PST-DNK-MN-CHX-PRS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2615,7 +2614,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_6.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 235,
+    "price": 850,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2627,7 +2626,7 @@ const RAW_PRODUCTS = [
       "Pastacı Kreması"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Mono Porsiyon",
+      "Porsiyon": "10 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2638,7 +2637,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-7",
-    "name": "Geleneksel Çikolatalı Bisküvili Mozaik Dilim Pasta",
+    "name": "ÇITIR BOMBA",
     "code": "PST-DNK-DLM-MOZ-CLS",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -2648,7 +2647,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_7.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 180,
+    "price": 1395,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -2659,7 +2658,7 @@ const RAW_PRODUCTS = [
       "Klasik Tatlı"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Porsiyon",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 30-45 dk",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -2670,7 +2669,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-8",
-    "name": "Orijinal San Sebastian Yanık Cheesecake Dilim Pasta",
+    "name": "GÖKKUŞAĞI",
     "code": "PST-DNK-DLM-SAN-SEB",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -2680,7 +2679,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_8.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 240,
+    "price": 1056,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -2691,7 +2690,7 @@ const RAW_PRODUCTS = [
       "Yanık Cheesecake"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat veya oda sıcaklığında 30 dk",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -2702,7 +2701,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-9",
-    "name": "Bol Antep Fıstığı Kaplı Kubbe Mono Pasta",
+    "name": "VİŞNE BADEM",
     "code": "PST-DNK-MN-PST-DOM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2712,7 +2711,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_9.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 260,
+    "price": 1860,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2723,7 +2722,7 @@ const RAW_PRODUCTS = [
       "Pistachio Dome"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kubbe Mono",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2734,7 +2733,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-10",
-    "name": "Lotus Biscoff Karamel Bisküvili Cheesecake Dilim",
+    "name": "ORMAN MEYVELİ RULO",
     "code": "PST-DNK-DLM-CHK-LOT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -2744,7 +2743,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_10.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 230,
+    "price": 1200,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -2755,7 +2754,7 @@ const RAW_PRODUCTS = [
       "Bisküvili"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "8 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -2766,7 +2765,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-11",
-    "name": "Vişneli Kara Orman Meyveli Çikolatalı Dilim Pasta",
+    "name": "İBİZA",
     "code": "PST-DNK-DLM-BLK-FOR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2776,7 +2775,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_11.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 220,
+    "price": 840,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2788,7 +2787,7 @@ const RAW_PRODUCTS = [
       "Çikolatalı"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "6 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2799,7 +2798,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-12",
-    "name": "Fransız Usulü Çıtır Craquelin Kremalı Gurme Ekler",
+    "name": "LİNZER ÇİKOLATALI",
     "code": "PST-DNK-EKL-CRQ-LNG",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2809,7 +2808,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_12.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 175,
+    "price": 1305,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2820,7 +2819,7 @@ const RAW_PRODUCTS = [
       "Fransız Ekler"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Uzun Ekler",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2831,7 +2830,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-13",
-    "name": "Orman Meyveli & Makaronlu Glazür Kubbe Mono Pasta",
+    "name": "LİNZER YABAN MERSİNLİ",
     "code": "PST-DNK-MN-FRT-DOM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2841,7 +2840,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_13.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 255,
+    "price": 1305,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2853,7 +2852,7 @@ const RAW_PRODUCTS = [
       "Glazür"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kubbe Mono",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2864,7 +2863,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-14",
-    "name": "Beyaz Çikolata Parçacıklı Profiterollü Polka Mono Pasta",
+    "name": "LİNZER LOTUS",
     "code": "PST-DNK-MN-WHT-POL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2874,7 +2873,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_14.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 245,
+    "price": 1305,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2886,7 +2885,7 @@ const RAW_PRODUCTS = [
       "Kare Mono"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kare Mono",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2897,7 +2896,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-15",
-    "name": "Klasik Red Velvet (Kırmızı Kadife) Dilim Pasta",
+    "name": "WHİTE SPONGE",
     "code": "PST-DNK-DLM-RED-VEL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -2907,7 +2906,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_15.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 215,
+    "price": 870,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -2917,7 +2916,7 @@ const RAW_PRODUCTS = [
       "Labne Kremalı"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "6 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -2928,7 +2927,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-16",
-    "name": "Vişneli & Beyaz Kremalı Dikdörtgen Dilim Pasta",
+    "name": "ŞEFTALİ SPONGE",
     "code": "PST-DNK-DLM-OPR-BER",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -2938,7 +2937,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_16.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 210,
+    "price": 840,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -2949,7 +2948,7 @@ const RAW_PRODUCTS = [
       "Meyveli Pasta"
     ],
     "specs": {
-      "Porsiyon": "Dikdörtgen Dilim Servis",
+      "Porsiyon": "6 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -2960,7 +2959,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-17",
-    "name": "Mocha & Karamel Glazürlü Çok Katlı Opera Dilim Pasta",
+    "name": "OREO PASTA",
     "code": "PST-DNK-DLM-OPR-MCH",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -2970,7 +2969,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_17.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 240,
+    "price": 2240,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -2981,7 +2980,7 @@ const RAW_PRODUCTS = [
       "Kahveli"
     ],
     "specs": {
-      "Porsiyon": "Opera Dilim",
+      "Porsiyon": "16 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -2992,7 +2991,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-18",
-    "name": "Kahveli & Fırınlanmış Karamel Opera Dilim Pasta",
+    "name": "TİRAMİSU BOMBA",
     "code": "PST-DNK-DLM-OPR-ESP",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3002,7 +3001,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_18.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 240,
+    "price": 1260,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3012,7 +3011,7 @@ const RAW_PRODUCTS = [
       "Dilim Pasta"
     ],
     "specs": {
-      "Porsiyon": "Opera Dilim",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3023,7 +3022,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-19",
-    "name": "Kremalı Havuçlu, Tarçınlı & Bol Cevizli Dilim Pasta",
+    "name": "PETUNYA FISTIK",
     "code": "PST-DNK-DLM-HVC-CRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3033,7 +3032,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_19.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 205,
+    "price": 1240,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3045,7 +3044,7 @@ const RAW_PRODUCTS = [
       "Carrot Cake"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "8 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -3056,7 +3055,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt16-20",
-    "name": "Çikolatalı, Fındıklı & Hindistan Cevizli Kubbe Mono Pasta",
+    "name": "LOTUS SPECULUS",
     "code": "PST-DNK-MN-CHO-FND",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3066,7 +3065,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt16/pt16_20.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 235,
+    "price": 870,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3078,7 +3077,7 @@ const RAW_PRODUCTS = [
       "Hindistan Cevizli"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kubbe Mono",
+      "Porsiyon": "6 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -3089,7 +3088,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-1",
-    "name": "Belçika Çikolatalı Yoğun Mousse Dilim Pasta",
+    "name": "BELÇİKA ÇİKOLATALI",
     "code": "PST-DNK-DLM-BEL-MOU",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3099,7 +3098,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_1.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 230,
+    "price": 1170,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3109,7 +3108,7 @@ const RAW_PRODUCTS = [
       "Ganaj"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3120,7 +3119,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-2",
-    "name": "Bitter Çikolata Kaplı Profiterollü Polka Mono Pasta",
+    "name": "MONO SİYAH PROFİTEROLLÜ",
     "code": "PST-DNK-MN-BIT-POL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3130,7 +3129,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_2.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 260,
+    "price": 945,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3141,7 +3140,7 @@ const RAW_PRODUCTS = [
       "Profiterollü"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kare Mono",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -3152,7 +3151,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-3",
-    "name": "Limon Soslu Klasik New York Cheesecake Dilim",
+    "name": "LİMONLU CHEESCAKE",
     "code": "PST-DNK-DLM-CHK-LIM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3162,7 +3161,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_3.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 220,
+    "price": 1020,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3172,7 +3171,7 @@ const RAW_PRODUCTS = [
       "New York Cheesecake"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3183,7 +3182,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-4",
-    "name": "Sicilya Limonlu Gurme Cheesecake Dilim",
+    "name": "CHESCAKE LİMON",
     "code": "PST-DNK-DLM-CHK-LM2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3193,7 +3192,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_4.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 225,
+    "price": 2000,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3202,7 +3201,7 @@ const RAW_PRODUCTS = [
       "Dilim Pasta"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "16 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3213,7 +3212,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-5",
-    "name": "Çikolatalı & Bol Hindistan Cevizli Kartopu Mono Pasta",
+    "name": "COCO STAR",
     "code": "PST-DNK-MN-COC-BAL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3223,7 +3222,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_5.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 220,
+    "price": 801,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3234,7 +3233,7 @@ const RAW_PRODUCTS = [
       "Çikolatalı Kubbe"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kubbe Mono",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -3245,7 +3244,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-6",
-    "name": "Kavrulmuş Fındık Kaplı Karamel Kare Mono Pasta",
+    "name": "LOTUS DOME",
     "code": "PST-DNK-MN-KRO-FND",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3255,7 +3254,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_6.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 195,
+    "price": 945,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3266,7 +3265,7 @@ const RAW_PRODUCTS = [
       "Kare Mono"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kare Mono",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -3277,7 +3276,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-7",
-    "name": "Süt Karamel & Dulce de Leche Kubbe Mono Pasta",
+    "name": "ORMAN CUP",
     "code": "PST-DNK-MN-DUL-CAR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3287,7 +3286,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_7.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 235,
+    "price": 1740,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3298,7 +3297,7 @@ const RAW_PRODUCTS = [
       "Kubbe Pasta"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kubbe Mono",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -3309,7 +3308,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-8",
-    "name": "Çikolata Mousse & Beyaz Çikolata Bukleli Kubbe Mono",
+    "name": "FRAMBUAZLI CHEESCAKE",
     "code": "PST-DNK-MN-CHO-WTR",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3319,7 +3318,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_8.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 240,
+    "price": 1020,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3330,7 +3329,7 @@ const RAW_PRODUCTS = [
       "Beyaz Çikolata"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kubbe Mono",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -3341,7 +3340,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-9",
-    "name": "Frambuaz Soslu Klasik New York Cheesecake Dilim",
+    "name": "FISTIK (DUBAİ) CUP",
     "code": "PST-DNK-DLM-CHK-FRM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3351,7 +3350,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_9.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 225,
+    "price": 1740,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3361,7 +3360,7 @@ const RAW_PRODUCTS = [
       "New York Cheesecake"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3372,7 +3371,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-10",
-    "name": "Orijinal İtalyan Usulü Tiramisu Dilim Pasta",
+    "name": "ÇİKOLATA CUP",
     "code": "PST-DNK-DLM-TIR-ITA",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3382,7 +3381,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_10.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 215,
+    "price": 1120,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3393,7 +3392,7 @@ const RAW_PRODUCTS = [
       "Espresso"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3404,7 +3403,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-11",
-    "name": "Çikolata Glazürlü & Mascarpone Tiramisu Dilim Pasta",
+    "name": "PORTAKALLI CUP",
     "code": "PST-DNK-DLM-TIR-GLZ",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3414,7 +3413,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_11.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 220,
+    "price": 1740,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3424,7 +3423,7 @@ const RAW_PRODUCTS = [
       "Mascarpone"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3435,7 +3434,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-12",
-    "name": "Espresso Aromalı Mascarpone Tiramisu Dilim",
+    "name": "LOTUS CUP",
     "code": "PST-DNK-DLM-TIR-ESP",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3445,7 +3444,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_12.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 210,
+    "price": 1800,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3455,7 +3454,7 @@ const RAW_PRODUCTS = [
       "Mascarpone"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3466,7 +3465,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-13",
-    "name": "Frambuazlı & Kırmızı Kadife 'Love' Kalp Mono Pasta",
+    "name": "MAGNOLYA ÇİLEK",
     "code": "PST-DNK-MN-HRT-LOV",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3476,7 +3475,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_13.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 250,
+    "price": 450,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3488,7 +3487,7 @@ const RAW_PRODUCTS = [
       "Özel Gün Tatlısı"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kalp Mono",
+      "Porsiyon": "5 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -3499,7 +3498,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-14",
-    "name": "Red Velvet & Beyaz Çikolata Parçacıklı Gurme Cookie (2'li)",
+    "name": "MAGNOLYA OREO",
     "code": "PST-DNK-CKI-RED-WHT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3509,7 +3508,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_14.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 135,
+    "price": 450,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3520,7 +3519,7 @@ const RAW_PRODUCTS = [
       "Amerikan Cookie"
     ],
     "specs": {
-      "Porsiyon": "2'li Porsiyon / Koli",
+      "Porsiyon": "5 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya fırında 160°C'de 3 dk",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3531,7 +3530,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-15",
-    "name": "Orman Meyveli & Böğürtlenli Cheesecake Dilim",
+    "name": "MAGNOLYA MUZ",
     "code": "PST-DNK-DLM-CHK-BER",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3541,7 +3540,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_15.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 225,
+    "price": 450,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3551,7 +3550,7 @@ const RAW_PRODUCTS = [
       "Dilim Pasta"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "5 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3562,7 +3561,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-16",
-    "name": "Karamel Soslu & File Bademli Cheesecake Dilim",
+    "name": "CHEESCAKE VİŞNE",
     "code": "PST-DNK-DLM-CHK-ALM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3572,7 +3571,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_16.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 220,
+    "price": 1305,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3583,7 +3582,7 @@ const RAW_PRODUCTS = [
       "Bademli"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3594,7 +3593,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-17",
-    "name": "Çilekli & Ruby Magnolia Parfe Kup Tatlısı",
+    "name": "CHEESCAKE ÇİLEK",
     "code": "PST-DNK-KP-STR-RUB",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3604,7 +3603,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_17.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 195,
+    "price": 1305,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3616,7 +3615,7 @@ const RAW_PRODUCTS = [
       "Mono Tatlı"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kup Kase",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -3627,7 +3626,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-18",
-    "name": "Süt Karamel & Bitter Ganajlı Gurme Kup Tatlısı",
+    "name": "CHEESCAKE ORMAN",
     "code": "PST-DNK-KP-DUL-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3637,7 +3636,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_18.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 190,
+    "price": 2240,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3649,7 +3648,7 @@ const RAW_PRODUCTS = [
       "Krokan"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kup Kase",
+      "Porsiyon": "16 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -3660,7 +3659,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-19",
-    "name": "Limonlu & Karamel Katmanlı Oval Mono Box Tatlısı",
+    "name": "CHEESCAKE PİSTACHİO",
     "code": "PST-DNK-BX-LIM-OVL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3670,7 +3669,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_19.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 195,
+    "price": 2400,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3681,7 +3680,7 @@ const RAW_PRODUCTS = [
       "Oval Mono"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Oval Mono Box",
+      "Porsiyon": "16 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3692,7 +3691,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt17-20",
-    "name": "Çikolata Ganajlı & Bisküvili Dikdörtgen Mono Box Tatlısı",
+    "name": "CHEESCAKE SÜT REÇELİ",
     "code": "PST-DNK-BX-CHO-REC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3702,7 +3701,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt17/pt17_20.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 195,
+    "price": 2160,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3712,7 +3711,7 @@ const RAW_PRODUCTS = [
       "Bisküvili"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Dikdörtgen Mono Box",
+      "Porsiyon": "16 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3723,7 +3722,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-1",
-    "name": "Red Velvet & Antep Fıstıklı Dikdörtgen Mono Pasta",
+    "name": "RED VELVET",
     "code": "PST-DNK-MN-RED-PST-REC",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3733,7 +3732,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt18/pt18_1.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 240,
+    "price": 948,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3744,7 +3743,7 @@ const RAW_PRODUCTS = [
       "Dikdörtgen Dilim"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Dikdörtgen Mono",
+      "Porsiyon": "12 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -3755,7 +3754,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-2",
-    "name": "Çilek & Frambuaz Dolgulu Kalp Mono Aşk Pastası",
+    "name": "KALPLİ PASTA",
     "code": "PST-DNK-MN-HRT-LOV-2",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3765,7 +3764,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt18/pt18_2.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 255,
+    "price": 945,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3777,7 +3776,7 @@ const RAW_PRODUCTS = [
       "Aşk Pastası"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kalp Mono",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -3788,7 +3787,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-3",
-    "name": "Çikolata Kaplamalı Orman Meyveli Rulo Mono Pasta",
+    "name": "ORMAN MEYVELİ RULO",
     "code": "PST-DNK-MN-RUL-FRT",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3798,7 +3797,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt18/pt18_3.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 220,
+    "price": 1200,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3809,7 +3808,7 @@ const RAW_PRODUCTS = [
       "Çikolata Kaplı"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Rulo Mono",
+      "Porsiyon": "8 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -3820,7 +3819,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-4",
-    "name": "Yoğun Fındıklı & Kuru Meyveli Kare Brownie Dilim Pasta",
+    "name": "BROWNİ",
     "code": "PST-DNK-DLM-BRW-FND",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3830,7 +3829,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt18/pt18_4.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 195,
+    "price": 1170,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3841,7 +3840,7 @@ const RAW_PRODUCTS = [
       "Yoğun Çikolatalı"
     ],
     "specs": {
-      "Porsiyon": "Kare Dilim Porsiyon",
+      "Porsiyon": "9 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya mikrodalgada 15-20 sn hafif ılık",
       "Raf Ömrü": "+4°C dolapta 3 gün",
@@ -3853,7 +3852,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-5",
-    "name": "Narenciye & Antep Fıstıklı Sarı Glazür Kubbe Mono Pasta",
+    "name": "CEDRİC LİMON",
     "code": "PST-DNK-MN-LIM-PST-DOM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-9",
@@ -3863,7 +3862,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt18/pt18_5.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 235,
+    "price": 1875,
     "vatRate": 20,
     "tags": [
       "Taze Pasta",
@@ -3875,7 +3874,7 @@ const RAW_PRODUCTS = [
       "Limonlu"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Kubbe Mono",
+      "Porsiyon": "15 Dilim",
       "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
       "Raf Ömrü": "+4°C dolapta 3 gün",
       "Saklama Koşulu": "-18°C",
@@ -3886,7 +3885,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-6",
-    "name": "Tane Yaban Mersinli & Krokan Kenarlı Cheesecake Dilim",
+    "name": "YABAN MERSİNLİ CHEESCAKE",
     "code": "PST-DNK-DLM-CHK-BLU-TN",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3896,7 +3895,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt18/pt18_6.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 225,
+    "price": 990,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3907,7 +3906,7 @@ const RAW_PRODUCTS = [
       "Krokan"
     ],
     "specs": {
-      "Porsiyon": "Dilimli Servis",
+      "Porsiyon": "10 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3918,7 +3917,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-7",
-    "name": "Fransız Tereyağlı Sade Klasik Kruvasan (Pişmeye / Servise Hazır)",
+    "name": "HAVUÇLU KEK",
     "code": "PST-DNK-UNL-KRV-SAD",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3928,7 +3927,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt18/pt18_7.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 120,
+    "price": 800,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3939,7 +3938,7 @@ const RAW_PRODUCTS = [
       "Kahvaltı"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Adet",
+      "Porsiyon": "16 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Önceden ısıtılmış 180°C fırında 3-4 dakika çıtırlaştırınız.",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3950,7 +3949,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-8",
-    "name": "New York Roll Spiral Kat Kat Kruvasan Çöreği",
+    "name": "PORTAKALLI KEK",
     "code": "PST-DNK-UNL-NY-ROLL",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3960,7 +3959,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt18/pt18_8.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 160,
+    "price": 800,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -3971,7 +3970,7 @@ const RAW_PRODUCTS = [
       "Kafe Trend"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Roll Porsiyon",
+      "Porsiyon": "16 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Fırında 170°C'de 3-4 dk ısıtıldığında ekstra çıtırlaşır.",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -3982,7 +3981,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-9",
-    "name": "Çikolata Dolgulu & Kavrulmuş Fındıklı Gurme Kruvasan",
+    "name": "LİMONLU HAŞHAŞLI KEK",
     "code": "PST-DNK-UNL-KRV-CHO-FND",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -3992,7 +3991,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt18/pt18_9.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 150,
+    "price": 800,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -4002,7 +4001,7 @@ const RAW_PRODUCTS = [
       "Fındıklı Kruvasan"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Adet",
+      "Porsiyon": "16 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Fırında 170°C'de 3-4 dk ısıtınız.",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -4013,7 +4012,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-10",
-    "name": "Fransız Pain au Chocolat (Çift Çikolata Çubuklu Çörek)",
+    "name": "MARBLE KEK",
     "code": "PST-DNK-UNL-PAIN-CHO",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4023,7 +4022,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt18/pt18_10.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 135,
+    "price": 800,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -4033,7 +4032,7 @@ const RAW_PRODUCTS = [
       "Tereyağlı"
     ],
     "specs": {
-      "Porsiyon": "Tek Kişilik Adet",
+      "Porsiyon": "16 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Isıtma": "Fırında 175°C'de 3-4 dk ısıtınız.",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -4044,7 +4043,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-pt18-11",
-    "name": "Gurme Tost & Sandviç Ekmeği Kalın Dilim (2'li Servis)",
+    "name": "İNCİR TOPLARI",
     "code": "PST-DNK-UNL-TST-EKM",
     "codeGroup": "20:45 Pastacılık",
     "categoryId": "cat-5",
@@ -4054,7 +4053,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/resimler/pt18/pt18_11.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 95,
+    "price": 65,
     "vatRate": 20,
     "tags": [
       "Donuk Pasta",
@@ -4064,7 +4063,7 @@ const RAW_PRODUCTS = [
       "Gurme Ekmek"
     ],
     "specs": {
-      "Porsiyon": "2 Dilim / Paket",
+      "Porsiyon": "1 Dilim",
       "Ambalaj": "Koli (-18°C Donuk)",
       "Çözünme / Kullanım": "Tost makinesinde doğrudan kızartılabilir.",
       "Raf Ömrü": "-18°C'de 12 Ay",
@@ -6862,7 +6861,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-byz-100",
-    "name": "20:45 Donuk Dereotlu & Çörekotlu Mini Tuzlu Kurabiye (Tekli Gurme Sunum)",
+    "name": "FRAMBUAZLI CHEESCAKE",
     "code": "YKB-DNK-TKR-001",
     "codeGroup": "20:45 Unlu Mamuller",
     "categoryId": "cat-5",
@@ -6872,7 +6871,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/beyazresimler/karisik/karisik_100.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 240,
+    "price": 1020,
     "vatRate": 20,
     "order": 221,
     "tags": [
@@ -6891,7 +6890,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-byz-101",
-    "name": "20:45 Donuk Dereotlu & Çörekotlu Mini Tuzlu Kurabiye Porsiyon Tabağı",
+    "name": "FRAMBUAZLI CHEESCAKE",
     "code": "YKB-DNK-TKR-002",
     "codeGroup": "20:45 Unlu Mamuller",
     "categoryId": "cat-5",
@@ -6901,7 +6900,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/beyazresimler/karisik/karisik_101.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 240,
+    "price": 1020,
     "vatRate": 20,
     "order": 222,
     "tags": [
@@ -7087,7 +7086,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-byz-108",
-    "name": "20:45 Donuk Peynirli & Kaşarlı Mini Top Poğaça Porsiyon Tabağı",
+    "name": "FRAMBUAZLI CHEESCAKE",
     "code": "YKB-DNK-POG-001",
     "codeGroup": "20:45 Unlu Mamuller",
     "categoryId": "cat-5",
@@ -7097,7 +7096,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/beyazresimler/karisik/karisik_108.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 250,
+    "price": 1020,
     "vatRate": 20,
     "order": 229,
     "tags": [
@@ -7116,7 +7115,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-byz-109",
-    "name": "20:45 Donuk Peynirli & Kaşarlı Mini Top Poğaça (Tekli Gurme Sunum)",
+    "name": "FRAMBUAZLI CHEESCAKE",
     "code": "YKB-DNK-POG-002",
     "codeGroup": "20:45 Unlu Mamuller",
     "categoryId": "cat-5",
@@ -7126,7 +7125,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/beyazresimler/karisik/karisik_109.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 250,
+    "price": 1020,
     "vatRate": 20,
     "order": 230,
     "tags": [
@@ -7425,7 +7424,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-byz-120",
-    "name": "20:45 Donuk Dereotlu & Çörekotlu Mini Tuzlu Kurabiye (Gurme Sunum 2)",
+    "name": "FRAMBUAZLI CHEESCAKE",
     "code": "YKB-DNK-TKR-003",
     "codeGroup": "20:45 Unlu Mamuller",
     "categoryId": "cat-5",
@@ -7435,7 +7434,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/beyazresimler/karisik/karisik_120.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 240,
+    "price": 1020,
     "vatRate": 20,
     "order": 241,
     "tags": [
@@ -7452,7 +7451,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-byz-121",
-    "name": "20:45 Donuk Dereotlu & Çörekotlu Mini Tuzlu Kurabiye Tabağı (Gurme Porsiyon 2)",
+    "name": "FRAMBUAZLI CHEESCAKE",
     "code": "YKB-DNK-TKR-004",
     "codeGroup": "20:45 Unlu Mamuller",
     "categoryId": "cat-5",
@@ -7462,7 +7461,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/beyazresimler/karisik/karisik_121.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 240,
+    "price": 1020,
     "vatRate": 20,
     "order": 242,
     "tags": [
@@ -7587,7 +7586,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-byz-126",
-    "name": "20:45 Donuk Peynirli Mini Top Poğaça (Tekli Gurme Sunum 2)",
+    "name": "FRAMBUAZLI CHEESCAKE",
     "code": "YKB-DNK-POG-003",
     "codeGroup": "20:45 Unlu Mamuller",
     "categoryId": "cat-5",
@@ -7597,7 +7596,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/beyazresimler/karisik/karisik_126.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 250,
+    "price": 1020,
     "vatRate": 20,
     "order": 247,
     "tags": [
@@ -7668,7 +7667,7 @@ const RAW_PRODUCTS = [
   },
   {
     "id": "prod-byz-129",
-    "name": "20:45 Donuk Peynirli Mini Top Poğaça Tabağı (Gurme Porsiyon 2)",
+    "name": "FRAMBUAZLI CHEESCAKE",
     "code": "YKB-DNK-POG-004",
     "codeGroup": "20:45 Unlu Mamuller",
     "categoryId": "cat-5",
@@ -7678,7 +7677,7 @@ const RAW_PRODUCTS = [
     "imageUrl": "/beyazresimler/karisik/karisik_129.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 250,
+    "price": 1020,
     "vatRate": 20,
     "order": 250,
     "tags": [
