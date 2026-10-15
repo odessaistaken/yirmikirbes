@@ -97,8 +97,8 @@ export default function PresentationDetailModal({
                 <span className="text-xs font-semibold uppercase tracking-widest text-amber-700">
                   {product.categoryName || "Seçkin Koleksiyon"}
                 </span>
-                <span className="text-stone-900 font-serif font-medium text-2xl">
-                  {product.price > 0 ? `₺${product.price.toLocaleString("tr-TR", { minimumFractionDigits: 2 })}` : "Özel Teklif"}
+                <span className="text-stone-600 font-serif font-medium text-sm sm:text-base">
+                  Özel Teklif
                 </span>
               </div>
 

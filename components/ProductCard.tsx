@@ -6,13 +6,12 @@
  * Fully optimized for responsive 5-column catalog grids.
  * Includes lightbox modal for full-size image preview.
  */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, Tag, Eye, ImageIcon, X, ZoomIn } from "lucide-react";
 import { type Product } from "@/lib/types";
-import { useAuth } from "@/lib/auth-context";
 import InquiryModal from "@/components/InquiryModal";
 
 interface ProductCardProps {
@@ -25,12 +24,6 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
   const [inquiryOpen, setInquiryOpen] = useState(false);
   const [imgError, setImgError] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const { currentUser } = useAuth();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <>
@@ -123,17 +116,6 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
               {product.code}
             </p>
 
-            {/* Price display (for logged-in users) */}
-            {mounted && currentUser && product.price > 0 && (
-              <div className="mb-2">
-                <p className="font-heading font-bold text-slate-900 text-sm sm:text-base">
-                  ₺{product.price.toFixed(2)}
-                  <span className="text-slate-500 text-[10px] font-normal ml-1">
-                    +%{product.vatRate} KDV
-                  </span>
-                </p>
-              </div>
-            )}
           </div>
 
           {/* CTA */}

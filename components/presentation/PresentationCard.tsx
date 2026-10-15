@@ -54,8 +54,8 @@ export default function PresentationCard({
               <span className="text-xs font-semibold uppercase tracking-widest text-amber-700">
                 {product.categoryName || "Küratör Seçkisi"}
               </span>
-              <span className="text-stone-900 font-serif font-medium text-lg">
-                {product.price > 0 ? `₺${product.price.toLocaleString("tr-TR", { minimumFractionDigits: 2 })}` : "Özel Fiyat"}
+              <span className="text-stone-600 font-serif font-medium text-xs sm:text-sm">
+                Özel Teklif
               </span>
             </div>
 
@@ -123,8 +123,8 @@ export default function PresentationCard({
             <span className="font-semibold uppercase tracking-wider text-amber-700 text-[11px]">
               {product.categoryName}
             </span>
-            <span className="font-serif font-medium text-stone-900">
-              {product.price > 0 ? `₺${product.price.toFixed(2)}` : "—"}
+            <span className="font-serif font-medium text-stone-500 text-xs">
+              Özel Teklif
             </span>
           </div>
 

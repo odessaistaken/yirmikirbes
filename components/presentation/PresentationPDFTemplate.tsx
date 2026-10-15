@@ -96,8 +96,8 @@ export default function PresentationPDFTemplate({
                         <span className="text-[10px] text-stone-500 font-mono">
                           № {String(pIdx + 1).padStart(2, "0")}
                         </span>
-                        <span className="text-sm font-serif font-bold text-amber-800 shrink-0">
-                          {product.price > 0 ? `₺${product.price.toFixed(2)}` : "Özel Teklif"}
+                        <span className="text-xs font-serif font-bold text-amber-800 shrink-0">
+                          Özel Teklif
                         </span>
                       </div>
 

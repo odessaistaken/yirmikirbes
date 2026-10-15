@@ -689,9 +689,7 @@ export default function PresentationPDFDocument({
                                 {product.code || `№ ${String(itemGlobalIdx + 1).padStart(2, "0")}`}
                               </Text>
                               <Text style={styles.productPrice}>
-                                {product.price > 0
-                                  ? `₺${product.price.toFixed(2)}`
-                                  : "Özel Teklif"}
+                                Özel Teklif
                               </Text>
                             </View>
 

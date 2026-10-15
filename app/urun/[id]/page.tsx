@@ -211,20 +211,26 @@ export default function ProductPage() {
               </p>
 
               {/* Specs */}
-              {product.specs && Object.keys(product.specs).length > 0 && (
-                <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-3 shadow-sm">
-                  <div className="flex items-center gap-2 mb-1">
-                    <Package size={14} className="text-amber-600" />
-                    <p className="text-slate-900 text-sm font-semibold">Ürün Özellikleri</p>
-                  </div>
-                  {Object.entries(product.specs).map(([key, val]) => (
-                    <div key={key} className="flex items-center justify-between py-2 border-b border-slate-100 last:border-0">
-                      <span className="text-slate-500 text-sm">{key}</span>
-                      <span className="text-slate-800 text-sm font-medium">{val}</span>
+              {product.specs && (() => {
+                const visibleSpecs = Object.entries(product.specs).filter(
+                  ([key]) => !/fiyat|price|ücret|tutar/i.test(key)
+                );
+                if (visibleSpecs.length === 0) return null;
+                return (
+                  <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-3 shadow-sm">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Package size={14} className="text-amber-600" />
+                      <p className="text-slate-900 text-sm font-semibold">Ürün Özellikleri</p>
                     </div>
-                  ))}
-                </div>
-              )}
+                    {visibleSpecs.map(([key, val]) => (
+                      <div key={key} className="flex items-center justify-between py-2 border-b border-slate-100 last:border-0">
+                        <span className="text-slate-500 text-sm">{key}</span>
+                        <span className="text-slate-800 text-sm font-medium">{val}</span>
+                      </div>
+                    ))}
+                  </div>
+                );
+              })()}
 
               {/* Tags */}
               {product.tags && product.tags.length > 0 && (

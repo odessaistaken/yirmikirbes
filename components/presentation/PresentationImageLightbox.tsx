@@ -124,9 +124,7 @@ export default function PresentationImageLightbox({
 
           <div className="flex items-center gap-3 shrink-0">
             <span className="text-sm sm:text-base font-serif font-bold text-amber-300">
-              {product.price > 0
-                ? `₺${product.price.toLocaleString("tr-TR", { minimumFractionDigits: 2 })}`
-                : "Özel Teklif"}
+              Özel Teklif
             </span>
 
             <button

@@ -87,8 +87,8 @@ export default function PresentationProductCard({
             <span className="text-[11px] font-bold uppercase tracking-widest text-amber-700">
               {product.categoryName || "Küratör Seçkisi"}
             </span>
-            <span className="text-stone-900 font-serif font-semibold text-base">
-              {product.price > 0 ? `₺${product.price.toLocaleString("tr-TR", { minimumFractionDigits: 2 })}` : "Özel Teklif"}
+            <span className="text-stone-600 font-serif font-medium text-xs sm:text-sm">
+              Özel Teklif
             </span>
           </div>
 
