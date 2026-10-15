@@ -85,7 +85,7 @@ const stats = [
   { value: "200+", label: "Aktif B2B Müşteri" },
   { value: "120+", label: "SKU Ürün Çeşidi" },
   { value: "15+", label: "Yıllık Deneyim" },
-  { value: "81", label: "İl'e Teslimat" },
+  { value: "4", label: "İl'e Teslimat" },
 ];
 
 const values = [
@@ -201,9 +201,8 @@ export default function HakkimizdaPage() {
             <button
               key={i}
               onClick={() => setHeroSlide(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === heroSlide ? "w-8 bg-gold" : "w-2 bg-white/50 hover:bg-white/80"
-              }`}
+              className={`h-2 rounded-full transition-all duration-300 ${i === heroSlide ? "w-8 bg-gold" : "w-2 bg-white/50 hover:bg-white/80"
+                }`}
               aria-label={`Slide ${i + 1}`}
             />
           ))}
@@ -313,9 +312,8 @@ export default function HakkimizdaPage() {
                     <button
                       key={i}
                       onClick={() => setStorySlide(i)}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${
-                        i === storySlide ? "w-5 bg-gold" : "w-1.5 bg-white/60 hover:bg-white"
-                      }`}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${i === storySlide ? "w-5 bg-gold" : "w-1.5 bg-white/60 hover:bg-white"
+                        }`}
                       aria-label={`Slayt ${i + 1}`}
                     />
                   ))}

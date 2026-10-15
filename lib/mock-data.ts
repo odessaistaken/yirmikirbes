@@ -91,12 +91,12 @@ export const CATEGORIES: Category[] = [
   },
   {
     "id": "cat-6",
-    "name": "Kremalı Ürünler & Pastacılık",
-    "slug": "kremali-urunler",
+    "name": "Spray & Şanti",
+    "slug": "spray-santi",
     "description": "Chantilly, ganaj ve profesyonel pastacılık krema hammaddeleri.",
     "icon": "🍦",
     "productCount": 0,
-    "imageUrl": "/beyazresimler/karisik/karisik_021.png",
+    "imageUrl": "/resimler/kategoriler/spray-santi.png",
     "order": 8,
     "isActive": true
   },

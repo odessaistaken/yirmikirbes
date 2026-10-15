@@ -47,6 +47,7 @@ const CATEGORY_BG_MAP: Record<string, string> = {
   "donuk-pasta": "/resimler/katalog/donuk-pastalar.jpg",
   "donuk-unlu-mamuller": "/resimler/katalog/donuk-pastalar.jpg",
   "kremali-urunler": "/resimler/katalog/kremali.jpg",
+  "spray-santi": "/resimler/kategoriler/spray-santi.png",
   "kruvasan": "/resimler/kategoriler/kruvasan.jpg",
   "kasa-onu-urunler": "/resimler/kategoriler/kasa-onu-urunler.jpg",
   "ekipmanlar": "/resimler/kategoriler/ekipmanlar.jpg",
