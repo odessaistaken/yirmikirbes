@@ -29,12 +29,12 @@ export default function ProductPage() {
       if (!id) return;
       setLoading(true);
       try {
-        // 1. Check in-memory / mock products first
-        let found = getMockProduct(id);
+        // 1. Firestore öncelikli — admin panelindeki değişiklikler anlık yansısın
+        let found = (await getFirestoreProduct(id)) ?? undefined;
 
-        // 2. If not found in mock, check Firestore
+        // 2. Firestore'da yoksa mock-data'ya bak (yedek)
         if (!found) {
-          found = (await getFirestoreProduct(id)) ?? undefined;
+          found = getMockProduct(id);
         }
 
         if (found) {
@@ -73,6 +73,7 @@ export default function ProductPage() {
           setNotFoundState(true);
         }
       } catch {
+        // Firestore erişilemezse mock-data ile devam et
         const foundMock = getMockProduct(id);
         if (foundMock) {
           setProduct(foundMock);
