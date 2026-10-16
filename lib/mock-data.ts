@@ -195,7 +195,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "180 GR",
       "Kutu Gramaj": "2160 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -225,7 +224,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "200 GR",
       "Kutu Gramaj": "1200 GR",
       "Kutu İçi Dilim Adeti": "6 Dilim"
@@ -255,7 +253,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1440 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -285,7 +282,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1170 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -315,7 +311,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "170 GR",
       "Kutu Gramaj": "1700 GR",
       "Kutu İçi Dilim Adeti": "10 Dilim"
@@ -345,7 +340,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -375,7 +369,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "185 GR",
       "Kutu Gramaj": "1665 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -405,7 +398,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "120 GR",
       "Kutu Gramaj": "1200 GR",
       "Kutu İçi Dilim Adeti": "10 Dilim"
@@ -435,7 +427,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1920 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -465,7 +456,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "175 GR",
       "Kutu Gramaj": "2100 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -495,7 +485,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "170 GR",
       "Kutu Gramaj": "1700 GR",
       "Kutu İçi Dilim Adeti": "10 Dilim"
@@ -525,7 +514,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1500 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -555,7 +543,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "210 GR",
       "Kutu Gramaj": "1890 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -585,7 +572,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "225 GR",
       "Kutu Gramaj": "1800 GR",
       "Kutu İçi Dilim Adeti": "8 Dilim"
@@ -615,7 +601,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "170 GR",
       "Kutu Gramaj": "1870 GR",
       "Kutu İçi Dilim Adeti": "11 Dilim"
@@ -645,7 +630,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "240 GR",
       "Kutu Gramaj": "1440 GR",
       "Kutu İçi Dilim Adeti": "6 Dilim"
@@ -675,7 +659,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "200 GR",
       "Kutu Gramaj": "1800 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -705,7 +688,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "210 GR",
       "Kutu Gramaj": "2520 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -735,7 +717,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "140 GR",
       "Kutu Gramaj": "2100 GR",
       "Kutu İçi Dilim Adeti": "15 Dilim"
@@ -765,7 +746,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "170 GR",
       "Kutu Gramaj": "2720 GR",
       "Kutu İçi Dilim Adeti": "16 Dilim"
@@ -795,7 +775,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1920 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -825,7 +804,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "190 GR",
       "Kutu Gramaj": "1710 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -855,7 +833,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "220 GR",
       "Kutu Gramaj": "2000 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -888,7 +865,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1040 GR",
       "Kutu İçi Dilim Adeti": "8 Dilim"
@@ -918,7 +894,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "155 GR",
       "Kutu Gramaj": "1860 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -948,7 +923,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "110 GR",
       "Kutu Gramaj": "1320GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -978,7 +952,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1170 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -1008,7 +981,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "220 GR",
       "Kutu Gramaj": "2640 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -1038,7 +1010,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "120 GR",
       "Kutu Gramaj": "1200 GR",
       "Kutu İçi Dilim Adeti": "10 Dilim"
@@ -1068,7 +1039,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -1098,7 +1068,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "200 GR",
       "Kutu Gramaj": "1800 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -1128,7 +1097,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1920 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -1158,7 +1126,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "200 GR",
       "Kutu Gramaj": "1800 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -1188,7 +1155,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "155 GR",
       "Kutu Gramaj": "1705 GR",
       "Kutu İçi Dilim Adeti": "11 Dilim"
@@ -1218,7 +1184,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "145 GR",
       "Kutu Gramaj": "1450 GR",
       "Kutu İçi Dilim Adeti": "10 Dilim"
@@ -1248,7 +1213,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "145 GR",
       "Kutu Gramaj": "1595 GR",
       "Kutu İçi Dilim Adeti": "11 Dilim"
@@ -1278,7 +1242,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1560 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -1308,7 +1271,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "250 GR",
       "Kutu Gramaj": "2250 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -1338,7 +1300,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "220 GR",
       "Kutu Gramaj": "2000 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -1368,7 +1329,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "190 GR",
       "Kutu Gramaj": "1710 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -1398,7 +1358,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1920 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -1428,7 +1387,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "210 GR",
       "Kutu Gramaj": "1680",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -1458,7 +1416,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "260 GR",
       "Kutu Gramaj": "2080 GR",
       "Kutu İçi Dilim Adeti": "8 Dilim"
@@ -1488,7 +1445,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1440 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -1518,7 +1474,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "180 GR",
       "Kutu Gramaj": "1800 GR",
       "Kutu İçi Dilim Adeti": "10 Dilim"
@@ -1548,7 +1503,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "200 GR",
       "Kutu Gramaj": "2400 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -1578,7 +1532,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1170 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -1608,7 +1561,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1440 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -1638,7 +1590,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "220 GR",
       "Kutu Gramaj": "2640 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -1668,7 +1619,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "190 GR",
       "Kutu Gramaj": "1710 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -1698,7 +1648,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "180 GR",
       "Kutu Gramaj": "2160 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -1728,7 +1677,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "210 GR",
       "Kutu Gramaj": "2520 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -1758,7 +1706,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "190 GR",
       "Kutu Gramaj": "1710 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -1788,7 +1735,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "80 GR",
       "Kutu Gramaj": "1600 GR",
       "Kutu İçi Dilim Adeti": "20 Dilim"
@@ -1817,7 +1763,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "80 GR",
       "Kutu Gramaj": "1600 GR",
       "Kutu İçi Dilim Adeti": "20 Dilim"
@@ -1847,7 +1792,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "110 GR",
       "Kutu Gramaj": "1760 GR",
       "Kutu İçi Dilim Adeti": "16 Dilim"
@@ -1876,7 +1820,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "80 GR",
       "Kutu Gramaj": "1600 GR",
       "Kutu İçi Dilim Adeti": "20 Dilim"
@@ -1906,7 +1849,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "110 GR",
       "Kutu Gramaj": "1760 GR",
       "Kutu İçi Dilim Adeti": "16 Dilim"
@@ -1936,7 +1878,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "110 GR",
       "Kutu Gramaj": "1760 GR",
       "Kutu İçi Dilim Adeti": "16 Dilim"
@@ -1966,7 +1907,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "170 GR",
       "Kutu Gramaj": "1530 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -1996,7 +1936,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "110 GR",
       "Kutu Gramaj": "1760 GR",
       "Kutu İçi Dilim Adeti": "16 Dilim"
@@ -2025,7 +1964,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "80 GR",
       "Kutu Gramaj": "1600 GR",
       "Kutu İçi Dilim Adeti": "20 Dilim"
@@ -2055,7 +1993,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1875 GR",
       "Kutu İçi Dilim Adeti": "15 Dilim"
@@ -2088,7 +2025,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1500 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -2118,7 +2054,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1875 GR",
       "Kutu İçi Dilim Adeti": "15 Dilim"
@@ -2148,7 +2083,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "190 GR",
       "Kutu Gramaj": "1710 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -2177,7 +2111,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1875 GR",
       "Kutu İçi Dilim Adeti": "15 Dilim"
@@ -2207,7 +2140,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "210 GR",
       "Kutu Gramaj": "1890 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -2237,7 +2169,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1500 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -2266,7 +2197,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -2296,7 +2226,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "104 GR",
       "Kutu Gramaj": "1250 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -2325,7 +2254,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "104 GR",
       "Kutu Gramaj": "1250 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -2355,7 +2283,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "118 GR",
       "Kutu Gramaj": "950 GR",
       "Kutu İçi Dilim Adeti": "8 Dilim"
@@ -2385,7 +2312,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1920 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -2415,7 +2341,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1500 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -2444,7 +2369,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "180 GR",
       "Kutu Gramaj": "1800 GR",
       "Kutu İçi Dilim Adeti": "10 Dilim"
@@ -2473,7 +2397,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "175 GR",
       "Kutu Gramaj": "2100 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -2502,7 +2425,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1440 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -2532,7 +2454,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "190 GR",
       "Kutu Gramaj": "2280 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -2561,7 +2482,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1040 GR",
       "Kutu İçi Dilim Adeti": "8 Dilim"
@@ -2591,7 +2511,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "780 GR",
       "Kutu İçi Dilim Adeti": "6 Dilim"
@@ -2620,7 +2539,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "170 GR",
       "Kutu Gramaj": "1530 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -2649,7 +2567,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "190 GR",
       "Kutu Gramaj": "1710 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -2679,7 +2596,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "210 GR",
       "Kutu Gramaj": "1890 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -2708,7 +2624,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1500 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -2737,7 +2652,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "240 GR",
       "Kutu Gramaj": "1440 GR",
       "Kutu İçi Dilim Adeti": "6 Dilim"
@@ -2766,7 +2680,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "2560 GR",
       "Kutu İçi Dilim Adeti": "16 Dilim"
@@ -2795,7 +2708,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "220 GR",
       "Kutu Gramaj": "1980 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -2824,7 +2736,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "260 GR",
       "Kutu Gramaj": "2080 GR",
       "Kutu İçi Dilim Adeti": "8 Dilim"
@@ -2853,7 +2764,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "200 GR",
       "Kutu Gramaj": "1200 GR",
       "Kutu İçi Dilim Adeti": "6 Dilim"
@@ -2881,7 +2791,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1500 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -2909,7 +2818,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "165 GR",
       "Kutu Gramaj": "1485 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -2939,7 +2847,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "140 GR",
       "Kutu Gramaj": "1680 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -2967,7 +2874,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1920 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -2995,7 +2901,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "200 GR",
       "Kutu Gramaj": "1800 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -3023,7 +2928,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "220 GR",
       "Kutu Gramaj": "2000 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -3052,7 +2956,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "80 GR",
       "Kutu Gramaj": "1600 GR",
       "Kutu İçi Dilim Adeti": "30 Adet",
@@ -3082,7 +2985,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "90 GR",
       "Kutu Gramaj": "1800 GR",
       "Kutu İçi Dilim Adeti": "20 Adet"
@@ -3111,7 +3013,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "90 GR",
       "Kutu Gramaj": "1620 GR",
       "Kutu İçi Dilim Adeti": "18 Adet"
@@ -3140,7 +3041,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "90 GR",
       "Kutu Gramaj": "1800 GR",
       "Kutu İçi Dilim Adeti": "20 Adet"
@@ -3169,7 +3069,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "50 GR",
       "Kutu Gramaj": "3000 GR",
       "Kutu İçi Dilim Adeti": "1 Koli"
@@ -3198,7 +3097,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "700 ML",
       "Kutu Gramaj": "700 ML",
       "Kutu İçi Dilim Adeti": "1 Şişe (700ml)",
@@ -3228,7 +3126,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "750 ML",
       "Kutu Gramaj": "750 ML",
       "Kutu İçi Dilim Adeti": "1 Şişe (750ml)"
@@ -3257,7 +3154,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "90 GR",
       "Kutu Gramaj": "2160 GR",
       "Kutu İçi Dilim Adeti": "24 Adet"
@@ -3286,7 +3182,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1170 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -3316,7 +3211,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "2560 GR",
       "Kutu İçi Dilim Adeti": "16 Dilim"
@@ -3345,7 +3239,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1170 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -3373,7 +3266,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "220 GR",
       "Kutu Gramaj": "1980 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -3403,7 +3295,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "2560 GR",
       "Kutu İçi Dilim Adeti": "16 Dilim"
@@ -3433,7 +3324,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "2560 GR",
       "Kutu İçi Dilim Adeti": "16 Dilim"
@@ -3461,7 +3351,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1500 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -3489,7 +3378,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "165 GR",
       "Kutu Gramaj": "1485 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -3517,7 +3405,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1040 GR",
       "Kutu İçi Dilim Adeti": "8 Dilim"
@@ -3545,7 +3432,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1170 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -3573,7 +3459,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "200 GR",
       "Kutu Gramaj": "1800 GR",
       "Kutu İçi Dilim Adeti": "9 Dilim"
@@ -3602,7 +3487,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "170 GR",
       "Kutu Gramaj": "1700 GR",
       "Kutu İçi Dilim Adeti": "10 Dilim"
@@ -3631,7 +3515,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "80 GR",
       "Kutu Gramaj": "1600 GR",
       "Kutu İçi Dilim Adeti": "30 Adet",
@@ -3661,7 +3544,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "90 GR",
       "Kutu Gramaj": "1800 GR",
       "Kutu İçi Dilim Adeti": "20 Adet",
@@ -3690,7 +3572,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "50 GR",
       "Kutu Gramaj": "1500 GR",
       "Kutu İçi Dilim Adeti": "30 Adet"
@@ -3719,7 +3600,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "90 GR",
       "Kutu Gramaj": "1800 GR",
       "Kutu İçi Dilim Adeti": "30 Adet",
@@ -3749,7 +3629,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "50 GR",
       "Kutu Gramaj": "3000 GR",
       "Kutu İçi Dilim Adeti": "1 Koli"
@@ -6473,7 +6352,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -6503,7 +6381,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -6696,7 +6573,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -6726,7 +6602,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -7026,7 +6901,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -7055,7 +6929,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -7188,7 +7061,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"
@@ -7269,7 +7141,6 @@ const RAW_PRODUCTS = [
     ],
     "specs": {
       "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
       "Kutu İçi Dilim Adeti": "12 Dilim"

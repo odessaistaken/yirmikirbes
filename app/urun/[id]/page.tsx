@@ -272,12 +272,13 @@ export default function ProductPage() {
                 }
 
                 for (const [k, v] of Object.entries(rawSpecs)) {
-                  // Çözünme süresi ve Kullanım satırı kaldırıldı; fiyat veya boş alanlar da elenir
+                  // Çözünme süresi, Kullanım ve Saklama Koşulu kaldırıldı; yalnızca Raf Ömrü kalacak
                   if (
                     !v ||
                     /fiyat|price|ücret|tutar/i.test(k) ||
                     /çözünme\s*süresi/i.test(k) ||
-                    /^kullanım|^kullanim/i.test(k)
+                    /^kullanım|^kullanim/i.test(k) ||
+                    /^saklama\s*koşulu|^saklama\s*kosulu/i.test(k)
                   ) {
                     continue;
                   }
@@ -300,7 +301,6 @@ export default function ProductPage() {
                 const preferredOrder = [
                   "Raf Ömrü",
                   "Dilim Gramaj",
-                  "Saklama Koşulu",
                   "Kutu Gramaj",
                   "Kutu İçi Dilim Adeti",
                   "Miktar",
