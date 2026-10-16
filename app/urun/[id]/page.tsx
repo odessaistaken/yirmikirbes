@@ -272,11 +272,12 @@ export default function ProductPage() {
                 }
 
                 for (const [k, v] of Object.entries(rawSpecs)) {
-                  // Çözünme süresi kaldırıldı; fiyat veya boş alanlar da elenir
+                  // Çözünme süresi ve Kullanım satırı kaldırıldı; fiyat veya boş alanlar da elenir
                   if (
                     !v ||
                     /fiyat|price|ücret|tutar/i.test(k) ||
-                    /çözünme\s*süresi/i.test(k)
+                    /çözünme\s*süresi/i.test(k) ||
+                    /^kullanım|^kullanim/i.test(k)
                   ) {
                     continue;
                   }
@@ -300,7 +301,6 @@ export default function ProductPage() {
                   "Raf Ömrü",
                   "Dilim Gramaj",
                   "Saklama Koşulu",
-                  "Kullanım",
                   "Kutu Gramaj",
                   "Kutu İçi Dilim Adeti",
                   "Miktar",

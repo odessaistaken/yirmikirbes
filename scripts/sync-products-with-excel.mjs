@@ -164,7 +164,6 @@ async function main() {
     if (isFrozen) {
       newSpecs['Raf Ömrü'] = "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.";
       newSpecs['Saklama Koşulu'] = "-18°C donuk muhafaza ediniz. (+4°C dolapta 3 gün saklama ömrü)";
-      newSpecs['Kullanım'] = "+4°C dolapta çözündükten sonra tüketime hazırdır.";
     } else {
       newSpecs['Raf Ömrü'] = "24 Ay • Koli • Serin ve kuru yerde saklayınız.";
     }
