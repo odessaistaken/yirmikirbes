@@ -235,7 +235,17 @@ export default function ProductPage() {
                 // Eğer raf ömrü içinde zaten ambalaj veya servis bilgisi birleşmişse tekrar ekleme
                 const rafParts: string[] = [];
                 if (rafOmru) {
-                  rafParts.push(rafOmru);
+                  // Ensure +4°C'de 3 gün shelf life is included for frozen products
+                  let formattedRaf = rafOmru;
+                  if (!formattedRaf.includes("+4") && (formattedRaf.includes("-18") || formattedRaf.includes("12 Ay"))) {
+                    formattedRaf = formattedRaf.replace(
+                      "-18°C'de 12 Ay",
+                      "-18°C'de 12 Ay (+4°C dolapta 3 gün)"
+                    );
+                  }
+                  rafParts.push(formattedRaf);
+                } else {
+                  rafParts.push("-18°C'de 12 Ay (+4°C dolapta 3 gün)");
                 }
                 if (
                   ambalaj &&
@@ -262,7 +272,14 @@ export default function ProductPage() {
                 }
 
                 for (const [k, v] of Object.entries(rawSpecs)) {
-                  if (!v || /fiyat|price|ücret|tutar/i.test(k)) continue;
+                  // Çözünme süresi kaldırıldı; fiyat veya boş alanlar da elenir
+                  if (
+                    !v ||
+                    /fiyat|price|ücret|tutar/i.test(k) ||
+                    /çözünme\s*süresi/i.test(k)
+                  ) {
+                    continue;
+                  }
 
                   let displayKey = k;
                   let displayVal = String(v);
@@ -281,7 +298,6 @@ export default function ProductPage() {
                 // Tercih edilen satır sıralaması
                 const preferredOrder = [
                   "Raf Ömrü",
-                  "Çözünme Süresi",
                   "Dilim Gramaj",
                   "Saklama Koşulu",
                   "Kullanım",
