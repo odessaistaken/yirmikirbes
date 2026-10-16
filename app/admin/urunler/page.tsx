@@ -7,7 +7,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Plus, Pencil, Trash2, X, Check, Upload,
-  AlertTriangle, Search, Package, ImageIcon, Copy, Flame,
+  AlertTriangle, Search, Package, ImageIcon, Copy, Flame, SlidersHorizontal, Sparkles,
 } from "lucide-react";
 import toast from "react-hot-toast";
 import {
@@ -64,6 +64,16 @@ export default function AdminUrunler() {
     toast.success("Ürün görseli kaldırıldı.");
   }
 
+  const PRESET_SPECS = [
+    "Raf Ömrü",
+    "Dilim Gramaj",
+    "Kutu Gramaj",
+    "Kutu İçi Dilim Adeti",
+    "Miktar",
+    "Koli İçi Adet",
+    "Hazırlanışı",
+  ];
+
   const emptyForm = {
     name: "",
     code: "",
@@ -77,6 +87,7 @@ export default function AdminUrunler() {
     imageStoragePath: "",
     isActive: true,
     isBestSeller: false,
+    specList: [] as Array<{ key: string; value: string }>,
   };
   const [form, setForm] = useState(emptyForm);
 
@@ -110,12 +121,21 @@ export default function AdminUrunler() {
       ...emptyForm,
       categoryId: categories[0]?.id ?? "",
       order: products.length + 1,
+      specList: [
+        { key: "Raf Ömrü", value: "-18°C'de 12 Ay (+4°C dolapta 3 gün)" },
+        { key: "Dilim Gramaj", value: "" },
+        { key: "Kutu Gramaj", value: "" },
+        { key: "Kutu İçi Dilim Adeti", value: "" },
+      ],
     });
     setModalOpen(true);
   }
 
   function openEdit(p: Product) {
     setEditTarget(p);
+    const specsArray: Array<{ key: string; value: string }> = p.specs
+      ? Object.entries(p.specs).map(([key, value]) => ({ key, value: String(value ?? "") }))
+      : [];
     setForm({
       name: p.name,
       code: p.code,
@@ -129,8 +149,46 @@ export default function AdminUrunler() {
       imageStoragePath: p.imageStoragePath ?? "",
       isActive: p.isActive,
       isBestSeller: !!p.isBestSeller,
+      specList: specsArray,
     });
     setModalOpen(true);
+  }
+
+  function handleAddSpec(presetKey = "", presetValue = "") {
+    setForm((prev) => ({
+      ...prev,
+      specList: [...prev.specList, { key: presetKey, value: presetValue }],
+    }));
+  }
+
+  function handleAddPreset(preset: string) {
+    const exists = form.specList.some(
+      (s) => s.key.toLowerCase().trim() === preset.toLowerCase().trim()
+    );
+    if (exists) {
+      toast("Bu özellik zaten listede ekli.", { icon: "ℹ️" });
+      return;
+    }
+    let defaultVal = "";
+    if (preset === "Raf Ömrü") {
+      defaultVal = "-18°C'de 12 Ay (+4°C dolapta 3 gün)";
+    }
+    handleAddSpec(preset, defaultVal);
+  }
+
+  function handleRemoveSpec(index: number) {
+    setForm((prev) => ({
+      ...prev,
+      specList: prev.specList.filter((_, i) => i !== index),
+    }));
+  }
+
+  function handleSpecChange(index: number, field: "key" | "value", val: string) {
+    setForm((prev) => {
+      const updated = [...prev.specList];
+      updated[index] = { ...updated[index], [field]: val };
+      return { ...prev, specList: updated };
+    });
   }
 
   async function handleToggleBestSeller(p: Product) {
@@ -186,6 +244,15 @@ export default function AdminUrunler() {
         }
       }
 
+      const specsObj: Record<string, string> = {};
+      for (const item of form.specList) {
+        const k = item.key.trim();
+        const v = item.value.trim();
+        if (k) {
+          specsObj[k] = v;
+        }
+      }
+
       const payload: any = {
         name: form.name,
         code: form.code,
@@ -202,6 +269,7 @@ export default function AdminUrunler() {
         isActive: form.isActive,
         isBestSeller: form.isBestSeller,
         tags: [],
+        specs: specsObj,
       };
 
       if (editTarget) {
@@ -304,9 +372,16 @@ export default function AdminUrunler() {
                   </td>
                   <td className="py-3 px-5">
                     <p className="font-semibold text-slate-900 text-sm">{p.name}</p>
-                    {p.codeGroup && (
-                      <p className="text-slate-500 text-xs mt-0.5">Grup: {p.codeGroup}</p>
-                    )}
+                    <div className="flex items-center gap-2 mt-0.5">
+                      {p.codeGroup && (
+                        <p className="text-slate-500 text-xs">Grup: {p.codeGroup}</p>
+                      )}
+                      {p.specs && Object.keys(p.specs).length > 0 && (
+                        <span className="text-2xs text-amber-700 bg-amber-50 border border-amber-200/60 px-1.5 py-0.5 rounded font-medium">
+                          {Object.keys(p.specs).length} özellik
+                        </span>
+                      )}
+                    </div>
                   </td>
                   <td className="py-3 px-5">
                     <code className="text-xs bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded font-mono">{p.code}</code>
@@ -399,7 +474,7 @@ export default function AdminUrunler() {
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
             >
               <div
-                className="bg-white border border-slate-200 rounded-2xl shadow-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto text-slate-800"
+                className="bg-white border border-slate-200 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto text-slate-800"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex items-center justify-between px-6 py-5 border-b border-slate-200 bg-slate-50">
@@ -638,6 +713,105 @@ export default function AdminUrunler() {
                       placeholder="Ürün açıklaması..."
                       className="input resize-none"
                     />
+                  </div>
+
+                  {/* Product Specs Editor */}
+                  <div className="pt-2 border-t border-slate-200">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <SlidersHorizontal size={16} className="text-gold" />
+                        <h3 className="text-slate-800 text-sm font-bold">Ürün Özellikleri</h3>
+                        <span className="text-2xs font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
+                          {form.specList.length} özellik
+                        </span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => handleAddSpec()}
+                        className="text-xs font-semibold text-amber-700 hover:text-amber-800 bg-amber-50 hover:bg-amber-100/80 border border-amber-200/80 px-2.5 py-1 rounded-lg flex items-center gap-1.5 transition-colors cursor-pointer"
+                      >
+                        <Plus size={13} /> Özellik Ekle
+                      </button>
+                    </div>
+                    <p className="text-slate-500 text-xs mb-3">
+                      Ürün detay sayfasındaki özellikler tablosunda görüntülenecek teknik detayları buradan düzenleyebilirsiniz.
+                    </p>
+
+                    {/* Quick preset chips */}
+                    <div className="mb-3 p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
+                      <div className="flex items-center gap-1.5 mb-1.5 text-2xs font-semibold text-slate-500 uppercase tracking-wider">
+                        <Sparkles size={11} className="text-gold" />
+                        <span>Hızlı Özellik Ekle</span>
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {PRESET_SPECS.map((preset) => {
+                          const exists = form.specList.some(
+                            (s) => s.key.toLowerCase().trim() === preset.toLowerCase().trim()
+                          );
+                          return (
+                            <button
+                              key={preset}
+                              type="button"
+                              onClick={() => handleAddPreset(preset)}
+                              className={`text-xs px-2.5 py-1 rounded-lg transition-all flex items-center gap-1 border cursor-pointer ${
+                                exists
+                                  ? "bg-amber-500/10 text-amber-800 border-amber-300 font-medium"
+                                  : "bg-white text-slate-700 border-slate-200 hover:border-gold hover:text-amber-800 hover:bg-gold/5"
+                              }`}
+                              title={exists ? "Bu özellik listede zaten var" : `${preset} özelliğini ekle`}
+                            >
+                              <span>{preset}</span>
+                              {exists ? <Check size={11} className="text-amber-700" /> : <Plus size={11} className="text-slate-400" />}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Specs List */}
+                    {form.specList.length === 0 ? (
+                      <div className="text-center py-6 border-2 border-dashed border-slate-200 rounded-xl bg-slate-50/50">
+                        <SlidersHorizontal size={24} className="text-slate-400 mx-auto mb-2 opacity-60" />
+                        <p className="text-xs text-slate-600 font-medium">Henüz bir ürün özelliği eklenmemiş.</p>
+                        <p className="text-2xs text-slate-400 mt-0.5">Yukarıdaki hızlı butonları kullanabilir veya 'Özellik Ekle' butonuna basabilirsiniz.</p>
+                      </div>
+                    ) : (
+                      <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
+                        {form.specList.map((spec, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center gap-2 p-2 bg-slate-50 hover:bg-slate-100/70 border border-slate-200 rounded-lg transition-colors"
+                          >
+                            <div className="w-2/5 min-w-[120px]">
+                              <input
+                                type="text"
+                                value={spec.key}
+                                onChange={(e) => handleSpecChange(index, "key", e.target.value)}
+                                placeholder="Özellik Adı (örn: Raf Ömrü)"
+                                className="w-full text-xs font-semibold text-slate-800 bg-white border border-slate-200 rounded px-2.5 py-1.5 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+                              />
+                            </div>
+                            <div className="flex-1">
+                              <input
+                                type="text"
+                                value={spec.value}
+                                onChange={(e) => handleSpecChange(index, "value", e.target.value)}
+                                placeholder="Değer (örn: -18°C'de 12 Ay (+4°C dolapta 3 gün))"
+                                className="w-full text-xs text-slate-700 bg-white border border-slate-200 rounded px-2.5 py-1.5 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+                              />
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => handleRemoveSpec(index)}
+                              className="p-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors cursor-pointer"
+                              title="Bu özelliği sil"
+                            >
+                              <Trash2 size={14} />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                   {/* Status & Best Seller toggles */}

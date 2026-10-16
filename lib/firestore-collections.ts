@@ -238,10 +238,24 @@ export async function addProduct(data: Omit<Product, "id">): Promise<string> {
 
 /** Update an existing product */
 export async function updateProduct(id: string, data: Partial<Product>): Promise<void> {
-  await setDoc(doc(requireDb(), "products", id), {
-    ...data,
-    updatedAt: serverTimestamp(),
-  }, { merge: true });
+  const cleanData: Record<string, any> = {};
+  for (const [k, v] of Object.entries(data)) {
+    if (v !== undefined) {
+      cleanData[k] = v;
+    }
+  }
+  const ref = doc(requireDb(), "products", id);
+  try {
+    await updateDoc(ref, {
+      ...cleanData,
+      updatedAt: serverTimestamp(),
+    });
+  } catch {
+    await setDoc(ref, {
+      ...cleanData,
+      updatedAt: serverTimestamp(),
+    }, { merge: true });
+  }
 }
 
 /** Clone a product (duplicate with "(Kopya)" suffix) */
