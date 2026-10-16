@@ -212,20 +212,112 @@ export default function ProductPage() {
 
               {/* Specs */}
               {product.specs && (() => {
-                const visibleSpecs = Object.entries(product.specs).filter(
-                  ([key]) => !/fiyat|price|ücret|tutar/i.test(key)
-                );
-                if (visibleSpecs.length === 0) return null;
+                const rawSpecs = { ...product.specs };
+
+                // 1. Ambalaj ve Servis Tavsiyesi'ni çekip Raf Ömrü ile tek satırda birleştirme
+                let rafOmru = "";
+                let ambalaj = "";
+                let servisTavsiyesi = "";
+
+                for (const [k, v] of Object.entries(rawSpecs)) {
+                  if (/^raf\s*ömrü|^raf_omru/i.test(k)) {
+                    rafOmru = String(v);
+                    delete rawSpecs[k];
+                  } else if (/^ambalaj/i.test(k)) {
+                    ambalaj = String(v);
+                    delete rawSpecs[k];
+                  } else if (/^servis(\s*tavsiyesi)?$/i.test(k)) {
+                    servisTavsiyesi = String(v);
+                    delete rawSpecs[k];
+                  }
+                }
+
+                // Eğer raf ömrü içinde zaten ambalaj veya servis bilgisi birleşmişse tekrar ekleme
+                const rafParts: string[] = [];
+                if (rafOmru) {
+                  rafParts.push(rafOmru);
+                }
+                if (
+                  ambalaj &&
+                  !rafOmru.toLowerCase().includes("koli") &&
+                  !rafOmru.toLowerCase().includes(ambalaj.toLowerCase())
+                ) {
+                  rafParts.push(ambalaj.toLowerCase().startsWith("koli") ? ambalaj : `Ambalaj: ${ambalaj}`);
+                }
+                if (
+                  servisTavsiyesi &&
+                  !rafOmru.toLowerCase().includes("servis") &&
+                  !rafOmru.toLowerCase().includes(servisTavsiyesi.toLowerCase())
+                ) {
+                  rafParts.push(servisTavsiyesi.toLowerCase().startsWith("servis") ? servisTavsiyesi : `Servis: ${servisTavsiyesi}`);
+                }
+
+                const combinedRafOmru = rafParts.join(" • ");
+
+                // 2. Kalan özellikleri düzenleme
+                const entriesMap = new Map<string, string>();
+
+                if (combinedRafOmru) {
+                  entriesMap.set("Raf Ömrü", combinedRafOmru);
+                }
+
+                for (const [k, v] of Object.entries(rawSpecs)) {
+                  if (!v || /fiyat|price|ücret|tutar/i.test(k)) continue;
+
+                  let displayKey = k;
+                  let displayVal = String(v);
+
+                  // "porsiyon yerine kutu içi dilim adeti yazmasını istiyorum"
+                  if (/porsiyon|kutu\s*içi\s*dilim/i.test(k)) {
+                    displayKey = "Kutu İçi Dilim Adeti";
+                    if (/^\d+$/.test(displayVal.trim())) {
+                      displayVal = `${displayVal.trim()} Dilim`;
+                    }
+                  }
+
+                  entriesMap.set(displayKey, displayVal);
+                }
+
+                // Tercih edilen satır sıralaması
+                const preferredOrder = [
+                  "Raf Ömrü",
+                  "Çözünme Süresi",
+                  "Dilim Gramaj",
+                  "Saklama Koşulu",
+                  "Kullanım",
+                  "Kutu Gramaj",
+                  "Kutu İçi Dilim Adeti",
+                  "Miktar",
+                  "Koli İçi Adet",
+                  "Hazırlanışı",
+                ];
+
+                const sortedEntries: [string, string][] = [];
+                for (const key of preferredOrder) {
+                  if (entriesMap.has(key)) {
+                    sortedEntries.push([key, entriesMap.get(key)!]);
+                    entriesMap.delete(key);
+                  }
+                }
+                for (const [k, v] of entriesMap.entries()) {
+                  sortedEntries.push([k, v]);
+                }
+
+                if (sortedEntries.length === 0) return null;
+
                 return (
                   <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-3 shadow-sm">
                     <div className="flex items-center gap-2 mb-1">
                       <Package size={14} className="text-amber-600" />
                       <p className="text-slate-900 text-sm font-semibold">Ürün Özellikleri</p>
                     </div>
-                    {visibleSpecs.map(([key, val]) => (
-                      <div key={key} className="flex items-center justify-between py-2 border-b border-slate-100 last:border-0">
-                        <span className="text-slate-500 text-sm">{key}</span>
-                        <span className="text-slate-800 text-sm font-medium">{val}</span>
+                    {sortedEntries.map(([key, val]) => (
+                      <div
+                        key={key}
+                        className="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b border-slate-100 last:border-0 gap-1 sm:gap-4"
+                      >
+                        <span className="text-slate-500 text-sm shrink-0">{key}</span>
+                        <span className="text-slate-800 text-sm font-medium sm:text-right leading-relaxed">{val}</span>
                       </div>
                     ))}
                   </div>

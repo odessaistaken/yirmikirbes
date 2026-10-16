@@ -182,6 +182,27 @@ export const CATEGORIES: Category[] = [
 
 const RAW_PRODUCTS = [
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1170,
+    "tags": [
+      "Donuk Pasta",
+      "Çikolatalı",
+      "Belçika Çikolatası",
+      "Dilimli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 3-4 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "180 GR",
+      "Kutu Gramaj": "2160 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 1,
     "id": "prod-pt12-13",
     "name": "BELÇİKA ÇİKOLATALI",
     "code": "PST-DNK-MNG-CHK",
@@ -190,29 +211,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Zengin Belçika çikolatalı kadifemsi ganaj ve yumuşacık kakaolu pandispanya katmanları.",
-    "imageUrl": "/resimler/pt12/pt12_13.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1170,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Çikolatalı",
-      "Belçika Çikolatası",
-      "Dilimli"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 3-4 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
-      "Kutu Gramaj": "2160 GR",
-      "Dilim Gramaj": "180 GR"
-    },
-    "order": 1
+    "imageUrl": "/resimler/pt12/pt12_13.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 870,
+    "tags": [
+      "Butik Pasta",
+      "Lotus",
+      "Karamel",
+      "Mono"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "200 GR",
+      "Kutu Gramaj": "1200 GR",
+      "Kutu İçi Dilim Adeti": "6 Dilim"
+    },
+    "order": 2,
     "id": "prod-pt12-14",
     "name": "LOTUS SPECULUS",
     "code": "PST-DNK-TIR-10D",
@@ -221,29 +243,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Orijinal Belçika Lotus Biscoff bisküvisi, karamelize krema ve speculoos soslu butik mono pasta.",
-    "imageUrl": "/resimler/pt12/pt12_14.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 870,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Lotus",
-      "Karamel",
-      "Mono"
-    ],
-    "specs": {
-      "Porsiyon": "6 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
-      "Kutu Gramaj": "1200 GR",
-      "Dilim Gramaj": "200 GR"
-    },
-    "order": 2
+    "imageUrl": "/resimler/pt12/pt12_14.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1170,
+    "tags": [
+      "Donuk Pasta",
+      "Antep Fıstıklı",
+      "Melanga",
+      "Dilimli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1440 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 3,
     "id": "prod-pt12-15",
     "name": "FISTIKLI MELANGA",
     "code": "PST-DNK-DUB-BOX",
@@ -252,29 +275,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Yoğun Antep fıstıklı kek katmanları, hafif krema ve orman meyvesi dokunuşu.",
-    "imageUrl": "/resimler/pt12/pt12_15.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1170,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Antep Fıstıklı",
-      "Melanga",
-      "Dilimli"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
-      "Kutu Gramaj": "1440 GR",
-      "Dilim Gramaj": "160 GR"
-    },
-    "order": 3
+    "imageUrl": "/resimler/pt12/pt12_15.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1170,
+    "tags": [
+      "Donuk Pasta",
+      "Browni",
+      "Çikolatalı",
+      "Fındıklı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 4 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "130 GR",
+      "Kutu Gramaj": "1170 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 4,
     "id": "prod-pt12-16",
     "name": "BROWNİ",
     "code": "PST-DNK-LOT-BLU",
@@ -283,29 +307,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Yoğun bitter Belçika çikolatası, fındık parçaları ve orman meyveleriyle süslenmiş kare browni.",
-    "imageUrl": "/resimler/pt12/pt12_16.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1170,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Browni",
-      "Çikolatalı",
-      "Fındıklı"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 4 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
-      "Kutu Gramaj": "1170 GR",
-      "Dilim Gramaj": "130 GR"
-    },
-    "order": 4
+    "imageUrl": "/resimler/pt12/pt12_16.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1085,
+    "tags": [
+      "Donuk Pasta",
+      "Antep Fıstığı",
+      "Çikolata",
+      "Mono"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "170 GR",
+      "Kutu Gramaj": "1700 GR",
+      "Kutu İçi Dilim Adeti": "10 Dilim"
+    },
+    "order": 5,
     "id": "prod-pt12-17",
     "name": "FISTIKLI ÇİKOLATALI MONO",
     "code": "PST-DNK-PNT-CHOC",
@@ -314,29 +339,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Özel Antep fıstıklı krema dolgusu ve zengin bitter çikolata ganajlı mono pasta.",
-    "imageUrl": "/resimler/pt12/pt12_17.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1085,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Antep Fıstığı",
-      "Çikolata",
-      "Mono"
-    ],
-    "specs": {
-      "Porsiyon": "10 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
-      "Kutu Gramaj": "1700 GR",
-      "Dilim Gramaj": "170 GR"
-    },
-    "order": 5
+    "imageUrl": "/resimler/pt12/pt12_17.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1020,
+    "tags": [
+      "Donuk Pasta",
+      "Cheesecake",
+      "Limonlu",
+      "Ferah"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1900 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 6,
     "id": "prod-pt12-18",
     "name": "LİMONLU CHEESCAKE",
     "code": "PST-DNK-CRM-MONO",
@@ -345,29 +371,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Fırınlanmış kıtır bisküvi tabanı, kadifemsi peynir kreması ve taze ferah limon sosu.",
-    "imageUrl": "/resimler/pt12/pt12_18.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1020,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Cheesecake",
-      "Limonlu",
-      "Ferah"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
-      "Kutu Gramaj": "1900 GR",
-      "Dilim Gramaj": "160 GR"
-    },
-    "order": 6
+    "imageUrl": "/resimler/pt12/pt12_18.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 922.5,
+    "tags": [
+      "Donuk Pasta",
+      "Yaban Mersini",
+      "Bella Vista",
+      "Meyveli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 2 saat veya ılık servis",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "185 GR",
+      "Kutu Gramaj": "1665 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 7,
     "id": "prod-pt12-19",
     "name": "BELLA VİSTA",
     "code": "PST-DNK-BRW-NUT",
@@ -376,29 +403,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Taze yaban mersini taneleri, beyaz çikolata çizgileri ve speculoos bisküvi kenarlı pasta.",
-    "imageUrl": "/resimler/pt12/pt12_19.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 922.5,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Yaban Mersini",
-      "Bella Vista",
-      "Meyveli"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2 saat veya ılık servis",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
-      "Kutu Gramaj": "1665 GR",
-      "Dilim Gramaj": "185 GR"
-    },
-    "order": 7
+    "imageUrl": "/resimler/pt12/pt12_19.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 875,
+    "tags": [
+      "Donuk Pasta",
+      "Tiramisu",
+      "İtalyan",
+      "Kahveli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 3 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "120 GR",
+      "Kutu Gramaj": "1200 GR",
+      "Kutu İçi Dilim Adeti": "10 Dilim"
+    },
+    "order": 8,
     "id": "prod-pt12-20",
     "name": "TİRAMİSU",
     "code": "PST-DNK-PST-RAS",
@@ -407,42 +435,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Espresso şurubuyla ıslatılmış savoiardi kedidili bisküvileri, mascarpone kreması ve kakao tozu.",
-    "imageUrl": "/resimler/pt12/pt12_20.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 875,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Tiramisu",
-      "İtalyan",
-      "Kahveli"
-    ],
-    "specs": {
-      "Porsiyon": "10 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
-      "Kutu Gramaj": "1200 GR",
-      "Dilim Gramaj": "120 GR"
-    },
-    "order": 8
+    "imageUrl": "/resimler/pt12/pt12_20.png"
   },
   {
-    "id": "prod-pt13-1",
-    "name": "DEVİLS FOOD CAKE",
-    "code": "PST-DNK-MN-CHOC-STR",
-    "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-5",
-    "categoryName": "Pastalar",
-    "categorySlug": "donuk-pasta",
-    "description": "Yoğun kakaolu nemli kek katmanları ve bitter çikolata ganajıyla hazırlanan klasik Devils Food Cake.",
-    "imageUrl": "/resimler/pt13/pt13_1.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 1020,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 1020,
     "tags": [
       "Donuk Pasta",
       "Devils Food",
@@ -450,19 +450,47 @@ const RAW_PRODUCTS = [
       "Dilimli"
     ],
     "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
       "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
-      "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis ediniz.",
-      "Kutu Gramaj": "1920 GR",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
       "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Kutu Gramaj": "1920 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
     },
-    "order": 9
+    "order": 9,
+    "id": "prod-pt13-1",
+    "name": "DEVİLS FOOD CAKE",
+    "code": "PST-DNK-MN-CHOC-STR",
+    "codeGroup": "20:45 Pastacılık",
+    "categoryId": "cat-5",
+    "categoryName": "Pastalar",
+    "categorySlug": "donuk-pasta",
+    "description": "Geleneksel Avusturya Linzer keki, çikolatalı krema ve fındıklı hamur.",
+    "imageUrl": "/resimler/pt13/pt13_1.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1420.2,
+    "tags": [
+      "Donuk Pasta",
+      "San Sebastian",
+      "Bask Cheesecake",
+      "Kremamsı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "175 GR",
+      "Kutu Gramaj": "2100 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 10,
     "id": "prod-pt13-2",
     "name": "SAN SEBASTİAN CHEESCAKE",
     "code": "PST-DNK-MN-PST",
@@ -471,31 +499,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Özel karamelize yanık üst kabuğu ve akışkan kremsi iç dokusuyla meşhur Bask San Sebastian.",
-    "imageUrl": "/resimler/pt13/pt13_2.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1420.2,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "San Sebastian",
-      "Bask Cheesecake",
-      "Kremamsı"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
-      "Servis Tavsiyesi": "Taze kahve ve çay ile mükemmel uyum.",
-      "Kutu Gramaj": "2100 GR",
-      "Dilim Gramaj": "175 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 10
+    "imageUrl": "/resimler/pt13/pt13_2.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 990,
+    "tags": [
+      "Donuk Pasta",
+      "Cheesecake",
+      "Yaban Mersinli",
+      "Meyveli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "170 GR",
+      "Kutu Gramaj": "1700 GR",
+      "Kutu İçi Dilim Adeti": "10 Dilim"
+    },
+    "order": 11,
     "id": "prod-pt13-3",
     "name": "YABAN MERSİNLİ CHEESCAKE",
     "code": "PST-DNK-MN-LIM",
@@ -504,31 +531,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Fırınlanmış kıtır bisküvi tabanı, kadifemsi peynir kreması ve zengin orman meyveli yaban mersini sosu.",
-    "imageUrl": "/resimler/pt13/pt13_3.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 990,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Cheesecake",
-      "Yaban Mersinli",
-      "Meyveli"
-    ],
-    "specs": {
-      "Porsiyon": "10 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C'de saklayınız.",
-      "Servis Tavsiyesi": "Soğuk servis önerilir.",
-      "Kutu Gramaj": "1700 GR",
-      "Dilim Gramaj": "170 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 11
+    "imageUrl": "/resimler/pt13/pt13_3.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 948,
+    "tags": [
+      "Donuk Pasta",
+      "Red Velvet",
+      "Kırmızı Kadife",
+      "Peynir Kremalı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "125 GR",
+      "Kutu Gramaj": "1500 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 12,
     "id": "prod-pt13-4",
     "name": "RED VELVET",
     "code": "PST-DNK-MN-RED",
@@ -537,31 +563,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Kadife dokulu kırmızı kakao pandispanyası ve vanilyalı mascarpone peynir kreması katmanları.",
-    "imageUrl": "/resimler/pt13/pt13_4.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 948,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Red Velvet",
-      "Kırmızı Kadife",
-      "Peynir Kremalı"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
-      "Servis Tavsiyesi": "Çözündükten sonra tabak sunumuna hazırdır.",
-      "Kutu Gramaj": "1500 GR",
-      "Dilim Gramaj": "125 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 12
+    "imageUrl": "/resimler/pt13/pt13_4.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1395,
+    "tags": [
+      "Butik Pasta",
+      "Çıtır Bomba",
+      "Rocher",
+      "Fındıklı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "210 GR",
+      "Kutu Gramaj": "1890 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 13,
     "id": "prod-pt13-5",
     "name": "ÇITIR BOMBA",
     "code": "PST-DNK-MN-LOT",
@@ -570,31 +595,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Kavrulmuş fındık parçacıklı çıtır çikolata kabuğu altında yoğun çikolata mousse dolgulu mono pasta.",
-    "imageUrl": "/resimler/pt13/pt13_5.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1395,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Çıtır Bomba",
-      "Rocher",
-      "Fındıklı"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C donuk",
-      "Servis Tavsiyesi": "Espresso ve filtre kahve yanına tavsiye edilir.",
-      "Kutu Gramaj": "1890 GR",
-      "Dilim Gramaj": "210 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 13
+    "imageUrl": "/resimler/pt13/pt13_5.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1448,
+    "tags": [
+      "Butik Pasta",
+      "Cookie Tart",
+      "Çikolatalı",
+      "Tart"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "225 GR",
+      "Kutu Gramaj": "1800 GR",
+      "Kutu İçi Dilim Adeti": "8 Dilim"
+    },
+    "order": 14,
     "id": "prod-pt13-6",
     "name": "COOKİE TART MİX",
     "code": "PST-DNK-MN-ROC",
@@ -603,31 +627,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Tereyağlı kurabiye tart hamuru, çikolata dolgusu ve özel krema katmanları.",
-    "imageUrl": "/resimler/pt13/pt13_6.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1448,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Cookie Tart",
-      "Çikolatalı",
-      "Tart"
-    ],
-    "specs": {
-      "Porsiyon": "8 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C muhafaza ediniz.",
-      "Servis Tavsiyesi": "Oda sıcaklığına yakın kıvamda tüketilmesi önerilir.",
-      "Kutu Gramaj": "1800 GR",
-      "Dilim Gramaj": "225 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 14
+    "imageUrl": "/resimler/pt13/pt13_6.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1210,
+    "tags": [
+      "Donuk Pasta",
+      "Kubbe Pasta",
+      "Antep Fıstığı",
+      "Çikolatalı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "170 GR",
+      "Kutu Gramaj": "1870 GR",
+      "Kutu İçi Dilim Adeti": "11 Dilim"
+    },
+    "order": 15,
     "id": "prod-pt13-7",
     "name": "KUBBE FISTIKLI ÇİKOLATALI",
     "code": "PST-DNK-DL-CRM",
@@ -636,31 +659,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Parlak bitter çikolata kubbesi içinde Antep fıstıklı krema ve yumuşak pandispanya.",
-    "imageUrl": "/resimler/pt13/pt13_7.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1210,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Kubbe Pasta",
-      "Antep Fıstığı",
-      "Çikolatalı"
-    ],
-    "specs": {
-      "Porsiyon": "11 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C muhafaza",
-      "Servis Tavsiyesi": "+4°C'de çözündürünüz.",
-      "Kutu Gramaj": "1870 GR",
-      "Dilim Gramaj": "170 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 15
+    "imageUrl": "/resimler/pt13/pt13_7.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 840,
+    "tags": [
+      "Butik Pasta",
+      "Şeftali",
+      "Sponge",
+      "Mono"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "240 GR",
+      "Kutu Gramaj": "1440 GR",
+      "Kutu İçi Dilim Adeti": "6 Dilim"
+    },
+    "order": 16,
     "id": "prod-pt13-8",
     "name": "ŞEFTALİ SPONGE",
     "code": "PST-DNK-DL-PSTC",
@@ -669,31 +691,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Hafif sünger pandispanya, ferahlatıcı şeftali püresi ve vanilyalı mousse mono pasta.",
-    "imageUrl": "/resimler/pt13/pt13_8.png",
+    "imageUrl": "/resimler/pt13/pt13_8.png"
+  },
+  {
     "isActive": true,
-    "isFeatured": true,
-    "price": 840,
+    "isFeatured": false,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 801,
     "tags": [
-      "Butik Pasta",
-      "Şeftali",
-      "Sponge",
+      "Donuk Pasta",
+      "Hindistan Cevizi",
+      "Coco Star",
       "Mono"
     ],
     "specs": {
-      "Porsiyon": "6 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
       "Çözünme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C donuk",
-      "Servis Tavsiyesi": "Çözündükten sonra servis ediniz.",
-      "Kutu Gramaj": "1440 GR",
-      "Dilim Gramaj": "240 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "200 GR",
+      "Kutu Gramaj": "1800 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
     },
-    "order": 16
-  },
-  {
+    "order": 17,
     "id": "prod-pt13-9",
     "name": "COCO STAR",
     "code": "PST-DNK-DL-MOK",
@@ -702,31 +723,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Hindistan cevizi kaplı hafif beyaz krema ve çikolata dolgulu mono pasta.",
-    "imageUrl": "/resimler/pt13/pt13_9.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 801,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Hindistan Cevizi",
-      "Coco Star",
-      "Mono"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Sıcak içecekler eşliğinde servis ediniz.",
-      "Kutu Gramaj": "1800 GR",
-      "Dilim Gramaj": "200 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 17
+    "imageUrl": "/resimler/pt13/pt13_9.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1740,
+    "tags": [
+      "Butik Cup",
+      "Portakallı",
+      "Meyveli",
+      "Bireysel"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "210 GR",
+      "Kutu Gramaj": "2520 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 18,
     "id": "prod-pt13-10",
     "name": "PORTAKALLI CUP",
     "code": "PST-DNK-DL-BLF",
@@ -735,31 +755,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "butik-cup",
     "description": "Taze portakal püreli jöle, hafif pastacı kreması ve bisküvi katmanlı cup tatlısı.",
-    "imageUrl": "/resimler/pt13/pt13_10.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1740,
-    "vatRate": 20,
-    "tags": [
-      "Butik Cup",
-      "Portakallı",
-      "Meyveli",
-      "Bireysel"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2-3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Servis öncesi +4°C'de dinlendiriniz.",
-      "Kutu Gramaj": "2520 GR",
-      "Dilim Gramaj": "210 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 18
+    "imageUrl": "/resimler/pt13/pt13_10.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1485,
+    "tags": [
+      "Donuk Pasta",
+      "Sufle",
+      "Akışkan Çikolata",
+      "Porsiyonluk"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "140 GR",
+      "Kutu Gramaj": "2100 GR",
+      "Kutu İçi Dilim Adeti": "15 Dilim"
+    },
+    "order": 19,
     "id": "prod-pt13-11",
     "name": "SUFFLE PİŞMİŞ",
     "code": "PST-DNK-DL-CHK-KEK",
@@ -768,31 +787,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Isıtıldığında içi akışkan Belçika çikolatalı gurme sufle.",
-    "imageUrl": "/resimler/pt13/pt13_11.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1485,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Sufle",
-      "Akışkan Çikolata",
-      "Porsiyonluk"
-    ],
-    "specs": {
-      "Porsiyon": "15 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Oda sıcaklığına gelince servis ediniz.",
-      "Kutu Gramaj": "2100 GR",
-      "Dilim Gramaj": "140 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 19
+    "imageUrl": "/resimler/pt13/pt13_11.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1264,
+    "tags": [
+      "Donuk Pasta",
+      "Mozaik Pasta",
+      "Bisküvili",
+      "Dilimli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "170 GR",
+      "Kutu Gramaj": "2720 GR",
+      "Kutu İçi Dilim Adeti": "16 Dilim"
+    },
+    "order": 20,
     "id": "prod-pt13-12",
     "name": "MOZAİK",
     "code": "PST-DNK-DL-MOZ",
@@ -801,31 +819,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Geleneksel lezzet: Tereyağlı kakaolu krema ve çıtır bisküvi parçalarından rulo mozaik pasta.",
-    "imageUrl": "/resimler/pt13/pt13_12.png",
+    "imageUrl": "/resimler/pt13/pt13_12.png"
+  },
+  {
     "isActive": true,
     "isFeatured": true,
-    "price": 1264,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 1050,
     "tags": [
       "Donuk Pasta",
-      "Mozaik Pasta",
-      "Bisküvili",
+      "Devils",
+      "Antep Fıstığı",
       "Dilimli"
     ],
     "specs": {
-      "Porsiyon": "16 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis edilir.",
-      "Kutu Gramaj": "2720 GR",
-      "Dilim Gramaj": "170 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1920 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
     },
-    "order": 20
-  },
-  {
+    "order": 21,
     "id": "prod-pt13-13",
     "name": "DEVİLS FISTIK BAHÇESİ",
     "code": "PST-DNK-BX-STR",
@@ -834,31 +851,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Yoğun kakaolu nemli kek katmanları ve zengin Antep fıstıklı krema uyumu.",
-    "imageUrl": "/resimler/pt13/pt13_13.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1050,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Devils",
-      "Antep Fıstığı",
-      "Dilimli"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kutusunda pratik kaşıkla tüketime hazır.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1920 GR",
-      "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 21
+    "imageUrl": "/resimler/pt13/pt13_13.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 990,
+    "tags": [
+      "Donuk Pasta",
+      "Oreo",
+      "Velvet",
+      "Mono"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "190 GR",
+      "Kutu Gramaj": "1710 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 22,
     "id": "prod-pt13-14",
     "name": "MONO OREO VELVET",
     "code": "PST-DNK-BX-OREO",
@@ -867,31 +883,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Orijinal Oreo bisküvi parçaları ve kadifemsi peynir kremalı mono pasta.",
-    "imageUrl": "/resimler/pt13/pt13_14.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 990,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Oreo",
-      "Velvet",
-      "Mono"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis yapınız.",
-      "Kutu Gramaj": "1710 GR",
-      "Dilim Gramaj": "190 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 22
+    "imageUrl": "/resimler/pt13/pt13_14.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 945,
+    "tags": [
+      "Donuk Pasta",
+      "Lotus",
+      "Dome",
+      "Karamel"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "220 GR",
+      "Kutu Gramaj": "2000 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 23,
     "id": "prod-pt13-15",
     "name": "LOTUS DOME",
     "code": "PST-DNK-BX-LOT",
@@ -900,44 +915,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Orijinal Lotus Biscoff bisküvili ve karamelize krema dolgulu kubbe mono tatlı.",
-    "imageUrl": "/resimler/pt13/pt13_15.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 945,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Lotus",
-      "Dome",
-      "Karamel"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kendi kutusunda veya tabakta sunulabilir.",
-      "Kutu Gramaj": "2000 GR",
-      "Dilim Gramaj": "220 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 23
+    "imageUrl": "/resimler/pt13/pt13_15.png"
   },
   {
-    "id": "prod-pt13-16",
-    "name": "ORMAN MEYVELİ RULO",
-    "code": "PST-DNK-DL-KUB",
-    "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-9",
-    "categoryName": "Butik Pastalar",
-    "categorySlug": "taze-butik-pastalar",
-    "description": "Zarif yarım ay silueti, aynalı siyah çikolata glazürü ve yoğun çikolata mousse dolgusuyla modern pastacılık tasarımı.",
-    "imageUrl": "/resimler/pt13/pt13_16.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 1200,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 1200,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -948,16 +933,47 @@ const RAW_PRODUCTS = [
       "Rulo Pasta"
     ],
     "specs": {
-      "Porsiyon": "8 Dilim",
-      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kahve eşliğinde servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "130 GR",
+      "Kutu Gramaj": "1040 GR",
+      "Kutu İçi Dilim Adeti": "8 Dilim"
     },
-    "order": 24
+    "order": 24,
+    "id": "prod-pt13-16",
+    "name": "ORMAN MEYVELİ RULO",
+    "code": "PST-DNK-DL-KUB",
+    "codeGroup": "20:45 Pastacılık",
+    "categoryId": "cat-9",
+    "categoryName": "Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
+    "description": "Zarif yarım ay silueti, aynalı siyah çikolata glazürü ve yoğun çikolata mousse dolgusuyla modern pastacılık tasarımı.",
+    "imageUrl": "/resimler/pt13/pt13_16.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1680,
+    "tags": [
+      "Butik Pasta",
+      "Crumble",
+      "Cheesecake",
+      "Fırın"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 3 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "155 GR",
+      "Kutu Gramaj": "1860 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 25,
     "id": "prod-pt13-17",
     "name": "CRUMBLE CHEESCAKE",
     "code": "PST-DNK-DL-CRM-CHK",
@@ -966,31 +982,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Fırınlanmış tereyağlı kıtır crumble kırıntılarıyla kaplı butik cheesecake.",
-    "imageUrl": "/resimler/pt13/pt13_17.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1680,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Crumble",
-      "Cheesecake",
-      "Fırın"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "+4°C dolapta çözündükten sonra servis ediniz.",
-      "Kutu Gramaj": "1860 GR",
-      "Dilim Gramaj": "155 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 25
+    "imageUrl": "/resimler/pt13/pt13_17.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1440,
+    "tags": [
+      "Butik Pasta",
+      "Cookie Pie",
+      "Turta",
+      "Çikolatalı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "Mikrodalgada 20-30 sn veya +4°C dolapta 1 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "110 GR",
+      "Kutu Gramaj": "1320GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 26,
     "id": "prod-pt13-18",
     "name": "COOKİE PİE",
     "code": "PST-DNK-DL-CKP",
@@ -999,31 +1014,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Çikolata dolgulu kurabiye turta dilimi.",
-    "imageUrl": "/resimler/pt13/pt13_18.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1440,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Cookie Pie",
-      "Turta",
-      "Çikolatalı"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "Mikrodalgada 20-30 sn veya +4°C dolapta 1 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Hafif ısıtılarak vanilyalı dondurma ile servis önerilir.",
-      "Kutu Gramaj": "1320 GR",
-      "Dilim Gramaj": "110 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 26
+    "imageUrl": "/resimler/pt13/pt13_18.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1305,
+    "tags": [
+      "Butik Pasta",
+      "Cheesecake",
+      "Çilekli",
+      "Meyveli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "130 GR",
+      "Kutu Gramaj": "1170 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 27,
     "id": "prod-pt13-19",
     "name": "CHEESCAKE ÇİLEK",
     "code": "PST-DNK-MN-STR-CHK",
@@ -1032,31 +1046,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Taze çilek soslu ve kadifemsi peynir kremalı butik cheesecake dilimi.",
-    "imageUrl": "/resimler/pt13/pt13_19.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1305,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Cheesecake",
-      "Çilekli",
-      "Meyveli"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "1170 GR",
-      "Dilim Gramaj": "130 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 27
+    "imageUrl": "/resimler/pt13/pt13_19.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1740,
+    "tags": [
+      "Butik Cup",
+      "Dubai",
+      "Antep Fıstığı",
+      "Kadayıflı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "220 GR",
+      "Kutu Gramaj": "2640 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 28,
     "id": "prod-pt13-20",
     "name": "FISTIK (DUBAİ) CUP",
     "code": "PST-DNK-MN-DUB-KAD",
@@ -1065,31 +1078,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "butik-cup",
     "description": "Çıtır kavrulmuş tel kadayıf, yoğun Antep fıstığı ezmesi ve sütlü Belçika çikolatalı Dubai cup tatlısı.",
-    "imageUrl": "/resimler/pt13/pt13_20.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1740,
-    "vatRate": 20,
-    "tags": [
-      "Butik Cup",
-      "Dubai",
-      "Antep Fıstığı",
-      "Kadayıflı"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Özel altın altlığı ile doğrudan servise hazırdır.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "2640 GR",
-      "Dilim Gramaj": "220 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 28
+    "imageUrl": "/resimler/pt13/pt13_20.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 875,
+    "tags": [
+      "Butik Pasta",
+      "Tiramisu",
+      "Mascarpone",
+      "İtalyan"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "120 GR",
+      "Kutu Gramaj": "1200 GR",
+      "Kutu İçi Dilim Adeti": "10 Dilim"
+    },
+    "order": 29,
     "id": "prod-pt14-1",
     "name": "TİRAMİSU BUTİK",
     "code": "PST-DNK-DL-TIR-TRI",
@@ -1098,31 +1110,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Orijinal İtalyan mascarpone peyniri ve espresso ile hazırlanmış butik tiramisu dilimi.",
-    "imageUrl": "/resimler/pt14/pt14_1.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 2240,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Tiramisu",
-      "Mascarpone",
-      "İtalyan"
-    ],
-    "specs": {
-      "Porsiyon": "16 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "2080 GR",
-      "Dilim Gramaj": "130 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 29
+    "imageUrl": "/resimler/pt14/pt14_1.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1020,
+    "tags": [
+      "Donuk Pasta",
+      "Cheesecake",
+      "Frambuazlı",
+      "Ahududulu"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1900 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 30,
     "id": "prod-pt14-2",
     "name": "FRAMBUAZLI CHEESCAKE",
     "code": "PST-DNK-DL-FRM-WHT",
@@ -1131,31 +1142,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Fırınlanmış kıtır bisküvi tabanı, peynir kreması ve ekşi-tatlı ahududu frambuaz sosu.",
-    "imageUrl": "/resimler/pt14/pt14_2.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1020,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Cheesecake",
-      "Frambuazlı",
-      "Ahududulu"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Çözündükten sonra servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1900 GR",
-      "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 30
+    "imageUrl": "/resimler/pt14/pt14_2.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 945,
+    "tags": [
+      "Donuk Pasta",
+      "Mor Rüya",
+      "Böğürtlen",
+      "Mono"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "200 GR",
+      "Kutu Gramaj": "1800 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 31,
     "id": "prod-pt14-3",
     "name": "MOR RÜYA",
     "code": "PST-DNK-MN-BGR",
@@ -1164,31 +1174,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Böğürtlenli parlak ayna glazür altında kadifemsi orman meyveli mousse mono pasta.",
-    "imageUrl": "/resimler/pt14/pt14_3.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 945,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Mor Rüya",
-      "Böğürtlen",
-      "Mono"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis önerilir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1800 GR",
-      "Dilim Gramaj": "200 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 31
+    "imageUrl": "/resimler/pt14/pt14_3.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1074,
+    "tags": [
+      "Donuk Pasta",
+      "Cheesecake",
+      "Lotus",
+      "Karamel"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1920 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 32,
     "id": "prod-pt14-4",
     "name": "LOTUS CHEESCAKE",
     "code": "PST-DNK-SQ-TIR",
@@ -1197,31 +1206,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Orijinal Belçika Lotus Biscoff bisküvi tabanı, karamel krema ve speculoos soslu cheesecake.",
-    "imageUrl": "/resimler/pt14/pt14_4.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1074,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Cheesecake",
-      "Lotus",
-      "Karamel"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "+4°C dolapta dinlendirip servis ediniz.",
-      "Kutu Gramaj": "1920 GR",
-      "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 32
+    "imageUrl": "/resimler/pt14/pt14_4.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 855,
+    "tags": [
+      "Donuk Pasta",
+      "Choco Berry",
+      "Çikolata",
+      "Meyveli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 3 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "200 GR",
+      "Kutu Gramaj": "1800 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 33,
     "id": "prod-pt14-5",
     "name": "CHOCO BERRY",
     "code": "PST-DNK-DL-MED",
@@ -1230,31 +1238,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Çikolata ve orman meyvelerinin mükemmel uyumuyla hazırlanan pasta dilimi.",
-    "imageUrl": "/resimler/pt14/pt14_5.png",
+    "imageUrl": "/resimler/pt14/pt14_5.png"
+  },
+  {
     "isActive": true,
-    "isFeatured": true,
-    "price": 855,
+    "isFeatured": false,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 1210,
     "tags": [
       "Donuk Pasta",
-      "Choco Berry",
-      "Çikolata",
+      "Kubbe Pasta",
+      "Çilekli",
       "Meyveli"
     ],
     "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 3 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Sıcak çay veya filtre kahve eşliğinde mükemmel lezzet.",
-      "Kutu Gramaj": "1800 GR",
-      "Dilim Gramaj": "200 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "155 GR",
+      "Kutu Gramaj": "1705 GR",
+      "Kutu İçi Dilim Adeti": "11 Dilim"
     },
-    "order": 33
-  },
-  {
+    "order": 34,
     "id": "prod-pt14-6",
     "name": "KUBBE ÇİLEKLİ",
     "code": "PST-DNK-MN-PRF-1",
@@ -1263,31 +1270,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Taze çilek aromalı parlak kırmızı kubbe mono pasta.",
-    "imageUrl": "/resimler/pt14/pt14_6.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1210,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Kubbe Pasta",
-      "Çilekli",
-      "Meyveli"
-    ],
-    "specs": {
-      "Porsiyon": "11 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C donuk muhafaza",
-      "Servis Tavsiyesi": "Yarı donuk (semifreddo) olarak servis edilir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1705 GR",
-      "Dilim Gramaj": "155 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 34
+    "imageUrl": "/resimler/pt14/pt14_6.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 875,
+    "tags": [
+      "Donuk Pasta",
+      "Muzlu",
+      "Çikolatalı",
+      "Dilimli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "145 GR",
+      "Kutu Gramaj": "1450 GR",
+      "Kutu İçi Dilim Adeti": "10 Dilim"
+    },
+    "order": 35,
     "id": "prod-pt14-7",
     "name": "MUZLU ÇİKOLATALI",
     "code": "PST-DNK-MN-PRF-2",
@@ -1296,31 +1302,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Taze muz püresi ve zengin çikolatalı krema katmanları.",
-    "imageUrl": "/resimler/pt14/pt14_7.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 875,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Muzlu",
-      "Çikolatalı",
-      "Dilimli"
-    ],
-    "specs": {
-      "Porsiyon": "10 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Yarı donuk servis tavsiye edilir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1450 GR",
-      "Dilim Gramaj": "145 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 35
+    "imageUrl": "/resimler/pt14/pt14_7.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1210,
+    "tags": [
+      "Donuk Pasta",
+      "Kubbe Pasta",
+      "Yaban Mersini",
+      "Meyveli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "145 GR",
+      "Kutu Gramaj": "1595 GR",
+      "Kutu İçi Dilim Adeti": "11 Dilim"
+    },
+    "order": 36,
     "id": "prod-pt14-8",
     "name": "KUBBE YABAN MERSİNLİ",
     "code": "PST-DNK-MN-PRF-3",
@@ -1329,31 +1334,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Mor yaban mersini soslu kubbe mono tatlı.",
-    "imageUrl": "/resimler/pt14/pt14_8.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1210,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Kubbe Pasta",
-      "Yaban Mersini",
-      "Meyveli"
-    ],
-    "specs": {
-      "Porsiyon": "11 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk / donuk tüketim.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1595 GR",
-      "Dilim Gramaj": "145 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 36
+    "imageUrl": "/resimler/pt14/pt14_8.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1560,
+    "tags": [
+      "Donuk Pasta",
+      "Cedric",
+      "Kahveli",
+      "Gurme"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 3-4 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "130 GR",
+      "Kutu Gramaj": "1560 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 37,
     "id": "prod-pt14-9",
     "name": "CEDRİC KAHVE MASALI",
     "code": "PST-DNK-DL-BLU-CHK",
@@ -1362,31 +1366,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Özel kahve çekirdeği formunda parlak çikolata kaplı kahveli gurme mono pasta.",
-    "imageUrl": "/resimler/pt14/pt14_9.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1560,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Cedric",
-      "Kahveli",
-      "Gurme"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 3-4 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "+4°C'de çözündürerek soğuk servis ediniz.",
-      "Kutu Gramaj": "1560 GR",
-      "Dilim Gramaj": "130 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 37
+    "imageUrl": "/resimler/pt14/pt14_9.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 945,
+    "tags": [
+      "Donuk Pasta",
+      "Profiterol",
+      "Siyah Çikolata",
+      "Mono"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "250 GR",
+      "Kutu Gramaj": "2250 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 38,
     "id": "prod-pt14-10",
     "name": "MONO SİYAH PROFİTEROLLÜ",
     "code": "PST-DNK-MN-COF-BEAN",
@@ -1395,31 +1398,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "İçi mini kremalı şu toplarıyla dolu, üzeri yoğun bitter çikolata ganajlı mono pasta.",
-    "imageUrl": "/resimler/pt14/pt14_10.png",
+    "imageUrl": "/resimler/pt14/pt14_10.png"
+  },
+  {
     "isActive": true,
-    "isFeatured": true,
-    "price": 945,
+    "isFeatured": false,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 945,
     "tags": [
       "Donuk Pasta",
       "Profiterol",
-      "Siyah Çikolata",
+      "Beyaz Çikolata",
       "Mono"
     ],
     "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Nitelikli kahve sunumları için idealdir.",
-      "Kutu Gramaj": "2250 GR",
-      "Dilim Gramaj": "250 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "220 GR",
+      "Kutu Gramaj": "2000 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
     },
-    "order": 38
-  },
-  {
+    "order": 39,
     "id": "prod-pt14-11",
     "name": "MONO BEYAZ PROFİTEROLLÜ",
     "code": "PST-DNK-MN-BAT-CHOC",
@@ -1428,31 +1430,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Beyaz çikolata rendesi ve kremalı şu toplarıyla hazırlanan mono pasta.",
-    "imageUrl": "/resimler/pt14/pt14_11.png",
+    "imageUrl": "/resimler/pt14/pt14_11.png"
+  },
+  {
     "isActive": true,
-    "isFeatured": false,
-    "price": 945,
+    "isFeatured": true,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 990,
     "tags": [
       "Donuk Pasta",
-      "Profiterol",
-      "Beyaz Çikolata",
+      "Antep Fıstığı",
+      "Velvet",
       "Mono"
     ],
     "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Doğrudan servise uygundur.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "2000 GR",
-      "Dilim Gramaj": "220 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "190 GR",
+      "Kutu Gramaj": "1710 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
     },
-    "order": 39
-  },
-  {
+    "order": 40,
     "id": "prod-pt14-12",
     "name": "MONO FISTIKLI VELVET",
     "code": "PST-DNK-DL-RNB",
@@ -1461,31 +1462,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Yeşil Antep fıstıklı kadife pandispanya ve hafif peynir kreması.",
-    "imageUrl": "/resimler/pt14/pt14_12.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 990,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Antep Fıstığı",
-      "Velvet",
-      "Mono"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Servis öncesi +4°C'de dinlendiriniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1710 GR",
-      "Dilim Gramaj": "190 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 40
+    "imageUrl": "/resimler/pt14/pt14_12.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1260,
+    "tags": [
+      "Donuk Pasta",
+      "Marlenka",
+      "Ballı",
+      "Cevizli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1920 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 41,
     "id": "prod-pt14-13",
     "name": "MARLENKA CEVİZLİ",
     "code": "PST-DNK-DL-CRM-KROK",
@@ -1494,31 +1494,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Geleneksel ballı ve cevizli kat kat yumuşak Marlenka keki.",
-    "imageUrl": "/resimler/pt14/pt14_13.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1260,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Marlenka",
-      "Ballı",
-      "Cevizli"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "+4°C'de çözündükten sonra servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1920 GR",
-      "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 41
+    "imageUrl": "/resimler/pt14/pt14_13.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1120,
+    "tags": [
+      "Butik Cup",
+      "Çikolatalı",
+      "Bireysel",
+      "Kupa"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "210 GR",
+      "Kutu Gramaj": "1680",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 42,
     "id": "prod-pt14-14",
     "name": "ÇİKOLATA CUP",
     "code": "PST-DNK-MN-OREO-CRM",
@@ -1527,31 +1526,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "butik-cup",
     "description": "Hafif kakaolu mousse ve çikolata ganajlı bireysel cup tatlısı.",
-    "imageUrl": "/resimler/pt14/pt14_14.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1120,
-    "vatRate": 20,
-    "tags": [
-      "Butik Cup",
-      "Çikolatalı",
-      "Bireysel",
-      "Kupa"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis önerilir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1680 GR",
-      "Dilim Gramaj": "210 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 42
+    "imageUrl": "/resimler/pt14/pt14_14.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1240,
+    "tags": [
+      "Butik Pasta",
+      "Antep Fıstıklı",
+      "Petunya",
+      "Mono"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "260 GR",
+      "Kutu Gramaj": "2080 GR",
+      "Kutu İçi Dilim Adeti": "8 Dilim"
+    },
+    "order": 43,
     "id": "prod-pt14-15",
     "name": "PETUNYA FISTIK",
     "code": "PST-DNK-MN-PST-GNJ",
@@ -1560,31 +1558,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Yoğun Antep fıstığı kaplı silindir formunda butik pasta.",
-    "imageUrl": "/resimler/pt14/pt14_15.png",
+    "imageUrl": "/resimler/pt14/pt14_15.png"
+  },
+  {
     "isActive": true,
-    "isFeatured": true,
-    "price": 1240,
+    "isFeatured": false,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 855,
     "tags": [
-      "Butik Pasta",
-      "Antep Fıstıklı",
-      "Petunya",
+      "Donuk Pasta",
+      "Latte",
+      "Kahveli",
       "Mono"
     ],
     "specs": {
-      "Porsiyon": "8 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kahve yanına servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "2080 GR",
-      "Dilim Gramaj": "260 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1440 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
     },
-    "order": 43
-  },
-  {
+    "order": 44,
     "id": "prod-pt14-16",
     "name": "MONO LATTE",
     "code": "PST-DNK-MN-PST-MINI",
@@ -1593,31 +1590,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Sütlü kahve aromalı kadifemsi krema dolgulu mono pasta.",
-    "imageUrl": "/resimler/pt14/pt14_16.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 855,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Latte",
-      "Kahveli",
-      "Mono"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "+4°C'de servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1440 GR",
-      "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 44
+    "imageUrl": "/resimler/pt14/pt14_16.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 850,
+    "tags": [
+      "Donuk Pasta",
+      "Paris Brest",
+      "Fransız",
+      "Pralinli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "180 GR",
+      "Kutu Gramaj": "1800 GR",
+      "Kutu İçi Dilim Adeti": "10 Dilim"
+    },
+    "order": 45,
     "id": "prod-pt14-17",
     "name": "PARİS BREST",
     "code": "PST-DNK-DL-CHOC-VLV",
@@ -1626,31 +1622,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Fransız pâte à choux hamuru ve pralinli fındık kreması dolgulu halka pasta.",
-    "imageUrl": "/resimler/pt14/pt14_17.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 850,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Paris Brest",
-      "Fransız",
-      "Pralinli"
-    ],
-    "specs": {
-      "Porsiyon": "10 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Servis öncesi dolapta dinlendiriniz.",
-      "Kutu Gramaj": "1800 GR",
-      "Dilim Gramaj": "180 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 45
+    "imageUrl": "/resimler/pt14/pt14_17.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1320,
+    "tags": [
+      "Donuk Pasta",
+      "Yer Fıstıklı",
+      "Karamel",
+      "Mono"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "200 GR",
+      "Kutu Gramaj": "2400 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 46,
     "id": "prod-pt14-18",
     "name": "YER FISTIKLI MONO",
     "code": "PST-DNK-BX-CHOC-MSS",
@@ -1659,31 +1654,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Karamel, kavrulmuş yer fıstığı ve sütlü çikolata kaplı Snickers tarzı mono pasta.",
-    "imageUrl": "/resimler/pt14/pt14_18.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1320,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Yer Fıstıklı",
-      "Karamel",
-      "Mono"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kutusunda pratik kaşık servisine uygundur.",
-      "Kutu Gramaj": "2400 GR",
-      "Dilim Gramaj": "200 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 46
+    "imageUrl": "/resimler/pt14/pt14_18.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1305,
+    "tags": [
+      "Butik Pasta",
+      "Cheesecake",
+      "Vişneli",
+      "Meyveli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "130 GR",
+      "Kutu Gramaj": "1170 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 47,
     "id": "prod-pt14-19",
     "name": "CHEESCAKE VİŞNE",
     "code": "PST-DNK-BX-FRM-MSS",
@@ -1692,31 +1686,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Ekşi tatlı vişne soslu fırınlanmış butik cheesecake dilimi.",
-    "imageUrl": "/resimler/pt14/pt14_19.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1305,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Cheesecake",
-      "Vişneli",
-      "Meyveli"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "1170 GR",
-      "Dilim Gramaj": "130 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 47
+    "imageUrl": "/resimler/pt14/pt14_19.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 855,
+    "tags": [
+      "Donuk Pasta",
+      "Tiramisu",
+      "Kare",
+      "Kahveli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1440 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 48,
     "id": "prod-pt14-20",
     "name": "TİRAMİSU KARE",
     "code": "PST-DNK-BX-PRO-SUP",
@@ -1725,31 +1718,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Kare porsiyonluk otantik İtalyan tiramisusu.",
-    "imageUrl": "/resimler/pt14/pt14_20.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 855,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Tiramisu",
-      "Kare",
-      "Kahveli"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kendi kutusunda kaşıkla servise hazır.",
-      "Kutu Gramaj": "1440 GR",
-      "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 48
+    "imageUrl": "/resimler/pt14/pt14_20.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1740,
+    "tags": [
+      "Butik Cup",
+      "Dubai Cup",
+      "Antep Fıstığı",
+      "Kutuda"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "220 GR",
+      "Kutu Gramaj": "2640 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 49,
     "id": "prod-pt15-1",
     "name": "FISTIK (DUBAİ) CUP",
     "code": "PST-DNK-BX-PST",
@@ -1758,31 +1750,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "butik-cup",
     "description": "Şeffaf dikdörtgen kutuda çıtır kadayıf, Antep fıstığı ezmesi ve Belçika çikolatası.",
-    "imageUrl": "/resimler/pt15/pt15_1.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1740,
-    "vatRate": 20,
-    "tags": [
-      "Butik Cup",
-      "Dubai Cup",
-      "Antep Fıstığı",
-      "Kutuda"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kutusunda pratik kaşık servisine uygundur.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "2640 GR",
-      "Dilim Gramaj": "220 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 49
+    "imageUrl": "/resimler/pt15/pt15_1.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 990,
+    "tags": [
+      "Donuk Pasta",
+      "Mor Velvet",
+      "Kadife",
+      "Mono"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "190 GR",
+      "Kutu Gramaj": "1710 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 50,
     "id": "prod-pt15-2",
     "name": "MONO MOR VELVET",
     "code": "PST-DNK-DLM-BLU",
@@ -1791,31 +1782,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Böğürtlenli mor kadife kek katmanları ve hafif peynir kreması.",
-    "imageUrl": "/resimler/pt15/pt15_2.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 990,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Mor Velvet",
-      "Kadife",
-      "Mono"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1710 GR",
-      "Dilim Gramaj": "190 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 50
+    "imageUrl": "/resimler/pt15/pt15_2.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1170,
+    "tags": [
+      "Donuk Pasta",
+      "Çikolatalı",
+      "Belçika",
+      "Dilimli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "180 GR",
+      "Kutu Gramaj": "2160 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 51,
     "id": "prod-pt15-3",
     "name": "BELÇİKA ÇİKOLATALI",
     "code": "PST-DNK-DLM-TIR-CHOC",
@@ -1824,31 +1814,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Kat kat Belçika çikolatalı ganaj ve yumuşak pandispanya.",
-    "imageUrl": "/resimler/pt15/pt15_3.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1170,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Çikolatalı",
-      "Belçika",
-      "Dilimli"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Taze çekilmiş espresso eşliğinde servis önerilir.",
-      "Kutu Gramaj": "2160 GR",
-      "Dilim Gramaj": "180 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 51
+    "imageUrl": "/resimler/pt15/pt15_3.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1740,
+    "tags": [
+      "Butik Cup",
+      "Orman Meyveli",
+      "Cup Tatlı",
+      "Meyveli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "210 GR",
+      "Kutu Gramaj": "2520 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 52,
     "id": "prod-pt15-4",
     "name": "ORMAN CUP",
     "code": "PST-DNK-KP-FRM-CHO",
@@ -1857,31 +1846,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "butik-cup",
     "description": "Yaban mersini, böğürtlen ve frambuaz soslu orman meyveli bireysel cup tatlısı.",
-    "imageUrl": "/resimler/pt15/pt15_4.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1740,
-    "vatRate": 20,
-    "tags": [
-      "Butik Cup",
-      "Orman Meyveli",
-      "Cup Tatlı",
-      "Meyveli"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Bardağında doğrudan servis edilir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "2520 GR",
-      "Dilim Gramaj": "210 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 52
+    "imageUrl": "/resimler/pt15/pt15_4.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 990,
+    "tags": [
+      "Donuk Pasta",
+      "Krokan",
+      "Kahveli",
+      "Mono"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "190 GR",
+      "Kutu Gramaj": "1710 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 53,
     "id": "prod-pt15-5",
     "name": "MONO KROKAN KAHVELİ",
     "code": "PST-DNK-MN-KRO-CAR",
@@ -1890,31 +1878,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Kavrulmuş fındık krokanı ve kahve kremasıyla hazırlanan mono pasta.",
-    "imageUrl": "/resimler/pt15/pt15_5.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 990,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Krokan",
-      "Kahveli",
-      "Mono"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1710 GR",
-      "Dilim Gramaj": "190 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 53
+    "imageUrl": "/resimler/pt15/pt15_5.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1300,
+    "tags": [
+      "Kasa Önü",
+      "Cookie",
+      "Amerikan Kurabiyesi",
+      "Çikolatalı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "80 GR",
+      "Kutu Gramaj": "1600 GR",
+      "Kutu İçi Dilim Adeti": "20 Dilim"
+    },
+    "order": 54,
     "id": "prod-pt15-6",
     "name": "AMERİKAN SÜTLÜ COOKİE",
     "code": "PST-DNK-CKI-CHOC-2",
@@ -1923,31 +1910,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Kasa Önü Ürünler",
     "categorySlug": "kasa-onu-urunler",
     "description": "İçi yumuşak dışı kıtır, bol sütlü çikolata damlalı otantik Amerikan kurabiyesi.",
-    "imageUrl": "/resimler/pt15/pt15_6.png",
+    "imageUrl": "/resimler/pt15/pt15_6.png"
+  },
+  {
     "isActive": true,
-    "isFeatured": true,
-    "price": 1300,
+    "isFeatured": false,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 1300,
     "tags": [
       "Kasa Önü",
       "Cookie",
-      "Amerikan Kurabiyesi",
       "Çikolatalı"
     ],
     "specs": {
-      "Porsiyon": "20 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya fırında 160°C'de 3-4 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Ilık servis edildiğinde çikolata akışkanlaşır.",
-      "Kutu Gramaj": "1600 GR",
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
       "Dilim Gramaj": "80 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Kutu Gramaj": "1600 GR",
+      "Kutu İçi Dilim Adeti": "20 Dilim"
     },
-    "order": 54
-  },
-  {
+    "order": 55,
     "id": "prod-pt15-7",
     "name": "AMERİKAN SÜTLÜ COOKİE",
     "code": "PST-DNK-CKI-JUMBO-3",
@@ -1956,30 +1941,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Kasa Önü Ürünler",
     "categorySlug": "kasa-onu-urunler",
     "description": "İçi yumuşak kıtır kenarlı zengin çikolata parçalı cookie.",
-    "imageUrl": "/resimler/pt15/pt15_7.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1300,
-    "vatRate": 20,
-    "tags": [
-      "Kasa Önü",
-      "Cookie",
-      "Çikolatalı"
-    ],
-    "specs": {
-      "Porsiyon": "20 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya fırında 160°C'de 3-4 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Filtre kahve ve latte yanında idealdir.",
-      "Kutu Gramaj": "1600 GR",
-      "Dilim Gramaj": "80 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 55
+    "imageUrl": "/resimler/pt15/pt15_7.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 800,
+    "tags": [
+      "Kasa Önü",
+      "Havuçlu Kek",
+      "Tarçınlı",
+      "Dilimli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "110 GR",
+      "Kutu Gramaj": "1760 GR",
+      "Kutu İçi Dilim Adeti": "16 Dilim"
+    },
+    "order": 56,
     "id": "prod-pt15-8",
     "name": "HAVUÇLU KEK",
     "code": "PST-DNK-KEK-HSH-LIM",
@@ -1988,31 +1973,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Kasa Önü Ürünler",
     "categorySlug": "kasa-onu-urunler",
     "description": "Taze rendelenmiş havuç, tarçın ve bol cevizle hazırlanan dilimli baton kek.",
-    "imageUrl": "/resimler/pt15/pt15_8.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 800,
-    "vatRate": 20,
-    "tags": [
-      "Kasa Önü",
-      "Havuçlu Kek",
-      "Tarçınlı",
-      "Dilimli"
-    ],
-    "specs": {
-      "Porsiyon": "16 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Çay ve kahve sunumlarına uygundur.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1760 GR",
-      "Dilim Gramaj": "110 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 56
+    "imageUrl": "/resimler/pt15/pt15_8.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1300,
+    "tags": [
+      "Kasa Önü",
+      "Cookie",
+      "Çikolatalı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "80 GR",
+      "Kutu Gramaj": "1600 GR",
+      "Kutu İçi Dilim Adeti": "20 Dilim"
+    },
+    "order": 57,
     "id": "prod-pt15-9",
     "name": "AMERİKAN SÜTLÜ COOKİE",
     "code": "PST-DNK-CKI-DBL-CHO",
@@ -2021,30 +2004,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Kasa Önü Ürünler",
     "categorySlug": "kasa-onu-urunler",
     "description": "Sütlü ve bitter çikolata parçalı taze donuk Amerikan kurabiyesi.",
-    "imageUrl": "/resimler/pt15/pt15_9.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1300,
-    "vatRate": 20,
-    "tags": [
-      "Kasa Önü",
-      "Cookie",
-      "Çikolatalı"
-    ],
-    "specs": {
-      "Porsiyon": "20 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme / Isıtma": "Oda sıcaklığında 30 dk çözündürünüz.",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Ilık servis edilebilir.",
-      "Kutu Gramaj": "1600 GR",
-      "Dilim Gramaj": "80 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 57
+    "imageUrl": "/resimler/pt15/pt15_9.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 800,
+    "tags": [
+      "Kasa Önü",
+      "Marble Kek",
+      "Kakaolu",
+      "Dilimli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "110 GR",
+      "Kutu Gramaj": "1760 GR",
+      "Kutu İçi Dilim Adeti": "16 Dilim"
+    },
+    "order": 58,
     "id": "prod-pt15-10",
     "name": "MARBLE KEK",
     "code": "PST-DNK-KEK-MOZ-BAT",
@@ -2053,31 +2036,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Kasa Önü Ürünler",
     "categorySlug": "kasa-onu-urunler",
     "description": "Vanilya ve kakao hamurunun mermer desenli mükemmel uyumuyla dilimli baton kek.",
-    "imageUrl": "/resimler/pt15/pt15_10.png",
+    "imageUrl": "/resimler/pt15/pt15_10.png"
+  },
+  {
     "isActive": true,
-    "isFeatured": false,
-    "price": 800,
+    "isFeatured": true,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 800,
     "tags": [
       "Kasa Önü",
-      "Marble Kek",
-      "Kakaolu",
+      "Portakallı Kek",
+      "Narenciye",
       "Dilimli"
     ],
     "specs": {
-      "Porsiyon": "16 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Sıcak içecekler ile mükemmel uyum sağlar.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1760 GR",
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
       "Dilim Gramaj": "110 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Kutu Gramaj": "1760 GR",
+      "Kutu İçi Dilim Adeti": "16 Dilim"
     },
-    "order": 58
-  },
-  {
+    "order": 59,
     "id": "prod-pt15-11",
     "name": "PORTAKALLI KEK",
     "code": "PST-DNK-KEK-HVC-TRC",
@@ -2086,31 +2068,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Kasa Önü Ürünler",
     "categorySlug": "kasa-onu-urunler",
     "description": "Taze portakal kabuğu rendesi ve suyuyla nemlendirilmiş dilimli baton kek.",
-    "imageUrl": "/resimler/pt15/pt15_11.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 800,
-    "vatRate": 20,
-    "tags": [
-      "Kasa Önü",
-      "Portakallı Kek",
-      "Narenciye",
-      "Dilimli"
-    ],
-    "specs": {
-      "Porsiyon": "16 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kahve yanı menülerinde en çok tercih edilen lezzet.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1760 GR",
-      "Dilim Gramaj": "110 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 59
+    "imageUrl": "/resimler/pt15/pt15_11.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1305,
+    "tags": [
+      "Butik Pasta",
+      "Linzer",
+      "Çikolatalı",
+      "Fındıklı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "170 GR",
+      "Kutu Gramaj": "1530 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 60,
     "id": "prod-pt15-12",
     "name": "LİNZER ÇİKOLATALI",
     "code": "PST-DNK-KP-VAN-CHO",
@@ -2119,31 +2100,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Geleneksel Avusturya Linzer keki, çikolatalı krema ve fındıklı hamur.",
-    "imageUrl": "/resimler/pt15/pt15_12.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1305,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Linzer",
-      "Çikolatalı",
-      "Fındıklı"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kendi şık kabında kaşıkla pratik servis.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1530 GR",
-      "Dilim Gramaj": "170 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 60
+    "imageUrl": "/resimler/pt15/pt15_12.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 800,
+    "tags": [
+      "Kasa Önü",
+      "Limonlu Kek",
+      "Haşhaşlı",
+      "Dilimli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "110 GR",
+      "Kutu Gramaj": "1760 GR",
+      "Kutu İçi Dilim Adeti": "16 Dilim"
+    },
+    "order": 61,
     "id": "prod-pt15-13",
     "name": "LİMONLU HAŞHAŞLI KEK",
     "code": "PST-DNK-MN-RED-HRT",
@@ -2152,31 +2132,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Kasa Önü Ürünler",
     "categorySlug": "kasa-onu-urunler",
     "description": "Ferahlatıcı limon aroması ve çıtır mavi haşhaş tohumlu dilimli baton kek.",
-    "imageUrl": "/resimler/pt15/pt15_13.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 800,
-    "vatRate": 20,
-    "tags": [
-      "Kasa Önü",
-      "Limonlu Kek",
-      "Haşhaşlı",
-      "Dilimli"
-    ],
-    "specs": {
-      "Porsiyon": "16 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Tabak sunumunda nane yaprağı ve taze meyveyle süslenebilir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1760 GR",
-      "Dilim Gramaj": "110 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 61
+    "imageUrl": "/resimler/pt15/pt15_13.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1300,
+    "tags": [
+      "Kasa Önü",
+      "Cookie",
+      "Çikolatalı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "80 GR",
+      "Kutu Gramaj": "1600 GR",
+      "Kutu İçi Dilim Adeti": "20 Dilim"
+    },
+    "order": 62,
     "id": "prod-pt15-14",
     "name": "AMERİKAN SÜTLÜ COOKİE",
     "code": "PST-DNK-DLM-BST-CRM",
@@ -2185,30 +2163,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Kasa Önü Ürünler",
     "categorySlug": "kasa-onu-urunler",
     "description": "Orijinal tereyağlı Amerikan çikolatalı kurabiye.",
-    "imageUrl": "/resimler/pt15/pt15_14.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1300,
-    "vatRate": 20,
-    "tags": [
-      "Kasa Önü",
-      "Cookie",
-      "Çikolatalı"
-    ],
-    "specs": {
-      "Porsiyon": "20 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "1600 GR",
-      "Dilim Gramaj": "80 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 62
+    "imageUrl": "/resimler/pt15/pt15_14.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1875,
+    "tags": [
+      "Donuk Pasta",
+      "Cedric",
+      "Limon",
+      "Gurme Mono"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "125 GR",
+      "Kutu Gramaj": "1875 GR",
+      "Kutu İçi Dilim Adeti": "15 Dilim"
+    },
+    "order": 63,
     "id": "prod-pt15-15",
     "name": "CEDRİC LİMON",
     "code": "PST-DNK-CKI-OAT-CHO",
@@ -2217,44 +2195,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Birebir limon formunda hazırlanmış beyaz çikolata kabuklu limonlu gurme mono pasta.",
-    "imageUrl": "/resimler/pt15/pt15_15.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1875,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Cedric",
-      "Limon",
-      "Gurme Mono"
-    ],
-    "specs": {
-      "Porsiyon": "15 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya 160°C fırında 3 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Sıcak veya soğuk içeceklerle ikram edilebilir.",
-      "Kutu Gramaj": "1875 GR",
-      "Dilim Gramaj": "125 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 63
+    "imageUrl": "/resimler/pt15/pt15_15.png"
   },
   {
-    "id": "prod-pt15-16",
-    "name": "RED VELVET",
-    "code": "PST-DNK-MN-LIM-DOM",
-    "codeGroup": "20:45 Pastacılık",
-    "categoryId": "cat-9",
-    "categoryName": "Butik Pastalar",
-    "categorySlug": "taze-butik-pastalar",
-    "description": "Canlandırıcı Akdeniz limon kreması, kadife sarı dış yüzey ve bademli bisküvi tabanıyla ferahlık timsali.",
-    "imageUrl": "/resimler/pt15/pt15_16.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 948,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 948,
     "tags": [
       "Taze Pasta",
       "Butik Pasta",
@@ -2265,16 +2213,47 @@ const RAW_PRODUCTS = [
       "Kadife Doku"
     ],
     "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Özel Butik Pasta Kutusu (+4°C Muhafaza)",
-      "Raf Ömrü": "+4°C dolapta 3 gün",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Tabak sunumunda şık bir tatlı alternatifi.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır."
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "125 GR",
+      "Kutu Gramaj": "1500 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
     },
-    "order": 64
+    "order": 64,
+    "id": "prod-pt15-16",
+    "name": "RED VELVET",
+    "code": "PST-DNK-MN-LIM-DOM",
+    "codeGroup": "20:45 Pastacılık",
+    "categoryId": "cat-9",
+    "categoryName": "Butik Pastalar",
+    "categorySlug": "taze-butik-pastalar",
+    "description": "Canlandırıcı Akdeniz limon kreması, kadife sarı dış yüzey ve bademli bisküvi tabanıyla ferahlık timsali.",
+    "imageUrl": "/resimler/pt15/pt15_16.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1875,
+    "tags": [
+      "Donuk Pasta",
+      "Cedric",
+      "Limon",
+      "Mono"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "125 GR",
+      "Kutu Gramaj": "1875 GR",
+      "Kutu İçi Dilim Adeti": "15 Dilim"
+    },
+    "order": 65,
     "id": "prod-pt15-17",
     "name": "CEDRİC LİMON",
     "code": "PST-DNK-MN-MNG-PAS",
@@ -2283,31 +2262,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Özel limon şekilli çıtır kabuklu narenciye mono tatlı.",
-    "imageUrl": "/resimler/pt15/pt15_17.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1875,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Cedric",
-      "Limon",
-      "Mono"
-    ],
-    "specs": {
-      "Porsiyon": "15 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1875 GR",
-      "Dilim Gramaj": "125 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 65
+    "imageUrl": "/resimler/pt15/pt15_17.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1305,
+    "tags": [
+      "Butik Pasta",
+      "Linzer",
+      "Yaban Mersini",
+      "Meyveli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "190 GR",
+      "Kutu Gramaj": "1710 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 66,
     "id": "prod-pt15-18",
     "name": "LİNZER YABAN MERSİNLİ",
     "code": "PST-DNK-MN-SNK-CAR",
@@ -2316,31 +2294,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Yaban mersini marmelatı dolgulu Linzer hamurlu butik pasta.",
-    "imageUrl": "/resimler/pt15/pt15_18.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1305,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Linzer",
-      "Yaban Mersini",
-      "Meyveli"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1710 GR",
-      "Dilim Gramaj": "190 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 66
+    "imageUrl": "/resimler/pt15/pt15_18.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1875,
+    "tags": [
+      "Donuk Pasta",
+      "Cedric",
+      "Limon"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "125 GR",
+      "Kutu Gramaj": "1875 GR",
+      "Kutu İçi Dilim Adeti": "15 Dilim"
+    },
+    "order": 67,
     "id": "prod-pt15-19",
     "name": "CEDRİC LİMON",
     "code": "PST-DNK-DLM-RED-PST",
@@ -2349,30 +2325,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Limon formunda gurme pastacılık mono lezzeti.",
-    "imageUrl": "/resimler/pt15/pt15_19.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1875,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Cedric",
-      "Limon"
-    ],
-    "specs": {
-      "Porsiyon": "15 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1875 GR",
-      "Dilim Gramaj": "125 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 67
+    "imageUrl": "/resimler/pt15/pt15_19.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1395,
+    "tags": [
+      "Butik Pasta",
+      "Çıtır Bomba",
+      "Fındıklı",
+      "Çikolatalı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "210 GR",
+      "Kutu Gramaj": "1890 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 68,
     "id": "prod-pt15-20",
     "name": "ÇITIR BOMBA",
     "code": "PST-DNK-DLM-RED-CHK",
@@ -2381,31 +2357,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Kavrulmuş fındıklı çikolata kaplı bombe mono pasta.",
-    "imageUrl": "/resimler/pt15/pt15_20.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1395,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Çıtır Bomba",
-      "Fındıklı",
-      "Çikolatalı"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Meyve sosu eşliğinde servis edilebilir.",
-      "Kutu Gramaj": "1890 GR",
-      "Dilim Gramaj": "210 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 68
+    "imageUrl": "/resimler/pt15/pt15_20.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 948,
+    "tags": [
+      "Butik Pasta",
+      "Red Velvet",
+      "Kırmızı Kadife",
+      "Peynir Kremalı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "125 GR",
+      "Kutu Gramaj": "1500 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 69,
     "id": "prod-pt15-21",
     "name": "RED VELVET BUTİK",
     "code": "PST-DNK-TRT-BIT-CHOC",
@@ -2414,31 +2389,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Kırmızı kadife kek, vanilyalı peynir kreması ve taze ahududu sosu.",
-    "imageUrl": "/resimler/pt15/pt15_21.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1500,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Red Velvet",
-      "Kırmızı Kadife",
-      "Peynir Kremalı"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Hafif ısıtıldığında akışkan sufle kıvamına gelir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "2520 GR",
-      "Dilim Gramaj": "210 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 69
+    "imageUrl": "/resimler/pt15/pt15_21.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1020,
+    "tags": [
+      "Donuk Pasta",
+      "Cheesecake",
+      "Frambuazlı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1900 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 70,
     "id": "prod-pt15-22",
     "name": "FRAMBUAZLI CHEESCAKE",
     "code": "PST-DNK-EKL-CRQ-10",
@@ -2447,31 +2420,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Fırınlanmış bisküvi tabanı üzerinde ekşi tatlı frambuaz soslu cheesecake dilimi.",
-    "imageUrl": "/resimler/pt15/pt15_22.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1020,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Cheesecake",
-      "Frambuazlı"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme / Servis": "+4°C dolapta 1 saatte servise hazır hale gelir.",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Üzerine çikolata ganaj veya pudra şekeri ile servis edilir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1900 GR",
-      "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 70
+    "imageUrl": "/resimler/pt15/pt15_22.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1800,
+    "tags": [
+      "Donuk Pasta",
+      "Cedric",
+      "Mango",
+      "Tropikal"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "104 GR",
+      "Kutu Gramaj": "1250 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 71,
     "id": "prod-pt16-1",
     "name": "CEDRİC MANGO",
     "code": "PST-DNK-MN-MNG-TRM",
@@ -2480,31 +2452,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Birebir mango meyvesi formunda parlak sarı-kırmızı kabuklu tropikal mono pasta.",
-    "imageUrl": "/resimler/pt16/pt16_1.png",
+    "imageUrl": "/resimler/pt16/pt16_1.png"
+  },
+  {
     "isActive": true,
-    "isFeatured": true,
-    "price": 1800,
+    "isFeatured": false,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 1800,
     "tags": [
       "Donuk Pasta",
       "Cedric",
-      "Mango",
-      "Tropikal"
+      "Mango"
     ],
     "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Çözündükten sonra doğrudan tabak sunumu yapılır.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1250 GR",
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
       "Dilim Gramaj": "104 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Kutu Gramaj": "1250 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
     },
-    "order": 71
-  },
-  {
+    "order": 72,
     "id": "prod-pt16-2",
     "name": "CEDRİC MANGO",
     "code": "PST-DNK-MN-MNG-V2",
@@ -2513,30 +2483,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Mango meyvesi şeklinde gurme mono pasta.",
-    "imageUrl": "/resimler/pt16/pt16_2.png",
+    "imageUrl": "/resimler/pt16/pt16_2.png"
+  },
+  {
     "isActive": true,
-    "isFeatured": false,
-    "price": 1800,
+    "isFeatured": true,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 1160,
     "tags": [
       "Donuk Pasta",
       "Cedric",
-      "Mango"
+      "Antep Fıstığı",
+      "Gurme Mono"
     ],
     "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1250 GR",
-      "Dilim Gramaj": "104 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "118 GR",
+      "Kutu Gramaj": "950 GR",
+      "Kutu İçi Dilim Adeti": "8 Dilim"
     },
-    "order": 72
-  },
-  {
+    "order": 73,
     "id": "prod-pt16-3",
     "name": "CEDRİC FISTIK",
     "code": "PST-DNK-MN-PST-TRM",
@@ -2545,31 +2515,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Yeşil Antep fıstığı formunda, saf fıstık pralini dolgulu gurme mono pasta.",
-    "imageUrl": "/resimler/pt16/pt16_3.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1160,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Cedric",
-      "Antep Fıstığı",
-      "Gurme Mono"
-    ],
-    "specs": {
-      "Porsiyon": "8 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Özel tabak sunumları için mükemmeldir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "950 GR",
-      "Dilim Gramaj": "118 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 73
+    "imageUrl": "/resimler/pt16/pt16_3.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1020,
+    "tags": [
+      "Donuk Pasta",
+      "Devils Food",
+      "Bitter",
+      "Çikolata"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1920 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 74,
     "id": "prod-pt16-4",
     "name": "DEVİLS FOOD CAKE",
     "code": "PST-DNK-MN-PST-V2",
@@ -2578,31 +2547,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Zengin kakao ve bitter ganajlı Devils Food cake dilimi.",
-    "imageUrl": "/resimler/pt16/pt16_4.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1020,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Devils Food",
-      "Bitter",
-      "Çikolata"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1920 GR",
-      "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 74
+    "imageUrl": "/resimler/pt16/pt16_4.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1038,
+    "tags": [
+      "Donuk Pasta",
+      "Havuçlu Pasta",
+      "Kremalı",
+      "Cevizli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "125 GR",
+      "Kutu Gramaj": "1500 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 75,
     "id": "prod-pt16-5",
     "name": "KREMALI HAVUÇLU PASTA",
     "code": "PST-DNK-DLM-DEV-CHO",
@@ -2611,31 +2579,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Tarçınlı havuçlu nemli kek katmanları ve zengin peynir kreması dolgulu pasta.",
-    "imageUrl": "/resimler/pt16/pt16_5.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1038,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Havuçlu Pasta",
-      "Kremalı",
-      "Cevizli"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kahve sunumları eşliğinde soğuk servis önerilir.",
-      "Kutu Gramaj": "1500 GR",
-      "Dilim Gramaj": "125 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 75
+    "imageUrl": "/resimler/pt16/pt16_5.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 850,
+    "tags": [
+      "Donuk Pasta",
+      "Paris Brest",
+      "Fransız"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "180 GR",
+      "Kutu Gramaj": "1800 GR",
+      "Kutu İçi Dilim Adeti": "10 Dilim"
+    },
+    "order": 76,
     "id": "prod-pt16-6",
     "name": "PARİS BREST",
     "code": "PST-DNK-MN-CHX-PRS",
@@ -2644,30 +2610,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Şu hamuru halkası içinde pralin kremalı klasik Fransız tatlısı.",
-    "imageUrl": "/resimler/pt16/pt16_6.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 850,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Paris Brest",
-      "Fransız"
-    ],
-    "specs": {
-      "Porsiyon": "10 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Çözündükten sonra doğrudan servis edilir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1800 GR",
-      "Dilim Gramaj": "180 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 76
+    "imageUrl": "/resimler/pt16/pt16_6.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1420.2,
+    "tags": [
+      "Donuk Pasta",
+      "San Sebastian",
+      "Cheesecake"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 30-45 dk",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "175 GR",
+      "Kutu Gramaj": "2100 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 77,
     "id": "prod-pt16-7",
     "name": "SAN SEBASTİAN CHEESCAKE",
     "code": "PST-DNK-DLM-MOZ-CLS",
@@ -2676,30 +2641,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Bask usulü yanık kabuklu kadifemsi San Sebastian cheesecake dilimi.",
-    "imageUrl": "/resimler/pt16/pt16_7.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1420.2,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "San Sebastian",
-      "Cheesecake"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 30-45 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Çay saatlerinin vazgeçilmez ikramlığı.",
-      "Kutu Gramaj": "2100 GR",
-      "Dilim Gramaj": "175 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 77
+    "imageUrl": "/resimler/pt16/pt16_7.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1170,
+    "tags": [
+      "Donuk Pasta",
+      "Antep Fıstıklı",
+      "Melanga"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat veya oda sıcaklığında 30 dk",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1440 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 78,
     "id": "prod-pt16-8",
     "name": "FISTIKLI MELANGA",
     "code": "PST-DNK-DLM-SAN-SEB",
@@ -2708,30 +2672,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Yeşil fıstıklı melanga mono pasta.",
-    "imageUrl": "/resimler/pt16/pt16_8.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1170,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Antep Fıstıklı",
-      "Melanga"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat veya oda sıcaklığında 30 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Sıcak eritilmiş Belçika çikolatası sosu ile servis önerilir.",
-      "Kutu Gramaj": "1440 GR",
-      "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 78
+    "imageUrl": "/resimler/pt16/pt16_8.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1860,
+    "tags": [
+      "Butik Pasta",
+      "Vişne Badem",
+      "Bademli",
+      "Meyveli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "190 GR",
+      "Kutu Gramaj": "2280 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 79,
     "id": "prod-pt16-9",
     "name": "VİŞNE BADEM",
     "code": "PST-DNK-MN-PST-DOM",
@@ -2740,31 +2704,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Kavrulmuş yaprak bademler ve mayhoş vişne taneleriyle butik pasta dilimi.",
-    "imageUrl": "/resimler/pt16/pt16_9.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1860,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Vişne Badem",
-      "Bademli",
-      "Meyveli"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "2280 GR",
-      "Dilim Gramaj": "190 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 79
+    "imageUrl": "/resimler/pt16/pt16_9.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1200,
+    "tags": [
+      "Butik Pasta",
+      "Orman Meyveli",
+      "Rulo"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "130 GR",
+      "Kutu Gramaj": "1040 GR",
+      "Kutu İçi Dilim Adeti": "8 Dilim"
+    },
+    "order": 80,
     "id": "prod-pt16-10",
     "name": "ORMAN MEYVELİ RULO",
     "code": "PST-DNK-DLM-CHK-LOT",
@@ -2773,30 +2735,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Yumuşacık rulo pandispanya, orman meyveleri ve çikolata sosu.",
-    "imageUrl": "/resimler/pt16/pt16_10.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1200,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Orman Meyveli",
-      "Rulo"
-    ],
-    "specs": {
-      "Porsiyon": "8 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "1040 GR",
-      "Dilim Gramaj": "130 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 80
+    "imageUrl": "/resimler/pt16/pt16_10.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 840,
+    "tags": [
+      "Butik Pasta",
+      "İbiza",
+      "Muzlu",
+      "Bisküvili"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "130 GR",
+      "Kutu Gramaj": "780 GR",
+      "Kutu İçi Dilim Adeti": "6 Dilim"
+    },
+    "order": 81,
     "id": "prod-pt16-11",
     "name": "İBİZA",
     "code": "PST-DNK-DLM-BLK-FOR",
@@ -2805,31 +2767,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Kakaolu bisküvi tabanı, enfes muhallebi ve taze muzlu İbiza tatlısı.",
-    "imageUrl": "/resimler/pt16/pt16_11.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 840,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "İbiza",
-      "Muzlu",
-      "Bisküvili"
-    ],
-    "specs": {
-      "Porsiyon": "6 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "780 GR",
-      "Dilim Gramaj": "130 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 81
+    "imageUrl": "/resimler/pt16/pt16_11.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1305,
+    "tags": [
+      "Butik Pasta",
+      "Linzer",
+      "Çikolatalı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "170 GR",
+      "Kutu Gramaj": "1530 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 82,
     "id": "prod-pt16-12",
     "name": "LİNZER ÇİKOLATALI",
     "code": "PST-DNK-EKL-CRQ-LNG",
@@ -2838,30 +2798,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Çikolatalı ve fındıklı geleneksel Linzer butik pasta.",
-    "imageUrl": "/resimler/pt16/pt16_12.png",
+    "imageUrl": "/resimler/pt16/pt16_12.png"
+  },
+  {
     "isActive": true,
     "isFeatured": true,
-    "price": 1305,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 1305,
     "tags": [
       "Butik Pasta",
       "Linzer",
-      "Çikolatalı"
+      "Yaban Mersini"
     ],
     "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Pudra şekeri serpilerek servis edilebilir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1530 GR",
-      "Dilim Gramaj": "170 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "190 GR",
+      "Kutu Gramaj": "1710 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
     },
-    "order": 82
-  },
-  {
+    "order": 83,
     "id": "prod-pt16-13",
     "name": "LİNZER YABAN MERSİNLİ",
     "code": "PST-DNK-MN-FRT-DOM",
@@ -2870,30 +2829,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Yaban mersinli kıtır kafes hamurlu butik pasta.",
-    "imageUrl": "/resimler/pt16/pt16_13.png",
+    "imageUrl": "/resimler/pt16/pt16_13.png"
+  },
+  {
     "isActive": true,
     "isFeatured": true,
-    "price": 1305,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 1305,
     "tags": [
       "Butik Pasta",
       "Linzer",
-      "Yaban Mersini"
+      "Lotus",
+      "Karamel"
     ],
     "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1710 GR",
-      "Dilim Gramaj": "190 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "210 GR",
+      "Kutu Gramaj": "1890 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
     },
-    "order": 83
-  },
-  {
+    "order": 84,
     "id": "prod-pt16-14",
     "name": "LİNZER LOTUS",
     "code": "PST-DNK-MN-WHT-POL",
@@ -2902,31 +2861,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Karamelize Lotus bisküvi kremalı butik Linzer pasta.",
-    "imageUrl": "/resimler/pt16/pt16_14.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1305,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Linzer",
-      "Lotus",
-      "Karamel"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1890 GR",
-      "Dilim Gramaj": "210 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 84
+    "imageUrl": "/resimler/pt16/pt16_14.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 948,
+    "tags": [
+      "Butik Pasta",
+      "Red Velvet",
+      "Kadife"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "125 GR",
+      "Kutu Gramaj": "1500 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 85,
     "id": "prod-pt16-15",
     "name": "RED VELVET BUTİK",
     "code": "PST-DNK-DLM-RED-VEL",
@@ -2935,30 +2892,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Butik üretim kadife kırmızı kek ve vanilyalı peynir kreması.",
-    "imageUrl": "/resimler/pt16/pt16_15.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1500,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Red Velvet",
-      "Kadife"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "2520 GR",
-      "Dilim Gramaj": "210 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 85
+    "imageUrl": "/resimler/pt16/pt16_15.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 840,
+    "tags": [
+      "Butik Pasta",
+      "Şeftali",
+      "Sponge"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "240 GR",
+      "Kutu Gramaj": "1440 GR",
+      "Kutu İçi Dilim Adeti": "6 Dilim"
+    },
+    "order": 86,
     "id": "prod-pt16-16",
     "name": "ŞEFTALİ SPONGE",
     "code": "PST-DNK-DLM-OPR-BER",
@@ -2967,30 +2923,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Şeftalili ferahlatıcı butik mono pasta.",
-    "imageUrl": "/resimler/pt16/pt16_16.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 840,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Şeftali",
-      "Sponge"
-    ],
-    "specs": {
-      "Porsiyon": "6 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1440 GR",
-      "Dilim Gramaj": "240 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 86
+    "imageUrl": "/resimler/pt16/pt16_16.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 2240,
+    "tags": [
+      "Butik Pasta",
+      "Oreo",
+      "Bisküvili"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "2560 GR",
+      "Kutu İçi Dilim Adeti": "16 Dilim"
+    },
+    "order": 87,
     "id": "prod-pt16-17",
     "name": "OREO PASTA",
     "code": "PST-DNK-DLM-OPR-MCH",
@@ -2999,30 +2954,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Bol Oreo bisküvili ve kremalı butik dilim pasta.",
-    "imageUrl": "/resimler/pt16/pt16_17.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 2240,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Oreo",
-      "Bisküvili"
-    ],
-    "specs": {
-      "Porsiyon": "16 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Filtre kahve veya espresso yanında servis edilir.",
-      "Kutu Gramaj": "2560 GR",
-      "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 87
+    "imageUrl": "/resimler/pt16/pt16_17.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1260,
+    "tags": [
+      "Butik Pasta",
+      "Tiramisu Bomba",
+      "Kakao"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "220 GR",
+      "Kutu Gramaj": "1980 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 88,
     "id": "prod-pt16-18",
     "name": "TİRAMİSU BOMBA",
     "code": "PST-DNK-DLM-OPR-ESP",
@@ -3031,30 +2985,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Orijinal mascarpone kremalı ve kakao kaplı kubbe tiramisu tatlısı.",
-    "imageUrl": "/resimler/pt16/pt16_18.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1260,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Tiramisu Bomba",
-      "Kakao"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "1980 GR",
-      "Dilim Gramaj": "220 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 88
+    "imageUrl": "/resimler/pt16/pt16_18.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1240,
+    "tags": [
+      "Butik Pasta",
+      "Antep Fıstığı",
+      "Petunya"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "260 GR",
+      "Kutu Gramaj": "2080 GR",
+      "Kutu İçi Dilim Adeti": "8 Dilim"
+    },
+    "order": 89,
     "id": "prod-pt16-19",
     "name": "PETUNYA FISTIK",
     "code": "PST-DNK-DLM-HVC-CRM",
@@ -3063,30 +3016,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Yoğun Antep fıstığı kaplamalı silindir butik pasta.",
-    "imageUrl": "/resimler/pt16/pt16_19.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1240,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Antep Fıstığı",
-      "Petunya"
-    ],
-    "specs": {
-      "Porsiyon": "8 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Sıcak çay ve kahve eşliğinde ikram edilir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "2080 GR",
-      "Dilim Gramaj": "260 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 89
+    "imageUrl": "/resimler/pt16/pt16_19.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 870,
+    "tags": [
+      "Butik Pasta",
+      "Lotus",
+      "Speculoos"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "200 GR",
+      "Kutu Gramaj": "1200 GR",
+      "Kutu İçi Dilim Adeti": "6 Dilim"
+    },
+    "order": 90,
     "id": "prod-pt16-20",
     "name": "LOTUS SPECULUS",
     "code": "PST-DNK-MN-CHO-FND",
@@ -3095,30 +3047,28 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Lotus bisküvi kırıntılı karamel mono tatlı.",
-    "imageUrl": "/resimler/pt16/pt16_20.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 870,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Lotus",
-      "Speculoos"
-    ],
-    "specs": {
-      "Porsiyon": "6 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1200 GR",
-      "Dilim Gramaj": "200 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 90
+    "imageUrl": "/resimler/pt16/pt16_20.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 948,
+    "tags": [
+      "Butik Pasta",
+      "Red Velvet"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "125 GR",
+      "Kutu Gramaj": "1500 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 91,
     "id": "prod-pt17-1",
     "name": "RED VELVET BUTİK",
     "code": "PST-DNK-DLM-BEL-MOU",
@@ -3127,29 +3077,28 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Kırmızı kadife kek ve kremalı butik dilim.",
-    "imageUrl": "/resimler/pt17/pt17_1.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1500,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Red Velvet"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "2520 GR",
-      "Dilim Gramaj": "210 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 91
+    "imageUrl": "/resimler/pt17/pt17_1.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 945,
+    "tags": [
+      "Donuk Pasta",
+      "Kalpli Pasta"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "165 GR",
+      "Kutu Gramaj": "1485 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 92,
     "id": "prod-pt17-2",
     "name": "KALPLİ PASTA",
     "code": "PST-DNK-MN-BIT-POL",
@@ -3158,29 +3107,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Kırmızı kalp formunda meyveli pasta.",
-    "imageUrl": "/resimler/pt17/pt17_2.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 945,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Kalpli Pasta"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1485 GR",
-      "Dilim Gramaj": "165 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 92
+    "imageUrl": "/resimler/pt17/pt17_2.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1020,
+    "tags": [
+      "Donuk Pasta",
+      "Kara Orman",
+      "Vişneli",
+      "Çikolatalı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "140 GR",
+      "Kutu Gramaj": "1680 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 93,
     "id": "prod-pt17-3",
     "name": "KARA ORMAN MEYVELİ",
     "code": "PST-DNK-DLM-CHK-LIM",
@@ -3189,31 +3139,28 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Bitter çikolata ve vişneli Karaorman pastası.",
-    "imageUrl": "/resimler/pt17/pt17_3.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1020,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Kara Orman",
-      "Vişneli",
-      "Çikolatalı"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "1680 GR",
-      "Dilim Gramaj": "140 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 93
+    "imageUrl": "/resimler/pt17/pt17_3.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1020,
+    "tags": [
+      "Donuk Pasta",
+      "Devils Food"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1920 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 94,
     "id": "prod-pt17-4",
     "name": "DEVİLS FOOD CAKE",
     "code": "PST-DNK-DLM-CHK-LM2",
@@ -3222,29 +3169,28 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Kakaolu yoğun Devils kek dilimi.",
-    "imageUrl": "/resimler/pt17/pt17_4.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1020,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Devils Food"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "1920 GR",
-      "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 94
+    "imageUrl": "/resimler/pt17/pt17_4.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 801,
+    "tags": [
+      "Donuk Pasta",
+      "Coco Star"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "200 GR",
+      "Kutu Gramaj": "1800 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 95,
     "id": "prod-pt17-5",
     "name": "COCO STAR",
     "code": "PST-DNK-MN-COC-BAL",
@@ -3253,29 +3199,28 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Hindistan cevizli mono tatlı.",
-    "imageUrl": "/resimler/pt17/pt17_5.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 801,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Coco Star"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1800 GR",
-      "Dilim Gramaj": "200 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 95
+    "imageUrl": "/resimler/pt17/pt17_5.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 945,
+    "tags": [
+      "Donuk Pasta",
+      "Lotus Dome"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "220 GR",
+      "Kutu Gramaj": "2000 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 96,
     "id": "prod-pt17-6",
     "name": "LOTUS DOME",
     "code": "PST-DNK-MN-KRO-FND",
@@ -3284,29 +3229,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Karamelli Lotus kubbe tatlısı.",
-    "imageUrl": "/resimler/pt17/pt17_6.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 945,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Lotus Dome"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "2000 GR",
-      "Dilim Gramaj": "220 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 96
+    "imageUrl": "/resimler/pt17/pt17_6.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 78,
+    "tags": [
+      "Kruvasan",
+      "Donuk",
+      "Tereyağlı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "80 GR",
+      "Kutu Gramaj": "1600 GR",
+      "Kutu İçi Dilim Adeti": "30 Adet",
+      "Miktar": "120 GR"
+    },
+    "order": 97,
     "id": "prod-pt17-7",
     "name": "TEREYAĞLI KRUVASAN (DONUK)",
     "code": "PST-DNK-MN-DUL-CAR",
@@ -3315,30 +3261,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Kruvasan & Danimarka Çörekleri",
     "categorySlug": "kruvasan",
     "description": "%100 Fransız tereyağı ile katlandırılmış, fırınlanmaya hazır donuk sade kruvasan.",
-    "imageUrl": "/resimler/pt17/pt17_7.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 650,
-    "vatRate": 20,
-    "tags": [
-      "Kruvasan",
-      "Donuk",
-      "Tereyağlı"
-    ],
-    "specs": {
-      "Porsiyon": "20 Adet",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1600 GR",
-      "Dilim Gramaj": "80 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 97
+    "imageUrl": "/resimler/pt17/pt17_7.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 680,
+    "tags": [
+      "Kruvasan",
+      "Danish",
+      "Çörek"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "90 GR",
+      "Kutu Gramaj": "1800 GR",
+      "Kutu İçi Dilim Adeti": "20 Adet"
+    },
+    "order": 98,
     "id": "prod-pt17-8",
     "name": "DANİSH ÇÖREK (DONUK)",
     "code": "PST-DNK-MN-CHO-WTR",
@@ -3347,30 +3292,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Kruvasan & Danimarka Çörekleri",
     "categorySlug": "kruvasan",
     "description": "Kat kat tereyağlı hamur ve vanilyalı pastacı kreması dolgulu Danimarka çöreği.",
-    "imageUrl": "/resimler/pt17/pt17_8.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 680,
-    "vatRate": 20,
-    "tags": [
-      "Kruvasan",
-      "Danish",
-      "Çörek"
-    ],
-    "specs": {
-      "Porsiyon": "20 Adet",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1800 GR",
-      "Dilim Gramaj": "90 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 98
+    "imageUrl": "/resimler/pt17/pt17_8.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 750,
+    "tags": [
+      "Kruvasan",
+      "Dolgulu",
+      "Gurme"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "90 GR",
+      "Kutu Gramaj": "1620 GR",
+      "Kutu İçi Dilim Adeti": "18 Adet"
+    },
+    "order": 99,
     "id": "prod-pt17-9",
     "name": "GURME DOLGULU KRUVASAN",
     "code": "PST-DNK-DLM-CHK-FRM",
@@ -3379,30 +3323,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Kruvasan & Danimarka Çörekleri",
     "categorySlug": "kruvasan",
     "description": "Çıtır katmanlı, zengin krema dolgulu fırınlanmaya hazır gurme kruvasan.",
-    "imageUrl": "/resimler/pt17/pt17_9.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 750,
-    "vatRate": 20,
-    "tags": [
-      "Kruvasan",
-      "Dolgulu",
-      "Gurme"
-    ],
-    "specs": {
-      "Porsiyon": "18 Adet",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "1620 GR",
-      "Dilim Gramaj": "90 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 99
+    "imageUrl": "/resimler/pt17/pt17_9.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 680,
+    "tags": [
+      "Kruvasan",
+      "Çörek",
+      "Tarçınlı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "90 GR",
+      "Kutu Gramaj": "1800 GR",
+      "Kutu İçi Dilim Adeti": "20 Adet"
+    },
+    "order": 100,
     "id": "prod-pt17-10",
     "name": "RULO ÇÖREK (DONUK)",
     "code": "PST-DNK-DLM-TIR-ITA",
@@ -3411,30 +3354,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Kruvasan & Danimarka Çörekleri",
     "categorySlug": "kruvasan",
     "description": "Geleneksel tarçınlı ve kremalı tereyağlı rulo çörek.",
-    "imageUrl": "/resimler/pt17/pt17_10.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 680,
-    "vatRate": 20,
-    "tags": [
-      "Kruvasan",
-      "Çörek",
-      "Tarçınlı"
-    ],
-    "specs": {
-      "Porsiyon": "20 Adet",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Espresso veya cappuccino yanında servis ediniz.",
-      "Kutu Gramaj": "1800 GR",
-      "Dilim Gramaj": "90 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 100
+    "imageUrl": "/resimler/pt17/pt17_10.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 320,
+    "tags": [
+      "Unlu Mamuller",
+      "Ekmek",
+      "Tost"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "50 GR",
+      "Kutu Gramaj": "3000 GR",
+      "Kutu İçi Dilim Adeti": "1 Koli"
+    },
+    "order": 101,
     "id": "prod-pt17-11",
     "name": "TOST EKMEĞİ (DİLİMLİ)",
     "code": "PST-DNK-DLM-TIR-GLZ",
@@ -3443,30 +3385,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Donuk Unlu Mamuller",
     "categorySlug": "donuk-unlu-mamuller",
     "description": "Kafeler ve büfeler için özel kalın dilimli yumuşak tost ekmeği.",
-    "imageUrl": "/resimler/pt17/pt17_11.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 320,
-    "vatRate": 20,
-    "tags": [
-      "Unlu Mamuller",
-      "Ekmek",
-      "Tost"
-    ],
-    "specs": {
-      "Porsiyon": "1 Koli",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "3000 GR",
-      "Dilim Gramaj": "50 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 101
+    "imageUrl": "/resimler/pt17/pt17_11.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 160,
+    "tags": [
+      "Bar Sos",
+      "Sprey Krema",
+      "Şanti"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "700 ML",
+      "Kutu Gramaj": "700 ML",
+      "Kutu İçi Dilim Adeti": "1 Şişe (700ml)",
+      "Miktar": "12"
+    },
+    "order": 102,
     "id": "prod-pt17-12",
     "name": "SPREY KREMA (ŞANTİ)",
     "code": "PST-DNK-DLM-TIR-ESP",
@@ -3475,30 +3417,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Bar & Kahve Sosları",
     "categorySlug": "bar-sos",
     "description": "Kahve, milkshake ve tatlı sunumları için yüksek kıvamlı sprey pastacı kreması.",
-    "imageUrl": "/resimler/pt17/pt17_12.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 280,
-    "vatRate": 20,
-    "tags": [
-      "Bar Sos",
-      "Sprey Krema",
-      "Şanti"
-    ],
-    "specs": {
-      "Porsiyon": "1 Şişe (700ml)",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "700 ML",
-      "Dilim Gramaj": "700 ML",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 102
+    "imageUrl": "/resimler/pt17/pt17_12.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 340,
+    "tags": [
+      "Şurup",
+      "Kahve",
+      "Barista"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "750 ML",
+      "Kutu Gramaj": "750 ML",
+      "Kutu İçi Dilim Adeti": "1 Şişe (750ml)"
+    },
+    "order": 103,
     "id": "prod-pt17-13",
     "name": "GURME AROMALI ŞURUP",
     "code": "PST-DNK-MN-HRT-LOV",
@@ -3507,30 +3448,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyl & Kahve Şurupları",
     "categorySlug": "suruplar",
     "description": "Kahve ve kokteyller için özel aromalı gurme şurup.",
-    "imageUrl": "/resimler/pt17/pt17_13.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 340,
-    "vatRate": 20,
-    "tags": [
-      "Şurup",
-      "Kahve",
-      "Barista"
-    ],
-    "specs": {
-      "Porsiyon": "1 Şişe (750ml)",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Özel gün menüleri için idealdir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "750 ML",
-      "Dilim Gramaj": "750 ML",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 103
+    "imageUrl": "/resimler/pt17/pt17_13.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 540,
+    "tags": [
+      "Waffle",
+      "Belçika Waffle",
+      "Donuk"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "90 GR",
+      "Kutu Gramaj": "2160 GR",
+      "Kutu İçi Dilim Adeti": "24 Adet"
+    },
+    "order": 104,
     "id": "prod-pt17-14",
     "name": "BELÇİKA WAFFLE (DONUK)",
     "code": "PST-DNK-CKI-RED-WHT",
@@ -3539,30 +3479,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle & Krep Malzemeleri",
     "categorySlug": "waffle-malzemeleri",
     "description": "İnci şekerli otantik Liège Belçika waffle'ı, ısıtılarak hemen servise hazır.",
-    "imageUrl": "/resimler/pt17/pt17_14.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 540,
-    "vatRate": 20,
-    "tags": [
-      "Waffle",
-      "Belçika Waffle",
-      "Donuk"
-    ],
-    "specs": {
-      "Porsiyon": "24 Adet",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya fırında 160°C'de 3 dk",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Ilık servis edildiğinde çikolatalar yumuşar.",
-      "Kutu Gramaj": "2160 GR",
-      "Dilim Gramaj": "90 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 104
+    "imageUrl": "/resimler/pt17/pt17_14.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1305,
+    "tags": [
+      "Butik Pasta",
+      "Cheesecake",
+      "Vişneli"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "130 GR",
+      "Kutu Gramaj": "1170 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 105,
     "id": "prod-pt17-15",
     "name": "CHEESCAKE VİŞNE",
     "code": "PST-DNK-DLM-CHK-BER",
@@ -3571,30 +3510,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Fırınlanmış tereyağlı bisküvi tabanı ve mayhoş vişne soslu butik cheesecake.",
-    "imageUrl": "/resimler/pt17/pt17_15.png",
+    "imageUrl": "/resimler/pt17/pt17_15.png"
+  },
+  {
     "isActive": true,
-    "isFeatured": false,
-    "price": 1305,
+    "isFeatured": true,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 2000,
     "tags": [
       "Butik Pasta",
       "Cheesecake",
-      "Vişneli"
+      "Limonlu",
+      "16 Dilim"
     ],
     "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "1170 GR",
-      "Dilim Gramaj": "130 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "2560 GR",
+      "Kutu İçi Dilim Adeti": "16 Dilim"
     },
-    "order": 105
-  },
-  {
+    "order": 106,
     "id": "prod-pt17-16",
     "name": "CHESCAKE LİMON",
     "code": "PST-DNK-DLM-CHK-ALM",
@@ -3603,31 +3542,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "16 dilim bütün fırınlanmış limon soslu butik cheesecake.",
-    "imageUrl": "/resimler/pt17/pt17_16.png",
+    "imageUrl": "/resimler/pt17/pt17_16.png"
+  },
+  {
     "isActive": true,
     "isFeatured": true,
-    "price": 2000,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 1305,
     "tags": [
       "Butik Pasta",
       "Cheesecake",
-      "Limonlu",
-      "16 Dilim"
+      "Çilekli"
     ],
     "specs": {
-      "Porsiyon": "16 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "2560 GR",
-      "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "130 GR",
+      "Kutu Gramaj": "1170 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
     },
-    "order": 106
-  },
-  {
+    "order": 107,
     "id": "prod-pt17-17",
     "name": "CHEESCAKE ÇİLEK",
     "code": "PST-DNK-KP-STR-RUB",
@@ -3636,30 +3573,28 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Çilekli butik cheesecake.",
-    "imageUrl": "/resimler/pt17/pt17_17.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1305,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Cheesecake",
-      "Çilekli"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kendi şık kasesinde kaşıkla servis edilir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1170 GR",
-      "Dilim Gramaj": "130 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 107
+    "imageUrl": "/resimler/pt17/pt17_17.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1260,
+    "tags": [
+      "Butik Pasta",
+      "Tiramisu"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "220 GR",
+      "Kutu Gramaj": "1980 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 108,
     "id": "prod-pt17-18",
     "name": "TİRAMİSU BOMBA",
     "code": "PST-DNK-KP-DUL-CHO",
@@ -3668,29 +3603,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Mascarpone kremalı kubbe tiramisu.",
-    "imageUrl": "/resimler/pt17/pt17_18.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1260,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Tiramisu"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Doğrudan kasesinde servis edilir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1980 GR",
-      "Dilim Gramaj": "220 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 108
+    "imageUrl": "/resimler/pt17/pt17_18.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 2400,
+    "tags": [
+      "Butik Pasta",
+      "Cheesecake",
+      "Pistachio",
+      "Antep Fıstığı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "2560 GR",
+      "Kutu İçi Dilim Adeti": "16 Dilim"
+    },
+    "order": 109,
     "id": "prod-pt17-19",
     "name": "CHEESCAKE PİSTACHİO",
     "code": "PST-DNK-BX-LIM-OVL",
@@ -3699,31 +3635,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Yoğun Antep fıstığı ezmeli ve kıtır fıstık parçalı 16 dilim gurme cheesecake.",
-    "imageUrl": "/resimler/pt17/pt17_19.png",
+    "imageUrl": "/resimler/pt17/pt17_19.png"
+  },
+  {
     "isActive": true,
-    "isFeatured": false,
-    "price": 2400,
+    "isFeatured": true,
+    "isBestSeller": false,
     "vatRate": 20,
+    "price": 2160,
     "tags": [
       "Butik Pasta",
       "Cheesecake",
-      "Pistachio",
-      "Antep Fıstığı"
+      "Süt Reçeli",
+      "Dulce de Leche"
     ],
     "specs": {
-      "Porsiyon": "16 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
       "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kutusunda pratik kaşık servisine uygundur.",
-      "Kutu Gramaj": "2560 GR",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
       "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
+      "Kutu Gramaj": "2560 GR",
+      "Kutu İçi Dilim Adeti": "16 Dilim"
     },
-    "order": 109
-  },
-  {
+    "order": 110,
     "id": "prod-pt17-20",
     "name": "CHEESCAKE SÜT REÇELİ",
     "code": "PST-DNK-BX-CHO-REC",
@@ -3732,31 +3667,28 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Karamelize süt reçeli (Dulce de Leche) kaplı 16 dilim butik cheesecake.",
-    "imageUrl": "/resimler/pt17/pt17_20.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 2160,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Cheesecake",
-      "Süt Reçeli",
-      "Dulce de Leche"
-    ],
-    "specs": {
-      "Porsiyon": "16 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kutusunda pratik servis.",
-      "Kutu Gramaj": "2560 GR",
-      "Dilim Gramaj": "160 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 110
+    "imageUrl": "/resimler/pt17/pt17_20.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 948,
+    "tags": [
+      "Donuk Pasta",
+      "Red Velvet"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "125 GR",
+      "Kutu Gramaj": "1500 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 111,
     "id": "prod-pt18-1",
     "name": "RED VELVET",
     "code": "PST-DNK-MN-RED-PST-REC",
@@ -3765,29 +3697,28 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Kırmızı kadife kek dilimi.",
-    "imageUrl": "/resimler/pt18/pt18_1.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 948,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Red Velvet"
-    ],
-    "specs": {
-      "Porsiyon": "12 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1500 GR",
-      "Dilim Gramaj": "125 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 111
+    "imageUrl": "/resimler/pt18/pt18_1.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 945,
+    "tags": [
+      "Donuk Pasta",
+      "Kalpli Pasta"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "165 GR",
+      "Kutu Gramaj": "1485 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 112,
     "id": "prod-pt18-2",
     "name": "KALPLİ PASTA",
     "code": "PST-DNK-MN-HRT-LOV-2",
@@ -3796,29 +3727,28 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Kalp formunda kırmızı pasta.",
-    "imageUrl": "/resimler/pt18/pt18_2.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 945,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Kalpli Pasta"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1485 GR",
-      "Dilim Gramaj": "165 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 112
+    "imageUrl": "/resimler/pt18/pt18_2.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1200,
+    "tags": [
+      "Butik Pasta",
+      "Rulo"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "130 GR",
+      "Kutu Gramaj": "1040 GR",
+      "Kutu İçi Dilim Adeti": "8 Dilim"
+    },
+    "order": 113,
     "id": "prod-pt18-3",
     "name": "ORMAN MEYVELİ RULO",
     "code": "PST-DNK-MN-RUL-FRT",
@@ -3827,29 +3757,28 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
     "description": "Rulo pasta dilimi.",
-    "imageUrl": "/resimler/pt18/pt18_3.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1200,
-    "vatRate": 20,
-    "tags": [
-      "Butik Pasta",
-      "Rulo"
-    ],
-    "specs": {
-      "Porsiyon": "8 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1040 GR",
-      "Dilim Gramaj": "130 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 113
+    "imageUrl": "/resimler/pt18/pt18_3.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1170,
+    "tags": [
+      "Donuk Pasta",
+      "Browni"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "130 GR",
+      "Kutu Gramaj": "1170 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 114,
     "id": "prod-pt18-4",
     "name": "BROWNİ",
     "code": "PST-DNK-DLM-BRW-FND",
@@ -3858,30 +3787,28 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Kare fındıklı ve meyveli bitter browni dilimi.",
-    "imageUrl": "/resimler/pt18/pt18_4.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 1170,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Browni"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme / Isıtma": "Oda sıcaklığında 30 dk veya mikrodalgada 15-20 sn hafif ılık",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Ilık servis edildiğinde yanında vanilyalı dondurma önerilir.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1170 GR",
-      "Dilim Gramaj": "130 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 114
+    "imageUrl": "/resimler/pt18/pt18_4.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 801,
+    "tags": [
+      "Donuk Pasta",
+      "Coco Star"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "200 GR",
+      "Kutu Gramaj": "1800 GR",
+      "Kutu İçi Dilim Adeti": "9 Dilim"
+    },
+    "order": 115,
     "id": "prod-pt18-5",
     "name": "COCO STAR",
     "code": "PST-DNK-MN-LIM-PST-DOM",
@@ -3890,29 +3817,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Hindistan cevizli mono pasta.",
-    "imageUrl": "/resimler/pt18/pt18_5.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 801,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Coco Star"
-    ],
-    "specs": {
-      "Porsiyon": "9 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Tüketim": "Günlük taze üretimdir, servise hazırdır.",
-      "Kutu Gramaj": "1800 GR",
-      "Dilim Gramaj": "200 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 115
+    "imageUrl": "/resimler/pt18/pt18_5.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 990,
+    "tags": [
+      "Donuk Pasta",
+      "Cheesecake",
+      "Yaban Mersini"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "170 GR",
+      "Kutu Gramaj": "1700 GR",
+      "Kutu İçi Dilim Adeti": "10 Dilim"
+    },
+    "order": 116,
     "id": "prod-pt18-6",
     "name": "YABAN MERSİNLİ CHEESCAKE",
     "code": "PST-DNK-DLM-CHK-BLU-TN",
@@ -3921,30 +3848,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Yaban mersini soslu cheesecake dilimi.",
-    "imageUrl": "/resimler/pt18/pt18_6.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 990,
-    "vatRate": 20,
-    "tags": [
-      "Donuk Pasta",
-      "Cheesecake",
-      "Yaban Mersini"
-    ],
-    "specs": {
-      "Porsiyon": "10 Dilim",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Soğuk servis ediniz.",
-      "Kutu Gramaj": "1700 GR",
-      "Dilim Gramaj": "170 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 116
+    "imageUrl": "/resimler/pt18/pt18_6.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 78,
+    "tags": [
+      "Kruvasan",
+      "Donuk",
+      "Tereyağlı"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "80 GR",
+      "Kutu Gramaj": "1600 GR",
+      "Kutu İçi Dilim Adeti": "30 Adet",
+      "Miktar": "120 GR"
+    },
+    "order": 117,
     "id": "prod-pt18-7",
     "name": "TEREYAĞLI SADE KRUVASAN",
     "code": "PST-DNK-UNL-KRV-SAD",
@@ -3953,30 +3880,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Kruvasan & Danimarka Çörekleri",
     "categorySlug": "kruvasan",
     "description": "Fransız tereyağlı çıtır katmanlı sade kruvasan.",
-    "imageUrl": "/resimler/pt18/pt18_7.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 650,
-    "vatRate": 20,
-    "tags": [
-      "Kruvasan",
-      "Donuk",
-      "Tereyağlı"
-    ],
-    "specs": {
-      "Porsiyon": "20 Adet",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme / Isıtma": "Önceden ısıtılmış 180°C fırında 3-4 dakika çıtırlaştırınız.",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Sıcak servis ediniz, reçel veya çikolata ezmesi ile sunulabilir.",
-      "Kutu Gramaj": "1600 GR",
-      "Dilim Gramaj": "80 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 117
+    "imageUrl": "/resimler/pt18/pt18_7.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 300,
+    "tags": [
+      "Kruvasan",
+      "Danish",
+      "Çörek"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "90 GR",
+      "Kutu Gramaj": "1800 GR",
+      "Kutu İçi Dilim Adeti": "20 Adet",
+      "Miktar": "700 ML"
+    },
+    "order": 118,
     "id": "prod-pt18-8",
     "name": "TARÇINLI DANİSH ÇÖREK",
     "code": "PST-DNK-UNL-NY-ROLL",
@@ -3985,30 +3912,28 @@ const RAW_PRODUCTS = [
     "categoryName": "Kruvasan & Danimarka Çörekleri",
     "categorySlug": "kruvasan",
     "description": "Tarçın ve pastacı kremalı tereyağlı Danimarka çöreği.",
-    "imageUrl": "/resimler/pt18/pt18_8.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 680,
-    "vatRate": 20,
-    "tags": [
-      "Kruvasan",
-      "Danish",
-      "Çörek"
-    ],
-    "specs": {
-      "Porsiyon": "20 Adet",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme / Isıtma": "Fırında 170°C'de 3-4 dk ısıtıldığında ekstra çıtırlaşır.",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "İçi krema dolgulanabilir veya üzeri ganajla kaplanabilir.",
-      "Kutu Gramaj": "1800 GR",
-      "Dilim Gramaj": "90 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 118
+    "imageUrl": "/resimler/pt18/pt18_8.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 620,
+    "tags": [
+      "Kruvasan",
+      "Mini Kruvasan"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "50 GR",
+      "Kutu Gramaj": "1500 GR",
+      "Kutu İçi Dilim Adeti": "30 Adet"
+    },
+    "order": 119,
     "id": "prod-pt18-9",
     "name": "ÇITIR MİNİ KRUVASAN",
     "code": "PST-DNK-UNL-KRV-CHO-FND",
@@ -4017,29 +3942,30 @@ const RAW_PRODUCTS = [
     "categoryName": "Kruvasan & Danimarka Çörekleri",
     "categorySlug": "kruvasan",
     "description": "Büfe ve kahvaltı sunumları için çıtır mini kruvasan.",
-    "imageUrl": "/resimler/pt18/pt18_9.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 620,
-    "vatRate": 20,
-    "tags": [
-      "Kruvasan",
-      "Mini Kruvasan"
-    ],
-    "specs": {
-      "Porsiyon": "30 Adet",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme / Isıtma": "Fırında 170°C'de 3-4 dk ısıtınız.",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Ilık servis yapıldığında iç dolgusu akışkan hale gelir.",
-      "Kutu Gramaj": "1500 GR",
-      "Dilim Gramaj": "50 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 119
+    "imageUrl": "/resimler/pt18/pt18_9.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 83,
+    "tags": [
+      "Kruvasan",
+      "Çikolatalı Kruvasan",
+      "Pain au Chocolat"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "90 GR",
+      "Kutu Gramaj": "1800 GR",
+      "Kutu İçi Dilim Adeti": "30 Adet",
+      "Miktar": "90 GR"
+    },
+    "order": 120,
     "id": "prod-pt18-10",
     "name": "ÇİKOLATALI KRUVASAN (PAİN AU CHOCOLAT)",
     "code": "PST-DNK-UNL-PAIN-CHO",
@@ -4048,30 +3974,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Kruvasan & Danimarka Çörekleri",
     "categorySlug": "kruvasan",
     "description": "İçi çift bitter çikolata çubuklu Fransız Pain au Chocolat kruvasan.",
-    "imageUrl": "/resimler/pt18/pt18_10.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 720,
-    "vatRate": 20,
-    "tags": [
-      "Kruvasan",
-      "Çikolatalı Kruvasan",
-      "Pain au Chocolat"
-    ],
-    "specs": {
-      "Porsiyon": "20 Adet",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme / Isıtma": "Fırında 175°C'de 3-4 dk ısıtınız.",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kahve yanında sıcak servis edilir.",
-      "Kutu Gramaj": "1800 GR",
-      "Dilim Gramaj": "90 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 120
+    "imageUrl": "/resimler/pt18/pt18_10.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 320,
+    "tags": [
+      "Unlu Mamuller",
+      "Ekmek",
+      "Tost"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "50 GR",
+      "Kutu Gramaj": "3000 GR",
+      "Kutu İçi Dilim Adeti": "1 Koli"
+    },
+    "order": 121,
     "id": "prod-pt18-11",
     "name": "GURME TOST EKMEĞİ",
     "code": "PST-DNK-UNL-TST-EKM",
@@ -4080,30 +4005,27 @@ const RAW_PRODUCTS = [
     "categoryName": "Donuk Unlu Mamuller",
     "categorySlug": "donuk-unlu-mamuller",
     "description": "Tost ve sandviç için kalın dilimli kare ekmek.",
-    "imageUrl": "/resimler/pt18/pt18_11.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 320,
-    "vatRate": 20,
-    "tags": [
-      "Unlu Mamuller",
-      "Ekmek",
-      "Tost"
-    ],
-    "specs": {
-      "Porsiyon": "1 Koli",
-      "Ambalaj": "Koli (-18°C Donuk)",
-      "Çözünme / Kullanım": "Tost makinesinde doğrudan kızartılabilir.",
-      "Raf Ömrü": "-18°C'de 12 Ay",
-      "Saklama Koşulu": "-18°C",
-      "Servis Tavsiyesi": "Kaşarlı, avokadolu veya gurme sandviç yapımına uygundur.",
-      "Kutu Gramaj": "3000 GR",
-      "Dilim Gramaj": "50 GR",
-      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır."
-    },
-    "order": 121
+    "imageUrl": "/resimler/pt18/pt18_11.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 508,
+    "tags": [
+      "Krater",
+      "Çilek",
+      "Meyve Karışımı",
+      "Püre",
+      "Smoothie",
+      "Kokteyl"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 122,
     "id": "prod-byz-001",
     "name": "Krater Çilekli Meyve Karışımı 1kg",
     "code": "KRT-CLK-1000",
@@ -4112,42 +4034,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Olgun taze çileklerin eşsiz aroması ve pürüzsüz kıvamıyla dondurma, kokteyl, smoothie ve pasta dolgularında benzersiz meyve lezzeti sunar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_001.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 320,
-    "vatRate": 20,
-    "order": 122,
-    "tags": [
-      "Krater",
-      "Çilek",
-      "Meyve Karışımı",
-      "Püre",
-      "Smoothie",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Çilek (Strawberry)",
-      "Kullanım": "Kokteyl, Smoothie, Dondurma, Pasta",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_001.png"
   },
   {
-    "id": "prod-byz-002",
-    "name": "Krater Kavunlu Meyve Karışımı 1kg",
-    "code": "KRT-KVN-1000",
-    "codeGroup": "Krater",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "description": "Yaz aylarının vazgeçilmezi tatlı kavun aromasıyla zenginleştirilmiş, ferahlatıcı kokteyl, frozen ve dondurma hazırlıkları için ideal meyve karışımı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_002.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 320,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 123,
+    "price": 580,
     "tags": [
       "Krater",
       "Kavun",
@@ -4156,27 +4050,26 @@ const RAW_PRODUCTS = [
       "Frozen"
     ],
     "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Kavun (Melon)",
-      "Kullanım": "Frozen, Kokteyl, Smoothie, Gelato",
-      "Menşei": "Türkiye"
-    }
-  },
-  {
-    "id": "prod-byz-003",
-    "name": "Krater Maestro del Gelato Elmalı Meyve Karışımı 1kg",
-    "code": "KRT-ELM-1000",
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 123,
+    "id": "prod-byz-002",
+    "name": "Krater Kavunlu Meyve Karışımı 1kg",
+    "code": "KRT-KVN-1000",
     "codeGroup": "Krater",
     "categoryId": "cat-1",
     "categoryName": "Püreler",
     "categorySlug": "pureler",
-    "description": "Kıtır ve ferahlatıcı yeşil elma özleriyle hazırlanmış profesyonel dondurma ve bar miksoloji meyve bazı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_003.png",
+    "description": "Yaz aylarının vazgeçilmezi tatlı kavun aromasıyla zenginleştirilmiş, ferahlatıcı kokteyl, frozen ve dondurma hazırlıkları için ideal meyve karışımı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_002.png"
+  },
+  {
     "isActive": true,
     "isFeatured": false,
-    "price": 320,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 124,
+    "price": 508,
     "tags": [
       "Krater",
       "Yeşil Elma",
@@ -4185,27 +4078,26 @@ const RAW_PRODUCTS = [
       "Dondurma"
     ],
     "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Yeşil Elma (Apple)",
-      "Kullanım": "Gelato, Dondurma, Frozen, Mocktail",
-      "Menşei": "Türkiye"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 124,
+    "id": "prod-byz-003",
+    "name": "Krater Maestro del Gelato Elmalı Meyve Karışımı 1kg",
+    "code": "KRT-ELM-1000",
+    "codeGroup": "Krater",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Kıtır ve ferahlatıcı yeşil elma özleriyle hazırlanmış profesyonel dondurma ve bar miksoloji meyve bazı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_003.png"
   },
   {
-    "id": "prod-byz-004",
-    "name": "DaVinci Gourmet Condensed Milk Aromalı Bar Sosu 1L",
-    "code": "DVG-CDL-1000",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "description": "Yoğunlaştırılmış süt kıvamı ve karamelize süt tatlılığıyla İspanyol latte, frappé, tatlı ve pasta sunumları için lüks kıvam artırıcı sos.",
-    "imageUrl": "/beyazresimler/karisik/karisik_004.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 420,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 125,
+    "price": 1352,
     "tags": [
       "DaVinci Gourmet",
       "Condensed Milk",
@@ -4214,27 +4106,26 @@ const RAW_PRODUCTS = [
       "Bar Sos"
     ],
     "specs": {
-      "Hacim": "1 L",
-      "Aroma": "Koyulaştırılmış Süt (Condensed Milk)",
-      "Kullanım": "Spanish Latte, Frappé, Tatlı Süsleme",
-      "Menşei": "Malezya"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "2000 GR"
+    },
+    "order": 125,
+    "id": "prod-byz-004",
+    "name": "DaVinci Gourmet Condensed Milk Aromalı Bar Sosu 1L",
+    "code": "DVG-CDL-1000",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "Yoğunlaştırılmış süt kıvamı ve karamelize süt tatlılığıyla İspanyol latte, frappé, tatlı ve pasta sunumları için lüks kıvam artırıcı sos.",
+    "imageUrl": "/beyazresimler/karisik/karisik_004.png"
   },
   {
-    "id": "prod-byz-005",
-    "name": "Krater Şeftalili Meyve Karışımı 1kg",
-    "code": "KRT-SFT-1000",
-    "codeGroup": "Krater",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "description": "Güneşte olgunlaşmış sulu şeftalilerin kadifemsi püre dokusu; buzlu çay, frozen, kokteyl ve dondurma tariflerinde doğal şeftali lezzeti sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_005.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 320,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 126,
+    "price": 508,
     "tags": [
       "Krater",
       "Şeftali",
@@ -4243,13 +4134,38 @@ const RAW_PRODUCTS = [
       "Püre"
     ],
     "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Şeftali (Peach)",
-      "Kullanım": "Ice Tea, Frozen, Smoothie, Pasta Dolgusu",
-      "Menşei": "Türkiye"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 126,
+    "id": "prod-byz-005",
+    "name": "Krater Şeftalili Meyve Karışımı 1kg",
+    "code": "KRT-SFT-1000",
+    "codeGroup": "Krater",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Güneşte olgunlaşmış sulu şeftalilerin kadifemsi püre dokusu; buzlu çay, frozen, kokteyl ve dondurma tariflerinde doğal şeftali lezzeti sağlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_005.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 508,
+    "tags": [
+      "DaVinci Gourmet",
+      "Çilek",
+      "Fruit Mix",
+      "Smoothie",
+      "Kokteyl"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 127,
     "id": "prod-byz-006",
     "name": "DaVinci Gourmet Çilek Fruit Beverage Mix 1L",
     "code": "DVG-FBM-STW-1000",
@@ -4258,41 +4174,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Yüksek meyve konsantrasyonuna sahip DaVinci Gourmet çilek meyveli içecek bazı; smoothie, frozen ve imza kokteyller için barista standardı lezzet.",
-    "imageUrl": "/beyazresimler/karisik/karisik_006.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 490,
-    "vatRate": 20,
-    "order": 127,
-    "tags": [
-      "DaVinci Gourmet",
-      "Çilek",
-      "Fruit Mix",
-      "Smoothie",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "1 L",
-      "Aroma": "Çilek (Strawberry)",
-      "Kullanım": "Smoothie, Frozen Kokteyl, Limonata",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_006.png"
   },
   {
-    "id": "prod-byz-007",
-    "name": "DaVinci Gourmet Condensed Milk Aromalı Gurme Sos 1L (Varyant)",
-    "code": "DVG-CDL-1000-B",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "description": "Yoğunlaştırılmış süt aromasıyla tatlı, waffle, pancake ve özel kahve reçetelerine zengin kremsi gövde kazandıran DaVinci gurme sos.",
-    "imageUrl": "/beyazresimler/karisik/karisik_007.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 420,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 128,
+    "price": 1352,
     "tags": [
       "DaVinci Gourmet",
       "Condensed Milk",
@@ -4301,27 +4190,26 @@ const RAW_PRODUCTS = [
       "Kahve"
     ],
     "specs": {
-      "Hacim": "1 L",
-      "Aroma": "Koyulaştırılmış Süt (Condensed Milk)",
-      "Kullanım": "Kahve Barı, Tatlılar, Waffle",
-      "Menşei": "Malezya"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "2000 GR"
+    },
+    "order": 128,
+    "id": "prod-byz-007",
+    "name": "DaVinci Gourmet Condensed Milk Aromalı Gurme Sos 1L (Varyant)",
+    "code": "DVG-CDL-1000-B",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "Yoğunlaştırılmış süt aromasıyla tatlı, waffle, pancake ve özel kahve reçetelerine zengin kremsi gövde kazandıran DaVinci gurme sos.",
+    "imageUrl": "/beyazresimler/karisik/karisik_007.png"
   },
   {
-    "id": "prod-byz-008",
-    "name": "DaVinci Gourmet Mango Fruit Beverage Mix 1L",
-    "code": "DVG-FBM-MNG-1000",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "description": "Tropikal Alfonso mangolarının yoğun tatlılığı ve dolgun meyve lifleriyle hazırlanan premium mango meyve miksi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_008.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 490,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 129,
+    "price": 688,
     "tags": [
       "DaVinci Gourmet",
       "Mango",
@@ -4330,27 +4218,26 @@ const RAW_PRODUCTS = [
       "Smoothie"
     ],
     "specs": {
-      "Hacim": "1 L",
-      "Aroma": "Mango",
-      "Kullanım": "Mango Frozen, Smoothie, Tropikal Kokteyl",
-      "Menşei": "Malezya"
-    }
-  },
-  {
-    "id": "prod-byz-009",
-    "name": "DaVinci Gourmet Mixed Berry Fruit Beverage Mix 1L",
-    "code": "DVG-FBM-MBR-1000",
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 129,
+    "id": "prod-byz-008",
+    "name": "DaVinci Gourmet Mango Fruit Beverage Mix 1L",
+    "code": "DVG-FBM-MNG-1000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1",
     "categoryName": "Püreler",
     "categorySlug": "pureler",
-    "description": "Böğürtlen, yaban mersini, ahududu ve frenk üzümünün mükemmel dengesi; hafif ekşimsi ve ferahlatıcı meyve miksi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_009.png",
+    "description": "Tropikal Alfonso mangolarının yoğun tatlılığı ve dolgun meyve lifleriyle hazırlanan premium mango meyve miksi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_008.png"
+  },
+  {
     "isActive": true,
     "isFeatured": false,
-    "price": 490,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 130,
+    "price": 1080,
     "tags": [
       "DaVinci Gourmet",
       "Orman Meyveleri",
@@ -4359,27 +4246,26 @@ const RAW_PRODUCTS = [
       "Fruit Mix"
     ],
     "specs": {
-      "Hacim": "1 L",
-      "Aroma": "Orman Meyveleri (Mixed Berry)",
-      "Kullanım": "Berry Frozen, Smoothie, Kokteyl",
-      "Menşei": "Malezya"
-    }
-  },
-  {
-    "id": "prod-byz-010",
-    "name": "Krater Maestro del Gelato Frambuazlı Meyve Karışımı 1kg",
-    "code": "KRT-FRM-1000",
-    "codeGroup": "Krater",
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 130,
+    "id": "prod-byz-009",
+    "name": "DaVinci Gourmet Mixed Berry Fruit Beverage Mix 1L",
+    "code": "DVG-FBM-MBR-1000",
+    "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1",
     "categoryName": "Püreler",
     "categorySlug": "pureler",
-    "description": "Canlı kırmızı rengi ve yoğun frambuaz asiditesiyle dondurma, sorbe, pastacılık sosları ve kokteyller için profesyonel meyve konsantresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_010.png",
+    "description": "Böğürtlen, yaban mersini, ahududu ve frenk üzümünün mükemmel dengesi; hafif ekşimsi ve ferahlatıcı meyve miksi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_009.png"
+  },
+  {
     "isActive": true,
     "isFeatured": false,
-    "price": 320,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 131,
+    "price": 732,
     "tags": [
       "Krater",
       "Frambuaz",
@@ -4388,27 +4274,26 @@ const RAW_PRODUCTS = [
       "Sorbe"
     ],
     "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Frambuaz (Raspberry)",
-      "Kullanım": "Sorbe, Gelato, Pasta Sosu, Kokteyl",
-      "Menşei": "Türkiye"
-    }
-  },
-  {
-    "id": "prod-byz-011",
-    "name": "Caffè NONNO Hindistan Cevizi Frozen Meyve Püresi 750ml",
-    "code": "NON-FRZ-COC-750",
-    "codeGroup": "Caffè NONNO",
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 131,
+    "id": "prod-byz-010",
+    "name": "Krater Maestro del Gelato Frambuazlı Meyve Karışımı 1kg",
+    "code": "KRT-FRM-1000",
+    "codeGroup": "Krater",
     "categoryId": "cat-1",
     "categoryName": "Püreler",
     "categorySlug": "pureler",
-    "description": "Egzotik Hindistan cevizinin kremsi dokusu ve yoğun aroması; Piña Colada, smoothie, milkshake ve buzlu içecekler için hazır püre.",
-    "imageUrl": "/beyazresimler/karisik/karisik_011.png",
+    "description": "Canlı kırmızı rengi ve yoğun frambuaz asiditesiyle dondurma, sorbe, pastacılık sosları ve kokteyller için profesyonel meyve konsantresi.",
+    "imageUrl": "/beyazresimler/karisik/karisik_010.png"
+  },
+  {
     "isActive": true,
     "isFeatured": true,
-    "price": 310,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 132,
+    "price": 350,
     "tags": [
       "Caffè NONNO",
       "Hindistan Cevizi",
@@ -4417,13 +4302,37 @@ const RAW_PRODUCTS = [
       "Kokteyl"
     ],
     "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Hindistan Cevizi (Coconut)",
-      "Kullanım": "Piña Colada, Frozen, Milkshake",
-      "Menşei": "Türkiye"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 GR"
+    },
+    "order": 132,
+    "id": "prod-byz-011",
+    "name": "Caffè NONNO Hindistan Cevizi Frozen Meyve Püresi 750ml",
+    "code": "NON-FRZ-COC-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Egzotik Hindistan cevizinin kremsi dokusu ve yoğun aroması; Piña Colada, smoothie, milkshake ve buzlu içecekler için hazır püre.",
+    "imageUrl": "/beyazresimler/karisik/karisik_011.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Caffè NONNO",
+      "Red Forest",
+      "Kırmızı Meyveler",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 133,
     "id": "prod-byz-012",
     "name": "Caffè NONNO Red Forest (Kırmızı Meyveler) Frozen Püre 750ml",
     "code": "NON-FRZ-RDF-750",
@@ -4432,26 +4341,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Kırmızı dağ meyvelerinin cezbedici yakut kırmızısı rengi ve mayhoş lezzetiyle ferahlatıcı frozen ve kokteyl bazı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_012.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 133,
-    "tags": [
-      "Caffè NONNO",
-      "Red Forest",
-      "Kırmızı Meyveler",
-      "Frozen Püre"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Kırmızı Orman Meyveleri",
-      "Kullanım": "Frozen, Kokteyl, Limonata",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_012.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 580,
+    "tags": [
+      "Caffè NONNO",
+      "Kavun",
+      "Frozen Püre",
+      "Smoothie"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 134,
     "id": "prod-byz-013",
     "name": "Caffè NONNO Kavun (Melon) Frozen Meyve Püresi 750ml",
     "code": "NON-FRZ-MLN-750",
@@ -4460,26 +4368,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Yaz güneşini yansıtan mis kokulu kavun aromasıyla buzlu içeceklerde yoğun meyve hissi veren pratik bar püresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_013.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 134,
-    "tags": [
-      "Caffè NONNO",
-      "Kavun",
-      "Frozen Püre",
-      "Smoothie"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Kavun (Melon)",
-      "Kullanım": "Kavun Frozen, Smoothie, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_013.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 508,
+    "tags": [
+      "Caffè NONNO",
+      "Karadut",
+      "Frozen Püre",
+      "Limonata"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 135,
     "id": "prod-byz-014",
     "name": "Caffè NONNO Karadut (Black Mulberry) Frozen Püre 750ml",
     "code": "NON-FRZ-MUL-750",
@@ -4488,26 +4395,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Ege karadutunun benzersiz tatlı-ekşi dengesi ve mor rengi; karadutlu limonata, frozen ve pastacılık için ideal.",
-    "imageUrl": "/beyazresimler/karisik/karisik_014.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 135,
-    "tags": [
-      "Caffè NONNO",
-      "Karadut",
-      "Frozen Püre",
-      "Limonata"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Karadut (Black Mulberry)",
-      "Kullanım": "Karadut Limonata, Frozen, Smoothie",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_014.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Caffè NONNO",
+      "Çilek",
+      "Frozen Püre",
+      "Margarita"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 136,
     "id": "prod-byz-015",
     "name": "Caffè NONNO Çilek (Strawberry) Frozen Meyve Püresi 750ml",
     "code": "NON-FRZ-STW-750",
@@ -4516,40 +4422,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "En sevilen yaz klasiği; taze çilek aroması ve pürüzsüz dokusuyla çilekli margarita, frozen ve sütlü içeceklere lezzet katar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_015.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 310,
-    "vatRate": 20,
-    "order": 136,
-    "tags": [
-      "Caffè NONNO",
-      "Çilek",
-      "Frozen Püre",
-      "Margarita"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Çilek (Strawberry)",
-      "Kullanım": "Strawberry Frozen, Çilekli Milkshake, Smoothie",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_015.png"
   },
   {
-    "id": "prod-byz-016",
-    "name": "Caffè NONNO Şeftali (Peach) Frozen Meyve Püresi 750ml",
-    "code": "NON-FRZ-PCH-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-1",
-    "categoryName": "Püreler",
-    "categorySlug": "pureler",
-    "description": "Bursa şeftalisinin buram buram aroması; Bellini kokteylleri, buzlu şeftali çayları ve frozen içecekler için mükemmel.",
-    "imageUrl": "/beyazresimler/karisik/karisik_016.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 310,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 137,
+    "price": 508,
     "tags": [
       "Caffè NONNO",
       "Şeftali",
@@ -4558,13 +4438,37 @@ const RAW_PRODUCTS = [
       "Ice Tea"
     ],
     "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Şeftali (Peach)",
-      "Kullanım": "Bellini, Peach Ice Tea, Frozen",
-      "Menşei": "Türkiye"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 137,
+    "id": "prod-byz-016",
+    "name": "Caffè NONNO Şeftali (Peach) Frozen Meyve Püresi 750ml",
+    "code": "NON-FRZ-PCH-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-1",
+    "categoryName": "Püreler",
+    "categorySlug": "pureler",
+    "description": "Bursa şeftalisinin buram buram aroması; Bellini kokteylleri, buzlu şeftali çayları ve frozen içecekler için mükemmel.",
+    "imageUrl": "/beyazresimler/karisik/karisik_016.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Caffè NONNO",
+      "Mango",
+      "Frozen Püre",
+      "Tropikal"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 138,
     "id": "prod-byz-017",
     "name": "Caffè NONNO Mango Frozen Meyve Püresi 750ml",
     "code": "NON-FRZ-MNG-750",
@@ -4573,26 +4477,24 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Egzotik sarı mango lezzetiyle bar menülerine tropikal canlılık kazandıran frozen meyve püresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_017.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 138,
-    "tags": [
-      "Caffè NONNO",
-      "Mango",
-      "Frozen Püre",
-      "Tropikal"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Mango",
-      "Kullanım": "Mango Frozen, Tropikal Kokteyl, Smoothie",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_017.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1080,
+    "tags": [
+      "DaVinci Gourmet",
+      "Orman Meyveleri",
+      "Fruit Mix"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 139,
     "id": "prod-byz-018",
     "name": "DaVinci Gourmet Mixed Berry Fruit Beverage Mix 1L (Gurme Şişe)",
     "code": "DVG-FBM-MBR-1000-B",
@@ -4601,25 +4503,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Dengeli böğürtlen, çilek ve yaban mersini harmanı; buz ve sütle kolay karışan profesyonel meyve bazı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_018.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 490,
-    "vatRate": 20,
-    "order": 139,
-    "tags": [
-      "DaVinci Gourmet",
-      "Orman Meyveleri",
-      "Fruit Mix"
-    ],
-    "specs": {
-      "Hacim": "1 L",
-      "Aroma": "Orman Meyveleri (Mixed Berry)",
-      "Kullanım": "Smoothie, Frozen, Kokteyl",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_018.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 760,
+    "tags": [
+      "Caffè NONNO",
+      "Karpuz",
+      "Frozen Püre",
+      "Yaz İçeceği"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 140,
     "id": "prod-byz-019",
     "name": "Caffè NONNO Karpuz (Watermelon) Frozen Meyve Püresi 750ml",
     "code": "NON-FRZ-WTR-750",
@@ -4628,26 +4530,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Yaz sıcağında serinletici karpuz tadı; frozen, karpuzlu kokteyl ve slush hazırlıkları için yoğun meyve konsantresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_019.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 140,
-    "tags": [
-      "Caffè NONNO",
-      "Karpuz",
-      "Frozen Püre",
-      "Yaz İçeceği"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Karpuz (Watermelon)",
-      "Kullanım": "Karpuz Frozen, Frozen Margarita",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_019.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 490,
+    "tags": [
+      "DaVinci Gourmet",
+      "Passionfruit",
+      "Çarkıfelek",
+      "Fruit Mix"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1 L"
+    },
+    "order": 141,
     "id": "prod-byz-020",
     "name": "DaVinci Gourmet Passionfruit Fruit Beverage Mix 1L",
     "code": "DVG-FBM-PAS-1000",
@@ -4656,26 +4557,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Çarkıfelek meyvesinin cezbedici egzotik kokusu ve asiditesi; Pornstar Martini, tropikal limonata ve frozenlar için benzersiz.",
-    "imageUrl": "/beyazresimler/karisik/karisik_020.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 490,
-    "vatRate": 20,
-    "order": 141,
-    "tags": [
-      "DaVinci Gourmet",
-      "Passionfruit",
-      "Çarkıfelek",
-      "Fruit Mix"
-    ],
-    "specs": {
-      "Hacim": "1 L",
-      "Aroma": "Çarkıfelek (Passionfruit)",
-      "Kullanım": "Pornstar Martini, Tropikal Limonata, Frozen",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_020.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Caffè NONNO",
+      "Karamel",
+      "Kahve Şurubu",
+      "Barista"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 142,
     "id": "prod-byz-021",
     "name": "Caffè NONNO Karamel Aromalı Kahve Şurubu 750ml",
     "code": "NON-SYR-CAR-750",
@@ -4684,26 +4584,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Kavrulmuş tereyağlı şeker lezzeti; sıcak ve soğuk latte, macchiato ve frappelerde zengin karamel tadı sunar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_021.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 270,
-    "vatRate": 20,
-    "order": 142,
-    "tags": [
-      "Caffè NONNO",
-      "Karamel",
-      "Kahve Şurubu",
-      "Barista"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Karamel (Caramel)",
-      "Kullanım": "Caramel Latte, Macchiato, Frappe",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_021.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 310,
+    "tags": [
+      "Caffè NONNO",
+      "Ahududu",
+      "Frambuaz",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ml"
+    },
+    "order": 143,
     "id": "prod-byz-022",
     "name": "Caffè NONNO Ahududu (Raspberry) Frozen Meyve Püresi 750ml",
     "code": "NON-FRZ-RAS-750",
@@ -4712,26 +4611,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Taptaze ahududuların yoğun aroması ve kırmızı rengiyle kokteyl, frozen ve pastacılık soslarında birinci sınıf performans.",
-    "imageUrl": "/beyazresimler/karisik/karisik_022.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 143,
-    "tags": [
-      "Caffè NONNO",
-      "Ahududu",
-      "Frambuaz",
-      "Frozen Püre"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Ahududu (Raspberry)",
-      "Kullanım": "Frozen, Smoothie, Kokteyl, Tatlı Sosu",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_022.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 275,
+    "tags": [
+      "Caffè NONNO",
+      "Mojito",
+      "Nane",
+      "Kokteyl Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 144,
     "id": "prod-byz-023",
     "name": "Caffè NONNO Mojito Aromalı Kokteyl Şurubu 750ml",
     "code": "NON-SYR-MOJ-750",
@@ -4740,26 +4638,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Ferahlatıcı nane yaprakları ve taze misket limonu dengesi; alkollü ve alkolsüz Mojito tariflerini saniyeler içinde hazırlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_023.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 144,
-    "tags": [
-      "Caffè NONNO",
-      "Mojito",
-      "Nane",
-      "Kokteyl Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Mojito (Nane & Misket Limonu)",
-      "Kullanım": "Virgin Mojito, Kokteyl, Soğuk Çay",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_023.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Caffè NONNO",
+      "Fındık",
+      "Kahve Şurubu",
+      "Barista"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 145,
     "id": "prod-byz-024",
     "name": "Caffè NONNO Fındık (Hazelnut) Aromalı Kahve Şurubu 750ml",
     "code": "NON-SYR-HAZ-750",
@@ -4768,26 +4665,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Kavrulmuş Karadeniz fındığı aroması; espresso bazlı içeceklere derinlik katan klasik barista şurubu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_024.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 145,
-    "tags": [
-      "Caffè NONNO",
-      "Fındık",
-      "Kahve Şurubu",
-      "Barista"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Fındık (Hazelnut)",
-      "Kullanım": "Hazelnut Latte, Cappuccino, Soğuk Kahve",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_024.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 325,
+    "tags": [
+      "Caffè NONNO",
+      "Cool Berry",
+      "Soğuk İçecek",
+      "Bar Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 146,
     "id": "prod-byz-025",
     "name": "Caffè NONNO Cool Berry Aromalı Bar Şurubu 750ml",
     "code": "NON-SYR-CBY-750",
@@ -4796,26 +4692,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Orman meyveleri ve serinletici ferahlık notalarının harmanı; yaz menülerinin gözdesi buzlu berry içecekler için ideal.",
-    "imageUrl": "/beyazresimler/karisik/karisik_025.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 146,
-    "tags": [
-      "Caffè NONNO",
-      "Cool Berry",
-      "Soğuk İçecek",
-      "Bar Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Cool Berry",
-      "Kullanım": "Cooler, Soğuk İçecek, Limonata",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_025.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 325,
+    "tags": [
+      "Caffè NONNO",
+      "Cool Lime",
+      "Misket Limonu",
+      "Refresher"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 147,
     "id": "prod-byz-026",
     "name": "Caffè NONNO Cool Lime Aromalı Bar Şurubu 750ml",
     "code": "NON-SYR-CLM-750",
@@ -4824,26 +4719,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Ekstra ferah nane ve yeşil misket limonu esansı; kafelerin en çok satan buzlu Cool Lime içeceğini kolayca üretmenizi sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_026.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 147,
-    "tags": [
-      "Caffè NONNO",
-      "Cool Lime",
-      "Misket Limonu",
-      "Refresher"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Cool Lime",
-      "Kullanım": "Cool Lime Refresher, Buzlu İçecek",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_026.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Caffè NONNO",
+      "Vanilya",
+      "Kahve Şurubu",
+      "Latte"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 148,
     "id": "prod-byz-027",
     "name": "Caffè NONNO Vanilya Aromalı Kahve Şurubu 750ml",
     "code": "NON-SYR-VAN-750",
@@ -4852,26 +4746,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Madagaskar vanilyasının tatlı, yumuşak ve yuvarlak tat profili; kahvenin asiditesini mükemmel yumuşatır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_027.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 148,
-    "tags": [
-      "Caffè NONNO",
-      "Vanilya",
-      "Kahve Şurubu",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Vanilya (Vanilla)",
-      "Kullanım": "Vanilla Latte, Frappe, Milkshake",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_027.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Caffè NONNO",
+      "Beyaz Çikolata",
+      "White Mocha",
+      "Şurup"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 149,
     "id": "prod-byz-028",
     "name": "Caffè NONNO Beyaz Çikolata Aromalı Kahve Şurubu 750ml",
     "code": "NON-SYR-WCH-750",
@@ -4880,26 +4773,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Kakao yağı ve vanilya kremsiliği; White Chocolate Mocha ve sıcak sütlü spesiyaller için vazgeçilmez barista aroması.",
-    "imageUrl": "/beyazresimler/karisik/karisik_028.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 149,
-    "tags": [
-      "Caffè NONNO",
-      "Beyaz Çikolata",
-      "White Mocha",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Beyaz Çikolata (White Chocolate)",
-      "Kullanım": "White Mocha, Sıcak Çikolata, Frappe",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_028.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Caffè NONNO",
+      "Nane",
+      "Mint",
+      "Kokteyl Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 150,
     "id": "prod-byz-029",
     "name": "Caffè NONNO Nane (Mint) Aromalı Kokteyl Şurubu 750ml",
     "code": "NON-SYR-MNT-750",
@@ -4908,26 +4800,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Doğal nane yapraklarının keskin ferahlığı; çikolatalı kahvelere nane dokunuşu veya ferahlatıcı kokteyller için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_029.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 150,
-    "tags": [
-      "Caffè NONNO",
-      "Nane",
-      "Mint",
-      "Kokteyl Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Nane (Mint)",
-      "Kullanım": "Kokteyl, Nane Çikolata Kahve, Limonata",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_029.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Caffè NONNO",
+      "Çikolata",
+      "Mocha",
+      "Kahve Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 151,
     "id": "prod-byz-030",
     "name": "Caffè NONNO Çikolata Aromalı Kahve Şurubu 750ml",
     "code": "NON-SYR-CHO-750",
@@ -4936,26 +4827,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Koyu kakao lezzeti; Caffe Mocha, sıcak çikolata zenginleştirme ve aromalı soğuk kahvelerde dengeli tat sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_030.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 151,
-    "tags": [
-      "Caffè NONNO",
-      "Çikolata",
-      "Mocha",
-      "Kahve Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Çikolata (Chocolate)",
-      "Kullanım": "Mocha, Sıcak Çikolata, Buzlu Kahve",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_030.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "DaVinci Gourmet",
+      "Blue Ocean",
+      "Mavi Şurup",
+      "Kokteyl"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 152,
     "id": "prod-byz-031",
     "name": "DaVinci Gourmet Blue Ocean Aromalı Bar Şurubu 750ml",
     "code": "DVG-SYR-BOC-750",
@@ -4964,26 +4854,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Curaçao turunç narenciye tat profili ve büyüleyici elektrik mavisi rengiyle miksolojide imza sunumlar yaratır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_031.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 380,
-    "vatRate": 20,
-    "order": 152,
-    "tags": [
-      "DaVinci Gourmet",
-      "Blue Ocean",
-      "Mavi Şurup",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Blue Ocean / Turunç",
-      "Kullanım": "Mavi Kokteyller, Mocktail, Tropikal Limonata",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_031.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 380,
+    "tags": [
+      "DaVinci Gourmet",
+      "Vanilya",
+      "Barista",
+      "Classic Syrup"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ml"
+    },
+    "order": 153,
     "id": "prod-byz-032",
     "name": "DaVinci Gourmet Classic Vanilla Aromalı Şurup 750ml",
     "code": "DVG-SYR-VAN-750",
@@ -4992,26 +4881,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Dünya baristalarının 1 numaralı tercihi; saf şeker kamışından üretilen, sıcak sütle ayrışmayan gerçek vanilya lezzeti.",
-    "imageUrl": "/beyazresimler/karisik/karisik_032.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 380,
-    "vatRate": 20,
-    "order": 153,
-    "tags": [
-      "DaVinci Gourmet",
-      "Vanilya",
-      "Barista",
-      "Classic Syrup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Klasik Vanilya (Classic Vanilla)",
-      "Kullanım": "Latte, Flat White, Cold Brew, Milkshake",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_032.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 350,
+    "tags": [
+      "DaVinci Gourmet",
+      "Kurabiye",
+      "Shortbread",
+      "Kahve Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 GR"
+    },
+    "order": 154,
     "id": "prod-byz-033",
     "name": "DaVinci Gourmet Shortbread Cookies Aromalı Şurup 750ml",
     "code": "DVG-SYR-SBC-750",
@@ -5020,26 +4908,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Geleneksel tereyağlı İskoç kurabiyesi lezzeti; kahvelere ve sıcak içeceklere fırından yeni çıkmış kurabiye hissi verir.",
-    "imageUrl": "/beyazresimler/karisik/karisik_033.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 154,
-    "tags": [
-      "DaVinci Gourmet",
-      "Kurabiye",
-      "Shortbread",
-      "Kahve Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Shortbread Cookies (Tereyağlı Kurabiye)",
-      "Kullanım": "Kurabiyeli Latte, Frappe, Sıcak Süt",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_033.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 380,
+    "tags": [
+      "DaVinci Gourmet",
+      "Çilek",
+      "İtalyan Sodası",
+      "Limonata"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ml"
+    },
+    "order": 155,
     "id": "prod-byz-034",
     "name": "DaVinci Gourmet Classic Strawberry Aromalı Şurup 750ml",
     "code": "DVG-SYR-STW-750",
@@ -5048,26 +4935,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Doğal çilek lezzeti; soğuk çaylar, limonatalar, soda miksleri ve İtalyan sodalarında berrak ve canlı tat sunar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_034.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 155,
-    "tags": [
-      "DaVinci Gourmet",
-      "Çilek",
-      "İtalyan Sodası",
-      "Limonata"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Klasik Çilek (Strawberry)",
-      "Kullanım": "Limonata, İtalyan Sodası, Kokteyl, Soğuk Çay",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_034.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "DaVinci Gourmet",
+      "Menta Cubano",
+      "Nane",
+      "Mojito"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 156,
     "id": "prod-byz-035",
     "name": "DaVinci Gourmet Menta Cubano Aromalı Şurup 750ml",
     "code": "DVG-SYR-MCU-750",
@@ -5076,26 +4962,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Otantik Küba nanesinin doğal yeşil aroması ve tatlı narenciye dokunuşu; ferahlatıcı Mojito ve yaz kokteylleri için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_035.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 156,
-    "tags": [
-      "DaVinci Gourmet",
-      "Menta Cubano",
-      "Nane",
-      "Mojito"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Menta Cubano (Küba Nanesi)",
-      "Kullanım": "Mojito, Frozen, Soğuk İçecekler",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_035.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "DaVinci Gourmet",
+      "Peach Garden",
+      "Şeftali",
+      "Ice Tea"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 157,
     "id": "prod-byz-036",
     "name": "DaVinci Gourmet Peach Garden Aromalı Şurup 750ml",
     "code": "DVG-SYR-PGD-750",
@@ -5104,26 +4989,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Taze bahçe şeftalilerinin kokusu; buzlu yeşil ve siyah çaylara, artisan gazozlara meyvemsi bir zenginlik katar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_036.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 157,
-    "tags": [
-      "DaVinci Gourmet",
-      "Peach Garden",
-      "Şeftali",
-      "Ice Tea"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Peach Garden (Şeftali Bahçesi)",
-      "Kullanım": "Peach Ice Tea, Artisan Soda, Kokteyl",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_036.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 550,
+    "tags": [
+      "DaVinci Gourmet",
+      "Fındık",
+      "Hazelnut",
+      "Barista"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ML"
+    },
+    "order": 158,
     "id": "prod-byz-037",
     "name": "DaVinci Gourmet Classic Hazelnut Aromalı Şurup 750ml",
     "code": "DVG-SYR-HAZ-750",
@@ -5132,26 +5016,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Zengin ve kavruk fındık notaları; espresso ile kusursuz birleşerek kadifemsi ve fındıklı içecekler yaratır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_037.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 158,
-    "tags": [
-      "DaVinci Gourmet",
-      "Fındık",
-      "Hazelnut",
-      "Barista"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Klasik Fındık (Hazelnut)",
-      "Kullanım": "Hazelnut Latte, Americano, Frappe",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_037.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 380,
+    "tags": [
+      "DaVinci Gourmet",
+      "Pecan Praline",
+      "Pekan Cevizi",
+      "Gurme Şurup"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ml"
+    },
+    "order": 159,
     "id": "prod-byz-038",
     "name": "DaVinci Gourmet Pecan Praline Aromalı Şurup 750ml",
     "code": "DVG-SYR-PPR-750",
@@ -5160,26 +5043,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Pekan cevizi ve karamelize şeker pralinlerinin harika uyumu; gurme kahve menülerine lüks bir tat profili kazandırır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_038.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 159,
-    "tags": [
-      "DaVinci Gourmet",
-      "Pecan Praline",
-      "Pekan Cevizi",
-      "Gurme Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Pecan Praline (Pekan Cevizi & Pralin)",
-      "Kullanım": "Gurme Latte, Macchiato, Frappe",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_038.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 380,
+    "tags": [
+      "DaVinci Gourmet",
+      "Lemon Tea",
+      "Soğuk Çay",
+      "Limonata"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ml"
+    },
+    "order": 160,
     "id": "prod-byz-039",
     "name": "DaVinci Gourmet Lemon Tea Aromalı Şurup 750ml",
     "code": "DVG-SYR-LTE-750",
@@ -5188,26 +5070,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Doğal çay ekstraktı ve ferah limon suyu dengesi; sadece su ve buz ekleyerek barista standardında soğuk çay servisi sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_039.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 160,
-    "tags": [
-      "DaVinci Gourmet",
-      "Lemon Tea",
-      "Soğuk Çay",
-      "Limonata"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Lemon Tea (Limonlu Çay)",
-      "Kullanım": "Limonlu Soğuk Çay, Kokteyl bazı",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_039.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "DaVinci Gourmet",
+      "Forest Berries",
+      "Orman Meyveleri",
+      "Kokteyl"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 161,
     "id": "prod-byz-040",
     "name": "DaVinci Gourmet Forest Berries Aromalı Şurup 750ml",
     "code": "DVG-SYR-FBR-750",
@@ -5216,26 +5097,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Yaban mersini, ahududu ve böğürtlen notalarının harmanı; ferahlatıcı renk ve meyve aromasıyla parıldayan içecekler.",
-    "imageUrl": "/beyazresimler/karisik/karisik_040.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 161,
-    "tags": [
-      "DaVinci Gourmet",
-      "Forest Berries",
-      "Orman Meyveleri",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Forest Berries (Orman Meyveleri)",
-      "Kullanım": "Ice Tea, Limonata, Kokteyl, Soda",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_040.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "DaVinci Gourmet",
+      "Karamel",
+      "Caramel",
+      "Barista"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 162,
     "id": "prod-byz-041",
     "name": "DaVinci Gourmet Classic Caramel Aromalı Şurup 750ml",
     "code": "DVG-SYR-CAR-750",
@@ -5244,26 +5124,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Erimiş esmer şeker ve kremsi tereyağ aroması; kahve profesyonellerinin vazgeçilmez premium karamel bazı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_041.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 380,
-    "vatRate": 20,
-    "order": 162,
-    "tags": [
-      "DaVinci Gourmet",
-      "Karamel",
-      "Caramel",
-      "Barista"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Klasik Karamel (Classic Caramel)",
-      "Kullanım": "Caramel Macchiato, Latte, Frappe",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_041.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "DaVinci Gourmet",
+      "Badem",
+      "Roasted Almond",
+      "Kahve Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 163,
     "id": "prod-byz-042",
     "name": "DaVinci Gourmet Roasted Almond Aromalı Şurup 750ml",
     "code": "DVG-SYR-RAL-750",
@@ -5272,26 +5151,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Kavrulmuş bademin hafif odunsu ve tatlı lezzeti; özellikle badem sütlü veya yulaf sütlü kahvelerle olağanüstü uyum yakalar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_042.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 163,
-    "tags": [
-      "DaVinci Gourmet",
-      "Badem",
-      "Roasted Almond",
-      "Kahve Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Kavrulmuş Badem (Roasted Almond)",
-      "Kullanım": "Bademli Latte, Sıcak İçecekler, Kokteyl",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_042.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 380,
+    "tags": [
+      "DaVinci Gourmet",
+      "Yaban Mersini",
+      "Blueberry",
+      "Şurup"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ml"
+    },
+    "order": 164,
     "id": "prod-byz-043",
     "name": "DaVinci Gourmet Blueberry Aromalı Şurup 750ml",
     "code": "DVG-SYR-BLB-750",
@@ -5300,26 +5178,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Taze yaban mersini meyvesinin asil mor rengi ve tatlı ekşiliği; smoothie, milkshake ve imza mocktaillere benzersiz dokunuş.",
-    "imageUrl": "/beyazresimler/karisik/karisik_043.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 164,
-    "tags": [
-      "DaVinci Gourmet",
-      "Yaban Mersini",
-      "Blueberry",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Yaban Mersini (Blueberry)",
-      "Kullanım": "Blueberry Lemonade, Mocktail, Smoothie",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_043.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 380,
+    "tags": [
+      "DaVinci Gourmet",
+      "Beyaz Çikolata",
+      "White Mocha",
+      "Barista"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ml"
+    },
+    "order": 165,
     "id": "prod-byz-044",
     "name": "DaVinci Gourmet White Chocolate Aromalı Şurup 750ml",
     "code": "DVG-SYR-WCH-750",
@@ -5328,26 +5205,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Zengin kakao yağı ve süt kreması lezzeti; White Chocolate Mocha içeceklerinde ayrışmadan homojen çözünür.",
-    "imageUrl": "/beyazresimler/karisik/karisik_044.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 165,
-    "tags": [
-      "DaVinci Gourmet",
-      "Beyaz Çikolata",
-      "White Mocha",
-      "Barista"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Beyaz Çikolata (White Chocolate)",
-      "Kullanım": "White Mocha, Sıcak Çikolata, Frappe",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_044.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 380,
+    "tags": [
+      "DaVinci Gourmet",
+      "Toffee Nut",
+      "Karamel",
+      "Fındık"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ml"
+    },
+    "order": 166,
     "id": "prod-byz-045",
     "name": "DaVinci Gourmet Toffee Nut Aromalı Şurup 750ml",
     "code": "DVG-SYR-TFN-750",
@@ -5356,26 +5232,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "İngiliz karameli (toffee) ile kavruk fındığın sıcacık uyumu; kış menülerinin en çok satan latte şurubu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_045.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 166,
-    "tags": [
-      "DaVinci Gourmet",
-      "Toffee Nut",
-      "Karamel",
-      "Fındık"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Toffee Nut (Karamelli Fındık)",
-      "Kullanım": "Toffee Nut Latte, Frappé, Sıcak Kahve",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_045.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "DaVinci Gourmet",
+      "Hindistan Cevizi",
+      "Coconut",
+      "Tropikal"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 167,
     "id": "prod-byz-046",
     "name": "DaVinci Gourmet Coconut Aromalı Şurup 750ml",
     "code": "DVG-SYR-COC-750",
@@ -5384,26 +5259,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Hindistan cevizinin taze sütlü egzotik tadı; tropikal mocktail, buzlu latte ve frappe reçetelerinin başrol oyuncusu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_046.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 167,
-    "tags": [
-      "DaVinci Gourmet",
-      "Hindistan Cevizi",
-      "Coconut",
-      "Tropikal"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Hindistan Cevizi (Coconut)",
-      "Kullanım": "Coconut Latte, Piña Colada, Kokteyl",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_046.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 380,
+    "tags": [
+      "DaVinci Gourmet",
+      "Juicy Lime",
+      "Misket Limonu",
+      "Narenciye"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ml"
+    },
+    "order": 168,
     "id": "prod-byz-047",
     "name": "DaVinci Gourmet Juicy Lime Aromalı Şurup 750ml",
     "code": "DVG-SYR-JLM-750",
@@ -5412,26 +5286,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Taze sıkılmış sulu misket limonu suyu aroması; içeceklerde keskin narenciye canlılığı ve ferahlık yaratır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_047.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 168,
-    "tags": [
-      "DaVinci Gourmet",
-      "Juicy Lime",
-      "Misket Limonu",
-      "Narenciye"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Juicy Lime (Misket Limonu)",
-      "Kullanım": "Margarita, Kokteyl Miksi, Limonata",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_047.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 960,
+    "tags": [
+      "DaVinci Gourmet",
+      "Spiced Chai",
+      "Chai Tea",
+      "Baharat"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 169,
     "id": "prod-byz-048",
     "name": "DaVinci Gourmet Spiced Chai Aromalı Barista Şurubu 750ml",
     "code": "DVG-SYR-SCH-750",
@@ -5440,26 +5313,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Tarçın, kakule, zencefil ve karanfil baharatlarının otantik harmanı; sütle kolayca hazırlanan leziz Chai Tea Latte deneyimi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_048.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 169,
-    "tags": [
-      "DaVinci Gourmet",
-      "Spiced Chai",
-      "Chai Tea",
-      "Baharat"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Spiced Chai (Baharatlı Çay)",
-      "Kullanım": "Chai Tea Latte, Sıcak Baharatlı İçecekler",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_048.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 380,
+    "tags": [
+      "DaVinci Gourmet",
+      "Çikolata",
+      "Mocha",
+      "Kahve Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ml"
+    },
+    "order": 170,
     "id": "prod-byz-049",
     "name": "DaVinci Gourmet Chocolate Aromalı Şurup 750ml",
     "code": "DVG-SYR-CHO-750",
@@ -5468,26 +5340,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Saf kakao çekirdeklerinin derin çikolata lezzeti; Caffe Mocha ve çikolatalı içeceklerde pürüzsüz ve kalıcı tat bırakır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_049.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 170,
-    "tags": [
-      "DaVinci Gourmet",
-      "Çikolata",
-      "Mocha",
-      "Kahve Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Çikolata (Chocolate)",
-      "Kullanım": "Mocha, Buzlu Çikolata, Frappuccino",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_049.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 380,
+    "tags": [
+      "DaVinci Gourmet",
+      "Butterscotch",
+      "Karamel",
+      "Gurme Şurup"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ml"
+    },
+    "order": 171,
     "id": "prod-byz-050",
     "name": "DaVinci Gourmet Butterscotch Aromalı Şurup 750ml",
     "code": "DVG-SYR-BSC-750",
@@ -5496,26 +5367,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Kavrulmuş tereyağı, esmer şeker ve vanilya kremasının gurme uyumu; sıcak kahvelere nostaljik şekerleme lezzeti kazandırır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_050.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 171,
-    "tags": [
-      "DaVinci Gourmet",
-      "Butterscotch",
-      "Karamel",
-      "Gurme Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Butterscotch (Tereyağlı Şekerleme)",
-      "Kullanım": "Butterscotch Latte, Sıcak İçecekler",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_050.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 275,
+    "tags": [
+      "Caffè NONNO",
+      "Blue Curacao",
+      "Bar Sos",
+      "Dekor Sosu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 172,
     "id": "prod-byz-051",
     "name": "Caffè NONNO Blue Curacao Bar & Dekor Sosu 750g",
     "code": "NON-SOS-BCU-750",
@@ -5524,26 +5394,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Bar Sos",
     "categorySlug": "bar-sos",
     "description": "Elektrik mavisi rengi ve portakal kabuğu turunç aromasıyla bardak içi süsleme, kokteyl dekorasyonu ve tatlı tabakları için özel kıvamlı sos.",
-    "imageUrl": "/beyazresimler/karisik/karisik_051.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 172,
-    "tags": [
-      "Caffè NONNO",
-      "Blue Curacao",
-      "Bar Sos",
-      "Dekor Sosu"
-    ],
-    "specs": {
-      "Gramaj": "750 g",
-      "Aroma": "Blue Curacao (Turunç)",
-      "Kullanım": "Bardak İçi Süsleme, Kokteyl Sunumu, Dondurma",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_051.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 575,
+    "tags": [
+      "EASY MIX",
+      "Orange Mango",
+      "Refresher",
+      "Kokteyl Premiksi"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ML"
+    },
+    "order": 173,
     "id": "prod-byz-052",
     "name": "EASY MIX Refresher Orange Mango 700ml",
     "code": "EMX-REF-OMG-700",
@@ -5552,26 +5421,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Akdeniz portakalları ve egzotik mango püresinin birleşimi; sadece soda veya buzlu su ilave edilerek saniyeler içinde hazırlanan gurme refresher.",
-    "imageUrl": "/beyazresimler/karisik/karisik_052.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 350,
-    "vatRate": 20,
-    "order": 173,
-    "tags": [
-      "EASY MIX",
-      "Orange Mango",
-      "Refresher",
-      "Kokteyl Premiksi"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Aroma": "Portakal & Mango",
-      "Kullanım": "Buzlu Refresher, Alkolsüz Mocktail, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_052.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 360,
+    "tags": [
+      "EASY MIX",
+      "Bodrum Mandalina",
+      "Kokteyl Premiksi",
+      "Spritz"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ml"
+    },
+    "order": 174,
     "id": "prod-byz-053",
     "name": "EASY MIX Bodrum Mandarin Kokteyl Premiksi 700ml",
     "code": "EMX-PRM-MND-700",
@@ -5580,40 +5448,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Coğrafi işaretli Bodrum mandalinasının taze uçucu yağları ve sulu lezzeti; cin, votka veya soda ile kusursuz uyumlu kokteyl bazı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_053.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 360,
-    "vatRate": 20,
-    "order": 174,
-    "tags": [
-      "EASY MIX",
-      "Bodrum Mandalina",
-      "Kokteyl Premiksi",
-      "Spritz"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Aroma": "Bodrum Mandalinası",
-      "Kullanım": "Mandarin Spritz, Gin Mandarin, Mocktail",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_053.png"
   },
   {
-    "id": "prod-byz-054",
-    "name": "DaVinci Gourmet Cheesecake Flavoured Sauce 2L",
-    "code": "DVG-SOS-CHK-2000",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "description": "New York cheesecake lezzeti; pürüzsüz krem peynir ve hafif vanilya tatlılığıyla frappe, milkshake ve pasta süslemelerinde rakipsiz 2 litrelik profesyonel sos.",
-    "imageUrl": "/beyazresimler/karisik/karisik_054.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 750,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 175,
+    "price": 750,
     "tags": [
       "DaVinci Gourmet",
       "Cheesecake",
@@ -5622,13 +5464,37 @@ const RAW_PRODUCTS = [
       "Frappe"
     ],
     "specs": {
-      "Hacim": "2 L",
-      "Aroma": "Cheesecake",
-      "Kullanım": "Frappe, Milkshake, Pasta Kaplama, Dondurma",
-      "Menşei": "Malezya"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "2 L"
+    },
+    "order": 175,
+    "id": "prod-byz-054",
+    "name": "DaVinci Gourmet Cheesecake Flavoured Sauce 2L",
+    "code": "DVG-SOS-CHK-2000",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "New York cheesecake lezzeti; pürüzsüz krem peynir ve hafif vanilya tatlılığıyla frappe, milkshake ve pasta süslemelerinde rakipsiz 2 litrelik profesyonel sos.",
+    "imageUrl": "/beyazresimler/karisik/karisik_054.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 750,
+    "tags": [
+      "DaVinci Gourmet",
+      "Beyaz Çikolata",
+      "Bar Sos",
+      "White Mocha"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "2 L"
+    },
+    "order": 176,
     "id": "prod-byz-055",
     "name": "DaVinci Gourmet White Chocolate Flavoured Sauce 2L",
     "code": "DVG-SOS-WCH-2000",
@@ -5637,26 +5503,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Bar Sos",
     "categorySlug": "bar-sos",
     "description": "Hakiki kakao yağı içeren kadifemsi beyaz çikolata sosu; White Mocha, sıcak çikolata ve tatlı tabaklarında parlak kıvam sunar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_055.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 750,
-    "vatRate": 20,
-    "order": 176,
-    "tags": [
-      "DaVinci Gourmet",
-      "Beyaz Çikolata",
-      "Bar Sos",
-      "White Mocha"
-    ],
-    "specs": {
-      "Hacim": "2 L",
-      "Aroma": "Beyaz Çikolata (White Chocolate)",
-      "Kullanım": "White Mocha, Sıcak Çikolata, Tatlı Süsleme",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_055.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 435,
+    "tags": [
+      "DaVinci Gourmet",
+      "Karamel",
+      "Bar Sos",
+      "Caramel Macchiato"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ML"
+    },
+    "order": 177,
     "id": "prod-byz-056",
     "name": "DaVinci Gourmet Caramel Flavoured Sauce 2L",
     "code": "DVG-SOS-CAR-2000",
@@ -5665,40 +5530,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Bar Sos",
     "categorySlug": "bar-sos",
     "description": "Geleneksel karamelize şeker ve tereyağı lezzeti; sıcak kahvelerde mükemmel akışkanlık ve soğuk içeceklerde yoğun gövde sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_056.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 750,
-    "vatRate": 20,
-    "order": 177,
-    "tags": [
-      "DaVinci Gourmet",
-      "Karamel",
-      "Bar Sos",
-      "Caramel Macchiato"
-    ],
-    "specs": {
-      "Hacim": "2 L",
-      "Aroma": "Karamel (Caramel)",
-      "Kullanım": "Caramel Macchiato, Frappe, Waffle, Dondurma",
-      "Menşei": "Malezya"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_056.png"
   },
   {
-    "id": "prod-byz-057",
-    "name": "DaVinci Gourmet Chocolate Flavoured Sauce 2L",
-    "code": "DVG-SOS-CHO-2000",
-    "codeGroup": "DaVinci Gourmet",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "description": "Derin bitter kakao lezzeti ve parlak siyah dokusuyla Caffe Mocha, sıcak çikolata, profiterol ve waffle sunumları için 2L dev ambalaj.",
-    "imageUrl": "/beyazresimler/karisik/karisik_057.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 750,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 178,
+    "price": 275,
     "tags": [
       "DaVinci Gourmet",
       "Çikolata",
@@ -5707,13 +5546,37 @@ const RAW_PRODUCTS = [
       "2 Litre"
     ],
     "specs": {
-      "Hacim": "2 L",
-      "Aroma": "Yoğun Çikolata (Chocolate)",
-      "Kullanım": "Mocha, Sıcak Çikolata, Tatlı, Waffle",
-      "Menşei": "Malezya"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 178,
+    "id": "prod-byz-057",
+    "name": "DaVinci Gourmet Chocolate Flavoured Sauce 2L",
+    "code": "DVG-SOS-CHO-2000",
+    "codeGroup": "DaVinci Gourmet",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "Derin bitter kakao lezzeti ve parlak siyah dokusuyla Caffe Mocha, sıcak çikolata, profiterol ve waffle sunumları için 2L dev ambalaj.",
+    "imageUrl": "/beyazresimler/karisik/karisik_057.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Caffè NONNO",
+      "Beyaz Çikolata",
+      "Dekor Sosu",
+      "Latte Art"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 179,
     "id": "prod-byz-058",
     "name": "Caffè NONNO Beyaz Çikolata Bar & Dekor Sosu 750g",
     "code": "NON-SOS-WCH-750",
@@ -5722,40 +5585,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Bar Sos",
     "categorySlug": "bar-sos",
     "description": "Tatlı tabakları, kahve köpükleri ve dondurma üzerinde parlak beyaz hatlar çizen pratik sıkma kapaklı beyaz çikolata sosu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_058.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 290,
-    "vatRate": 20,
-    "order": 179,
-    "tags": [
-      "Caffè NONNO",
-      "Beyaz Çikolata",
-      "Dekor Sosu",
-      "Latte Art"
-    ],
-    "specs": {
-      "Gramaj": "750 g",
-      "Aroma": "Beyaz Çikolata (White Chocolate)",
-      "Kullanım": "Latte Art Süsleme, Tatlı Tabağı, Dondurma",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_058.png"
   },
   {
-    "id": "prod-byz-059",
-    "name": "Caffè NONNO Muz Aromalı Bar & Dekor Sosu 750g",
-    "code": "NON-SOS-BAN-750",
-    "codeGroup": "Caffè NONNO",
-    "categoryId": "cat-4",
-    "categoryName": "Bar Sos",
-    "categorySlug": "bar-sos",
-    "description": "Sarı rengi ve yoğun muz lezzetiyle milkshake, waffle, krep ve dondurma sunumlarına neşeli ve lezzetli bir hava katar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_059.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 290,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 180,
+    "price": 290,
     "tags": [
       "Caffè NONNO",
       "Muz",
@@ -5764,13 +5601,35 @@ const RAW_PRODUCTS = [
       "Milkshake"
     ],
     "specs": {
-      "Gramaj": "750 g",
-      "Aroma": "Muz (Banana)",
-      "Kullanım": "Milkshake, Waffle, Dondurma Süsleme",
-      "Menşei": "Türkiye"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız."
+    },
+    "order": 180,
+    "id": "prod-byz-059",
+    "name": "Caffè NONNO Muz Aromalı Bar & Dekor Sosu 750g",
+    "code": "NON-SOS-BAN-750",
+    "codeGroup": "Caffè NONNO",
+    "categoryId": "cat-4",
+    "categoryName": "Bar Sos",
+    "categorySlug": "bar-sos",
+    "description": "Sarı rengi ve yoğun muz lezzetiyle milkshake, waffle, krep ve dondurma sunumlarına neşeli ve lezzetli bir hava katar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_059.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 275,
+    "tags": [
+      "Caffè NONNO",
+      "Blue Curacao",
+      "Dekor Sosu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 181,
     "id": "prod-byz-060",
     "name": "Caffè NONNO Blue Curacao Bar & Dekor Sosu 750g (Açı 2)",
     "code": "NON-SOS-BCU-750-B",
@@ -5779,25 +5638,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Bar Sos",
     "categorySlug": "bar-sos",
     "description": "Mavi renkli turunç sosu; akışkan kıvamı sayesinde bardak kenarlarında şık dalga efektleri oluşturur.",
-    "imageUrl": "/beyazresimler/karisik/karisik_060.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 181,
-    "tags": [
-      "Caffè NONNO",
-      "Blue Curacao",
-      "Dekor Sosu"
-    ],
-    "specs": {
-      "Gramaj": "750 g",
-      "Aroma": "Blue Curacao (Turunç)",
-      "Kullanım": "Kokteyl Dekoru, Dondurma, Frozen",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_060.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 440,
+    "tags": [
+      "EASY MIX",
+      "Citrus Blend",
+      "Narenciye",
+      "Kokteyl Premiksi"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 ml"
+    },
+    "order": 182,
     "id": "prod-byz-061",
     "name": "EASY MIX Citrus Blend Narenciye Kokteyl Premiksi 1000ml",
     "code": "EMX-PRM-CTR-1000",
@@ -5806,26 +5665,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Limon, misket limonu, portakal ve greyfurtun taze dengesi; ekşi-tatlı miks gerektiren tüm kokteyller için temel asidite bazı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_061.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_061.png"
+  },
+  {
     "isActive": true,
-    "isFeatured": true,
-    "price": 440,
+    "isFeatured": false,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 182,
+    "price": 340,
     "tags": [
       "EASY MIX",
-      "Citrus Blend",
-      "Narenciye",
+      "Vişne",
+      "Çikolata",
       "Kokteyl Premiksi"
     ],
     "specs": {
-      "Hacim": "1000 ml",
-      "Aroma": "Citrus Blend (Narenciye Karışımı)",
-      "Kullanım": "Sour Kokteyller, Collins, Gin Fizz",
-      "Menşei": "Türkiye"
-    }
-  },
-  {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "500 ml"
+    },
+    "order": 183,
     "id": "prod-byz-062",
     "name": "EASY MIX Cherry & Chocolate Kokteyl Premiksi 500ml",
     "code": "EMX-PRM-CCH-500",
@@ -5834,26 +5692,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Ekşi vişne, yabani orman meyveleri ve zengin bitter çikolata harmonisi; Black Forest esintili gurme kokteyller sunar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_062.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 340,
-    "vatRate": 20,
-    "order": 183,
-    "tags": [
-      "EASY MIX",
-      "Vişne",
-      "Çikolata",
-      "Kokteyl Premiksi"
-    ],
-    "specs": {
-      "Hacim": "500 ml",
-      "Aroma": "Vişne, Orman Meyveleri & Çikolata",
-      "Kullanım": "Gurme Kokteyl, Viski / Rom Eşleşmeleri",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_062.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 350,
+    "tags": [
+      "EASY MIX",
+      "Rooibos Peach",
+      "Şeftali",
+      "Botanik Çay"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ml"
+    },
+    "order": 184,
     "id": "prod-byz-063",
     "name": "EASY MIX Refresher Rooibos Peach 700ml",
     "code": "EMX-REF-RBP-700",
@@ -5862,26 +5719,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Güney Afrika Rooibos çayı ve sulu şeftalinin kafeinsiz doğal birleşimi; ferahlatıcı botanik buzlu çay deneyimi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_063.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 350,
-    "vatRate": 20,
-    "order": 184,
-    "tags": [
-      "EASY MIX",
-      "Rooibos Peach",
-      "Şeftali",
-      "Botanik Çay"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Aroma": "Rooibos Çayı & Şeftali",
-      "Kullanım": "Botanik Ice Tea, Mocktail, Refresher",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_063.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 425,
+    "tags": [
+      "EASY MIX",
+      "Tuxedo",
+      "İmza Kokteyl",
+      "Premix"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "500 ML"
+    },
+    "order": 185,
     "id": "prod-byz-064",
     "name": "EASY MIX Tuxedo Kokteyl Premiksi 1000ml",
     "code": "EMX-PRM-TUX-1000",
@@ -5890,26 +5746,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Şık davetler ve gece menüleri için tasarlanmış; zarif narenciye ve botanik baharat karışımı imza kokteyl miksi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_064.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 440,
-    "vatRate": 20,
-    "order": 185,
-    "tags": [
-      "EASY MIX",
-      "Tuxedo",
-      "İmza Kokteyl",
-      "Premix"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Aroma": "Tuxedo Signature Blend",
-      "Kullanım": "İmza Kokteyller, Şampanya Kokteyli",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_064.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 440,
+    "tags": [
+      "EASY MIX",
+      "Passion Martini",
+      "Çarkıfelek",
+      "Pornstar Martini"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 ml"
+    },
+    "order": 186,
     "id": "prod-byz-065",
     "name": "EASY MIX Passion Martini Kokteyl Premiksi 1000ml",
     "code": "EMX-PRM-PSN-1000",
@@ -5918,26 +5773,24 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Dünyanın en popüler kokteyli Passion Fruit / Pornstar Martini için vanilya ve çarkıfelek meyvesiyle dengelenmiş hazır profesyonel karışım.",
-    "imageUrl": "/beyazresimler/karisik/karisik_065.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_065.png"
+  },
+  {
     "isActive": true,
-    "isFeatured": true,
-    "price": 440,
+    "isFeatured": false,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 186,
+    "price": 440,
     "tags": [
       "EASY MIX",
       "Passion Martini",
-      "Çarkıfelek",
-      "Pornstar Martini"
+      "Kokteyl"
     ],
     "specs": {
-      "Hacim": "1000 ml",
-      "Aroma": "Passion Martini (Çarkıfelek & Vanilya)",
-      "Kullanım": "Passion Fruit Martini, Votka Kokteylleri",
-      "Menşei": "Türkiye"
-    }
-  },
-  {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 ml"
+    },
+    "order": 187,
     "id": "prod-byz-066",
     "name": "EASY MIX Passion Martini Kokteyl Premiksi 1000ml (Açı 2)",
     "code": "EMX-PRM-PSN-1000-B",
@@ -5946,25 +5799,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Barlarda servis hızını artıran, her kadehte standart reçete kalitesi sunan çarkıfelek kokteyl premiksi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_066.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 440,
-    "vatRate": 20,
-    "order": 187,
-    "tags": [
-      "EASY MIX",
-      "Passion Martini",
-      "Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Aroma": "Passion Martini",
-      "Kullanım": "Martini, Spritz, Mocktail",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_066.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "EASY MIX",
+      "Chili Mango",
+      "Acılı Mango",
+      "Margarita"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 188,
     "id": "prod-byz-067",
     "name": "EASY MIX Chili Mango Kokteyl Premiksi 1000ml",
     "code": "EMX-PRM-CHM-1000",
@@ -5973,26 +5826,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Tatlı tropikal mangonun damağı gıdıklayan tatlı acı kırmızı biber dokunuşuyla buluşması; tekila ve mezcal kokteyllerine mükemmel eşlikçi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_067.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 440,
-    "vatRate": 20,
-    "order": 188,
-    "tags": [
-      "EASY MIX",
-      "Chili Mango",
-      "Acılı Mango",
-      "Margarita"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Aroma": "Chili Mango (Acılı Mango)",
-      "Kullanım": "Spicy Margarita, Mezcalita, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_067.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 440,
+    "tags": [
+      "EASY MIX",
+      "Mor Fesleğen",
+      "Purple Basil",
+      "Gin Kokteyl"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 ml"
+    },
+    "order": 189,
     "id": "prod-byz-068",
     "name": "EASY MIX Purple Basil (Mor Fesleğen) Kokteyl Premiksi 1000ml",
     "code": "EMX-PRM-PBS-1000",
@@ -6001,26 +5853,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Taze mor fesleğenin aromatik kokusu ve göz alıcı mor rengi; cin kokteylleri ve ferahlatıcı spritz reçeteleri için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_068.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 440,
-    "vatRate": 20,
-    "order": 189,
-    "tags": [
-      "EASY MIX",
-      "Mor Fesleğen",
-      "Purple Basil",
-      "Gin Kokteyl"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Aroma": "Mor Fesleğen (Purple Basil)",
-      "Kullanım": "Basil Smash, Gin Basil, Mocktail",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_068.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 350,
+    "tags": [
+      "EASY MIX",
+      "Pitaya",
+      "Ejder Meyvesi",
+      "Refresher"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ml"
+    },
+    "order": 190,
     "id": "prod-byz-069",
     "name": "EASY MIX Refresher Pitaya (Ejder Meyvesi) 700ml",
     "code": "EMX-REF-PIT-700",
@@ -6029,26 +5880,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Göz alıcı fuşya rengi ve antioksidan zengini ejder meyvesi lezzeti; kafelerde trend olan Dragonfruit Refresher içecekleri için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_069.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_069.png"
+  },
+  {
     "isActive": true,
     "isFeatured": false,
-    "price": 350,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 190,
+    "price": 350,
     "tags": [
       "EASY MIX",
-      "Pitaya",
-      "Ejder Meyvesi",
+      "Yeşil Erik",
+      "Kuzukulağı",
       "Refresher"
     ],
     "specs": {
-      "Hacim": "700 ml",
-      "Aroma": "Pitaya / Ejder Meyvesi",
-      "Kullanım": "Dragon Drink, Buzlu Refresher, Soda Miksi",
-      "Menşei": "Türkiye"
-    }
-  },
-  {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ml"
+    },
+    "order": 191,
     "id": "prod-byz-070",
     "name": "EASY MIX Refresher Sorrel & Green Plum 700ml",
     "code": "EMX-REF-SGP-700",
@@ -6057,26 +5907,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Kuzukulağı yapraklarının doğal ekşiliği ile kütür yeşil erik ferahlığı; benzersiz gurme Anadolu lezzeti.",
-    "imageUrl": "/beyazresimler/karisik/karisik_070.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 350,
-    "vatRate": 20,
-    "order": 191,
-    "tags": [
-      "EASY MIX",
-      "Yeşil Erik",
-      "Kuzukulağı",
-      "Refresher"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Aroma": "Kuzukulağı & Yeşil Erik",
-      "Kullanım": "Yeşil Erik Refresher, Gurme Mocktail",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_070.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 300,
+    "tags": [
+      "Caffè NONNO",
+      "Toffee Nut",
+      "Karamel",
+      "Fındık"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ML"
+    },
+    "order": 192,
     "id": "prod-byz-071",
     "name": "Caffè NONNO Toffee Nut Aromalı Kahve Şurubu 750ml",
     "code": "NON-SYR-TFN-750",
@@ -6085,26 +5934,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Kavrulmuş fındık ve karamel lezzetinin kremsi birleşimi; kış sıcak kahve menülerinin vazgeçilmezi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_071.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 192,
-    "tags": [
-      "Caffè NONNO",
-      "Toffee Nut",
-      "Karamel",
-      "Fındık"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Toffee Nut (Karamelli Fındık)",
-      "Kullanım": "Toffee Nut Latte, Macchiato, Frappe",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_071.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 435,
+    "tags": [
+      "EASY MIX",
+      "Watermelon Margarita",
+      "Karpuz",
+      "Margarita"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ML"
+    },
+    "order": 193,
     "id": "prod-byz-072",
     "name": "EASY MIX Watermelon Margarita Kokteyl Premiksi 500ml",
     "code": "EMX-PRM-WMR-500",
@@ -6113,26 +5961,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Sulu karpuz ve ferahlatıcı misket limonu suyu dengesi; tuzlu kenarlı bardakta buz gibi yaz margaritaları için hazır premiks.",
-    "imageUrl": "/beyazresimler/karisik/karisik_072.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 340,
-    "vatRate": 20,
-    "order": 193,
-    "tags": [
-      "EASY MIX",
-      "Watermelon Margarita",
-      "Karpuz",
-      "Margarita"
-    ],
-    "specs": {
-      "Hacim": "500 ml",
-      "Aroma": "Karpuz & Misket Limonu",
-      "Kullanım": "Watermelon Margarita, Buzlu Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_072.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1110,
+    "tags": [
+      "EASY MIX",
+      "Libido",
+      "Tropikal",
+      "Kokteyl Premiksi"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 ML"
+    },
+    "order": 194,
     "id": "prod-byz-073",
     "name": "EASY MIX Libido Egzotik Meyve Kokteyl Premiksi 1000ml",
     "code": "EMX-PRM-LBD-1000",
@@ -6141,26 +5988,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Tropikal meyveler, nar ve enerji veren botanik aromaların baştan çıkarıcı miksi; parti kokteyllerinin gözdesi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_073.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 440,
-    "vatRate": 20,
-    "order": 194,
-    "tags": [
-      "EASY MIX",
-      "Libido",
-      "Tropikal",
-      "Kokteyl Premiksi"
-    ],
-    "specs": {
-      "Hacim": "1000 ml",
-      "Aroma": "Libido Tropikal Miks",
-      "Kullanım": "Gece Kokteylleri, Parti İçecekleri",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_073.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 600,
+    "tags": [
+      "EASY MIX",
+      "Ocean",
+      "Mavi Refresher",
+      "Serinletici"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ML"
+    },
+    "order": 195,
     "id": "prod-byz-074",
     "name": "EASY MIX Refresher Ocean 700ml",
     "code": "EMX-REF-OCN-700",
@@ -6169,26 +6015,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Turkuaz deniz ferahlığı; narenciye ve tropikal meyve aromalarıyla buz gibi serinletici mavi refresher içecekleri sunar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_074.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 350,
-    "vatRate": 20,
-    "order": 195,
-    "tags": [
-      "EASY MIX",
-      "Ocean",
-      "Mavi Refresher",
-      "Serinletici"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Aroma": "Ocean / Mavi Narenciye",
-      "Kullanım": "Ocean Refresher, Mocktail, Mavi Limonata",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_074.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 435,
+    "tags": [
+      "EASY MIX",
+      "Kavun",
+      "Melon",
+      "Kokteyl Premiksi"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ML"
+    },
+    "order": 196,
     "id": "prod-byz-075",
     "name": "EASY MIX Melon (Kavun) Kokteyl Premiksi 700ml",
     "code": "EMX-PRM-MLN-700",
@@ -6197,26 +6042,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Yoğun kokulu bal kavunu aroması; Midori sour tarzı kokteyller veya kavunlu ferahlatıcı yaz miksleri için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_075.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 360,
-    "vatRate": 20,
-    "order": 196,
-    "tags": [
-      "EASY MIX",
-      "Kavun",
-      "Melon",
-      "Kokteyl Premiksi"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Aroma": "Kavun (Melon)",
-      "Kullanım": "Melon Sour, Kokteyl, Frozen",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_075.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 435,
+    "tags": [
+      "EASY MIX",
+      "Beyaz Şeftali",
+      "White Peach",
+      "Bellini"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ML"
+    },
+    "order": 197,
     "id": "prod-byz-076",
     "name": "EASY MIX White Peach (Beyaz Şeftali) Kokteyl Premiksi 700ml",
     "code": "EMX-PRM-WPC-700",
@@ -6225,26 +6069,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Nadir bulunan aromatik beyaz şeftali özleri; Bellini ve zarif şampanya kokteyllerine ipeksi meyve lezzeti sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_076.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 360,
-    "vatRate": 20,
-    "order": 197,
-    "tags": [
-      "EASY MIX",
-      "Beyaz Şeftali",
-      "White Peach",
-      "Bellini"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Aroma": "Beyaz Şeftali (White Peach)",
-      "Kullanım": "Bellini, White Peach Spritz, Mocktail",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_076.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 732,
+    "tags": [
+      "EASY MIX",
+      "Frambuaz",
+      "Raspberry",
+      "Kokteyl Premiksi"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 198,
     "id": "prod-byz-077",
     "name": "EASY MIX Raspberry (Frambuaz) Kokteyl Premiksi 700ml",
     "code": "EMX-PRM-RAS-700",
@@ -6253,26 +6096,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Kokteyller",
     "categorySlug": "kokteyller",
     "description": "Canlı ahududu asiditesi ve aromatik zenginliği; Clover Club, Raspberry Collins ve meyveli mocktailler için ideal.",
-    "imageUrl": "/beyazresimler/karisik/karisik_077.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 360,
-    "vatRate": 20,
-    "order": 198,
-    "tags": [
-      "EASY MIX",
-      "Frambuaz",
-      "Raspberry",
-      "Kokteyl Premiksi"
-    ],
-    "specs": {
-      "Hacim": "700 ml",
-      "Aroma": "Frambuaz (Raspberry)",
-      "Kullanım": "Clover Club, Raspberry Collins, Frozen",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_077.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Caffè NONNO",
+      "Nar",
+      "Pomegranate",
+      "Kokteyl Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 199,
     "id": "prod-byz-078",
     "name": "Caffè NONNO Nar (Pomegranate) Aromalı Kokteyl Şurubu 750ml",
     "code": "NON-SYR-POM-750",
@@ -6281,26 +6123,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Grena yakut kırmızısı rengi ve mayhoş nar lezzeti; barlarda nar ekşisi dengeli kokteyller ve limonatalar için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_078.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 199,
-    "tags": [
-      "Caffè NONNO",
-      "Nar",
-      "Pomegranate",
-      "Kokteyl Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Nar (Pomegranate)",
-      "Kullanım": "Nar Kokteyli, Grenadine alternatifi, Limonata",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_078.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Caffè NONNO",
+      "Muz",
+      "Banana",
+      "Bar Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 200,
     "id": "prod-byz-079",
     "name": "Caffè NONNO Muz (Banana) Aromalı Bar Şurubu 750ml",
     "code": "NON-SYR-BAN-750",
@@ -6309,26 +6150,26 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Tropikal muz aroması; milkshake, buzlu kahve ve meyveli kokteyl reçetelerinde tatlı bir muz dokunuşu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_079.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 200,
-    "tags": [
-      "Caffè NONNO",
-      "Muz",
-      "Banana",
-      "Bar Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Muz (Banana)",
-      "Kullanım": "Muzlu Milkshake, Muzlu Latte, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_079.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 275,
+    "tags": [
+      "Caffè NONNO",
+      "Tiramisu",
+      "İtalyan Kahvesi",
+      "Şurup"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Kutu İçi Dilim Adeti": "10 Dilim",
+      "Miktar": "750 ML"
+    },
+    "order": 201,
     "id": "prod-byz-080",
     "name": "Caffè NONNO Tiramisu Aromalı Kahve Şurubu 750ml",
     "code": "NON-SYR-TRM-750",
@@ -6337,26 +6178,26 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Maskarpone peyniri, kedi dili bisküvi ve kakao notaları; kahvelere İtalyan tiramisu tatlısı lezzeti kazandırır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_080.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 201,
-    "tags": [
-      "Caffè NONNO",
-      "Tiramisu",
-      "İtalyan Kahvesi",
-      "Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Tiramisu",
-      "Kullanım": "Tiramisu Latte, Soğuk Kahve, Frappe",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_080.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 3500,
+    "tags": [
+      "CALLEI",
+      "Bitter Çikolata",
+      "Waffle Kreması",
+      "Krep"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Kutu İçi Dilim Adeti": "10 Adet",
+      "Miktar": "750 ML"
+    },
+    "order": 202,
     "id": "prod-byz-081",
     "name": "CALLEI Bitter Çikolatalı Sürülebilir Waffle & Krep Kreması 1kg",
     "code": "CAL-WFL-BIT-1000",
@@ -6365,26 +6206,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "Yoğun kakao aroması ve akışkan sürülebilir ipeksi dokusuyla sıcak waffle ve kreplerin üzerinde eriyen gurme bitter çikolata kreması.",
-    "imageUrl": "/beyazresimler/karisik/karisik_081.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 320,
-    "vatRate": 20,
-    "order": 202,
-    "tags": [
-      "CALLEI",
-      "Bitter Çikolata",
-      "Waffle Kreması",
-      "Krep"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Bitter Çikolata",
-      "Kullanım": "Waffle, Krep, Pankek, Kruvasan Dolgusu",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_081.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 275,
+    "tags": [
+      "CALLEI",
+      "Fındık Krokan",
+      "Pasta Süsleme",
+      "Çıtır Topping"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 203,
     "id": "prod-byz-082",
     "name": "CALLEI Fındık Krokan Pasta & Waffle Süsleme 1kg",
     "code": "CAL-SUS-KRK-1000",
@@ -6393,40 +6233,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "Karamelize şekerle kaplanmış çıtır fındık parçacıkları; pasta kenarları, waffle ve dondurma üzerinde eşsiz çıtırlık sunar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_082.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 290,
-    "vatRate": 20,
-    "order": 203,
-    "tags": [
-      "CALLEI",
-      "Fındık Krokan",
-      "Pasta Süsleme",
-      "Çıtır Topping"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Çeşit": "Fındık Krokan",
-      "Kullanım": "Waffle Süsleme, Pasta Sıvama, Dondurma Topping",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_082.png"
   },
   {
-    "id": "prod-byz-083",
-    "name": "CALLEI Renkli Mini Draje Bonibon Pasta & Waffle Süsleme 1kg",
-    "code": "CAL-SUS-DRJ-1000",
-    "codeGroup": "CALLEI Chocolate",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "description": "Çıtır şeker kaplamalı rengarenk sütlü çikolata drajeleri; waffle, krep ve butik pasta tasarımlarına neşeli renk katar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_083.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 280,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 204,
+    "price": 280,
     "tags": [
       "CALLEI",
       "Bonibon",
@@ -6435,13 +6249,37 @@ const RAW_PRODUCTS = [
       "Waffle Süsleme"
     ],
     "specs": {
-      "Gramaj": "1 kg",
-      "Çeşit": "Renkli Mini Draje (Bonibon)",
-      "Kullanım": "Waffle, Cupcake, Pasta Dekorasyonu",
-      "Menşei": "Türkiye"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız."
+    },
+    "order": 204,
+    "id": "prod-byz-083",
+    "name": "CALLEI Renkli Mini Draje Bonibon Pasta & Waffle Süsleme 1kg",
+    "code": "CAL-SUS-DRJ-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Çıtır şeker kaplamalı rengarenk sütlü çikolata drajeleri; waffle, krep ve butik pasta tasarımlarına neşeli renk katar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_083.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 3000,
+    "tags": [
+      "CALLEI",
+      "Sütlü Damla Çikolata",
+      "Damla Çikolata",
+      "Pastacılık"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Kutu İçi Dilim Adeti": "10 Adet",
+      "Miktar": "750 ML"
+    },
+    "order": 205,
     "id": "prod-byz-084",
     "name": "CALLEI Sütlü Damla Çikolata Süsleme 1kg",
     "code": "CAL-SUS-SML-1000",
@@ -6450,26 +6288,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "Fırınlanmaya dayanıklı, eridiğinde kremsi doku kazanan gerçek sütlü çikolata damlaları; kurabiye, muffin ve waffle için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_084.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 310,
-    "vatRate": 20,
-    "order": 205,
-    "tags": [
-      "CALLEI",
-      "Sütlü Damla Çikolata",
-      "Damla Çikolata",
-      "Pastacılık"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Çeşit": "Sütlü Damla Çikolata",
-      "Kullanım": "Kurabiye, Muffin, Waffle Topping, Kek",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_084.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 300,
+    "tags": [
+      "CALLEI",
+      "Pasta Şekeri",
+      "Vermicelli",
+      "Renkli Süsleme"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 206,
     "id": "prod-byz-085",
     "name": "CALLEI Karışık Renkli Pasta & Waffle Şekerlemesi (Vermicelli) 1kg",
     "code": "CAL-SUS-VRM-1000",
@@ -6478,26 +6315,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "Rengarenk pirinç formlu pasta süsleme şekerleri; dondurma külahları, donutlar ve waffle tabaklarında göz alıcı sunumlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_085.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 260,
-    "vatRate": 20,
-    "order": 206,
-    "tags": [
-      "CALLEI",
-      "Pasta Şekeri",
-      "Vermicelli",
-      "Renkli Süsleme"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Çeşit": "Renkli Vermicelli Şekerleme",
-      "Kullanım": "Donut, Waffle, Dondurma, Pasta",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_085.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "CALLEI",
+      "Çakıltaşı Draje",
+      "Çikolata Draje",
+      "Waffle"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 207,
     "id": "prod-byz-086",
     "name": "CALLEI Renkli Çakıltaşı Çikolata Draje 1kg",
     "code": "CAL-SUS-CKL-1000",
@@ -6506,26 +6342,26 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "Gerçek dere çakıltaşları görünümünde şeker kaplı lezzetli çikolata drajeleri; çocuk ve genç menülerinin favori süslemesi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_086.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 290,
-    "vatRate": 20,
-    "order": 207,
-    "tags": [
-      "CALLEI",
-      "Çakıltaşı Draje",
-      "Çikolata Draje",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Çeşit": "Renkli Çakıltaşı Çikolata",
-      "Kullanım": "Waffle, Pasta, Kahve Yanı İkramlık",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_086.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 3500,
+    "tags": [
+      "CALLEI",
+      "Bitter Damla Çikolata",
+      "Damla Çikolata",
+      "Kakao"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Kutu İçi Dilim Adeti": "10 Adet",
+      "Miktar": "750 ML"
+    },
+    "order": 208,
     "id": "prod-byz-087",
     "name": "CALLEI Bitter Damla Çikolata Süsleme 1kg",
     "code": "CAL-SUS-DBT-1000",
@@ -6534,26 +6370,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "%54 kakao oranıyla parlak yapısını koruyan profesyonel bitter damla çikolata; kurabiye ve pastacılık uygulamalarında fırın sıcaklığına dirençli.",
-    "imageUrl": "/beyazresimler/karisik/karisik_087.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 208,
-    "tags": [
-      "CALLEI",
-      "Bitter Damla Çikolata",
-      "Damla Çikolata",
-      "Kakao"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Çeşit": "Bitter Damla Çikolata",
-      "Kullanım": "Kurabiye, Kek, Waffle, Sıcak Çikolata",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_087.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 750,
+    "tags": [
+      "CALLEI",
+      "Kavrulmuş Fındık",
+      "Fındık Parça",
+      "Waffle Süsleme"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 209,
     "id": "prod-byz-088",
     "name": "CALLEI Kavrulmuş Kıyılmış Fındık Parçaları 1kg",
     "code": "CAL-SUS-FND-1000",
@@ -6562,26 +6397,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "Özel fırınlanmış çıtır Giresun fındığı taneleri; waffle, krep, pasta ve dondurma üzerine doğal fındık zenginliği.",
-    "imageUrl": "/beyazresimler/karisik/karisik_088.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 380,
-    "vatRate": 20,
-    "order": 209,
-    "tags": [
-      "CALLEI",
-      "Kavrulmuş Fındık",
-      "Fındık Parça",
-      "Waffle Süsleme"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Çeşit": "Kavrulmuş Kıyılmış Fındık",
-      "Kullanım": "Waffle Topping, Pasta Dekorasyonu, Dondurma",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_088.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "CALLEI",
+      "Beyaz Damla Çikolata",
+      "Pastacılık",
+      "Waffle"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 210,
     "id": "prod-byz-089",
     "name": "CALLEI Beyaz Damla Çikolata Süsleme 1kg",
     "code": "CAL-SUS-DBY-1000",
@@ -6590,26 +6424,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "Zengin süt ve vanilya aromalı beyaz çikolata damlaları; kırmızı kadife (red velvet) kekler ve waffle sunumları için mükemmel kontrast.",
-    "imageUrl": "/beyazresimler/karisik/karisik_089.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 210,
-    "tags": [
-      "CALLEI",
-      "Beyaz Damla Çikolata",
-      "Pastacılık",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Çeşit": "Beyaz Damla Çikolata",
-      "Kullanım": "Red Velvet, Kurabiye, Waffle, Pasta",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_089.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 28,
+    "tags": [
+      "CALLEI",
+      "Waffle Tozu",
+      "Waffle Mix",
+      "Belçika Waffle"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Kutu İçi Dilim Adeti": "48 Adet"
+    },
+    "order": 211,
     "id": "prod-byz-090",
     "name": "CALLEI Profesyonel Hazır Waffle Tozu (Waffle Mix) 1kg",
     "code": "CAL-WFL-MIX-1000",
@@ -6618,26 +6451,24 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "Dışı çıtır çıtır, içi pamuk gibi yumuşak Belçika usulü waffle hazırlamak için sadece su ve yağ ile çırpılan profesyonel waffle harcı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_090.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 180,
-    "vatRate": 20,
-    "order": 211,
-    "tags": [
-      "CALLEI",
-      "Waffle Tozu",
-      "Waffle Mix",
-      "Belçika Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Çeşit": "Hazır Waffle Karışımı",
-      "Kullanım": "Waffle Makinesi, Belçika Waffle, Bubble Waffle",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_090.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 270,
+    "tags": [
+      "Caffè NONNO",
+      "Toffee Nut",
+      "Kahve Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ml"
+    },
+    "order": 212,
     "id": "prod-byz-091",
     "name": "Caffè NONNO Toffee Nut Aromalı Şurup 750ml (Açı 2)",
     "code": "NON-SYR-TFN-750-B",
@@ -6646,39 +6477,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Karamel ve fındık notalarını dengeli sunan barista kalitesinde kahve şurubu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_091.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 212,
-    "tags": [
-      "Caffè NONNO",
-      "Toffee Nut",
-      "Kahve Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Toffee Nut",
-      "Kullanım": "Sıcak/Soğuk Latte, Frappe",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_091.png"
   },
   {
-    "id": "prod-byz-092",
-    "name": "CALLEI Speculoos (Bisküvi Aromalı) Sürülebilir Waffle Kreması 1kg",
-    "code": "CAL-WFL-SPC-1000",
-    "codeGroup": "CALLEI Chocolate",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "description": "Tarçın ve karamelize Belçika bisküvisi aromalı sürülebilir krema; waffle ve kreplere sofistike Lotus esintisi katar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_092.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 340,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 213,
+    "price": 870,
     "tags": [
       "CALLEI",
       "Speculoos",
@@ -6687,13 +6493,38 @@ const RAW_PRODUCTS = [
       "Lotus"
     ],
     "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Speculoos (Karamelli Bisküvi)",
-      "Kullanım": "Waffle, Krep, Cheesecake Dolgusu",
-      "Menşei": "Türkiye"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Kutu İçi Dilim Adeti": "6 Dilim"
+    },
+    "order": 213,
+    "id": "prod-byz-092",
+    "name": "CALLEI Speculoos (Bisküvi Aromalı) Sürülebilir Waffle Kreması 1kg",
+    "code": "CAL-WFL-SPC-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Tarçın ve karamelize Belçika bisküvisi aromalı sürülebilir krema; waffle ve kreplere sofistike Lotus esintisi katar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_092.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 3000,
+    "tags": [
+      "CALLEI",
+      "Bueno",
+      "Fındık Kreması",
+      "Waffle Kreması"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Kutu İçi Dilim Adeti": "10 Adet",
+      "Miktar": "750 ML"
+    },
+    "order": 214,
     "id": "prod-byz-093",
     "name": "CALLEI Bueno (Fındıklı Sütlü) Sürülebilir Waffle Kreması 1kg",
     "code": "CAL-WFL-BNO-1000",
@@ -6702,26 +6533,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "Yoğun fındık ezmesi ve beyaz kremanın efsanevi buluşması; Kinder Bueno lezzetini waffle ve kreplere taşıyan favori ürün.",
-    "imageUrl": "/beyazresimler/karisik/karisik_093.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 340,
-    "vatRate": 20,
-    "order": 214,
-    "tags": [
-      "CALLEI",
-      "Bueno",
-      "Fındık Kreması",
-      "Waffle Kreması"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Bueno Fındık & Süt Kreması",
-      "Kullanım": "Waffle, Krep, Kruvasan, Pankek",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_093.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "CALLEI",
+      "Beyaz Çikolata",
+      "Waffle Kreması",
+      "Krep"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 215,
     "id": "prod-byz-094",
     "name": "CALLEI Beyaz Çikolatalı Sürülebilir Waffle & Krep Kreması 1kg",
     "code": "CAL-WFL-WHT-1000",
@@ -6730,26 +6560,26 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "İpeksi sürülebilirliği ve saf kakao yağı tadıyla meyveli waffle tabaklarında çilek ve muz ile mükemmel lezzet uyumu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_094.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_094.png"
+  },
+  {
     "isActive": true,
     "isFeatured": false,
-    "price": 320,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 215,
+    "price": 3000,
     "tags": [
       "CALLEI",
-      "Beyaz Çikolata",
-      "Waffle Kreması",
+      "Sütlü Çikolata",
+      "Waffle Çikolatası",
       "Krep"
     ],
     "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Beyaz Çikolata",
-      "Kullanım": "Waffle, Krep, Tatlı Dolgusu",
-      "Menşei": "Türkiye"
-    }
-  },
-  {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Kutu İçi Dilim Adeti": "10 Adet",
+      "Miktar": "750 ML"
+    },
+    "order": 216,
     "id": "prod-byz-095",
     "name": "CALLEI Sütlü Çikolatalı Sürülebilir Waffle & Krep Kreması 1kg",
     "code": "CAL-WFL-MLK-1000",
@@ -6758,26 +6588,26 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "Geleneksel lezzet; yüksek kaliteli süt tozu ve kakao ile hazırlanan akışkan kıvamlı klasik waffle çikolatası.",
-    "imageUrl": "/beyazresimler/karisik/karisik_095.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 320,
-    "vatRate": 20,
-    "order": 216,
-    "tags": [
-      "CALLEI",
-      "Sütlü Çikolata",
-      "Waffle Çikolatası",
-      "Krep"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Sütlü Çikolata",
-      "Kullanım": "Klasik Waffle, Krep, Tost Çikolatası",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_095.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 2900,
+    "tags": [
+      "CALLEI",
+      "Pembe Krema",
+      "Frambuaz",
+      "Renkli Waffle"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Kutu İçi Dilim Adeti": "10 Adet",
+      "Miktar": "1000 GR"
+    },
+    "order": 217,
     "id": "prod-byz-096",
     "name": "CALLEI Frambuaz Aromalı Pembe Sürülebilir Waffle Kreması 1kg",
     "code": "CAL-WFL-RAS-1000",
@@ -6786,26 +6616,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "Göz alıcı pembe rengi ve hafif mayhoş frambuaz aromasıyla çocuk ve gençlerin bayıldığı eğlenceli waffle kreması.",
-    "imageUrl": "/beyazresimler/karisik/karisik_096.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 330,
-    "vatRate": 20,
-    "order": 217,
-    "tags": [
-      "CALLEI",
-      "Pembe Krema",
-      "Frambuaz",
-      "Renkli Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Frambuaz (Pembe Krema)",
-      "Kullanım": "Renkli Waffle, Krep, Cupcake Süsleme",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_096.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 235,
+    "tags": [
+      "CALLEI",
+      "Bubble Gum",
+      "Mavi Waffle",
+      "Sakız Aromalı"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Kutu İçi Dilim Adeti": "8 Adet"
+    },
+    "order": 218,
     "id": "prod-byz-097",
     "name": "CALLEI Bubble Gum Aromalı Mavi Sürülebilir Waffle Kreması 1kg",
     "code": "CAL-WFL-BBG-1000",
@@ -6814,40 +6643,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "Canlı gök mavisi rengi ve nostaljik sakız lezzeti; sosyal medyada fotoğrafı en çok paylaşılan çılgın waffle tasarımları için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_097.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 330,
-    "vatRate": 20,
-    "order": 218,
-    "tags": [
-      "CALLEI",
-      "Bubble Gum",
-      "Mavi Waffle",
-      "Sakız Aromalı"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Bubble Gum (Mavi Krema)",
-      "Kullanım": "Mavi Waffle, Krep, Donut Dolgusu",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_097.png"
   },
   {
-    "id": "prod-byz-098",
-    "name": "CALLEI Antep Fıstıklı Yeşil Sürülebilir Waffle Kreması 1kg",
-    "code": "CAL-WFL-PST-1000",
-    "codeGroup": "CALLEI Chocolate",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "description": "Hakiki Antep fıstığı ezmesiyle zenginleştirilmiş fıstık yeşili gurme krema; Dubai çikolatası esintili lüks waffle menüleri için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_098.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 390,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 219,
+    "price": 450,
     "tags": [
       "CALLEI",
       "Antep Fıstığı",
@@ -6856,13 +6659,37 @@ const RAW_PRODUCTS = [
       "Gurme"
     ],
     "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Antep Fıstığı (Yeşil Krema)",
-      "Kullanım": "Dubai Waffle, Gurme Krep, Kruvasan",
-      "Menşei": "Türkiye"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 219,
+    "id": "prod-byz-098",
+    "name": "CALLEI Antep Fıstıklı Yeşil Sürülebilir Waffle Kreması 1kg",
+    "code": "CAL-WFL-PST-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "Hakiki Antep fıstığı ezmesiyle zenginleştirilmiş fıstık yeşili gurme krema; Dubai çikolatası esintili lüks waffle menüleri için.",
+    "imageUrl": "/beyazresimler/karisik/karisik_098.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "CALLEI",
+      "Karamel",
+      "Karamel Kreması",
+      "Waffle"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 220,
     "id": "prod-byz-099",
     "name": "CALLEI Karamel Aromalı Sürülebilir Waffle & Krep Kreması 1kg",
     "code": "CAL-WFL-CAR-1000",
@@ -6871,40 +6698,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "Kavrulmuş karamel rengi ve yoğun karamel tadı; elma ve cevizli waffle kombinasyonlarında rakipsiz tat uyumu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_099.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 330,
-    "vatRate": 20,
-    "order": 220,
-    "tags": [
-      "CALLEI",
-      "Karamel",
-      "Karamel Kreması",
-      "Waffle"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Karamel",
-      "Kullanım": "Karamelli Waffle, Krep, Pankek",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_099.png"
   },
   {
-    "id": "prod-byz-100",
-    "name": "FRAMBUAZLI CHEESCAKE",
-    "code": "YKB-DNK-TKR-001",
-    "codeGroup": "20:45 Unlu Mamuller",
-    "categoryId": "cat-5",
-    "categoryName": "Pastalar",
-    "categorySlug": "donuk-pasta",
-    "description": "Ağızda dağılan kıyır kıyır tereyağlı dokusu, taze dereotu ve çörekotu aromasıyla çay saatlerinin vazgeçilmez ikramlığı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_100.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 1020,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 221,
+    "price": 1020,
     "tags": [
       "20:45",
       "Tuzlu Kurabiye",
@@ -6913,13 +6714,47 @@ const RAW_PRODUCTS = [
       "Çay Saati"
     ],
     "specs": {
-      "Gramaj": "1 kg Koli",
-      "Çeşit": "Dereotlu Çörekotlu Tuzlu Kurabiye",
-      "Kullanım": "Çözündür Servis Et / Fırınlanabilir",
-      "Menşei": "Türkiye"
-    }
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1900 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 221,
+    "id": "prod-byz-100",
+    "name": "FRAMBUAZLI CHEESCAKE",
+    "code": "YKB-DNK-TKR-001",
+    "codeGroup": "20:45 Unlu Mamuller",
+    "categoryId": "cat-5",
+    "categoryName": "Pastalar",
+    "categorySlug": "donuk-pasta",
+    "description": "Ağızda dağılan kıyır kıyır tereyağlı dokusu, taze dereotu ve çörekotu aromasıyla çay saatlerinin vazgeçilmez ikramlığı.",
+    "imageUrl": "/beyazresimler/karisik/karisik_100.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1020,
+    "tags": [
+      "20:45",
+      "Kurabiye Tabağı",
+      "Tuzlu Kurabiye",
+      "Donuk Unlu Mamul"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1900 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 222,
     "id": "prod-byz-101",
     "name": "FRAMBUAZLI CHEESCAKE",
     "code": "YKB-DNK-TKR-002",
@@ -6928,26 +6763,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Kafeterya ve otel açık büfelerinde hızlı servis için porsiyonlanmış, taze pişmiş lezzetinde tuzlu mini kurabiye.",
-    "imageUrl": "/beyazresimler/karisik/karisik_101.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1020,
-    "vatRate": 20,
-    "order": 222,
-    "tags": [
-      "20:45",
-      "Kurabiye Tabağı",
-      "Tuzlu Kurabiye",
-      "Donuk Unlu Mamul"
-    ],
-    "specs": {
-      "Gramaj": "1 kg Koli",
-      "Çeşit": "Dereotlu Çörekotlu Mini Kurabiye Tabağı",
-      "Kullanım": "Otel Büfe, Kafe Servisi",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_101.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 732,
+    "tags": [
+      "Caffè NONNO",
+      "Ananas",
+      "Frozen Püre",
+      "Piña Colada"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 223,
     "id": "prod-byz-102",
     "name": "Caffè NONNO Ananas (Pineapple) Frozen Meyve Püresi 750ml",
     "code": "NON-FRZ-PIN-750",
@@ -6956,26 +6790,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Altın sarısı olgun ananasların canlı tropikal aroması; Piña Colada, ananaslı smoothie ve buzlu içeceklerin vazgeçilmezi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_102.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 223,
-    "tags": [
-      "Caffè NONNO",
-      "Ananas",
-      "Frozen Püre",
-      "Piña Colada"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Ananas (Pineapple)",
-      "Kullanım": "Piña Colada, Tropikal Frozen, Smoothie",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_102.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 325,
+    "tags": [
+      "Caffè NONNO",
+      "Cool Poka",
+      "Bar Şurubu",
+      "Refresher"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 224,
     "id": "prod-byz-103",
     "name": "Caffè NONNO Cool Poka Aromalı Bar Şurubu 750ml",
     "code": "NON-SYR-CPK-750",
@@ -6984,26 +6817,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Ferahlatıcı narenciye ve tropikal botanik bileşenlerin özel harmanı; buz gibi yaz kokteylleri ve artisan sodalar için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_103.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 224,
-    "tags": [
-      "Caffè NONNO",
-      "Cool Poka",
-      "Bar Şurubu",
-      "Refresher"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Cool Poka",
-      "Kullanım": "Buzlu İçecek, Artisan Soda, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_103.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 350,
+    "tags": [
+      "Caffè NONNO",
+      "Chocolate Cookies",
+      "Kurabiye Şurubu",
+      "Kahve"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 GR"
+    },
+    "order": 225,
     "id": "prod-byz-104",
     "name": "Caffè NONNO Chocolate Cookies Aromalı Şurup 750ml",
     "code": "NON-SYR-CCK-750",
@@ -7012,26 +6844,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Kakaolu çıtır kurabiye aroması; latte ve frappelere Oreo / çikolatalı bisküvi lezzeti kazandırır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_104.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 225,
-    "tags": [
-      "Caffè NONNO",
-      "Chocolate Cookies",
-      "Kurabiye Şurubu",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Chocolate Cookies (Kakaolu Kurabiye)",
-      "Kullanım": "Kurabiyeli Latte, Frappe, Milkshake",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_104.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 350,
+    "tags": [
+      "Caffè NONNO",
+      "Vişne",
+      "Cherry",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 GR"
+    },
+    "order": 226,
     "id": "prod-byz-105",
     "name": "Caffè NONNO Vişne (Cherry) Frozen Meyve Püresi 750ml",
     "code": "NON-FRZ-CHR-750",
@@ -7040,26 +6871,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Koyu kırmızı Kütahya vişnelerinin dolgun mayhoş lezzeti; vişneli frozen, soda miksi ve kokteyller için zengin meyve tabanı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_105.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 226,
-    "tags": [
-      "Caffè NONNO",
-      "Vişne",
-      "Cherry",
-      "Frozen Püre"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Vişne (Cherry)",
-      "Kullanım": "Vişneli Frozen, Smoothie, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_105.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Caffè NONNO",
+      "Muz",
+      "Frozen Püre",
+      "Smoothie"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 227,
     "id": "prod-byz-106",
     "name": "Caffè NONNO Muz (Banana) Frozen Meyve Püresi 750ml",
     "code": "NON-FRZ-BAN-750",
@@ -7068,26 +6898,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Gerçek muz püresi kıvamı ve tatlı aroması; muzlu frozen, milkshake ve meyveli smoothie içeceklerinde kremsi yapı oluşturur.",
-    "imageUrl": "/beyazresimler/karisik/karisik_106.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 227,
-    "tags": [
-      "Caffè NONNO",
-      "Muz",
-      "Frozen Püre",
-      "Smoothie"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Muz (Banana)",
-      "Kullanım": "Muz Frozen, Smoothie, Milkshake",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_106.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Caffè NONNO",
+      "Yeşil Elma",
+      "Green Apple",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 228,
     "id": "prod-byz-107",
     "name": "Caffè NONNO Yeşil Elma (Green Apple) Frozen Püre 750ml",
     "code": "NON-FRZ-GAP-750",
@@ -7096,40 +6925,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Granny Smith elmasının ferahlatıcı ekşi-tatlı tadı; yeşil elmalı frozen, ekşi kokteyller ve buzlu içeceklerde yüksek verim sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_107.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 228,
-    "tags": [
-      "Caffè NONNO",
-      "Yeşil Elma",
-      "Green Apple",
-      "Frozen Püre"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Yeşil Elma (Green Apple)",
-      "Kullanım": "Apple Frozen, Apple Sour, Smoothie",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_107.png"
   },
   {
-    "id": "prod-byz-108",
-    "name": "FRAMBUAZLI CHEESCAKE",
-    "code": "YKB-DNK-POG-001",
-    "codeGroup": "20:45 Unlu Mamuller",
-    "categoryId": "cat-5",
-    "categoryName": "Pastalar",
-    "categorySlug": "donuk-pasta",
-    "description": "İçi lezzetli kaşar ve beyaz peynir dolgulu, puf puf kabaran mini top poğaçalar; kahvaltı büfeleri ve atıştırmalık saatleri için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_108.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 1020,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 229,
+    "price": 1020,
     "tags": [
       "20:45",
       "Mini Poğaça",
@@ -7138,13 +6941,47 @@ const RAW_PRODUCTS = [
       "Donuk Unlu Mamul"
     ],
     "specs": {
-      "Gramaj": "1 kg Koli",
-      "Çeşit": "Peynirli Kaşarlı Mini Poğaça Tabağı",
-      "Kullanım": "Isıt ve Servis Et / Fırınlanabilir",
-      "Menşei": "Türkiye"
-    }
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1900 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 229,
+    "id": "prod-byz-108",
+    "name": "FRAMBUAZLI CHEESCAKE",
+    "code": "YKB-DNK-POG-001",
+    "codeGroup": "20:45 Unlu Mamuller",
+    "categoryId": "cat-5",
+    "categoryName": "Pastalar",
+    "categorySlug": "donuk-pasta",
+    "description": "İçi lezzetli kaşar ve beyaz peynir dolgulu, puf puf kabaran mini top poğaçalar; kahvaltı büfeleri ve atıştırmalık saatleri için.",
+    "imageUrl": "/beyazresimler/karisik/karisik_108.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1020,
+    "tags": [
+      "20:45",
+      "Top Poğaça",
+      "Kaşarlı",
+      "Donuk Unlu Mamul"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1900 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 230,
     "id": "prod-byz-109",
     "name": "FRAMBUAZLI CHEESCAKE",
     "code": "YKB-DNK-POG-002",
@@ -7153,26 +6990,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Altın sarısı fırınlanmış kabuğu ve eriyen peynir dolgusuyla tek lokmalık gurme lezzet.",
-    "imageUrl": "/beyazresimler/karisik/karisik_109.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1020,
-    "vatRate": 20,
-    "order": 230,
-    "tags": [
-      "20:45",
-      "Top Poğaça",
-      "Kaşarlı",
-      "Donuk Unlu Mamul"
-    ],
-    "specs": {
-      "Gramaj": "1 kg Koli",
-      "Çeşit": "Peynirli Mini Top Poğaça",
-      "Kullanım": "Kafe İkramı, Sıcak Servis",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_109.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 390,
+    "tags": [
+      "Caffè NONNO",
+      "Çarkıfelek",
+      "Passion Fruit",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 GR"
+    },
+    "order": 231,
     "id": "prod-byz-110",
     "name": "Caffè NONNO Çarkıfelek (Passion Fruit) Frozen Püre 750ml",
     "code": "NON-FRZ-PAS-750",
@@ -7181,26 +7017,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Egzotik çarkıfelek meyvesinin cezbedici kokusu ve mayhoş asiditesi; kokteyl barlarının en çok talep gören püre çeşidi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_110.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_110.png"
+  },
+  {
     "isActive": true,
     "isFeatured": false,
-    "price": 310,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 231,
+    "price": 350,
     "tags": [
       "Caffè NONNO",
-      "Çarkıfelek",
-      "Passion Fruit",
+      "Kivi",
+      "Kiwi",
       "Frozen Püre"
     ],
     "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Çarkıfelek (Passion Fruit)",
-      "Kullanım": "Passion Frozen, Tropikal Kokteyl, Limonata",
-      "Menşei": "Türkiye"
-    }
-  },
-  {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 GR"
+    },
+    "order": 232,
     "id": "prod-byz-111",
     "name": "Caffè NONNO Kivi (Kiwi) Frozen Meyve Püresi 750ml",
     "code": "NON-FRZ-KIW-750",
@@ -7209,26 +7044,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Taze kivi çekirdekleri dokusu ve zümrüt yeşili rengi; ferahlatıcı yeşil detoks kokteylleri ve frozen içecekler için mükemmel.",
-    "imageUrl": "/beyazresimler/karisik/karisik_111.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 232,
-    "tags": [
-      "Caffè NONNO",
-      "Kivi",
-      "Kiwi",
-      "Frozen Püre"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Kivi (Kiwi)",
-      "Kullanım": "Kiwi Frozen, Detoks İçecek, Smoothie",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_111.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 508,
+    "tags": [
+      "Krater",
+      "Yeşil Elma",
+      "Gelato",
+      "Meyve Karışımı"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 233,
     "id": "prod-byz-112",
     "name": "Krater Maestro del Gelato Yeşil Elmalı Meyve Karışımı 1kg (Varyant)",
     "code": "KRT-ELM-1000-B",
@@ -7237,26 +7071,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Doğal yeşil elma asitleri içeren dondurma ve tatlı preparatı; gelato ustaları için özel yoğun formül.",
-    "imageUrl": "/beyazresimler/karisik/karisik_112.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 320,
-    "vatRate": 20,
-    "order": 233,
-    "tags": [
-      "Krater",
-      "Yeşil Elma",
-      "Gelato",
-      "Meyve Karışımı"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Yeşil Elma",
-      "Kullanım": "Gelato, Dondurma, Pasta İçi Meyve Sosu",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_112.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 732,
+    "tags": [
+      "Krater",
+      "Ananas",
+      "Maestro del Gelato",
+      "Püre"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 234,
     "id": "prod-byz-113",
     "name": "Krater Maestro del Gelato Ananaslı Meyve Karışımı 1kg",
     "code": "KRT-PIN-1000",
@@ -7265,40 +7098,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Tropikal ananas parçacıkları ve nektarı içeren profesyonel dondurma ve bar miksoloji karışımı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_113.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 320,
-    "vatRate": 20,
-    "order": 234,
-    "tags": [
-      "Krater",
-      "Ananas",
-      "Maestro del Gelato",
-      "Püre"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Aroma": "Ananas (Pineapple)",
-      "Kullanım": "Ananas Gelato, Sorbe, Frozen, Tatlı Sosu",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_113.png"
   },
   {
-    "id": "prod-byz-114",
-    "name": "Monte Cristo Badem (Almond) Aromalı Barista Şurubu 750ml",
-    "code": "MCR-SYR-ALM-750",
-    "codeGroup": "Monte Cristo",
-    "categoryId": "cat-2",
-    "categoryName": "Şuruplar",
-    "categorySlug": "suruplar",
-    "description": "Kavrulmuş acıbadem ve tatlı badem dengesi; kahveye ve Orgeat tarzı kokteyllere asil bir kuruyemiş aroması katar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_114.png",
     "isActive": true,
     "isFeatured": true,
-    "price": 280,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 235,
+    "price": 300,
     "tags": [
       "Monte Cristo",
       "Badem",
@@ -7307,13 +7114,37 @@ const RAW_PRODUCTS = [
       "Barista Şurubu"
     ],
     "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Badem (Almond)",
-      "Kullanım": "Almond Latte, Mai Tai, Sıcak Çikolata",
-      "Menşei": "Türkiye"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ML"
+    },
+    "order": 235,
+    "id": "prod-byz-114",
+    "name": "Monte Cristo Badem (Almond) Aromalı Barista Şurubu 750ml",
+    "code": "MCR-SYR-ALM-750",
+    "codeGroup": "Monte Cristo",
+    "categoryId": "cat-2",
+    "categoryName": "Şuruplar",
+    "categorySlug": "suruplar",
+    "description": "Kavrulmuş acıbadem ve tatlı badem dengesi; kahveye ve Orgeat tarzı kokteyllere asil bir kuruyemiş aroması katar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_114.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 275,
+    "tags": [
+      "Monte Cristo",
+      "Chai Tea",
+      "Baharatlı Şurup",
+      "Latte"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 236,
     "id": "prod-byz-115",
     "name": "Monte Cristo Chai Tea Aromalı Barista Şurubu 750ml",
     "code": "MCR-SYR-CHT-750",
@@ -7322,26 +7153,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Kakule, tarçın, zencefil ve karanfil baharatlarının mistik Doğu harmanı; saniyeler içinde sıcacık Chai Latte hazırlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_115.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 280,
-    "vatRate": 20,
-    "order": 236,
-    "tags": [
-      "Monte Cristo",
-      "Chai Tea",
-      "Baharatlı Şurup",
-      "Latte"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Chai Tea (Baharatlı Çay)",
-      "Kullanım": "Chai Tea Latte, Baharatlı Sıcak Süt",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_115.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 300,
+    "tags": [
+      "Monte Cristo",
+      "Antep Fıstığı",
+      "Pistachio",
+      "Gurme Şurup"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ML"
+    },
+    "order": 237,
     "id": "prod-byz-116",
     "name": "Monte Cristo Antep Fıstığı (Pistachio) Aromalı Barista Şurubu 750ml",
     "code": "MCR-SYR-PST-750",
@@ -7350,26 +7180,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Yeşil Antep fıstığının zarif ve zengin aroması; Pistachio Latte ve gurme kahve spesiyallerinin vazgeçilmezi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_116.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 280,
-    "vatRate": 20,
-    "order": 237,
-    "tags": [
-      "Monte Cristo",
-      "Antep Fıstığı",
-      "Pistachio",
-      "Gurme Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Antep Fıstığı (Pistachio)",
-      "Kullanım": "Pistachio Latte, Frappe, Soğuk Kahve",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_116.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Monte Cristo",
+      "Çikolata",
+      "Mocha",
+      "Kahve Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 238,
     "id": "prod-byz-117",
     "name": "Monte Cristo Çikolata (Chocolate) Aromalı Barista Şurubu 750ml",
     "code": "MCR-SYR-CHO-750",
@@ -7378,26 +7207,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Koyu çikolata ve kavruk kakao çekirdeği zenginliği; kahve içeceklerinde dengeli ve kalıcı tatlılık.",
-    "imageUrl": "/beyazresimler/karisik/karisik_117.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 280,
-    "vatRate": 20,
-    "order": 238,
-    "tags": [
-      "Monte Cristo",
-      "Çikolata",
-      "Mocha",
-      "Kahve Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Çikolata (Chocolate)",
-      "Kullanım": "Mocha, Çikolatalı Frappe, Sıcak Süt",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_117.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 300,
+    "tags": [
+      "Monte Cristo",
+      "Pumpkin Spice",
+      "Balkabağı",
+      "Sonbahar"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ML"
+    },
+    "order": 239,
     "id": "prod-byz-118",
     "name": "Monte Cristo Balkabağı Baharatı (Pumpkin Spice) Aromalı Şurup 750ml",
     "code": "MCR-SYR-PMP-750",
@@ -7406,26 +7234,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Sonbaharın en popüler içeceği Pumpkin Spice Latte için tarçın, hindistan cevizi cevizi (muskat), karanfil ve tatlı balkabağı miksi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_118.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 280,
-    "vatRate": 20,
-    "order": 239,
-    "tags": [
-      "Monte Cristo",
-      "Pumpkin Spice",
-      "Balkabağı",
-      "Sonbahar"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Pumpkin Spice (Balkabağı Baharatı)",
-      "Kullanım": "Pumpkin Spice Latte, Soğuk Köpük, Sıcak Kahve",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_118.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Monte Cristo",
+      "Speculaas",
+      "Bisküvi Şurubu",
+      "Lotus"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 240,
     "id": "prod-byz-119",
     "name": "Monte Cristo Speculaas (Karamelli Bisküvi) Aromalı Şurup 750ml",
     "code": "MCR-SYR-SPC-750",
@@ -7434,26 +7261,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Geleneksel Hollanda/Belçika baharatlı bisküvisi lezzeti; kahvelere tereyağlı tarçınlı çıtır bisküvi hissi verir.",
-    "imageUrl": "/beyazresimler/karisik/karisik_119.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 280,
-    "vatRate": 20,
-    "order": 240,
-    "tags": [
-      "Monte Cristo",
-      "Speculaas",
-      "Bisküvi Şurubu",
-      "Lotus"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Speculaas (Karamelli Bisküvi)",
-      "Kullanım": "Speculaas Latte, Frappe, Sıcak Çikolata",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_119.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1020,
+    "tags": [
+      "20:45",
+      "Tuzlu Kurabiye",
+      "Donuk Unlu Mamul"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1900 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 241,
     "id": "prod-byz-120",
     "name": "FRAMBUAZLI CHEESCAKE",
     "code": "YKB-DNK-TKR-003",
@@ -7462,25 +7292,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Çörekotu taneleriyle süslenmiş gevrek mini tuzlu kurabiye; toplantı araları ve çay ikramlarında profesyonel çözüm.",
-    "imageUrl": "/beyazresimler/karisik/karisik_120.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_120.png"
+  },
+  {
     "isActive": true,
     "isFeatured": false,
-    "price": 1020,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 241,
+    "price": 1020,
     "tags": [
       "20:45",
-      "Tuzlu Kurabiye",
+      "Kurabiye Tabağı",
       "Donuk Unlu Mamul"
     ],
     "specs": {
-      "Gramaj": "1 kg Koli",
-      "Çeşit": "Dereotlu Tuzlu Kurabiye",
-      "Kullanım": "İkramlık, Çay Saati",
-      "Menşei": "Türkiye"
-    }
-  },
-  {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1900 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 242,
     "id": "prod-byz-121",
     "name": "FRAMBUAZLI CHEESCAKE",
     "code": "YKB-DNK-TKR-004",
@@ -7489,25 +7323,24 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Servise hazır porsiyon sunumuyla kafe ve restoran operasyonlarında zamandan tasarruf sağlayan pratik unlu mamul.",
-    "imageUrl": "/beyazresimler/karisik/karisik_121.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1020,
-    "vatRate": 20,
-    "order": 242,
-    "tags": [
-      "20:45",
-      "Kurabiye Tabağı",
-      "Donuk Unlu Mamul"
-    ],
-    "specs": {
-      "Gramaj": "1 kg Koli",
-      "Çeşit": "Mini Tuzlu Kurabiye Porsiyon",
-      "Kullanım": "Kafe Menüsü, Kahve Yanı",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_121.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 732,
+    "tags": [
+      "Caffè NONNO",
+      "Ananas",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 243,
     "id": "prod-byz-122",
     "name": "Caffè NONNO Ananas Frozen Meyve Püresi 750ml (Açı 2)",
     "code": "NON-FRZ-PIN-750-B",
@@ -7516,25 +7349,24 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Yoğun meyve oranıyla hazırlanan tropikal ananas püresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_122.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 243,
-    "tags": [
-      "Caffè NONNO",
-      "Ananas",
-      "Frozen Püre"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Ananas",
-      "Kullanım": "Frozen, Kokteyl, Smoothie",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_122.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 325,
+    "tags": [
+      "Caffè NONNO",
+      "Cool Poka",
+      "Bar Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 244,
     "id": "prod-byz-123",
     "name": "Caffè NONNO Cool Poka Aromalı Şurup 750ml (Açı 2)",
     "code": "NON-SYR-CPK-750-B",
@@ -7543,25 +7375,24 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Serinletici aromatik meyve ve botanik şurup bazı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_123.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 244,
-    "tags": [
-      "Caffè NONNO",
-      "Cool Poka",
-      "Bar Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Cool Poka",
-      "Kullanım": "Buzlu İçecek, Soda",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_123.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 350,
+    "tags": [
+      "Caffè NONNO",
+      "Kurabiye Şurubu",
+      "Kahve"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 GR"
+    },
+    "order": 245,
     "id": "prod-byz-124",
     "name": "Caffè NONNO Chocolate Cookies Aromalı Şurup 750ml (Açı 2)",
     "code": "NON-SYR-CCK-750-B",
@@ -7570,25 +7401,24 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Kakaolu çikolatalı kurabiye tadıyla zenginleştirilmiş kahve şurubu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_124.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 270,
-    "vatRate": 20,
-    "order": 245,
-    "tags": [
-      "Caffè NONNO",
-      "Kurabiye Şurubu",
-      "Kahve"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Chocolate Cookies",
-      "Kullanım": "Latte, Frappe, Milkshake",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_124.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 350,
+    "tags": [
+      "Caffè NONNO",
+      "Vişne",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 GR"
+    },
+    "order": 246,
     "id": "prod-byz-125",
     "name": "Caffè NONNO Vişne Frozen Meyve Püresi 750ml (Açı 2)",
     "code": "NON-FRZ-CHR-750-B",
@@ -7597,25 +7427,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Doğal vişne mayhoşluğu içeren profesyonel frozen meyve püresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_125.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 246,
-    "tags": [
-      "Caffè NONNO",
-      "Vişne",
-      "Frozen Püre"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Vişne",
-      "Kullanım": "Frozen, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_125.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1020,
+    "tags": [
+      "20:45",
+      "Mini Poğaça",
+      "Donuk Unlu Mamul"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1900 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 247,
     "id": "prod-byz-126",
     "name": "FRAMBUAZLI CHEESCAKE",
     "code": "YKB-DNK-POG-003",
@@ -7624,25 +7458,24 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Fırından yeni çıkmış sıcaklığıyla leziz peynirli mini top poğaça.",
-    "imageUrl": "/beyazresimler/karisik/karisik_126.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1020,
-    "vatRate": 20,
-    "order": 247,
-    "tags": [
-      "20:45",
-      "Mini Poğaça",
-      "Donuk Unlu Mamul"
-    ],
-    "specs": {
-      "Gramaj": "1 kg Koli",
-      "Çeşit": "Peynirli Poğaça",
-      "Kullanım": "Kahvaltı, Sıcak Servis",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_126.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 310,
+    "tags": [
+      "Caffè NONNO",
+      "Muz",
+      "Frozen Püre"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ml"
+    },
+    "order": 248,
     "id": "prod-byz-127",
     "name": "Caffè NONNO Muz Frozen Meyve Püresi 750ml (Açı 2)",
     "code": "NON-FRZ-BAN-750-B",
@@ -7651,25 +7484,24 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Tatlı muz lezzeti ve kremsi doku sağlayan meyve püresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_127.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_127.png"
+  },
+  {
     "isActive": true,
     "isFeatured": false,
-    "price": 310,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 248,
+    "price": 508,
     "tags": [
       "Caffè NONNO",
-      "Muz",
+      "Yeşil Elma",
       "Frozen Püre"
     ],
     "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Muz",
-      "Kullanım": "Smoothie, Milkshake, Frozen",
-      "Menşei": "Türkiye"
-    }
-  },
-  {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "1000 GR"
+    },
+    "order": 249,
     "id": "prod-byz-128",
     "name": "Caffè NONNO Yeşil Elma Frozen Meyve Püresi 750ml (Açı 2)",
     "code": "NON-FRZ-GAP-750-B",
@@ -7678,25 +7510,29 @@ const RAW_PRODUCTS = [
     "categoryName": "Püreler",
     "categorySlug": "pureler",
     "description": "Ferahlatıcı kütür ekşi elma tadı içeren frozen püresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_128.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 310,
-    "vatRate": 20,
-    "order": 249,
-    "tags": [
-      "Caffè NONNO",
-      "Yeşil Elma",
-      "Frozen Püre"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Yeşil Elma",
-      "Kullanım": "Frozen, Kokteyl, Soda",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_128.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 1020,
+    "tags": [
+      "20:45",
+      "Poğaça Tabağı",
+      "Donuk Unlu Mamul"
+    ],
+    "specs": {
+      "Raf Ömrü": "-18°C'de 12 Ay • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Çözünme Süresi": "+4°C dolapta 1-2 saat",
+      "Saklama Koşulu": "-18°C donuk muhafaza ediniz.",
+      "Kullanım": "+4°C dolapta çözündükten sonra tüketime hazırdır.",
+      "Dilim Gramaj": "160 GR",
+      "Kutu Gramaj": "1900 GR",
+      "Kutu İçi Dilim Adeti": "12 Dilim"
+    },
+    "order": 250,
     "id": "prod-byz-129",
     "name": "FRAMBUAZLI CHEESCAKE",
     "code": "YKB-DNK-POG-004",
@@ -7705,25 +7541,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
     "description": "Peynir dolgulu mini poğaçaların porsiyonluk gurme sunumu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_129.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 1020,
-    "vatRate": 20,
-    "order": 250,
-    "tags": [
-      "20:45",
-      "Poğaça Tabağı",
-      "Donuk Unlu Mamul"
-    ],
-    "specs": {
-      "Gramaj": "1 kg Koli",
-      "Çeşit": "Mini Poğaça Tabağı",
-      "Kullanım": "Otel Büfe, Kafe Menüsü",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_129.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 275,
+    "tags": [
+      "CALLEI",
+      "İnci Draje",
+      "Pembe Şekerleme",
+      "Pasta Süsleme"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 251,
     "id": "prod-byz-130",
     "name": "CALLEI Pembe İncili Şekerleme Draje 1kg",
     "code": "CAL-SUS-PIN-1000",
@@ -7732,26 +7568,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Waffle Çikolataları",
     "categorySlug": "waffle-malzemeleri",
     "description": "Sedefli pembe inci görünümünde parlak şekerleme drajeleri; butik pastalar, nişan-düğün tatlıları ve şık waffle tabakları için zarif süsleme.",
-    "imageUrl": "/beyazresimler/karisik/karisik_130.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 290,
-    "vatRate": 20,
-    "order": 251,
-    "tags": [
-      "CALLEI",
-      "İnci Draje",
-      "Pembe Şekerleme",
-      "Pasta Süsleme"
-    ],
-    "specs": {
-      "Gramaj": "1 kg",
-      "Çeşit": "Pembe İnci Draje",
-      "Kullanım": "Butik Pasta, Özel Gün Pastaları, Waffle",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_130.png"
   },
   {
+    "isActive": true,
+    "isFeatured": true,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 300,
+    "tags": [
+      "Monte Cristo",
+      "Tarçın",
+      "Cinnamon",
+      "Barista Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "700 ML"
+    },
+    "order": 252,
     "id": "prod-byz-131",
     "name": "Monte Cristo Tarçın (Cinnamon) Aromalı Barista Şurubu 750ml",
     "code": "MCR-SYR-CIN-750",
@@ -7760,40 +7595,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Seylan tarçınının sıcacık odunsu ve baharatlı aroması; kış kahveleri, elmalı sıcak içecekler ve salep zenginleştirmede mükemmel.",
-    "imageUrl": "/beyazresimler/karisik/karisik_131.png",
-    "isActive": true,
-    "isFeatured": true,
-    "price": 280,
-    "vatRate": 20,
-    "order": 252,
-    "tags": [
-      "Monte Cristo",
-      "Tarçın",
-      "Cinnamon",
-      "Barista Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Tarçın (Cinnamon)",
-      "Kullanım": "Cinnamon Latte, Sıcak Elma Çayı, Kahve",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_131.png"
   },
   {
-    "id": "prod-byz-132",
-    "name": "CALLEI Bitter Çıtır Pirinç Patlaklı Çikolata Draje (Crispy Pearl) 1kg",
-    "code": "CAL-SUS-BCP-1000",
-    "codeGroup": "CALLEI Chocolate",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "description": "İçi çıtır çıtır kavrulmuş pirinç patlağı, dışı kaliteli bitter çikolata kaplı minik inciler; mus, tatlı ve waffle üzerinde hafif çıtır doku sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_132.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 320,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 253,
+    "price": 3500,
     "tags": [
       "CALLEI",
       "Pirinç Patlağı",
@@ -7802,13 +7611,38 @@ const RAW_PRODUCTS = [
       "Draje"
     ],
     "specs": {
-      "Gramaj": "1 kg",
-      "Çeşit": "Bitter Crispy Pearl (Pirinç Patlaklı Draje)",
-      "Kullanım": "Pasta, Mus, Waffle, Dondurma Topping",
-      "Menşei": "Türkiye"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Kutu İçi Dilim Adeti": "10 Adet",
+      "Miktar": "750 ML"
+    },
+    "order": 253,
+    "id": "prod-byz-132",
+    "name": "CALLEI Bitter Çıtır Pirinç Patlaklı Çikolata Draje (Crispy Pearl) 1kg",
+    "code": "CAL-SUS-BCP-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "İçi çıtır çıtır kavrulmuş pirinç patlağı, dışı kaliteli bitter çikolata kaplı minik inciler; mus, tatlı ve waffle üzerinde hafif çıtır doku sağlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_132.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Monte Cristo",
+      "Nar",
+      "Pomegranate",
+      "Bar Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 254,
     "id": "prod-byz-133",
     "name": "Monte Cristo Nar (Pomegranate) Aromalı Barista Şurubu 750ml",
     "code": "MCR-SYR-POM-750",
@@ -7817,26 +7651,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Olgun narların yakut kırmızısı rengi ve ferahlatıcı mayhoşluğu; kokteyl barlarında renklendirme ve meyve tadı için tercih edilir.",
-    "imageUrl": "/beyazresimler/karisik/karisik_133.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 280,
-    "vatRate": 20,
-    "order": 254,
-    "tags": [
-      "Monte Cristo",
-      "Nar",
-      "Pomegranate",
-      "Bar Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Nar (Pomegranate)",
-      "Kullanım": "Grenadine İçecekler, Limonata, Kokteyl",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_133.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Monte Cristo",
+      "Hindistan Cevizi",
+      "Coconut",
+      "Tropikal Şurup"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 255,
     "id": "prod-byz-134",
     "name": "Monte Cristo Hindistan Cevizi (Coconut) Aromalı Barista Şurubu 750ml",
     "code": "MCR-SYR-COC-750",
@@ -7845,26 +7678,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Taze tropikal Hindistan cevizinin sütlü aroması; buzlu kahveler, soğuk köpükler ve egzotik kokteyllere zenginlik katar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_134.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 280,
-    "vatRate": 20,
-    "order": 255,
-    "tags": [
-      "Monte Cristo",
-      "Hindistan Cevizi",
-      "Coconut",
-      "Tropikal Şurup"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Hindistan Cevizi (Coconut)",
-      "Kullanım": "Coconut Cold Brew, Latte, Piña Colada",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_134.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 350,
+    "tags": [
+      "Monte Cristo",
+      "Lime",
+      "Misket Limonu",
+      "Kokteyl Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 GR"
+    },
+    "order": 256,
     "id": "prod-byz-135",
     "name": "Monte Cristo Misket Limonu (Lime) Aromalı Barista Şurubu 750ml",
     "code": "MCR-SYR-LIM-750",
@@ -7873,40 +7705,14 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Yeşil lime narenciyesinin canlandırıcı ekşiliği; barlarda hızlı ve dengeli Margarita, Mojito ve limonata hazırlığı sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_135.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 280,
-    "vatRate": 20,
-    "order": 256,
-    "tags": [
-      "Monte Cristo",
-      "Lime",
-      "Misket Limonu",
-      "Kokteyl Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Lime (Misket Limonu)",
-      "Kullanım": "Margarita, Mojito, Soğuk Soda, Limonata",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_135.png"
   },
   {
-    "id": "prod-byz-136",
-    "name": "CALLEI Beyaz Çıtır Pirinç Patlaklı Çikolata Draje (White Crispy Pearl) 1kg",
-    "code": "CAL-SUS-WCP-1000",
-    "codeGroup": "CALLEI Chocolate",
-    "categoryId": "cat-3",
-    "categoryName": "Waffle Çikolataları",
-    "categorySlug": "waffle-malzemeleri",
-    "description": "İçi gevrek pirinç patlağı, dışı kremsi beyaz çikolata kaplı sedef görünümlü drajeler; pastacılık ve tatlı sunumlarında şıklık yaratır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_136.png",
     "isActive": true,
     "isFeatured": false,
-    "price": 320,
+    "isBestSeller": false,
     "vatRate": 20,
-    "order": 257,
+    "price": 420,
     "tags": [
       "CALLEI",
       "Beyaz Çikolata",
@@ -7915,13 +7721,36 @@ const RAW_PRODUCTS = [
       "Draje"
     ],
     "specs": {
-      "Gramaj": "1 kg",
-      "Çeşit": "Beyaz Crispy Pearl (Pirinç Patlaklı Draje)",
-      "Kullanım": "Tatlı Süsleme, Waffle, Pasta, Dondurma",
-      "Menşei": "Türkiye"
-    }
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 257,
+    "id": "prod-byz-136",
+    "name": "CALLEI Beyaz Çıtır Pirinç Patlaklı Çikolata Draje (White Crispy Pearl) 1kg",
+    "code": "CAL-SUS-WCP-1000",
+    "codeGroup": "CALLEI Chocolate",
+    "categoryId": "cat-3",
+    "categoryName": "Waffle Çikolataları",
+    "categorySlug": "waffle-malzemeleri",
+    "description": "İçi gevrek pirinç patlağı, dışı kremsi beyaz çikolata kaplı sedef görünümlü drajeler; pastacılık ve tatlı sunumlarında şıklık yaratır.",
+    "imageUrl": "/beyazresimler/karisik/karisik_136.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 350,
+    "tags": [
+      "Monte Cristo",
+      "Lime",
+      "Misket Limonu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 GR"
+    },
+    "order": 258,
     "id": "prod-byz-137",
     "name": "Monte Cristo Misket Limonu Aromalı Barista Şurubu 750ml (Açı 2)",
     "code": "MCR-SYR-LIM-750-B",
@@ -7930,25 +7759,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Yeşil misket limonu notalarıyla zenginleştirilmiş barmen ve barista şurubu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_137.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 280,
-    "vatRate": 20,
-    "order": 258,
-    "tags": [
-      "Monte Cristo",
-      "Lime",
-      "Misket Limonu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Lime",
-      "Kullanım": "Kokteyl, Mocktail, Limonata",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_137.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 760,
+    "tags": [
+      "Monte Cristo",
+      "Karpuz",
+      "Watermelon",
+      "Bar Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 259,
     "id": "prod-byz-138",
     "name": "Monte Cristo Karpuz (Watermelon) Aromalı Barista Şurubu 750ml",
     "code": "MCR-SYR-WTR-750",
@@ -7957,26 +7786,25 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Ferahlatıcı yaz karpuzunun tatlı meyve aroması ve canlı kırmızı tonu; buzlu içecek ve frozen reçetelerinde serinlik fırtınası.",
-    "imageUrl": "/beyazresimler/karisik/karisik_138.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 280,
-    "vatRate": 20,
-    "order": 259,
-    "tags": [
-      "Monte Cristo",
-      "Karpuz",
-      "Watermelon",
-      "Bar Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Karpuz (Watermelon)",
-      "Kullanım": "Karpuzlu Soda, Frozen, Yaz Kokteylleri",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_138.png"
   },
   {
+    "isActive": true,
+    "isFeatured": false,
+    "isBestSeller": false,
+    "vatRate": 20,
+    "price": 688,
+    "tags": [
+      "Monte Cristo",
+      "Fındık",
+      "Hazelnut",
+      "Kahve Şurubu"
+    ],
+    "specs": {
+      "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
+      "Miktar": "750 ML"
+    },
+    "order": 260,
     "id": "prod-byz-139",
     "name": "Monte Cristo Fındık (Hazelnut) Aromalı Barista Şurubu 750ml",
     "code": "MCR-SYR-HAZ-750",
@@ -7985,24 +7813,7 @@ const RAW_PRODUCTS = [
     "categoryName": "Şuruplar",
     "categorySlug": "suruplar",
     "description": "Kavrulmuş fındık tanelerinin dolgun aroması; espresso ve filtre kahveye sıcacık fındık lezzeti katar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_139.png",
-    "isActive": true,
-    "isFeatured": false,
-    "price": 280,
-    "vatRate": 20,
-    "order": 260,
-    "tags": [
-      "Monte Cristo",
-      "Fındık",
-      "Hazelnut",
-      "Kahve Şurubu"
-    ],
-    "specs": {
-      "Hacim": "750 ml",
-      "Aroma": "Fındık (Hazelnut)",
-      "Kullanım": "Hazelnut Latte, Americano, Frappe",
-      "Menşei": "Türkiye"
-    }
+    "imageUrl": "/beyazresimler/karisik/karisik_139.png"
   }
 ];
 
