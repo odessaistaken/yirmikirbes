@@ -1,0 +1,34 @@
+[
+  {
+    "_id": "FrbOu5QeTameJaWxpJuI",
+    "phone": "551 106 55 28",
+    "status": "new",
+    "name": " sefa Akbudak",
+    "email": "sefaakbudak2@gmail.com",
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1788253648,
+      "nanoseconds": 354000000,
+      "iso": "2026-09-01T09:07:28.354Z"
+    },
+    "company": "Felides Agency",
+    "message": "whhgvvbnmbvcgjjnnbbnnnj",
+    "subject": "Toplu Sipariş Teklifi"
+  },
+  {
+    "_id": "wKQ3tMwlkvIcNUtT5nz7",
+    "phone": "5510415162",
+    "email": "info@felidesagency.com",
+    "status": "new",
+    "company": "FELİDES AGENCY",
+    "subject": "Ürün ve Fiyat Bilgisi",
+    "message": "davinci ürünlerinizin fiyat bilgisini almak istiyorum",
+    "name": "veli kaan akbudak",
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1787659384,
+      "nanoseconds": 113000000,
+      "iso": "2026-08-25T12:03:04.113Z"
+    }
+  }
+]

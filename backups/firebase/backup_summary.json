@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-10-16T17:49:02.564Z",
+  "backupTimeLocal": "16.10.2026 20:49:02",
+  "totalDocuments": 309,
+  "collections": {
+    "products": 270,
+    "categories": 26,
+    "sliders": 3,
+    "brands": 6,
+    "inquiries": 0,
+    "contact_messages": 2,
+    "users": 2,
+    "excel_imports": 0,
+    "site_settings": 0,
+    "settings": 0,
+    "totalDocuments": 309
+  },
+  "files": {
+    "latestFullBackup": "backups/firebase/firestore_backup_latest.json",
+    "historicalBackup": "backups/firebase/history/firestore_backup_2026-10-16T17-49-02-541Z.json",
+    "collectionsDirectory": "backups/firebase/collections/"
+  }
+}

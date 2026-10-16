@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "Cf7psOGelCXh9vJkAbofrPdBble2",
+    "name": "admin",
+    "uid": "Cf7psOGelCXh9vJkAbofrPdBble2",
+    "company": "2045",
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1785955271,
+      "nanoseconds": 932000000,
+      "iso": "2026-08-05T18:41:11.932Z"
+    },
+    "email": "ykbgida@gmail.com",
+    "phone": "0501 073 71 13",
+    "role": "admin"
+  },
+  {
+    "_id": "ugwradYx7wRHmew0hmvTudxYRFW2",
+    "uid": "ugwradYx7wRHmew0hmvTudxYRFW2",
+    "phone": "5510415162",
+    "company": "FELİDES AGENCY",
+    "role": "user",
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1787659337,
+      "nanoseconds": 807000000,
+      "iso": "2026-08-25T12:02:17.807Z"
+    },
+    "name": "veli kaan akbudak",
+    "email": "info@felidesagency.com"
+  }
+]

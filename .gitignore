@@ -47,3 +47,9 @@ next-env.d.ts
 scratch/
 __pycache__/
 *.pyc
+
+# backup archives (large zip files)
+*.zip
+backups/archives/
+backups/*.zip
+

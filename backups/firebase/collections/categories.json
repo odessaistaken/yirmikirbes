@@ -1,0 +1,521 @@
+[
+  {
+    "_id": "cat-1",
+    "description": "DaVinci Fruit Mix ve Krater zengin meyve püreleri ile bar ve pastacılık meyve karışımları.",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790654105,
+      "nanoseconds": 109000000,
+      "iso": "2026-09-29T03:55:05.109Z"
+    },
+    "name": "Püreler",
+    "slug": "pureler",
+    "imageUrl": "/beyazresimler/karisik/karisik_001.png",
+    "id": "cat-1",
+    "icon": "🍓",
+    "order": 12,
+    "isActive": true,
+    "productCount": 31
+  },
+  {
+    "_id": "cat-1790668749112",
+    "imageStoragePath": "",
+    "id": "cat-1790668749112",
+    "isActive": true,
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1792066397,
+      "nanoseconds": 74000000,
+      "iso": "2026-10-15T12:13:17.074Z"
+    },
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1790668749,
+      "nanoseconds": 274000000,
+      "iso": "2026-09-29T07:59:09.274Z"
+    },
+    "parentId": "cat-3",
+    "description": "",
+    "order": 17,
+    "imageUrl": "",
+    "name": "Waffle Çikolataları",
+    "slug": "waffle-cikolatalari"
+  },
+  {
+    "_id": "cat-1790668777717",
+    "order": 1,
+    "imageUrl": "",
+    "imageStoragePath": "",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1792066426,
+      "nanoseconds": 416000000,
+      "iso": "2026-10-15T12:13:46.416Z"
+    },
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1790668777,
+      "nanoseconds": 883000000,
+      "iso": "2026-09-29T07:59:37.883Z"
+    },
+    "description": "",
+    "slug": "waffle-hamuru-mix",
+    "id": "cat-1790668777717",
+    "parentId": "cat-3",
+    "isActive": true,
+    "name": "Waffle Hamuru & Mix"
+  },
+  {
+    "_id": "cat-1790668787142",
+    "description": "",
+    "order": 18,
+    "id": "cat-1790668787142",
+    "imageStoragePath": "",
+    "imageUrl": "",
+    "parentId": "cat-3",
+    "slug": "waffle-suslemeleri",
+    "name": "Waffle Süslemeleri",
+    "isActive": true,
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1792066473,
+      "nanoseconds": 228000000,
+      "iso": "2026-10-15T12:14:33.228Z"
+    },
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1790668787,
+      "nanoseconds": 289000000,
+      "iso": "2026-09-29T07:59:47.289Z"
+    }
+  },
+  {
+    "_id": "cat-1792072881776",
+    "order": 19,
+    "imageUrl": "",
+    "description": "",
+    "id": "cat-1792072881776",
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1792072882,
+      "nanoseconds": 235000000,
+      "iso": "2026-10-15T14:01:22.235Z"
+    },
+    "isActive": true,
+    "slug": "sandvi-c",
+    "name": "SANDVİÇ",
+    "parentId": "",
+    "imageStoragePath": ""
+  },
+  {
+    "_id": "cat-1792159145530",
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1792159146,
+      "nanoseconds": 175000000,
+      "iso": "2026-10-16T13:59:06.175Z"
+    },
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1792159414,
+      "nanoseconds": 853000000,
+      "iso": "2026-10-16T14:03:34.853Z"
+    },
+    "slug": "davinci-gourmet-suruplari",
+    "id": "cat-1792159145530",
+    "description": "",
+    "parentId": "cat-2",
+    "name": "DaVinci Gourmet Şurupları",
+    "isActive": true,
+    "imageStoragePath": "",
+    "order": 1,
+    "imageUrl": ""
+  },
+  {
+    "_id": "cat-1792159460097",
+    "description": "",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1792159571,
+      "nanoseconds": 825000000,
+      "iso": "2026-10-16T14:06:11.825Z"
+    },
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1792159460,
+      "nanoseconds": 469000000,
+      "iso": "2026-10-16T14:04:20.469Z"
+    },
+    "id": "cat-1792159460097",
+    "imageUrl": "",
+    "order": 2,
+    "isActive": true,
+    "name": "Caffè NONNO Şurupları",
+    "parentId": "cat-2",
+    "imageStoragePath": "",
+    "slug": "caff-nonno-suruplari"
+  },
+  {
+    "_id": "cat-1792159526675",
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1792159527,
+      "nanoseconds": 208000000,
+      "iso": "2026-10-16T14:05:27.208Z"
+    },
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1792159590,
+      "nanoseconds": 707000000,
+      "iso": "2026-10-16T14:06:30.707Z"
+    },
+    "slug": "monte-cristo-suruplari",
+    "id": "cat-1792159526675",
+    "parentId": "cat-2",
+    "description": "",
+    "name": "Monte Cristo Şurupları",
+    "order": 3,
+    "isActive": true,
+    "imageStoragePath": "",
+    "imageUrl": ""
+  },
+  {
+    "_id": "cat-1792159660497",
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1792159660,
+      "nanoseconds": 976000000,
+      "iso": "2026-10-16T14:07:40.976Z"
+    },
+    "isActive": true,
+    "imageStoragePath": "",
+    "order": 1,
+    "parentId": "cat-4",
+    "description": "",
+    "slug": "davinci-gourmet-bar-soslar",
+    "id": "cat-1792159660497",
+    "imageUrl": "",
+    "name": "DaVinci Gourmet Bar Soslar"
+  },
+  {
+    "_id": "cat-1792159702988",
+    "slug": "davinci-gourmet-pureler",
+    "parentId": "cat-1",
+    "imageStoragePath": "",
+    "isActive": true,
+    "order": 1,
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1792159703,
+      "nanoseconds": 251000000,
+      "iso": "2026-10-16T14:08:23.251Z"
+    },
+    "name": "DaVinci Gourmet Püreler",
+    "description": "",
+    "id": "cat-1792159702988",
+    "imageUrl": ""
+  },
+  {
+    "_id": "cat-1792159793131",
+    "id": "cat-1792159793131",
+    "slug": "krater-pureler-davi-nci-eko",
+    "parentId": "cat-1",
+    "description": "",
+    "name": "KRATER Püreler (DAVİNCİ EKO)",
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1792159793,
+      "nanoseconds": 658000000,
+      "iso": "2026-10-16T14:09:53.658Z"
+    },
+    "isActive": true,
+    "imageUrl": "",
+    "imageStoragePath": "",
+    "order": 2
+  },
+  {
+    "_id": "cat-1792159899479",
+    "order": 3,
+    "description": "",
+    "id": "cat-1792159899479",
+    "imageUrl": "",
+    "isActive": true,
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1792159899,
+      "nanoseconds": 897000000,
+      "iso": "2026-10-16T14:11:39.897Z"
+    },
+    "name": "Caffè NONNO Püreler",
+    "imageStoragePath": "",
+    "parentId": "cat-1",
+    "slug": "caff-nonno-pureler"
+  },
+  {
+    "_id": "cat-2",
+    "imageUrl": "/beyazresimler/karisik/karisik_021.png",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790654104,
+      "nanoseconds": 635000000,
+      "iso": "2026-09-29T03:55:04.635Z"
+    },
+    "id": "cat-2",
+    "icon": "🍯",
+    "description": "DaVinci Gourmet, Caffè NONNO ve Monte Cristo aromalı kahve, kokteyl ve barista şurupları.",
+    "order": 9,
+    "productCount": 51,
+    "isActive": true,
+    "slug": "suruplar",
+    "name": "Şuruplar"
+  },
+  {
+    "_id": "cat-3",
+    "id": "cat-3",
+    "parentId": "",
+    "slug": "waffle-malzemeleri",
+    "description": "CALLEI sürülebilir renkli aromalı kremalar, çıtır pirinç patlakları, drajeler ve fındık krokan süsleme çeşitleri.",
+    "productCount": 21,
+    "name": "Waffle Malzemeleri",
+    "isActive": true,
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790668729,
+      "nanoseconds": 947000000,
+      "iso": "2026-09-29T07:58:49.947Z"
+    },
+    "imageUrl": "/beyazresimler/karisik/karisik_081.png",
+    "imageStoragePath": "",
+    "icon": "🧇",
+    "order": 6
+  },
+  {
+    "_id": "cat-4",
+    "slug": "bar-sos",
+    "imageUrl": "/beyazresimler/karisik/karisik_004.png",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790654104,
+      "nanoseconds": 951000000,
+      "iso": "2026-09-29T03:55:04.951Z"
+    },
+    "name": "Bar Sos",
+    "description": "DaVinci Gourmet ve Caffè NONNO karamel, çikolata, beyaz çikolata ve condensed milk gurme bar sosları.",
+    "productCount": 10,
+    "isActive": true,
+    "id": "cat-4",
+    "icon": "🍫",
+    "order": 11
+  },
+  {
+    "_id": "cat-5",
+    "imageUrl": "/resimler/pt12/pt12_13.png",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790654103,
+      "nanoseconds": 605000000,
+      "iso": "2026-09-29T03:55:03.605Z"
+    },
+    "productCount": 74,
+    "slug": "donuk-pasta",
+    "id": "cat-5",
+    "name": "Donuk Pastalar",
+    "description": "Kafeterya ve restoranlar için pratik, lezzetli donuk cheesecake'ler, tiramisu, mono kutu pastalar, dilimli pastalar ve unlu mamuller.",
+    "isActive": true,
+    "parentId": "cat-8",
+    "order": 3,
+    "icon": "❄️"
+  },
+  {
+    "_id": "cat-6",
+    "slug": "spray-santi",
+    "imageUrl": "/resimler/kategoriler/spray-santi.png",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1792037510,
+      "nanoseconds": 338000000,
+      "iso": "2026-10-15T04:11:50.338Z"
+    },
+    "description": "Chantilly, ganaj ve profesyonel pastacılık krema hammaddeleri.",
+    "name": "Spray & Şanti",
+    "productCount": 0,
+    "isActive": true,
+    "id": "cat-6",
+    "imageStoragePath": "",
+    "icon": "🍦",
+    "parentId": "",
+    "order": 8
+  },
+  {
+    "_id": "cat-7",
+    "parentId": "cat-2",
+    "productCount": 18,
+    "icon": "🍹",
+    "id": "cat-7",
+    "isActive": true,
+    "name": "Easy Mix Kokteyller",
+    "order": 10,
+    "description": "EASY MIX doğal meyve ve botanik kokteyl premiksleri, bar kokteylleri ve mocktailler için profesyonel karışımlar.",
+    "imageUrl": "/beyazresimler/karisik/karisik_052.png",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1792159295,
+      "nanoseconds": 958000000,
+      "iso": "2026-10-16T14:01:35.958Z"
+    },
+    "imageStoragePath": "",
+    "slug": "easy-mix-kokteyller"
+  },
+  {
+    "_id": "cat-8",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790654103,
+      "nanoseconds": 265000000,
+      "iso": "2026-09-29T03:55:03.265Z"
+    },
+    "description": "Özenle seçilmiş malzemelerle hazırlanan el yapımı butik pastalar, donuk cheesecake'ler ve tek porsiyonluk gurme lezzetler.",
+    "isActive": true,
+    "name": "Pastalar",
+    "id": "cat-8",
+    "order": 1,
+    "slug": "pastalar",
+    "productCount": 129,
+    "icon": "🎂",
+    "imageUrl": "/resimler/pt13/pt13_1.png"
+  },
+  {
+    "_id": "cat-9",
+    "name": "Butik Pastalar",
+    "slug": "taze-butik-pastalar",
+    "order": 2,
+    "productCount": 55,
+    "imageUrl": "/resimler/pt14/pt14_2.png",
+    "icon": "🍰",
+    "parentId": "cat-8",
+    "description": "Günlük taze üretim, el yapımı mono ve dilimli butik pasta ve tatlı çeşitleri.",
+    "isActive": true,
+    "id": "cat-9",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790654103,
+      "nanoseconds": 445000000,
+      "iso": "2026-09-29T03:55:03.445Z"
+    }
+  },
+  {
+    "_id": "cat-butik-cup",
+    "icon": "🧁",
+    "isActive": true,
+    "parentId": "cat-8",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1792065544,
+      "nanoseconds": 768000000,
+      "iso": "2026-10-15T11:59:04.768Z"
+    },
+    "imageStoragePath": "",
+    "description": "Bireysel servis ve sunumlar için özel tasarlanmış butik cup tatlı ve magnolia çeşitleri.",
+    "order": 4,
+    "id": "cat-butik-cup",
+    "imageUrl": "/resimler/pt15/pt15_1.png",
+    "name": "Cup Tatlılar",
+    "productCount": 0,
+    "slug": "cup-tatlilar"
+  },
+  {
+    "_id": "cat-ekipmanlar",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790673400,
+      "nanoseconds": 677000000,
+      "iso": "2026-09-29T09:16:40.677Z"
+    },
+    "slug": "ekipmanlar",
+    "isActive": false,
+    "productCount": 0,
+    "parentId": "",
+    "name": "Ekipmanlar",
+    "order": 15,
+    "id": "cat-ekipmanlar",
+    "imageUrl": "/resimler/kategoriler/ekipmanlar.jpg",
+    "icon": "🔧",
+    "imageStoragePath": "",
+    "description": "Profesyonel pastacılık ve barista ekipmanları, servis ve mutfak araç gereçleri."
+  },
+  {
+    "_id": "cat-kasa-onu",
+    "parentId": "",
+    "icon": "🍬",
+    "description": "Kasa önü atıştırmalıklar, ikramlık ve impuls ürün seçenekleri.",
+    "isActive": true,
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790673410,
+      "nanoseconds": 549000000,
+      "iso": "2026-09-29T09:16:50.549Z"
+    },
+    "productCount": 0,
+    "order": 13,
+    "id": "cat-kasa-onu",
+    "name": "Kasa Önü Ürünler",
+    "imageStoragePath": "",
+    "slug": "kasa-onu-urunler",
+    "imageUrl": "/resimler/kategoriler/ekipmanlar.jpg"
+  },
+  {
+    "_id": "cat-kremalar",
+    "icon": "🧁",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790654105,
+      "nanoseconds": 482000000,
+      "iso": "2026-09-29T03:55:05.482Z"
+    },
+    "isActive": true,
+    "order": 14,
+    "description": "Özel pastacılık, waffle ve tatlı kremaları, dolgu ve kaplama krema çeşitleri.",
+    "id": "cat-kremalar",
+    "name": "Kremalar",
+    "imageUrl": "/beyazresimler/karisik/karisik_081.png",
+    "slug": "kremalar",
+    "productCount": 0
+  },
+  {
+    "_id": "cat-kruvasan",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790654104,
+      "nanoseconds": 317000000,
+      "iso": "2026-09-29T03:55:04.317Z"
+    },
+    "isActive": true,
+    "icon": "🥐",
+    "productCount": 0,
+    "description": "Taze ve donuk kruvasan çeşitleri, Fransız usulü tereyağlı hamur işleri ve New York roll.",
+    "id": "cat-kruvasan",
+    "name": "Kruvasan",
+    "order": 7,
+    "imageUrl": "/resimler/pt18/pt18_7.png",
+    "slug": "kruvasan"
+  },
+  {
+    "_id": "cat-organizasyon",
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790654103,
+      "nanoseconds": 988000000,
+      "iso": "2026-09-29T03:55:03.988Z"
+    },
+    "imageUrl": "/resimler/pt13/pt13_2.png",
+    "name": "Organizasyon Pastaları",
+    "description": "Düğün, nişan, kutlama ve kurumsal etkinlikler için özel tasarım organizasyon pastaları.",
+    "productCount": 0,
+    "slug": "organizasyon-pastalari",
+    "icon": "🎊",
+    "isActive": true,
+    "parentId": "cat-8",
+    "order": 5,
+    "id": "cat-organizasyon"
+  }
+]

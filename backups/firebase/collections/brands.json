@@ -1,0 +1,128 @@
+[
+  {
+    "_id": "brand-1",
+    "logo": "☕",
+    "isActive": true,
+    "slug": "davinci-gourmet",
+    "name": "DaVinci Gourmet",
+    "id": "brand-1",
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1790646295,
+      "nanoseconds": 894000000,
+      "iso": "2026-09-29T01:44:55.894Z"
+    },
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790646295,
+      "nanoseconds": 894000000,
+      "iso": "2026-09-29T01:44:55.894Z"
+    },
+    "order": 1
+  },
+  {
+    "_id": "brand-2",
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1790646296,
+      "nanoseconds": 25000000,
+      "iso": "2026-09-29T01:44:56.025Z"
+    },
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790646296,
+      "nanoseconds": 25000000,
+      "iso": "2026-09-29T01:44:56.025Z"
+    },
+    "isActive": true,
+    "logo": "🍹",
+    "id": "brand-2",
+    "slug": "caffe-nonno",
+    "name": "Caffè NONNO",
+    "order": 2
+  },
+  {
+    "_id": "brand-3",
+    "order": 3,
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790646296,
+      "nanoseconds": 172000000,
+      "iso": "2026-09-29T01:44:56.172Z"
+    },
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1790646296,
+      "nanoseconds": 172000000,
+      "iso": "2026-09-29T01:44:56.172Z"
+    },
+    "name": "CALLEI Chocolate",
+    "isActive": true,
+    "id": "brand-3",
+    "slug": "callei",
+    "logo": "🍫"
+  },
+  {
+    "_id": "brand-4",
+    "order": 4,
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1790646296,
+      "nanoseconds": 302000000,
+      "iso": "2026-09-29T01:44:56.302Z"
+    },
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790646296,
+      "nanoseconds": 302000000,
+      "iso": "2026-09-29T01:44:56.302Z"
+    },
+    "name": "EASY MIX Premixes",
+    "id": "brand-4",
+    "slug": "easy-mix",
+    "logo": "🍸",
+    "isActive": true
+  },
+  {
+    "_id": "brand-5",
+    "name": "Krater",
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1790646296,
+      "nanoseconds": 452000000,
+      "iso": "2026-09-29T01:44:56.452Z"
+    },
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790646296,
+      "nanoseconds": 452000000,
+      "iso": "2026-09-29T01:44:56.452Z"
+    },
+    "isActive": true,
+    "order": 5,
+    "logo": "🍧",
+    "id": "brand-5",
+    "slug": "krater"
+  },
+  {
+    "_id": "brand-6",
+    "logo": "🦜",
+    "id": "brand-6",
+    "slug": "monte-cristo",
+    "isActive": true,
+    "name": "Monte Cristo",
+    "order": 6,
+    "updatedAt": {
+      "_type": "timestamp",
+      "seconds": 1790646296,
+      "nanoseconds": 601000000,
+      "iso": "2026-09-29T01:44:56.601Z"
+    },
+    "createdAt": {
+      "_type": "timestamp",
+      "seconds": 1790646296,
+      "nanoseconds": 601000000,
+      "iso": "2026-09-29T01:44:56.601Z"
+    }
+  }
+]
