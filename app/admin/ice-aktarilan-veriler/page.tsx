@@ -23,10 +23,13 @@ import {
   AlertCircle,
   FolderOpen,
   ChevronDown,
+  FileText,
+  Loader2,
 } from "lucide-react";
 import toast from "react-hot-toast";
 import { requireDb } from "@/lib/firebase";
 import { exportToExcel } from "@/lib/excel-export";
+import { exportGridToPdf } from "@/lib/pdf-grid-export";
 import {
   getAllExcelImports,
   updateExcelImportRow,
@@ -35,6 +38,7 @@ import {
 } from "@/lib/excel-import-service";
 import ExcelDataViewTable from "@/components/admin/excel/ExcelDataViewTable";
 import ExcelDataViewGrid from "@/components/admin/excel/ExcelDataViewGrid";
+import ExcelDataPdfGrid from "@/components/admin/excel/ExcelDataPdfGrid";
 import ExcelRowEditModal from "@/components/admin/excel/ExcelRowEditModal";
 
 // ── Inner Page Component with Search Params ───────────────────────────────────
@@ -56,6 +60,11 @@ function ImportedDataContent() {
 
   // Edit Modal State
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
+
+  // PDF Export States
+  const [isExportingPdf, setIsExportingPdf] = useState(false);
+  const [pdfProgress, setPdfProgress] = useState(0);
+  const [pdfStatusText, setPdfStatusText] = useState("");
 
   // ── Fetch records from Firestore ───────────────────────────────────────────
   const fetchRecords = useCallback(async () => {
@@ -227,6 +236,53 @@ function ImportedDataContent() {
     }
   };
 
+  // Export to PDF Catalog (A4 ızgara düzeninde, yüksek kaliteli görsellerle)
+  const handleExportPdf = async () => {
+    if (!activeRecord || filteredRows.length === 0) {
+      toast.error("Dışa aktarılacak ürün kartı bulunamadı.");
+      return;
+    }
+
+    setIsExportingPdf(true);
+    setPdfProgress(0);
+    setPdfStatusText("PDF kataloğu için kartlar hazırlanıyor...");
+
+    // Wait for the hidden container to mount into DOM
+    await new Promise((resolve) => setTimeout(resolve, 250));
+
+    try {
+      const containerEl = document.getElementById("excel-pdf-export-container");
+      if (!containerEl) {
+        throw new Error("Dışa aktarma konteyneri bulunamadı.");
+      }
+
+      const cleanFileName = activeRecord.fileName.replace(/\.[^/.]+$/, "");
+      await exportGridToPdf({
+        containerEl,
+        fileName: `${cleanFileName}-katalog`,
+        title: `20:45 HORECA · ${cleanFileName}`,
+        subtitle: `${filteredRows.length} Ürün · ${new Date().toLocaleDateString("tr-TR")}`,
+        cols: 3,
+        onProgress: (pct, msg) => {
+          setPdfProgress(pct);
+          if (msg) setPdfStatusText(msg);
+        },
+      });
+
+      toast.success(
+        `"${cleanFileName}" (${filteredRows.length} ürün) başarıyla PDF kataloğu olarak indirildi.`
+      );
+    } catch (err: unknown) {
+      console.error("PDF oluşturma hatası:", err);
+      const msg = err instanceof Error ? err.message : "PDF oluşturulurken bir hata oluştu.";
+      toast.error(msg);
+    } finally {
+      setIsExportingPdf(false);
+      setPdfProgress(0);
+      setPdfStatusText("");
+    }
+  };
+
   return (
     <div className="w-full min-h-screen p-6 sm:p-8 lg:p-10 space-y-8 max-w-[1720px] mx-auto text-slate-800">
       {/* ── Header ────────────────────────────────────────────────────────── */}
@@ -267,14 +323,33 @@ function ImportedDataContent() {
           </Link>
 
           {activeRecord && (
-            <button
-              type="button"
-              onClick={handleExportExcel}
-              className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl text-xs font-semibold shadow-xs hover:shadow-sm transition-all"
-            >
-              <Download size={14} />
-              <span>Excel İndir</span>
-            </button>
+            <>
+              {/* PDF Katalog İndir */}
+              <button
+                type="button"
+                onClick={handleExportPdf}
+                disabled={isExportingPdf || filteredRows.length === 0}
+                className="flex items-center gap-2 px-4 py-2.5 bg-red-600 hover:bg-red-700 active:scale-[0.98] text-white rounded-2xl text-xs font-bold shadow-xs hover:shadow-sm transition-all disabled:opacity-50 cursor-pointer"
+                title="Ürün kartlarını tam görselleriyle A4 PDF kataloğu olarak indir"
+              >
+                {isExportingPdf ? (
+                  <Loader2 size={14} className="animate-spin" />
+                ) : (
+                  <FileText size={14} />
+                )}
+                <span>PDF Katalog İndir ({filteredRows.length})</span>
+              </button>
+
+              {/* Excel İndir */}
+              <button
+                type="button"
+                onClick={handleExportExcel}
+                className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-800 active:scale-[0.98] text-white rounded-2xl text-xs font-semibold shadow-xs hover:shadow-sm transition-all cursor-pointer"
+              >
+                <Download size={14} />
+                <span>Excel İndir</span>
+              </button>
+            </>
           )}
         </div>
       </div>
@@ -528,6 +603,61 @@ function ImportedDataContent() {
               columns={activeColumns}
               onSave={handleSaveRow}
             />
+          )}
+
+          {/* ── PDF Export Progress Modal ──────────────────────────────────── */}
+          {isExportingPdf && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 backdrop-blur-sm p-4">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-slate-100 flex flex-col items-center text-center space-y-4 animate-in fade-in zoom-in-95 duration-200">
+                <div className="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center">
+                  <FileText size={28} className="animate-pulse" />
+                </div>
+                <div>
+                  <h3 className="text-base font-extrabold text-slate-900">
+                    PDF Kataloğu Hazırlanıyor
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-1 min-h-[1.5rem]">
+                    {pdfStatusText || "Kartlar ve yüksek çözünürlüklü görseller A4 formatında işleniyor..."}
+                  </p>
+                </div>
+
+                {/* Progress bar */}
+                <div className="w-full space-y-1.5">
+                  <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                    <div
+                      className="bg-red-600 h-2.5 rounded-full transition-all duration-300 ease-out"
+                      style={{ width: `${pdfProgress}%` }}
+                    />
+                  </div>
+                  <div className="flex justify-between items-center text-[11px] font-semibold text-slate-400">
+                    <span>{filteredRows.length} ürün işleniyor</span>
+                    <span className="text-red-600 font-bold">%{pdfProgress}</span>
+                  </div>
+                </div>
+
+                <p className="text-[11px] text-slate-400">
+                  Lütfen işlem tamamlanana kadar sayfayı kapatmayın.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* ── Hidden Container for Full PDF Generation ───────────────────── */}
+          {isExportingPdf && (
+            <div
+              id="excel-pdf-export-container"
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                width: "1150px",
+                opacity: 0.01,
+                pointerEvents: "none",
+                zIndex: -9999,
+              }}
+            >
+              <ExcelDataPdfGrid rows={filteredRows} columns={activeColumns} />
+            </div>
           )}
         </div>
       )}

@@ -222,7 +222,7 @@ export default function ExcelDataViewGrid({
           return (
             <div
               key={originalIndex}
-              className="bg-white border border-slate-200/90 hover:border-amber-300 rounded-3xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-200 flex flex-col group"
+              className="product-card bg-white border border-slate-200/90 hover:border-amber-300 rounded-3xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-200 flex flex-col group"
             >
               {/* Image Preview Container */}
               <div className="relative w-full aspect-square bg-slate-50 border-b border-slate-100 overflow-hidden flex items-center justify-center p-3">
@@ -255,7 +255,8 @@ export default function ExcelDataViewGrid({
                       copyImageUrl(imgSrc, originalIndex);
                     }}
                     title="Görseli kopyala"
-                    className="absolute bottom-3 right-3 p-1.5 bg-white/90 hover:bg-white text-slate-600 hover:text-amber-600 rounded-xl shadow-xs border border-slate-200/80 opacity-0 group-hover:opacity-100 transition-opacity"
+                    data-pdf-ignore="true"
+                    className="pdf-exclude absolute bottom-3 right-3 p-1.5 bg-white/90 hover:bg-white text-slate-600 hover:text-amber-600 rounded-xl shadow-xs border border-slate-200/80 opacity-0 group-hover:opacity-100 transition-opacity"
                   >
                     {copiedIndex === originalIndex ? (
                       <Check size={12} className="text-emerald-600" />
@@ -355,7 +356,7 @@ export default function ExcelDataViewGrid({
                 </div>
 
                 {/* Edit Button */}
-                <div className="pt-2 border-t border-slate-100">
+                <div className="pt-2 border-t border-slate-100 pdf-exclude" data-pdf-ignore="true">
                   <button
                     type="button"
                     onClick={() => onEditRow(originalIndex)}
