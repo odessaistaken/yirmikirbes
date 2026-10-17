@@ -156,13 +156,36 @@ export function getCategoryRank(cat: Partial<Category> | null | undefined): numb
     return 6.0;
   }
 
-  // 7. Püre
+  // 7. Püre (Püreler & Marka Alt Kategorileri)
   if (
-    normSlug.includes("pure") ||
-    normName.includes("pure") ||
+    slug === "pureler" ||
+    slug === "pure" ||
+    normName === "pureler" ||
+    normName === "pure" ||
     id === "cat-1"
   ) {
     return 7.0;
+  }
+  if (
+    (cat.parentId === "cat-1" || cat.parentId === "pureler") &&
+    (normSlug.includes("davinci") || normName.includes("davinci"))
+  ) {
+    return 7.1;
+  }
+  if (
+    (cat.parentId === "cat-1" || cat.parentId === "pureler") &&
+    (normSlug.includes("krater") || normName.includes("krater"))
+  ) {
+    return 7.2;
+  }
+  if (
+    (cat.parentId === "cat-1" || cat.parentId === "pureler") &&
+    (normSlug.includes("nonno") || normName.includes("nonno"))
+  ) {
+    return 7.3;
+  }
+  if (normSlug.includes("pure") || normName.includes("pure")) {
+    return 7.4;
   }
 
   // 8. Kasa Önü Malzemeler

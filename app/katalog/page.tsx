@@ -49,11 +49,29 @@ export const SUBCATEGORIES_MAP: Record<string, { name: string; query: string }[]
     { name: "Margarita & Martini", query: "martini" },
   ],
   "pureler": [
-    { name: "Caffè NONNO Frozen", query: "nonno" },
-    { name: "DaVinci Fruit Mix", query: "davinci" },
-    { name: "Krater Meyve Miksi", query: "krater" },
+    { name: "DaVinci Gourmet Püreler", query: "davinci" },
+    { name: "KRATER Püreler", query: "krater" },
+    { name: "Caffè NONNO Püreler", query: "nonno" },
+  ],
+  "davinci-gourmet-pureler": [
     { name: "Çilek & Orman Meyvesi", query: "çilek" },
     { name: "Mango & Tropikal", query: "mango" },
+    { name: "Mixed Berry", query: "berry" },
+    { name: "Passionfruit", query: "passion" },
+  ],
+  "krater-pureler": [
+    { name: "Çilek & Böğürtlen", query: "çilek" },
+    { name: "Frambuaz & Ahududu", query: "frambuaz" },
+    { name: "Mango & Passion Fruit", query: "mango" },
+    { name: "Kavun & Şeftali", query: "kavun" },
+    { name: "Yeşil Elma & Ananas", query: "elma" },
+  ],
+  "caffe-nonno-pureler": [
+    { name: "Çilek & Karpuz", query: "çilek" },
+    { name: "Mango & Ananas", query: "mango" },
+    { name: "Karadut & Vişne", query: "karadut" },
+    { name: "Yeşil Elma & Kivi", query: "elma" },
+    { name: "Hindistan Cevizi & Muz", query: "muz" },
   ],
   "waffle-malzemeleri": [
     { name: "CALLEI Çikolata Kremaları", query: "callei" },
