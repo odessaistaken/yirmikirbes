@@ -146,11 +146,13 @@ export default function AdminUrunler() {
     load();
   }, []);
 
-  const filtered = products.filter(
-    (p) =>
-      p.name.toLowerCase().includes(search.toLowerCase()) ||
-      p.code.toLowerCase().includes(search.toLowerCase())
-  );
+  const filtered = products
+    .filter(
+      (p) =>
+        p.name.toLowerCase().includes(search.toLowerCase()) ||
+        p.code.toLowerCase().includes(search.toLowerCase())
+    )
+    .sort((a, b) => (a.name || "").trim().localeCompare((b.name || "").trim(), "tr", { sensitivity: "base" }));
 
   function openAdd() {
     setEditTarget(null);

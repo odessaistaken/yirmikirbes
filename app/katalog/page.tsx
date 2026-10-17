@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { Search, Filter, ChevronRight, SlidersHorizontal, X, AlignLeft, ImageIcon } from "lucide-react";
+import { Search, Filter, ChevronRight, SlidersHorizontal, X, AlignLeft, ImageIcon, ArrowUpDown } from "lucide-react";
 import { CATEGORIES as MOCK_CATEGORIES, PRODUCTS as MOCK_PRODUCTS } from "@/lib/mock-data";
 import { getActiveCategories, getProducts, getActiveBrands } from "@/lib/firestore-collections";
 import type { Category, Product, Brand } from "@/lib/types";
@@ -161,6 +161,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
 
   const [activeCategory, setActiveCategory] = useState<string>(initialCategory);
   const [searchQuery, setSearchQuery] = useState(initialSearch || initialBrand);
+  const [sortBy, setSortBy] = useState<"alpha-asc" | "alpha-desc" | "price-asc" | "price-desc">("alpha-asc");
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [categories, setCategories] = useState<Category[]>(() => sortCategories(MOCK_CATEGORIES));
   const [products, setProducts] = useState<Product[]>(() => sortProductsByCategoryOrder(MOCK_PRODUCTS));
@@ -253,8 +254,28 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
       return matchCat && matchSearch && p.isActive !== false;
     });
 
+    if (sortBy === "alpha-asc") {
+      if (activeCategory === "all") {
+        return sortProductsByCategoryOrder(list);
+      }
+      return [...list].sort((a, b) =>
+        (a.name || "").trim().localeCompare((b.name || "").trim(), "tr", { sensitivity: "base" })
+      );
+    }
+    if (sortBy === "alpha-desc") {
+      return [...list].sort((a, b) =>
+        (b.name || "").trim().localeCompare((a.name || "").trim(), "tr", { sensitivity: "base" })
+      );
+    }
+    if (sortBy === "price-asc") {
+      return [...list].sort((a, b) => (a.price || 0) - (b.price || 0));
+    }
+    if (sortBy === "price-desc") {
+      return [...list].sort((a, b) => (b.price || 0) - (a.price || 0));
+    }
+
     return sortProductsByCategoryOrder(list);
-  }, [products, activeCategory, searchQuery, currentCategory, categories]);
+  }, [products, activeCategory, searchQuery, currentCategory, categories, sortBy]);
 
   const getCategoryProductCount = (cat: Category) => {
     const childIds = categories.filter((c) => c.parentId === cat.id).map((c) => c.id);
@@ -444,23 +465,42 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
                 {currentCategory?.description && ` — ${currentCategory.description}`}
               </p>
             </div>
-            <div className="relative w-full sm:w-80">
-              <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-amber-600" />
-              <input
-                type="text"
-                placeholder="Ürün, marka veya tat ara..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-9 py-3 bg-white border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 shadow-sm"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700"
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              {/* Sıralama Seçici */}
+              <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-2.5 shadow-sm text-xs font-semibold text-slate-700">
+                <ArrowUpDown size={14} className="text-amber-600 shrink-0" />
+                <span className="text-slate-400 font-medium">Sırala:</span>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as any)}
+                  className="bg-transparent font-bold text-slate-800 focus:outline-none cursor-pointer pr-1"
                 >
-                  <X size={14} />
-                </button>
-              )}
+                  <option value="alpha-asc">Alfabetik (A - Z)</option>
+                  <option value="alpha-desc">Alfabetik (Z - A)</option>
+                  <option value="price-asc">Fiyat (Artan)</option>
+                  <option value="price-desc">Fiyat (Azalan)</option>
+                </select>
+              </div>
+
+              {/* Arama Kutusu */}
+              <div className="relative w-full sm:w-72">
+                <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-amber-600" />
+                <input
+                  type="text"
+                  placeholder="Ürün, marka veya tat ara..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-10 pr-9 py-2.5 bg-white border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 shadow-sm"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700"
+                  >
+                    <X size={14} />
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>

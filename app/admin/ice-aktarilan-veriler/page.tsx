@@ -151,7 +151,7 @@ function ImportedDataContent() {
   const filteredRows = useMemo(() => {
     if (!activeRecord) return [];
 
-    return activeRecord.rows.filter((row) => {
+    const matched = activeRecord.rows.filter((row) => {
       const detected = detectRowFields(row, activeRecord.columns);
       const hasImg = Boolean(
         String(row["Görsel"] || row["Resim"] || detected.imageUrl || "").trim()
@@ -186,6 +186,13 @@ function ImportedDataContent() {
       }
 
       return true;
+    });
+
+    // Alfabetik sıralama: Başlığa / ürün adına göre A-Z
+    return [...matched].sort((a, b) => {
+      const titleA = (detectRowFields(a, activeRecord.columns).title || "").trim();
+      const titleB = (detectRowFields(b, activeRecord.columns).title || "").trim();
+      return titleA.localeCompare(titleB, "tr", { sensitivity: "base" });
     });
   }, [activeRecord, searchQuery, selectedCategory, imageFilter]);
 
@@ -581,13 +588,21 @@ function ImportedDataContent() {
             <ExcelDataViewTable
               rows={filteredRows}
               columns={activeColumns}
-              onEditRow={(origIdx) => setEditingIndex(origIdx)}
+              onEditRow={(origIdx) => {
+                const targetRow = filteredRows[origIdx];
+                const realIndex = targetRow && activeRecord ? activeRecord.rows.indexOf(targetRow) : origIdx;
+                setEditingIndex(realIndex >= 0 ? realIndex : origIdx);
+              }}
             />
           ) : (
             <ExcelDataViewGrid
               rows={filteredRows}
               columns={activeColumns}
-              onEditRow={(origIdx) => setEditingIndex(origIdx)}
+              onEditRow={(origIdx) => {
+                const targetRow = filteredRows[origIdx];
+                const realIndex = targetRow && activeRecord ? activeRecord.rows.indexOf(targetRow) : origIdx;
+                setEditingIndex(realIndex >= 0 ? realIndex : origIdx);
+              }}
             />
           )}
 

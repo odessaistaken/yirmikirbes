@@ -292,7 +292,8 @@ export function getProductCategoryRank(p: {
 
 /**
  * Ürün dizisini öncelikle 1-9 kategori sırasına,
- * ardından kategori içindeki kendi 'order' değerine ve adına göre sıralar.
+ * ardından kategori içinde ALFABETİK olarak ürün adına göre sıralar (A-Z).
+ * Aynı ada sahip ürünlerde 'order' değerine göre ikincil sıralama yapar.
  */
 export function sortProductsByCategoryOrder<
   T extends {
@@ -309,12 +310,37 @@ export function sortProductsByCategoryOrder<
     if (rankA !== rankB) {
       return rankA - rankB;
     }
+    const nameA = (a.name || "").trim();
+    const nameB = (b.name || "").trim();
+    const cmp = nameA.localeCompare(nameB, "tr", { sensitivity: "base" });
+    if (cmp !== 0) {
+      return cmp;
+    }
     const orderA = a.order ?? 0;
     const orderB = b.order ?? 0;
-    if (orderA !== orderB) {
-      return orderA - orderB;
+    return orderA - orderB;
+  });
+}
+
+/**
+ * Ürün dizisini doğrudan alfabetik olarak (A-Z veya Z-A) sıralar.
+ */
+export function sortProductsAlphabetically<
+  T extends {
+    name?: string;
+    order?: number;
+  }
+>(products: T[], direction: "asc" | "desc" = "asc"): T[] {
+  return [...products].sort((a, b) => {
+    const nameA = (a.name || "").trim();
+    const nameB = (b.name || "").trim();
+    const cmp = nameA.localeCompare(nameB, "tr", { sensitivity: "base" });
+    if (cmp !== 0) {
+      return direction === "asc" ? cmp : -cmp;
     }
-    return (a.name || "").localeCompare(b.name || "", "tr");
+    const orderA = a.order ?? 0;
+    const orderB = b.order ?? 0;
+    return orderA - orderB;
   });
 }
 

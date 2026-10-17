@@ -193,7 +193,7 @@ export async function getProductsByCategorySlug(slug: string): Promise<Product[]
           (cat && p.categoryId === cat.id) ||
           (cat && p.categoryName?.toLowerCase() === cat.name.toLowerCase()))
     )
-    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+    .sort((a, b) => (a.name || "").trim().localeCompare((b.name || "").trim(), "tr", { sensitivity: "base" }));
 }
 
 /** Fetch active featured products (order-limited) */
