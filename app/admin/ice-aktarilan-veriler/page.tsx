@@ -532,11 +532,10 @@ function ImportedDataContent() {
                 <button
                   type="button"
                   onClick={() => setViewMode("table")}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
-                    viewMode === "table"
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${viewMode === "table"
                       ? "bg-white text-slate-900 shadow-xs"
                       : "text-slate-500 hover:text-slate-800"
-                  }`}
+                    }`}
                   title="Geniş Tablo Görünümü"
                 >
                   <TableIcon size={14} />
@@ -545,11 +544,10 @@ function ImportedDataContent() {
                 <button
                   type="button"
                   onClick={() => setViewMode("grid")}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
-                    viewMode === "grid"
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${viewMode === "grid"
                       ? "bg-white text-slate-900 shadow-xs"
                       : "text-slate-500 hover:text-slate-800"
-                  }`}
+                    }`}
                   title="Kart Izgara Görünümü"
                 >
                   <LayoutGrid size={14} />

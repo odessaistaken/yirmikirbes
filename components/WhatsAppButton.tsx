@@ -1,14 +1,21 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
 
 export default function WhatsAppButton() {
+  const pathname = usePathname();
   const whatsappNumber = "905010737113";
   const defaultMessage = encodeURIComponent(
     "Merhaba, 20:45 Pastacılık / YKB Gıda web sitenizden ulaşıyorum. Bilgi almak istiyorum."
   );
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${defaultMessage}`;
+
+  // Admin sayfalarında WhatsApp butonunu gizle
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   return (
     <a

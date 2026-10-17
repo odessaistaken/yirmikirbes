@@ -6,7 +6,7 @@ import { ImageIcon, Eye, ExternalLink, X } from "lucide-react";
 interface ExcelRowImageProps {
   src?: string;
   alt?: string;
-  size?: "sm" | "md" | "lg" | "full";
+  size?: "xs" | "sm" | "md" | "lg" | "full";
   className?: string;
   showZoomButton?: boolean;
 }
@@ -25,11 +25,12 @@ export default function ExcelRowImage({
   const cleanSrc = (src || "").trim();
 
   const sizeClasses = {
-    sm: "w-10 h-10 rounded-lg",
-    md: "w-24 h-24 rounded-xl",
-    lg: "w-32 h-32 rounded-2xl",
+    xs: "w-8 h-8 rounded-md",
+    sm: "w-11 h-11 rounded-lg",
+    md: "w-20 h-20 rounded-xl",
+    lg: "w-28 h-28 rounded-2xl",
     full: "w-full aspect-square rounded-2xl",
-  }[size];
+  }[size] || "w-11 h-11 rounded-lg";
 
   if (!cleanSrc || hasError) {
     return (
