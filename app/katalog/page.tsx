@@ -15,12 +15,32 @@ import { sortCategories, sortProductsByCategoryOrder } from "@/lib/category-orde
 /* ─── Subcategories & Brand links map ─────────────────────────────────────── */
 export const SUBCATEGORIES_MAP: Record<string, { name: string; query: string }[]> = {
   "suruplar": [
-    { name: "DaVinci Gourmet", query: "davinci" },
-    { name: "Caffè NONNO", query: "nonno" },
-    { name: "Monte Cristo", query: "monte cristo" },
-    { name: "EASY MIX", query: "easy mix" },
+    { name: "DaVinci Gourmet Şurupları", query: "davinci" },
+    { name: "Caffè NONNO Şurupları", query: "nonno" },
+    { name: "Monte Cristo Şurupları", query: "monte cristo" },
+    { name: "Easy Mix Kokteyller", query: "easy mix" },
+  ],
+  "davinci-gourmet-suruplari": [
     { name: "Vanilya & Karamel", query: "vanilya" },
-    { name: "Fındık & Toffee", query: "fındık" },
+    { name: "Fındık & Badem", query: "fındık" },
+    { name: "Çilek & Orman Meyvesi", query: "çilek" },
+    { name: "Spiced Chai & Baharat", query: "chai" },
+    { name: "Beyaz Çikolata & Mocha", query: "çikolata" },
+  ],
+  "caffe-nonno-suruplari": [
+    { name: "Karamel & Vanilya", query: "karamel" },
+    { name: "Fındık & Toffee Nut", query: "fındık" },
+    { name: "Cool Lime & Refresher", query: "lime" },
+    { name: "Mojito & Nane", query: "nane" },
+    { name: "Beyaz Çikolata", query: "beyaz" },
+  ],
+  "monte-cristo-suruplari": [
+    { name: "Badem & Fındık", query: "badem" },
+    { name: "Antep Fıstığı (Pistachio)", query: "fıstık" },
+    { name: "Chai Tea & Tarçın", query: "tarçın" },
+    { name: "Balkabağı (Pumpkin Spice)", query: "pumpkin" },
+    { name: "Speculaas & Bisküvi", query: "speculaas" },
+    { name: "Misket Limonu & Nar", query: "lime" },
   ],
   "kokteyller": [
     { name: "EASY MIX Kokteyl Premiksi", query: "easy mix" },

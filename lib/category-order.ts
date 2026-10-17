@@ -102,7 +102,7 @@ export function getCategoryRank(cat: Partial<Category> | null | undefined): numb
     return 4.0;
   }
 
-  // 5. Şurup (Şuruplar & Kokteyller)
+  // 5. Şurup (Şuruplar & Marka Alt Kategorileri & Kokteyller)
   if (
     normSlug === "suruplar" ||
     normSlug === "surup" ||
@@ -113,15 +113,36 @@ export function getCategoryRank(cat: Partial<Category> | null | undefined): numb
     return 5.0;
   }
   if (
+    normSlug.includes("davinci") ||
+    normName.includes("davinci") ||
+    id === "cat-davinci-surup"
+  ) {
+    return 5.1;
+  }
+  if (
+    normSlug.includes("nonno") ||
+    normName.includes("nonno") ||
+    id === "cat-nonno-surup"
+  ) {
+    return 5.2;
+  }
+  if (
+    normSlug.includes("montecristo") ||
+    normName.includes("montecristo") ||
+    id === "cat-monte-cristo-surup"
+  ) {
+    return 5.3;
+  }
+  if (
     normSlug.includes("kokteyl") ||
     normName.includes("kokteyl") ||
     cat.parentId === "cat-2" ||
     cat.parentId === "suruplar"
   ) {
-    return 5.1;
+    return 5.4;
   }
   if (normSlug.includes("surup") || normName.includes("surup")) {
-    return 5.2;
+    return 5.5;
   }
 
   // 6. Bar Sos
