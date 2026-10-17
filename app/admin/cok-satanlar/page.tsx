@@ -65,7 +65,7 @@ export default function AdminCokSatanlar() {
   }, [products]);
 
   const displayedProducts = useMemo(() => {
-    return products.filter((p) => {
+    const list = products.filter((p) => {
       if (activeTab === "bestsellers" && !p.isBestSeller) return false;
       if (selectedCategory !== "all" && p.categoryId !== selectedCategory && p.categorySlug !== selectedCategory) {
         return false;
@@ -79,6 +79,10 @@ export default function AdminCokSatanlar() {
         p.codeGroup?.toLowerCase().includes(q)
       );
     });
+
+    return [...list].sort((a, b) =>
+      (a.name || "").trim().localeCompare((b.name || "").trim(), "tr", { sensitivity: "base" })
+    );
   }, [products, activeTab, selectedCategory, search]);
 
   return (

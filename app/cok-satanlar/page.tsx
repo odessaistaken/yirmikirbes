@@ -73,7 +73,7 @@ export default function CokSatanlarPage() {
   }, [products]);
 
   const filteredProducts = useMemo(() => {
-    return products.filter((p) => {
+    const list = products.filter((p) => {
       if (selectedCategory !== "all") {
         if (p.categoryId !== selectedCategory && p.categorySlug !== selectedCategory && p.categoryName !== selectedCategory) {
           return false;
@@ -88,6 +88,10 @@ export default function CokSatanlarPage() {
         p.codeGroup?.toLowerCase().includes(q)
       );
     });
+
+    return [...list].sort((a, b) =>
+      (a.name || "").trim().localeCompare((b.name || "").trim(), "tr", { sensitivity: "base" })
+    );
   }, [products, selectedCategory, search]);
 
   return (

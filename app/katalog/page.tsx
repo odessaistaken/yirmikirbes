@@ -161,7 +161,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
 
   const [activeCategory, setActiveCategory] = useState<string>(initialCategory);
   const [searchQuery, setSearchQuery] = useState(initialSearch || initialBrand);
-  const [sortBy, setSortBy] = useState<"alpha-asc" | "alpha-desc" | "price-asc" | "price-desc">("alpha-asc");
+  const [sortBy, setSortBy] = useState<"alpha-asc" | "alpha-desc" | "category" | "price-asc" | "price-desc">("alpha-asc");
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [categories, setCategories] = useState<Category[]>(() => sortCategories(MOCK_CATEGORIES));
   const [products, setProducts] = useState<Product[]>(() => sortProductsByCategoryOrder(MOCK_PRODUCTS));
@@ -255,9 +255,6 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
     });
 
     if (sortBy === "alpha-asc") {
-      if (activeCategory === "all") {
-        return sortProductsByCategoryOrder(list);
-      }
       return [...list].sort((a, b) =>
         (a.name || "").trim().localeCompare((b.name || "").trim(), "tr", { sensitivity: "base" })
       );
@@ -266,6 +263,9 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
       return [...list].sort((a, b) =>
         (b.name || "").trim().localeCompare((a.name || "").trim(), "tr", { sensitivity: "base" })
       );
+    }
+    if (sortBy === "category") {
+      return sortProductsByCategoryOrder(list);
     }
     if (sortBy === "price-asc") {
       return [...list].sort((a, b) => (a.price || 0) - (b.price || 0));
@@ -477,6 +477,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
                 >
                   <option value="alpha-asc">Alfabetik (A - Z)</option>
                   <option value="alpha-desc">Alfabetik (Z - A)</option>
+                  <option value="category">Kategori Sırasına Göre</option>
                   <option value="price-asc">Fiyat (Artan)</option>
                   <option value="price-desc">Fiyat (Azalan)</option>
                 </select>

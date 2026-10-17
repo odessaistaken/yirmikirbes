@@ -138,13 +138,17 @@ function SunumKataloguInner() {
   // Aktif kategorideki filtrelenmiş ürünler
   const displayedProducts = useMemo(() => {
     if (!activeGroup) return [];
-    if (!searchQuery.trim()) return activeGroup.products;
-    const q = searchQuery.toLowerCase().trim();
-    return activeGroup.products.filter(
-      (p) =>
-        p.name.toLowerCase().includes(q) ||
-        p.description.toLowerCase().includes(q) ||
-        (p.code && p.code.toLowerCase().includes(q))
+    const baseList = !searchQuery.trim()
+      ? activeGroup.products
+      : activeGroup.products.filter(
+          (p) =>
+            p.name.toLowerCase().includes(searchQuery.toLowerCase().trim()) ||
+            p.description.toLowerCase().includes(searchQuery.toLowerCase().trim()) ||
+            (p.code && p.code.toLowerCase().includes(searchQuery.toLowerCase().trim()))
+        );
+
+    return [...baseList].sort((a, b) =>
+      (a.name || "").trim().localeCompare((b.name || "").trim(), "tr", { sensitivity: "base" })
     );
   }, [activeGroup, searchQuery]);
 
@@ -159,7 +163,9 @@ function SunumKataloguInner() {
         (p.categoryName && p.categoryName.toLowerCase().includes(q)) ||
         (p.code && p.code.toLowerCase().includes(q))
     );
-    return sortProductsByCategoryOrder(list);
+    return [...list].sort((a, b) =>
+      (a.name || "").trim().localeCompare((b.name || "").trim(), "tr", { sensitivity: "base" })
+    );
   }, [searchQuery, activeGroup, products]);
 
   // Önceki ve Sonraki Kategori İndeksleri
