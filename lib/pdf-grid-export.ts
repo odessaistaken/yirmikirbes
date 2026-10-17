@@ -106,9 +106,9 @@ export async function exportGridToPdf({
 }: PdfGridExportOptions): Promise<void> {
   onProgress?.(5, "Modüller hazırlanıyor...");
 
-  // Dynamic imports to keep initial bundle lean
+  // Dynamic imports to keep initial bundle lean (html2canvas-pro supports modern lab/oklch colors)
   const [html2canvasModule, jsPdfModule] = await Promise.all([
-    import("html2canvas"),
+    import("html2canvas-pro"),
     import("jspdf"),
   ]);
   const html2canvas = html2canvasModule.default;
