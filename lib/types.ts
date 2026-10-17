@@ -55,6 +55,10 @@ export interface Product {
   description: string;
   imageUrl: string;
   imageStoragePath?: string;
+  /** Optional second product image URL (for slider on detail page) */
+  secondImageUrl?: string;
+  /** Firebase Storage path for second image deletion */
+  secondImageStoragePath?: string;
   isActive: boolean;
   isFeatured?: boolean;
   isBestSeller?: boolean;

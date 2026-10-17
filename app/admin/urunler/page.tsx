@@ -31,6 +31,9 @@ export default function AdminUrunler() {
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const secondFileInputRef = useRef<HTMLInputElement>(null);
+  const [secondUploadProgress, setSecondUploadProgress] = useState<number | null>(null);
+  const [isSecondDragging, setIsSecondDragging] = useState(false);
 
   async function handleFileSelect(file: File) {
     if (!file.type.startsWith("image/")) {
@@ -64,6 +67,38 @@ export default function AdminUrunler() {
     toast.success("Ürün görseli kaldırıldı.");
   }
 
+  async function handleSecondFileSelect(file: File) {
+    if (!file.type.startsWith("image/")) {
+      toast.error("Lütfen geçerli bir resim dosyası seçin (PNG, JPG, WEBP).");
+      return;
+    }
+    try {
+      const { url, path } = await uploadImage(file, "products", setSecondUploadProgress);
+      setForm((prev) => ({ ...prev, secondImageUrl: url, secondImageStoragePath: path }));
+      toast.success("İkinci görsel yüklendi!");
+    } catch (err: any) {
+      console.error("İkinci resim yükleme hatası:", err);
+      toast.error(err?.message || "İkinci görsel yüklenemedi.");
+    } finally {
+      setSecondUploadProgress(null);
+    }
+  }
+
+  async function handleRemoveSecondImage() {
+    if (form.secondImageStoragePath || form.secondImageUrl) {
+      await deleteStoredImage(form.secondImageStoragePath || form.secondImageUrl || "");
+    }
+    setForm((prev) => ({
+      ...prev,
+      secondImageUrl: "",
+      secondImageStoragePath: "",
+    }));
+    if (secondFileInputRef.current) {
+      secondFileInputRef.current.value = "";
+    }
+    toast.success("İkinci görsel kaldırıldı.");
+  }
+
   const PRESET_SPECS = [
     "Raf Ömrü",
     "Dilim Gramaj",
@@ -85,6 +120,8 @@ export default function AdminUrunler() {
     description: "",
     imageUrl: "",
     imageStoragePath: "",
+    secondImageUrl: "",
+    secondImageStoragePath: "",
     isActive: true,
     isBestSeller: false,
     specList: [] as Array<{ key: string; value: string }>,
@@ -147,6 +184,8 @@ export default function AdminUrunler() {
       description: p.description,
       imageUrl: p.imageUrl,
       imageStoragePath: p.imageStoragePath ?? "",
+      secondImageUrl: p.secondImageUrl ?? "",
+      secondImageStoragePath: p.secondImageStoragePath ?? "",
       isActive: p.isActive,
       isBestSeller: !!p.isBestSeller,
       specList: specsArray,
@@ -266,6 +305,8 @@ export default function AdminUrunler() {
         description: form.description,
         imageUrl: safeImageUrl?.trim() || "",
         imageStoragePath: form.imageStoragePath || "",
+        secondImageUrl: form.secondImageUrl?.trim() || "",
+        secondImageStoragePath: form.secondImageStoragePath || "",
         isActive: form.isActive,
         isBestSeller: form.isBestSeller,
         tags: [],
@@ -636,6 +677,144 @@ export default function AdminUrunler() {
                     />
                   </div>
 
+                  {/* Second Image upload */}
+                  <div>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <label className="text-slate-700 text-xs font-semibold flex items-center gap-1.5">
+                        <span className="inline-flex items-center justify-center w-4 h-4 rounded bg-amber-100 text-amber-700 text-[10px] font-bold">2</span>
+                        İkinci Görsel
+                        <span className="text-slate-400 font-normal">(İsteğe bağlı · slider)</span>
+                      </label>
+                      {form.secondImageUrl && (
+                        <button
+                          type="button"
+                          onClick={handleRemoveSecondImage}
+                          className="text-red-500 hover:text-red-600 text-xs font-medium flex items-center gap-1 hover:underline transition-colors cursor-pointer"
+                        >
+                          <Trash2 size={12} /> Görseli Kaldır / Sil
+                        </button>
+                      )}
+                    </div>
+
+                    <div
+                      onDragOver={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setIsSecondDragging(true);
+                      }}
+                      onDragLeave={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setIsSecondDragging(false);
+                      }}
+                      onDrop={async (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setIsSecondDragging(false);
+                        const file = e.dataTransfer.files?.[0];
+                        if (file) {
+                          await handleSecondFileSelect(file);
+                        }
+                      }}
+                      onClick={() => !form.secondImageUrl && secondFileInputRef.current?.click()}
+                      className={`relative border-2 border-dashed rounded-xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all duration-200 ${
+                        isSecondDragging
+                          ? "border-gold bg-gold/15 scale-[1.02]"
+                          : form.secondImageUrl
+                          ? "border-slate-200 bg-slate-50"
+                          : "border-slate-300 bg-slate-50 hover:border-gold hover:bg-gold/5 cursor-pointer"
+                      }`}
+                    >
+                      {isSecondDragging ? (
+                        <div className="text-center py-4">
+                          <Upload size={32} className="text-gold-600 animate-bounce mx-auto mb-1.5" />
+                          <p className="font-heading font-semibold text-gold-600 text-xs">Resmi Buraya Bırakın</p>
+                        </div>
+                      ) : form.secondImageUrl ? (
+                        <div className="relative w-full aspect-video rounded-lg overflow-hidden group bg-slate-100">
+                          <Image
+                            src={form.secondImageUrl}
+                            alt="2. görsel önizleme"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 500px"
+                            quality={90}
+                            className="object-contain p-2"
+                          />
+                          <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2.5">
+                            <button
+                              type="button"
+                              onClick={(e) => { e.stopPropagation(); secondFileInputRef.current?.click(); }}
+                              className="text-white text-xs font-semibold bg-white/20 hover:bg-white/30 backdrop-blur-sm px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors shadow-md"
+                            >
+                              <Upload size={13} /> Değiştir
+                            </button>
+                            <button
+                              type="button"
+                              onClick={(e) => { e.stopPropagation(); handleRemoveSecondImage(); }}
+                              className="text-white text-xs font-semibold bg-red-600/80 hover:bg-red-600 backdrop-blur-sm px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors shadow-md"
+                            >
+                              <Trash2 size={13} /> Görseli Sil
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="text-center py-2">
+                          <ImageIcon size={28} className="text-slate-400 mx-auto mb-2" />
+                          <p className="text-slate-700 text-xs font-semibold">İkinci resmi buraya sürükleyip bırakın</p>
+                          <p className="text-slate-400 text-2xs mt-1">veya seçmek için tıklayın (PNG, JPG, WEBP)</p>
+                        </div>
+                      )}
+
+                      {secondUploadProgress !== null && (
+                        <div className="w-full mt-2">
+                          <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                            <div className="h-full bg-gold transition-all duration-300" style={{ width: `${secondUploadProgress}%` }} />
+                          </div>
+                          <p className="text-xs text-slate-500 mt-1 text-center">Yükleniyor... %{secondUploadProgress}</p>
+                        </div>
+                      )}
+                    </div>
+
+                    <input
+                      type="file"
+                      ref={secondFileInputRef}
+                      accept="image/*"
+                      className="hidden"
+                      onChange={async (e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          await handleSecondFileSelect(file);
+                        }
+                      }}
+                    />
+
+                    <div className="flex items-center justify-between gap-2 mt-2">
+                      <p className="text-slate-500 text-xs">veya İkinci Görsel URL giriniz:</p>
+                      {form.secondImageUrl && (
+                        <button
+                          type="button"
+                          onClick={handleRemoveSecondImage}
+                          className="text-red-500 hover:text-red-600 text-2xs flex items-center gap-1 hover:underline"
+                        >
+                          <Trash2 size={10} /> Temizle
+                        </button>
+                      )}
+                    </div>
+                    <input
+                      value={form.secondImageUrl}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        setForm({
+                          ...form,
+                          secondImageUrl: val,
+                          secondImageStoragePath: val ? form.secondImageStoragePath : "",
+                        });
+                      }}
+                      placeholder="https://..."
+                      className="input mt-1 text-sm"
+                    />
+                  </div>
+
                   {/* Name & Code */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -847,7 +1026,7 @@ export default function AdminUrunler() {
 
                 <div className="flex gap-3 px-6 pb-6">
                   <button onClick={() => setModalOpen(false)} className="btn-secondary flex-1">İptal</button>
-                  <button onClick={handleSave} disabled={saving || uploadProgress !== null} className="btn-primary flex-1 shadow-gold">
+                  <button onClick={handleSave} disabled={saving || uploadProgress !== null || secondUploadProgress !== null} className="btn-primary flex-1 shadow-gold">
                     {saving ? (
                       <span className="animate-spin w-4 h-4 border-2 border-slate-700 border-t-black rounded-full" />
                     ) : (

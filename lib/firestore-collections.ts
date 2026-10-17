@@ -269,15 +269,21 @@ export async function cloneProduct(product: Product): Promise<string> {
   return addProduct(cloneData);
 }
 
-/** Delete a product and its Storage image */
+/** Delete a product and its Storage images (primary + secondary) */
 export async function deleteProduct(product: Product): Promise<void> {
   // 1. Delete from Firestore first to guarantee immediate deletion
   await deleteDoc(doc(requireDb(), "products", product.id));
 
-  // 2. Clean up Storage in background without blocking UI
+  // 2. Clean up primary Storage image in background without blocking UI
   const imgTarget = product.imageStoragePath || product.imageUrl;
   if (imgTarget) {
     deleteStoredImage(imgTarget).catch(() => {});
+  }
+
+  // 3. Clean up secondary image if present
+  const secondImgTarget = product.secondImageStoragePath || product.secondImageUrl;
+  if (secondImgTarget) {
+    deleteStoredImage(secondImgTarget).catch(() => {});
   }
 }
 

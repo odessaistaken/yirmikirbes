@@ -23,6 +23,7 @@ export default function ProductPage() {
   const [inquiryOpen, setInquiryOpen] = useState(false);
   const [imgError, setImgError] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   useEffect(() => {
     async function loadProduct() {
@@ -89,6 +90,21 @@ export default function ProductPage() {
     loadProduct();
   }, [id]);
 
+  // Slider auto-play: switch between images every 4 seconds when secondImageUrl exists
+  useEffect(() => {
+    if (!product?.secondImageUrl) return;
+    const timer = setInterval(() => {
+      setActiveImageIndex((prev) => (prev === 0 ? 1 : 0));
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [product?.secondImageUrl]);
+
+  // Reset slider index and imgError when product changes
+  useEffect(() => {
+    setActiveImageIndex(0);
+    setImgError(false);
+  }, [product?.id]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center py-24">
@@ -142,39 +158,127 @@ export default function ProductPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div
-                className={`relative aspect-product rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-soft-lg p-4 ${
-                  !imgError && product.imageUrl ? "cursor-zoom-in" : ""
-                }`}
-                onClick={() => { if (!imgError && product.imageUrl) setLightboxOpen(true); }}
-                title={!imgError && product.imageUrl ? "Görseli büyütmek için tıklayın" : undefined}
-              >
-                {!imgError && product.imageUrl ? (
-                  <>
-                    <Image
-                      src={product.imageUrl}
-                      alt={product.name}
-                      fill
-                      quality={100}
-                      className="object-contain p-4 transform-gpu sharp-render"
-                      sizes="(max-width: 1024px) 100vw, 800px"
-                      style={{ imageRendering: "-webkit-optimize-contrast" }}
-                      onError={() => setImgError(true)}
-                      priority
-                    />
-                    <div className="absolute bottom-3 right-3 bg-white/90 text-amber-700 border border-slate-200 shadow-sm rounded-lg p-1.5 hover:text-amber-800 transition-colors">
-                      <ZoomIn size={16} />
+              {(() => {
+                const images = [
+                  product.imageUrl,
+                  ...(product.secondImageUrl ? [product.secondImageUrl] : []),
+                ].filter(Boolean) as string[];
+                const hasSlider = images.length > 1;
+                const currentImg = images[activeImageIndex] ?? "";
+
+                return (
+                  <div className="relative group">
+                    <div
+                      className={`relative aspect-product rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-soft-lg p-4 ${
+                        !imgError && currentImg ? "cursor-zoom-in" : ""
+                      }`}
+                      onClick={() => { if (!imgError && currentImg) setLightboxOpen(true); }}
+                      title={!imgError && currentImg ? "Görseli büyütmek için tıklayın" : undefined}
+                    >
+                      <AnimatePresence mode="wait">
+                        {!imgError && currentImg ? (
+                          <motion.div
+                            key={activeImageIndex}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.35 }}
+                            className="absolute inset-0"
+                          >
+                            <Image
+                              src={currentImg}
+                              alt={product.name}
+                              fill
+                              quality={100}
+                              className="object-contain p-4 transform-gpu sharp-render"
+                              sizes="(max-width: 1024px) 100vw, 800px"
+                              style={{ imageRendering: "-webkit-optimize-contrast" }}
+                              onError={() => setImgError(true)}
+                              priority
+                            />
+                            <div className="absolute bottom-3 right-3 bg-white/90 text-amber-700 border border-slate-200 shadow-sm rounded-lg p-1.5 hover:text-amber-800 transition-colors">
+                              <ZoomIn size={16} />
+                            </div>
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            key="placeholder"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            className="absolute inset-0 flex items-center justify-center bg-slate-100"
+                          >
+                            <div className="text-center">
+                              <ImageIcon size={48} className="text-slate-400 mx-auto" />
+                              <p className="text-slate-500 text-sm mt-2">{product.categoryName}</p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+
+                      {/* Slider prev/next arrows */}
+                      {hasSlider && !imgError && (
+                        <>
+                          <button
+                            onClick={(e) => { e.stopPropagation(); setActiveImageIndex(0); }}
+                            className={`absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center rounded-full shadow-md transition-all duration-200 ${
+                              activeImageIndex === 0
+                                ? "bg-amber-500 text-white"
+                                : "bg-white/90 text-slate-600 hover:bg-amber-50 hover:text-amber-700"
+                            }`}
+                            title="Önceki görsel"
+                            aria-label="Önceki görsel"
+                          >
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                              <path d="M7.5 2L3.5 6L7.5 10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </button>
+                          <button
+                            onClick={(e) => { e.stopPropagation(); setActiveImageIndex(1); }}
+                            className={`absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center rounded-full shadow-md transition-all duration-200 ${
+                              activeImageIndex === 1
+                                ? "bg-amber-500 text-white"
+                                : "bg-white/90 text-slate-600 hover:bg-amber-50 hover:text-amber-700"
+                            }`}
+                            title="Sonraki görsel"
+                            aria-label="Sonraki görsel"
+                          >
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                              <path d="M4.5 2L8.5 6L4.5 10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </button>
+                        </>
+                      )}
                     </div>
-                  </>
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center bg-slate-100">
-                    <div className="text-center">
-                      <ImageIcon size={48} className="text-slate-400 mx-auto" />
-                      <p className="text-slate-500 text-sm mt-2">{product.categoryName}</p>
-                    </div>
+
+                    {/* Dot indicators + thumbnails */}
+                    {hasSlider && !imgError && (
+                      <div className="flex items-center justify-center gap-3 mt-4">
+                        {images.map((img, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => setActiveImageIndex(idx)}
+                            className={`relative w-14 h-14 rounded-xl border-2 overflow-hidden transition-all duration-200 shrink-0 ${
+                              activeImageIndex === idx
+                                ? "border-amber-500 shadow-md scale-105"
+                                : "border-slate-200 opacity-60 hover:opacity-90 hover:border-amber-300"
+                            }`}
+                            aria-label={`Görsel ${idx + 1}`}
+                          >
+                            <Image
+                              src={img}
+                              alt={`${product.name} görsel ${idx + 1}`}
+                              fill
+                              sizes="56px"
+                              quality={80}
+                              className="object-contain p-1"
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
+                );
+              })()}
             </motion.div>
 
             {/* ── Info panel ──────────────────────────────────────── */}
@@ -453,47 +557,111 @@ export default function ProductPage() {
 
       {/* ── Lightbox Modal ──────────────────────────────────────────── */}
       <AnimatePresence>
-        {lightboxOpen && product.imageUrl && !imgError && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setLightboxOpen(false)}
-          >
+        {lightboxOpen && !imgError && (() => {
+          const images = [
+            product.imageUrl,
+            ...(product.secondImageUrl ? [product.secondImageUrl] : []),
+          ].filter(Boolean) as string[];
+          const currentImg = images[activeImageIndex] ?? "";
+          const hasSlider = images.length > 1;
+          if (!currentImg) return null;
+          return (
             <motion.div
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.85, opacity: 0 }}
-              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="relative max-w-4xl w-full bg-white rounded-2xl border border-slate-200 shadow-2xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
+              onClick={() => setLightboxOpen(false)}
             >
-              <button
-                onClick={() => setLightboxOpen(false)}
-                className="absolute top-3 right-3 z-10 p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-200 transition-colors"
+              <motion.div
+                initial={{ scale: 0.85, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.85, opacity: 0 }}
+                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                className="relative max-w-4xl w-full bg-white rounded-2xl border border-slate-200 shadow-2xl overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
               >
-                <X size={20} />
-              </button>
-              <div className="relative w-full aspect-square max-h-[85vh]">
-                <Image
-                  src={product.imageUrl}
-                  alt={product.name}
-                  fill
-                  quality={98}
-                  sizes="95vw"
-                  className="object-contain p-8"
-                  priority
-                />
-              </div>
-              <div className="px-6 py-4 border-t border-slate-200 bg-slate-50">
-                <p className="font-heading font-bold text-slate-900">{product.name}</p>
-                <p className="text-slate-500 text-sm font-mono mt-0.5">Kod: {product.code}</p>
-              </div>
+                <button
+                  onClick={() => setLightboxOpen(false)}
+                  className="absolute top-3 right-3 z-10 p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-200 transition-colors"
+                >
+                  <X size={20} />
+                </button>
+
+                <div className="relative w-full aspect-square max-h-[85vh]">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeImageIndex}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={currentImg}
+                        alt={product.name}
+                        fill
+                        quality={98}
+                        sizes="95vw"
+                        className="object-contain p-8"
+                        priority
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Lightbox arrows */}
+                  {hasSlider && (
+                    <>
+                      <button
+                        onClick={() => setActiveImageIndex(0)}
+                        className={`absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center rounded-full shadow-lg transition-all ${
+                          activeImageIndex === 0 ? "bg-amber-500 text-white" : "bg-white text-slate-600 hover:bg-amber-50"
+                        }`}
+                      >
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                          <path d="M7.5 2L3.5 6L7.5 10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={() => setActiveImageIndex(1)}
+                        className={`absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center rounded-full shadow-lg transition-all ${
+                          activeImageIndex === 1 ? "bg-amber-500 text-white" : "bg-white text-slate-600 hover:bg-amber-50"
+                        }`}
+                      >
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                          <path d="M4.5 2L8.5 6L4.5 10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                    </>
+                  )}
+                </div>
+
+                <div className="px-6 py-4 border-t border-slate-200 bg-slate-50 flex items-center justify-between">
+                  <div>
+                    <p className="font-heading font-bold text-slate-900">{product.name}</p>
+                    <p className="text-slate-500 text-sm font-mono mt-0.5">Kod: {product.code}</p>
+                  </div>
+                  {hasSlider && (
+                    <div className="flex items-center gap-1.5">
+                      {images.map((_, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setActiveImageIndex(idx)}
+                          className={`w-2 h-2 rounded-full transition-all ${
+                            activeImageIndex === idx ? "bg-amber-500 w-4" : "bg-slate-300 hover:bg-slate-400"
+                          }`}
+                          aria-label={`Görsel ${idx + 1}`}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
+          );
+        })()}
       </AnimatePresence>
     </>
   );
