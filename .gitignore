@@ -53,3 +53,6 @@ __pycache__/
 backups/archives/
 backups/*.zip
 
+# large local pdfs
+public/pdf/
+

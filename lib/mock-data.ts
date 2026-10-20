@@ -194,10 +194,15 @@ const RAW_PRODUCTS = [
       "Dilimli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "180 GR",
       "Kutu Gramaj": "2160 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Dark Kek, Mascarpone, Labne, Krem Beyaz Peynir, Fildişi Çikolata, Kedidili Bisküvi, Toz Kahve",
+      "Net Miktar": "130 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 1,
     "id": "prod-pt12-13",
@@ -207,7 +212,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Zengin Belçika çikolatalı kadifemsi ganaj ve yumuşacık kakaolu pandispanya katmanları.",
+    "description": "Dark kek ve espresso şuruplu kedidili katmanları arasında hakiki mascarpone, labne ve fildişi çikolatalı özel krema; üzeri yoğun kakao ve toz kahveli İtalyan klasiği.",
     "imageUrl": "/resimler/pt12/pt12_13.png"
   },
   {
@@ -223,10 +228,15 @@ const RAW_PRODUCTS = [
       "Mono"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "200 GR",
       "Kutu Gramaj": "1200 GR",
-      "Kutu İçi Dilim Adeti": "6 Dilim"
+      "Kutu İçi Dilim Adeti": "6 Dilim",
+      "İçindekiler": "Lotus Kek, Pastacı Kreması, Lotus Kaplaması",
+      "Net Miktar": "210 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "6 Adet",
+      "Koli İçi Adet": "48 Adet"
     },
     "order": 19,
     "id": "prod-pt12-14",
@@ -236,7 +246,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Orijinal Belçika Lotus Biscoff bisküvisi, karamelize krema ve speculoos soslu butik mono pasta.",
+    "description": "Orijinal karamelize Belçika Lotus Biscoff bisküvili kek, kadife pastacı kreması ve yoğun Lotus speculoos kaplamasıyla hazırlanan lüks mono pasta.",
     "imageUrl": "/resimler/pt12/pt12_14.png"
   },
   {
@@ -281,10 +291,15 @@ const RAW_PRODUCTS = [
       "Fındıklı"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1170 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Bitter Çikolata, Sütlü Çikolata, Fildişi Çikolata, Brownie Karışımı, Tereyağ",
+      "Net Miktar": "160 GR",
+      "Porsiyon": "1 Dilim",
+      "Kutu İçi Adet": "18 Adet",
+      "Koli İçi Adet": "144 Adet"
     },
     "order": 15,
     "id": "prod-pt12-16",
@@ -294,7 +309,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Yoğun bitter Belçika çikolatası, fındık parçaları ve orman meyveleriyle süslenmiş kare browni.",
+    "description": "Hakiki tereyağı, zengin bitter, sütlü ve fildişi çikolata karışımıyla fırınlanan, dışı hafif kıtır içi ıslak ve yoğun kıvamlı gerçek Amerikan browni dilimi.",
     "imageUrl": "/resimler/pt12/pt12_16.png"
   },
   {
@@ -339,10 +354,15 @@ const RAW_PRODUCTS = [
       "Ferah"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Limon Dolgusu, Haşhaş, Dilim Limon, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "160 GR",
+      "Porsiyon": "1 Dilim",
+      "Kutu İçi Adet": "1 Kutu (Dilimli)",
+      "Koli İçi Adet": "8 Adet"
     },
     "order": 6,
     "id": "prod-pt12-18",
@@ -352,7 +372,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Fırınlanmış kıtır bisküvi tabanı, kadifemsi peynir kreması ve taze ferah limon sosu.",
+    "description": "Yulaflı bisküvi tabanı üzerinde Akdeniz limon dolgusu, çıtır mavi haşhaş taneleri, kadifemsi soğuk peynir kreması ve taze limon dilimiyle ferahlatıcı cheesecake.",
     "imageUrl": "/resimler/pt12/pt12_18.png"
   },
   {
@@ -397,10 +417,15 @@ const RAW_PRODUCTS = [
       "Kahveli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "120 GR",
       "Kutu Gramaj": "1200 GR",
-      "Kutu İçi Dilim Adeti": "10 Dilim"
+      "Kutu İçi Dilim Adeti": "10 Dilim",
+      "İçindekiler": "Dark Kek, Mascarpone, Labne, Krem Beyaz Peynir, Fildişi Çikolata, Kedidili Bisküvi, Toz Kahve",
+      "Net Miktar": "130 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 7,
     "id": "prod-pt12-20",
@@ -410,7 +435,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Espresso şurubuyla ıslatılmış savoiardi kedidili bisküvileri, mascarpone kreması ve kakao tozu.",
+    "description": "Dark kek ve espresso şuruplu kedidili katmanları arasında hakiki mascarpone, labne ve fildişi çikolatalı özel krema; üzeri yoğun kakao ve toz kahveli İtalyan klasiği.",
     "imageUrl": "/resimler/pt12/pt12_20.png"
   },
   {
@@ -426,10 +451,15 @@ const RAW_PRODUCTS = [
       "Dilimli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1920 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Dark Kek, Üç Çikolatalı Ganaj, Sütlü Çikolata Rendesi",
+      "Net Miktar": "160 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 9,
     "id": "prod-pt13-1",
@@ -439,7 +469,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Geleneksel Avusturya Linzer keki, çikolatalı krema ve fındıklı hamur.",
+    "description": "Yoğun kakaolu dark kek katmanları, kadifemsi üç çikolatalı ganaj dolgusu ve bol sütlü çikolata rendesiyle hazırlanan çikolatalı linzer pasta.",
     "imageUrl": "/resimler/pt13/pt13_1.png"
   },
   {
@@ -455,10 +485,15 @@ const RAW_PRODUCTS = [
       "Kremamsı"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "175 GR",
       "Kutu Gramaj": "2100 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Lotus Kreması, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "200 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 10,
     "id": "prod-pt13-2",
@@ -468,7 +503,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Özel karamelize yanık üst kabuğu ve akışkan kremsi iç dokusuyla meşhur Bask San Sebastian.",
+    "description": "Gevrek yulaflı özel bisküvi tabanı üzerinde ipeksi soğuk cheesecake kreması ve karamelize Lotus kremasıyla hazırlanan Avusturya usulü linzer tatlısı.",
     "imageUrl": "/resimler/pt13/pt13_2.png"
   },
   {
@@ -484,10 +519,15 @@ const RAW_PRODUCTS = [
       "Meyveli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "170 GR",
       "Kutu Gramaj": "1700 GR",
-      "Kutu İçi Dilim Adeti": "10 Dilim"
+      "Kutu İçi Dilim Adeti": "10 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Yaban Mersini Dolgusu, Yaban Mersini, Yulaflı Özel Bisküvi Taban, Beyaz Glaze",
+      "Net Miktar": "220 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 11,
     "id": "prod-pt13-3",
@@ -497,7 +537,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Fırınlanmış kıtır bisküvi tabanı, kadifemsi peynir kreması ve zengin orman meyveli yaban mersini sosu.",
+    "description": "Yulaflı bisküvi tabanı, soğuk cheesecake kreması, doğal yaban mersini dolgusu, tane meyveler ve parlak beyaz glaze kaplamalı butik linzer.",
     "imageUrl": "/resimler/pt13/pt13_3.png"
   },
   {
@@ -513,10 +553,15 @@ const RAW_PRODUCTS = [
       "Peynir Kremalı"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1500 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Red Velvet Kek, Kreması, Frambuaz Dolgusu, Çakıl Çikolata, Red Kek Tozu",
+      "Net Miktar": "190 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "12 Adet",
+      "Koli İçi Adet": "96 Adet"
     },
     "order": 12,
     "id": "prod-pt13-4",
@@ -526,7 +571,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Kadife dokulu kırmızı kakao pandispanyası ve vanilyalı mascarpone peynir kreması katmanları.",
+    "description": "Kadife kırmızısı pandispanya keki, özel peynirli krema dolgusu, mayhoş frambuaz püresi, renkli çakıl çikolatalar ve kadife kek tozu kaplamalı Red Velvet pasta.",
     "imageUrl": "/resimler/pt13/pt13_4.png"
   },
   {
@@ -542,10 +587,15 @@ const RAW_PRODUCTS = [
       "Fındıklı"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "210 GR",
       "Kutu Gramaj": "1890 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Tel Kadayıf, Fıstıklı Kadayıf, Çikolatalı Ganaj",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 22,
     "id": "prod-pt13-5",
@@ -555,7 +605,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Kavrulmuş fındık parçacıklı çıtır çikolata kabuğu altında yoğun çikolata mousse dolgulu mono pasta.",
+    "description": "Geleneksel çıtır tel kadayıf ve yoğun Antep fıstıklı kadayıfın, akışkan çikolatalı ganaj dolgusuyla buluştuğu çıtır bomba pasta.",
     "imageUrl": "/resimler/pt13/pt13_5.png"
   },
   {
@@ -571,10 +621,15 @@ const RAW_PRODUCTS = [
       "Tart"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "225 GR",
       "Kutu Gramaj": "1800 GR",
-      "Kutu İçi Dilim Adeti": "8 Dilim"
+      "Kutu İçi Dilim Adeti": "8 Dilim",
+      "İçindekiler": "Amerikan Cookie, Pastacı Kreması, Üç Çikolatalı Ganaj, Lotus Kreması, Orman Meyveleri, Lotus Bisküvisi",
+      "Net Miktar": "1700 GR",
+      "Porsiyon": "1 Dilim (10 Dilimli Tart)",
+      "Kutu İçi Adet": "1 Kutu (10 Dilim)",
+      "Koli İçi Adet": "8 Koli"
     },
     "order": 50,
     "id": "prod-pt13-6",
@@ -584,7 +639,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Tereyağlı kurabiye tart hamuru, çikolata dolgusu ve özel krema katmanları.",
+    "description": "Dev Amerikan cookie tabanı üzerinde pastacı kreması, üç çikolatalı ganaj, Lotus kreması ve taze orman meyveleriyle süslenmiş 10 dilimli gurme tart pasta.",
     "imageUrl": "/resimler/pt13/pt13_6.png"
   },
   {
@@ -600,10 +655,15 @@ const RAW_PRODUCTS = [
       "Çikolatalı"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "170 GR",
       "Kutu Gramaj": "1870 GR",
-      "Kutu İçi Dilim Adeti": "11 Dilim"
+      "Kutu İçi Dilim Adeti": "11 Dilim",
+      "İçindekiler": "Tiramisu Kreması, Fındıklı Çikolata Kaplama Sosu, Espresso",
+      "Net Miktar": "210 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 24,
     "id": "prod-pt13-7",
@@ -613,7 +673,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Parlak bitter çikolata kubbesi içinde Antep fıstıklı krema ve yumuşak pandispanya.",
+    "description": "Otantik İtalyan espresso aromalı kedi dili, kadifemsi tiramisu kreması ve üzeri zengin fındıklı çikolata kaplama sosuyla hazırlanan bomba mono pasta.",
     "imageUrl": "/resimler/pt13/pt13_7.png"
   },
   {
@@ -629,10 +689,15 @@ const RAW_PRODUCTS = [
       "Mono"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "240 GR",
       "Kutu Gramaj": "1440 GR",
-      "Kutu İçi Dilim Adeti": "6 Dilim"
+      "Kutu İçi Dilim Adeti": "6 Dilim",
+      "İçindekiler": "Hindistan Cevizli Kek, Pastacı Kreması, Beyaz Çikolata Kaplama Sos",
+      "Net Miktar": "230 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "6 Adet",
+      "Koli İçi Adet": "48 Adet"
     },
     "order": 16,
     "id": "prod-pt13-8",
@@ -642,7 +707,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Hafif sünger pandispanya, ferahlatıcı şeftali püresi ve vanilyalı mousse mono pasta.",
+    "description": "Hindistan cevizli yumuşacık kek katmanları, özel pastacı kreması dolgusu ve leziz beyaz çikolata kaplama sosuyla taçlandırılmış şeftali aromalı sponge pasta.",
     "imageUrl": "/resimler/pt13/pt13_8.png"
   },
   {
@@ -658,10 +723,15 @@ const RAW_PRODUCTS = [
       "Mono"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "200 GR",
       "Kutu Gramaj": "1800 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Hindistan Cevizli Kek, Pastacı Kreması, Çikolata Kaplama Sos",
+      "Net Miktar": "240 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "6 Adet",
+      "Koli İçi Adet": "48 Adet"
     },
     "order": 17,
     "id": "prod-pt13-9",
@@ -671,7 +741,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Hindistan cevizi kaplı hafif beyaz krema ve çikolata dolgulu mono pasta.",
+    "description": "Hafif hindistan cevizli sünger pandispanya keki, ipeksi pastacı kreması dolgusu ve parlak çikolata kaplama sosuyla hazırlanan gurme mono tatlı.",
     "imageUrl": "/resimler/pt13/pt13_9.png"
   },
   {
@@ -687,10 +757,15 @@ const RAW_PRODUCTS = [
       "Bireysel"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "210 GR",
       "Kutu Gramaj": "2520 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Pandispanya, Ganaj, Portakal Dolgu, Krema, Hindistan Cevizi Tozu",
+      "Net Miktar": "230 GR",
+      "Porsiyon": "1 Kişilik (Cup)",
+      "Kutu İçi Adet": "8 Adet",
+      "Koli İçi Adet": "64 Adet"
     },
     "order": 18,
     "id": "prod-pt13-10",
@@ -700,7 +775,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-butik-cup",
     "categoryName": "Pastalar",
     "categorySlug": "butik-cup",
-    "description": "Taze portakal püreli jöle, hafif pastacı kreması ve bisküvi katmanlı cup tatlısı.",
+    "description": "Yumuşacık pandispanya, bitter çikolata ganajı, taze Akdeniz portakalı dolgusu, kadifemsi krema ve hafif hindistan cevizi tozu dokunuşlu meyveli cup tatlı.",
     "imageUrl": "/resimler/pt13/pt13_10.png"
   },
   {
@@ -716,10 +791,15 @@ const RAW_PRODUCTS = [
       "Porsiyonluk"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "140 GR",
       "Kutu Gramaj": "2100 GR",
-      "Kutu İçi Dilim Adeti": "15 Dilim"
+      "Kutu İçi Dilim Adeti": "15 Dilim",
+      "İçindekiler": "Bitter Sufle Harcı",
+      "Net Miktar": "100 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "12 Adet",
+      "Koli İçi Adet": "96 Adet"
     },
     "order": 19,
     "id": "prod-pt13-11",
@@ -729,7 +809,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Isıtıldığında içi akışkan Belçika çikolatalı gurme sufle.",
+    "description": "Zengin bitter Belçika çikolatası harcıyla hazırlanan, ısıtıldığında kalbinden dökülen akışkan sıcak çikolatasıyla klasik sufle keyfi.",
     "imageUrl": "/resimler/pt13/pt13_11.png"
   },
   {
@@ -745,10 +825,15 @@ const RAW_PRODUCTS = [
       "Dilimli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "170 GR",
       "Kutu Gramaj": "2720 GR",
-      "Kutu İçi Dilim Adeti": "16 Dilim"
+      "Kutu İçi Dilim Adeti": "16 Dilim",
+      "İçindekiler": "Dark Kek, Üç Çikolatalı Ganaj, Sütlü Çikolata Rendesi",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Dilim",
+      "Kutu İçi Adet": "10 Adet",
+      "Koli İçi Adet": "80 Adet"
     },
     "order": 20,
     "id": "prod-pt13-12",
@@ -758,7 +843,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Geleneksel lezzet: Tereyağlı kakaolu krema ve çıtır bisküvi parçalarından rulo mozaik pasta.",
+    "description": "Geleneksel mozaik lezzeti: Bitter dark kek parçacıkları, zengin üç çikolatalı ganaj dolgusu ve bol sütlü çikolata rendesiyle nostaljik ve modern bir tat.",
     "imageUrl": "/resimler/pt13/pt13_12.png"
   },
   {
@@ -803,10 +888,15 @@ const RAW_PRODUCTS = [
       "Mono"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "190 GR",
       "Kutu Gramaj": "1710 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Dark Kek, Vanilyalı Krema, Oreo Parçaları, Üç Çikolatalı Ganaj",
+      "Net Miktar": "150 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 22,
     "id": "prod-pt13-14",
@@ -816,7 +906,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Orijinal Oreo bisküvi parçaları ve kadifemsi peynir kremalı mono pasta.",
+    "description": "Nemli dark kek katmanları, vanilyalı hafif peynir kreması, bol çıtır Oreo bisküvi parçaları ve zengin üç çikolatalı ganaj kaplamasıyla porsiyonluk Oreo pasta.",
     "imageUrl": "/resimler/pt13/pt13_14.png"
   },
   {
@@ -832,10 +922,15 @@ const RAW_PRODUCTS = [
       "Karamel"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "220 GR",
       "Kutu Gramaj": "2000 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Speculos Kek, Lotus Dolgusu, Kadayıflı Krema, Lotus Bisküvi",
+      "Net Miktar": "220 GR",
+      "Porsiyon": "1 Kişilik (Cup)",
+      "Kutu İçi Adet": "8 Adet",
+      "Koli İçi Adet": "64 Adet"
     },
     "order": 23,
     "id": "prod-pt13-15",
@@ -845,7 +940,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Orijinal Lotus Biscoff bisküvili ve karamelize krema dolgulu kubbe mono tatlı.",
+    "description": "Bireysel cup bardağında karamelize Speculoos keki, orijinal Lotus ezmesi dolgusu, çıtır kadayıflı krema ve tam parça Lotus bisküvili gurme cup.",
     "imageUrl": "/resimler/pt13/pt13_15.png"
   },
   {
@@ -864,10 +959,15 @@ const RAW_PRODUCTS = [
       "Rulo Pasta"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1040 GR",
-      "Kutu İçi Dilim Adeti": "8 Dilim"
+      "Kutu İçi Dilim Adeti": "8 Dilim",
+      "İçindekiler": "Dark Kek, Çikolatalı Pastacı Kreması, Orman Meyveleri, Üç Çikolatalı Ganaj, Sütlü Çikolata ve Orman Meyveli Kek",
+      "Net Miktar": "130 GR",
+      "Porsiyon": "1 Kişilik (Rulo)",
+      "Kutu İçi Adet": "8 Adet",
+      "Koli İçi Adet": "64 Adet"
     },
     "order": 51,
     "id": "prod-pt13-16",
@@ -877,7 +977,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Zarif yarım ay silueti, aynalı siyah çikolata glazürü ve yoğun çikolata mousse dolgusuyla modern pastacılık tasarımı.",
+    "description": "Kakaolu dark kek sarımı içinde çikolatalı pastacı kreması, taze orman meyveleri taneleri, üç çikolatalı ganaj ve sütlü çikolata süslemeli rulo pasta.",
     "imageUrl": "/resimler/pt13/pt13_16.png"
   },
   {
@@ -922,10 +1022,15 @@ const RAW_PRODUCTS = [
       "Çikolatalı"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "110 GR",
       "Kutu Gramaj": "1320GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Amerikan Cookie, Nutella, Sütlü Çikolata",
+      "Net Miktar": "1350 GR",
+      "Porsiyon": "1 Dilim (12 Dilimli Pie)",
+      "Kutu İçi Adet": "1 Kutu (12 Dilim)",
+      "Koli İçi Adet": "8 Koli"
     },
     "order": 14,
     "id": "prod-pt13-18",
@@ -935,7 +1040,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Çikolata dolgulu kurabiye turta dilimi.",
+    "description": "Fırınlanmış dev Amerikan kurabiye hamuru içerisinde akışkan orijinal Nutella fındık kreması ve sütlü çikolata dolgulu, dilimlenmiş 12 porsiyonluk pasta turtası.",
     "imageUrl": "/resimler/pt13/pt13_18.png"
   },
   {
@@ -951,10 +1056,15 @@ const RAW_PRODUCTS = [
       "Meyveli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1170 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Tereyağlı Burçak Kek, Cheesecake Harcı, Çilek Dolgu",
+      "Net Miktar": "245 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 52,
     "id": "prod-pt13-19",
@@ -964,7 +1074,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Taze çilek soslu ve kadifemsi peynir kremalı butik cheesecake dilimi.",
+    "description": "Tereyağlı burçak bisküvi tabanı üzerinde kıvamlı nefis cheesecake harcı ve taze kokulu çilek dolgusuyla hazırlanan mono çilekli cheesecake.",
     "imageUrl": "/resimler/pt13/pt13_19.png"
   },
   {
@@ -980,10 +1090,15 @@ const RAW_PRODUCTS = [
       "Kadayıflı"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "220 GR",
       "Kutu Gramaj": "2640 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Fıstıklı Kek, Fıstıklı Kadayıflı Krema, Ganaj, Toz Fıstık",
+      "Net Miktar": "240 GR",
+      "Porsiyon": "1 Kişilik (Cup)",
+      "Kutu İçi Adet": "8 Adet",
+      "Koli İçi Adet": "64 Adet"
     },
     "order": 18,
     "id": "prod-pt13-20",
@@ -993,7 +1108,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-butik-cup",
     "categoryName": "Pastalar",
     "categorySlug": "butik-cup",
-    "description": "Çıtır kavrulmuş tel kadayıf, yoğun Antep fıstığı ezmesi ve sütlü Belçika çikolatalı Dubai cup tatlısı.",
+    "description": "Kup sunumunda Antep fıstıklı sünger kek, çıtır kadayıflı fıstık kreması, akışkan çikolata ganajı ve bol yeşil toz Antep fıstığıyla Dubai tatlısı.",
     "imageUrl": "/resimler/pt13/pt13_20.png"
   },
   {
@@ -1009,10 +1124,15 @@ const RAW_PRODUCTS = [
       "İtalyan"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "120 GR",
       "Kutu Gramaj": "1200 GR",
-      "Kutu İçi Dilim Adeti": "10 Dilim"
+      "Kutu İçi Dilim Adeti": "10 Dilim",
+      "İçindekiler": "Dark Kek, Mascarpone, Labne, Krem Beyaz Peynir, Fildişi Çikolata, Kedidili Bisküvi, Toz Kahve",
+      "Net Miktar": "130 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 29,
     "id": "prod-pt14-1",
@@ -1022,7 +1142,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Orijinal İtalyan mascarpone peyniri ve espresso ile hazırlanmış butik tiramisu dilimi.",
+    "description": "Dark kek ve espresso şuruplu kedidili katmanları arasında hakiki mascarpone, labne ve fildişi çikolatalı özel krema; üzeri yoğun kakao ve toz kahveli İtalyan klasiği.",
     "imageUrl": "/resimler/pt14/pt14_1.png"
   },
   {
@@ -1038,10 +1158,15 @@ const RAW_PRODUCTS = [
       "Ahududulu"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Frambuaz Dolgusu, Orman Meyveleri, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 30,
     "id": "prod-pt14-2",
@@ -1051,7 +1176,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Fırınlanmış kıtır bisküvi tabanı, peynir kreması ve ekşi-tatlı ahududu frambuaz sosu.",
+    "description": "Gevrek yulaflı taban, hafif soğuk cheesecake kreması, doğal frambuaz dolgusu ve taze kırmızı orman meyveleriyle süslenmiş porsiyonluk cheesecake.",
     "imageUrl": "/resimler/pt14/pt14_2.png"
   },
   {
@@ -1096,10 +1221,15 @@ const RAW_PRODUCTS = [
       "Karamel"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1920 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Dark Kek, Mascarpone, Labne, Krem Beyaz Peynir, Fildişi Çikolata, Kedidili Bisküvi, Toz Kahve",
+      "Net Miktar": "130 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 32,
     "id": "prod-pt14-4",
@@ -1109,7 +1239,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Orijinal Belçika Lotus Biscoff bisküvi tabanı, karamel krema ve speculoos soslu cheesecake.",
+    "description": "Dark kek ve espresso şuruplu kedidili katmanları arasında hakiki mascarpone, labne ve fildişi çikolatalı özel krema; üzeri yoğun kakao ve toz kahveli İtalyan klasiği.",
     "imageUrl": "/resimler/pt14/pt14_4.png"
   },
   {
@@ -1386,10 +1516,15 @@ const RAW_PRODUCTS = [
       "Kupa"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "210 GR",
       "Kutu Gramaj": "1680",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Mois Kek, Krema, Crunch Dolgu, Fındık Unu",
+      "Net Miktar": "220 GR",
+      "Porsiyon": "1 Kişilik (Cup)",
+      "Kutu İçi Adet": "8 Adet",
+      "Koli İçi Adet": "64 Adet"
     },
     "order": 42,
     "id": "prod-pt14-14",
@@ -1399,7 +1534,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-butik-cup",
     "categoryName": "Pastalar",
     "categorySlug": "butik-cup",
-    "description": "Hafif kakaolu mousse ve çikolata ganajlı bireysel cup tatlısı.",
+    "description": "Yoğun kakaolu nemli mois kek, ipeksi pastacı kreması, çıtır crunch pirinç patlağı dolgusu ve kavrulmuş fındık unuyla zenginleştirilmiş çikolata cup.",
     "imageUrl": "/resimler/pt14/pt14_14.png"
   },
   {
@@ -1415,10 +1550,15 @@ const RAW_PRODUCTS = [
       "Mono"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "260 GR",
       "Kutu Gramaj": "2080 GR",
-      "Kutu İçi Dilim Adeti": "8 Dilim"
+      "Kutu İçi Dilim Adeti": "8 Dilim",
+      "İçindekiler": "Fıstıklı Mereng Kek, Pastacı Kreması, Bitter Ganaj, Frambuaz Sos",
+      "Net Miktar": "200 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "8 Adet",
+      "Koli İçi Adet": "64 Adet"
     },
     "order": 43,
     "id": "prod-pt14-15",
@@ -1428,7 +1568,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Yoğun Antep fıstığı kaplı silindir formunda butik pasta.",
+    "description": "Hafif ve çıtır Antep fıstıklı mereng keki, ipeksi pastacı kreması, yoğun bitter çikolata ganajı ve taze ekşi-tatlı frambuaz sosunun kusursuz dengesi.",
     "imageUrl": "/resimler/pt14/pt14_15.png"
   },
   {
@@ -1473,10 +1613,15 @@ const RAW_PRODUCTS = [
       "Pralinli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "180 GR",
       "Kutu Gramaj": "1800 GR",
-      "Kutu İçi Dilim Adeti": "10 Dilim"
+      "Kutu İçi Dilim Adeti": "10 Dilim",
+      "İçindekiler": "Mois Kek, Krema, Crunch Dolgu, Fındık Unu",
+      "Net Miktar": "220 GR",
+      "Porsiyon": "1 Kişilik (Cup)",
+      "Kutu İçi Adet": "8 Adet",
+      "Koli İçi Adet": "64 Adet"
     },
     "order": 45,
     "id": "prod-pt14-17",
@@ -1486,7 +1631,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Fransız pâte à choux hamuru ve pralinli fındık kreması dolgulu halka pasta.",
+    "description": "Yoğun kakaolu nemli mois kek, ipeksi pastacı kreması, çıtır crunch pirinç patlağı dolgusu ve kavrulmuş fındık unuyla zenginleştirilmiş çikolata cup.",
     "imageUrl": "/resimler/pt14/pt14_17.png"
   },
   {
@@ -1502,10 +1647,15 @@ const RAW_PRODUCTS = [
       "Mono"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "200 GR",
       "Kutu Gramaj": "2400 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Mois Kek, Karamel Kreması, Kavrulmuş Yer Fıstığı, Üç Çikolata Ganaj",
+      "Net Miktar": "190 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "8 Adet",
+      "Koli İçi Adet": "64 Adet"
     },
     "order": 46,
     "id": "prod-pt14-18",
@@ -1515,7 +1665,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Karamel, kavrulmuş yer fıstığı ve sütlü çikolata kaplı Snickers tarzı mono pasta.",
+    "description": "Nemli yoğun mois kek katmanları, akışkan karamel kreması, çıtır kavrulmuş yer fıstıkları ve zengin üç çikolatalı ganaj kaplamasıyla gerçek Snickers lezzeti.",
     "imageUrl": "/resimler/pt14/pt14_18.png"
   },
   {
@@ -1531,10 +1681,15 @@ const RAW_PRODUCTS = [
       "Meyveli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1170 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Cheesecake, Vişne Dolgu, Bitter Ganaj",
+      "Net Miktar": "245 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 47,
     "id": "prod-pt14-19",
@@ -1544,7 +1699,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Ekşi tatlı vişne soslu fırınlanmış butik cheesecake dilimi.",
+    "description": "Kıtır bisküvi tabanlı zengin fırınlanmış cheesecake kreması, ekşi-tatlı doğal vişne dolgusu ve yoğun bitter ganaj dokunuşuyla tek porsiyonluk mono cheesecake.",
     "imageUrl": "/resimler/pt14/pt14_19.png"
   },
   {
@@ -1560,10 +1715,15 @@ const RAW_PRODUCTS = [
       "Kahveli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1440 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Dark Kek, Mascarpone, Labne, Krem Beyaz Peynir, Fildişi Çikolata, Kedidili Bisküvi, Toz Kahve",
+      "Net Miktar": "130 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 48,
     "id": "prod-pt14-20",
@@ -1573,7 +1733,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Kare porsiyonluk otantik İtalyan tiramisusu.",
+    "description": "Dark kek ve espresso şuruplu kedidili katmanları arasında hakiki mascarpone, labne ve fildişi çikolatalı özel krema; üzeri yoğun kakao ve toz kahveli İtalyan klasiği.",
     "imageUrl": "/resimler/pt14/pt14_20.png"
   },
   {
@@ -1589,10 +1749,15 @@ const RAW_PRODUCTS = [
       "Kutuda"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "220 GR",
       "Kutu Gramaj": "2640 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Fıstıklı Kek, Fıstıklı Kadayıflı Krema, Ganaj, Toz Fıstık",
+      "Net Miktar": "240 GR",
+      "Porsiyon": "1 Kişilik (Cup)",
+      "Kutu İçi Adet": "8 Adet",
+      "Koli İçi Adet": "64 Adet"
     },
     "order": 49,
     "id": "prod-pt15-1",
@@ -1602,7 +1767,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-butik-cup",
     "categoryName": "Pastalar",
     "categorySlug": "butik-cup",
-    "description": "Şeffaf dikdörtgen kutuda çıtır kadayıf, Antep fıstığı ezmesi ve Belçika çikolatası.",
+    "description": "Kup sunumunda Antep fıstıklı sünger kek, çıtır kadayıflı fıstık kreması, akışkan çikolata ganajı ve bol yeşil toz Antep fıstığıyla Dubai tatlısı.",
     "imageUrl": "/resimler/pt15/pt15_1.png"
   },
   {
@@ -1676,10 +1841,15 @@ const RAW_PRODUCTS = [
       "Meyveli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "210 GR",
       "Kutu Gramaj": "2520 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Red Velvet Kek, Cup Kreması, Frambuaz Sos",
+      "Net Miktar": "240 GR",
+      "Porsiyon": "1 Kişilik (Cup)",
+      "Kutu İçi Adet": "10 Adet",
+      "Koli İçi Adet": "80 Adet"
     },
     "order": 52,
     "id": "prod-pt15-4",
@@ -1689,7 +1859,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-butik-cup",
     "categoryName": "Pastalar",
     "categorySlug": "butik-cup",
-    "description": "Yaban mersini, böğürtlen ve frambuaz soslu orman meyveli bireysel cup tatlısı.",
+    "description": "Kırmızı kadife Red Velvet kek taneleri, hafif vanilyalı cup kreması ve ekşi-tatlı orman meyveli frambuaz sosunun göz alıcı sunumu.",
     "imageUrl": "/resimler/pt15/pt15_4.png"
   },
   {
@@ -1705,10 +1875,15 @@ const RAW_PRODUCTS = [
       "Mono"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "190 GR",
       "Kutu Gramaj": "1710 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Fındıklı Mereng Kek, Pastacı Kreması, Şeftali",
+      "Net Miktar": "200 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "8 Adet",
+      "Koli İçi Adet": "64 Adet"
     },
     "order": 53,
     "id": "prod-pt15-5",
@@ -1718,7 +1893,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Kavrulmuş fındık krokanı ve kahve kremasıyla hazırlanan mono pasta.",
+    "description": "Kavrulmuş Karadeniz fındıklı mereng keki, kadife pastacı kreması ve ferahlatıcı şeftali parçacıklarıyla hazırlanan zarif petunya mono pasta.",
     "imageUrl": "/resimler/pt15/pt15_5.png"
   },
   {
@@ -1791,10 +1966,15 @@ const RAW_PRODUCTS = [
       "Dilimli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "110 GR",
       "Kutu Gramaj": "1760 GR",
-      "Kutu İçi Dilim Adeti": "16 Dilim"
+      "Kutu İçi Dilim Adeti": "16 Dilim",
+      "İçindekiler": "Limon Haşhaş Kek, Pastacı Kreması, Limon Dolgusu",
+      "Net Miktar": "240 GR",
+      "Porsiyon": "1 Kişilik (Cup)",
+      "Kutu İçi Adet": "10 Adet",
+      "Koli İçi Adet": "80 Adet"
     },
     "order": 56,
     "id": "prod-pt15-8",
@@ -1804,7 +1984,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-11",
     "categoryName": "Kasa Önü Ürünler",
     "categorySlug": "kasa-onu-urunler",
-    "description": "Taze rendelenmiş havuç, tarçın ve bol cevizle hazırlanan dilimli baton kek.",
+    "description": "Mavi haşhaş taneli nemli limonlu kek katmanları, kadifemsi pastacı kreması ve ferahlatıcı Akdeniz limon püresi dolgusuyla sunulan limon haşhaş cup.",
     "imageUrl": "/resimler/pt15/pt15_8.png"
   },
   {
@@ -1877,10 +2057,15 @@ const RAW_PRODUCTS = [
       "Dilimli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "110 GR",
       "Kutu Gramaj": "1760 GR",
-      "Kutu İçi Dilim Adeti": "16 Dilim"
+      "Kutu İçi Dilim Adeti": "16 Dilim",
+      "İçindekiler": "Pandispanya, Ganaj, Portakal Dolgu, Krema, Hindistan Cevizi Tozu",
+      "Net Miktar": "230 GR",
+      "Porsiyon": "1 Kişilik (Cup)",
+      "Kutu İçi Adet": "8 Adet",
+      "Koli İçi Adet": "64 Adet"
     },
     "order": 59,
     "id": "prod-pt15-11",
@@ -1890,7 +2075,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-11",
     "categoryName": "Kasa Önü Ürünler",
     "categorySlug": "kasa-onu-urunler",
-    "description": "Taze portakal kabuğu rendesi ve suyuyla nemlendirilmiş dilimli baton kek.",
+    "description": "Yumuşacık pandispanya, bitter çikolata ganajı, taze Akdeniz portakalı dolgusu, kadifemsi krema ve hafif hindistan cevizi tozu dokunuşlu meyveli cup tatlı.",
     "imageUrl": "/resimler/pt15/pt15_11.png"
   },
   {
@@ -1906,10 +2091,15 @@ const RAW_PRODUCTS = [
       "Fındıklı"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "170 GR",
       "Kutu Gramaj": "1530 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Dark Kek, Üç Çikolatalı Ganaj, Sütlü Çikolata Rendesi",
+      "Net Miktar": "160 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 60,
     "id": "prod-pt15-12",
@@ -1919,7 +2109,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Geleneksel Avusturya Linzer keki, çikolatalı krema ve fındıklı hamur.",
+    "description": "Yoğun kakaolu dark kek katmanları, kadifemsi üç çikolatalı ganaj dolgusu ve bol sütlü çikolata rendesiyle hazırlanan çikolatalı linzer pasta.",
     "imageUrl": "/resimler/pt15/pt15_12.png"
   },
   {
@@ -1935,10 +2125,15 @@ const RAW_PRODUCTS = [
       "Dilimli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "110 GR",
       "Kutu Gramaj": "1760 GR",
-      "Kutu İçi Dilim Adeti": "16 Dilim"
+      "Kutu İçi Dilim Adeti": "16 Dilim",
+      "İçindekiler": "Red Velvet, Krema, Frambuaz Dolgusu, Red Kek Tozu",
+      "Net Miktar": "210 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "7 Adet",
+      "Koli İçi Adet": "56 Adet"
     },
     "order": 61,
     "id": "prod-pt15-13",
@@ -1948,7 +2143,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-11",
     "categoryName": "Kasa Önü Ürünler",
     "categorySlug": "kasa-onu-urunler",
-    "description": "Ferahlatıcı limon aroması ve çıtır mavi haşhaş tohumlu dilimli baton kek.",
+    "description": "Özel kalp formlu sunumunda kadife dokulu Red Velvet keki, ipeksi beyaz krema, taze frambuaz dolgusu ve kırmızı kek tozu süslemesiyle aşk dolu bir lezzet.",
     "imageUrl": "/resimler/pt15/pt15_13.png"
   },
   {
@@ -1992,10 +2187,15 @@ const RAW_PRODUCTS = [
       "Gurme Mono"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1875 GR",
-      "Kutu İçi Dilim Adeti": "15 Dilim"
+      "Kutu İçi Dilim Adeti": "15 Dilim",
+      "İçindekiler": "Cookie, Bitter Sufle, Orman Meyveleri",
+      "Net Miktar": "180 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 63,
     "id": "prod-pt15-15",
@@ -2005,7 +2205,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Birebir limon formunda hazırlanmış beyaz çikolata kabuklu limonlu gurme mono pasta.",
+    "description": "Kıtır Amerikan kurabiye tabanı üzerinde ısıtıldığında akışkanlaşan yoğun bitter çikolatalı sufle ve taze orman meyveleri dokunuşu.",
     "imageUrl": "/resimler/pt15/pt15_15.png"
   },
   {
@@ -2024,10 +2224,15 @@ const RAW_PRODUCTS = [
       "Kadife Doku"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1500 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Red Velvet Kek, Kreması, Frambuaz Dolgusu, Çakıl Çikolata, Red Kek Tozu",
+      "Net Miktar": "190 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "12 Adet",
+      "Koli İçi Adet": "96 Adet"
     },
     "order": 64,
     "id": "prod-pt15-16",
@@ -2037,7 +2242,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Butik Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Canlandırıcı Akdeniz limon kreması, kadife sarı dış yüzey ve bademli bisküvi tabanıyla ferahlık timsali.",
+    "description": "Kadife kırmızısı pandispanya keki, özel peynirli krema dolgusu, mayhoş frambuaz püresi, renkli çakıl çikolatalar ve kadife kek tozu kaplamalı Red Velvet pasta.",
     "imageUrl": "/resimler/pt15/pt15_16.png"
   },
   {
@@ -2082,10 +2287,15 @@ const RAW_PRODUCTS = [
       "Meyveli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "190 GR",
       "Kutu Gramaj": "1710 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Yaban Mersini Dolgusu, Yaban Mersini, Yulaflı Özel Bisküvi Taban, Beyaz Glaze",
+      "Net Miktar": "220 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 66,
     "id": "prod-pt15-18",
@@ -2095,7 +2305,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Yaban mersini marmelatı dolgulu Linzer hamurlu butik pasta.",
+    "description": "Yulaflı bisküvi tabanı, soğuk cheesecake kreması, doğal yaban mersini dolgusu, tane meyveler ve parlak beyaz glaze kaplamalı butik linzer.",
     "imageUrl": "/resimler/pt15/pt15_18.png"
   },
   {
@@ -2139,10 +2349,15 @@ const RAW_PRODUCTS = [
       "Çikolatalı"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "210 GR",
       "Kutu Gramaj": "1890 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Tel Kadayıf, Fıstıklı Kadayıf, Çikolatalı Ganaj",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 68,
     "id": "prod-pt15-20",
@@ -2152,7 +2367,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Kavrulmuş fındıklı çikolata kaplı bombe mono pasta.",
+    "description": "Geleneksel çıtır tel kadayıf ve yoğun Antep fıstıklı kadayıfın, akışkan çikolatalı ganaj dolgusuyla buluştuğu çıtır bomba pasta.",
     "imageUrl": "/resimler/pt15/pt15_20.png"
   },
   {
@@ -2168,10 +2383,15 @@ const RAW_PRODUCTS = [
       "Peynir Kremalı"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1500 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Red Velvet Kek, Kreması, Frambuaz Dolgusu, Çakıl Çikolata, Red Kek Tozu",
+      "Net Miktar": "190 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "12 Adet",
+      "Koli İçi Adet": "96 Adet"
     },
     "order": 53,
     "id": "prod-pt15-21",
@@ -2181,7 +2401,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Kırmızı kadife kek, vanilyalı peynir kreması ve taze ahududu sosu.",
+    "description": "Kadife kırmızısı pandispanya keki, özel peynirli krema dolgusu, mayhoş frambuaz püresi, renkli çakıl çikolatalar ve kadife kek tozu kaplamalı Red Velvet pasta.",
     "imageUrl": "/resimler/pt15/pt15_21.png"
   },
   {
@@ -2196,10 +2416,15 @@ const RAW_PRODUCTS = [
       "Frambuazlı"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Frambuaz Dolgusu, Orman Meyveleri, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 70,
     "id": "prod-pt15-22",
@@ -2209,7 +2434,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Fırınlanmış bisküvi tabanı üzerinde ekşi tatlı frambuaz soslu cheesecake dilimi.",
+    "description": "Gevrek yulaflı taban, hafif soğuk cheesecake kreması, doğal frambuaz dolgusu ve taze kırmızı orman meyveleriyle süslenmiş porsiyonluk cheesecake.",
     "imageUrl": "/resimler/pt15/pt15_22.png"
   },
   {
@@ -2368,10 +2593,15 @@ const RAW_PRODUCTS = [
       "Fransız"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "180 GR",
       "Kutu Gramaj": "1800 GR",
-      "Kutu İçi Dilim Adeti": "10 Dilim"
+      "Kutu İçi Dilim Adeti": "10 Dilim",
+      "İçindekiler": "Dark Kek, Üç Çikolatalı Ganaj, Sütlü Çikolata Rendesi",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Dilim",
+      "Kutu İçi Adet": "10 Adet",
+      "Koli İçi Adet": "80 Adet"
     },
     "order": 76,
     "id": "prod-pt16-6",
@@ -2381,7 +2611,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Şu hamuru halkası içinde pralin kremalı klasik Fransız tatlısı.",
+    "description": "Geleneksel mozaik lezzeti: Bitter dark kek parçacıkları, zengin üç çikolatalı ganaj dolgusu ve bol sütlü çikolata rendesiyle nostaljik ve modern bir tat.",
     "imageUrl": "/resimler/pt16/pt16_6.png"
   },
   {
@@ -2453,10 +2683,15 @@ const RAW_PRODUCTS = [
       "Meyveli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "190 GR",
       "Kutu Gramaj": "2280 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Dark Kek, Üç Çikolatalı Ganaj, Vişne ve Badem",
+      "Net Miktar": "190 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "12 Adet",
+      "Koli İçi Adet": "96 Adet"
     },
     "order": 79,
     "id": "prod-pt16-9",
@@ -2466,7 +2701,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Kavrulmuş yaprak bademler ve mayhoş vişne taneleriyle butik pasta dilimi.",
+    "description": "Dark kek katmanları arasında zengin üç çikolatalı ganaj, mayhoş vişne taneleri ve çıtır badem parçacıklarının eşsiz uyumuyla hazırlanan tek porsiyonluk donuk butik pasta.",
     "imageUrl": "/resimler/pt16/pt16_9.png"
   },
   {
@@ -2481,10 +2716,15 @@ const RAW_PRODUCTS = [
       "Rulo"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1040 GR",
-      "Kutu İçi Dilim Adeti": "8 Dilim"
+      "Kutu İçi Dilim Adeti": "8 Dilim",
+      "İçindekiler": "Dark Kek, Çikolatalı Pastacı Kreması, Orman Meyveleri, Üç Çikolatalı Ganaj, Sütlü Çikolata ve Orman Meyveli Kek",
+      "Net Miktar": "130 GR",
+      "Porsiyon": "1 Kişilik (Rulo)",
+      "Kutu İçi Adet": "8 Adet",
+      "Koli İçi Adet": "64 Adet"
     },
     "order": 80,
     "id": "prod-pt16-10",
@@ -2494,7 +2734,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Yumuşacık rulo pandispanya, orman meyveleri ve çikolata sosu.",
+    "description": "Kakaolu dark kek sarımı içinde çikolatalı pastacı kreması, taze orman meyveleri taneleri, üç çikolatalı ganaj ve sütlü çikolata süslemeli rulo pasta.",
     "imageUrl": "/resimler/pt16/pt16_10.png"
   },
   {
@@ -2538,10 +2778,15 @@ const RAW_PRODUCTS = [
       "Çikolatalı"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "170 GR",
       "Kutu Gramaj": "1530 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Dark Kek, Üç Çikolatalı Ganaj, Sütlü Çikolata Rendesi",
+      "Net Miktar": "160 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 55,
     "id": "prod-pt16-12",
@@ -2551,7 +2796,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Çikolatalı ve fındıklı geleneksel Linzer butik pasta.",
+    "description": "Yoğun kakaolu dark kek katmanları, kadifemsi üç çikolatalı ganaj dolgusu ve bol sütlü çikolata rendesiyle hazırlanan çikolatalı linzer pasta.",
     "imageUrl": "/resimler/pt16/pt16_12.png"
   },
   {
@@ -2566,10 +2811,15 @@ const RAW_PRODUCTS = [
       "Yaban Mersini"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "190 GR",
       "Kutu Gramaj": "1710 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Yaban Mersini Dolgusu, Yaban Mersini, Yulaflı Özel Bisküvi Taban, Beyaz Glaze",
+      "Net Miktar": "220 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 83,
     "id": "prod-pt16-13",
@@ -2579,7 +2829,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Yaban mersinli kıtır kafes hamurlu butik pasta.",
+    "description": "Yulaflı bisküvi tabanı, soğuk cheesecake kreması, doğal yaban mersini dolgusu, tane meyveler ve parlak beyaz glaze kaplamalı butik linzer.",
     "imageUrl": "/resimler/pt16/pt16_13.png"
   },
   {
@@ -2595,10 +2845,15 @@ const RAW_PRODUCTS = [
       "Karamel"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "210 GR",
       "Kutu Gramaj": "1890 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Lotus Kreması, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "200 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 84,
     "id": "prod-pt16-14",
@@ -2608,7 +2863,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Karamelize Lotus bisküvi kremalı butik Linzer pasta.",
+    "description": "Gevrek yulaflı özel bisküvi tabanı üzerinde ipeksi soğuk cheesecake kreması ve karamelize Lotus kremasıyla hazırlanan Avusturya usulü linzer tatlısı.",
     "imageUrl": "/resimler/pt16/pt16_14.png"
   },
   {
@@ -2623,10 +2878,15 @@ const RAW_PRODUCTS = [
       "Kadife"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1500 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Red Velvet Kek, Kreması, Frambuaz Dolgusu, Çakıl Çikolata, Red Kek Tozu",
+      "Net Miktar": "190 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "12 Adet",
+      "Koli İçi Adet": "96 Adet"
     },
     "order": 56,
     "id": "prod-pt16-15",
@@ -2636,7 +2896,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Butik üretim kadife kırmızı kek ve vanilyalı peynir kreması.",
+    "description": "Kadife kırmızısı pandispanya keki, özel peynirli krema dolgusu, mayhoş frambuaz püresi, renkli çakıl çikolatalar ve kadife kek tozu kaplamalı Red Velvet pasta.",
     "imageUrl": "/resimler/pt16/pt16_15.png"
   },
   {
@@ -2651,10 +2911,15 @@ const RAW_PRODUCTS = [
       "Sponge"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "240 GR",
       "Kutu Gramaj": "1440 GR",
-      "Kutu İçi Dilim Adeti": "6 Dilim"
+      "Kutu İçi Dilim Adeti": "6 Dilim",
+      "İçindekiler": "Hindistan Cevizli Kek, Pastacı Kreması, Beyaz Çikolata Kaplama Sos",
+      "Net Miktar": "230 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "6 Adet",
+      "Koli İçi Adet": "48 Adet"
     },
     "order": 57,
     "id": "prod-pt16-16",
@@ -2664,7 +2929,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Şeftalili ferahlatıcı butik mono pasta.",
+    "description": "Hindistan cevizli yumuşacık kek katmanları, özel pastacı kreması dolgusu ve leziz beyaz çikolata kaplama sosuyla taçlandırılmış şeftali aromalı sponge pasta.",
     "imageUrl": "/resimler/pt16/pt16_16.png"
   },
   {
@@ -2679,10 +2944,15 @@ const RAW_PRODUCTS = [
       "Bisküvili"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "2560 GR",
-      "Kutu İçi Dilim Adeti": "16 Dilim"
+      "Kutu İçi Dilim Adeti": "16 Dilim",
+      "İçindekiler": "Dark Kek, Vanilyalı Krema, Oreo Parçaları, Üç Çikolatalı Ganaj",
+      "Net Miktar": "150 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 58,
     "id": "prod-pt16-17",
@@ -2692,7 +2962,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Bol Oreo bisküvili ve kremalı butik dilim pasta.",
+    "description": "Nemli dark kek katmanları, vanilyalı hafif peynir kreması, bol çıtır Oreo bisküvi parçaları ve zengin üç çikolatalı ganaj kaplamasıyla porsiyonluk Oreo pasta.",
     "imageUrl": "/resimler/pt16/pt16_17.png"
   },
   {
@@ -2707,10 +2977,15 @@ const RAW_PRODUCTS = [
       "Kakao"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "220 GR",
       "Kutu Gramaj": "1980 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Tiramisu Kreması, Fındıklı Çikolata Kaplama Sosu, Espresso",
+      "Net Miktar": "210 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 59,
     "id": "prod-pt16-18",
@@ -2720,7 +2995,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Orijinal mascarpone kremalı ve kakao kaplı kubbe tiramisu tatlısı.",
+    "description": "Otantik İtalyan espresso aromalı kedi dili, kadifemsi tiramisu kreması ve üzeri zengin fındıklı çikolata kaplama sosuyla hazırlanan bomba mono pasta.",
     "imageUrl": "/resimler/pt16/pt16_18.png"
   },
   {
@@ -2735,10 +3010,15 @@ const RAW_PRODUCTS = [
       "Petunya"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "260 GR",
       "Kutu Gramaj": "2080 GR",
-      "Kutu İçi Dilim Adeti": "8 Dilim"
+      "Kutu İçi Dilim Adeti": "8 Dilim",
+      "İçindekiler": "Fıstıklı Mereng Kek, Pastacı Kreması, Bitter Ganaj, Frambuaz Sos",
+      "Net Miktar": "200 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "8 Adet",
+      "Koli İçi Adet": "64 Adet"
     },
     "order": 89,
     "id": "prod-pt16-19",
@@ -2748,7 +3028,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Yoğun Antep fıstığı kaplamalı silindir butik pasta.",
+    "description": "Hafif ve çıtır Antep fıstıklı mereng keki, ipeksi pastacı kreması, yoğun bitter çikolata ganajı ve taze ekşi-tatlı frambuaz sosunun kusursuz dengesi.",
     "imageUrl": "/resimler/pt16/pt16_19.png"
   },
   {
@@ -2763,10 +3043,15 @@ const RAW_PRODUCTS = [
       "Speculoos"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "200 GR",
       "Kutu Gramaj": "1200 GR",
-      "Kutu İçi Dilim Adeti": "6 Dilim"
+      "Kutu İçi Dilim Adeti": "6 Dilim",
+      "İçindekiler": "Lotus Kek, Pastacı Kreması, Lotus Kaplaması",
+      "Net Miktar": "210 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "6 Adet",
+      "Koli İçi Adet": "48 Adet"
     },
     "order": 90,
     "id": "prod-pt16-20",
@@ -2776,7 +3061,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Lotus bisküvi kırıntılı karamel mono tatlı.",
+    "description": "Orijinal karamelize Belçika Lotus Biscoff bisküvili kek, kadife pastacı kreması ve yoğun Lotus speculoos kaplamasıyla hazırlanan lüks mono pasta.",
     "imageUrl": "/resimler/pt16/pt16_20.png"
   },
   {
@@ -2790,10 +3075,15 @@ const RAW_PRODUCTS = [
       "Red Velvet"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1500 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Red Velvet Kek, Kreması, Frambuaz Dolgusu, Çakıl Çikolata, Red Kek Tozu",
+      "Net Miktar": "190 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "12 Adet",
+      "Koli İçi Adet": "96 Adet"
     },
     "order": 23,
     "id": "prod-pt17-1",
@@ -2803,7 +3093,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Kırmızı kadife kek ve kremalı butik dilim.",
+    "description": "Kadife kırmızısı pandispanya keki, özel peynirli krema dolgusu, mayhoş frambuaz püresi, renkli çakıl çikolatalar ve kadife kek tozu kaplamalı Red Velvet pasta.",
     "imageUrl": "/resimler/pt17/pt17_1.png"
   },
   {
@@ -2817,10 +3107,15 @@ const RAW_PRODUCTS = [
       "Kalpli Pasta"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "165 GR",
       "Kutu Gramaj": "1485 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Red Velvet, Krema, Frambuaz Dolgusu, Red Kek Tozu",
+      "Net Miktar": "210 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "7 Adet",
+      "Koli İçi Adet": "56 Adet"
     },
     "order": 92,
     "id": "prod-pt17-2",
@@ -2830,7 +3125,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Kırmızı kalp formunda meyveli pasta.",
+    "description": "Özel kalp formlu sunumunda kadife dokulu Red Velvet keki, ipeksi beyaz krema, taze frambuaz dolgusu ve kırmızı kek tozu süslemesiyle aşk dolu bir lezzet.",
     "imageUrl": "/resimler/pt17/pt17_2.png"
   },
   {
@@ -3040,10 +3335,15 @@ const RAW_PRODUCTS = [
       "Tarçınlı"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "90 GR",
       "Kutu Gramaj": "1800 GR",
-      "Kutu İçi Dilim Adeti": "20 Adet"
+      "Kutu İçi Dilim Adeti": "20 Adet",
+      "İçindekiler": "Tiramisu Kreması, Kedidili, Espresso",
+      "Net Miktar": "230 GR",
+      "Porsiyon": "1 Kişilik (Cup)",
+      "Kutu İçi Adet": "7 Adet",
+      "Koli İçi Adet": "56 Adet"
     },
     "order": 100,
     "id": "prod-pt17-10",
@@ -3053,7 +3353,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-kruvasan",
     "categoryName": "Kruvasan & Danimarka Çörekleri",
     "categorySlug": "kruvasan",
-    "description": "Geleneksel tarçınlı ve kremalı tereyağlı rulo çörek.",
+    "description": "Kalp kapaklı şık sunumunda espresso ile ıslatılmış savoiardi kedidili bisküvileri, geleneksel İtalyan tiramisu kreması ve kakao kaplamalı kalpli tiramisu.",
     "imageUrl": "/resimler/pt17/pt17_10.png"
   },
   {
@@ -3181,10 +3481,15 @@ const RAW_PRODUCTS = [
       "Vişneli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1170 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Cheesecake, Vişne Dolgu, Bitter Ganaj",
+      "Net Miktar": "245 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 60,
     "id": "prod-pt17-15",
@@ -3194,7 +3499,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Fırınlanmış tereyağlı bisküvi tabanı ve mayhoş vişne soslu butik cheesecake.",
+    "description": "Kıtır bisküvi tabanlı zengin fırınlanmış cheesecake kreması, ekşi-tatlı doğal vişne dolgusu ve yoğun bitter ganaj dokunuşuyla tek porsiyonluk mono cheesecake.",
     "imageUrl": "/resimler/pt17/pt17_15.png"
   },
   {
@@ -3210,10 +3515,15 @@ const RAW_PRODUCTS = [
       "16 Dilim"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "2560 GR",
-      "Kutu İçi Dilim Adeti": "16 Dilim"
+      "Kutu İçi Dilim Adeti": "16 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Limon Dolgusu, Haşhaş, Dilim Limon, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "160 GR",
+      "Porsiyon": "1 Dilim",
+      "Kutu İçi Adet": "1 Kutu (Dilimli)",
+      "Koli İçi Adet": "8 Adet"
     },
     "order": 61,
     "id": "prod-pt17-16",
@@ -3223,7 +3533,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "16 dilim bütün fırınlanmış limon soslu butik cheesecake.",
+    "description": "Yulaflı bisküvi tabanı üzerinde Akdeniz limon dolgusu, çıtır mavi haşhaş taneleri, kadifemsi soğuk peynir kreması ve taze limon dilimiyle ferahlatıcı cheesecake.",
     "imageUrl": "/resimler/pt17/pt17_16.png"
   },
   {
@@ -3238,10 +3548,15 @@ const RAW_PRODUCTS = [
       "Çilekli"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1170 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Tereyağlı Burçak Kek, Cheesecake Harcı, Çilek Dolgu",
+      "Net Miktar": "245 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 62,
     "id": "prod-pt17-17",
@@ -3251,7 +3566,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Çilekli butik cheesecake.",
+    "description": "Tereyağlı burçak bisküvi tabanı üzerinde kıvamlı nefis cheesecake harcı ve taze kokulu çilek dolgusuyla hazırlanan mono çilekli cheesecake.",
     "imageUrl": "/resimler/pt17/pt17_17.png"
   },
   {
@@ -3265,10 +3580,15 @@ const RAW_PRODUCTS = [
       "Tiramisu"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "220 GR",
       "Kutu Gramaj": "1980 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Tiramisu Kreması, Fındıklı Çikolata Kaplama Sosu, Espresso",
+      "Net Miktar": "210 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 63,
     "id": "prod-pt17-18",
@@ -3278,7 +3598,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Mascarpone kremalı kubbe tiramisu.",
+    "description": "Otantik İtalyan espresso aromalı kedi dili, kadifemsi tiramisu kreması ve üzeri zengin fındıklı çikolata kaplama sosuyla hazırlanan bomba mono pasta.",
     "imageUrl": "/resimler/pt17/pt17_18.png"
   },
   {
@@ -3294,10 +3614,15 @@ const RAW_PRODUCTS = [
       "Antep Fıstığı"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "2560 GR",
-      "Kutu İçi Dilim Adeti": "16 Dilim"
+      "Kutu İçi Dilim Adeti": "16 Dilim",
+      "İçindekiler": "Fıstık Kadayıflı Krema, Dark Kek, Cheesecake Kreması, Üç Çikolatalı Ganaj, Pirinç Antep Fıstığı",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 64,
     "id": "prod-pt17-19",
@@ -3307,7 +3632,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Yoğun Antep fıstığı ezmeli ve kıtır fıstık parçalı 16 dilim gurme cheesecake.",
+    "description": "Çıtır fıstıklı kadayıf kreması, yumuşak dark kek, ipeksi cheesecake kreması, üç çikolatalı ganaj ve pirinç Antep fıstıklarıyla trend Dubai usulü cheesecake.",
     "imageUrl": "/resimler/pt17/pt17_19.png"
   },
   {
@@ -3323,10 +3648,15 @@ const RAW_PRODUCTS = [
       "Dulce de Leche"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "2560 GR",
-      "Kutu İçi Dilim Adeti": "16 Dilim"
+      "Kutu İçi Dilim Adeti": "16 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Süt Reçeli Dolgusu, File Fındık, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "160 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "9 Adet",
+      "Koli İçi Adet": "72 Adet"
     },
     "order": 65,
     "id": "prod-pt17-20",
@@ -3336,7 +3666,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Karamelize süt reçeli (Dulce de Leche) kaplı 16 dilim butik cheesecake.",
+    "description": "Yulaflı özel bisküvi tabanında soğuk cheesecake kreması, karamelize dulce de leche süt reçeli dolgusu ve çıtır file fındık kaplamalı lezzet.",
     "imageUrl": "/resimler/pt17/pt17_20.png"
   },
   {
@@ -3350,10 +3680,15 @@ const RAW_PRODUCTS = [
       "Red Velvet"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "125 GR",
       "Kutu Gramaj": "1500 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Red Velvet Kek, Kreması, Frambuaz Dolgusu, Çakıl Çikolata, Red Kek Tozu",
+      "Net Miktar": "190 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "12 Adet",
+      "Koli İçi Adet": "96 Adet"
     },
     "order": 111,
     "id": "prod-pt18-1",
@@ -3363,7 +3698,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Kırmızı kadife kek dilimi.",
+    "description": "Kadife kırmızısı pandispanya keki, özel peynirli krema dolgusu, mayhoş frambuaz püresi, renkli çakıl çikolatalar ve kadife kek tozu kaplamalı Red Velvet pasta.",
     "imageUrl": "/resimler/pt18/pt18_1.png"
   },
   {
@@ -3377,10 +3712,15 @@ const RAW_PRODUCTS = [
       "Kalpli Pasta"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "165 GR",
       "Kutu Gramaj": "1485 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Red Velvet, Krema, Frambuaz Dolgusu, Red Kek Tozu",
+      "Net Miktar": "210 GR",
+      "Porsiyon": "1 Kişilik (Mono)",
+      "Kutu İçi Adet": "7 Adet",
+      "Koli İçi Adet": "56 Adet"
     },
     "order": 112,
     "id": "prod-pt18-2",
@@ -3390,7 +3730,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Kalp formunda kırmızı pasta.",
+    "description": "Özel kalp formlu sunumunda kadife dokulu Red Velvet keki, ipeksi beyaz krema, taze frambuaz dolgusu ve kırmızı kek tozu süslemesiyle aşk dolu bir lezzet.",
     "imageUrl": "/resimler/pt18/pt18_2.png"
   },
   {
@@ -3404,10 +3744,15 @@ const RAW_PRODUCTS = [
       "Rulo"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1040 GR",
-      "Kutu İçi Dilim Adeti": "8 Dilim"
+      "Kutu İçi Dilim Adeti": "8 Dilim",
+      "İçindekiler": "Dark Kek, Çikolatalı Pastacı Kreması, Orman Meyveleri, Üç Çikolatalı Ganaj, Sütlü Çikolata ve Orman Meyveli Kek",
+      "Net Miktar": "130 GR",
+      "Porsiyon": "1 Kişilik (Rulo)",
+      "Kutu İçi Adet": "8 Adet",
+      "Koli İçi Adet": "64 Adet"
     },
     "order": 113,
     "id": "prod-pt18-3",
@@ -3417,7 +3762,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-9",
     "categoryName": "Pastalar",
     "categorySlug": "taze-butik-pastalar",
-    "description": "Rulo pasta dilimi.",
+    "description": "Kakaolu dark kek sarımı içinde çikolatalı pastacı kreması, taze orman meyveleri taneleri, üç çikolatalı ganaj ve sütlü çikolata süslemeli rulo pasta.",
     "imageUrl": "/resimler/pt18/pt18_3.png"
   },
   {
@@ -3431,10 +3776,15 @@ const RAW_PRODUCTS = [
       "Browni"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "130 GR",
       "Kutu Gramaj": "1170 GR",
-      "Kutu İçi Dilim Adeti": "9 Dilim"
+      "Kutu İçi Dilim Adeti": "9 Dilim",
+      "İçindekiler": "Bitter Çikolata, Sütlü Çikolata, Fildişi Çikolata, Brownie Karışımı, Tereyağ",
+      "Net Miktar": "160 GR",
+      "Porsiyon": "1 Dilim",
+      "Kutu İçi Adet": "18 Adet",
+      "Koli İçi Adet": "144 Adet"
     },
     "order": 114,
     "id": "prod-pt18-4",
@@ -3444,7 +3794,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Kare fındıklı ve meyveli bitter browni dilimi.",
+    "description": "Hakiki tereyağı, zengin bitter, sütlü ve fildişi çikolata karışımıyla fırınlanan, dışı hafif kıtır içi ıslak ve yoğun kıvamlı gerçek Amerikan browni dilimi.",
     "imageUrl": "/resimler/pt18/pt18_4.png"
   },
   {
@@ -6351,10 +6701,15 @@ const RAW_PRODUCTS = [
       "Çay Saati"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Frambuaz Dolgusu, Orman Meyveleri, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 221,
     "id": "prod-byz-100",
@@ -6364,7 +6719,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Ağızda dağılan kıyır kıyır tereyağlı dokusu, taze dereotu ve çörekotu aromasıyla çay saatlerinin vazgeçilmez ikramlığı.",
+    "description": "Gevrek yulaflı taban, hafif soğuk cheesecake kreması, doğal frambuaz dolgusu ve taze kırmızı orman meyveleriyle süslenmiş porsiyonluk cheesecake.",
     "imageUrl": "/beyazresimler/karisik/karisik_100.png"
   },
   {
@@ -6380,10 +6735,15 @@ const RAW_PRODUCTS = [
       "Donuk Unlu Mamul"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Frambuaz Dolgusu, Orman Meyveleri, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 222,
     "id": "prod-byz-101",
@@ -6393,7 +6753,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Kafeterya ve otel açık büfelerinde hızlı servis için porsiyonlanmış, taze pişmiş lezzetinde tuzlu mini kurabiye.",
+    "description": "Gevrek yulaflı taban, hafif soğuk cheesecake kreması, doğal frambuaz dolgusu ve taze kırmızı orman meyveleriyle süslenmiş porsiyonluk cheesecake.",
     "imageUrl": "/beyazresimler/karisik/karisik_101.png"
   },
   {
@@ -6572,10 +6932,15 @@ const RAW_PRODUCTS = [
       "Donuk Unlu Mamul"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Frambuaz Dolgusu, Orman Meyveleri, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 229,
     "id": "prod-byz-108",
@@ -6585,7 +6950,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "İçi lezzetli kaşar ve beyaz peynir dolgulu, puf puf kabaran mini top poğaçalar; kahvaltı büfeleri ve atıştırmalık saatleri için.",
+    "description": "Gevrek yulaflı taban, hafif soğuk cheesecake kreması, doğal frambuaz dolgusu ve taze kırmızı orman meyveleriyle süslenmiş porsiyonluk cheesecake.",
     "imageUrl": "/beyazresimler/karisik/karisik_108.png"
   },
   {
@@ -6601,10 +6966,15 @@ const RAW_PRODUCTS = [
       "Donuk Unlu Mamul"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Frambuaz Dolgusu, Orman Meyveleri, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 230,
     "id": "prod-byz-109",
@@ -6614,7 +6984,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Altın sarısı fırınlanmış kabuğu ve eriyen peynir dolgusuyla tek lokmalık gurme lezzet.",
+    "description": "Gevrek yulaflı taban, hafif soğuk cheesecake kreması, doğal frambuaz dolgusu ve taze kırmızı orman meyveleriyle süslenmiş porsiyonluk cheesecake.",
     "imageUrl": "/beyazresimler/karisik/karisik_109.png"
   },
   {
@@ -6900,10 +7270,15 @@ const RAW_PRODUCTS = [
       "Donuk Unlu Mamul"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Frambuaz Dolgusu, Orman Meyveleri, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 241,
     "id": "prod-byz-120",
@@ -6913,7 +7288,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Çörekotu taneleriyle süslenmiş gevrek mini tuzlu kurabiye; toplantı araları ve çay ikramlarında profesyonel çözüm.",
+    "description": "Gevrek yulaflı taban, hafif soğuk cheesecake kreması, doğal frambuaz dolgusu ve taze kırmızı orman meyveleriyle süslenmiş porsiyonluk cheesecake.",
     "imageUrl": "/beyazresimler/karisik/karisik_120.png"
   },
   {
@@ -6928,10 +7303,15 @@ const RAW_PRODUCTS = [
       "Donuk Unlu Mamul"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Frambuaz Dolgusu, Orman Meyveleri, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 242,
     "id": "prod-byz-121",
@@ -6941,7 +7321,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Servise hazır porsiyon sunumuyla kafe ve restoran operasyonlarında zamandan tasarruf sağlayan pratik unlu mamul.",
+    "description": "Gevrek yulaflı taban, hafif soğuk cheesecake kreması, doğal frambuaz dolgusu ve taze kırmızı orman meyveleriyle süslenmiş porsiyonluk cheesecake.",
     "imageUrl": "/beyazresimler/karisik/karisik_121.png"
   },
   {
@@ -7060,10 +7440,15 @@ const RAW_PRODUCTS = [
       "Donuk Unlu Mamul"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Frambuaz Dolgusu, Orman Meyveleri, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 247,
     "id": "prod-byz-126",
@@ -7073,7 +7458,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Fırından yeni çıkmış sıcaklığıyla leziz peynirli mini top poğaça.",
+    "description": "Gevrek yulaflı taban, hafif soğuk cheesecake kreması, doğal frambuaz dolgusu ve taze kırmızı orman meyveleriyle süslenmiş porsiyonluk cheesecake.",
     "imageUrl": "/beyazresimler/karisik/karisik_126.png"
   },
   {
@@ -7140,10 +7525,15 @@ const RAW_PRODUCTS = [
       "Donuk Unlu Mamul"
     ],
     "specs": {
-      "Raf Ömrü": "-18°C'de 12 Ay (+4°C dolapta 3 gün) • Koli (-18°C Donuk) • Servis: Çözündükten sonra doğrudan servis ediniz.",
+      "Raf Ömrü": "-18°C'de 1 Yıl (+4°C dolapta 3 gün)",
       "Dilim Gramaj": "160 GR",
       "Kutu Gramaj": "1900 GR",
-      "Kutu İçi Dilim Adeti": "12 Dilim"
+      "Kutu İçi Dilim Adeti": "12 Dilim",
+      "İçindekiler": "Soğuk Cheesecake Kreması, Frambuaz Dolgusu, Orman Meyveleri, Yulaflı Özel Bisküvi Taban",
+      "Net Miktar": "170 GR",
+      "Porsiyon": "1 Kişilik",
+      "Kutu İçi Adet": "16 Adet",
+      "Koli İçi Adet": "128 Adet"
     },
     "order": 250,
     "id": "prod-byz-129",
@@ -7153,7 +7543,7 @@ const RAW_PRODUCTS = [
     "categoryId": "cat-5",
     "categoryName": "Pastalar",
     "categorySlug": "donuk-pasta",
-    "description": "Peynir dolgulu mini poğaçaların porsiyonluk gurme sunumu.",
+    "description": "Gevrek yulaflı taban, hafif soğuk cheesecake kreması, doğal frambuaz dolgusu ve taze kırmızı orman meyveleriyle süslenmiş porsiyonluk cheesecake.",
     "imageUrl": "/beyazresimler/karisik/karisik_129.png"
   },
   {
