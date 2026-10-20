@@ -128,9 +128,10 @@ export default function AdminSlider() {
         toast.success("Yeni slider eklendi.");
       }
       setModalOpen(false);
-    } catch (err) {
-      console.error(err);
-      toast.error("Kaydedilemedi. Lütfen tekrar deneyin.");
+    } catch (err: any) {
+      console.error("Slider kaydetme hatası:", err);
+      const msg = err?.message || err?.code || "Bilinmeyen hata";
+      toast.error(`Kaydedilemedi: ${msg}`);
     } finally {
       setSaving(false);
     }
@@ -412,10 +413,11 @@ export default function AdminSlider() {
                         if (!file) return;
                         try {
                           const { url, path } = await uploadImage(file, "sliders", setUploadProgress);
-                          setForm({ ...form, imageUrl: url, imageStoragePath: path });
+                          setForm((prev) => ({ ...prev, imageUrl: url, imageStoragePath: path }));
                           setUploadProgress(null);
-                        } catch {
-                          toast.error("Görsel yüklenemedi.");
+                        } catch (err: any) {
+                          console.error("Görsel yükleme hatası:", err);
+                          toast.error(err?.message || "Görsel yüklenemedi.");
                           setUploadProgress(null);
                         }
                       }}

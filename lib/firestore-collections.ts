@@ -537,18 +537,30 @@ export async function uploadImage(
     // CDN fallback skipped
   }
 
-  // 4. Guaranteed Fallback: High Quality WebP Data URL
+  // 4. Guaranteed Fallback: WebP Data URL strictly optimized under Firestore's 1MB limit (< 700KB)
   try {
     onProgress?.(80);
-    const fallbackDim = isSlider ? 3840 : 1200;
-    const fallbackQuality = isSlider ? 0.95 : 0.80;
-    const hdFallbackFile = await compressImage(rawFile, fallbackDim, fallbackQuality);
-    const dataUrl = await new Promise<string>((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = reject;
-      reader.readAsDataURL(hdFallbackFile);
-    });
+    let targetDim = isSlider ? 1920 : 1200;
+    let targetQuality = isSlider ? 0.82 : 0.78;
+    let dataUrl = "";
+
+    // Maximum 4 compression attempts to guarantee safety under 700,000 characters
+    for (let attempt = 0; attempt < 4; attempt++) {
+      const fallbackFile = await compressImage(rawFile, targetDim, targetQuality);
+      dataUrl = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = reject;
+        reader.readAsDataURL(fallbackFile);
+      });
+
+      // Firestore document hard limit is 1,048,576 bytes; stay safely under 700,000 characters
+      if (dataUrl.length < 700000) {
+        break;
+      }
+      targetDim = Math.round(targetDim * 0.75);
+      targetQuality = Math.max(0.55, targetQuality - 0.12);
+    }
 
     if (dataUrl) {
       onProgress?.(100);

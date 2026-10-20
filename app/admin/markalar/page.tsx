@@ -124,9 +124,10 @@ export default function AdminMarkalar() {
         toast.success("Yeni marka eklendi.");
       }
       setModalOpen(false);
-    } catch (err) {
-      console.error(err);
-      toast.error("Kaydedilemedi. Lütfen tekrar deneyin.");
+    } catch (err: any) {
+      console.error("Marka kaydetme hatası:", err);
+      const msg = err?.message || err?.code || "Bilinmeyen hata";
+      toast.error(`Kaydedilemedi: ${msg}`);
     } finally {
       setSaving(false);
     }
@@ -406,10 +407,11 @@ export default function AdminMarkalar() {
                         if (!file) return;
                         try {
                           const { url, path } = await uploadImage(file, "brands", setUploadProgress);
-                          setForm({ ...form, imageUrl: url, imageStoragePath: path });
+                          setForm((prev) => ({ ...prev, imageUrl: url, imageStoragePath: path }));
                           setUploadProgress(null);
-                        } catch {
-                          toast.error("Logo yüklenemedi.");
+                        } catch (err: any) {
+                          console.error("Görsel yükleme hatası:", err);
+                          toast.error(err?.message || "Logo yüklenemedi.");
                           setUploadProgress(null);
                         }
                       }}
