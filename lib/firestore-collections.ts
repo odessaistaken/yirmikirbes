@@ -184,6 +184,11 @@ export async function getProducts(): Promise<Product[]> {
 export async function getProductsByCategorySlug(slug: string): Promise<Product[]> {
   const allProds = await getProducts();
   const cat = await getCategoryBySlug(slug);
+  const isButik =
+    slug.toLowerCase().includes("butik") ||
+    slug.toLowerCase().includes("taze-butik-pastalar") ||
+    Boolean(cat?.slug?.toLowerCase().includes("butik"));
+
   return allProds
     .filter(
       (p) =>
@@ -193,7 +198,12 @@ export async function getProductsByCategorySlug(slug: string): Promise<Product[]
           (cat && p.categoryId === cat.id) ||
           (cat && p.categoryName?.toLowerCase() === cat.name.toLowerCase()))
     )
-    .sort((a, b) => (a.name || "").trim().localeCompare((b.name || "").trim(), "tr", { sensitivity: "base" }));
+    .sort((a, b) => {
+      if (isButik) {
+        return (a.order ?? 0) - (b.order ?? 0);
+      }
+      return (a.name || "").trim().localeCompare((b.name || "").trim(), "tr", { sensitivity: "base" });
+    });
 }
 
 /** Fetch active featured products (order-limited) */

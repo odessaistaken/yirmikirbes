@@ -138,6 +138,11 @@ function SunumKataloguInner() {
   // Aktif kategorideki filtrelenmiş ürünler
   const displayedProducts = useMemo(() => {
     if (!activeGroup) return [];
+    const isButik =
+      activeGroup.category.slug?.toLowerCase().includes("butik") ||
+      activeGroup.category.name?.toLowerCase().includes("butik") ||
+      activeGroup.category.id === "cat-9";
+
     const baseList = !searchQuery.trim()
       ? activeGroup.products
       : activeGroup.products.filter(
@@ -146,6 +151,10 @@ function SunumKataloguInner() {
             p.description.toLowerCase().includes(searchQuery.toLowerCase().trim()) ||
             (p.code && p.code.toLowerCase().includes(searchQuery.toLowerCase().trim()))
         );
+
+    if (isButik) {
+      return [...baseList].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+    }
 
     return [...baseList].sort((a, b) =>
       (a.name || "").trim().localeCompare((b.name || "").trim(), "tr", { sensitivity: "base" })

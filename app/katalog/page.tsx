@@ -223,6 +223,22 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
     );
   }, [categories, activeCategory]);
 
+  const isButikPastalar = useMemo(() => {
+    const slug = (activeCategory || "").toLowerCase();
+    const curSlug = (currentCategory?.slug || "").toLowerCase();
+    const curName = (currentCategory?.name || "").toLowerCase();
+    const curId = (currentCategory?.id || "").toLowerCase();
+    return (
+      slug === "taze-butik-pastalar" ||
+      slug === "butik-pastalar" ||
+      slug === "cat-9" ||
+      curSlug === "taze-butik-pastalar" ||
+      curSlug === "butik-pastalar" ||
+      curId === "cat-9" ||
+      curName.includes("butik pasta")
+    );
+  }, [activeCategory, currentCategory]);
+
   const filteredProducts = useMemo(() => {
     const childCategoryIds = currentCategory
       ? categories.filter((c) => c.parentId === currentCategory.id).map((c) => c.id)
@@ -253,6 +269,16 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
 
       return matchCat && matchSearch && p.isActive !== false;
     });
+
+    // "Butik Pastalar" kategorisinde A-Z sıralama kapalıdır; orijinal katalog sırası (order) korunur
+    if (isButikPastalar) {
+      return [...list].sort((a, b) => {
+        const orderA = a.order ?? 0;
+        const orderB = b.order ?? 0;
+        if (orderA !== orderB) return orderA - orderB;
+        return (a.name || "").localeCompare(b.name || "", "tr");
+      });
+    }
 
     if (sortBy === "alpha-asc") {
       return [...list].sort((a, b) =>
@@ -466,22 +492,24 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-              {/* Sıralama Seçici */}
-              <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-2.5 shadow-sm text-xs font-semibold text-slate-700">
-                <ArrowUpDown size={14} className="text-amber-600 shrink-0" />
-                <span className="text-slate-400 font-medium">Sırala:</span>
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as any)}
-                  className="bg-transparent font-bold text-slate-800 focus:outline-none cursor-pointer pr-1"
-                >
-                  <option value="alpha-asc">Alfabetik (A - Z)</option>
-                  <option value="alpha-desc">Alfabetik (Z - A)</option>
-                  <option value="category">Kategori Sırasına Göre</option>
-                  <option value="price-asc">Fiyat (Artan)</option>
-                  <option value="price-desc">Fiyat (Azalan)</option>
-                </select>
-              </div>
+              {/* Sıralama Seçici: Butik Pastalar sayfasında A-Z filtreleme kapalıdır */}
+              {!isButikPastalar && (
+                <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-2.5 shadow-sm text-xs font-semibold text-slate-700">
+                  <ArrowUpDown size={14} className="text-amber-600 shrink-0" />
+                  <span className="text-slate-400 font-medium">Sırala:</span>
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value as any)}
+                    className="bg-transparent font-bold text-slate-800 focus:outline-none cursor-pointer pr-1"
+                  >
+                    <option value="alpha-asc">Alfabetik (A - Z)</option>
+                    <option value="alpha-desc">Alfabetik (Z - A)</option>
+                    <option value="category">Kategori Sırasına Göre</option>
+                    <option value="price-asc">Fiyat (Artan)</option>
+                    <option value="price-desc">Fiyat (Azalan)</option>
+                  </select>
+                </div>
+              )}
 
               {/* Arama Kutusu */}
               <div className="relative w-full sm:w-72">
