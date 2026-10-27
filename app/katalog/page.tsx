@@ -299,6 +299,24 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
     );
   }, [activeCategory, currentCategory]);
 
+  const isDonukPastalar = useMemo(() => {
+    const slug = (activeCategory || "").toLowerCase();
+    const curSlug = (currentCategory?.slug || "").toLowerCase();
+    const curName = (currentCategory?.name || "").toLowerCase();
+    const curId = (currentCategory?.id || "").toLowerCase();
+    return (
+      slug === "donuk-pasta" ||
+      slug === "donuk-pastalar" ||
+      slug === "cat-5" ||
+      curSlug === "donuk-pasta" ||
+      curSlug === "donuk-pastalar" ||
+      curId === "cat-5" ||
+      curName.includes("donuk pasta")
+    );
+  }, [activeCategory, currentCategory]);
+
+  const isCustomOrderCategory = isButikPastalar || isDonukPastalar;
+
   const filteredProducts = useMemo(() => {
     const childCategoryIds = currentCategory
       ? categories.filter((c) => c.parentId === currentCategory.id).map((c) => c.id)
@@ -330,11 +348,12 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
       return matchCat && matchSearch && p.isActive !== false;
     });
 
-    // "Butik Pastalar" kategorisinde A-Z sıralama kapalıdır; orijinal katalog sırası (order) korunur
-    if (isButikPastalar) {
+    // "Butik Pastalar" ve "Donuk Pastalar" kategorilerinde A-Z sıralama kapalıdır;
+    // Kullanıcının belirlediği özel katalog sırası (order) korunur
+    if (isCustomOrderCategory) {
       return [...list].sort((a, b) => {
-        const orderA = a.order ?? 0;
-        const orderB = b.order ?? 0;
+        const orderA = a.order ?? 9999;
+        const orderB = b.order ?? 9999;
         if (orderA !== orderB) return orderA - orderB;
         return (a.name || "").localeCompare(b.name || "", "tr");
       });
@@ -567,8 +586,8 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-              {/* Sıralama Seçici: Butik Pastalar sayfasında A-Z filtreleme kapalıdır */}
-              {!isButikPastalar && (
+              {/* Sıralama Seçici: Butik Pastalar ve Donuk Pastalar sayfalarında A-Z filtreleme kapalıdır */}
+              {!isCustomOrderCategory && (
                 <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-2.5 shadow-sm text-xs font-semibold text-slate-700">
                   <ArrowUpDown size={14} className="text-amber-600 shrink-0" />
                   <span className="text-slate-400 font-medium">Sırala:</span>
