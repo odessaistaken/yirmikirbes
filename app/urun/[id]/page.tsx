@@ -135,16 +135,32 @@ export default function ProductPage() {
         {/* Breadcrumb */}
         <div className="bg-white border-b border-slate-200">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-            <div className="flex items-center gap-2 text-slate-500 text-xs">
-              <Link href="/" className="hover:text-amber-600 transition-colors">Ana Sayfa</Link>
-              <ChevronRight size={12} />
-              <Link href="/katalog" className="hover:text-amber-600 transition-colors">Katalog</Link>
-              <ChevronRight size={12} />
-              <Link href={`/katalog/${product.categorySlug}`} className="hover:text-amber-600 transition-colors">
-                {product.categoryName || "Kategori"}
-              </Link>
-              <ChevronRight size={12} />
-              <span className="text-amber-700 font-semibold truncate max-w-40">{product.name}</span>
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-2 text-slate-500 text-xs flex-wrap">
+                <Link href="/" className="hover:text-amber-600 transition-colors">Ana Sayfa</Link>
+                <ChevronRight size={12} />
+                <Link href="/katalog" scroll={false} className="hover:text-amber-600 transition-colors">Katalog</Link>
+                <ChevronRight size={12} />
+                <Link href={`/katalog/${product.categorySlug}`} scroll={false} className="hover:text-amber-600 transition-colors">
+                  {product.categoryName || "Kategori"}
+                </Link>
+                <ChevronRight size={12} />
+                <span className="text-amber-700 font-semibold truncate max-w-40">{product.name}</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  if (typeof window !== "undefined" && window.history.length > 1) {
+                    window.history.back();
+                  } else {
+                    window.location.href = `/katalog/${product.categorySlug || ""}`;
+                  }
+                }}
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-amber-700 bg-slate-50 hover:bg-amber-50 px-3 py-1.5 rounded-lg border border-slate-200 transition-colors shrink-0 shadow-2xs"
+              >
+                <ArrowLeft size={13} />
+                <span>Geri Dön</span>
+              </button>
             </div>
           </div>
         </div>

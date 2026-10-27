@@ -28,6 +28,8 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
   return (
     <>
       <motion.div
+        id={`product-${product.id}`}
+        data-product-id={product.id}
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, Suspense } from "react";
+import { useState, useEffect, useMemo, Suspense, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -11,6 +11,12 @@ import { getActiveCategories, getProducts, getActiveBrands } from "@/lib/firesto
 import type { Category, Product, Brand } from "@/lib/types";
 import ProductCard from "@/components/ProductCard";
 import { sortCategories, sortProductsByCategoryOrder } from "@/lib/category-order";
+import {
+  savePageScroll,
+  getSavedPageScroll,
+  clearSavedPageScroll,
+  restoreScrollPosition,
+} from "@/lib/scroll-restoration";
 
 /* ─── Subcategories & Brand links map ─────────────────────────────────────── */
 export const SUBCATEGORIES_MAP: Record<string, { name: string; query: string }[]> = {
@@ -155,17 +161,71 @@ interface KatalogViewProps {
 
 export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
   const searchParams = useSearchParams();
-  const initialSearch = searchParams.get("search") || searchParams.get("q") || "";
+  const pageKey = forcedCategorySlug ? `katalog_${forcedCategorySlug}` : "katalog_root";
+
+  // Check saved state from sessionStorage
+  const [savedState] = useState(() => getSavedPageScroll(pageKey));
+
+  const initialSearch = searchParams.get("search") || searchParams.get("q") || savedState?.search || "";
   const initialBrand = searchParams.get("brand") || "";
-  const initialCategory = forcedCategorySlug || searchParams.get("category") || "all";
+  const initialCategory = forcedCategorySlug || searchParams.get("category") || savedState?.category || "all";
 
   const [activeCategory, setActiveCategory] = useState<string>(initialCategory);
   const [searchQuery, setSearchQuery] = useState(initialSearch || initialBrand);
-  const [sortBy, setSortBy] = useState<"alpha-asc" | "alpha-desc" | "category" | "price-asc" | "price-desc">("alpha-asc");
+  const [sortBy, setSortBy] = useState<"alpha-asc" | "alpha-desc" | "category" | "price-asc" | "price-desc">(
+    (savedState?.sortBy as any) || "alpha-asc"
+  );
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [categories, setCategories] = useState<Category[]>(() => sortCategories(MOCK_CATEGORIES));
   const [products, setProducts] = useState<Product[]>(() => sortProductsByCategoryOrder(MOCK_PRODUCTS));
   const [brands, setBrands] = useState<Brand[]>([]);
+
+  // Scroll restoration tracker
+  const isScrollRestoredRef = useRef(false);
+
+  // Kategori seçildiğinde başa sar ve kaydı temizle
+  const handleCategorySelect = useCallback((cat: string) => {
+    setActiveCategory(cat);
+    setSearchQuery("");
+    clearSavedPageScroll(pageKey);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pageKey]);
+
+  // Sayfada scroll yapıldıkça mevcut konumu ve filtreleri kaydet (throttled)
+  useEffect(() => {
+    let timer: NodeJS.Timeout | null = null;
+    const handleScroll = () => {
+      if (timer) return;
+      timer = setTimeout(() => {
+        timer = null;
+        if (window.scrollY > 30) {
+          savePageScroll(pageKey, {
+            category: activeCategory,
+            search: searchQuery,
+            sortBy: sortBy,
+          });
+        }
+      }, 120);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      if (timer) clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [pageKey, activeCategory, searchQuery, sortBy]);
+
+  // Ürüne tıklandığında anında scroll ve durum bilgisini kaydet
+  const handleGridClick = useCallback((e: React.MouseEvent) => {
+    const card = (e.target as HTMLElement).closest("[data-product-id]");
+    const productId = card?.getAttribute("data-product-id") || undefined;
+    savePageScroll(pageKey, {
+      category: activeCategory,
+      search: searchQuery,
+      sortBy: sortBy,
+      productId,
+    });
+  }, [pageKey, activeCategory, searchQuery, sortBy]);
 
   useEffect(() => {
     if (forcedCategorySlug) {
@@ -303,6 +363,21 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
     return sortProductsByCategoryOrder(list);
   }, [products, activeCategory, searchQuery, currentCategory, categories, sortBy]);
 
+  // Ürünler hazır olduğunda önceki scroll pozisyonuna yumuşak ve kesintisiz dönüş yap
+  useEffect(() => {
+    if (isScrollRestoredRef.current || filteredProducts.length === 0) return;
+
+    const saved = getSavedPageScroll(pageKey);
+    if (!saved || saved.scrollY <= 0) return;
+
+    isScrollRestoredRef.current = true;
+    const cleanup = restoreScrollPosition(saved.scrollY, {
+      productId: saved.lastProductId,
+    });
+
+    return cleanup;
+  }, [pageKey, filteredProducts.length]);
+
   const getCategoryProductCount = (cat: Category) => {
     const childIds = categories.filter((c) => c.parentId === cat.id).map((c) => c.id);
     const childSlugs = categories.filter((c) => c.parentId === cat.id).map((c) => c.slug.toLowerCase());
@@ -335,7 +410,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
       <div className="flex-1 overflow-y-auto">
         <button
           onClick={() => {
-            setActiveCategory("all");
+            handleCategorySelect("all");
             onClose?.();
           }}
           className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 border-b border-slate-100 ${
@@ -364,7 +439,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
                 {/* Ana Kategori */}
                 <button
                   onClick={() => {
-                    setActiveCategory(parentCat.slug || parentCat.id);
+                    handleCategorySelect(parentCat.slug || parentCat.id);
                     onClose?.();
                   }}
                   className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors duration-150 ${
@@ -391,7 +466,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
                     <button
                       key={child.id}
                       onClick={() => {
-                        setActiveCategory(child.slug || child.id);
+                        handleCategorySelect(child.slug || child.id);
                         onClose?.();
                       }}
                       className={`w-full flex items-center justify-between pl-8 pr-4 py-2.5 text-xs font-medium transition-colors duration-150 border-t border-slate-100 ${
@@ -594,10 +669,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
                 {sortCategories(categories.filter((c) => !c.parentId && c.isActive !== false)).map((cat) => (
                   <button
                     key={cat.id}
-                    onClick={() => {
-                      setActiveCategory(cat.slug || cat.id);
-                      setSearchQuery("");
-                    }}
+                    onClick={() => handleCategorySelect(cat.slug || cat.id)}
                     className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-amber-700 border border-slate-200"
                   >
                     {cat.name}
@@ -657,10 +729,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
                 <h3 className="font-heading font-semibold text-slate-900 text-lg mb-2">Ürün bulunamadı</h3>
                 <p className="text-slate-500 text-sm mb-6">Arama veya kategori kriterlerinizi değiştirerek tekrar deneyin.</p>
                 <button
-                  onClick={() => {
-                    setSearchQuery("");
-                    setActiveCategory("all");
-                  }}
+                  onClick={() => handleCategorySelect("all")}
                   className="btn-gold-outline"
                 >
                   <Filter size={15} /> Filtreleri Temizle
@@ -668,7 +737,11 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
               </div>
             ) : (
               /* 5-Column Responsive Product Grid */
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4.5">
+              /* handleGridClick: ürüne tıklanmadan önce scroll pozisyonunu ve durumunu kaydet */
+              <div
+                className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4.5"
+                onClick={handleGridClick}
+              >
                 {filteredProducts.map((product, i) => (
                   <ProductCard key={product.id} product={product} index={i} />
                 ))}
