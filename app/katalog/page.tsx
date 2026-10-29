@@ -382,6 +382,71 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
     return sortProductsByCategoryOrder(list);
   }, [products, activeCategory, searchQuery, currentCategory, categories, sortBy]);
 
+  // Alt kategorilere sahip bir ana kategori seçiliyse ürünleri gruplandır
+  const childCategories = useMemo(() => {
+    if (!currentCategory) return [];
+    return sortCategories(categories.filter((c) => c.parentId === currentCategory.id));
+  }, [currentCategory, categories]);
+
+  const hasChildCategories = childCategories.length > 0;
+
+  // Ana kategori seçiliyken ürünleri alt kategorilere göre gruplandır
+  const groupedProducts = useMemo(() => {
+    if (!hasChildCategories || !currentCategory) return null;
+
+    // Her alt kategori için ürünleri filtrele ve sırala
+    const groups: { category: (typeof categories)[0]; products: typeof filteredProducts }[] = [];
+
+    for (const child of childCategories) {
+      const childProducts = filteredProducts.filter(
+        (p) =>
+          p.categorySlug?.toLowerCase() === child.slug?.toLowerCase() ||
+          p.categoryId === child.id ||
+          p.categoryName?.toLowerCase() === child.name?.toLowerCase()
+      );
+
+      // Butik pastalar ve donuk pastalar için order bazlı sıralama;
+      // diğerleri için sortBy'a göre
+      let sorted = [...childProducts];
+      if (isCustomOrderCategory || child.slug?.toLowerCase().includes("butik") || child.slug?.toLowerCase().includes("donuk")) {
+        sorted = sorted.sort((a, b) => {
+          const orderA = a.order ?? 9999;
+          const orderB = b.order ?? 9999;
+          if (orderA !== orderB) return orderA - orderB;
+          return (a.name || "").localeCompare(b.name || "", "tr");
+        });
+      } else if (sortBy === "alpha-asc") {
+        sorted = sorted.sort((a, b) =>
+          (a.name || "").trim().localeCompare((b.name || "").trim(), "tr", { sensitivity: "base" })
+        );
+      } else if (sortBy === "alpha-desc") {
+        sorted = sorted.sort((a, b) =>
+          (b.name || "").trim().localeCompare((a.name || "").trim(), "tr", { sensitivity: "base" })
+        );
+      } else if (sortBy === "price-asc") {
+        sorted = sorted.sort((a, b) => (a.price || 0) - (b.price || 0));
+      } else if (sortBy === "price-desc") {
+        sorted = sorted.sort((a, b) => (b.price || 0) - (a.price || 0));
+      }
+
+      if (sorted.length > 0) {
+        groups.push({ category: child, products: sorted });
+      }
+    }
+
+    // Alt kategorilere girmeyen ürünler (doğrudan ana kategoride)
+    const categorisedIds = new Set(groups.flatMap((g) => g.products.map((p) => p.id)));
+    const uncategorised = filteredProducts.filter((p) => !categorisedIds.has(p.id));
+    if (uncategorised.length > 0) {
+      groups.push({
+        category: { ...currentCategory, name: currentCategory.name + " — Diğer" } as any,
+        products: uncategorised,
+      });
+    }
+
+    return groups.length > 0 ? groups : null;
+  }, [hasChildCategories, currentCategory, filteredProducts, childCategories, sortBy, isCustomOrderCategory]);
+
   // Ürünler hazır olduğunda önceki scroll pozisyonuna yumuşak ve kesintisiz dönüş yap
   useEffect(() => {
     if (isScrollRestoredRef.current || filteredProducts.length === 0) return;
@@ -753,6 +818,35 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
                 >
                   <Filter size={15} /> Filtreleri Temizle
                 </button>
+              </div>
+            ) : groupedProducts ? (
+              /* Alt kategoriler başlıklı gruplu ızgara */
+              <div className="space-y-10" onClick={handleGridClick}>
+                {groupedProducts.map((group) => (
+                  <section key={group.category.id}>
+                    {/* Alt kategori başlığı */}
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="flex items-center gap-2">
+                        {group.category.icon && (
+                          <span className="text-xl">{group.category.icon}</span>
+                        )}
+                        <h2 className="font-heading font-bold text-slate-800 text-xl">
+                          {group.category.name}
+                        </h2>
+                      </div>
+                      <span className="text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full">
+                        {group.products.length} ürün
+                      </span>
+                      <div className="flex-1 h-px bg-gradient-to-r from-amber-200 via-slate-200 to-transparent" />
+                    </div>
+                    {/* Ürün ızgarası */}
+                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4.5">
+                      {group.products.map((product, i) => (
+                        <ProductCard key={product.id} product={product} index={i} />
+                      ))}
+                    </div>
+                  </section>
+                ))}
               </div>
             ) : (
               /* 5-Column Responsive Product Grid */
