@@ -310,22 +310,14 @@ export function sortProductsByCategoryOrder<
     if (rankA !== rankB) {
       return rankA - rankB;
     }
-    // "Butik Pastalar" (rank 1.1) kategorisi için A-Z sıralaması uygulanmaz; orijinal katalog sırası (order) korunur.
-    if (rankA === 1.1) {
-      const orderA = a.order ?? 0;
-      const orderB = b.order ?? 0;
-      if (orderA !== orderB) return orderA - orderB;
-      return (a.name || "").localeCompare(b.name || "", "tr");
+    const orderA = a.order ?? 9999;
+    const orderB = b.order ?? 9999;
+    if (orderA !== orderB) {
+      return orderA - orderB;
     }
     const nameA = (a.name || "").trim();
     const nameB = (b.name || "").trim();
-    const cmp = nameA.localeCompare(nameB, "tr", { sensitivity: "base" });
-    if (cmp !== 0) {
-      return cmp;
-    }
-    const orderA = a.order ?? 0;
-    const orderB = b.order ?? 0;
-    return orderA - orderB;
+    return nameA.localeCompare(nameB, "tr", { sensitivity: "base" });
   });
 }
 

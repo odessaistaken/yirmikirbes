@@ -1,3 +1,4 @@
+
 "use client";
 
 /**
@@ -114,9 +115,16 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
             </Link>
 
             {/* Product code */}
-            <p className="text-slate-400 text-[10px] font-mono mb-2 tracking-wider">
+            <p className="text-slate-400 text-[10px] font-mono mb-1.5 tracking-wider">
               {product.code}
             </p>
+
+            {/* Bilgilendirme Açıklaması */}
+            {product.description && (
+              <p className="text-slate-500 text-[11px] leading-relaxed line-clamp-2 mb-2 font-normal">
+                {product.description}
+              </p>
+            )}
 
           </div>
 
