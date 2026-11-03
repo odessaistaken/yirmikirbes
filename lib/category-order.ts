@@ -1,17 +1,18 @@
 /**
  * Merkezi Kategori Sıralama Modülü
  *
- * Projenin TÜM noktalarında geçerli olan kesin kategori sıralamasını yönetir.
- * Sıralama (1-9):
- *  1. Pastalar
- *  2. Waffle Malzemeleri
- *  3. Kruvasan
- *  4. Kremalı Ürünler & Pastacılık
- *  5. Şurup
- *  6. Bar Sos
- *  7. Püre
- *  8. Kasa Önü Malzemeler
- *  9. Kremalar
+ * Marka odaklı kategori mimarisi:
+ *  1. Pastalar (Butik Pastalar, Donuk Pastalar, Cup Tatlılar, Organizasyon)
+ *  2. Kruvasan
+ *  3. DaVinci Gourmet (Şuruplar, Bar Soslar, Püreler)
+ *  4. Caffè NONNO (Şuruplar, Bar Soslar, Püreler)
+ *  5. CALLEI (Waffle Çikolataları, Waffle Süslemeleri)
+ *  6. EASY MIX (Kokteyller & Premiksler)
+ *  7. Krater (Meyve Püreleri)
+ *  8. Monte Cristo (Barista Şurupları)
+ *  9. Kasa Önü Ürünler
+ *  10. Kremalı Ürünler & Pastacılık
+ *  11. Kremalar
  */
 
 import type { Category } from "@/lib/types";
@@ -73,16 +74,7 @@ export function getCategoryRank(cat: Partial<Category> | null | undefined): numb
     return 1.6;
   }
 
-  // 2. Waffle Malzemeleri
-  if (
-    normSlug.includes("waffle") ||
-    normName.includes("waffle") ||
-    id === "cat-3"
-  ) {
-    return 2.0;
-  }
-
-  // 3. Kruvasan
+  // 2. Kruvasan
   if (
     normSlug.includes("kruvasan") ||
     normSlug.includes("kuruvasan") ||
@@ -90,132 +82,170 @@ export function getCategoryRank(cat: Partial<Category> | null | undefined): numb
     normName.includes("kuruvasan") ||
     id === "cat-kruvasan"
   ) {
-    return 3.0;
+    return 2.0;
   }
 
-  // 4. Kremalı Ürünler & Pastacılık
+  // 3. DaVinci Gourmet (Ana ve alt kategoriler)
   if (
-    normSlug.includes("kremali") ||
-    normName.includes("kremali") ||
-    id === "cat-6"
+    (normSlug.includes("davinci") || normName.includes("davinci") || id === "cat-brand-davinci") &&
+    !cat.parentId
+  ) {
+    return 3.0;
+  }
+  if (
+    (cat.parentId === "cat-brand-davinci" && (normSlug.includes("surup") || normName.includes("surup"))) ||
+    (normSlug.includes("davinci") && normSlug.includes("surup")) ||
+    id === "cat-1792159145530" ||
+    id === "cat-davinci-suruplar"
+  ) {
+    return 3.1;
+  }
+  if (
+    (cat.parentId === "cat-brand-davinci" && (normSlug.includes("sos") || normName.includes("sos"))) ||
+    (normSlug.includes("davinci") && normSlug.includes("sos")) ||
+    id === "cat-1792159660497" ||
+    id === "cat-davinci-bar-sos"
+  ) {
+    return 3.2;
+  }
+  if (
+    (cat.parentId === "cat-brand-davinci" && (normSlug.includes("pure") || normName.includes("pure"))) ||
+    (normSlug.includes("davinci") && normSlug.includes("pure")) ||
+    id === "cat-1792159702988" ||
+    id === "cat-davinci-pureler"
+  ) {
+    return 3.3;
+  }
+  if (cat.parentId === "cat-brand-davinci") {
+    return 3.4;
+  }
+
+  // 4. Caffè NONNO (Ana ve alt kategoriler)
+  if (
+    (normSlug.includes("nonno") || normName.includes("nonno") || id === "cat-brand-nonno") &&
+    !cat.parentId
   ) {
     return 4.0;
   }
-
-  // 5. Şurup (Şuruplar & Marka Alt Kategorileri & Kokteyller)
   if (
-    normSlug === "suruplar" ||
-    normSlug === "surup" ||
-    normName === "suruplar" ||
-    normName === "surup" ||
-    id === "cat-2"
+    (cat.parentId === "cat-brand-nonno" && (normSlug.includes("surup") || normName.includes("surup"))) ||
+    (normSlug.includes("nonno") && normSlug.includes("surup")) ||
+    id === "cat-1792159460097" ||
+    id === "cat-nonno-suruplar"
+  ) {
+    return 4.1;
+  }
+  if (
+    (cat.parentId === "cat-brand-nonno" && (normSlug.includes("sos") || normName.includes("sos"))) ||
+    (normSlug.includes("nonno") && normSlug.includes("sos")) ||
+    id === "cat-caffe-nonno-bar-soslar" ||
+    id === "cat-nonno-bar-sos"
+  ) {
+    return 4.2;
+  }
+  if (
+    (cat.parentId === "cat-brand-nonno" && (normSlug.includes("pure") || normName.includes("pure"))) ||
+    (normSlug.includes("nonno") && normSlug.includes("pure")) ||
+    id === "cat-1792159899479" ||
+    id === "cat-nonno-pureler"
+  ) {
+    return 4.3;
+  }
+  if (cat.parentId === "cat-brand-nonno") {
+    return 4.4;
+  }
+
+  // 5. CALLEI (Ana ve alt kategoriler)
+  if (
+    (normSlug.includes("callei") || normName.includes("callei") || id === "cat-brand-callei") &&
+    !cat.parentId
   ) {
     return 5.0;
   }
   if (
-    normSlug.includes("davinci") ||
-    normName.includes("davinci") ||
-    id === "cat-davinci-surup"
+    (cat.parentId === "cat-brand-callei" && (normSlug.includes("cikolata") || normName.includes("cikolata"))) ||
+    id === "cat-1790668749112"
   ) {
     return 5.1;
   }
   if (
-    normSlug.includes("nonno") ||
-    normName.includes("nonno") ||
-    id === "cat-nonno-surup"
+    (cat.parentId === "cat-brand-callei" && (normSlug.includes("susle") || normName.includes("susle"))) ||
+    id === "cat-1790668787142"
   ) {
     return 5.2;
   }
   if (
-    normSlug.includes("montecristo") ||
-    normName.includes("montecristo") ||
-    id === "cat-monte-cristo-surup"
+    cat.parentId === "cat-brand-callei" ||
+    id === "cat-1790668777717" ||
+    id === "cat-3" ||
+    normSlug.includes("waffle") ||
+    normName.includes("waffle")
   ) {
     return 5.3;
   }
-  if (
-    normSlug.includes("kokteyl") ||
-    normName.includes("kokteyl") ||
-    cat.parentId === "cat-2" ||
-    cat.parentId === "suruplar"
-  ) {
-    return 5.4;
-  }
-  if (normSlug.includes("surup") || normName.includes("surup")) {
-    return 5.5;
-  }
 
-  // 6. Bar Sos
+  // 6. EASY MIX (Ana ve alt kategoriler)
   if (
-    normSlug.includes("barsos") ||
-    normName.includes("barsos") ||
-    normSlug.includes("tatlisos") ||
-    normName.includes("tatlisos") ||
-    id === "cat-4"
+    (normSlug.includes("easymix") || normName.includes("easymix") || id === "cat-brand-easymix") &&
+    !cat.parentId
   ) {
     return 6.0;
   }
-
-  // 7. Püre (Püreler & Marka Alt Kategorileri)
   if (
-    slug === "pureler" ||
-    slug === "pure" ||
-    normName === "pureler" ||
-    normName === "pure" ||
-    id === "cat-1"
+    cat.parentId === "cat-brand-easymix" ||
+    normSlug.includes("kokteyl") ||
+    normName.includes("kokteyl") ||
+    id === "cat-7"
+  ) {
+    return 6.1;
+  }
+
+  // 7. Krater (Ana ve alt kategoriler)
+  if (
+    (normSlug.includes("krater") || normName.includes("krater") || id === "cat-brand-krater") &&
+    !cat.parentId
   ) {
     return 7.0;
   }
-  if (
-    (cat.parentId === "cat-1" || cat.parentId === "pureler") &&
-    (normSlug.includes("davinci") || normName.includes("davinci"))
-  ) {
+  if (cat.parentId === "cat-brand-krater" || id === "cat-1792159793131") {
     return 7.1;
   }
-  if (
-    (cat.parentId === "cat-1" || cat.parentId === "pureler") &&
-    (normSlug.includes("krater") || normName.includes("krater"))
-  ) {
-    return 7.2;
-  }
-  if (
-    (cat.parentId === "cat-1" || cat.parentId === "pureler") &&
-    (normSlug.includes("nonno") || normName.includes("nonno"))
-  ) {
-    return 7.3;
-  }
-  if (normSlug.includes("pure") || normName.includes("pure")) {
-    return 7.4;
-  }
 
-  // 8. Kasa Önü Malzemeler
+  // 8. Monte Cristo (Ana ve alt kategoriler)
   if (
-    normSlug.includes("kasaonu") ||
-    normName.includes("kasaonu") ||
-    id === "cat-kasa-onu"
+    (normSlug.includes("montecristo") || normName.includes("montecristo") || id === "cat-brand-montecristo") &&
+    !cat.parentId
   ) {
     return 8.0;
   }
+  if (cat.parentId === "cat-brand-montecristo" || id === "cat-1792159526675") {
+    return 8.1;
+  }
 
-  // 9. Kremalar (Kremalı Ürünlerden farklı olarak sürülebilir & dolgu kremaları)
-  if (
-    normSlug.includes("kremalar") ||
-    normName.includes("kremalar") ||
-    normSlug === "krema" ||
-    normName === "krema" ||
-    id === "cat-kremalar"
-  ) {
+  // 9. Kasa Önü Malzemeler
+  if (normSlug.includes("kasaonu") || normName.includes("kasaonu") || id === "cat-kasa-onu" || id === "cat-11") {
     return 9.0;
   }
 
-  // Ekipmanlar — opsiyonel / sona gelir
-  if (
-    normSlug.includes("ekipman") ||
-    normName.includes("ekipman") ||
-    id === "cat-ekipmanlar"
-  ) {
+  // 10. Kremalı Ürünler & Pastacılık
+  if (normSlug.includes("kremali") || normName.includes("kremali") || id === "cat-6") {
     return 10.0;
   }
+
+  // 11. Kremalar
+  if (normSlug.includes("kremalar") || normName.includes("kremalar") || id === "cat-kremalar") {
+    return 11.0;
+  }
+
+  // 12. Sandviç / Unlu Mamuller
+  if (normSlug.includes("sandvic") || id === "cat-1792072881776") {
+    return 12.0;
+  }
+
+  // Eski genel kategoriler (eğer arşivlenmişse arkaya at)
+  if (normSlug === "suruplar" || id === "cat-2") return 30.0;
+  if (normSlug === "barsos" || id === "cat-4") return 31.0;
+  if (normSlug === "pureler" || id === "cat-1") return 32.0;
 
   return 9999;
 }
@@ -225,7 +255,7 @@ export function getCategoryRank(cat: Partial<Category> | null | undefined): numb
  * Orijinal diziyi bozmaz (immutable).
  */
 export function sortCategories<T extends Partial<Category>>(categories: T[]): T[] {
-  // Sort first so canonical categories (e.g. cat-1..9) have priority rank
+  // Sort first so canonical categories have priority rank
   const sorted = [...categories].sort((a, b) => {
     const rankA = getCategoryRank(a);
     const rankB = getCategoryRank(b);
@@ -259,7 +289,7 @@ export function sortCategories<T extends Partial<Category>>(categories: T[]): T[
 }
 
 /**
- * Yalnızca ana (parent olmayan) kategorileri kesin 1-9 sıralamasına göre döndürür.
+ * Yalnızca ana (parent olmayan) kategorileri kesin sıralamasına göre döndürür.
  */
 export function sortTopLevelCategories<T extends Partial<Category>>(categories: T[]): T[] {
   return sortCategories(categories.filter((c) => !c.parentId));
@@ -277,12 +307,57 @@ export function sortChildCategories<T extends Partial<Category>>(
 
 /**
  * Bir ürünün kategori sıralama katsayısını döndürür.
+ * Ürünün codeGroup veya name değerindeki marka bilgisini de kontrol eder.
  */
 export function getProductCategoryRank(p: {
   categorySlug?: string;
   categoryId?: string;
   categoryName?: string;
+  codeGroup?: string;
+  name?: string;
 }): number {
+  const codeGroup = normalizeCategoryText(p.codeGroup);
+  const name = normalizeCategoryText(p.name);
+  const slug = (p.categorySlug || "").toLowerCase();
+  const id = (p.categoryId || "").toLowerCase();
+
+  // DaVinci Gourmet Products
+  if (codeGroup.includes("davinci") || name.includes("davinci")) {
+    if (slug.includes("surup") || id === "cat-1792159145530" || id === "cat-davinci-suruplar") return 3.1;
+    if (slug.includes("sos") || id === "cat-1792159660497" || id === "cat-davinci-bar-sos" || id === "cat-4") return 3.2;
+    if (slug.includes("pure") || id === "cat-1792159702988" || id === "cat-davinci-pureler" || id === "cat-1") return 3.3;
+    return 3.0;
+  }
+
+  // Caffè NONNO Products
+  if (codeGroup.includes("nonno") || name.includes("nonno")) {
+    if (slug.includes("surup") || id === "cat-1792159460097" || id === "cat-nonno-suruplar") return 4.1;
+    if (slug.includes("sos") || id === "cat-caffe-nonno-bar-soslar" || id === "cat-nonno-bar-sos" || id === "cat-4") return 4.2;
+    if (slug.includes("pure") || id === "cat-1792159899479" || id === "cat-nonno-pureler" || id === "cat-1") return 4.3;
+    return 4.0;
+  }
+
+  // CALLEI Products
+  if (codeGroup.includes("callei") || name.includes("callei")) {
+    if (slug.includes("susle") || id === "cat-1790668787142") return 5.2;
+    return 5.1;
+  }
+
+  // EASY MIX Products
+  if (codeGroup.includes("easymix") || name.includes("easymix") || id === "cat-7" || slug.includes("kokteyl")) {
+    return 6.1;
+  }
+
+  // Krater Products
+  if (codeGroup.includes("krater") || name.includes("krater") || id === "cat-1792159793131") {
+    return 7.1;
+  }
+
+  // Monte Cristo Products
+  if (codeGroup.includes("montecristo") || name.includes("montecristo") || id === "cat-1792159526675") {
+    return 8.1;
+  }
+
   return getCategoryRank({
     slug: p.categorySlug,
     id: p.categoryId,
@@ -291,9 +366,9 @@ export function getProductCategoryRank(p: {
 }
 
 /**
- * Ürün dizisini öncelikle 1-9 kategori sırasına,
- * ardından kategori içinde ALFABETİK olarak ürün adına göre sıralar (A-Z).
- * Aynı ada sahip ürünlerde 'order' değerine göre ikincil sıralama yapar.
+ * Ürün dizisini öncelikle kategori sırasına,
+ * ardından kategori içinde ürünün kendi 'order' (katalog sıra) değerine göre sıralar.
+ * Sıra numarası eşit veya belirtilmemişse alfabetik ürün adına göre ikincil sıralama yapar.
  */
 export function sortProductsByCategoryOrder<
   T extends {
@@ -302,6 +377,7 @@ export function sortProductsByCategoryOrder<
     categoryName?: string;
     order?: number;
     name?: string;
+    codeGroup?: string;
   }
 >(products: T[]): T[] {
   return [...products].sort((a, b) => {
@@ -342,4 +418,3 @@ export function sortProductsAlphabetically<
     return orderA - orderB;
   });
 }
-

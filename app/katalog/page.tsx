@@ -20,6 +20,43 @@ import {
 
 /* ─── Subcategories & Brand links map ─────────────────────────────────────── */
 export const SUBCATEGORIES_MAP: Record<string, { name: string; query: string }[]> = {
+  "davinci-gourmet": [
+    { name: "Tüm DaVinci Ürünleri", query: "davinci" },
+    { name: "DaVinci Şuruplar", query: "şurup" },
+    { name: "DaVinci Bar Soslar", query: "sos" },
+    { name: "DaVinci Püreler", query: "fruit mix" },
+  ],
+  "caffe-nonno": [
+    { name: "Tüm Caffè NONNO", query: "nonno" },
+    { name: "NONNO Şuruplar", query: "şurup" },
+    { name: "NONNO Bar Soslar", query: "sos" },
+    { name: "NONNO Püreler", query: "püre" },
+  ],
+  "callei": [
+    { name: "Tüm CALLEI", query: "callei" },
+    { name: "Waffle Çikolataları", query: "çikolata" },
+    { name: "Waffle Süslemeleri", query: "süsleme" },
+    { name: "Draje & Bonibon", query: "draje" },
+    { name: "Krokan & Fındık", query: "krokan" },
+  ],
+  "easy-mix": [
+    { name: "Tüm EASY MIX", query: "easy mix" },
+    { name: "Refresher & Botanik", query: "refresher" },
+    { name: "Meyveli Premiks", query: "mango" },
+    { name: "Kokteyller", query: "kokteyl" },
+  ],
+  "krater": [
+    { name: "Tüm Krater Püreler", query: "krater" },
+    { name: "Çilek & Orman Meyvesi", query: "çilek" },
+    { name: "Mango & Egzotik", query: "mango" },
+    { name: "Kavun & Şeftali", query: "kavun" },
+  ],
+  "monte-cristo": [
+    { name: "Tüm Monte Cristo", query: "monte cristo" },
+    { name: "Badem & Fındık", query: "badem" },
+    { name: "Chai Tea & Tarçın", query: "chai" },
+    { name: "Antep Fıstığı", query: "fıstık" },
+  ],
   "suruplar": [
     { name: "DaVinci Gourmet Şurupları", query: "davinci" },
     { name: "Caffè NONNO Şurupları", query: "nonno" },
@@ -337,7 +374,8 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
         (currentCategory && p.categoryName?.toLowerCase() === currentCategory.name.toLowerCase()) ||
         (currentCategory && p.categorySlug?.toLowerCase() === currentCategory.slug.toLowerCase()) ||
         (currentCategory && childCategoryIds.includes(p.categoryId)) ||
-        (currentCategory && p.categorySlug && childCategorySlugs.includes(p.categorySlug.toLowerCase()));
+        (currentCategory && p.categorySlug && childCategorySlugs.includes(p.categorySlug.toLowerCase())) ||
+        (currentCategory && !currentCategory.parentId && p.codeGroup && currentCategory.name && p.codeGroup.toLowerCase().includes(currentCategory.name.toLowerCase()));
 
       const query = searchQuery.toLowerCase().trim();
       const matchSearch =
@@ -591,16 +629,16 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
     const childIds = categories.filter((c) => c.parentId === cat.id).map((c) => c.id);
     const childSlugs = categories.filter((c) => c.parentId === cat.id).map((c) => c.slug.toLowerCase());
 
-    return products.filter(
-      (p) =>
-        p.isActive !== false &&
-        (p.categorySlug === cat.slug ||
-          p.categoryId === cat.id ||
-          p.categorySlug?.toLowerCase() === cat.slug.toLowerCase() ||
-          p.categoryName?.toLowerCase() === cat.name.toLowerCase() ||
-          childIds.includes(p.categoryId) ||
-          (p.categorySlug && childSlugs.includes(p.categorySlug.toLowerCase())))
-    ).length;
+    return products.filter((p) => {
+      if (p.isActive === false) return false;
+      if (p.categorySlug === cat.slug || p.categoryId === cat.id) return true;
+      if (p.categorySlug && cat.slug && p.categorySlug.toLowerCase() === cat.slug.toLowerCase()) return true;
+      if (p.categoryName && cat.name && p.categoryName.toLowerCase() === cat.name.toLowerCase()) return true;
+      if (childIds.includes(p.categoryId)) return true;
+      if (p.categorySlug && childSlugs.includes(p.categorySlug.toLowerCase())) return true;
+      if (!cat.parentId && p.codeGroup && cat.name && p.codeGroup.toLowerCase().includes(cat.name.toLowerCase())) return true;
+      return false;
+    }).length;
   };
 
   const currentSubItems = (currentCategory?.slug && SUBCATEGORIES_MAP[currentCategory.slug]) || [];
@@ -705,22 +743,21 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
         <p className="text-amber-700 text-2xs font-bold uppercase tracking-widest mb-3">Markalarımız</p>
         <div className="space-y-1.5">
           {[
-            { id: "b1", name: "DaVinci Gourmet", logo: "☕" },
-            { id: "b2", name: "Caffè NONNO", logo: "🍹" },
-            { id: "b3", name: "CALLEI", logo: "🍫" },
-            { id: "b4", name: "EASY MIX", logo: "🍸" },
-            { id: "b5", name: "Krater", logo: "🍧" },
-            { id: "b6", name: "Monte Cristo", logo: "🦜" },
+            { id: "b1", name: "DaVinci Gourmet", slug: "davinci-gourmet", logo: "☕" },
+            { id: "b2", name: "Caffè NONNO", slug: "caffe-nonno", logo: "🍹" },
+            { id: "b3", name: "CALLEI", slug: "callei", logo: "🍫" },
+            { id: "b4", name: "EASY MIX", slug: "easy-mix", logo: "🍸" },
+            { id: "b5", name: "Krater", slug: "krater", logo: "🍧" },
+            { id: "b6", name: "Monte Cristo", slug: "monte-cristo", logo: "🦜" },
           ].map((brand) => (
             <button
               key={brand.id}
               onClick={() => {
-                setSearchQuery(brand.name);
-                setActiveCategory("all");
+                handleCategorySelect(brand.slug);
                 onClose?.();
               }}
               className={`w-full flex items-center gap-2.5 px-2 py-1.5 rounded-lg text-left transition-colors duration-150 ${
-                searchQuery.toLowerCase() === brand.name.toLowerCase()
+                activeCategory === brand.slug
                   ? "bg-amber-100/60 text-amber-800 font-bold border border-amber-300"
                   : "text-slate-600 hover:text-slate-900 hover:bg-white"
               }`}
