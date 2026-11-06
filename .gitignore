@@ -45,6 +45,8 @@ next-env.d.ts
 
 # temporary and scratch
 scratch/
+hostinger-deploy/
+*.zip
 __pycache__/
 *.pyc
 

@@ -1,9 +1,8 @@
-
 "use client";
 
 import { Suspense } from "react";
 import { useParams } from "next/navigation";
-import { KatalogView } from "@/app/katalog/page";
+import KatalogView from "@/components/catalog/KatalogView";
 
 export default function CategoryPage() {
   const params = useParams();
