@@ -153,28 +153,28 @@ export default function AdminMarkalar() {
   }
 
   return (
-    <div className="p-8 text-slate-800">
+    <div className="p-4 sm:p-6 lg:p-8 text-slate-800">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-6 sm:mb-8">
         <div>
           <p className="section-label">Admin</p>
-          <h1 className="font-heading font-bold text-slate-900 text-3xl">
+          <h1 className="font-heading font-bold text-slate-900 text-2xl sm:text-3xl">
             Markalar
           </h1>
-          <p className="text-slate-500 text-sm mt-1">
+          <p className="text-slate-500 text-xs sm:text-sm mt-1">
             Ana sayfada gösterilen marka logolarını yönetin.
           </p>
         </div>
-        <button onClick={openAdd} className="btn-primary shadow-gold">
+        <button onClick={openAdd} className="btn-primary shadow-gold justify-center py-2.5">
           <Plus size={16} />
           Yeni Marka
         </button>
       </div>
 
       {/* Table */}
-      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+      <div className="bg-white border border-slate-200 rounded-xl sm:rounded-2xl overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-[650px]">
             <thead className="bg-slate-50 border-b border-slate-200">
               <tr>
                 <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider w-8" />

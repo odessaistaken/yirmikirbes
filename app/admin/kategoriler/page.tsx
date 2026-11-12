@@ -205,16 +205,16 @@ export default function AdminKategoriler() {
   }
 
   return (
-    <div className="p-8 text-slate-800">
+    <div className="p-4 sm:p-6 lg:p-8 text-slate-800">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-6 sm:mb-8">
         <div>
           <p className="section-label">Admin</p>
-          <h1 className="font-heading font-bold text-slate-900 text-3xl">
-            Kategoriler <span className="text-slate-500 text-lg font-normal">({categories.length})</span>
+          <h1 className="font-heading font-bold text-slate-900 text-2xl sm:text-3xl">
+            Kategoriler <span className="text-slate-500 text-base sm:text-lg font-normal">({categories.length})</span>
           </h1>
         </div>
-        <div className="flex items-center gap-3 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
           <div className="relative flex-1 sm:w-64">
             <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
             <input
@@ -222,10 +222,10 @@ export default function AdminKategoriler() {
               placeholder="Kategori ara..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-slate-900 text-xs placeholder:text-slate-400 focus:outline-none focus:border-gold"
+              className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-gold"
             />
           </div>
-          <button onClick={openAdd} className="btn-primary shadow-gold shrink-0">
+          <button onClick={openAdd} className="btn-primary shadow-gold shrink-0 justify-center py-2.5">
             <Plus size={16} />
             Yeni Kategori
           </button>
@@ -233,9 +233,9 @@ export default function AdminKategoriler() {
       </div>
 
       {/* Table */}
-      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+      <div className="bg-white border border-slate-200 rounded-xl sm:rounded-2xl overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-[680px]">
             <thead className="bg-slate-50 border-b border-slate-200">
               <tr>
                 <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider w-8" />
@@ -362,13 +362,13 @@ export default function AdminKategoriler() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4"
+              className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4"
             >
-              <div className="bg-white border border-slate-200 rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto text-slate-800" onClick={(e) => e.stopPropagation()}>
-                <div className="flex items-center justify-between px-6 py-5 border-b border-slate-200 bg-slate-50">
+              <div className="bg-white border border-slate-200 rounded-2xl shadow-2xl w-full max-w-md max-h-[92vh] overflow-y-auto text-slate-800" onClick={(e) => e.stopPropagation()}>
+                <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-slate-200 bg-slate-50 sticky top-0 z-10">
                   <div className="flex items-center gap-2">
                     <Tag size={18} className="text-gold-600" />
-                    <h2 className="font-heading font-bold text-slate-900 text-lg">
+                    <h2 className="font-heading font-bold text-slate-900 text-base sm:text-lg">
                       {editTarget ? "Kategoriyi Düzenle" : "Yeni Kategori"}
                     </h2>
                   </div>
@@ -377,7 +377,7 @@ export default function AdminKategoriler() {
                   </button>
                 </div>
 
-                <div className="p-6 space-y-4">
+                <div className="p-4 sm:p-6 space-y-4">
                   {/* Image Upload */}
                   <div>
                     <div className="flex items-center justify-between mb-1.5">

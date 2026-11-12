@@ -86,7 +86,7 @@ export default function AdminCokSatanlar() {
   }, [products, activeTab, selectedCategory, search]);
 
   return (
-    <div className="p-6 sm:p-8 text-slate-800 min-h-screen">
+    <div className="p-4 sm:p-6 lg:p-8 text-slate-800 min-h-screen">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
@@ -243,7 +243,7 @@ export default function AdminCokSatanlar() {
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
+            <table className="w-full text-left text-sm min-w-[650px]">
               <thead className="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-500 uppercase tracking-wider">
                 <tr>
                   <th className="py-3.5 px-4 w-16">Görsel</th>

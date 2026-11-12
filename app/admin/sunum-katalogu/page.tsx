@@ -82,9 +82,9 @@ export default function AdminSunumKataloguPage() {
   };
 
   return (
-    <div className="p-8 max-w-7xl mx-auto text-stone-800">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto text-stone-800">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-6 sm:mb-8">
         <div>
           <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold uppercase tracking-wider mb-1.5">
             <Sparkles size={12} />
@@ -98,11 +98,11 @@ export default function AdminSunumKataloguPage() {
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
           <Link
             href="/sunum-katalogu"
             target="_blank"
-            className="px-4 py-2.5 rounded-xl border border-stone-300 hover:bg-stone-100 text-stone-700 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+            className="px-4 py-2.5 rounded-xl border border-stone-300 hover:bg-stone-100 text-stone-700 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
           >
             <span>Canlı Sunumu Aç</span>
             <ExternalLink size={13} />
@@ -111,7 +111,7 @@ export default function AdminSunumKataloguPage() {
           <button
             type="button"
             onClick={handleOpenAdd}
-            className="px-4 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-sm"
+            className="px-4 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-sm"
           >
             <Plus size={15} />
             <span>Yeni Ürün Ekle</span>

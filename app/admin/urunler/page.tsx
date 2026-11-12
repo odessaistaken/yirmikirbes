@@ -357,25 +357,26 @@ export default function AdminUrunler() {
   }
 
   return (
-    <div className="p-8 text-slate-800">
+    <div className="p-4 sm:p-6 lg:p-8 text-slate-800">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-6 sm:mb-8">
         <div>
           <p className="section-label">Admin</p>
-          <h1 className="font-heading font-bold text-slate-900 text-3xl">Ürünler</h1>
+          <h1 className="font-heading font-bold text-slate-900 text-2xl sm:text-3xl">Ürünler</h1>
+          <p className="text-slate-500 text-xs sm:text-sm mt-0.5">{filtered.length} ürün listeleniyor</p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
           {/* Search */}
-          <div className="relative">
+          <div className="relative flex-1 sm:w-64">
             <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Ürün ara..."
-              className="input pl-9 w-52 py-2.5 text-sm"
+              className="input pl-9 w-full py-2.5 text-sm"
             />
           </div>
-          <button onClick={openAdd} className="btn-primary shadow-gold">
+          <button onClick={openAdd} className="btn-primary shadow-gold justify-center py-2.5">
             <Plus size={16} />
             Yeni Ürün
           </button>
@@ -383,9 +384,9 @@ export default function AdminUrunler() {
       </div>
 
       {/* Table */}
-      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+      <div className="bg-white border border-slate-200 rounded-xl sm:rounded-2xl overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-[750px]">
             <thead className="bg-slate-50 border-b border-slate-200">
               <tr>
                 <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider w-16">Görsel</th>
@@ -514,14 +515,14 @@ export default function AdminUrunler() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4"
+              className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4"
             >
               <div
-                className="bg-white border border-slate-200 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto text-slate-800"
+                className="bg-white border border-slate-200 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[92vh] overflow-y-auto text-slate-800"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="flex items-center justify-between px-6 py-5 border-b border-slate-200 bg-slate-50">
-                  <h2 className="font-heading font-bold text-slate-900 text-lg">
+                <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-slate-200 bg-slate-50 sticky top-0 z-10">
+                  <h2 className="font-heading font-bold text-slate-900 text-base sm:text-lg">
                     {editTarget ? "Ürünü Düzenle" : "Yeni Ürün Ekle"}
                   </h2>
                   <button onClick={() => setModalOpen(false)} className="p-2 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100">
@@ -529,7 +530,7 @@ export default function AdminUrunler() {
                   </button>
                 </div>
 
-                <div className="p-6 space-y-5">
+                <div className="p-4 sm:p-6 space-y-4 sm:space-y-5">
                   {/* Image upload */}
                   <div>
                     <div className="flex items-center justify-between mb-1.5">

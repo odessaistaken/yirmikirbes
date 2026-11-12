@@ -76,12 +76,12 @@ export default function AdminTalepler() {
     : inquiries.filter((i) => i.status === statusFilter);
 
   return (
-    <div className="p-8 text-slate-800">
+    <div className="p-4 sm:p-6 lg:p-8 text-slate-800">
       {/* Header */}
-      <div className="mb-8">
+      <div className="mb-6 sm:mb-8">
         <p className="section-label">Admin</p>
-        <h1 className="font-heading font-bold text-slate-900 text-3xl">Fiyat Talepleri</h1>
-        <p className="text-slate-500 text-sm mt-1">
+        <h1 className="font-heading font-bold text-slate-900 text-2xl sm:text-3xl">Fiyat Talepleri</h1>
+        <p className="text-slate-500 text-xs sm:text-sm mt-1">
           {counts.new > 0 && (
             <span className="text-gold-600 font-semibold">{counts.new} yeni talep · </span>
           )}
@@ -117,9 +117,9 @@ export default function AdminTalepler() {
       {/* Content */}
       <div className="flex flex-col lg:flex-row gap-6">
         {/* List */}
-        <div className={`bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm ${selected ? "hidden lg:block lg:flex-1" : "w-full"}`}>
+        <div className={`bg-white border border-slate-200 rounded-xl sm:rounded-2xl overflow-hidden shadow-sm ${selected ? "hidden lg:block lg:flex-1" : "w-full"}`}>
           <div className="overflow-x-auto">
-            <table className="w-full">
+            <table className="w-full min-w-[500px]">
               <thead className="bg-slate-50 border-b border-slate-200">
                 <tr>
                   <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">Müşteri</th>

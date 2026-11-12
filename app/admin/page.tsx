@@ -132,16 +132,16 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="p-8 text-slate-800">
+    <div className="p-4 sm:p-6 lg:p-8 text-slate-800">
       {/* Header */}
-      <div className="mb-8">
+      <div className="mb-6 sm:mb-8">
         <p className="section-label">Admin Paneli</p>
-        <h1 className="font-heading font-bold text-slate-900 text-3xl">Dashboard</h1>
-        <p className="text-slate-500 text-sm mt-1">Genel bakış ve son aktiviteler</p>
+        <h1 className="font-heading font-bold text-slate-900 text-2xl sm:text-3xl">Dashboard</h1>
+        <p className="text-slate-500 text-xs sm:text-sm mt-1">Genel bakış ve son aktiviteler</p>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 mb-8 sm:mb-10">
         {stats.map((stat, i) => (
           <motion.a
             key={stat.label}
@@ -149,29 +149,29 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: i * 0.07 }}
-            className={`bg-white border border-slate-200 rounded-2xl p-6 cursor-pointer shadow-sm hover:border-gold/50 hover:shadow-md transition-all ${stat.highlight ? "ring-2 ring-gold" : ""}`}
+            className={`bg-white border border-slate-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 cursor-pointer shadow-sm hover:border-gold/50 hover:shadow-md transition-all ${stat.highlight ? "ring-2 ring-gold" : ""}`}
           >
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-gold/15 text-gold-600">
+            <div className="flex items-center justify-between mb-3 sm:mb-4">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center bg-gold/15 text-gold-600">
                 {stat.icon}
               </div>
               {stat.highlight && (
-                <span className="badge badge-gold text-xs">
-                  <TrendingUp size={10} className="mr-1" />
+                <span className="badge badge-gold text-[10px] sm:text-xs">
+                  <TrendingUp size={10} className="mr-0.5 sm:mr-1" />
                   Yeni
                 </span>
               )}
             </div>
-            <p className="font-heading font-bold text-slate-900 text-3xl">
+            <p className="font-heading font-bold text-slate-900 text-2xl sm:text-3xl">
               {loading ? "—" : stat.value}
             </p>
-            <p className="text-slate-500 text-sm mt-1">{stat.label}</p>
+            <p className="text-slate-500 text-xs sm:text-sm mt-1 truncate">{stat.label}</p>
           </motion.a>
         ))}
       </div>
 
       {/* Recent inquiries */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+      <div className="bg-white border border-slate-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-sm">
         <div className="flex items-center justify-between mb-5">
           <h2 className="font-heading font-semibold text-slate-900 text-lg">
             Son Fiyat Talepleri

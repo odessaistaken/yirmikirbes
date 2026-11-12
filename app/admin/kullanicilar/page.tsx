@@ -56,27 +56,27 @@ export default function AdminKullanicilar() {
   );
 
   return (
-    <div className="p-8 text-slate-800">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+    <div className="p-4 sm:p-6 lg:p-8 text-slate-800">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-6 sm:mb-8">
         <div>
           <p className="section-label">Admin</p>
-          <h1 className="font-heading font-bold text-slate-900 text-3xl">Kullanıcılar</h1>
-          <p className="text-slate-500 text-sm mt-1">{users.length} kayıtlı kullanıcı</p>
+          <h1 className="font-heading font-bold text-slate-900 text-2xl sm:text-3xl">Kullanıcılar</h1>
+          <p className="text-slate-500 text-xs sm:text-sm mt-0.5">{users.length} kayıtlı kullanıcı</p>
         </div>
-        <div className="relative">
+        <div className="relative w-full sm:w-56">
           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Kullanıcı ara..."
-            className="input pl-9 w-56 py-2.5 text-sm"
+            className="input pl-9 w-full py-2.5 text-sm"
           />
         </div>
       </div>
 
-      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+      <div className="bg-white border border-slate-200 rounded-xl sm:rounded-2xl overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-[650px]">
             <thead className="bg-slate-50 border-b border-slate-200">
               <tr>
                 <th className="text-left py-3.5 px-5 text-slate-500 text-xs font-semibold uppercase tracking-wider">Kullanıcı</th>

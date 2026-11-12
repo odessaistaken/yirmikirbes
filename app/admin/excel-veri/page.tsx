@@ -84,29 +84,29 @@ export default function ExcelVeriPage() {
   };
 
   return (
-    <div className="p-8 text-slate-800 max-w-6xl">
+    <div className="p-4 sm:p-6 lg:p-8 text-slate-800 max-w-6xl">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35 }}
-        className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+        className="mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
       >
         <div>
           <p className="section-label">Admin Paneli</p>
           <div className="flex items-center gap-3">
-            <h1 className="font-heading font-bold text-slate-900 text-3xl">
+            <h1 className="font-heading font-bold text-slate-900 text-2xl sm:text-3xl">
               Excel Veri Yönetimi
             </h1>
           </div>
-          <p className="text-slate-500 text-sm mt-1">
+          <p className="text-slate-500 text-xs sm:text-sm mt-1">
             Excel dosyalarını yükle, içe aktar ve yönet. Müşteri kataloğu ile hiçbir bağlantısı yoktur.
           </p>
         </div>
 
         <Link
           href="/admin/ice-aktarilan-veriler"
-          className="inline-flex items-center gap-2 px-4 py-2.5 bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs rounded-2xl shadow-sm transition-all shrink-0"
+          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs rounded-2xl shadow-sm transition-all shrink-0"
         >
           <Maximize2 size={15} />
           <span>Geniş Ekranda İncele & Düzenle</span>

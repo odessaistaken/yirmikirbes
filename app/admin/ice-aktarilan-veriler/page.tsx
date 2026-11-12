@@ -291,16 +291,16 @@ function ImportedDataContent() {
   };
 
   return (
-    <div className="w-full min-h-screen p-6 sm:p-8 lg:p-10 space-y-8 max-w-[1720px] mx-auto text-slate-800">
+    <div className="w-full min-h-screen p-3.5 sm:p-6 lg:p-10 space-y-6 sm:space-y-8 max-w-[1720px] mx-auto text-slate-800">
       {/* ── Header ────────────────────────────────────────────────────────── */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-200">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 pb-6 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="text-[11px] font-bold uppercase tracking-wider text-amber-600 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200/80">
               Geniş Ekran Yönetim Modülü
             </span>
           </div>
-          <h1 className="font-heading font-extrabold text-slate-900 text-2xl sm:text-3xl lg:text-4xl tracking-tight">
+          <h1 className="font-heading font-extrabold text-slate-900 text-xl sm:text-3xl lg:text-4xl tracking-tight">
             İçe Aktarılan Veriler & Görsel Yönetimi
           </h1>
           <p className="text-sm text-slate-500 mt-1 max-w-2xl leading-relaxed">
