@@ -358,7 +358,7 @@ export default function HomePage() {
       ════════════════════════════════════════════════════════════ */}
       <section className="relative bg-white text-slate-900 overflow-hidden border-b border-slate-200">
         {/* ── Full-Width Slider (Top) ─────────────────────────── */}
-        <div className="relative w-full h-[70vh] sm:h-[75vh] lg:h-[80vh]">
+        <div className="relative w-full h-[50vh] sm:h-[65vh] lg:h-[80vh]">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -412,16 +412,16 @@ export default function HomePage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.4, delay: 0.1 }}
-                    className="absolute bottom-8 left-6 right-6 sm:left-10 sm:right-10 z-10"
+                    className="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-10 sm:right-10 z-10"
                   >
-                    <span className="inline-block bg-gold text-white text-2xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-2">
+                    <span className="inline-block bg-gold text-white text-2xs font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md uppercase tracking-wider mb-1.5 sm:mb-2">
                       Öne Çıkan Ürün
                     </span>
-                    <h3 className="font-heading font-bold !text-white text-xl sm:text-2xl lg:text-3xl drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)', color: '#ffffff' }}>
+                    <h3 className="font-heading font-bold !text-white text-lg sm:text-2xl lg:text-3xl drop-shadow-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)', color: '#ffffff' }}>
                       {sliders[currentSlide].name}
                     </h3>
                     {sliders[currentSlide].description && (
-                      <p className="text-slate-100 text-sm sm:text-base line-clamp-2 mt-1.5 max-w-2xl drop-shadow-lg" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
+                      <p className="text-slate-100 text-xs sm:text-base line-clamp-2 mt-1 sm:mt-1.5 max-w-2xl drop-shadow-lg" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
                         {sliders[currentSlide].description}
                       </p>
                     )}
@@ -433,17 +433,17 @@ export default function HomePage() {
                   <>
                     <button
                       onClick={prevSlide}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-gold hover:text-white transition-all duration-200 shadow-md"
+                      className="absolute left-2.5 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-gold hover:text-white transition-all duration-200 shadow-md"
                       aria-label="Önceki görsel"
                     >
-                      <ChevronLeft size={22} />
+                      <ChevronLeft size={18} className="sm:w-5 sm:h-5" />
                     </button>
                     <button
                       onClick={nextSlide}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-gold hover:text-white transition-all duration-200 shadow-md"
+                      className="absolute right-2.5 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-gold hover:text-white transition-all duration-200 shadow-md"
                       aria-label="Sonraki görsel"
                     >
-                      <ChevronRight size={22} />
+                      <ChevronRight size={18} className="sm:w-5 sm:h-5" />
                     </button>
                   </>
                 )}
@@ -495,7 +495,7 @@ export default function HomePage() {
           {/* Subtle ambient glow */}
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[130px] rounded-full pointer-events-none" />
 
-          <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-[5]">
+          <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16 relative z-[5]">
             <div className="max-w-3xl">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -627,20 +627,20 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           CATEGORIES SHOWCASE — Dynamic with images
       ════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-white">
+      <section className="py-12 sm:py-20 lg:py-24 bg-white">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-12">
+            <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8 sm:mb-12">
               <div>
                 <p className="section-label">Ürün Kategorileri</p>
-                <h2 className="font-heading font-bold text-slate-900">
+                <h2 className="font-heading font-bold text-slate-900 text-2xl sm:text-3xl lg:text-4xl">
                   Tüm İhtiyaçlarınız<br />
                   <span className="gold-text">Tek Çatı Altında</span>
                 </h2>
               </div>
               <Link
                 href="/katalog"
-                className="flex items-center gap-2 text-slate-600 hover:text-gold-600 text-sm font-semibold transition-colors shrink-0"
+                className="flex items-center gap-2 text-slate-600 hover:text-gold-600 text-xs sm:text-sm font-semibold transition-colors shrink-0"
               >
                 Tüm kategoriler
                 <ChevronRight size={16} />
@@ -649,48 +649,48 @@ export default function HomePage() {
           </FadeIn>
 
           {!dataLoaded ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="skeleton h-72 rounded-2xl" />
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="skeleton h-48 sm:h-72 rounded-2xl" />
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
               {sortCategories(
                 categories.some((c) => !c.parentId && c.isActive !== false)
                   ? categories.filter((c) => !c.parentId && c.isActive !== false)
                   : categories.filter((c) => c.isActive !== false)
               ).slice(0, 9).map((cat, i) => (
-                <FadeIn key={cat.id} delay={i * 0.07}>
+                <FadeIn key={cat.id} delay={i * 0.05}>
                   <Link
                     href={`/katalog/${cat.slug}`}
-                    className="group block bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-card-hover hover:-translate-y-1 hover:border-gold/50 transition-all duration-300"
+                    className="group block bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-card-hover hover:-translate-y-1 hover:border-gold/50 transition-all duration-300"
                   >
-                    {/* Category Image — Bigger for 3-col layout */}
-                    <div className="relative aspect-[4/3] sm:aspect-[16/10] bg-slate-50 overflow-hidden">
+                    {/* Category Image */}
+                    <div className="relative aspect-[4/3] bg-slate-50 overflow-hidden">
                       {cat.imageUrl ? (
                         <Image
                           src={cat.imageUrl}
                           alt={cat.name}
                           fill
-                          quality={100}
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
+                          quality={95}
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 500px"
                           style={{ imageRendering: "-webkit-optimize-contrast" }}
                           className="object-cover group-hover:scale-105 transition-transform duration-300 transform-gpu sharp-render"
                         />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center bg-slate-100">
-                          <ImageIcon size={32} className="text-slate-400" />
+                          <ImageIcon size={24} className="text-slate-400" />
                         </div>
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     {/* Category Info */}
-                    <div className="p-4 text-center bg-white">
-                      <p className="font-heading font-semibold text-slate-800 text-base sm:text-lg mb-1 group-hover:text-gold-600 transition-colors">
+                    <div className="p-2.5 sm:p-4 text-center bg-white">
+                      <p className="font-heading font-semibold text-slate-800 text-xs sm:text-base mb-0.5 sm:mb-1 group-hover:text-gold-600 transition-colors line-clamp-1">
                         {cat.name}
                       </p>
-                      <div className="mt-2 h-0.5 w-0 group-hover:w-full bg-gold transition-all duration-300 mx-auto rounded-full" />
+                      <div className="mt-1.5 sm:mt-2 h-0.5 w-0 group-hover:w-full bg-gold transition-all duration-300 mx-auto rounded-full" />
                     </div>
                   </Link>
                 </FadeIn>
@@ -703,7 +703,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           FEATURED PRODUCTS
       ════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-slate-50 border-y border-slate-200">
+      <section className="py-12 sm:py-20 lg:py-24 bg-slate-50 border-y border-slate-200">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-12">
@@ -753,7 +753,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           B2B INTRO BANNER
       ════════════════════════════════════════════════════════════ */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-14 sm:py-24 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=1920&q=85"
@@ -771,21 +771,21 @@ export default function HomePage() {
               <p className="section-label text-center !text-gold">
                 Kurumsal B2B Çözümler
               </p>
-              <h2 className="font-heading font-bold text-white text-3xl sm:text-4xl mb-6">
+              <h2 className="font-heading font-bold text-white text-2xl sm:text-4xl mb-4 sm:mb-6">
                 İşletmenizin Büyümesine{" "}
                 <span className="gold-text">Ortak Oluyoruz</span>
               </h2>
-              <p className="text-slate-200 text-base sm:text-lg leading-relaxed mb-10">
+              <p className="text-slate-200 text-sm sm:text-lg leading-relaxed mb-8 sm:mb-10">
                 Pastane, otel, restoran veya endüstriyel mutfak işletiyorsanız; 
                 özel B2B fiyatlandırma, esnek ödeme vadesi ve teknik destek 
                 hizmetlerimizden yararlanabilirsiniz.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/kayit" className="btn-primary px-8 py-4 shadow-gold-lg">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <Link href="/kayit" className="btn-primary px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base shadow-gold-lg">
                   B2B Hesap Oluştur
                   <ArrowRight size={18} />
                 </Link>
-                <Link href="/katalog" className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-white/30 bg-white/10 hover:bg-white/20 text-white font-semibold hover:border-gold hover:text-gold transition-all duration-200 backdrop-blur-sm">
+                <Link href="/katalog" className="flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base rounded-xl border border-white/30 bg-white/10 hover:bg-white/20 text-white font-semibold hover:border-gold hover:text-gold transition-all duration-200 backdrop-blur-sm">
                   Kataloğu İncele
                 </Link>
               </div>

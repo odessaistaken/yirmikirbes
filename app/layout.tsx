@@ -1,10 +1,19 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { AuthProvider } from "@/lib/auth-context";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import MobileBottomNav from "@/components/layout/MobileBottomNav";
 import { Toaster } from "react-hot-toast";
+
+export const viewport: Viewport = {
+  themeColor: "#FFFFFF",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   title: {
@@ -67,8 +76,9 @@ export default function RootLayout({
             }}
           />
           <Header />
-          <main className="flex-1 pt-20 sm:pt-22 overflow-x-hidden">{children}</main>
+          <main className="flex-1 pt-18 sm:pt-24 pb-16 lg:pb-0 overflow-x-hidden">{children}</main>
           <Footer />
+          <MobileBottomNav />
           <WhatsAppButton />
         </AuthProvider>
       </body>

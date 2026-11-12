@@ -23,7 +23,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp İletişim Hattı"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white px-4 py-3 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group border border-white/20"
+      className="hidden lg:flex fixed bottom-6 right-6 z-50 items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white px-4 py-3 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group border border-white/20"
     >
       <span className="relative flex h-6 w-6 items-center justify-center">
         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-40"></span>

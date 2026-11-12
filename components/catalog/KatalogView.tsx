@@ -860,9 +860,11 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
         <div className="flex gap-6">
           <button
             onClick={() => setMobileSidebarOpen(true)}
-            className="lg:hidden fixed bottom-6 right-6 z-30 flex items-center gap-2 btn-primary shadow-gold-lg py-3 px-5"
+            className="lg:hidden fixed bottom-20 right-4 z-30 flex items-center gap-2 bg-slate-900/95 backdrop-blur-md text-white font-bold text-xs py-3 px-4.5 rounded-full shadow-2xl border border-gold/40 hover:bg-black transition-all active:scale-95"
+            aria-label="Kategorileri ve filtreleri aç"
           >
-            <SlidersHorizontal size={16} /> Kategoriler & Filtre
+            <SlidersHorizontal size={15} className="text-gold" />
+            <span>Kategoriler</span>
           </button>
 
           {/* Desktop Sidebar */}
@@ -895,8 +897,8 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
           <div className="flex-1 min-w-0">
             {/* "Tüm Ürünler" modundayken kategorileri kesin 1-9 sıralamasıyla hızlı filtre hapları olarak göster */}
             {activeCategory === "all" && categories.length > 0 && (
-              <div className="mb-6 flex flex-wrap items-center gap-2 bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm">
-                <span className="text-amber-800 text-xs font-bold uppercase tracking-wider mr-1">
+              <div className="mb-4 sm:mb-6 flex items-center gap-2 bg-white p-2.5 sm:p-3.5 rounded-2xl border border-slate-200 shadow-sm overflow-x-auto no-scrollbar">
+                <span className="text-amber-800 text-xs font-bold uppercase tracking-wider shrink-0 mr-1">
                   Kategoriler:
                 </span>
                 <button
@@ -904,7 +906,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
                     setActiveCategory("all");
                     setSearchQuery("");
                   }}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all shrink-0 whitespace-nowrap ${
                     !searchQuery
                       ? "bg-amber-600 text-white font-bold shadow-sm"
                       : "bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200"
@@ -916,7 +918,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
                   <button
                     key={cat.id}
                     onClick={() => handleCategorySelect(cat.slug || cat.id)}
-                    className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-amber-700 border border-slate-200"
+                    className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all shrink-0 whitespace-nowrap bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-amber-700 border border-slate-200"
                   >
                     {cat.name}
                   </button>
@@ -926,13 +928,13 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
 
             {/* Subcategories / Brands Quick Pills Bar */}
             {currentSubItems.length > 0 && (
-              <div className="mb-6 flex flex-wrap items-center gap-2 bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm">
-                <span className="text-amber-800 text-xs font-bold uppercase tracking-wider mr-1">
+              <div className="mb-4 sm:mb-6 flex items-center gap-2 bg-white p-2.5 sm:p-3.5 rounded-2xl border border-slate-200 shadow-sm overflow-x-auto no-scrollbar">
+                <span className="text-amber-800 text-xs font-bold uppercase tracking-wider shrink-0 mr-1">
                   Çeşitler & Markalar:
                 </span>
                 <button
                   onClick={() => setSearchQuery("")}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all shrink-0 whitespace-nowrap ${
                     !searchQuery
                       ? "bg-amber-600 text-white font-bold shadow-sm"
                       : "bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200"
@@ -944,7 +946,7 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
                   <button
                     key={idx}
                     onClick={() => setSearchQuery(sub.query)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all shrink-0 whitespace-nowrap ${
                       searchQuery.toLowerCase() === sub.query.toLowerCase()
                         ? "bg-amber-600 text-white font-bold shadow-sm"
                         : "bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-amber-700 border border-slate-200"

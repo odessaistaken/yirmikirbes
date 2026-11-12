@@ -161,6 +161,13 @@ export default function Header() {
     }
   }, [searchOpen]);
 
+  /* Listen for global search trigger from mobile bottom nav or other components */
+  useEffect(() => {
+    const handleOpenSearch = () => setSearchOpen(true);
+    window.addEventListener("open-global-search", handleOpenSearch);
+    return () => window.removeEventListener("open-global-search", handleOpenSearch);
+  }, []);
+
   const searchResults = searchQuery.trim().length > 1
     ? products.filter((p) =>
         p.isActive && (
@@ -188,23 +195,16 @@ export default function Header() {
             : "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
         }`}
       >
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-24 sm:h-28">
-            {/* ── Sol Taraf: Logo + Kategoriler & Menü ─────────────────────────── */}
-            <div className="flex-1 flex items-center justify-start gap-6 lg:gap-8">
-              {/* Logo - En Sol (Tıklanabilir → Ana Sayfa) */}
-              <Link href="/" className="flex items-center group py-1 shrink-0 max-w-[220px]">
-                <Logo size={64} logoScale={1.5} />
+        <div className="max-w-8xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-18 sm:h-24">
+            {/* ── Sol Taraf: Logo (Tıklanabilir → Ana Sayfa) ─────────────────────────── */}
+            <div className="flex items-center gap-3 sm:gap-6">
+              <Link href="/" className="flex items-center group py-1 shrink-0">
+                <Logo size={46} logoScale={1.3} className="sm:hidden" />
+                <div className="hidden sm:block">
+                  <Logo size={60} logoScale={1.4} />
+                </div>
               </Link>
-
-              {/* Mobile menu toggle button */}
-              <button
-                onClick={() => setMobileOpen((v) => !v)}
-                className="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors"
-                aria-label="Menü"
-              >
-                {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
 
               {/* Desktop Nav: Kategoriler & Navigasyon */}
               <nav className="hidden lg:flex items-center gap-1.5">
@@ -225,9 +225,8 @@ export default function Header() {
               </nav>
             </div>
 
-            {/* ── Orta Kısım: Çok Satanlar (Logo artık sol tarafa taşındı) ────────────────── */}
-            <div className="shrink-0 flex items-center justify-center gap-3 sm:gap-4 px-2">
-              {/* Çok Satanlar Linki - Menü isimleri ile aynı sade ve şık stil */}
+            {/* ── Orta Kısım: Çok Satanlar (Desktop Only) ────────────────── */}
+            <div className="hidden lg:flex shrink-0 items-center justify-center gap-3 sm:gap-4 px-2">
               <Link
                 href="/cok-satanlar"
                 className={`px-3.5 py-2 rounded-xl text-sm font-medium transition-all duration-150 uppercase ${
@@ -240,8 +239,8 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* ── Sağ Taraf: Arama, Telefon, Giriş/Profil ─────────────────── */}
-            <div className="flex-1 flex items-center justify-end gap-2 sm:gap-3">
+            {/* ── Sağ Taraf: Arama, Telefon, Giriş/Profil & Mobil Menü ─────────────────── */}
+            <div className="flex items-center justify-end gap-1.5 sm:gap-3">
               {/* Search (desktop) - expanded clickable bar */}
               <button
                 onClick={() => setSearchOpen(true)}
@@ -251,13 +250,15 @@ export default function Header() {
                 <Search size={16} className="text-gold shrink-0" />
                 <span className="flex-1 text-left text-xs text-slate-400">Ürün, kod veya kategori ara…</span>
               </button>
-              {/* Mobile search icon only */}
+
+              {/* Mobile search icon button */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="lg:hidden p-2.5 rounded-xl text-slate-700 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-gold/50 transition-colors"
+                className="lg:hidden p-2.5 rounded-xl text-slate-700 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-colors"
                 title="Ürün ara"
+                aria-label="Arama"
               >
-                <Search size={17} className="text-gold" />
+                <Search size={18} className="text-gold" />
               </button>
 
               {/* Phone */}
@@ -356,6 +357,14 @@ export default function Header() {
                   </Link>
                 </div>
               )}
+              {/* Mobile hamburger menu toggle */}
+              <button
+                onClick={() => setMobileOpen((v) => !v)}
+                className="lg:hidden p-2.5 rounded-xl text-slate-700 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-colors"
+                aria-label="Menüyü aç/kapat"
+              >
+                {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
             </div>
           </div>
         </div>

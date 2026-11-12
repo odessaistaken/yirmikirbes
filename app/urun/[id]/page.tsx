@@ -563,6 +563,28 @@ export default function ProductPage() {
             </div>
           </div>
         )}
+
+        {/* Sticky Mobile Action Bar */}
+        <div className="lg:hidden fixed bottom-16 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2.5 sm:p-3 shadow-[0_-4px_16px_rgba(0,0,0,0.06)]">
+          <div className="flex items-center gap-2 max-w-lg mx-auto">
+            <a
+              href={`https://wa.me/905010737113?text=${encodeURIComponent(`Merhaba, ${product.name} (${product.code}) hakkında fiyat ve detaylı bilgi almak istiyorum.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20ba5a] text-white px-3.5 py-2.5 rounded-xl font-bold text-xs shrink-0 shadow-sm active:scale-95 transition-all"
+              title="WhatsApp ile Sor"
+            >
+              <MessageCircle size={16} className="fill-white" />
+              <span>WhatsApp</span>
+            </a>
+            <button
+              onClick={() => setInquiryOpen(true)}
+              className="btn-primary flex-1 py-2.5 text-xs justify-center font-bold shadow-md rounded-xl active:scale-95"
+            >
+              Fiyat Teklifi Al
+            </button>
+          </div>
+        </div>
       </div>
 
       <InquiryModal

@@ -58,7 +58,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                 quality={100}
                 loading={index < 8 ? "eager" : "lazy"}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 transform-gpu sharp-render"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 500px"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1536px) 25vw, 400px"
                 style={{ imageRendering: "-webkit-optimize-contrast" }}
                 onError={() => setImgError(true)}
               />
@@ -97,7 +97,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
         </div>
 
         {/* Body */}
-        <div className="p-3 sm:p-3.5 flex flex-col flex-1 justify-between bg-white">
+        <div className="p-2.5 sm:p-3.5 flex flex-col flex-1 justify-between bg-white">
           <div>
             {/* Category / Brand Badge */}
             <div className="flex items-center gap-1 mb-1">
@@ -121,7 +121,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
 
             {/* Bilgilendirme Açıklaması */}
             {product.description && (
-              <p className="text-slate-500 text-[11px] leading-relaxed line-clamp-2 mb-2 font-normal">
+              <p className="text-slate-500 text-[10px] sm:text-[11px] leading-relaxed line-clamp-2 mb-2 font-normal">
                 {product.description}
               </p>
             )}
@@ -129,13 +129,13 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
           </div>
 
           {/* CTA */}
-          <div className="mt-2 pt-2 border-t border-slate-100">
+          <div className="mt-1.5 pt-2 border-t border-slate-100">
             <button
               onClick={() => setInquiryOpen(true)}
-              className="btn-primary w-full text-2xs sm:text-xs py-2 px-2 justify-center gap-1.5 font-bold rounded-lg shadow-sm hover:shadow-gold"
+              className="btn-primary w-full text-[11px] sm:text-xs py-2 px-1.5 sm:px-2 justify-center gap-1 sm:gap-1.5 font-bold rounded-lg shadow-sm hover:shadow-gold"
             >
               <MessageCircle size={13} className="shrink-0" />
-              <span>Fiyat Sorunuz</span>
+              <span className="truncate">Fiyat Sorunuz</span>
             </button>
           </div>
         </div>
