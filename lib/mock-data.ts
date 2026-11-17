@@ -85,7 +85,7 @@ export const CATEGORIES: Category[] = [
     "description": "DaVinci Gourmet gurme kahve & kokteyl şurupları, zengin bar sosları ve meyve püreleri.",
     "icon": "☕",
     "productCount": 31,
-    "imageUrl": "/beyazresimler/karisik/karisik_021.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_041.png",
     "order": 3,
     "isActive": true
   },
@@ -96,7 +96,7 @@ export const CATEGORIES: Category[] = [
     "description": "DaVinci Gourmet kahve, kokteyl ve barista şurupları.",
     "icon": "🍯",
     "productCount": 20,
-    "imageUrl": "/beyazresimler/karisik/karisik_021.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_041.png",
     "order": 1,
     "isActive": true,
     "parentId": "cat-brand-davinci"
@@ -120,7 +120,7 @@ export const CATEGORIES: Category[] = [
     "description": "DaVinci Fruit Mix zengin meyve püreleri.",
     "icon": "🍓",
     "productCount": 5,
-    "imageUrl": "/beyazresimler/karisik/karisik_001.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_006.png",
     "order": 3,
     "isActive": true,
     "parentId": "cat-brand-davinci"
@@ -132,7 +132,7 @@ export const CATEGORIES: Category[] = [
     "description": "Caffè NONNO aromalı şuruplar, frozen meyve püreleri ve dekoratif bar sosları.",
     "icon": "🍹",
     "productCount": 40,
-    "imageUrl": "/beyazresimler/karisik/karisik_001.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_021.png",
     "order": 4,
     "isActive": true
   },
@@ -155,7 +155,7 @@ export const CATEGORIES: Category[] = [
     "description": "Caffè NONNO 750g bar & dekor sosları.",
     "icon": "🍫",
     "productCount": 4,
-    "imageUrl": "/beyazresimler/karisik/karisik_004.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_051.png",
     "order": 2,
     "isActive": true,
     "parentId": "cat-brand-nonno"
@@ -167,7 +167,7 @@ export const CATEGORIES: Category[] = [
     "description": "Caffè NONNO frozen meyve püreleri.",
     "icon": "🍓",
     "productCount": 18,
-    "imageUrl": "/beyazresimler/karisik/karisik_001.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_011.png",
     "order": 3,
     "isActive": true,
     "parentId": "cat-brand-nonno"
@@ -260,7 +260,7 @@ export const CATEGORIES: Category[] = [
     "description": "Monte Cristo aromalı barista ve kahve şurupları.",
     "icon": "🦜",
     "productCount": 13,
-    "imageUrl": "/beyazresimler/karisik/karisik_021.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_114.png",
     "order": 8,
     "isActive": true
   },
@@ -271,7 +271,7 @@ export const CATEGORIES: Category[] = [
     "description": "Monte Cristo barista şurupları.",
     "icon": "🦜",
     "productCount": 13,
-    "imageUrl": "/beyazresimler/karisik/karisik_021.png",
+    "imageUrl": "/beyazresimler/karisik/karisik_114.png",
     "order": 1,
     "isActive": true,
     "parentId": "cat-brand-montecristo"
@@ -4229,14 +4229,15 @@ const RAW_PRODUCTS = [
     },
     "order": 125,
     "id": "prod-byz-004",
-    "name": "Condensed Milk Aromalı Bar Sosu 1L",
+    "name": "DaVinci Gourmet Condensed Milk Koyulaştırılmış Süt Sosu 1L",
     "code": "DVG-CDL-1000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159660497",
     "categoryName": "DaVinci Gourmet Bar Soslar",
     "categorySlug": "davinci-gourmet-bar-soslar",
     "description": "Yoğunlaştırılmış süt kıvamı ve karamelize süt tatlılığıyla İspanyol latte, frappé, tatlı ve pasta sunumları için lüks kıvam artırıcı sos.",
-    "imageUrl": "/beyazresimler/karisik/karisik_004.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_004.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -4285,14 +4286,15 @@ const RAW_PRODUCTS = [
     },
     "order": 127,
     "id": "prod-byz-006",
-    "name": "Çilek Fruit Beverage Mix 1L",
+    "name": "DaVinci Gourmet Strawberry Fruit Beverage Mix 1L",
     "code": "DVG-FBM-STW-1000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159702988",
     "categoryName": "DaVinci Gourmet Püreler",
     "categorySlug": "davinci-gourmet-pureler",
     "description": "Yüksek meyve konsantrasyonuna sahip DaVinci Gourmet çilek meyveli içecek bazı; smoothie, frozen ve imza kokteyller için barista standardı lezzet.",
-    "imageUrl": "/beyazresimler/karisik/karisik_006.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_006.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -4313,14 +4315,15 @@ const RAW_PRODUCTS = [
     },
     "order": 128,
     "id": "prod-byz-007",
-    "name": "Condensed Milk Aromalı Gurme Sos 1L (Varyant)",
+    "name": "DaVinci Gourmet Yoğunlaştırılmış Süt Aromalı Sos 1L",
     "code": "DVG-CDL-1000-B",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159660497",
     "categoryName": "DaVinci Gourmet Bar Soslar",
     "categorySlug": "davinci-gourmet-bar-soslar",
     "description": "Yoğunlaştırılmış süt aromasıyla tatlı, waffle, pancake ve özel kahve reçetelerine zengin kremsi gövde kazandıran DaVinci gurme sos.",
-    "imageUrl": "/beyazresimler/karisik/karisik_007.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_007.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -4341,14 +4344,15 @@ const RAW_PRODUCTS = [
     },
     "order": 129,
     "id": "prod-byz-008",
-    "name": "Mango Fruit Beverage Mix 1L",
+    "name": "DaVinci Gourmet Mango Fruit Beverage Mix 1L",
     "code": "DVG-FBM-MNG-1000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159702988",
     "categoryName": "DaVinci Gourmet Püreler",
     "categorySlug": "davinci-gourmet-pureler",
     "description": "Tropikal Alfonso mangolarının yoğun tatlılığı ve dolgun meyve lifleriyle hazırlanan premium mango meyve miksi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_008.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_008.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -4369,14 +4373,15 @@ const RAW_PRODUCTS = [
     },
     "order": 130,
     "id": "prod-byz-009",
-    "name": "Mixed Berry Fruit Beverage Mix 1L",
+    "name": "DaVinci Gourmet Mixed Berry Fruit Beverage Mix 1L",
     "code": "DVG-FBM-MBR-1000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159702988",
     "categoryName": "DaVinci Gourmet Püreler",
     "categorySlug": "davinci-gourmet-pureler",
     "description": "Böğürtlen, yaban mersini, ahududu ve frenk üzümünün mükemmel dengesi; hafif ekşimsi ve ferahlatıcı meyve miksi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_009.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_009.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -4425,14 +4430,15 @@ const RAW_PRODUCTS = [
     },
     "order": 132,
     "id": "prod-byz-011",
-    "name": "Hindistan Cevizi Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Coconut Hindistan Cevizi Frozen Püre 750ml",
     "code": "NON-FRZ-COC-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Egzotik Hindistan cevizinin kremsi dokusu ve yoğun aroması; Piña Colada, smoothie, milkshake ve buzlu içecekler için hazır püre.",
-    "imageUrl": "/beyazresimler/karisik/karisik_011.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_011.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4452,14 +4458,15 @@ const RAW_PRODUCTS = [
     },
     "order": 133,
     "id": "prod-byz-012",
-    "name": "Red Forest (Kırmızı Meyveler) Frozen Püre 750ml",
+    "name": "Caffè NONNO Red Forest Kırmızı Orman Meyveli Frozen 750ml",
     "code": "NON-FRZ-RDF-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Kırmızı dağ meyvelerinin cezbedici yakut kırmızısı rengi ve mayhoş lezzetiyle ferahlatıcı frozen ve kokteyl bazı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_012.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_012.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4479,14 +4486,15 @@ const RAW_PRODUCTS = [
     },
     "order": 134,
     "id": "prod-byz-013",
-    "name": "Kavun (Melon) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Kavun Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-MLN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Yaz güneşini yansıtan mis kokulu kavun aromasıyla buzlu içeceklerde yoğun meyve hissi veren pratik bar püresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_013.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_013.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4506,14 +4514,15 @@ const RAW_PRODUCTS = [
     },
     "order": 135,
     "id": "prod-byz-014",
-    "name": "Karadut (Black Mulberry) Frozen Püre 750ml",
+    "name": "Caffè NONNO Karadut Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-MUL-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Ege karadutunun benzersiz tatlı-ekşi dengesi ve mor rengi; karadutlu limonata, frozen ve pastacılık için ideal.",
-    "imageUrl": "/beyazresimler/karisik/karisik_014.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_014.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4533,14 +4542,15 @@ const RAW_PRODUCTS = [
     },
     "order": 136,
     "id": "prod-byz-015",
-    "name": "Çilek (Strawberry) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Çilek Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-STW-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "En sevilen yaz klasiği; taze çilek aroması ve pürüzsüz dokusuyla çilekli margarita, frozen ve sütlü içeceklere lezzet katar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_015.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_015.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4561,14 +4571,15 @@ const RAW_PRODUCTS = [
     },
     "order": 137,
     "id": "prod-byz-016",
-    "name": "Şeftali (Peach) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Şeftali Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-PCH-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Bursa şeftalisinin buram buram aroması; Bellini kokteylleri, buzlu şeftali çayları ve frozen içecekler için mükemmel.",
-    "imageUrl": "/beyazresimler/karisik/karisik_016.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_016.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4588,14 +4599,15 @@ const RAW_PRODUCTS = [
     },
     "order": 138,
     "id": "prod-byz-017",
-    "name": "Mango Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Mango & Maracuja Frozen Püre 750ml",
     "code": "NON-FRZ-MNG-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Egzotik sarı mango lezzetiyle bar menülerine tropikal canlılık kazandıran frozen meyve püresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_017.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_017.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4614,14 +4626,15 @@ const RAW_PRODUCTS = [
     },
     "order": 139,
     "id": "prod-byz-018",
-    "name": "Mixed Berry Fruit Beverage Mix 1L (Gurme Şişe)",
+    "name": "DaVinci Gourmet Mixed Berry Orman Meyveli Mix 1L",
     "code": "DVG-FBM-MBR-1000-B",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159702988",
     "categoryName": "DaVinci Gourmet Püreler",
     "categorySlug": "davinci-gourmet-pureler",
     "description": "Dengeli böğürtlen, çilek ve yaban mersini harmanı; buz ve sütle kolay karışan profesyonel meyve bazı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_018.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_018.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -4641,14 +4654,15 @@ const RAW_PRODUCTS = [
     },
     "order": 140,
     "id": "prod-byz-019",
-    "name": "Karpuz (Watermelon) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Karpuz Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-WTR-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Yaz sıcağında serinletici karpuz tadı; frozen, karpuzlu kokteyl ve slush hazırlıkları için yoğun meyve konsantresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_019.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_019.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4668,14 +4682,15 @@ const RAW_PRODUCTS = [
     },
     "order": 141,
     "id": "prod-byz-020",
-    "name": "Passionfruit Fruit Beverage Mix 1L",
+    "name": "DaVinci Gourmet Passionfruit Çarkıfelek Mix 1L",
     "code": "DVG-FBM-PAS-1000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159702988",
     "categoryName": "DaVinci Gourmet Püreler",
     "categorySlug": "davinci-gourmet-pureler",
     "description": "Çarkıfelek meyvesinin cezbedici egzotik kokusu ve asiditesi; Pornstar Martini, tropikal limonata ve frozenlar için benzersiz.",
-    "imageUrl": "/beyazresimler/karisik/karisik_020.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_020.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -4695,14 +4710,15 @@ const RAW_PRODUCTS = [
     },
     "order": 142,
     "id": "prod-byz-021",
-    "name": "Karamel Aromalı Kahve Şurubu 750ml",
+    "name": "Caffè NONNO Caramel Aromalı Şurup 750ml",
     "code": "NON-SYR-CAR-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Kavrulmuş tereyağlı şeker lezzeti; sıcak ve soğuk latte, macchiato ve frappelerde zengin karamel tadı sunar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_021.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_021.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4722,14 +4738,15 @@ const RAW_PRODUCTS = [
     },
     "order": 206,
     "id": "prod-byz-022",
-    "name": "Ahududu (Raspberry) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Raspberry Frozen Frambuaz Püresi 750ml",
     "code": "NON-FRZ-RAS-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Taptaze ahududuların yoğun aroması ve kırmızı rengiyle kokteyl, frozen ve pastacılık soslarında birinci sınıf performans.",
-    "imageUrl": "/beyazresimler/karisik/karisik_022.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_022.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4749,14 +4766,15 @@ const RAW_PRODUCTS = [
     },
     "order": 144,
     "id": "prod-byz-023",
-    "name": "Mojito Aromalı Kokteyl Şurubu 750ml",
+    "name": "Caffè NONNO Mojito Aromalı Şurup 750ml",
     "code": "NON-SYR-MOJ-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Ferahlatıcı nane yaprakları ve taze misket limonu dengesi; alkollü ve alkolsüz Mojito tariflerini saniyeler içinde hazırlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_023.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_023.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4776,14 +4794,15 @@ const RAW_PRODUCTS = [
     },
     "order": 208,
     "id": "prod-byz-024",
-    "name": "Fındık (Hazelnut) Aromalı Kahve Şurubu 750ml",
+    "name": "Caffè NONNO Hazelnut Fındık Aromalı Şurup 750ml",
     "code": "NON-SYR-HAZ-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Kavrulmuş Karadeniz fındığı aroması; espresso bazlı içeceklere derinlik katan klasik barista şurubu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_024.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_024.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4803,14 +4822,15 @@ const RAW_PRODUCTS = [
     },
     "order": 203,
     "id": "prod-byz-025",
-    "name": "Cool Berry Aromalı Bar Şurubu 750ml",
+    "name": "Caffè NONNO Cool Berry Orman Meyveleri Şurubu 750ml",
     "code": "NON-SYR-CBY-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Orman meyveleri ve serinletici ferahlık notalarının harmanı; yaz menülerinin gözdesi buzlu berry içecekler için ideal.",
-    "imageUrl": "/beyazresimler/karisik/karisik_025.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_025.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4830,14 +4850,15 @@ const RAW_PRODUCTS = [
     },
     "order": 216,
     "id": "prod-byz-026",
-    "name": "Cool Lime Aromalı Bar Şurubu 750ml",
+    "name": "Caffè NONNO Cool Lime Misket Limonu Şurubu 750ml",
     "code": "NON-SYR-CLM-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Ekstra ferah nane ve yeşil misket limonu esansı; kafelerin en çok satan buzlu Cool Lime içeceğini kolayca üretmenizi sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_026.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_026.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4857,14 +4878,15 @@ const RAW_PRODUCTS = [
     },
     "order": 207,
     "id": "prod-byz-027",
-    "name": "Vanilya Aromalı Kahve Şurubu 750ml",
+    "name": "Caffè NONNO Vanilla Vanilya Aromalı Şurup 750ml",
     "code": "NON-SYR-VAN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Madagaskar vanilyasının tatlı, yumuşak ve yuvarlak tat profili; kahvenin asiditesini mükemmel yumuşatır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_027.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_027.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4884,14 +4906,15 @@ const RAW_PRODUCTS = [
     },
     "order": 215,
     "id": "prod-byz-028",
-    "name": "Beyaz Çikolata Aromalı Kahve Şurubu 750ml",
+    "name": "Caffè NONNO White Chocolate Beyaz Çikolata Şurubu 750ml",
     "code": "NON-SYR-WCH-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Kakao yağı ve vanilya kremsiliği; White Chocolate Mocha ve sıcak sütlü spesiyaller için vazgeçilmez barista aroması.",
-    "imageUrl": "/beyazresimler/karisik/karisik_028.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_028.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4911,14 +4934,15 @@ const RAW_PRODUCTS = [
     },
     "order": 201,
     "id": "prod-byz-029",
-    "name": "Nane (Mint) Aromalı Kokteyl Şurubu 750ml",
+    "name": "Caffè NONNO Mint Aromalı Nane Şurubu 750ml",
     "code": "NON-SYR-MNT-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Doğal nane yapraklarının keskin ferahlığı; çikolatalı kahvelere nane dokunuşu veya ferahlatıcı kokteyller için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_029.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_029.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4938,14 +4962,15 @@ const RAW_PRODUCTS = [
     },
     "order": 210,
     "id": "prod-byz-030",
-    "name": "Çikolata Aromalı Kahve Şurubu 750ml",
+    "name": "Caffè NONNO Chocolate Çikolata Aromalı Şurup 750ml",
     "code": "NON-SYR-CHO-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Koyu kakao lezzeti; Caffe Mocha, sıcak çikolata zenginleştirme ve aromalı soğuk kahvelerde dengeli tat sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_030.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_030.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -4965,14 +4990,15 @@ const RAW_PRODUCTS = [
     },
     "order": 202,
     "id": "prod-byz-031",
-    "name": "Blue Ocean Aromalı Bar Şurubu 750ml",
+    "name": "DaVinci Gourmet Blue Ocean Aromalı Şurup 750ml",
     "code": "DVG-SYR-BOC-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Curaçao turunç narenciye tat profili ve büyüleyici elektrik mavisi rengiyle miksolojide imza sunumlar yaratır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_031.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_031.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -4992,14 +5018,15 @@ const RAW_PRODUCTS = [
     },
     "order": 117,
     "id": "prod-byz-032",
-    "name": "Classic Vanilla Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Vanilla Aromalı Şurup 750ml",
     "code": "DVG-SYR-VAN-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Dünya baristalarının 1 numaralı tercihi; saf şeker kamışından üretilen, sıcak sütle ayrışmayan gerçek vanilya lezzeti.",
-    "imageUrl": "/beyazresimler/karisik/karisik_032.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_032.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5019,14 +5046,15 @@ const RAW_PRODUCTS = [
     },
     "order": 110,
     "id": "prod-byz-033",
-    "name": "Shortbread Cookies Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Shortbread Cookies Aromalı Şurup 750ml",
     "code": "DVG-SYR-SBC-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Geleneksel tereyağlı İskoç kurabiyesi lezzeti; kahvelere ve sıcak içeceklere fırından yeni çıkmış kurabiye hissi verir.",
-    "imageUrl": "/beyazresimler/karisik/karisik_033.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_033.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5046,14 +5074,15 @@ const RAW_PRODUCTS = [
     },
     "order": 115,
     "id": "prod-byz-034",
-    "name": "Classic Strawberry Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Strawberry Çilek Şurubu 750ml",
     "code": "DVG-SYR-STW-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Doğal çilek lezzeti; soğuk çaylar, limonatalar, soda miksleri ve İtalyan sodalarında berrak ve canlı tat sunar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_034.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_034.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5073,14 +5102,15 @@ const RAW_PRODUCTS = [
     },
     "order": 107,
     "id": "prod-byz-035",
-    "name": "Menta Cubano Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Menta Cubano Aromalı Şurup 750ml",
     "code": "DVG-SYR-MCU-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Otantik Küba nanesinin doğal yeşil aroması ve tatlı narenciye dokunuşu; ferahlatıcı Mojito ve yaz kokteylleri için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_035.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_035.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5100,14 +5130,15 @@ const RAW_PRODUCTS = [
     },
     "order": 101,
     "id": "prod-byz-036",
-    "name": "Peach Garden Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Peach Garden Şeftali Şurubu 750ml",
     "code": "DVG-SYR-PGD-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Taze bahçe şeftalilerinin kokusu; buzlu yeşil ve siyah çaylara, artisan gazozlara meyvemsi bir zenginlik katar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_036.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_036.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5127,14 +5158,15 @@ const RAW_PRODUCTS = [
     },
     "order": 102,
     "id": "prod-byz-037",
-    "name": "Classic Hazelnut Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Hazelnut Fındık Şurubu 750ml",
     "code": "DVG-SYR-HAZ-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Zengin ve kavruk fındık notaları; espresso ile kusursuz birleşerek kadifemsi ve fındıklı içecekler yaratır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_037.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_037.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5154,14 +5186,15 @@ const RAW_PRODUCTS = [
     },
     "order": 109,
     "id": "prod-byz-038",
-    "name": "Pecan Praline Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Pecan Praline Aromalı Şurup 750ml",
     "code": "DVG-SYR-PPR-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Pekan cevizi ve karamelize şeker pralinlerinin harika uyumu; gurme kahve menülerine lüks bir tat profili kazandırır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_038.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_038.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5181,14 +5214,15 @@ const RAW_PRODUCTS = [
     },
     "order": 106,
     "id": "prod-byz-039",
-    "name": "Lemon Tea Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Lemon Tea Aromalı Şurup 750ml",
     "code": "DVG-SYR-LTE-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Doğal çay ekstraktı ve ferah limon suyu dengesi; sadece su ve buz ekleyerek barista standardında soğuk çay servisi sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_039.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_039.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5208,14 +5242,15 @@ const RAW_PRODUCTS = [
     },
     "order": 114,
     "id": "prod-byz-040",
-    "name": "Forest Berries Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Forest Berries Orman Meyveleri Şurubu 750ml",
     "code": "DVG-SYR-FBR-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Yaban mersini, ahududu ve böğürtlen notalarının harmanı; ferahlatıcı renk ve meyve aromasıyla parıldayan içecekler.",
-    "imageUrl": "/beyazresimler/karisik/karisik_040.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_040.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5235,14 +5270,15 @@ const RAW_PRODUCTS = [
     },
     "order": 104,
     "id": "prod-byz-041",
-    "name": "Classic Caramel Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Caramel Şurubu 750ml",
     "code": "DVG-SYR-CAR-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Erimiş esmer şeker ve kremsi tereyağ aroması; kahve profesyonellerinin vazgeçilmez premium karamel bazı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_041.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_041.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5262,14 +5298,15 @@ const RAW_PRODUCTS = [
     },
     "order": 112,
     "id": "prod-byz-042",
-    "name": "Roasted Almond Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Roasted Almond Şurubu 750ml",
     "code": "DVG-SYR-RAL-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Kavrulmuş bademin hafif odunsu ve tatlı lezzeti; özellikle badem sütlü veya yulaf sütlü kahvelerle olağanüstü uyum yakalar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_042.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_042.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5289,14 +5326,15 @@ const RAW_PRODUCTS = [
     },
     "order": 113,
     "id": "prod-byz-043",
-    "name": "Blueberry Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Blueberry Şurubu 750ml",
     "code": "DVG-SYR-BLB-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Taze yaban mersini meyvesinin asil mor rengi ve tatlı ekşiliği; smoothie, milkshake ve imza mocktaillere benzersiz dokunuş.",
-    "imageUrl": "/beyazresimler/karisik/karisik_043.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_043.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5316,14 +5354,15 @@ const RAW_PRODUCTS = [
     },
     "order": 118,
     "id": "prod-byz-044",
-    "name": "White Chocolate Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet White Chocolate Şurubu 750ml",
     "code": "DVG-SYR-WCH-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Zengin kakao yağı ve süt kreması lezzeti; White Chocolate Mocha içeceklerinde ayrışmadan homojen çözünür.",
-    "imageUrl": "/beyazresimler/karisik/karisik_044.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_044.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5343,14 +5382,15 @@ const RAW_PRODUCTS = [
     },
     "order": 103,
     "id": "prod-byz-045",
-    "name": "Toffee Nut Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Toffeenut Aromalı Şurup 750ml",
     "code": "DVG-SYR-TFN-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "İngiliz karameli (toffee) ile kavruk fındığın sıcacık uyumu; kış menülerinin en çok satan latte şurubu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_045.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_045.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5370,14 +5410,15 @@ const RAW_PRODUCTS = [
     },
     "order": 108,
     "id": "prod-byz-046",
-    "name": "Coconut Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Coconut Şurubu 750ml",
     "code": "DVG-SYR-COC-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Hindistan cevizinin taze sütlü egzotik tadı; tropikal mocktail, buzlu latte ve frappe reçetelerinin başrol oyuncusu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_046.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_046.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5397,14 +5438,15 @@ const RAW_PRODUCTS = [
     },
     "order": 111,
     "id": "prod-byz-047",
-    "name": "Juicy Lime Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Juicy Lime Aromalı Şurup 750ml",
     "code": "DVG-SYR-JLM-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Taze sıkılmış sulu misket limonu suyu aroması; içeceklerde keskin narenciye canlılığı ve ferahlık yaratır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_047.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_047.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5424,14 +5466,15 @@ const RAW_PRODUCTS = [
     },
     "order": 116,
     "id": "prod-byz-048",
-    "name": "Spiced Chai Aromalı Barista Şurubu 750ml",
+    "name": "DaVinci Gourmet Spiced Chai Tea Konsantre Şurup 750ml",
     "code": "DVG-SYR-SCH-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Tarçın, kakule, zencefil ve karanfil baharatlarının otantik harmanı; sütle kolayca hazırlanan leziz Chai Tea Latte deneyimi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_048.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_048.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5451,14 +5494,15 @@ const RAW_PRODUCTS = [
     },
     "order": 119,
     "id": "prod-byz-049",
-    "name": "Chocolate Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Chocolate Şurubu 750ml",
     "code": "DVG-SYR-CHO-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Saf kakao çekirdeklerinin derin çikolata lezzeti; Caffe Mocha ve çikolatalı içeceklerde pürüzsüz ve kalıcı tat bırakır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_049.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_049.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5478,14 +5522,15 @@ const RAW_PRODUCTS = [
     },
     "order": 105,
     "id": "prod-byz-050",
-    "name": "Butterscotch Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Butterscotch Aromalı Sos 2L",
     "code": "DVG-SYR-BSC-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159145530",
     "categoryName": "DaVinci Gourmet Şurupları",
     "categorySlug": "davinci-gourmet-suruplari",
     "description": "Kavrulmuş tereyağı, esmer şeker ve vanilya kremasının gurme uyumu; sıcak kahvelere nostaljik şekerleme lezzeti kazandırır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_050.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_050.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5505,14 +5550,15 @@ const RAW_PRODUCTS = [
     },
     "order": 120,
     "id": "prod-byz-051",
-    "name": "Blue Curacao Bar & Dekor Sosu 750g",
+    "name": "Caffè NONNO Blue Curacao Bar Sosu 750g",
     "code": "NON-SOS-BCU-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-caffe-nonno-bar-soslar",
     "categoryName": "Caffè NONNO Bar Soslar",
     "categorySlug": "caffe-nonno-bar-soslar",
     "description": "Elektrik mavisi rengi ve portakal kabuğu turunç aromasıyla bardak içi süsleme, kokteyl dekorasyonu ve tatlı tabakları için özel kıvamlı sos.",
-    "imageUrl": "/beyazresimler/karisik/karisik_051.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_051.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -5587,14 +5633,15 @@ const RAW_PRODUCTS = [
     },
     "order": 307,
     "id": "prod-byz-054",
-    "name": "Cheesecake Flavoured Sauce 2L",
+    "name": "DaVinci Gourmet Cheese Cake Aromalı Sos 2L",
     "code": "DVG-SOS-CHK-2000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159660497",
     "categoryName": "DaVinci Gourmet Bar Soslar",
     "categorySlug": "davinci-gourmet-bar-soslar",
     "description": "New York cheesecake lezzeti; pürüzsüz krem peynir ve hafif vanilya tatlılığıyla frappe, milkshake ve pasta süslemelerinde rakipsiz 2 litrelik profesyonel sos.",
-    "imageUrl": "/beyazresimler/karisik/karisik_054.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_054.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5614,14 +5661,15 @@ const RAW_PRODUCTS = [
     },
     "order": 176,
     "id": "prod-byz-055",
-    "name": "White Chocolate Flavoured Sauce 2L",
+    "name": "DaVinci Gourmet White Chocolate Aromalı Sos 2L",
     "code": "DVG-SOS-WCH-2000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159660497",
     "categoryName": "DaVinci Gourmet Bar Soslar",
     "categorySlug": "davinci-gourmet-bar-soslar",
     "description": "Hakiki kakao yağı içeren kadifemsi beyaz çikolata sosu; White Mocha, sıcak çikolata ve tatlı tabaklarında parlak kıvam sunar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_055.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_055.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5641,14 +5689,15 @@ const RAW_PRODUCTS = [
     },
     "order": 177,
     "id": "prod-byz-056",
-    "name": "Caramel Flavoured Sauce 2L",
+    "name": "DaVinci Gourmet Caramel Aromalı Sos 2L",
     "code": "DVG-SOS-CAR-2000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159660497",
     "categoryName": "DaVinci Gourmet Bar Soslar",
     "categorySlug": "davinci-gourmet-bar-soslar",
     "description": "Geleneksel karamelize şeker ve tereyağı lezzeti; sıcak kahvelerde mükemmel akışkanlık ve soğuk içeceklerde yoğun gövde sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_056.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_056.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5669,14 +5718,15 @@ const RAW_PRODUCTS = [
     },
     "order": 178,
     "id": "prod-byz-057",
-    "name": "Chocolate Flavoured Sauce 2L",
+    "name": "DaVinci Gourmet Chocolate Aromalı Sos 2L",
     "code": "DVG-SOS-CHO-2000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1792159660497",
     "categoryName": "DaVinci Gourmet Bar Soslar",
     "categorySlug": "davinci-gourmet-bar-soslar",
     "description": "Derin bitter kakao lezzeti ve parlak siyah dokusuyla Caffe Mocha, sıcak çikolata, profiterol ve waffle sunumları için 2L dev ambalaj.",
-    "imageUrl": "/beyazresimler/karisik/karisik_057.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_057.png",
+    "brand": "DaVinci Gourmet"
   },
   {
     "isActive": true,
@@ -5696,14 +5746,15 @@ const RAW_PRODUCTS = [
     },
     "order": 179,
     "id": "prod-byz-058",
-    "name": "Beyaz Çikolata Bar & Dekor Sosu 750g",
+    "name": "Caffè NONNO White Chocolate Bar Sosu 750g",
     "code": "NON-SOS-WCH-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-caffe-nonno-bar-soslar",
     "categoryName": "Caffè NONNO Bar Soslar",
     "categorySlug": "caffe-nonno-bar-soslar",
     "description": "Tatlı tabakları, kahve köpükleri ve dondurma üzerinde parlak beyaz hatlar çizen pratik sıkma kapaklı beyaz çikolata sosu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_058.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_058.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -5723,14 +5774,15 @@ const RAW_PRODUCTS = [
     },
     "order": 180,
     "id": "prod-byz-059",
-    "name": "Muz Aromalı Bar & Dekor Sosu 750g",
+    "name": "Caffè NONNO Muz Aromalı Bar Sosu 750g",
     "code": "NON-SOS-BAN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-caffe-nonno-bar-soslar",
     "categoryName": "Caffè NONNO Bar Soslar",
     "categorySlug": "caffe-nonno-bar-soslar",
     "description": "Sarı rengi ve yoğun muz lezzetiyle milkshake, waffle, krep ve dondurma sunumlarına neşeli ve lezzetli bir hava katar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_059.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_059.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -5749,14 +5801,15 @@ const RAW_PRODUCTS = [
     },
     "order": 181,
     "id": "prod-byz-060",
-    "name": "Blue Curacao Bar & Dekor Sosu 750g (Açı 2)",
+    "name": "Caffè NONNO Blue Curacao Bar & Tatlı Sosu 750g",
     "code": "NON-SOS-BCU-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-caffe-nonno-bar-soslar",
     "categoryName": "Caffè NONNO Bar Soslar",
     "categorySlug": "caffe-nonno-bar-soslar",
     "description": "Mavi renkli turunç sosu; akışkan kıvamı sayesinde bardak kenarlarında şık dalga efektleri oluşturur.",
-    "imageUrl": "/beyazresimler/karisik/karisik_060.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_060.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -6045,14 +6098,15 @@ const RAW_PRODUCTS = [
     },
     "order": 301,
     "id": "prod-byz-071",
-    "name": "Toffee Nut Aromalı Kahve Şurubu 750ml",
+    "name": "Caffè NONNO Toffee Nut Aromalı Şurup 750ml",
     "code": "NON-SYR-TFN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Kavrulmuş fındık ve karamel lezzetinin kremsi birleşimi; kış sıcak kahve menülerinin vazgeçilmezi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_071.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_071.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -6234,14 +6288,15 @@ const RAW_PRODUCTS = [
     },
     "order": 314,
     "id": "prod-byz-078",
-    "name": "Nar (Pomegranate) Aromalı Kokteyl Şurubu 750ml",
+    "name": "Caffè NONNO Nar Aromalı Şurup 750ml",
     "code": "NON-SYR-POM-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Grena yakut kırmızısı rengi ve mayhoş nar lezzeti; barlarda nar ekşisi dengeli kokteyller ve limonatalar için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_078.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_078.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -6261,14 +6316,15 @@ const RAW_PRODUCTS = [
     },
     "order": 211,
     "id": "prod-byz-079",
-    "name": "Muz (Banana) Aromalı Bar Şurubu 750ml",
+    "name": "Caffè NONNO Muz Aromalı Şurup 750ml",
     "code": "NON-SYR-BAN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Tropikal muz aroması; milkshake, buzlu kahve ve meyveli kokteyl reçetelerinde tatlı bir muz dokunuşu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_079.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_079.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -6289,14 +6345,15 @@ const RAW_PRODUCTS = [
     },
     "order": 209,
     "id": "prod-byz-080",
-    "name": "Tiramisu Aromalı Kahve Şurubu 750ml",
+    "name": "Caffè NONNO Tiramisu Aromalı Şurup 750ml",
     "code": "NON-SYR-TRM-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Maskarpone peyniri, kedi dili bisküvi ve kakao notaları; kahvelere İtalyan tiramisu tatlısı lezzeti kazandırır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_080.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_080.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -6588,14 +6645,15 @@ const RAW_PRODUCTS = [
     },
     "order": 212,
     "id": "prod-byz-091",
-    "name": "Toffee Nut Aromalı Şurup 750ml (Açı 2)",
+    "name": "Caffè NONNO Toffee Nut Gourmet Şurup 750ml",
     "code": "NON-SYR-TFN-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Karamel ve fındık notalarını dengeli sunan barista kalitesinde kahve şurubu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_091.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_091.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -6905,14 +6963,15 @@ const RAW_PRODUCTS = [
     },
     "order": 223,
     "id": "prod-byz-102",
-    "name": "Ananas (Pineapple) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Ananas Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-PIN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Altın sarısı olgun ananasların canlı tropikal aroması; Piña Colada, ananaslı smoothie ve buzlu içeceklerin vazgeçilmezi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_102.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_102.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -6932,14 +6991,15 @@ const RAW_PRODUCTS = [
     },
     "order": 224,
     "id": "prod-byz-103",
-    "name": "Cool Poka Aromalı Bar Şurubu 750ml",
+    "name": "Caffè NONNO Cool Poka Portakallı Şurup 750ml",
     "code": "NON-SYR-CPK-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Ferahlatıcı narenciye ve tropikal botanik bileşenlerin özel harmanı; buz gibi yaz kokteylleri ve artisan sodalar için.",
-    "imageUrl": "/beyazresimler/karisik/karisik_103.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_103.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -6959,14 +7019,15 @@ const RAW_PRODUCTS = [
     },
     "order": 217,
     "id": "prod-byz-104",
-    "name": "Chocolate Cookies Aromalı Şurup 750ml",
+    "name": "Caffè NONNO Çikolatalı Kurabiye Şurubu 750ml",
     "code": "NON-SYR-CCK-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Kakaolu çıtır kurabiye aroması; latte ve frappelere Oreo / çikolatalı bisküvi lezzeti kazandırır.",
-    "imageUrl": "/beyazresimler/karisik/karisik_104.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_104.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -6986,14 +7047,15 @@ const RAW_PRODUCTS = [
     },
     "order": 204,
     "id": "prod-byz-105",
-    "name": "Vişne (Cherry) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Vişne Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-CHR-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Koyu kırmızı Kütahya vişnelerinin dolgun mayhoş lezzeti; vişneli frozen, soda miksi ve kokteyller için zengin meyve tabanı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_105.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_105.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -7013,14 +7075,15 @@ const RAW_PRODUCTS = [
     },
     "order": 227,
     "id": "prod-byz-106",
-    "name": "Muz (Banana) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Muz Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-BAN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Gerçek muz püresi kıvamı ve tatlı aroması; muzlu frozen, milkshake ve meyveli smoothie içeceklerinde kremsi yapı oluşturur.",
-    "imageUrl": "/beyazresimler/karisik/karisik_106.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_106.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -7040,14 +7103,15 @@ const RAW_PRODUCTS = [
     },
     "order": 228,
     "id": "prod-byz-107",
-    "name": "Yeşil Elma (Green Apple) Frozen Püre 750ml",
+    "name": "Caffè NONNO Yeşil Elma Frozen Püre 750ml",
     "code": "NON-FRZ-GAP-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Granny Smith elmasının ferahlatıcı ekşi-tatlı tadı; yeşil elmalı frozen, ekşi kokteyller ve buzlu içeceklerde yüksek verim sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_107.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_107.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -7136,14 +7200,15 @@ const RAW_PRODUCTS = [
     },
     "order": 231,
     "id": "prod-byz-110",
-    "name": "Çarkıfelek (Passion Fruit) Frozen Püre 750ml",
+    "name": "Caffè NONNO Passion Fruit Çarkıfelek Püresi 750ml",
     "code": "NON-FRZ-PAS-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Egzotik çarkıfelek meyvesinin cezbedici kokusu ve mayhoş asiditesi; kokteyl barlarının en çok talep gören püre çeşidi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_110.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_110.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -7163,14 +7228,15 @@ const RAW_PRODUCTS = [
     },
     "order": 232,
     "id": "prod-byz-111",
-    "name": "Kivi (Kiwi) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Kivi Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-KIW-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Taze kivi çekirdekleri dokusu ve zümrüt yeşili rengi; ferahlatıcı yeşil detoks kokteylleri ve frozen içecekler için mükemmel.",
-    "imageUrl": "/beyazresimler/karisik/karisik_111.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_111.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -7245,14 +7311,15 @@ const RAW_PRODUCTS = [
     },
     "order": 235,
     "id": "prod-byz-114",
-    "name": "Badem (Almond) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Badem Aromalı Şurup 700ml",
     "code": "MCR-SYR-ALM-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-1792159526675",
     "categoryName": "Monte Cristo Şurupları",
     "categorySlug": "monte-cristo-suruplari",
     "description": "Kavrulmuş acıbadem ve tatlı badem dengesi; kahveye ve Orgeat tarzı kokteyllere asil bir kuruyemiş aroması katar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_114.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_114.png",
+    "brand": "Monte Cristo"
   },
   {
     "isActive": true,
@@ -7272,14 +7339,15 @@ const RAW_PRODUCTS = [
     },
     "order": 236,
     "id": "prod-byz-115",
-    "name": "Chai Tea Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Chai Tea Baharatlı Şurup 700ml",
     "code": "MCR-SYR-CHT-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-1792159526675",
     "categoryName": "Monte Cristo Şurupları",
     "categorySlug": "monte-cristo-suruplari",
     "description": "Kakule, tarçın, zencefil ve karanfil baharatlarının mistik Doğu harmanı; saniyeler içinde sıcacık Chai Latte hazırlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_115.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_115.png",
+    "brand": "Monte Cristo"
   },
   {
     "isActive": true,
@@ -7299,14 +7367,15 @@ const RAW_PRODUCTS = [
     },
     "order": 237,
     "id": "prod-byz-116",
-    "name": "Antep Fıstığı (Pistachio) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Antep Fıstığı Aromalı Şurup 700ml",
     "code": "MCR-SYR-PST-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-1792159526675",
     "categoryName": "Monte Cristo Şurupları",
     "categorySlug": "monte-cristo-suruplari",
     "description": "Yeşil Antep fıstığının zarif ve zengin aroması; Pistachio Latte ve gurme kahve spesiyallerinin vazgeçilmezi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_116.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_116.png",
+    "brand": "Monte Cristo"
   },
   {
     "isActive": true,
@@ -7326,14 +7395,15 @@ const RAW_PRODUCTS = [
     },
     "order": 238,
     "id": "prod-byz-117",
-    "name": "Çikolata (Chocolate) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Çikolata Aromalı Şurup 700ml",
     "code": "MCR-SYR-CHO-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-1792159526675",
     "categoryName": "Monte Cristo Şurupları",
     "categorySlug": "monte-cristo-suruplari",
     "description": "Koyu çikolata ve kavruk kakao çekirdeği zenginliği; kahve içeceklerinde dengeli ve kalıcı tatlılık.",
-    "imageUrl": "/beyazresimler/karisik/karisik_117.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_117.png",
+    "brand": "Monte Cristo"
   },
   {
     "isActive": true,
@@ -7353,14 +7423,15 @@ const RAW_PRODUCTS = [
     },
     "order": 239,
     "id": "prod-byz-118",
-    "name": "Balkabağı Baharatı (Pumpkin Spice) Aromalı Şurup 750ml",
+    "name": "Monte Cristo Pumpkin Spice Balkabağı Şurubu 700ml",
     "code": "MCR-SYR-PMP-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-1792159526675",
     "categoryName": "Monte Cristo Şurupları",
     "categorySlug": "monte-cristo-suruplari",
     "description": "Sonbaharın en popüler içeceği Pumpkin Spice Latte için tarçın, hindistan cevizi cevizi (muskat), karanfil ve tatlı balkabağı miksi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_118.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_118.png",
+    "brand": "Monte Cristo"
   },
   {
     "isActive": true,
@@ -7380,14 +7451,15 @@ const RAW_PRODUCTS = [
     },
     "order": 240,
     "id": "prod-byz-119",
-    "name": "Speculaas (Karamelli Bisküvi) Aromalı Şurup 750ml",
+    "name": "Monte Cristo Speculaas Bisküvi Aromalı Şurup 700ml",
     "code": "MCR-SYR-SPC-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-1792159526675",
     "categoryName": "Monte Cristo Şurupları",
     "categorySlug": "monte-cristo-suruplari",
     "description": "Geleneksel Hollanda/Belçika baharatlı bisküvisi lezzeti; kahvelere tereyağlı tarçınlı çıtır bisküvi hissi verir.",
-    "imageUrl": "/beyazresimler/karisik/karisik_119.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_119.png",
+    "brand": "Monte Cristo"
   },
   {
     "isActive": true,
@@ -7472,14 +7544,15 @@ const RAW_PRODUCTS = [
     },
     "order": 243,
     "id": "prod-byz-122",
-    "name": "Ananas Frozen Meyve Püresi 750ml (Açı 2)",
+    "name": "Caffè NONNO Ananas Aromalı Frozen Püre 750ml (Açı 2)",
     "code": "NON-FRZ-PIN-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Yoğun meyve oranıyla hazırlanan tropikal ananas püresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_122.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_122.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -7498,14 +7571,15 @@ const RAW_PRODUCTS = [
     },
     "order": 244,
     "id": "prod-byz-123",
-    "name": "Cool Poka Aromalı Şurup 750ml (Açı 2)",
+    "name": "Caffè NONNO Cool Poka Portakallı Şurup 750ml (Açı 2)",
     "code": "NON-SYR-CPK-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Serinletici aromatik meyve ve botanik şurup bazı.",
-    "imageUrl": "/beyazresimler/karisik/karisik_123.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_123.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -7524,14 +7598,15 @@ const RAW_PRODUCTS = [
     },
     "order": 218,
     "id": "prod-byz-124",
-    "name": "Chocolate Cookies Aromalı Şurup 750ml (Açı 2)",
+    "name": "Caffè NONNO Çikolatalı Kurabiye Şurubu 750ml (Açı 2)",
     "code": "NON-SYR-CCK-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159460097",
     "categoryName": "Caffè NONNO Şurupları",
     "categorySlug": "caffe-nonno-suruplari",
     "description": "Kakaolu çikolatalı kurabiye tadıyla zenginleştirilmiş kahve şurubu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_124.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_124.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -7550,14 +7625,15 @@ const RAW_PRODUCTS = [
     },
     "order": 205,
     "id": "prod-byz-125",
-    "name": "Vişne Frozen Meyve Püresi 750ml (Açı 2)",
+    "name": "Caffè NONNO Vişne Aromalı Frozen Püre 750ml (Açı 2)",
     "code": "NON-FRZ-CHR-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Doğal vişne mayhoşluğu içeren profesyonel frozen meyve püresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_125.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_125.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -7609,14 +7685,15 @@ const RAW_PRODUCTS = [
     },
     "order": 248,
     "id": "prod-byz-127",
-    "name": "Muz Frozen Meyve Püresi 750ml (Açı 2)",
+    "name": "Caffè NONNO Muz Aromalı Frozen Püre 750ml (Açı 2)",
     "code": "NON-FRZ-BAN-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Tatlı muz lezzeti ve kremsi doku sağlayan meyve püresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_127.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_127.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -7635,14 +7712,15 @@ const RAW_PRODUCTS = [
     },
     "order": 249,
     "id": "prod-byz-128",
-    "name": "Yeşil Elma Frozen Meyve Püresi 750ml (Açı 2)",
+    "name": "Caffè NONNO Yeşil Elma Frozen Püre 750ml (Açı 2)",
     "code": "NON-FRZ-GAP-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1792159899479",
     "categoryName": "Caffè NONNO Püreler",
     "categorySlug": "caffe-nonno-pureler",
     "description": "Ferahlatıcı kütür ekşi elma tadı içeren frozen püresi.",
-    "imageUrl": "/beyazresimler/karisik/karisik_128.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_128.png",
+    "brand": "Caffè NONNO"
   },
   {
     "isActive": true,
@@ -7722,14 +7800,15 @@ const RAW_PRODUCTS = [
     },
     "order": 252,
     "id": "prod-byz-131",
-    "name": "Tarçın (Cinnamon) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Tarçın Aromalı Şurup 700 ml",
     "code": "MCR-SYR-CIN-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-1792159526675",
     "categoryName": "Monte Cristo Şurupları",
     "categorySlug": "monte-cristo-suruplari",
     "description": "Seylan tarçınının sıcacık odunsu ve baharatlı aroması; kış kahveleri, elmalı sıcak içecekler ve salep zenginleştirmede mükemmel.",
-    "imageUrl": "/beyazresimler/karisik/karisik_131.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_131.png",
+    "brand": "Monte Cristo"
   },
   {
     "isActive": true,
@@ -7778,14 +7857,15 @@ const RAW_PRODUCTS = [
     },
     "order": 254,
     "id": "prod-byz-133",
-    "name": "Nar (Pomegranate) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Nar Aromalı Şurup 700 ml",
     "code": "MCR-SYR-POM-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-1792159526675",
     "categoryName": "Monte Cristo Şurupları",
     "categorySlug": "monte-cristo-suruplari",
     "description": "Olgun narların yakut kırmızısı rengi ve ferahlatıcı mayhoşluğu; kokteyl barlarında renklendirme ve meyve tadı için tercih edilir.",
-    "imageUrl": "/beyazresimler/karisik/karisik_133.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_133.png",
+    "brand": "Monte Cristo"
   },
   {
     "isActive": true,
@@ -7805,14 +7885,15 @@ const RAW_PRODUCTS = [
     },
     "order": 255,
     "id": "prod-byz-134",
-    "name": "Hindistan Cevizi (Coconut) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Hindistan Cevizi Aromalı Şurup 700 ml",
     "code": "MCR-SYR-COC-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-1792159526675",
     "categoryName": "Monte Cristo Şurupları",
     "categorySlug": "monte-cristo-suruplari",
     "description": "Taze tropikal Hindistan cevizinin sütlü aroması; buzlu kahveler, soğuk köpükler ve egzotik kokteyllere zenginlik katar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_134.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_134.png",
+    "brand": "Monte Cristo"
   },
   {
     "isActive": true,
@@ -7832,14 +7913,15 @@ const RAW_PRODUCTS = [
     },
     "order": 256,
     "id": "prod-byz-135",
-    "name": "Misket Limonu (Lime) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Misket Limonu (Lime) Aromalı Şurup 700 ml",
     "code": "MCR-SYR-LIM-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-1792159526675",
     "categoryName": "Monte Cristo Şurupları",
     "categorySlug": "monte-cristo-suruplari",
     "description": "Yeşil lime narenciyesinin canlandırıcı ekşiliği; barlarda hızlı ve dengeli Margarita, Mojito ve limonata hazırlığı sağlar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_135.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_135.png",
+    "brand": "Monte Cristo"
   },
   {
     "isActive": true,
@@ -7886,14 +7968,15 @@ const RAW_PRODUCTS = [
     },
     "order": 258,
     "id": "prod-byz-137",
-    "name": "Misket Limonu Aromalı Barista Şurubu 750ml (Açı 2)",
+    "name": "Monte Cristo Yeşil Limon (Lime) Kokteyl Şurubu 700 ml",
     "code": "MCR-SYR-LIM-750-B",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-1792159526675",
     "categoryName": "Monte Cristo Şurupları",
     "categorySlug": "monte-cristo-suruplari",
     "description": "Yeşil misket limonu notalarıyla zenginleştirilmiş barmen ve barista şurubu.",
-    "imageUrl": "/beyazresimler/karisik/karisik_137.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_137.png",
+    "brand": "Monte Cristo"
   },
   {
     "isActive": true,
@@ -7913,14 +7996,15 @@ const RAW_PRODUCTS = [
     },
     "order": 259,
     "id": "prod-byz-138",
-    "name": "Karpuz (Watermelon) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Karpuz Aromalı Şurup 700 ml",
     "code": "MCR-SYR-WTR-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-1792159526675",
     "categoryName": "Monte Cristo Şurupları",
     "categorySlug": "monte-cristo-suruplari",
     "description": "Ferahlatıcı yaz karpuzunun tatlı meyve aroması ve canlı kırmızı tonu; buzlu içecek ve frozen reçetelerinde serinlik fırtınası.",
-    "imageUrl": "/beyazresimler/karisik/karisik_138.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_138.png",
+    "brand": "Monte Cristo"
   },
   {
     "isActive": true,
@@ -7940,14 +8024,15 @@ const RAW_PRODUCTS = [
     },
     "order": 260,
     "id": "prod-byz-139",
-    "name": "Fındık (Hazelnut) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Fındık Aromalı Şurup 700 ml",
     "code": "MCR-SYR-HAZ-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-1792159526675",
     "categoryName": "Monte Cristo Şurupları",
     "categorySlug": "monte-cristo-suruplari",
     "description": "Kavrulmuş fındık tanelerinin dolgun aroması; espresso ve filtre kahveye sıcacık fındık lezzeti katar.",
-    "imageUrl": "/beyazresimler/karisik/karisik_139.png"
+    "imageUrl": "/beyazresimler/karisik/karisik_139.png",
+    "brand": "Monte Cristo"
   }
 ];
 

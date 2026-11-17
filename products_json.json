@@ -3701,7 +3701,7 @@
   },
   {
     "id": "prod-byz-004",
-    "name": "DaVinci Gourmet Condensed Milk Aromalı Bar Sosu 1L",
+    "name": "DaVinci Gourmet Condensed Milk Koyulaştırılmış Süt Sosu 1L",
     "code": "DVG-CDL-1000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-4",
@@ -3724,7 +3724,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "2000 GR"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-005",
@@ -3755,7 +3756,7 @@
   },
   {
     "id": "prod-byz-006",
-    "name": "DaVinci Gourmet Çilek Fruit Beverage Mix 1L",
+    "name": "DaVinci Gourmet Strawberry Fruit Beverage Mix 1L",
     "code": "DVG-FBM-STW-1000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1",
@@ -3778,11 +3779,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "1000 GR"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-007",
-    "name": "DaVinci Gourmet Condensed Milk Aromalı Gurme Sos 1L (Varyant)",
+    "name": "DaVinci Gourmet Yoğunlaştırılmış Süt Aromalı Sos 1L",
     "code": "DVG-CDL-1000-B",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-4",
@@ -3805,7 +3807,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "2000 GR"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-008",
@@ -3832,7 +3835,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-009",
@@ -3859,7 +3863,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "1000 GR"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-010",
@@ -3890,7 +3895,7 @@
   },
   {
     "id": "prod-byz-011",
-    "name": "Caffè NONNO Hindistan Cevizi Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Coconut Hindistan Cevizi Frozen Püre 750ml",
     "code": "NON-FRZ-COC-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -3913,11 +3918,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 GR"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-012",
-    "name": "Caffè NONNO Red Forest (Kırmızı Meyveler) Frozen Püre 750ml",
+    "name": "Caffè NONNO Red Forest Kırmızı Orman Meyveli Frozen 750ml",
     "code": "NON-FRZ-RDF-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -3939,11 +3945,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-013",
-    "name": "Caffè NONNO Kavun (Melon) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Kavun Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-MLN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -3965,11 +3972,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "1000 GR"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-014",
-    "name": "Caffè NONNO Karadut (Black Mulberry) Frozen Püre 750ml",
+    "name": "Caffè NONNO Karadut Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-MUL-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -3991,11 +3999,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "1000 GR"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-015",
-    "name": "Caffè NONNO Çilek (Strawberry) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Çilek Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-STW-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -4017,11 +4026,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-016",
-    "name": "Caffè NONNO Şeftali (Peach) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Şeftali Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-PCH-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -4044,11 +4054,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "1000 GR"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-017",
-    "name": "Caffè NONNO Mango Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Mango & Maracuja Frozen Püre 750ml",
     "code": "NON-FRZ-MNG-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -4070,11 +4081,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-018",
-    "name": "DaVinci Gourmet Mixed Berry Fruit Beverage Mix 1L (Gurme Şişe)",
+    "name": "DaVinci Gourmet Mixed Berry Orman Meyveli Mix 1L",
     "code": "DVG-FBM-MBR-1000-B",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1",
@@ -4095,11 +4107,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "1000 GR"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-019",
-    "name": "Caffè NONNO Karpuz (Watermelon) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Karpuz Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-WTR-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -4121,11 +4134,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-020",
-    "name": "DaVinci Gourmet Passionfruit Fruit Beverage Mix 1L",
+    "name": "DaVinci Gourmet Passionfruit Çarkıfelek Mix 1L",
     "code": "DVG-FBM-PAS-1000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-1",
@@ -4147,11 +4161,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "1 L"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-021",
-    "name": "Caffè NONNO Karamel Aromalı Kahve Şurubu 750ml",
+    "name": "Caffè NONNO Caramel Aromalı Şurup 750ml",
     "code": "NON-SYR-CAR-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -4173,11 +4188,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-022",
-    "name": "Caffè NONNO Ahududu (Raspberry) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Raspberry Frozen Frambuaz Püresi 750ml",
     "code": "NON-FRZ-RAS-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -4199,11 +4215,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ml"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-023",
-    "name": "Caffè NONNO Mojito Aromalı Kokteyl Şurubu 750ml",
+    "name": "Caffè NONNO Mojito Aromalı Şurup 750ml",
     "code": "NON-SYR-MOJ-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -4225,11 +4242,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-024",
-    "name": "Caffè NONNO Fındık (Hazelnut) Aromalı Kahve Şurubu 750ml",
+    "name": "Caffè NONNO Hazelnut Fındık Aromalı Şurup 750ml",
     "code": "NON-SYR-HAZ-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -4251,11 +4269,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-025",
-    "name": "Caffè NONNO Cool Berry Aromalı Bar Şurubu 750ml",
+    "name": "Caffè NONNO Cool Berry Orman Meyveleri Şurubu 750ml",
     "code": "NON-SYR-CBY-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -4277,11 +4296,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-026",
-    "name": "Caffè NONNO Cool Lime Aromalı Bar Şurubu 750ml",
+    "name": "Caffè NONNO Cool Lime Misket Limonu Şurubu 750ml",
     "code": "NON-SYR-CLM-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -4303,11 +4323,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-027",
-    "name": "Caffè NONNO Vanilya Aromalı Kahve Şurubu 750ml",
+    "name": "Caffè NONNO Vanilla Vanilya Aromalı Şurup 750ml",
     "code": "NON-SYR-VAN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -4329,11 +4350,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-028",
-    "name": "Caffè NONNO Beyaz Çikolata Aromalı Kahve Şurubu 750ml",
+    "name": "Caffè NONNO White Chocolate Beyaz Çikolata Şurubu 750ml",
     "code": "NON-SYR-WCH-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -4355,11 +4377,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-029",
-    "name": "Caffè NONNO Nane (Mint) Aromalı Kokteyl Şurubu 750ml",
+    "name": "Caffè NONNO Mint Aromalı Nane Şurubu 750ml",
     "code": "NON-SYR-MNT-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -4381,11 +4404,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-030",
-    "name": "Caffè NONNO Çikolata Aromalı Kahve Şurubu 750ml",
+    "name": "Caffè NONNO Chocolate Çikolata Aromalı Şurup 750ml",
     "code": "NON-SYR-CHO-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -4407,11 +4431,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-031",
-    "name": "DaVinci Gourmet Blue Ocean Aromalı Bar Şurubu 750ml",
+    "name": "DaVinci Gourmet Blue Ocean Aromalı Şurup 750ml",
     "code": "DVG-SYR-BOC-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -4433,7 +4458,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-032",
@@ -4459,7 +4485,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ml"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-033",
@@ -4485,11 +4512,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 GR"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-034",
-    "name": "DaVinci Gourmet Classic Strawberry Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Strawberry Çilek Şurubu 750ml",
     "code": "DVG-SYR-STW-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -4511,7 +4539,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ml"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-035",
@@ -4537,11 +4566,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-036",
-    "name": "DaVinci Gourmet Peach Garden Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Peach Garden Şeftali Şurubu 750ml",
     "code": "DVG-SYR-PGD-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -4563,11 +4593,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-037",
-    "name": "DaVinci Gourmet Classic Hazelnut Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Hazelnut Fındık Şurubu 750ml",
     "code": "DVG-SYR-HAZ-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -4589,7 +4620,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "700 ML"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-038",
@@ -4615,7 +4647,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ml"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-039",
@@ -4641,11 +4674,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ml"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-040",
-    "name": "DaVinci Gourmet Forest Berries Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Forest Berries Orman Meyveleri Şurubu 750ml",
     "code": "DVG-SYR-FBR-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -4667,11 +4701,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-041",
-    "name": "DaVinci Gourmet Classic Caramel Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Caramel Şurubu 750ml",
     "code": "DVG-SYR-CAR-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -4693,11 +4728,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-042",
-    "name": "DaVinci Gourmet Roasted Almond Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Roasted Almond Şurubu 750ml",
     "code": "DVG-SYR-RAL-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -4719,11 +4755,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-043",
-    "name": "DaVinci Gourmet Blueberry Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Blueberry Şurubu 750ml",
     "code": "DVG-SYR-BLB-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -4745,11 +4782,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ml"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-044",
-    "name": "DaVinci Gourmet White Chocolate Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet White Chocolate Şurubu 750ml",
     "code": "DVG-SYR-WCH-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -4771,11 +4809,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ml"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-045",
-    "name": "DaVinci Gourmet Toffee Nut Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Toffeenut Aromalı Şurup 750ml",
     "code": "DVG-SYR-TFN-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -4797,11 +4836,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ml"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-046",
-    "name": "DaVinci Gourmet Coconut Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Coconut Şurubu 750ml",
     "code": "DVG-SYR-COC-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -4823,7 +4863,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-047",
@@ -4849,11 +4890,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ml"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-048",
-    "name": "DaVinci Gourmet Spiced Chai Aromalı Barista Şurubu 750ml",
+    "name": "DaVinci Gourmet Spiced Chai Tea Konsantre Şurup 750ml",
     "code": "DVG-SYR-SCH-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -4875,11 +4917,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-049",
-    "name": "DaVinci Gourmet Chocolate Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Classic Chocolate Şurubu 750ml",
     "code": "DVG-SYR-CHO-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -4901,11 +4944,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ml"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-050",
-    "name": "DaVinci Gourmet Butterscotch Aromalı Şurup 750ml",
+    "name": "DaVinci Gourmet Butterscotch Aromalı Sos 2L",
     "code": "DVG-SYR-BSC-750",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-2",
@@ -4927,11 +4971,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ml"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-051",
-    "name": "Caffè NONNO Blue Curacao Bar & Dekor Sosu 750g",
+    "name": "Caffè NONNO Blue Curacao Bar Sosu 750g",
     "code": "NON-SOS-BCU-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-4",
@@ -4953,7 +4998,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-052",
@@ -5009,7 +5055,7 @@
   },
   {
     "id": "prod-byz-054",
-    "name": "DaVinci Gourmet Cheesecake Flavoured Sauce 2L",
+    "name": "DaVinci Gourmet Cheese Cake Aromalı Sos 2L",
     "code": "DVG-SOS-CHK-2000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-4",
@@ -5032,11 +5078,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "2 L"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-055",
-    "name": "DaVinci Gourmet White Chocolate Flavoured Sauce 2L",
+    "name": "DaVinci Gourmet White Chocolate Aromalı Sos 2L",
     "code": "DVG-SOS-WCH-2000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-4",
@@ -5058,11 +5105,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "2 L"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-056",
-    "name": "DaVinci Gourmet Caramel Flavoured Sauce 2L",
+    "name": "DaVinci Gourmet Caramel Aromalı Sos 2L",
     "code": "DVG-SOS-CAR-2000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-4",
@@ -5084,11 +5132,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "700 ML"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-057",
-    "name": "DaVinci Gourmet Chocolate Flavoured Sauce 2L",
+    "name": "DaVinci Gourmet Chocolate Aromalı Sos 2L",
     "code": "DVG-SOS-CHO-2000",
     "codeGroup": "DaVinci Gourmet",
     "categoryId": "cat-4",
@@ -5111,11 +5160,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "DaVinci Gourmet"
   },
   {
     "id": "prod-byz-058",
-    "name": "Caffè NONNO Beyaz Çikolata Bar & Dekor Sosu 750g",
+    "name": "Caffè NONNO White Chocolate Bar Sosu 750g",
     "code": "NON-SOS-WCH-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-4",
@@ -5137,11 +5187,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-059",
-    "name": "Caffè NONNO Muz Aromalı Bar & Dekor Sosu 750g",
+    "name": "Caffè NONNO Muz Aromalı Bar Sosu 750g",
     "code": "NON-SOS-BAN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-4",
@@ -5163,11 +5214,12 @@
     ],
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız."
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-060",
-    "name": "Caffè NONNO Blue Curacao Bar & Dekor Sosu 750g (Açı 2)",
+    "name": "Caffè NONNO Blue Curacao Bar & Tatlı Sosu 750g",
     "code": "NON-SOS-BCU-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-4",
@@ -5188,7 +5240,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-061",
@@ -5451,7 +5504,7 @@
   },
   {
     "id": "prod-byz-071",
-    "name": "Caffè NONNO Toffee Nut Aromalı Kahve Şurubu 750ml",
+    "name": "Caffè NONNO Toffee Nut Aromalı Şurup 750ml",
     "code": "NON-SYR-TFN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -5473,7 +5526,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "700 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-072",
@@ -5633,7 +5687,7 @@
   },
   {
     "id": "prod-byz-078",
-    "name": "Caffè NONNO Nar (Pomegranate) Aromalı Kokteyl Şurubu 750ml",
+    "name": "Caffè NONNO Nar Aromalı Şurup 750ml",
     "code": "NON-SYR-POM-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -5655,11 +5709,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-079",
-    "name": "Caffè NONNO Muz (Banana) Aromalı Bar Şurubu 750ml",
+    "name": "Caffè NONNO Muz Aromalı Şurup 750ml",
     "code": "NON-SYR-BAN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -5681,11 +5736,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-080",
-    "name": "Caffè NONNO Tiramisu Aromalı Kahve Şurubu 750ml",
+    "name": "Caffè NONNO Tiramisu Aromalı Şurup 750ml",
     "code": "NON-SYR-TRM-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -5708,7 +5764,8 @@
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Kutu İçi Dilim Adeti": "10 Dilim",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-081",
@@ -5975,7 +6032,7 @@
   },
   {
     "id": "prod-byz-091",
-    "name": "Caffè NONNO Toffee Nut Aromalı Şurup 750ml (Açı 2)",
+    "name": "Caffè NONNO Toffee Nut Gourmet Şurup 750ml",
     "code": "NON-SYR-TFN-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -5996,7 +6053,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ml"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-092",
@@ -6264,7 +6322,7 @@
   },
   {
     "id": "prod-byz-102",
-    "name": "Caffè NONNO Ananas (Pineapple) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Ananas Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-PIN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -6286,11 +6344,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "1000 GR"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-103",
-    "name": "Caffè NONNO Cool Poka Aromalı Bar Şurubu 750ml",
+    "name": "Caffè NONNO Cool Poka Portakallı Şurup 750ml",
     "code": "NON-SYR-CPK-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -6312,11 +6371,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-104",
-    "name": "Caffè NONNO Chocolate Cookies Aromalı Şurup 750ml",
+    "name": "Caffè NONNO Çikolatalı Kurabiye Şurubu 750ml",
     "code": "NON-SYR-CCK-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -6338,11 +6398,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 GR"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-105",
-    "name": "Caffè NONNO Vişne (Cherry) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Vişne Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-CHR-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -6364,11 +6425,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 GR"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-106",
-    "name": "Caffè NONNO Muz (Banana) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Muz Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-BAN-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -6390,11 +6452,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-107",
-    "name": "Caffè NONNO Yeşil Elma (Green Apple) Frozen Püre 750ml",
+    "name": "Caffè NONNO Yeşil Elma Frozen Püre 750ml",
     "code": "NON-FRZ-GAP-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -6416,7 +6479,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-108",
@@ -6471,7 +6535,7 @@
   },
   {
     "id": "prod-byz-110",
-    "name": "Caffè NONNO Çarkıfelek (Passion Fruit) Frozen Püre 750ml",
+    "name": "Caffè NONNO Passion Fruit Çarkıfelek Püresi 750ml",
     "code": "NON-FRZ-PAS-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -6493,11 +6557,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 GR"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-111",
-    "name": "Caffè NONNO Kivi (Kiwi) Frozen Meyve Püresi 750ml",
+    "name": "Caffè NONNO Kivi Aromalı Frozen Püre 750ml",
     "code": "NON-FRZ-KIW-750",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -6519,7 +6584,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 GR"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-112",
@@ -6575,7 +6641,7 @@
   },
   {
     "id": "prod-byz-114",
-    "name": "Monte Cristo Badem (Almond) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Badem Aromalı Şurup 700ml",
     "code": "MCR-SYR-ALM-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -6598,11 +6664,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "700 ML"
-    }
+    },
+    "brand": "Monte Cristo"
   },
   {
     "id": "prod-byz-115",
-    "name": "Monte Cristo Chai Tea Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Chai Tea Baharatlı Şurup 700ml",
     "code": "MCR-SYR-CHT-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -6624,11 +6691,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Monte Cristo"
   },
   {
     "id": "prod-byz-116",
-    "name": "Monte Cristo Antep Fıstığı (Pistachio) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Antep Fıstığı Aromalı Şurup 700ml",
     "code": "MCR-SYR-PST-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -6650,11 +6718,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "700 ML"
-    }
+    },
+    "brand": "Monte Cristo"
   },
   {
     "id": "prod-byz-117",
-    "name": "Monte Cristo Çikolata (Chocolate) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Çikolata Aromalı Şurup 700ml",
     "code": "MCR-SYR-CHO-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -6676,11 +6745,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Monte Cristo"
   },
   {
     "id": "prod-byz-118",
-    "name": "Monte Cristo Balkabağı Baharatı (Pumpkin Spice) Aromalı Şurup 750ml",
+    "name": "Monte Cristo Pumpkin Spice Balkabağı Şurubu 700ml",
     "code": "MCR-SYR-PMP-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -6702,11 +6772,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "700 ML"
-    }
+    },
+    "brand": "Monte Cristo"
   },
   {
     "id": "prod-byz-119",
-    "name": "Monte Cristo Speculaas (Karamelli Bisküvi) Aromalı Şurup 750ml",
+    "name": "Monte Cristo Speculaas Bisküvi Aromalı Şurup 700ml",
     "code": "MCR-SYR-SPC-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -6728,7 +6799,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Monte Cristo"
   },
   {
     "id": "prod-byz-120",
@@ -6780,7 +6852,7 @@
   },
   {
     "id": "prod-byz-122",
-    "name": "Caffè NONNO Ananas Frozen Meyve Püresi 750ml (Açı 2)",
+    "name": "Caffè NONNO Ananas Aromalı Frozen Püre 750ml (Açı 2)",
     "code": "NON-FRZ-PIN-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -6801,11 +6873,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "1000 GR"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-123",
-    "name": "Caffè NONNO Cool Poka Aromalı Şurup 750ml (Açı 2)",
+    "name": "Caffè NONNO Cool Poka Portakallı Şurup 750ml (Açı 2)",
     "code": "NON-SYR-CPK-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -6826,11 +6899,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-124",
-    "name": "Caffè NONNO Chocolate Cookies Aromalı Şurup 750ml (Açı 2)",
+    "name": "Caffè NONNO Çikolatalı Kurabiye Şurubu 750ml (Açı 2)",
     "code": "NON-SYR-CCK-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-2",
@@ -6851,11 +6925,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 GR"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-125",
-    "name": "Caffè NONNO Vişne Frozen Meyve Püresi 750ml (Açı 2)",
+    "name": "Caffè NONNO Vişne Aromalı Frozen Püre 750ml (Açı 2)",
     "code": "NON-FRZ-CHR-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -6876,7 +6951,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 GR"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-126",
@@ -6904,7 +6980,7 @@
   },
   {
     "id": "prod-byz-127",
-    "name": "Caffè NONNO Muz Frozen Meyve Püresi 750ml (Açı 2)",
+    "name": "Caffè NONNO Muz Aromalı Frozen Püre 750ml (Açı 2)",
     "code": "NON-FRZ-BAN-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -6925,11 +7001,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ml"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-128",
-    "name": "Caffè NONNO Yeşil Elma Frozen Meyve Püresi 750ml (Açı 2)",
+    "name": "Caffè NONNO Yeşil Elma Frozen Püre 750ml (Açı 2)",
     "code": "NON-FRZ-GAP-750-B",
     "codeGroup": "Caffè NONNO",
     "categoryId": "cat-1",
@@ -6950,7 +7027,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "1000 GR"
-    }
+    },
+    "brand": "Caffè NONNO"
   },
   {
     "id": "prod-byz-129",
@@ -7004,7 +7082,7 @@
   },
   {
     "id": "prod-byz-131",
-    "name": "Monte Cristo Tarçın (Cinnamon) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Tarçın Aromalı Şurup 700 ml",
     "code": "MCR-SYR-CIN-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -7026,7 +7104,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "700 ML"
-    }
+    },
+    "brand": "Monte Cristo"
   },
   {
     "id": "prod-byz-132",
@@ -7058,7 +7137,7 @@
   },
   {
     "id": "prod-byz-133",
-    "name": "Monte Cristo Nar (Pomegranate) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Nar Aromalı Şurup 700 ml",
     "code": "MCR-SYR-POM-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -7080,11 +7159,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Monte Cristo"
   },
   {
     "id": "prod-byz-134",
-    "name": "Monte Cristo Hindistan Cevizi (Coconut) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Hindistan Cevizi Aromalı Şurup 700 ml",
     "code": "MCR-SYR-COC-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -7106,11 +7186,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Monte Cristo"
   },
   {
     "id": "prod-byz-135",
-    "name": "Monte Cristo Misket Limonu (Lime) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Misket Limonu (Lime) Aromalı Şurup 700 ml",
     "code": "MCR-SYR-LIM-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -7132,7 +7213,8 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 GR"
-    }
+    },
+    "brand": "Monte Cristo"
   },
   {
     "id": "prod-byz-136",
@@ -7163,7 +7245,7 @@
   },
   {
     "id": "prod-byz-137",
-    "name": "Monte Cristo Misket Limonu Aromalı Barista Şurubu 750ml (Açı 2)",
+    "name": "Monte Cristo Yeşil Limon (Lime) Kokteyl Şurubu 700 ml",
     "code": "MCR-SYR-LIM-750-B",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -7184,11 +7266,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 GR"
-    }
+    },
+    "brand": "Monte Cristo"
   },
   {
     "id": "prod-byz-138",
-    "name": "Monte Cristo Karpuz (Watermelon) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Karpuz Aromalı Şurup 700 ml",
     "code": "MCR-SYR-WTR-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -7210,11 +7293,12 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Monte Cristo"
   },
   {
     "id": "prod-byz-139",
-    "name": "Monte Cristo Fındık (Hazelnut) Aromalı Barista Şurubu 750ml",
+    "name": "Monte Cristo Fındık Aromalı Şurup 700 ml",
     "code": "MCR-SYR-HAZ-750",
     "codeGroup": "Monte Cristo",
     "categoryId": "cat-2",
@@ -7236,6 +7320,7 @@
     "specs": {
       "Raf Ömrü": "24 Ay • Koli • Serin ve kuru yerde saklayınız.",
       "Miktar": "750 ML"
-    }
+    },
+    "brand": "Monte Cristo"
   }
 ]
