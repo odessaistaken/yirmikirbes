@@ -213,9 +213,10 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
     (savedState?.sortBy && savedState.sortBy !== "alpha-asc" ? (savedState.sortBy as any) : "category")
   );
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
-  const [categories, setCategories] = useState<Category[]>(() => sortCategories(MOCK_CATEGORIES));
-  const [products, setProducts] = useState<Product[]>(() => sortProductsByCategoryOrder(MOCK_PRODUCTS));
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [brands, setBrands] = useState<Brand[]>([]);
+  const [catalogLoaded, setCatalogLoaded] = useState(false);
 
   // Scroll restoration tracker
   const isScrollRestoredRef = useRef(false);
@@ -295,15 +296,23 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
 
         if (cats && cats.length > 0) {
           setCategories(sortCategories(cats.filter((c) => c.isActive !== false)));
+        } else {
+          setCategories(sortCategories(MOCK_CATEGORIES));
         }
         if (prods && prods.length > 0) {
           setProducts(sortProductsByCategoryOrder(prods.filter((p) => p.isActive !== false)));
+        } else {
+          setProducts(sortProductsByCategoryOrder(MOCK_PRODUCTS));
         }
         if (brnds && brnds.length > 0) {
           setBrands(brnds);
         }
       } catch (err) {
         console.error("Katalog veri yükleme hatası:", err);
+        setCategories(sortCategories(MOCK_CATEGORIES));
+        setProducts(sortProductsByCategoryOrder(MOCK_PRODUCTS));
+      } finally {
+        setCatalogLoaded(true);
       }
     }
     loadData();
@@ -971,7 +980,17 @@ export function KatalogView({ forcedCategorySlug }: KatalogViewProps) {
               </div>
             )}
 
-            {filteredProducts.length === 0 ? (
+            {!catalogLoaded ? (
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4.5">
+                {Array.from({ length: 10 }).map((_, i) => (
+                  <div key={i} className="bg-white rounded-2xl border border-slate-200 p-3 sm:p-4 animate-pulse">
+                    <div className="aspect-square bg-slate-100 rounded-xl mb-3" />
+                    <div className="h-4 bg-slate-100 rounded w-3/4 mb-2" />
+                    <div className="h-3 bg-slate-100 rounded w-1/2" />
+                  </div>
+                ))}
+              </div>
+            ) : filteredProducts.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-24 text-center bg-white rounded-2xl border border-slate-200 shadow-sm">
                 <div className="text-6xl mb-4">🔍</div>
                 <h3 className="font-heading font-semibold text-slate-900 text-lg mb-2">Ürün bulunamadı</h3>

@@ -175,9 +175,9 @@ function toHighResUrl(url: string): string {
 }
 
 export default function HomePage() {
-  const [sliders, setSliders] = useState<SliderItem[]>(DEFAULT_SLIDERS);
+  const [sliders, setSliders] = useState<SliderItem[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [brands, setBrands] = useState<Brand[]>(DEFAULT_BRANDS);
+  const [brands, setBrands] = useState<Brand[]>([]);
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -366,7 +366,9 @@ export default function HomePage() {
             className="absolute inset-0 bg-slate-100"
           >
             {/* Image Slider */}
-            {hasSliders ? (
+            {!dataLoaded ? (
+                <div className="absolute inset-0 skeleton" />
+            ) : hasSliders ? (
               <>
                 <AnimatePresence initial={false} custom={direction} mode="sync">
                   <motion.div
@@ -534,7 +536,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           BRANDS SHOWCASE — Hero Altı Markalar Alanı
       ════════════════════════════════════════════════════════════ */}
-      {brands.length > 0 && (
+      {dataLoaded && brands.length > 0 && (
         <section className="py-16 bg-slate-50 border-b border-slate-200">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             <FadeIn>
